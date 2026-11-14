@@ -1,0 +1,460 @@
+Názov projektu:
+ |
+ |
+Kód projektu:
+ |
+ |
+Kód ŽoNFP:
+ |
+ |
+Program:
+ |
+ |
+Spolufinancovaný z:
+ |
+ |
+Priorita:
+ |
+ |
+Špecifický cieľ:
+ |
+ |
+Opatrenie:
+ |
+ |
+Kategórie regiónov:
+ |
+
+ |
+0914400PREDMET PODPORY NFP*
+Príloha č. 2 Zmluvy o poskytnutí NFP
+Základné údaje o projekte
+1.
+0PREDMET PODPORY NFP*
+Príloha č. 2 Zmluvy o poskytnutí NFP
+Základné údaje o projekte
+1.
+Kategorizácia za Špecifické ciele
+ Špecifický cieľ:
+Oblasť intervencie:
+ |
+
+ |
+
+Forma podpory:
+ |
+ |
+Územný mechanizmus realizácie a územné zameranie:
+ |
+
+ |
+Hospodárska činnosť:
+ |
+
+ |
+Rodová rovnosť:
+ |
+
+ |
+Makroregionálne stratégie a stratégie pre morské oblasti:
+ |
+ |
+2184400533400
+            
+              
+                
+                  
+                  
+                
+                
+              
+            
+          16510000
+            
+              
+                
+                  
+                  
+                
+                
+              
+            
+          16510000
+            
+              
+                
+                  
+                  
+                
+                
+              
+            
+          16510000
+            
+              
+                
+                  
+                  
+                
+                
+              
+            
+          16510000
+            
+              
+                
+                  
+                  
+                
+                
+              
+            
+          16510000
+            
+              
+                
+                  
+                  
+                
+                
+              
+            
+
+Projekt so špecifickým určením pre MRK:
+ |
+ |
+2.	Financova
+ | nie projektu
+ |
+Forma financovania:
+
+IBAN
+Zálohové platby:
+Banka
+Platnosť od
+Platnosť do
+Refundácia:
+IBAN
+Banka
+Platnosť od
+Platnosť do
+
+IBAN
+Predfinancovanie:
+Banka
+Platnosť od
+Platnosť do
+Forma financovania:
+
+IBAN
+Zálohové platby:
+Banka
+Platnosť od
+Platnosť do
+Refundácia:
+IBAN
+Banka
+Platnosť od
+Platnosť do
+
+IBAN
+Predfinancovanie:
+Banka
+Platnosť od
+Platnosť do
+
+ |
+ |
+ |
+ |
+3.
+ | Miesto realizácie projektu
+ |
+ |
+ |
+ |
+P.č.
+ | Lokalita
+ | Štát
+ | Región (NUTS II)
+ | Vyšší územný celok (NUTS III)
+ | Okres (LAU 1)
+ | Obec (LAU 2)
+ |
+ |
+1.
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+ Poznámka k miestu realizácie č. 1:
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+4.	Popis cieľovej skupiny
+
+ |
+ |
+ |
+5.	Aktivity projektu
+ |
+ |
+ |
+Celková dĺžka realizácie hlavných aktivít projektu (v mesiacoch):
+ |
+ |
+ |
+Začiatok realizácie hlavných aktivít projektu (začiatok realizácie prvej hlavnej aktivity):
+ |
+ |
+ |
+5.1  Hlavné aktivity projektu
+ |
+ |
+ |
+	Subjekt:
+ | Identifikátor (IČO):
+ |
+ |
+Hlavné aktivity projektu
+ |
+ |
+ |
+	Špecifický cieľ:
+ |
+	Kategória regiónov:
+
+ |
+ | Začiatok realizácie
+ | Koniec realizácie
+ |
+Názov hlavnej aktivity projektu:
+ |
+ |
+ |
+ |
+1651000596963
+            
+              
+                
+                  
+                  
+                
+                
+              
+            
+          Typ akcie:
+
+Podporné aktivity projektu
+ |
+ |
+ |
+ |
+
+ |
+ | Začiatok realizácie
+ | Koniec realizácie
+ |
+	Podporné aktivity:	Podporné aktivity
+ |
+ |
+ |
+6.	Merateľné ukazovatele projektu
+6.A  Merateľné ukazovatele výstupu
+Kód
+ | Názov
+ | Merná jednotka
+ | Špecifický cieľ
+ | Kategória regiónov
+ | Čas plnenia
+ | Cieľová hodnota
+ |
+
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+6.B  Merateľné ukazovatele výsledku
+ |
+ |
+ |
+ |
+Kód
+ | Názov
+ | Merná jednotka	Špecifický cieľ
+ | Kategória regiónov
+ | Čas plnenia
+ | Východisková hodnota
+ | Cieľová hodnota
+ |
+7.	Iné údaje na úrovni projektu
+
+            
+              
+                
+                  
+                  
+                
+              
+            
+
+Špecifický cieľ:
+ | Celková výška oprávnených výdavkov
+
+ |
+ |
+Opatrenie:
+ |
+ |
+ |
+Typ akcie:
+ |
+ |
+ |
+8.	Rozpočet projektu
+Subjekt:
+ |
+ | Identifikátor (IČO):
+ |
+ |
+
+ |
+ | Výška oprávnených
+ |
+ |
+8.1  Rozpočet prijímateľa
+Priame výdavky
+Hlavné aktivity projektu:
+Oprávnený výdavok
+Skupina výdavku:
+ |
+ |
+ |
+ |
+ |
+ |
+Podpoložka výdavku:
+
+ |
+ | Merná jednotka
+ | Množstvo
+ | Jednotková suma
+ | Suma
+ |
+
+ |
+ |
+ |
+ |
+ |
+ |
+
+ |
+ |
+ |
+ |
+ |
+ |
+Nepriame výdavky
+Špecifický cieľ:
+ |
+ | Celková výška oprávnených výdavkov
+
+ |
+Kategória regiónov:
+ |
+ |
+ |
+Podporné aktivity:
+ |
+ |
+ |
+Oprávnený výdavok
+Skupina výdavku:
+ |
+ |
+ |
+
+8.2  Rozpočty partnerov
+ |
+ |
+Priame výdavky
+Hlavné aktivity projektu:
+Oprávnený výdavok
+Skupina výdavku:
+ |
+ |
+ |
+ |
+ |
+ |
+Podpoložka výdavku:
+
+ |
+ | Merná jednotka
+ | Množstvo
+ | Jednotková suma
+ | Suma
+ |
+
+ |
+ |
+ |
+ |
+ |
+ |
+
+ |
+ |
+ |
+ |
+ |
+ |
+Nepriame výdavky
+Špecifický cieľ:
+ |
+ | Celková výška oprávnených výdavkov
+
+ |
+Kategória regiónov:
+ |
+ |
+ |
+Podporné aktivity:
+ |
+ |
+ |
+Oprávnený výdavok
+Skupina výdavku:
+ |
+ |
+ |
+
+ |
+ |
+8.3  Zazmluvnená výška NFP
+ |
+ |
+Celková výška oprávnených výdavkov:
+ |
+ |
+Percento spolufinancovania zo zdrojov EÚ a ŠR:
+ |
+ |
+Výška nenávratného finančného príspevku:
+ |
+ |
+Výška spolufinancovania z vlastných zdrojov prijímateľa:
+ |
+ |

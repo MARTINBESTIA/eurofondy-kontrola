@@ -1,0 +1,165 @@
+Príloha č. 4 Finančné opravy za porušenie pravidiel a postupov VO a obstarávania
+Určovanie sadzby finančnej opravy v nadväznosti na zistené porušenie pravidiel a postupov verejného obstarávania v zmysle ZVO. Všetky percentuálne sadzby sa týkajú prípadov, keď konkrétne porušenie malo alebo mohlo mať vplyv na výsledok verejného obstarávania/obstarávania. 
+Č.
+Vyhlásenie verejného obstarávania, špecifikácia v súťažných podkladoch
+Nedodržanie postupov zverejňovania zákazky alebo neoprávnené použitie priameho rokovacieho konania
+ neposlal oznámenie o vyhlásení verejného obstarávania publikačnému úradu a ÚVO podľa § 27 ZVO za účelom jeho zverejnenia v európskom vestníku a vestníku ÚVO. 
+Verejný obstarávateľ neposlal výzvu na predkladanie ponúk na zverejnenie do vestníka ÚVO v prípade bežného postupu pre podlimitné zákazky.
+Verejný obstarávateľ zadal zákazku priamo, bez splnenia povinnosti postupovať podľa ZVO v zmysle § 10 ods. 1, čo zároveň znamená nedodržanie postupov  povinnosti zverejňovania zákazky, nakoľko verejný obstarávateľ neaplikovaním zákonných postupov súčasne nedodrží povinnosť adekvátneho zverejnenia zadávania zákazky. Tieto prípady sú napr.: neoprávnenosť použitia výnimky zo ZVO v zmysle § 1 ods. 2 až 14 ZVO, uzavretie zmluvy priamym rokovacím konaním podľa § 81 ZVO bez splnenia podmienok na jeho použitie, nesprávne zaradenie zákazky do prílohy č. 1 k ZVO a uplatnenie postupu zadávania zákazky s nízkou hodnotou alebo podlimitnej zákazky, pričom mal byť použitý postup pre nadlimitnú zákazku a zároveň zákazka nebola zverejnená cez funkcionalitu elektronickej platformy.
+Pre uplatnenie finančnej opravy vo výške 100 % je potrebné splniť podmienku, že zákazka nebola vôbec zverejnená podľa pravidiel určených ZVO a mala byť zverejnená.
+Verejný obstarávateľ vyhlásil nadlimitnú zákazku, pričom oznámenie o vyhlásení verejného obstarávania nebolo zverejnené v európskom vestníku, ale zadávanie zákazky bolo korektne zverejnené vo vestníku ÚVO (verejný obstarávateľ nesprávne použil podlimitný formulár). 
+Prijímateľ vyhlásil od 31.03.2022 do 31.7.2024 zákazku s nízkou hodnotou nižšieho rozsahu do 70 000 eur bez DPH v prípade tovarov a služieb, do 180 000 eur bez DPH v prípade stavebných prác a do 260 000 eur bez DPH v prípade služieb podľa prílohy č. 1 k ZVO (ďalej len „zákazky s nízkou hodnotou nižšieho rozsahu“)  a nebolo preukázané vyhnutie sa použitiu pravidiel a postupov podľa ZVO, ale prijímateľ v prípade zákazky s nízkou hodnotou nižšieho rozsahu neoslovil prostredníctvom funkcionality elektronickej platformy minimálne troch záujemcov.
+Prijímateľ vyhlásil od 01.08.2024 podlimitnú zákazku s oslovením záujemcov, ale neoslovil prostredníctvom funkcionality elektronickej platformy minimálne tri hospodárske subjekty. Finančná oprava sa neuplatňuje, ak ide o výnimočný prípad, kedy ide o jedinečný predmet zákazky, v dôsledku čoho prijímateľ oslovil menej ako troch potenciálnych dodávateľov. Výnimka musí byť zo strany prijímateľa riadne zdôvodnená a vypracovaná ešte pred vyhlásením zákazky a dôkazné bremeno preukázania skutočnosti, že na relevantnom trhu neexistuje viac ako 1 alebo 2 dodávatelia znáša prijímateľ.
+Finančná oprava sa uplatní aj v tých prípadoch, ak prijímateľ oslovil s výzvou na predkladanie ponúk iba dvoch vybraných záujemcov, pričom na relevantnom trhu bolo možné osloviť/identifikovať min. troch záujemcov.
+Verejný obstarávateľ postupoval v rozpore s § 58 ods. 1 ZVO, keď na nie bežne dostupné tovary, služby alebo stavebné práce využil dynamický nákupný systém. 
+Verejný obstarávateľ postupoval v rozpore s ustanovením § 108 ods. 1 písm. a) ZVO, keď zákazky na nie bežne dostupné tovary, nie bežne dostupné služby alebo stavebné práce zadával s využitím elektronického trhoviska (od 31.03.2022 s uplatnením zjednodušeného postupu pre zákazky na bežne dostupné tovary a služby).
+Ide o rozdelenie predmetu zákazky s cieľom vyhnúť sa použitiu postupu zadávania nadlimitnej zákazky alebo postupu zadávania podlimitnej zákazky. 
+Verejný obstarávateľ porušil § 6 ods. 16 ZVO, ak namiesto vyhlásenia nadlimitnej zákazky rozdelil predmet zákazky a realizoval tak napr. niekoľko podlimitných zákaziek, ktoré neboli zverejnené. 
+100 %  vzťahuje sa na každú z rozdelených zákaziek
+ 
+Verejný obstarávateľ porušil § 6 ods. 16 ZVO, keď namiesto vyhlásenia nadlimitnej zákazky rozdelil predmet zákazky a vyhlásil podlimitné zákazky, ktoré boli korektne zverejnené vo vestníku ÚVO alebo prostredníctvom funkcionality elektronickej platformy.          
+Verejný obstarávateľ porušil § 6 ods. 16 ZVO, keď namiesto vyhlásenia nadlimitnej alebo podlimitnej zákazky, vyhlásil do 31.07.2024 zákazky s nízkou hodnotou, ktorých výzva na predkladanie ponúk bola zverejnená prostredníctvom funkcionality elektronickej platformy vo vestníku ÚVO.
+Verejný obstarávateľ porušil § 6 ods. 16 písm. b) ZVO, keď namiesto vyhlásenia bežného postupu pre podlimitné zákazky, vyhlásil od 01.08.2024 niekoľko podlimitných zákaziek s oslovením min. 3 hospodárskych subjektov.
+Verejný obstarávateľ porušil § 6 ods. 16 písm. c) ZVO, keď od 01.08.2024 namiesto vyhlásenia podlimitnej zákazky na stavebné práce s PHZ vyššou ako 1 500 000 eur bez DPH, vyhlásil niekoľko podlimitných zákaziek na stavebné práce s PHZ nižšou ako 1 500 000 eur bez DPH, na základe čoho sa vyhol podaniu námietok.
+25 % vzťahuje sa na každú z rozdelených zákaziek
+Neodôvodnenie nerozdelenia zákazky na časti
+Verejný obstarávateľ porušil ustanovenie § 28 ods. 2 ZVO, keď neuviedol v oznámení o vyhlásení verejného obstarávania alebo súťažných podkladoch odôvodnenie nerozdelenia zákazky na časti v prípade nadlimitnej zákazky a zákazka mala byť podľa záverov kontroly rozdelená na časti.
+Tento typ porušenia sa vťahuje aj na prípady, ak odôvodnenie nerozdelenia zákazky na časti nebolo dostatočné.
+Nedodržanie minimálnej zákonnej lehoty na predkladanie ponúk
+alebo
+Nedodržanie minimálnej zákonnej lehoty na predloženie žiadosti o účasť
+alebo
+Nepredĺženie lehoty na predkladanie ponúk/lehoty na predkladanie žiadostí o účasť v prípade podstatných zmien v podmienkach zadávania zákazky
+Lehota na predkladanie ponúk (alebo na predloženie žiadosti o účasť) bola kratšia ako minimálna lehota ustanovená ZVO. V uvedenom prípade je potrebné zohľadniť zverejnenie predbežného oznámenia a predkladanie ponúk elektronickými prostriedkami (ak relevantné).
+V prípade, že skrátenie lehoty bolo rovné alebo väčšie ako 85 % zo zákonnej lehoty alebo lehota na predkladanie ponúk bola 5 dní a menej.
+V prípade, že skrátenie lehoty bolo rovné alebo väčšie ako 50 % zo zákonnej lehoty, ale menšie ako 85%.
+V prípade, že skrátenie lehoty bolo rovné alebo väčšie ako 30 % zo zákonnej lehoty, ale menšie ako 50%.
+Verejný obstarávateľ nepredĺžil lehotu na predkladanie ponúk/lehotu na predkladanie žiadostí o účasť v prípade podstatných zmien v podmienkach zadávania zákazky (napr. úprava podmienok účasti, ktorá zabezpečuje širšiu hospodársku súťaž) alebo nepredĺžil dostatočne lehotu na predkladanie ponúk/lehotu na predkladanie žiadostí o účasť v prípade podstatných zmien v podmienkach zadávania zákazky.
+V prípade, že skrátenie lehoty bolo menšie ako 30 % zo zákonnej lehoty.
+Stanovenie lehoty na prijímanie žiadostí o súťažné podklady/súťažné podmienky (vzťahuje sa na verejnú súťaž, súťaž návrhov alebo bežný postup pre podlimitné zákazky)
+alebo
+obmedzenie prístupu k súťažným podkladom alebo iným dokumentom, ktoré sú potrebné na vypracovanie žiadosti o účasť/ponuky 
+Lehota stanovená na prijímanie žiadostí o súťažné podklady je rovnaká alebo kratšia ako 5 dní, čím sa vytvára neopodstatnená prekážka k otvorenej súťaži vo verejnom obstarávaní.
+Verejný obstarávateľ neposkytol bezodplatne neobmedzený, úplný a priamy prístup prostredníctvom elektronických prostriedkov k súťažným podkladom alebo iným dokumentom, ktoré sú potrebné na vypracovanie žiadosti                   o účasť/ponuky odo dňa uverejnenia oznámenia o vyhlásení verejného obstarávania, oznámenia použitého ako výzva na súťaž, oznámenia                      o vyhlásení súťaže návrhov alebo oznámenia o koncesii v európskom vestníku. 
+ 
+V prípade, že súťažné podklady alebo iné dokumenty, ktoré sú potrebné na vypracovanie žiadosti o účasť/ponuky, boli až do uplynutia lehoty na predkladanie ponúk zverejnené v profile a verejný obstarávateľ k nim poskytol bezodplatne neobmedzený, úplný a priamy prístup prostredníctvom elektronických prostriedkov, finančná oprava sa neuplatňuje.
+V prípade, ak lehota na prijímanie žiadostí o súťažné podklady je menej ako 50 % lehoty na predkladanie ponúk (v súlade s príslušnými ustanoveniami ZVO).
+V prípade, ak lehota na prijímanie žiadostí o súťažné podklady je menej ako 80 % lehoty na predkladanie ponúk (v súlade s príslušnými ustanoveniami ZVO).
+Nedodržanie postupov zverejňovania opravy oznámenia o vyhlásení verejného obstarávania/výzvy na predkladanie ponúk v prípade
+predĺženia lehoty na predkladanie ponúk
+predĺženia lehoty na žiadosti o účasť
+alebo
+nepredĺženie lehoty na predkladanie ponúk 
+Lehota na predkladanie ponúk (alebo lehota na predloženie žiadosti o účasť) bola predĺžená (jej pôvodne určená lehota bola v súlade so ZVO), pričom verejný obstarávateľ nezverejnil túto skutočnosť formou redakčnej opravy v európskom vestníku/vo vestníku ÚVO.
+Verejný obstarávateľ nepredĺžil lehotu na predkladanie ponúk/lehotu na predkladanie žiadostí o účasť, keď neposkytol vysvetlenie na základe žiadosti záujemcu najneskôr 6 dní pred uplynutím lehoty na predkladanie ponúk za predpokladu, že o vysvetlenie požiadal záujemca dostatočne vopred (v prípade nadlimitných zákaziek), resp. 3 pracovné dní pred uplynutím lehoty na predkladanie ponúk za predpokladu, že o vysvetlenie požiada záujemca dostatočne vopred (v prípade podlimitných zákaziek).
+  
+Lehota na predkladanie ponúk (alebo lehota na predloženie žiadosti o účasť) bola predĺžená (jej pôvodne určená lehota bola v súlade so ZVO), pričom verejný obstarávateľ nezverejnil túto skutočnosť formou redakčnej opravy v európskom vestníku/vo vestníku ÚVO, ale zverejnenie bolo zabezpečené iným spôsobom (napr. ako všeobecné oznámenie hospodárskym subjektom, ktorú sú registrované v rámci zákazky zadávanej s využitím elektronického prostriedku), ktoré zaručuje, že informáciou o predĺženej lehote na predkladanie ponúk mohli disponovať aj záujemcovia z iných členských štátov EÚ.
+Neoprávnené použitie rokovacieho konania so zverejnením alebo súťažného dialógu
+Verejný obstarávateľ zadá zákazku na základe rokovacieho konania so zverejnením alebo postupom súťažného dialógu, avšak takýto postup nie je oprávnený aplikovať podľa dotknutých ustanovení ZVO.
+Verejný obstarávateľ nesplnil podmienky na uplatnenie postupu rokovacieho konania so zverejnením a súťažného dialógu, ale v rámci použitého postupu bola zabezpečená transparentnosť, súčasťou dokumentácie k zákazke bolo odôvodnenie tohto postupu, nebol obmedzený počet záujemcov, ktorý boli vyzvaní na predloženie ponuky a počas rokovania bolo zabezpečené rovnaké zaobchádzanie so všetkými uchádzačmi. 
+Nedodržanie povinnej elektronickej komunikácie pri zadávaní nadlimitných a podlimitných zákaziek VO po 18.10.2018 a nedodržanie pravidiel pre centralizovanú činnosť vo verejnom obstarávaní
+Verejný obstarávateľ nedodržal po 18.10.2018 povinnú elektronickú komunikáciu v prípade zadávania nadlimitnej alebo podlimitnej zákazky v súlade s § 20 ZVO alebo porušil pravidlá pre centralizovanú činnosť vo verejnom obstarávaní, čo malo vplyv na výsledok VO.
+Uv
+ý obstarávateľ nedodržal po 18.10.2018 povinnú elektronickú komunikáciu v prípade zadávania nadlimitnej alebo podlimitnej zákazky v súlade s § 20 ZVO alebo porušil pravidlá pre centralizovanú činnosť vo verejnom obstarávaní, čo mohlo mať vplyv na výsledok VO a/alebo uvedené pochybenie mohlo odradiť potenciálnych uchádzačov/záujemcov od predloženia ponuky/žiadosti o účasť.
+Uvedený typ porušenia sa týka aj nedostatkov identifikovaných pri zadávaní zákaziek cez dynamický nákupný systém, uzatváraní rámcových dohôd
+, elektronických aukciách, postupov, v rámci ktorých sa ponuky predkladajú vo forme elektronického katalógu.
+Neuvedenie:
+podmienok účasti v oznámení o vyhlásení VO, resp. vo výzve na predkladanie ponúk,
+kritérií na vyhodnotenie ponúk (a váh kritérií) v oznámení o vyhlásení VO, resp. výzve na predkladanie ponúk alebo v súťažných podkladoch
+technických špecifikácií predmetu zákazky a zmluvných podmienok v súťažných podkladoch
+alebo
+chýbajúce pravidlá uplatnenia kritérií na vyhodnotenie ponúk, resp. pravidlá uplatnenia kritérií sú upravené nedostatočne, neurčito
+alebo
+vysvetlenie alebo doplňujúce informácie k podmienkam účasti alebo kritériám na vyhodnotenie ponúk neboli poskytnuté všetkým záujemcom alebo neboli zverejnené
+Podmienky účasti a/alebo kritériá na vyhodnotenie ponúk, vrátane váhovosti nie sú uvedené v oznámení o vyhlásení VO a/alebo v súťažných podkladoch.
+Oznámenie o vyhlásení VO, ani súťažné podklady neobsahujú technické špecifikácie predmetu zákazky a/alebo zmluvné podmienky.
+V oznámení o vyhlásení VO a/alebo v súťažných podkladoch absentuje detailný popis kritérií na vyhodnotenie ponúk a/alebo  absentujú pravidlá uplatnenia kritérií na vyhodnotenie ponúk, resp. pravidlá uplatnenia kritérií sú upravené nedostatočne, neurčito.
+Vysvetlenie alebo doplňujúce informácie k podmienkam účasti alebo kritériám na vyhodnotenie ponúk neboli poskytnuté všetkým záujemcom alebo neboli zverejnené.
+Nezákonné a/alebo diskriminačné podmienky účasti a/alebo kritéria na vyhodnotenie ponúk a/alebo technické špecifikácie predmetu zákazky stanovené v súťažných pokladoch alebo oznámení o vyhlásení VO/výzve na predkladanie ponúk, ktoré sú založené na neodôvodnenej národnej, regionálnej alebo miestnej preferencii určitých hospodárskych subjektov
+Ide o prípady, keď záujemcovia boli alebo mohli byť odradení od predloženia ponúk z dôvodu nezákonných a/alebo diskriminačných podmienok účasti a/alebo kritérií na vyhodnotenie ponúk stanovených v oznámení o vyhlásení VO/výzve na predkladanie ponúk alebo v súťažných podkladoch, napr. 
+- povinnosť hospodárskych subjektov mať už zriadenú spoločnosť alebo zástupcu v danej krajine, regióne alebo meste/obci alebo
+- povinnosť  uchádzača mať skúsenosť v danej krajine, regióne alebo meste/obci alebo
+- povinnosť uchádzača disponovať materiálno-technickým vybavením              v danej krajine, regióne alebo meste/obci alebo
+- použitie kritérií na vyhodnotenie ponúk, ktoré sú nezákonné a diskriminačné a sú založené na neodôvodnenej národnej, regionálnej alebo miestnej preferencii určitých hospodárskych subjektov.
+Ide o prípady, ktorých demonštratívny výpočet je uvedený vyššie, ale bol predložený vyšší počet (viac ako dve ponuky) ponúk uchádzačov, ktorí splnili podmienky účasti a požiadavky na predmet zákazky. 
+Iné nezákonné a/alebo diskriminačné podmienky účasti a/alebo kritéria na vyhodnotenie ponúk a/alebo technické špecifikácie predmetu zákazky stanovené v súťažných pokladoch alebo oznámení o vyhlásení VO/výzve na predkladanie ponúk
+Ide o prípady, keď určené nezákonné alebo diskriminačné podmienky účasti a/alebo požiadavky na predmet zákazky a/alebo kritériá na vyhodnotenie ponúk znamenajú, že ponuku je spôsobilý predložiť iba jeden hospodársky subjekt a uvedená situácia nie je odôvodniteľná jedinečným predmetom zákazky alebo
+určenie minimálnych požiadaviek pre zákazku (týka sa minimálnych požiadaviek pre účely splnenia podmienok účasti, požiadaviek na predmet zákazky alebo kritérií na vyhodnotenie ponúk, ktoré nesúvisia s predmetom zákazky, čím sa nezabezpečí rovnaký prístup pre uchádzačov alebo dané požiadavky vytvárajú neopodstatnené  prekážky k otvorenej hospodárskej súťaži vo verejnom obstarávaní, napr. neprimerané požiadavky viažuce sa k predloženiu zoznamu dodávok tovaru, poskytnut
+ých služieb alebo uskutočnených stavebných prác pre účely splnenia technickej alebo odbornej spôsobilosti.
+Technické požiadavky sa v rámci opisu predmetu zákazky odvolávajú na konkrétneho výrobcu, výrobný postup, obchodné označenie, patent, typ, oblasť alebo miesto pôvodu alebo výroby bez možnosti predloženia ekvivalentu (okrem prípadov, ak predmet zákazky nebolo možné určiť/opísať iným spôsobom) a uvedené pochybenie sa týka nadlimitných zákaziek.
+Verejný obstarávateľ porušil § 6 ods. 16  ZVO, ak bol obídený postup zadávania nadlimitnej alebo podlimitnej zákazky v dôsledku zahrnutia takej dodávky tovaru alebo poskytnutých služieb, ktoré nie sú nevyhnutné pri plnení zákazky na stavebné práce do PHZ. 
+Ostatné prípady nedovoleného spájania rôznorodých zákaziek, ktoré mohlo obmedziť hospodársku súťaž, keď iba jeden hospodársky subjekt bol spôsobilý predložiť ponuku, ktorá by spĺňala požiadavky na predmet zákazky.
+Ide o prípady, keď záujemcovia boli alebo mohli byť odradení od predloženia ponúk z dôvodu nezákonných a/alebo diskriminačných podmienok účasti a/alebo kritérií na vyhodnotenie ponúk stanovených v oznámení o vyhlásení VO/výzve na predkladanie ponúk alebo v súťažných podkladoch, napr.
+určenie minimálnych požiadaviek pre zákazku (týka sa minimálnych požiadaviek pre účely splnenia podmienok účasti, požiadaviek na predmet zákazky alebo kritérií na vyhodnotenie ponúk, ktoré síce súvisia s predmetom zákazky, ale nie sú primerané (napr. neprimeranosť minimálnych požiadaviek pre účely splnenia podmienok účasti s ohľadom na výšku predpokladanej hodnoty zákazky), čím sa nezabezpečí rovnaký prístup pre uchádzačov alebo dané požiadavky vytvárajú neopodstatnené  prekážky k otvorenej hospodárskej súťaži vo verejnom obstarávaní
+podmienky účasti boli určené ako kritérium na vyhodnotenie ponúk,
+technické požiadavky sa v rámci opisu predmetu zákazky odvolávajú na konkrétneho výrobcu, výrobný postup, obchodné označenie, patent, typ, oblasť alebo miesto pôvodu alebo výroby bez možnosti predloženia ekvivalentu (okrem prípadov, ak predmet zákazky nebolo možné určiť/opísať iným spôsobom) a uvedené pochybenie sa týka iných ako nadlimitných zákaziek.
+Ostatné prípady nedovoleného spájania rôznorodých zákaziek, ak viacero hospodárskych subjektov na trhu bolo spôsobilých predložiť ponuku.
+Ide o prípady, ktorých demonštratívny výpočet je uvedený vyššie, ale bol predložený vyšší počet ponúk uchádzačov (viac ako dve ponuky), ktorí splnili podmienky účasti a požiadavky na predmet zákazky. 
+Opis predmetu zákazky v súťažných podkladoch je nedostatočný, nejasný, neurčitý, opísaný všeobecne, resp. neobsahuje rozhodujúce informácie pre uchádzačov rozhodné pre prípravu kvalifikovanej ponuky, čo môže ovplyvniť ich rozhodnutie predložiť ponuku/žiadosť o účasť. 
+Obmedzenie možnosti použiť subdodávateľov
+Podmienky súťaže obmedzujú možnosť využiť subdodávateľa, ktorý by realizoval časť predmetu zákazky, resp. podmienky súťaže umožňujú využiť kapacity subdodávateľa iba do určitého % z hodnoty zákazky, pričom nie je dostatočne odôvodnené, aby verejný obstarávateľ pri zadávaní zákazky na uskutočnenie stavebných prác, zákazky na poskytnutie služby alebo zákazky na dodanie tovaru, ktorá zahŕňa aj činnosti spojené s umiestnením a montážou vyžadoval, aby určité podstatné úlohy vykonal priamo uchádzač alebo člen skupiny dodávateľov.
+Podmienky účasti alebo požiadavky na predmet zákazky (technické špecifikácie) boli upravené po otvorení ponúk/žiadostí o účasť 
+alebo 
+Podmienky účasti alebo požiadavky na predmet zákazky (technické špecifikácie) boli vyhodnotené v rozpore s oznámením o vyhlásení verejného obstarávania/výzvou na predkladanie ponúk a súťažnými podkladmi
+Podmienky účasti alebo požiadavky na predmet zákazky (technické špecifikácie) boli upravené počas vyhodnotenia ponúk/žiadostí o účasť, čo malo za následok prijatie ponúk/žiadostí o účasť uchádzačov/záujemcov, ktorých ponuky by neboli  prijaté alebo vylúčenie uchádzačov/záujemcov, ktorých ponuka by bola prijatá, ak by sa postupovalo podľa zverejnených podmienok účasti alebo požiadaviek na predmet zákazky.
+Podmienky účasti alebo požiadavky na predmet zákazky (technické špecifikácie) boli vyhodnotené v rozpore s oznámením o vyhlásení verejného obstarávania/výzvou na predkladanie ponúk a súťažnými podkladmi, čo malo za následok prijatie ponúk/žiadostí o účasť uchádzačov/záujemcov, ktorých ponuky by neboli  prijaté alebo vylúčenie uchádzačov/záujemcov, ktorých ponuka by bola prijatá, ak by sa postupovalo podľa zverejnených podmienok účasti alebo požiadaviek na predmet zákazky.
+Vyhodnocovanie ponúk uchádzačov v rozpore s kritériami na vyhodnotenie ponúk/kritériami na výber obmedzeného počtu záujemcov v užšej súťaži a pravidlami na ich uplatnenie, ktoré boli zverejnené v oznámení o vyhlásení verejného obstarávania/výzve na predkladanie ponúk a súťažných podkladoch
+alebo 
+Vyhodnocovanie ponúk uchádzačov na základe doplňujúcich kritérií na vyhodnotenie ponúk/kritérií na výber obmedzeného počtu záujemcov v užšej súťaži, ktoré neboli zverejnené v oznámení o vyhlásení verejného obstarávania/výzve na predkladanie ponúk a súťažných podkladoch
+Počas hodnotenia ponúk uchádzačov/záujemcov neboli dodržané kritéria  na vyhodnotenie ponúk/kritériá na výber obmedzeného počtu záujemcov v užšej súťaži alebo pravidlá na uplatnenie kritérií (prípadne podkritériá alebo váhy kritérií) definované v oznámení o vyhlásení verejného obstarávania/výzve na predkladanie ponúk alebo v súťažných podkladoch, čo malo za následok vyhodnocovanie ponúk v rozpore s oznámením/výzvou a súťažnými podkladmi a nesprávne určenie úspešného uchádzača. 
+Počas hodnotenia ponúk uchádzačov/záujemcov boli uplatnené doplňujúce kritériá na vyhodnotenie ponúk/kritériá na výber obmedzeného počtu záujemcov v užšej súťaži, ktoré neboli zverejnené v oznámení o vyhlásení verejného obstarávania/výzve na predkladanie ponúk a súťažných podkladoch.
+Finančná oprava 25 % sa uplatní, ak vyššie uvedené nedostatky mali diskriminačný charakter založený na národnej, regionálnej alebo miestnej preferencii určitých hospodárskych subjektov. 
+Počas hodnotenia ponúk uchádzačov/záujemcov neboli dodržané kritéria  na vyhodnotenie ponúk/kritériá na výber obmedzeného počtu záujemcov v užšej súťaži alebo pravidlá na uplatnenie kritérií (prípadne podkritériá alebo váhy kritérií) definované v oznámení o vyhlásení verejného obstarávania/výzve na predkladanie ponúk alebo v súťažných podkladoch, čo malo za následok vyhodnocovanie ponúk v rozpore s oznámením/výzvou a súťažnými podkladmi a nesprávne určenie úspešného uchádzača. 
+Počas hodnotenia ponúk uchádzačov/záujemcov boli uplatnené doplňujúce kritériá na vyhodnotenie ponúk/kritériá na výber obmedzeného počtu záujemcov v užšej súťaži, ktoré neboli zverejnené v oznámení o vyhlásení verejného obstarávania/výzve na predkladanie ponúk a súťažných podkladoch.
+Nedostatky v dokumentácii k zadávaniu zákazky alebo chýbajúca dokumentácia alebo jej časť
+Verejný obstarávateľ opakovane v určenej lehote nepredložil kompletnú dokumentáciu k postupu zadávania zákazky, na základe čoho nie je možné overiť dodržiavanie pravidiel a postupov verejného obstarávania.
+Dokumentácia k postupu zadávania zákazky  je nedostatočná na posúdenie, či ponuky/žiadosti o účasť boli správne vyhodnotené, čo je v rozpore s princípom transparentnosti, napr. zápisnica z vyhodnotenia ponúk neexistuje alebo proces týkajúci sa konkrétneho prideľovania bodov pre každú ponuku je nejasný/nedostatočný z hľadiska transparentnosti alebo neexistuje.
+Rokovanie v priebehu súťaže alebo modifikácia (zmena) ponuky počas hodnotenia ponúk
+Verejný obstarávateľ umožní uchádzačovi/záujemcovi modifikovať (zmeniť) jeho ponuku/žiadosť o účasť počas hodnotenia ponúk/žiadosti o účasť, čo má za následok prijatie ponuky/žiadosti o účasť tohto uchádzača/záujemcu. 
+Vo verejnej súťaži alebo užšej súťaži verejný obstarávateľ rokuje s uchádzačmi/záujemcami počas hodnotiacej fázy, čo vedie k podstatnej modifikácii (zmene) pôvodných podmienok uvedených v oznámení o vyhlásení verejného obstarávania/výzve na predkladanie ponúk alebo v súťažných podkladoch.
+V rámci zadávania koncesie verejný obstarávateľ umožní uchádzačovi/záujemcovi počas rokovania zmeniť predmet zákazky, kritériá na vyhodnotenie ponúk alebo iné podmienky zadávania koncesie, na základe čoho je zadaná koncesia tomuto uchádzačovi/záujemcovi.
+Prípravné trhové konzultácie alebo predbežného zapojenia záujemcov alebo uchádzačov, pri ktorých došlo k narušeniu hospodárskej súťaže
+Verejný obstarávateľ pred začatím postupu verejného obstarávania uskutočnil prípravné trhové konzultácie za účelom jeho prípravy a informovania hospodárskych subjektov o plánovanom postupe verejného obstarávania, pričom na tento účel najmä požiadal o radu alebo prijal radu od nezávislých odborníkov, nezávislých inštitúcií alebo od účastníkov trhu, ktorú možno použiť pri plánovaní alebo realizácii postupu verejného obstarávania, avšak pri vedení prípravných trhových konzultácií došlo k narušeniu hospodárskej súťaže a porušeniu princípu nediskriminácie a transparentnosti, nakoľko neboli prijaté primerané opatrenia, aby sa účasťou daného záujemcu alebo uchádzača nenarušila hospodárska súťaž.
+Ide aj o prípady, ak bolo identifikované zistenie, kedy zainteresovaná osoba je na strane hospodárskeho subjektu, ktorý vypracoval súťažné podklady alebo ich časť (napr. vypracoval projektovú dokumentáciu) a zároveň uspel v postupe zadávania zákazky, v rámci ktorej boli použité tieto súťažné podklady, pričom uvedená skutočnosť mohla mať vplyv na výsledok zadávania zákazky.
+V rámci rokovacieho konania so zverejnením nastala podstatná modifikácia (zmena) podmienok uvedených v oznámení o vyhlásení verejného obstarávania alebo v súťažných podkladoch
+V rokovacom konaní  so zverejnením pôvodné podmienky zákazky boli podstatným spôsobom zmenené, čo by bolo dôvodom na vyhlásenie novej zákazky a/alebo zmenou podmienok zákazka prestala spĺňať podmienky odôvodňujúce použitie rokovacieho konania so zverejnením.
+Neodôvodnené odmietnutie mimoriadne nízkej ponuky
+Ak sa pri určitej zákazke javí ponuka ako mimoriadne nízka                         vo vzťahu k tovaru, stavebným prácam alebo službe a verejný obstarávateľ pred vylúčením takejto ponuky písomne nepožiada uchádzača o vysvetlenie týkajúce sa tej časti ponuky, ktoré sú pre jej cenu podstatné alebo ak verejný obstarávateľ vylúči ponuku uchádzača, ktorý na základe vysvetlenia mimoriadne nízkej ponuky dostatočne odôvodnil nízku úroveň cien alebo nákladov.
+Konflikt záujmov s vplyvom na výsledok verejného obstarávania
+Konflikt záujmov medzi zainteresovanou osobou verejného obstarávateľa/prijímateľa a úspešným uchádzačom, v rámci ktorého neboli prijaté primerané opatrenia a vykonaná náprava.
+Dohoda obmedzujúca súťaž potvrdená Protimonopolným úradom SR alebo súdom 
+alebo 
+Rozhodnutie ÚVO, podľa ktorého mal prijímateľ postupovať podľa § 40 ods. 8 písm. d) ZVO a nepostupoval
+Ide o prípady, ak bol účastníkom dohody obmedzujúcej súťaž (ďalej len „kartelová dohoda“) aj verejný obstarávateľ alebo osoba vykonávajúca kontrolu postupu zadávania zákazky a účastník kartelovej dohody sa stal úspešným uchádzačom.
+Ide o prípady, ak iba účastníci kartelovej dohody predložia ponuku do postupu zadávania zákazky, ktorý je predmetom kontroly. Zároveň musí byť splnená podmienka, že účastníkom kartelovej dohody nie je verejný obstarávateľ alebo osoba vykonávajúca kontrolu postupu zadávania zákazky.
+Ide o prípady, ak okrem účastníkov kartelovej dohody predložil ponuku do postupu zadávania zákazky aj hospodársky subjekt/ subjekty, ktorý nie je účastníkom kartelovej dohody, ale napriek uvedenému, účastník kartelovej dohody sa stal úspešným uchádzačom. Zároveň musí byť splnená podmienka, že účastníkom kartelovej dohody nie je verejný obstarávateľ alebo osoba vykonávajúca kontrolu postupu zadávania zákazky.
+Zmena zmluvy (dodatok), ktorá nie je v súlade s pravidlami ustanovenými           v ZVO 
+Po uzavretí zmluvy boli doplnené/zmenené podstatné náležitosti podmienok uzatvorenej zmluvy týkajúce sa povahy a rozsahu prác, lehoty na realizáciu predmetu zmluvy, platobných podmienok a špecifikácie materiálov,  alebo ceny. Je nevyhnutné vždy posúdiť od prípadu k prípadu, či sa danom prípade ide o „podstatnú“ zmenu. Podstatná zmena zmluvy, rámcovej dohody alebo koncesnej zmluvy je upravená v § 18 ods. 2 ZVO.
+Ide aj o prípady, keď uzavretá zmluva, rámcová dohoda alebo koncesná zmluva je v rozpore so súťažnými podkladmi alebo koncesnou dokumentáciou alebo s ponukou predloženou úspešným uchádzačom alebo uchádzačmi a prípady, keď bol znížený rozsah zákazky.
+Zároveň ide o prípady, ak neboli splnené podmienky na zmenu zmluvy, rámcovej dohody alebo koncesnej zmluvy podľa § 18 ods. 1 písm. a) a písm. d) ZVO. 
+Ide aj o prípady, keď neboli splnené podmienky na zmenu zmluvy podľa § 18 ods. 1 písm. b) ZVO alebo podľa § 18 ods. 1 písm. c) ZVO, ale zároveň jednou zmenou zmluvy (dodatkom) nedošlo k navýšeniu hodnoty plnenia o viac ako 50 % z hodnoty pôvodnej zmluvy, rámcovej dohody alebo koncesnej zmluvy.
+Finančná oprava sa v prípade zákaziek realizovaných podľa ZVO neuplatňuje, ak v zmysle § 18 ods. 3 ZVO
+hodnota všetkých zmien je nižšia ako finančný limit pre nadlimitnú zákazku a zároveň je nižšia ako 
+15 % hodnoty pôvodnej zmluvy alebo rámcovej dohody, ak ide o zákazku na uskutočnenie stavebných prác, 
+10 % hodnoty pôvodnej zmluvy alebo rámcovej dohody, ak ide o zákazku na dodanie tovaru alebo na poskytnutie služby, alebo 
+10 % hodnoty pôvodnej koncesnej zmluvy, ak ide o koncesiu.
+Zmenou sa zároveň nesmie meniť charakter zmluvy, rámcovej dohody alebo koncesnej zmluvy.
+Opakované zmeny zmluvy nie je možné vykonať s cieľom vyhnúť sa použitiu postupov podľa ZVO.
+25 % z ceny zmluvy
+a 25% z hodnoty dodatočných výdavkov vychádzajúcich zo zmien zmluvy.
+Ide o prípady, keď zmenou zmluvy (dodatkom) došlo k navýšeniu hodnoty plnenia o viac ako 50 % z hodnoty pôvodnej zmluvy, rámcovej dohody alebo koncesnej zmluvy.
+25 % z ceny zmluvy
+a  100 % hodnoty dodatočných výdavkov vychádzajúcich zo zmien zmluvy.
+ Označenie „Verejný obstarávateľ“ sa vzťahuje aj na obstarávateľa podľa § 9 ZVO a osobu podľa § 8 ZVO
+ Uvedený typ porušenia sa primerane vzťahuje aj na minimálne lehoty na predkladanie ponúk upravené v Príručke k procesu a kontrole VO/obstarávania
+ Lehoty sú stanovené pre užšiu súťaž, rokovacie konanie so zverejnením a súťažný dialóg.
+ Ak bol poskytnutý prístup prostredníctvom elektronických prostriedkov k súťažným podkladom alebo iným dokumentom, ktoré sú potrebné na vypracovanie žiadosti                     o účasť/ponuky a tento prístup nebol k dispozícii po celú dobu od odo dňa uverejnenia oznámenia o vyhlásení verejného obstarávania, oznámenia použitého ako výzva na súťaž, oznámenia o vyhlásení súťaže návrhov alebo oznámenia o koncesii v európskom vestníku do uplynutia lehoty na predkladanie ponúk, uplatní sa finančná oprava 25 %, 10 % alebo 5 % podľa obdobných pravidiel, ako v prípade určenia lehoty na prijímanie žiadostí o súťažné podklady.
+ Lehoty sú stanovené pre užšiu súťaž a rokovacie konanie so zverejnením.
+ napr. ak je rámcová dohoda uzavretá na obdobie presahujúce 4 roky, pričom nejde o výnimočný prípad odôvodnení predmetom rámcovej dohody
+ napr. ak je rámcová dohoda uzavretá na obdobie presahujúce 4 roky, pričom nejde o výnimočný prípad odôvodnení predmetom rámcovej dohody
+ netýka sa postupov zadávania zákazky, keď predmet zákazky môže byť upravený na základe výsledkom rokovania/dialógu (priame rokovacie konanie, rokovacie konanie so zverejnením, súťažný dialóg, inovatívne partnerstvo) alebo ak je opis predmetu zákazky dodatočne upravený spôsobom, ktorý je dostatočný a doplnený opis predmetu zákazky bol zverejnený pre všetkých potenciálnych záujemcov a uchádzačov
+COdsek zoznamu,body,Odsek zoznamu2,List Paragraph,Odsek,Listenabsatz
+aOdsek zoznamu Char,body Char,Odsek zoznamu2 Char,List Paragraph Char,Odsek Char,Listenabsatz Char
+üText poznámky pod čiarou,Text poznámky pod čiarou 007,_Poznámka pod čiarou,Schriftart: 9 pt,Schriftart: 10 pt,Schriftart: 8 pt,Schriftart: 8 pt Char Char Char,Schriftart: 8 pt Char,Stinking Styles2,Tekst przypisu- dokt,Char Char Char,Char Char Ch,o,Car
+úText poznámky pod čiarou Char,Text poznámky pod čiarou 007 Char,_Poznámka pod čiarou Char,Schriftart: 9 pt Char,Schriftart: 10 pt Char,Schriftart: 8 pt Char1,Schriftart: 8 pt Char Char Char Char,Schriftart: 8 pt Char Char,Stinking Styles2 Char,o Char
+ûOdkaz na poznámku pod čiarou,Footnote Refernece,BVI fnr,Fußnotenzeichen_Raxen,callout,Footnote Reference Number,SUPERS,Footnote symbol,Footnote reference number,Times 10 Point,Exposant 3 Point,EN Footnote Reference,note TESI,-E Fußnotenzeichen,Ref,E,S

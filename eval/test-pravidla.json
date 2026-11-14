@@ -1,0 +1,532 @@
+{
+ "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
+ "balik": "Zmena č. 3 zo dňa 21.08.2025",
+ "datum": "2026-11-12T23:35:24.425Z",
+ "pocetZiadosti": 799,
+ "trvanieMs": 233,
+ "skupiny": {
+  "presli": 480,
+  "nesplnili": 108,
+  "zastavene": 179,
+  "ostatne": 32
+ },
+ "ziadostiSNesplnenymPravidlom": {
+  "presli": 9,
+  "nesplnili": 19,
+  "zastavene": 22,
+  "ostatne": 8
+ },
+ "poPravidlach": {
+  "D01": {
+   "presli": {
+    "splnene": 480
+   },
+   "zastavene": {
+    "splnene": 179
+   },
+   "nesplnili": {
+    "splnene": 108
+   },
+   "ostatne": {
+    "splnene": 32
+   }
+  },
+  "D07a": {
+   "presli": {
+    "splnene": 480
+   },
+   "zastavene": {
+    "splnene": 179
+   },
+   "nesplnili": {
+    "splnene": 108
+   },
+   "ostatne": {
+    "splnene": 32
+   }
+  },
+  "D07b": {
+   "presli": {
+    "splnene": 137,
+    "mimo_podkladov": 334,
+    "na_preverenie": 5,
+    "neuplatnuje_sa": 3,
+    "nesplnene": 1
+   },
+   "zastavene": {
+    "splnene": 36,
+    "mimo_podkladov": 133,
+    "neuplatnuje_sa": 7,
+    "na_preverenie": 3
+   },
+   "nesplnili": {
+    "na_preverenie": 2,
+    "mimo_podkladov": 85,
+    "splnene": 14,
+    "nesplnene": 1,
+    "neuplatnuje_sa": 6
+   },
+   "ostatne": {
+    "splnene": 9,
+    "mimo_podkladov": 23
+   }
+  },
+  "D07c": {
+   "presli": {
+    "splnene": 133,
+    "mimo_podkladov": 340,
+    "nesplnene": 2,
+    "neuplatnuje_sa": 3,
+    "na_preverenie": 2
+   },
+   "zastavene": {
+    "splnene": 32,
+    "nesplnene": 3,
+    "mimo_podkladov": 136,
+    "neuplatnuje_sa": 7,
+    "na_preverenie": 1
+   },
+   "nesplnili": {
+    "mimo_podkladov": 88,
+    "splnene": 9,
+    "na_preverenie": 5,
+    "neuplatnuje_sa": 6
+   },
+   "ostatne": {
+    "splnene": 6,
+    "mimo_podkladov": 23,
+    "nesplnene": 2,
+    "na_preverenie": 1
+   }
+  },
+  "D07d": {
+   "presli": {
+    "splnene": 319,
+    "neuplatnuje_sa": 107,
+    "na_preverenie": 46,
+    "nesplnene": 7,
+    "chyba_podklad": 1
+   },
+   "zastavene": {
+    "splnene": 96,
+    "na_preverenie": 15,
+    "neuplatnuje_sa": 46,
+    "chyba_podklad": 5,
+    "nesplnene": 17
+   },
+   "nesplnili": {
+    "na_preverenie": 9,
+    "nesplnene": 16,
+    "splnene": 61,
+    "neuplatnuje_sa": 22
+   },
+   "ostatne": {
+    "nesplnene": 6,
+    "na_preverenie": 6,
+    "splnene": 14,
+    "neuplatnuje_sa": 6
+   }
+  },
+  "D09": {
+   "presli": {
+    "splnene": 480
+   },
+   "zastavene": {
+    "splnene": 179
+   },
+   "nesplnili": {
+    "splnene": 108
+   },
+   "ostatne": {
+    "splnene": 32
+   }
+  },
+  "D12": {
+   "presli": {
+    "splnene": 480
+   },
+   "zastavene": {
+    "splnene": 176,
+    "nesplnene": 3
+   },
+   "nesplnili": {
+    "splnene": 106,
+    "nesplnene": 2
+   },
+   "ostatne": {
+    "splnene": 32
+   }
+  },
+  "D13": {
+   "presli": {
+    "splnene": 137,
+    "mimo_podkladov": 339,
+    "neuplatnuje_sa": 3,
+    "nesplnene": 1
+   },
+   "zastavene": {
+    "splnene": 36,
+    "mimo_podkladov": 136,
+    "neuplatnuje_sa": 7
+   },
+   "nesplnili": {
+    "mimo_podkladov": 87,
+    "splnene": 14,
+    "nesplnene": 1,
+    "neuplatnuje_sa": 6
+   },
+   "ostatne": {
+    "splnene": 9,
+    "mimo_podkladov": 23
+   }
+  },
+  "D14": {
+   "presli": {
+    "splnene": 462,
+    "na_preverenie": 18
+   },
+   "zastavene": {
+    "splnene": 162,
+    "chyba_podklad": 15,
+    "na_preverenie": 2
+   },
+   "nesplnili": {
+    "splnene": 104,
+    "na_preverenie": 4
+   },
+   "ostatne": {
+    "splnene": 32
+   }
+  }
+ },
+ "falosnePoplachy": [
+  {
+   "kod": "NFP401201A141",
+   "skupina": "presli",
+   "pravidlo": "D07c",
+   "zdovodnenie": "Hodnota za peniaze je 1 364 550 EUR/MWh/rok. Limit 5 500 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201B028",
+   "skupina": "presli",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 1 919 312 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201DYJ3",
+   "skupina": "presli",
+   "pravidlo": "D07c",
+   "zdovodnenie": "Hodnota za peniaze je 9 635 EUR/MWh/rok. Limit 5 500 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201DYJ3",
+   "skupina": "presli",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 1 933 402 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201DZK3",
+   "skupina": "presli",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 203 073 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201DZZ2",
+   "skupina": "presli",
+   "pravidlo": "D07b",
+   "zdovodnenie": "Plánovaná úspora je 0 %, minimum je 30 %."
+  },
+  {
+   "kod": "NFP401201DZZ2",
+   "skupina": "presli",
+   "pravidlo": "D13",
+   "zdovodnenie": "Úspora 0 % je pod 30 %, budova nemôže byť podporená."
+  },
+  {
+   "kod": "NFP401201FCV8",
+   "skupina": "presli",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 3 967 271 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FDM9",
+   "skupina": "presli",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 325 740 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FFT8",
+   "skupina": "presli",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 028 480 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FHM2",
+   "skupina": "presli",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 3 713 723 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  }
+ ],
+ "zachytene": [
+  {
+   "kod": "NFP401201A155",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 388 575 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201A943",
+   "skupina": "nesplnili",
+   "pravidlo": "D07b",
+   "zdovodnenie": "Cieľová spotreba (6 300,7 MWh/rok) je vyššia než východisková (60,5 MWh/rok). Pravdepodobne chyba v jednotkách (kWh namiesto MWh)."
+  },
+  {
+   "kod": "NFP401201A943",
+   "skupina": "nesplnili",
+   "pravidlo": "D13",
+   "zdovodnenie": "Úspora -10 316 % je pod 30 %, budova nemôže byť podporená."
+  },
+  {
+   "kod": "NFP401201A973",
+   "skupina": "nesplnili",
+   "pravidlo": "D12",
+   "zdovodnenie": "Žiadaný NFP 176 317 EUR je pod minimom 200 000 EUR."
+  },
+  {
+   "kod": "NFP401201DZG1",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 10 584 200 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201DZT5",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 3 221 973 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201DZV2",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 1 788 101 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201DZX8",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 394 624 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FDR5",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 1 879 688 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FFK8",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 4 718 863 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FFR8",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 3 127 002 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FGB3",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 073 058 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FGF2",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 199 195 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FGF6",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 109 991 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FGJ2",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 1 845 295 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FGW2",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 289 397 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FHP2",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 454 412 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FJF2",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 4 407 936 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FKH1",
+   "skupina": "nesplnili",
+   "pravidlo": "D12",
+   "zdovodnenie": "Žiadaný NFP 179 280 EUR je pod minimom 200 000 EUR."
+  },
+  {
+   "kod": "NFP401201FMX3",
+   "skupina": "nesplnili",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 3 152 802 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  }
+ ],
+ "zastaveneSNalezom": [
+  {
+   "kod": "NFP401201A015",
+   "skupina": "zastavene",
+   "pravidlo": "D07c",
+   "zdovodnenie": "Hodnota za peniaze je 11 403 EUR/MWh/rok. Limit 5 500 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201B192",
+   "skupina": "zastavene",
+   "pravidlo": "D07c",
+   "zdovodnenie": "Hodnota za peniaze je 38 869 EUR/MWh/rok. Limit 5 500 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201C926",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 5 256 624 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201D978",
+   "skupina": "zastavene",
+   "pravidlo": "D07c",
+   "zdovodnenie": "Hodnota za peniaze je 20 429 EUR/MWh/rok. Limit 5 500 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201DYG3",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 388 575 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201DYI8",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 451 177 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201DZZ9",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 078 619 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FCV2",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 236 256 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FDM4",
+   "skupina": "zastavene",
+   "pravidlo": "D12",
+   "zdovodnenie": "Žiadaný NFP 132 407 EUR je pod minimom 200 000 EUR."
+  },
+  {
+   "kod": "NFP401201FDT6",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 3 709 098 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FDV3",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 3 557 467 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FFC4",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 8 881 760 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FFC5",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 758 702 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FFC6",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 3 292 134 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FFC6",
+   "skupina": "zastavene",
+   "pravidlo": "D12",
+   "zdovodnenie": "Žiadaný NFP 177 775 EUR je pod minimom 200 000 EUR."
+  },
+  {
+   "kod": "NFP401201FFF8",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 1 752 358 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FFP7",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 3 591 182 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FFV6",
+   "skupina": "zastavene",
+   "pravidlo": "D12",
+   "zdovodnenie": "Žiadaný NFP 49 281 EUR je pod minimom 200 000 EUR."
+  },
+  {
+   "kod": "NFP401201FKD6",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 6 001 048 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FMX7",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 8 881 760 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FPW6",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 467 042 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FQY5",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 2 230 347 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  },
+  {
+   "kod": "NFP401201FRF1",
+   "skupina": "zastavene",
+   "pravidlo": "D07d",
+   "zdovodnenie": "Hodnota za peniaze je 1 802 426 EUR/MW. Limit 1 400 000 je prekročený aj po odrátaní DPH."
+  }
+ ]
+}

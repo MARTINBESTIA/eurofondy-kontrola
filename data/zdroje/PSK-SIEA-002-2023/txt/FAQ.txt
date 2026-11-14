@@ -1,0 +1,71 @@
+Odpovede na často kladené otázky (FAQ)
+k výzve na predkladanie žiadosti o poskytnutie nenávratného finančného príspevku zameranej na podporu energetickej efektívnosti a využívania OZE vo verejných budovách s kódom
+PSK-SIEA-002-2023-DV-EFRR
+
+Je prípustné aby bola Projektová dokumentácia overená stavebným úradom aj po predložení ŽoNFP?
+
+ODPOVEĎ:
+Príloha č. 2 výzvy v rámci Prílohy č. 7 ŽoNFP – Projektová dokumentácia ustanovuje, že projektová dokumentácia (ďalej aj „PD“) má byť predkladaná ako „sken zhotoviteľom (oprávnenou osobou) autorizovaného a povoľovacím orgánom overeného originálu (vo formáte .pdf) cez ITMS“.
+Z hľadiska formy a spôsobu predloženia PD to v predmetom prípade znamená, že projektová dokumentácia musí byť vypracovaná a autorizovaná projektantom, overená stavebným úradom a následne predložená vo forme skenu cez ITMS.
+	Z hľadiska hraničného termínu predloženia PD Príloha č. 7 ŽoNFP ustanovuje: „Príloha musí byť predložená...najneskôr ku dňu doplnenia chýbajúcich náležitostí ŽoNFP..., pričom musí byť vypracovaná pred predložením ŽoNFP.“ Teda PD musí byť vypracovaná projektantom pred predložením ŽoNFP. Okamihom vypracovania PD sa rozumie okamih autorizácie PD projektantom, nie okamih jej overenia povoľujúcim orgánom.
+V zmysle vyššie uvedeného je akceptovateľné, aby okamih overenia PD stavebným úradom nastal aj po predložení ŽoNFP, avšak za splnenia všetkých ostatných podmienok stanovených dokumentáciou výzvy. Upozorňujeme najmä na skutočnosť, že podmienka vypracovania PD pred predložením ŽoNFP bude musieť byť preukázaná. Teda, ak stavebný úrad overí PD po predložení ŽoNFP a PD bude obsahovať iba mesiac vypracovania v ktorom sa zároveň podala ŽoNFP, bude žiadateľ vyzvaný na preukázanie splnenia predmetnej podmienky, napr. predložením vyjadrenia projektanta.
+
+V akej fáze je potrebné mať verejné obstarávanie ku dňu podania ŽoNFP?
+
+ODPOVEĎ:
+Výzva v kapitole Podmienky poskytnutia príspevku neustanovuje PPP týkajúcu sa fázy realizácie verejného obstarávania / obstarávania (ďalej len „VO/O“) k okamihu predloženia ŽoNFP. Je teda akceptovateľné, aby mal žiadateľ k okamihu predloženia ŽoNFP VO/O v akejkoľvek fáze (pred vyhlásením, po vyhlásení, pred alebo po podpise zmluvy s úspešným uchádzačom).
+Pripomíname však, že ak žiadateľ ukončil VO/O pred predložením ŽoNFP, vkladá dokumentáciu k VO/O do ITMS najneskôr ku dňu doplnenia ŽoNFP v zmysle kapitoly č. 2 Prílohy č. 2 výzvy.
+Upozorňujeme, že v zmysle kapitoly Ďalšie informácie a formálne náležitosti výzvy je žiadateľ / prijímateľ povinný pri realizácii VO/O postupovať v súlade s pravidlami VO/O.
+Zároveň upozorňujeme, že v zmysle PPP č. 14 výzvy je žiadateľ povinný „...ukončiť realizáciu všetkých hlavných aktivít projektu do 24 mesiacov od nadobudnutia účinnosti Zmluvy o poskytnutí NFP,...“.
+
+Vyžaduje sa predloženie povolenia na realizáciu projektu v rámci ŽoNFP?
+
+ODPOVEĎ:
+Výzva v kapitole Podmienky poskytnutia príspevku neustanovuje povinnosť predloženia povolenia na realizáciu projektu. To znamená, že žiadateľ povolenie na realizáciu projektu v rámci konania o ŽoNFP nepredkladá.
+Upozorňujeme však, že v zmysle Prílohy č. 2 výzvy, časti Príloha č. 7 ŽoNFP musí byť projektová dokumentácia overená povoľovacím orgánom, okrem prípadu keď ju povoľovací orgán nie jej povinný overiť v súlade s podmienkami uvedenými pre predmetnú prílohu.
+
+Sú oprávnené aj výdavky realizované pred podaním ŽoNFP?
+
+ODPOVEĎ:
+Výzva v PPP č. 13 ustanovuje, že výdavky projektu musia byť, okrem iného, v súlade s podmienkami oprávnenosti výdavkov definovanými v Príručke k oprávnenosti výdavkov (ďalej len „Príručka k OV“). Príručka k OV v kap. 2, ods. 6 ustanovuje, že výdavok musí skutočne vzniknúť a byť uhradený  prijímateľom pri realizácii projektu medzi 1. januárom 2021 a 31. decembrom 2029 a to za podmienok ustanovených v predmetnej Príručke k OV.
+
+Sú oprávnené aj výdavky na rekonštrukciu strechy?
+
+ODPOVEĎ:
+Výzva v PPP č. 7 ustanovuje katalóg hlavných aktivít, pričom výdavky s priamou väzbou na ich realizáciu predstavujú oprávnené výdavky. Výdavky, ktoré nesúvisia s realizáciou hlavných aktivít nie sú oprávnenými výdavkami.
+Zároveň v zmysle PPP č. 13 výzvy sú oprávnené aj výdavky na vyvolanú investíciu. Vyvolanou investíciou je v zmysle predmetnej PPP „...investícia do infraštruktúry, ktorá nie je oprávnená z hľadiska PPP č. 7 avšak je nevyhnutne potrebná na realizáciu hlavnej aktivity je v rámci výzvy oprávnená....“. V zmysle poznámky pod čiarou č. 45 „Vyvolanou investíciou je napríklad situácia v ktorej je strešná konštrukcia v dobrom stavebnotechnickom stave nevyžadujúcom žiadne výdavky na opravy či údržbu, avšak zo statického hľadiska nie je dimenzovaná na nosnosť fotovoltických zariadení a je potrebné jej zosilnenie. Výdavky na zosilnenie strešnej konštrukcie sú vyvolanými výdavkami nevyhnutnými na realizáciu hlavnej aktivity.“
+Obdobným príkladom je situácia, keď je strešná konštrukcia v dobrom stavebnotechnickom stave nevyžadujúcom žiadne výdavky na opravy či údržbu, avšak zo statického hľadiska nie je dimenzovaná na nosnosť zateplenia strešného plášťa a je potrebné jej zosilnenie. V takom prípade sú výdavky na zosilnenie strešnej konštrukcie vyvolanou investíciou, keďže sú výdavkami nevyhnutnými na realizáciu hlavnej aktivity projektu.
+Upozorňujeme, že výdavky vyvolanej investície sa v rámci Prílohy č. 8 ŽoNFP uvádzajú v hárku Rozpočet Bx v časti „Ostatné okrem softvéru“.
+
+Je povinnou prílohou ŽoNFP energetický audit?
+
+ODPOVEĎ:
+Výzva v PPP č. 7 písm. a) ustanovuje za hlavnú aktivitu „vypracovanie energetického auditu minimálne na predmet projektu“. Predmetná PPP v časti Podmienky oprávnenosti aktivít, ods. 2 ustanovuje „Projektom sa realizuje aspoň jedna hlavná aktivita z aspoň jedného opatrenia pri dodržaní ostatných podmienok oprávnenosti aktivít.“. 
+Z uvedeného vyplýva, že ak žiadateľ realizuje predmetnú hlavnú aktivitu, potom je predloženie energetického auditu povinnou prílohou ŽoNFP predkladanou za podmienok ustanovených v Prílohe č. 2 výzvy v časti Príloha č. 5.
+Zároveň Príloha č. 2 výzvy, časť Príloha č. 5 ustanovuje: „Žiadateľ predkladá energetický audit iba ak realizuje hlavnú aktivitu a) opatrenia 2.1.2 PPP č. 7.“
+V zmysle uvedeného je zrejmé, že energetický audit je povinnou prílohou ŽoNFP výlučne v prípade realizácie hlavnej aktivity v zmysle PPP č. 7 výzvy písm. a).
+
+Sleduje sa vysporiadanie majetkovoprávnych vzťahov k pozemku pod verejnou budovou?
+
+ODPOVEĎ:
+V rámci výzvy sa majetkovoprávne vzťahy k pozemkom pod verejnou budovou nesledujú.
+
+Na predmet projektu bola podaná Žiadosť o poskytnutie prostriedkov mechanizmu (ŽoPPM) v rámci Plánu Obnovy a Odolnosti SR. K predmetnej ŽoPPM ešte nebolo vydané Oznámenie o splnení podmienok poskytnutia prostriedkov mechanizmu. Je v takomto prípade možné podať ten istý projekt aj v rámci tejto výzvy?
+
+ODPOVEĎ:
+Z hľadiska výzvy platí, že pokiaľ nebolo vydané Oznámenie o splnení PPPM v rámci POO, projekt môže byť predmetom ŽoNFP.  Ak žiadateľ podá ŽoPPM ako aj ŽoNFP na rovnaký predmet projektu a ešte nenadobudlo právoplatnosť Rozhodnutie o schválení ŽoNFP alebo ešte nebolo vydané Oznámenie o splnení PPPM, bude žiadateľ povinný okamžite informovať druhého poskytovateľa v prípade vzniku jednej z uvedených skutočností.
+Uvedené vyplýva z Prílohy č. 1 ŽoNFP, tab. 15, časti Text vyhlásenia, poslednej odrážky v zmysle ktorej sa žiadateľ zaväzuje, že na oprávnené výdavky uvedené v projekte nebude čerpať inú pomoc.
+Zároveň upozorňujeme, že projekt, ktorý je predmetom ŽoNFP musí spĺňať všetky podmienky výzvy.
+
+Predmetom ŽoNFP je výlučne zníženie energetickej náročnosti jednej administratívnej budovy. V rámci Prílohy č. 8 ŽoNFP sa však uvádza upozornenie „Budova nespĺňa podmienku Hodnoty za Peniaze.“. Bude takáto budova oprávnená a je možné podať ŽoNFP?
+
+ODPOVEĎ:
+Výzva v PPP č. 7, časti Podmienky oprávnenosti aktivít, ods. 3, písm. g) ustanovuje „budova musí spĺňať minimálnu mieru príspevku k cieľu opatrenia, stanovenú aplikáciou princípu Hodnota za Peniaze s definovanou maximálnou hodnotou 5 500 EUR/MWh/rok.“.
+Uvedená PPP bola zapracovaná do Prílohy č. 8 ŽoNFP a jej cieľom je, okrem iného, upozorniť žiadateľa na jej porušenie.
+V zmysle uvedeného je zrejmé, že v prípade predloženia ŽoNFP, ktorej predmetom bude budova nespĺňajúca vyššie uvedenú PPP, nebude predmetná budova podporená.
+Zároveň upozorňujeme, že Príloha č. 8 ŽoNFP je spôsobilá upozorniť na nesplnenie aj viacerých iných PPP (napr. „OZE nespĺňa podmienku Hodnoty za Peniaze“, "Projekt nespĺňa podmienku výšky NFP.“, atď.), ktoré, ak nebudú splnené, budú výdavky resp., v závislosti od predmetu projektu a charakteru PPP, aj celý projekt neoprávnený.
+
+Je oprávneným výdavkom tepelné čerpadlo na zemný plyn?
+
+ODPOVEĎ:
+             V zmysle Programu Slovensko pre opatrenia realizované v rámci špecifického cieľa RSO2.1 a špecifického cieľa RSO2.2 platí, že predmetom podpory nebudú nové zariadenia a technológie na využívanie zemného plynu a opatrenia týkajúce sa činností ETS v zmysle Prílohy č. 1 Smernice č. 2003/87/ES. Uvedené obmedzenie sa týka aj opatrení 2.1.2 s 2.2.2, ktoré sú predmetom podpory vo výzve PSK-IEA-002-2023-DV-EFRR.

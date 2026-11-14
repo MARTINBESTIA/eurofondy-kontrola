@@ -1,0 +1,15 @@
+{
+  "name": "eurofondy-kontrola",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Predkontrola dokumentov k eurofondom podľa verejných pravidiel. Modul 1: žiadosť o NFP a prílohy.",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "data:stiahni": "node scripts/01-stiahni-ziadosti.ts",
+    "data:normalizuj": "node scripts/02-normalizuj.ts",
+    "test:pravidla": "node scripts/03-test-pravidla.ts",
+    "test:llm": "node scripts/04-test-llm.ts",
+    "start": "node src/server/server.ts"
+  }
+}

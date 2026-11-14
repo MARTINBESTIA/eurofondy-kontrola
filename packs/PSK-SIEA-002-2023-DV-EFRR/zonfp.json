@@ -1,0 +1,444 @@
+{
+  "id": "PSK-SIEA-002-2023-DV-EFRR/zonfp",
+  "modul": "zonfp",
+  "vyzvaKod": "PSK-SIEA-002-2023-DV-EFRR",
+  "vyzvaNazov": "Výzva na podporu energetickej efektívnosti a využívania OZE vo verejných budovách",
+  "poskytovatel": "Slovenská inovačná a energetická agentúra (sprostredkovateľský orgán pre Program Slovensko)",
+  "verzia": "Zmena č. 3 zo dňa 21.08.2025",
+  "platnaOd": "2025-08-21",
+  "zdroje": [
+    {
+      "nazov": "Výzva v znení Zmeny č. 3",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/akt3/PSK-SIEA-002-2023-DV-EFRR_bez_SZ/Vyzva_PSK_2P1_SIEA_zmena_3.docx",
+      "url": "https://api.itms21.sk/public/v1/dokument/e6f34c92-7289-4a61-a28d-8b6eb20e5b0a"
+    },
+    {
+      "nazov": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/akt3/PSK-SIEA-002-2023-DV-EFRR_bez_SZ/Priloha_2_Zoznam_Priloh_akt._3.docx",
+      "url": "https://api.itms21.sk/public/v1/dokument/e6f34c92-7289-4a61-a28d-8b6eb20e5b0a"
+    },
+    {
+      "nazov": "Príloha č. 4 výzvy – Kritériá pre výber projektov",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/akt3/PSK-SIEA-002-2023-DV-EFRR_bez_SZ/Priloha_4_Kriteria_vyberu_projektov.docx",
+      "url": "https://api.itms21.sk/public/v1/dokument/e6f34c92-7289-4a61-a28d-8b6eb20e5b0a"
+    },
+    {
+      "nazov": "Príloha č. 5 výzvy – Zoznam merateľných ukazovateľov (akt. 3)",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/akt3/PSK-SIEA-002-2023-DV-EFRR_bez_SZ/Priloha_5_MU_akt_3.docx",
+      "url": "https://api.itms21.sk/public/v1/dokument/e6f34c92-7289-4a61-a28d-8b6eb20e5b0a"
+    },
+    {
+      "nazov": "Zoznamy schválených, neschválených a zastavených ŽoNFP po kolách",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/rozhodnutia/",
+      "url": "https://www.siea.sk/strukturalne-fondy-eu/program-slovensko/zoznam-schvalenych-a-neschvalenych-ziadosti-o-nfp/"
+    }
+  ],
+  "proces": [
+    "Administratívne overenie: poskytovateľ overí podmienky doručenia a všetkých 15 podmienok poskytnutia príspevku (PPP).",
+    "Výber (ak alokácia nestačí): poradie podľa Hodnoty za peniaze, potom rozlišovacie kritériá.",
+    "Rozhodnutie: schválenie s podmienkou vo výroku, neschválenie, alebo zastavenie konania.",
+    "Opravné prostriedky (nepovinná časť konania)."
+  ],
+  "pravidla": [
+    {
+      "id": "D01",
+      "ppp": 1,
+      "nazov": "Právna forma žiadateľa je oprávnená",
+      "druh": "data",
+      "kontrola": "pravna_forma",
+      "parametre": {
+        "povolene": [
+          "117",
+          "119",
+          "120",
+          "321",
+          "331",
+          "333",
+          "382",
+          "701",
+          "721",
+          "801",
+          "803"
+        ]
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 1 Právna forma",
+        "znenie": "Oprávnenými žiadateľmi sú: subjekty štátnej správy – ústredné orgány štátnej správy, ostatné ústredné orgány štátnej správy, štátne rozpočtové organizácie a štátne príspevkové organizácie; ostatné subjekty verejnej správy [...]; subjekty mimo pravidiel štátnej pomoci, konkrétne: nadácie, občianske združenia, neziskové organizácie, neziskové organizácie poskytujúce všeobecne prospešné služby, cirkevné organizácie."
+      }
+    },
+    {
+      "id": "D07a",
+      "ppp": 7,
+      "nazov": "Projekt obsahuje aspoň jednu hlavnú aktivitu",
+      "druh": "data",
+      "kontrola": "hlavna_aktivita",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 7, Podmienky oprávnenosti aktivít, ods. 2",
+        "znenie": "Projektom sa realizuje aspoň jedna hlavná aktivita z aspoň jedného opatrenia pri dodržaní ostatných podmienok oprávnenosti aktivít."
+      }
+    },
+    {
+      "id": "D07b",
+      "ppp": 7,
+      "nazov": "Plánovaná úspora primárnej energie je aspoň 30 %",
+      "druh": "data",
+      "kontrola": "uspora_min",
+      "parametre": {
+        "minPercent": 30,
+        "ukazovatel": "PSKPRCR26b"
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 7, ods. 3 písm. f) a PPP č. 13, Upozornenie",
+        "znenie": "budova musí dosiahnuť plánovanú úsporu primárnej energie minimálne 30 % [...] Ak pri realizácii hlavnej aktivity opatrenia 2.1.2 plánovaná úspora primárnej energie nedosiahne 30 %, budova nespĺňa podmienky oprávnenosti aktivít a nemôže byť podporená."
+      }
+    },
+    {
+      "id": "D07c",
+      "ppp": 7,
+      "nazov": "Hodnota za peniaze pri energetickej efektívnosti najviac 5 500 EUR/MWh/rok",
+      "druh": "data",
+      "kontrola": "hzp_ee",
+      "parametre": {
+        "max": 5500,
+        "ukazovatel": "PSKPRCR26b",
+        "opatrenie": "2.1.2",
+        "rezervaDph": 1.23
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 7, ods. 3 písm. g) a poznámka pod čiarou č. 40",
+        "znenie": "budova musí spĺňať minimálnu mieru príspevku k cieľu opatrenia, stanovenú aplikáciou princípu Hodnota za Peniaze s definovanou maximálnou hodnotou 5 500 EUR/MWh/rok. [Pozn. 40:] COV vyjadrujú COV vynaložené na všetky hlavné aktivity budovy opatrenia 2.1.2. Úsporu primárnej spotreby energie reprezentuje rozdiel priemernej ročnej spotreby primárnej energie pred realizáciu opatrenia a ročnej spotreby primárnej energie po realizácii opatrenia."
+      }
+    },
+    {
+      "id": "D07d",
+      "ppp": 7,
+      "nazov": "Hodnota za peniaze pri OZE najviac 1,4 mil. EUR/MW",
+      "druh": "data",
+      "kontrola": "hzp_oze",
+      "parametre": {
+        "max": 1400000,
+        "ukazovatele": [
+          "PSKPRCO22a",
+          "PSKPRCO22b"
+        ],
+        "opatrenie": "2.2.2",
+        "rezervaDph": 1.23
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 7, ods. 4 písm. d) a poznámka pod čiarou č. 43",
+        "znenie": "projekt musí spĺňať minimálnu mieru príspevku k cieľu opatrenia, stanovenú aplikáciou princípu Hodnota za Peniaze definovanou maximálnou hodnotou 1,4 mil. EUR/MW. [Pozn. 43:] pomer celkových oprávnených výdavkov (COV) voči súčtu cieľových hodnôt MU projektu PO040 (PSKPRCO22a) [...] a PO041 (PSKPRCO22b) [...] (EUR/MW). COV vyjadrujú COV vynaložené na všetky hlavné aktivity opatrenia 2.2.2."
+      }
+    },
+    {
+      "id": "D09",
+      "ppp": 9,
+      "nazov": "Projekt sa realizuje na území Slovenskej republiky",
+      "druh": "data",
+      "kontrola": "miesto_sr",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 9",
+        "znenie": "Žiadateľ je povinný realizovať projekt na oprávnenom území, ktorým je celé územie Slovenskej republiky."
+      }
+    },
+    {
+      "id": "D12",
+      "ppp": 12,
+      "nazov": "Výška NFP je medzi 200 000 a 5 000 000 EUR",
+      "druh": "data",
+      "kontrola": "vyska_nfp",
+      "parametre": {
+        "min": 200000,
+        "max": 5000000
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 12 Výška príspevku",
+        "znenie": "Minimálna výška NFP na projekt žiadateľa je 200 000 EUR. Maximálna výška NFP na projekt žiadateľa nesmie presiahnuť 5 000 000 EUR."
+      }
+    },
+    {
+      "id": "D13",
+      "ppp": 13,
+      "nazov": "Pásmo oprávnených výdavkov podľa úspory energie",
+      "druh": "data",
+      "kontrola": "pasmo_ov",
+      "parametre": {
+        "ukazovatel": "PSKPRCR26b"
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 13 Podmienka oprávnenosti výdavkov projektu",
+        "znenie": "výška oprávnených výdavkov sa neznižuje, ak plánovaná úspora primárnej energie dosiahne viac ako 60 % [...] zníži o 5 percentuálnych bodov, ak [...] viac ako 50 %, ale nepresiahne 60 % [...] zníži o 10 percentuálnych bodov, ak [...] viac ako 40 %, ale nepresiahne 50 % [...] zníži o 15 percentuálnych bodov, ak plánovaná úspora primárnej energie dosiahne minimálne 30 %, ale nepresiahne 40 %"
+      }
+    },
+    {
+      "id": "D14",
+      "ppp": 14,
+      "nazov": "Hlavné aktivity sa stihnú do 24 mesiacov od účinnosti zmluvy",
+      "druh": "data",
+      "kontrola": "harmonogram",
+      "parametre": {
+        "maxMesiacov": 24,
+        "rezervaNaKonanieMesiacov": 9
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 14 Časová oprávnenosť realizácie projektu",
+        "znenie": "Žiadateľ je povinný ukončiť realizáciu všetkých hlavných aktivít projektu do 24 mesiacov od nadobudnutia účinnosti Zmluvy o poskytnutí NFP, pri dodržaní časovej oprávnenosti výdavkov uvedenej v Príručke k OV."
+      }
+    },
+    {
+      "id": "P07",
+      "ppp": 7,
+      "nazov": "Príloha č. 7 ŽoNFP – Projektová dokumentácia je priložená",
+      "druh": "priloha",
+      "kontrola": "priloha_povinna",
+      "parametre": {
+        "cislo": "7",
+        "podmienka": "vzdy"
+      },
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
+        "cast": "Zoznam povinných príloh ŽoNFP",
+        "znenie": "Zoznam povinných príloh ŽoNFP Výzvy PSK-SIEA-002-2023-DV-EFRR: [...] Projektová dokumentácia; Dokumentácia k oprávnenosti výdavkov (záväzný formulár)"
+      }
+    },
+    {
+      "id": "P08",
+      "ppp": 13,
+      "nazov": "Príloha č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov je priložená",
+      "druh": "priloha",
+      "kontrola": "priloha_povinna",
+      "parametre": {
+        "cislo": "8",
+        "podmienka": "vzdy"
+      },
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
+        "cast": "Príloha č. 8 ŽoNFP",
+        "znenie": "Záväzný formulár: Áno [...] Príloha musí byť predložená riadne spolu so ŽoNFP, resp. najneskôr ku dňu doplnenia chýbajúcich náležitostí ŽoNFP v zmysle výzvy na doplnenie chýbajúcich náležitostí ŽoNFP."
+      }
+    },
+    {
+      "id": "P06",
+      "ppp": 7,
+      "nazov": "Príloha č. 6 ŽoNFP – Energetický certifikát (pri opatrení 2.1.2)",
+      "druh": "priloha",
+      "kontrola": "priloha_povinna",
+      "parametre": {
+        "cislo": "6",
+        "podmienka": "opatrenie_212"
+      },
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
+        "cast": "Príloha č. 6 ŽoNFP – Energetický certifikát",
+        "znenie": "žiadateľ realizujúci hlavné aktivity opatrenia 2.1.2 predkladá predrealizačný energetický certifikát podľa § 7 zákona č. 555/2005 Z. z. o energetickej hospodárnosti budov"
+      }
+    },
+    {
+      "id": "P05",
+      "ppp": 7,
+      "nazov": "Príloha č. 5 ŽoNFP – Energetický audit (ak je audit hlavnou aktivitou)",
+      "druh": "priloha",
+      "kontrola": "priloha_povinna",
+      "parametre": {
+        "cislo": "5",
+        "podmienka": "aktivita_audit"
+      },
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
+        "cast": "Príloha č. 5 ŽoNFP – Energetický audit / Stanovisko energetického audítora",
+        "znenie": "Žiadateľ predkladá energetický audit iba ak realizuje hlavnú aktivitu a) opatrenia 2.1.2 PPP č. 7."
+      }
+    },
+    {
+      "id": "P03",
+      "ppp": 6,
+      "nazov": "Príloha č. 3 ŽoNFP – Uznesenie o schválení programu rozvoja a územnoplánovacej dokumentácie (obec, VÚC)",
+      "druh": "priloha",
+      "kontrola": "priloha_povinna",
+      "parametre": {
+        "cislo": "3",
+        "podmienka": "obec_vuc",
+        "nahrada": "odkaz na zverejnené uznesenie v tabuľke č. 7.2 formulára ŽoNFP"
+      },
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
+        "cast": "Príloha č. 3 ŽoNFP",
+        "znenie": "Prílohu predkladá výlučne žiadateľ, ktorým je obec alebo VÚC. [...] Ak uznesenie [...] je zverejnené na webovom sídle, je postačujúce, aby žiadateľ uviedol aktuálny odkaz na webové sídlo (funkčný a verejne prístupný link) na zverejnené dokumenty v tabuľke č. 7.2. formulára ŽoNFP."
+      }
+    },
+    {
+      "id": "L07",
+      "ppp": 7,
+      "nazov": "Predmetom projektu je verejná budova oprávnenej kategórie",
+      "druh": "llm",
+      "kontrola": "llm_text",
+      "parametre": {
+        "zdroj": "popis"
+      },
+      "otazka": "Podľa výzvy sú pri opatrení 2.1.2 oprávnené iba verejné budovy (vo vlastníctve štátu, obce, VÚC alebo iného subjektu verejnej správy) týchto kategórií: administratívne budovy, budovy škôl a školských zariadení, budovy nemocníc, budovy hotelov a reštaurácií, športové haly a iné budovy určené na šport, a budovy so zmiešaným účelom užívania z týchto kategórií. Oprávnené NIE SÚ: rodinné domy, bytové domy, budovy vo vlastníctve súkromných firiem alebo súkromných osôb, výrobné a skladové haly. Urči z popisu projektu, aká budova je predmetom projektu a či je oprávnená.",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 7, ods. 3 písm. a) a b)",
+        "znenie": "oprávnené sú iba verejné budovy. Verejnou budovou sa rozumie budova vo vlastníctve / podielovom spoluvlastníctve výlučne štátu, subjektov štátnej správy a ostatných subjektov verejnej správy v zmysle PPP č. 1. [...] oprávnené sú iba kategórie budov podľa § 3 ods. 5 písm. c), d), e), f), g), a i) zákona č. 555/2005 Z. z. o energetickej hospodárnosti budov"
+      }
+    },
+    {
+      "id": "L01",
+      "ppp": 1,
+      "nazov": "Plnomocenstvo má povinné náležitosti (ak je priložené)",
+      "druh": "llm",
+      "kontrola": "llm_text",
+      "parametre": {
+        "zdroj": "priloha",
+        "cislo": "1",
+        "akChyba": "neuplatnuje_sa",
+        "nalezitosti": [
+          {
+            "nazov": "označenie štatutárneho orgánu žiadateľa, ktorý plnomocenstvo udeľuje (meno a funkcia)",
+            "vzor": "starost|primátor|riaditeľ|štatutár|predsed|rektor|minister|v zastúpení|splnomocniteľ"
+          },
+          {
+            "nazov": "podpis štatutárneho orgánu žiadateľa (splnomocniteľa)",
+            "vzor": "podpis",
+            "nesmie": "podpis\\S* splnomocnen(ca|ej|ého)",
+            "vizualne": true
+          },
+          {
+            "nazov": "označenie splnomocnenej osoby (meno)",
+            "vzor": "splnomocnen|poveren"
+          },
+          {
+            "nazov": "podpis splnomocnenej osoby (splnomocnenca)",
+            "vzor": "podpis\\S* (splnomocnen|poveren)(ca|ej|ého)|prijímam",
+            "vizualne": true
+          },
+          {
+            "nazov": "rozsah plnomocenstva, teda úkony, na ktoré je osoba splnomocnená",
+            "vzor": "splnomocňuj|poveruj|oprávn|úkon|zastupova|v rozsahu"
+          },
+          {
+            "nazov": "dátum udelenia plnomocenstva (deň, keď bolo vystavené; nie dátum narodenia)",
+            "vzor": "[0-9]{1,2}[.] ?[0-9]{1,2}[.] ?[0-9]{4}|[0-9]{1,2}[.] ?(januára|februára|marca|apríla|mája|júna|júla|augusta|septembra|októbra|novembra|decembra) +[0-9]{4}",
+            "nesmie": "naroden"
+          }
+        ]
+      },
+      "otazka": "Dokument je plnomocenstvo alebo poverenie. Musí obsahovať všetky štyri náležitosti: (1) označenie a podpis štatutárneho orgánu žiadateľa, (2) označenie a podpis každej splnomocnenej osoby, (3) rozsah plnomocenstva, teda úkony, na ktoré sú osoby splnomocnené, (4) dátum udelenia. Over, či dokument obsahuje všetky štyri. Ak niektorá chýba, je to nesplnené a uveď ktorá.",
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
+        "cast": "Príloha č. 1 ŽoNFP – Plnomocenstvo / Poverenie",
+        "znenie": "Plnomocenstvo / poverenie musí obsahovať minimálne: označenie a podpis štatutárneho orgánu žiadateľa, označenie a podpis každej splnomocnenej osoby, rozsah plnomocenstva / poverenia, t. j. identifikácia úkonov, na ktoré sú osoby splnomocnené, dátum udelenia plnomocenstva / poverenia."
+      }
+    },
+    {
+      "id": "L05",
+      "ppp": 7,
+      "nazov": "Energetický audit vypracovala oprávnená osoba a pokrýva predmet projektu (ak je priložený)",
+      "druh": "llm",
+      "kontrola": "llm_text",
+      "parametre": {
+        "zdroj": "priloha",
+        "cislo": "5",
+        "akChyba": "neuplatnuje_sa"
+      },
+      "otazka": "Dokument je energetický audit. Over dve veci: (1) či je v ňom uvedené, že ho vypracovala odborne spôsobilá osoba (energetický audítor) podľa zákona č. 321/2014 Z. z., a (2) či sa audit týka budovy, ktorá je predmetom projektu uvedeného v žiadosti. Ak niektorá z dvoch vecí v dokumente nie je, je to nesplnené.",
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
+        "cast": "Príloha č. 5 ŽoNFP – Energetický audit",
+        "znenie": "Energetický audit musí byť vypracovaný: odborne spôsobilou osobou v zmysle § 12 ods. 1 alebo § 13 zákona č. 321/2014 Z. z. [...], minimálne na predmet projektu, obsahovať časti v zmysle § 2 ods. 1 písm. a) až f) Vyhlášky Ministerstva hospodárstva SR č. 179/2015 Z. z. o energetickom audite."
+      }
+    },
+    {
+      "id": "G02",
+      "ppp": 2,
+      "nazov": "Žiadateľ nie je v konkurze, reštrukturalizácii ani likvidácii",
+      "druh": "register",
+      "kontrola": "register",
+      "parametre": {
+        "nevztahujeSaNa": [
+          "801",
+          "803"
+        ]
+      },
+      "overenieZdroj": "Register úpadcov (ru.justice.sk), Obchodný vestník, RPO",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 2",
+        "znenie": "Voči žiadateľovi nesmie byť vyhlásený konkurz ani povolená reštrukturalizácia a nesmie byť ani v likvidácii podľa zákona. [...] Podmienka sa nevzťahuje na subjekty štátnej správy a subjekty územnej samosprávy."
+      }
+    },
+    {
+      "id": "G03",
+      "ppp": 3,
+      "nazov": "Voči žiadateľovi sa nevedie výkon rozhodnutia nad 500 EUR",
+      "druh": "register",
+      "kontrola": "register",
+      "overenieZdroj": "Centrálny register exekúcií (www.cre.sk)",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 3",
+        "znenie": "Voči žiadateľovi nie je vykonávaná exekúcia alebo vedený iný výkon rozhodnutia podľa osobitných predpisov, ktorých predmetom je nútený výkon povinnosti zaplatiť peňažnú sumu vo výške vymáhaného nároku za všetky takto vykonávané exekúcie alebo iné výkony rozhodnutia vyššiu ako 500 EUR."
+      }
+    },
+    {
+      "id": "G05",
+      "ppp": 5,
+      "nazov": "Žiadateľ nemá uložený trest zákazu prijímať dotácie alebo pomoc z fondov EÚ",
+      "druh": "register",
+      "kontrola": "register",
+      "overenieZdroj": "Zoznam odsúdených právnických osôb (esluzby.genpro.gov.sk)",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 5",
+        "znenie": "Žiadateľ, ktorým je právnická osoba nemôže mať podľa osobitného zákona právoplatným rozsudkom uložený niektorý z týchto trestov: trest zákazu prijímať dotácie alebo subvencie, trest zrušenia PO, trest zákazu prijímať pomoc a podporu poskytovanú z fondov EÚ [...]"
+      }
+    },
+    {
+      "id": "G10",
+      "ppp": 10,
+      "nazov": "Vysporiadané majetkovo-právne vzťahy k budove",
+      "druh": "register",
+      "kontrola": "register",
+      "overenieZdroj": "Kataster nehnuteľností – list vlastníctva (oversi.gov.sk, katasterportal.sk), Príloha č. 8 ŽoNFP",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 10",
+        "znenie": "Stavba (verejná budova), na ktorej dochádza k realizácii projektu, musí byť vo výlučnom vlastníctve alebo v podielovom spoluvlastníctve výlučne štátu, subjektov štátnej správy a ostatných subjektov verejnej správy v zmysle PPP č. 1. Stavba môže byť v správe alebo v nájme žiadateľa."
+      }
+    },
+    {
+      "id": "G11",
+      "ppp": 11,
+      "nazov": "Projekt nie je štátnou pomocou (hospodárske využitie najviac 20 % kapacity)",
+      "druh": "register",
+      "kontrola": "register",
+      "overenieZdroj": "Príloha č. 8 ŽoNFP (údaje o využití kapacity), prípadne stanovisko advokáta (Príloha č. 4 ŽoNFP)",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 11",
+        "znenie": "Sprievodné hospodárske využitie infraštruktúry [...] možno považovať za vedľajšie, ak kapacita vyčlenená každý rok na túto činnosť neprekračuje 20 percent celkovej ročnej kapacity infraštruktúry."
+      }
+    },
+    {
+      "id": "G15",
+      "ppp": 15,
+      "nazov": "Žiadateľ nie je v systéme EDES ako vylúčená osoba",
+      "druh": "register",
+      "kontrola": "register",
+      "overenieZdroj": "EDES, neverejná časť (ec.europa.eu/budget/edes)",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 15",
+        "znenie": "Žiadateľ nesmie byť evidovaný v Systéme včasného odhaľovania rizika a vylúčenia (EDES) ako vylúčená osoba alebo subjekt (v zmysle článku 137 Nariadenia Európskeho parlamentu a Rady (EÚ, Euratom) č. 2024/2509)."
+      }
+    }
+  ]
+}
