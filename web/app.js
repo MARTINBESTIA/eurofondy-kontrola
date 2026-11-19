@@ -1,47 +1,25 @@
 // Rozhranie dema. Bez frameworku; všetok text ide cez textContent, nič z dát sa nevkladá ako HTML.
 // Rozhranie je všeobecné: modul cez API povie, aké má prípady, polia, dokumenty a pravidlá.
-const $ = (s) => document.querySelector(s);
-const el = (tag, attrs = {}, ...deti) => {
-  const e = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs)) { if (k === 'class') e.className = v; else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else if (v !== false && v != null) e.setAttribute(k, v); }
-  for (const d of deti.flat()) if (d != null && d !== false) e.append(d.nodeType ? d : document.createTextNode(String(d)));
-  return e;
-};
-const api = async (cesta, telo) => {
-  const r = await fetch(cesta, telo ? { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(telo) } : undefined);
-  const j = await r.json();
-  if (!r.ok) throw new Error(j.chyba ?? `HTTP ${r.status}`);
-  return j;
-};
-const cislo = (n, d = 1) => (n == null ? '–' : Number(n).toLocaleString('sk-SK', { maximumFractionDigits: d }));
-const pct = (a, b) => (b ? `${cislo((a / b) * 100)} %` : '–');
+import { $, el, api, cislo, pct, naBase64, STAVY, VERDIKTY, DRUHY, kresliVerdikt, kresliNalezy } from './ui.js';
+import { zobrazPodatelnu } from './podatelna.js';
 
-const STAVY = {
-  nesplnene: 'Nesplnené', chyba_podklad: 'Chýba podklad', na_preverenie: 'Na preverenie',
-  splnene: 'Splnené', mimo_podkladov: 'Neoverené', neuplatnuje_sa: 'Neuplatňuje sa',
-};
-const NADPISY = {
-  nesplnene: 'Nesplnené', chyba_podklad: 'Chýbajúce podklady (výzva na doplnenie)', na_preverenie: 'Musí posúdiť človek',
-  splnene: 'Overené a splnené', mimo_podkladov: 'Softvér neoveril: chýbajú údaje alebo dokumenty', neuplatnuje_sa: 'Neuplatňuje sa',
-};
-const VERDIKTY = {
-  nesplnene_podmienky: 'Zistené porušenie pravidiel', vyzva_na_doplnenie: 'Chýbajú podklady',
-  na_preverenie: 'Treba posúdenie človekom', ciastocne_overene: 'Čiastočne overené: v overených bodoch bez zistení',
-  bez_zisteni: 'Všetky pravidlá overené, bez zistení',
-};
-const DRUHY = { data: 'výpočet z údajov', priloha: 'prítomnosť dokumentu', llm: 'text číta lokálny model', register: 'register (voliteľný online dopyt alebo overuje poskytovateľ)' };
-
-let stav = null, modul = null, vybrane = null, povodny = null, prilohy = {}, karta = 'kontrola';
+let stav = null, modul = null, vybrane = null, povodny = null, prilohy = {};
+let karta = location.hash.startsWith('#p/') ? 'podatelna' : (() => { try { return localStorage.getItem('karta') ?? 'podatelna'; } catch { return 'podatelna'; } })();
 
 // ---------- karty a moduly
 for (const k of document.querySelectorAll('.karta')) k.addEventListener('click', () => { karta = k.dataset.karta; kresliKartu(); });
 function kresliKartu() {
+  try { localStorage.setItem('karta', karta); } catch {}
   document.querySelectorAll('.karta').forEach((x) => x.classList.toggle('aktivna', x.dataset.karta === karta));
   document.querySelectorAll('main.panel').forEach((p) => (p.hidden = p.id !== karta));
+  // Podateľňa pracuje so žiadosťami o NFP vo všetkých výzvach s pravidlami; výber kroku procesu (modulu) tam nemá zmysel.
+  $('#moduly').hidden = karta === 'podatelna';
+  if (karta === 'podatelna') zobrazPodatelnu(stav).catch((e) => $('#podatelna-detail').replaceChildren(el('p', {}, `Chyba: ${e.message}`)));
+  else if (location.hash.startsWith('#p/')) history.replaceState(null, '', location.pathname);
   if (karta === 'test') nacitajTest().catch((e) => $('#test-obsah').replaceChildren(el('p', {}, `Chyba: ${e.message}`)));
   if (karta === 'pravidla') nacitajPravidla().catch((e) => $('#pravidla-obsah').replaceChildren(el('p', {}, `Chyba: ${e.message}`)));
 }
-function vyberModul(id) {
+function vyberModul(id, prepni = true) {
   modul = stav.moduly.find((m) => m.id === id) ?? stav.moduly[0];
   try { localStorage.setItem('modul', modul.id); } catch {}
   document.querySelectorAll('.modul').forEach((b) => b.classList.toggle('aktivny', b.dataset.modul === modul.id));
@@ -49,7 +27,11 @@ function vyberModul(id) {
   $('#hladaj').value = ''; vybrane = null;
   $('#prazdne').hidden = false; $('#obsah').hidden = true;
   $('#prazdne-nazov').textContent = modul.nazov; $('#prazdne-popis').textContent = modul.popis;
-  nacitajZoznam(); kresliKartu();
+  nacitajZoznam();
+  // Klik na krok procesu prepne z Podateľne na kontrolu daného modulu; pri štarte aplikácie sa karta nemení.
+  if (!prepni) return;
+  if (karta === 'podatelna') karta = 'kontrola';
+  kresliKartu();
 }
 
 // ---------- zoznam prípadov
@@ -110,8 +92,7 @@ function kresliPrilohy(sloty) {
       const f = e.target.files[0]; if (!f) return;
       info.textContent = 'čítam…';
       try {
-        const base64 = btoa(Array.from(new Uint8Array(await f.arrayBuffer()), (b) => String.fromCharCode(b)).join(''));
-        const j = await api('/api/text', { nazov: f.name, base64 });
+        const j = await api('/api/text', { nazov: f.name, base64: await naBase64(f) });
         prilohy[c] = { nazov: f.name, text: j.text }; $('#mamPrilohy').checked = true;
         info.textContent = `${f.name} · ${j.znakov.toLocaleString('sk-SK')} znakov textu${j.znakov < 40 ? ' (bez textovej vrstvy?)' : ''}`;
       } catch (err) { info.textContent = `chyba: ${err.message}`; }
@@ -136,27 +117,10 @@ $('#posud').addEventListener('click', async () => {
 
 function kresliPosudok({ posudok: p, skutocnost, vystupy }, upravene) {
   $('#vysledok').hidden = false;
-  const v = $('#verdikt'); v.className = `verdikt ${p.navrh}`;
-  const overitelne = p.nalezy.length - p.pocty.neuplatnuje_sa;
-  v.replaceChildren(el('strong', {}, VERDIKTY[p.navrh]), el('span', {}, p.zhrnutie),
-    el('div', { class: 'pokrytie', title: 'Podiel pravidiel, ktoré softvér z podkladov naozaj overil' },
-      el('div', { class: 'pruh' }, el('span', { style: `width:${overitelne ? ((p.pocty.splnene + p.pocty.nesplnene) / overitelne) * 100 : 0}%` })),
-      el('span', { class: 'male' }, `Overené ${p.pocty.splnene + p.pocty.nesplnene} z ${overitelne} pravidiel, ktoré sa na prípad vzťahujú`)),
-    el('div', { class: 'tlmene male' }, `Pravidlá: ${p.verziaBalika} · ${p.model ? `model ${p.model}` : 'bez modelu'} · ${(p.trvanieMs / 1000).toFixed(1)} s · softvér navrhuje, rozhoduje človek`));
+  const v = $('#verdikt'); kresliVerdikt(v, p);
   $('#skutocnost').hidden = !(upravene || skutocnost);
   $('#skutocnost').textContent = upravene ? 'Údaje alebo dokumenty ste zmenili, preto sa výsledok neporovnáva so skutočným stavom v registri.' : skutocnost ?? '';
-  const k = $('#nalezy'); k.replaceChildren();
-  for (const s of Object.keys(NADPISY)) {
-    const cast = p.nalezy.filter((n) => n.stav === s); if (!cast.length) continue;
-    k.append(el('div', { class: 'sk-nadpis' }, `${NADPISY[s]} (${cast.length})`));
-    for (const n of cast) k.append(el('details', { class: 'nalez', open: ['nesplnene', 'chyba_podklad', 'na_preverenie'].includes(s) ? '' : false },
-      el('summary', {}, el('span', { class: `stitok s-${n.stav}` }, STAVY[n.stav]),
-        el('span', {}, el('span', { class: 'nz' }, `${n.ppp ? `PPP č. ${n.ppp} · ` : ''}${n.nazov}`), el('br'), el('span', { class: 'zd' }, n.zdovodnenie))),
-      el('div', { class: 'vnutro' },
-        n.dokaz ? el('div', {}, el('span', { class: 'tlmene' }, 'Úryvok z dokumentu:'), el('blockquote', { class: 'dokaz' }, n.dokaz)) : null,
-        el('span', { class: 'tlmene' }, `Pravidlo ${n.pravidlo} · ${n.citacia.dokument}, ${n.citacia.cast}:`), el('blockquote', {}, n.citacia.znenie),
-        n.overenieZdroj ? el('div', { class: 'tlmene' }, n.overenieZdroj) : null)));
-  }
+  kresliNalezy($('#nalezy'), p.nalezy);
   $('#vystupy').replaceChildren(...(vystupy ?? []).map((o) => {
     const pre = el('pre', { class: 'vystup' }, o.text);
     return el('div', { class: 'box vystup-box' }, el('div', { class: 'vystup-hlava' }, el('h3', {}, o.nazov),
@@ -230,9 +194,10 @@ async function nacitajPravidla() {
 
 // ---------- štart
 stav = await api('/api/stav');
-$('#stav').textContent = `Výzva ${stav.vyzva} · model ${stav.model} ${stav.modelDostupny ? 'beží lokálne' : 'nedostupný'} · ${stav.posudkov} posudkov v auditnej stope · nič sa neodosiela von`;
+$('#stav').textContent = `Výzva ${stav.vyzva} · model ${stav.model} ${stav.modelDostupny ? 'beží lokálne' : 'nedostupný'} · ${stav.posudkov} posudkov v auditnej stope · nič sa neodosiela von${stav.pdf === false ? ' · POZOR: PDF sa nedajú čítať (chýba pdftotext)' : ''}`;
 if (!stav.modelDostupny) $('#llm').checked = false;
 $('#moduly').replaceChildren(...stav.moduly.map((m, i) => el('button', { class: 'modul', 'data-modul': m.id, title: m.popis, onclick: () => vyberModul(m.id) },
   el('span', { class: 'krok' }, i + 1), m.nazov, m.balik?.pravidiel ? el('span', { class: 'pocet' }, m.balik.pravidiel) : null)));
 let ulozeny = null; try { ulozeny = localStorage.getItem('modul'); } catch {}
-vyberModul(ulozeny ?? 'zonfp');
+vyberModul(ulozeny ?? 'zonfp', false);
+kresliKartu();

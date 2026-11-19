@@ -1,0 +1,141 @@
+{
+  "_poznamka": "Štruktúrované údaje formulára ŽoNFP (v praxi z ITMS21+). Fiktívny subjekt pre demo.",
+  "kod": "DEMO-A-2025-001",
+  "nazov": "Obnova budovy Základnej školy Vzorová",
+  "vyzvaKod": "PSK-SIEA-002-2023-DV-EFRR",
+  "datumPredlozenia": "2025-11-27",
+  "ziadatel": {
+    "nazov": "Obec Vzorová",
+    "ico": "00999911",
+    "pravnaFormaKod": "801",
+    "pravnaForma": "Obec (obecný úrad), mesto (mestský úrad)"
+  },
+  "miesta": [
+    {
+      "kraj": "Prešovský kraj",
+      "okres": "Prešov",
+      "obec": "Vzorová",
+      "lokalita": "SLOVENSKA_REPUBLIKA"
+    }
+  ],
+  "kategoriaRegionov": [
+    "MRR"
+  ],
+  "sumaZiadanaNFP": 1180000,
+  "sumaZiadanaCelkova": 1180000,
+  "percentoZiadane": 1,
+  "dlzkaHlavnychAktivitMes": 20,
+  "zaciatokHlavnychAktivit": "2026-03-01",
+  "koniecHlavnychAktivit": "2027-10-31",
+  "popis": "Predmetom projektu je obnova budovy Základnej školy Vzorová, ktorej vlastníkom je Obec Vzorová. Budova slúži na výchovu a vzdelávanie približne 260 žiakov 1. až 9. ročníka a je v pôvodnom technickom stave z roku 1978. Projekt rieši zateplenie obvodového plášťa a strechy, výmenu otvorových konštrukcií, modernizáciu osvetlenia a inštaláciu fotovoltickej elektrárne s výkonom 49,5 kWp na streche školy. Po obnove sa budova podľa globálneho ukazovateľa primárna energia zlepší z triedy D na triedu B.",
+  "ucel": "Účelom projektu je znížiť spotrebu primárnej energie budovy školy a náklady obce na jej prevádzku.",
+  "opatrenia": [
+    "2.1.2",
+    "2.2.2"
+  ],
+  "aktivity": [
+    {
+      "kod": "A1",
+      "nazov": "Zateplenie obvodového plášťa a strechy budovy ZŠ Vzorová",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "zaciatok": "2026-03-01",
+      "koniec": "2027-10-31"
+    },
+    {
+      "kod": "A2",
+      "nazov": "Výmena otvorových konštrukcií budovy ZŠ Vzorová",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "zaciatok": "2026-03-01",
+      "koniec": "2027-10-31"
+    },
+    {
+      "kod": "A3",
+      "nazov": "Modernizácia osvetlenia budovy ZŠ Vzorová",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "zaciatok": "2026-03-01",
+      "koniec": "2027-10-31"
+    },
+    {
+      "kod": "A4",
+      "nazov": "Inštalácia fotovoltickej elektrárne na streche ZŠ Vzorová",
+      "hlavna": true,
+      "opatrenie": "2.2.2",
+      "zaciatok": "2026-03-01",
+      "koniec": "2027-10-31"
+    },
+    {
+      "kod": "P1",
+      "nazov": "Podporné aktivity",
+      "hlavna": false,
+      "opatrenie": "2.1.2",
+      "zaciatok": null,
+      "koniec": null
+    }
+  ],
+  "rozpocet": [
+    {
+      "aktivita": "Zateplenie obvodového plášťa a strechy budovy ZŠ Vzorová",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "skupinaVydavkov": "Stavby",
+      "suma": 720000
+    },
+    {
+      "aktivita": "Výmena otvorových konštrukcií budovy ZŠ Vzorová",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "skupinaVydavkov": "Stavby",
+      "suma": 255000
+    },
+    {
+      "aktivita": "Modernizácia osvetlenia budovy ZŠ Vzorová",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "skupinaVydavkov": "Samostatné hnuteľné veci a súbory hnuteľných vecí",
+      "suma": 75000
+    },
+    {
+      "aktivita": "Inštalácia fotovoltickej elektrárne na streche ZŠ Vzorová",
+      "hlavna": true,
+      "opatrenie": "2.2.2",
+      "skupinaVydavkov": "Samostatné hnuteľné veci a súbory hnuteľných vecí",
+      "suma": 62000
+    },
+    {
+      "aktivita": "Podporné aktivity",
+      "hlavna": false,
+      "opatrenie": "2.1.2",
+      "skupinaVydavkov": "Ostatné služby",
+      "suma": 68000
+    }
+  ],
+  "ukazovatele": [
+    {
+      "kod": "PSKPRCO19",
+      "nazov": "Verejné budovy so zlepšenou energetickou hospodárnosťou",
+      "typ": "vystup",
+      "jednotka": "m2",
+      "vychodisko": 0,
+      "ciel": 1650
+    },
+    {
+      "kod": "PSKPRCR26b",
+      "nazov": "Ročná primárna spotreba energie: verejné budovy",
+      "typ": "vysledok",
+      "jednotka": "MWh/rok",
+      "vychodisko": 412.6,
+      "ciel": 168.3
+    },
+    {
+      "kod": "PSKPRCO22a",
+      "nazov": "Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: elektrická",
+      "typ": "vystup",
+      "jednotka": "MW",
+      "vychodisko": 0,
+      "ciel": 0.0495
+    }
+  ]
+}

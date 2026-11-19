@@ -18,6 +18,9 @@
     "test:llm": "node scripts/04-test-llm.ts",
     "test:moduly": "node scripts/08-test-moduly.ts",
     "test:llm-moduly": "node scripts/09-test-llm-moduly.ts",
+    "test:podatelna": "node scripts/12-test-podatelna.ts",
+    "demo:podania": "node scripts/10-demo-podania.ts",
+    "podanie": "node scripts/11-prijem-podania.ts",
     "start": "node src/server/server.ts"
   }
 }

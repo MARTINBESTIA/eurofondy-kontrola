@@ -24,14 +24,27 @@ export function zoznamBalikov(): { vyzvaKod: string; modul: string; verzia: stri
 /**
  * vzor: úryvok mu musí zodpovedať; nesmie: úryvok mu nesmie zodpovedať (zámena s podobným údajom);
  * nesmieRiadok: celý riadok textu, z ktorého úryvok pochádza, mu nesmie zodpovedať (napr. IBAN z riadku „Protistrana“).
+ * vzorOkolie: ak úryvok vzoru nezodpovedá, vzor aj zákaz sa skúsia na úryvku spolu s toľkými susednými riadkami.
+ *   Len pre podpisy: model cituje meno pod čiarou („Ing. X, starosta“), slovo „podpis“ je o riadok vyššie.
+ *   Nezapínať pri sumách a údajoch, kde susedný riadok nesie iný údaj (popisok tabuľky by „potvrdil“ zlé číslo).
  */
-export interface Nalezitost { nazov: string; vzor?: string; nesmie?: string; nesmieRiadok?: string; vizualne?: boolean }
+export interface Nalezitost { nazov: string; vzor?: string; nesmie?: string; nesmieRiadok?: string; vizualne?: boolean; vzorOkolie?: number }
 
-/** Riadky zdrojového textu, z ktorých pochádza úryvok (porovnanie bez medzier a interpunkcie). */
+const normRiadok = (x: string) => x.toLowerCase().replace(/[\s"„“”'’‚‘.,;:()–-]+/g, '');
+/** Indexy riadkov zdrojového textu, z ktorých pochádza úryvok (porovnanie bez medzier a interpunkcie). */
+function indexyUryvku(dokaz: string, riadky: string[]): number[] {
+  const kusy = dokaz.split(/\.{3,}|…/).map(normRiadok).filter((k) => k.length >= 4);
+  return riadky.flatMap((r, i) => { const nr = normRiadok(r); return nr.length > 0 && kusy.some((k) => nr.includes(k) || (nr.length >= 6 && k.includes(nr))) ? [i] : []; });
+}
+/** Riadky zdrojového textu, z ktorých pochádza úryvok. */
 export function riadkyUryvku(dokaz: string, text: string): string[] {
-  const n = (x: string) => x.toLowerCase().replace(/[\s"„“”'’‚‘.,;:()–-]+/g, '');
-  const kusy = dokaz.split(/\.{3,}|…/).map(n).filter((k) => k.length >= 4);
-  return text.split(/\r?\n/).filter((r) => { const nr = n(r); return nr.length > 0 && kusy.some((k) => nr.includes(k) || (nr.length >= 6 && k.includes(nr))); });
+  const riadky = text.split(/\r?\n/);
+  return indexyUryvku(dokaz, riadky).map((i) => riadky[i]);
+}
+/** Úryvok s okolím: pre každý výskyt zvlášť riadky i−n až i+n (nie rozpätie medzi výskytmi, to by bolo príliš voľné). */
+export function okoliaUryvku(dokaz: string, text: string, n: number): string[] {
+  const riadky = text.split(/\r?\n/);
+  return indexyUryvku(dokaz, riadky).map((i) => riadky.slice(Math.max(0, i - n), i + n + 1).join('\n').trim());
 }
 
 /**
@@ -42,10 +55,22 @@ export function riadkyUryvku(dokaz: string, text: string): string[] {
  */
 export async function najdiVTexte(n: Nalezitost, text: string): Promise<{ najdene: boolean; dokaz: string; ms: number }> {
   const o = await posudText(`Nájdi v dokumente túto náležitosť: ${n.nazov}.\nAk v dokumente je, stav je "splnene" a do poľa "dokaz" skopíruj doslovný úryvok, v ktorom sa nachádza.\nAk v dokumente nie je, stav je "nesplnene" a pole "dokaz" nechaj prázdne. Nezamieňaj ju s inými údajmi v dokumente.`, text);
-  const sedi = o.stav === 'splnene' && dokazJeVTexte(o.dokaz, text)
-    && (!n.vzor || new RegExp(n.vzor, 'i').test(o.dokaz)) && !(n.nesmie && new RegExp(n.nesmie, 'i').test(o.dokaz))
-    && !(n.nesmieRiadok && riadkyUryvku(o.dokaz, text).some((r) => new RegExp(n.nesmieRiadok!, 'i').test(r)));
-  return { najdene: sedi, dokaz: o.dokaz, ms: o.ms };
+  if (o.stav !== 'splnene') return { najdene: false, dokaz: o.dokaz, ms: o.ms };
+  return { ...overUryvok(n, o.dokaz, text), ms: o.ms };
+}
+
+/** Poistky na úryvok, ktorý model uviedol ako nájdenú náležitosť (bez volania modelu, testovateľné samostatne). */
+export function overUryvok(n: Nalezitost, dokaz: string, text: string): { najdene: boolean; dokaz: string } {
+  const vzorOk = (s: string) => !n.vzor || new RegExp(n.vzor, 'i').test(s);
+  const zakazOk = (s: string) => !(n.nesmie && new RegExp(n.nesmie, 'i').test(s));
+  const zaklad = dokazJeVTexte(dokaz, text) && zakazOk(dokaz)
+    && !(n.nesmieRiadok && riadkyUryvku(dokaz, text).some((r) => new RegExp(n.nesmieRiadok!, 'i').test(r)));
+  if (!zaklad) return { najdene: false, dokaz };
+  if (vzorOk(dokaz)) return { najdene: true, dokaz };
+  // Okolie: celý blok (úryvok aj susedné riadky) musí vzoru zodpovedať a zákazu nie; dôkazom je potom celý blok,
+  // aby kontrolór videl, z čoho softvér vychádzal.
+  const blok = n.vzorOkolie ? okoliaUryvku(dokaz, text, n.vzorOkolie).find((b) => vzorOk(b) && zakazOk(b)) : undefined;
+  return { najdene: !!blok, dokaz: blok ?? dokaz };
 }
 
 async function kontrolaLlm(v: any, p: Pravidlo, modul: Modul): Promise<VysledokKontroly> {

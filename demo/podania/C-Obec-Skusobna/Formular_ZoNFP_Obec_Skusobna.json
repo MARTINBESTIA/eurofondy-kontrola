@@ -1,0 +1,102 @@
+{
+  "_poznamka": "Štruktúrované údaje formulára ŽoNFP (v praxi z ITMS21+). Fiktívny subjekt pre demo.",
+  "kod": "DEMO-C-2025-003",
+  "nazov": "Obnova obecného nájomného bytového domu Skúšobná",
+  "vyzvaKod": "PSK-SIEA-002-2023-DV-EFRR",
+  "datumPredlozenia": "2025-11-24",
+  "ziadatel": {
+    "nazov": "Obec Skúšobná",
+    "ico": "00999938",
+    "pravnaFormaKod": "801",
+    "pravnaForma": "Obec (obecný úrad), mesto (mestský úrad)"
+  },
+  "miesta": [
+    {
+      "kraj": "Trnavský kraj",
+      "okres": "Trnava",
+      "obec": "Skúšobná",
+      "lokalita": "SLOVENSKA_REPUBLIKA"
+    }
+  ],
+  "kategoriaRegionov": [
+    "MRR"
+  ],
+  "sumaZiadanaNFP": 412000,
+  "sumaZiadanaCelkova": 412000,
+  "percentoZiadane": 1,
+  "dlzkaHlavnychAktivitMes": 14,
+  "zaciatokHlavnychAktivit": "2026-05-01",
+  "koniecHlavnychAktivit": "2027-06-30",
+  "popis": "Predmetom projektu je obnova obecného nájomného bytového domu so 16 bytmi na ulici Lipová 3, ktorý vlastní Obec Skúšobná a prenajíma ho mladým rodinám. Projekt rieši zateplenie obvodového plášťa a výmenu okien v spoločných priestoroch aj v bytoch.",
+  "ucel": "Účelom projektu je znížiť náklady nájomníkov na vykurovanie a predĺžiť životnosť budovy.",
+  "opatrenia": [
+    "2.1.2"
+  ],
+  "aktivity": [
+    {
+      "kod": "A1",
+      "nazov": "Zateplenie obvodového plášťa bytového domu Lipová 3",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "zaciatok": "2026-05-01",
+      "koniec": "2027-06-30"
+    },
+    {
+      "kod": "A2",
+      "nazov": "Výmena otvorových konštrukcií bytového domu Lipová 3",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "zaciatok": "2026-05-01",
+      "koniec": "2027-06-30"
+    },
+    {
+      "kod": "P1",
+      "nazov": "Podporné aktivity",
+      "hlavna": false,
+      "opatrenie": "2.1.2",
+      "zaciatok": null,
+      "koniec": null
+    }
+  ],
+  "rozpocet": [
+    {
+      "aktivita": "Zateplenie obvodového plášťa bytového domu Lipová 3",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "skupinaVydavkov": "Stavby",
+      "suma": 290000
+    },
+    {
+      "aktivita": "Výmena otvorových konštrukcií bytového domu Lipová 3",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "skupinaVydavkov": "Stavby",
+      "suma": 90000
+    },
+    {
+      "aktivita": "Podporné aktivity",
+      "hlavna": false,
+      "opatrenie": "2.1.2",
+      "skupinaVydavkov": "Ostatné služby",
+      "suma": 32000
+    }
+  ],
+  "ukazovatele": [
+    {
+      "kod": "PSKPRCO19",
+      "nazov": "Verejné budovy so zlepšenou energetickou hospodárnosťou",
+      "typ": "vystup",
+      "jednotka": "m2",
+      "vychodisko": 0,
+      "ciel": 820
+    },
+    {
+      "kod": "PSKPRCR26b",
+      "nazov": "Ročná primárna spotreba energie: verejné budovy",
+      "typ": "vysledok",
+      "jednotka": "MWh/rok",
+      "vychodisko": 182,
+      "ciel": 132.1
+    }
+  ]
+}

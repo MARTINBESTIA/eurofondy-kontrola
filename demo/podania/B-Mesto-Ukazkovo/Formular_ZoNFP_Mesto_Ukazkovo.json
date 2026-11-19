@@ -1,0 +1,141 @@
+{
+  "_poznamka": "Štruktúrované údaje formulára ŽoNFP (v praxi z ITMS21+). Fiktívny subjekt pre demo.",
+  "kod": "DEMO-B-2025-002",
+  "nazov": "Zníženie energetickej náročnosti budovy Mestského úradu Ukážkovo",
+  "vyzvaKod": "PSK-SIEA-002-2023-DV-EFRR",
+  "datumPredlozenia": "2025-11-20",
+  "ziadatel": {
+    "nazov": "Mesto Ukážkovo",
+    "ico": "00999920",
+    "pravnaFormaKod": "801",
+    "pravnaForma": "Obec (obecný úrad), mesto (mestský úrad)"
+  },
+  "miesta": [
+    {
+      "kraj": "Žilinský kraj",
+      "okres": "Martin",
+      "obec": "Ukážkovo",
+      "lokalita": "SLOVENSKA_REPUBLIKA"
+    }
+  ],
+  "kategoriaRegionov": [
+    "MRR"
+  ],
+  "sumaZiadanaNFP": 2450000,
+  "sumaZiadanaCelkova": 2450000,
+  "percentoZiadane": 1,
+  "dlzkaHlavnychAktivitMes": 24,
+  "zaciatokHlavnychAktivit": "2026-04-01",
+  "koniecHlavnychAktivit": "2028-03-31",
+  "popis": "Predmetom projektu je obnova administratívnej budovy Mestského úradu Ukážkovo vo vlastníctve Mesta Ukážkovo. V budove sídli mestský úrad a matrika, denne ju navštívi približne 150 občanov. Projekt zahŕňa zateplenie obvodového plášťa a strechy, výmenu okien a dverí, inštaláciu vzduchotechniky s rekuperáciou tepla a náhradu plynovej kotolne tepelnými čerpadlami vzduch-voda s tepelným výkonom 180 kW.",
+  "ucel": "Účelom projektu je znížiť energetickú náročnosť budovy mestského úradu a využívať obnoviteľné zdroje energie na vykurovanie.",
+  "opatrenia": [
+    "2.1.2",
+    "2.2.2"
+  ],
+  "aktivity": [
+    {
+      "kod": "A1",
+      "nazov": "Zateplenie obvodového plášťa a strechy budovy MsÚ Ukážkovo",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "zaciatok": "2026-04-01",
+      "koniec": "2028-03-31"
+    },
+    {
+      "kod": "A2",
+      "nazov": "Výmena otvorových konštrukcií budovy MsÚ Ukážkovo",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "zaciatok": "2026-04-01",
+      "koniec": "2028-03-31"
+    },
+    {
+      "kod": "A3",
+      "nazov": "Inštalácia vzduchotechniky s rekuperáciou tepla v budove MsÚ Ukážkovo",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "zaciatok": "2026-04-01",
+      "koniec": "2028-03-31"
+    },
+    {
+      "kod": "A4",
+      "nazov": "Inštalácia tepelných čerpadiel vzduch-voda v budove MsÚ Ukážkovo",
+      "hlavna": true,
+      "opatrenie": "2.2.2",
+      "zaciatok": "2026-04-01",
+      "koniec": "2028-03-31"
+    },
+    {
+      "kod": "P1",
+      "nazov": "Podporné aktivity",
+      "hlavna": false,
+      "opatrenie": "2.1.2",
+      "zaciatok": null,
+      "koniec": null
+    }
+  ],
+  "rozpocet": [
+    {
+      "aktivita": "Zateplenie obvodového plášťa a strechy budovy MsÚ Ukážkovo",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "skupinaVydavkov": "Stavby",
+      "suma": 1380000
+    },
+    {
+      "aktivita": "Výmena otvorových konštrukcií budovy MsÚ Ukážkovo",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "skupinaVydavkov": "Stavby",
+      "suma": 420000
+    },
+    {
+      "aktivita": "Inštalácia vzduchotechniky s rekuperáciou tepla v budove MsÚ Ukážkovo",
+      "hlavna": true,
+      "opatrenie": "2.1.2",
+      "skupinaVydavkov": "Stavby",
+      "suma": 310000
+    },
+    {
+      "aktivita": "Inštalácia tepelných čerpadiel vzduch-voda v budove MsÚ Ukážkovo",
+      "hlavna": true,
+      "opatrenie": "2.2.2",
+      "skupinaVydavkov": "Samostatné hnuteľné veci a súbory hnuteľných vecí",
+      "suma": 205000
+    },
+    {
+      "aktivita": "Podporné aktivity",
+      "hlavna": false,
+      "opatrenie": "2.1.2",
+      "skupinaVydavkov": "Ostatné služby",
+      "suma": 135000
+    }
+  ],
+  "ukazovatele": [
+    {
+      "kod": "PSKPRCO19",
+      "nazov": "Verejné budovy so zlepšenou energetickou hospodárnosťou",
+      "typ": "vystup",
+      "jednotka": "m2",
+      "vychodisko": 0,
+      "ciel": 3900
+    },
+    {
+      "kod": "PSKPRCR26b",
+      "nazov": "Ročná primárna spotreba energie: verejné budovy",
+      "typ": "vysledok",
+      "jednotka": "MWh/rok",
+      "vychodisko": 905,
+      "ciel": 391
+    },
+    {
+      "kod": "PSKPRCO22b",
+      "nazov": "Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: tepelná",
+      "typ": "vystup",
+      "jednotka": "MW",
+      "vychodisko": 0,
+      "ciel": 0.18
+    }
+  ]
+}

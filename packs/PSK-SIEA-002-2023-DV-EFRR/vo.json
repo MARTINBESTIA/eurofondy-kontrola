@@ -126,7 +126,7 @@
      {
       "nazov": "predpokladaná hodnota zákazky v eurách",
       "vzor": "[0-9][0-9 ]*([,.][0-9]{2})?",
-      "nesmie": "zmluvn|ponuk|predložil|úspešn"
+      "nesmie": "zmluv|uzavret|ponuk|predložil|úspešn"
      },
      {
       "nazov": "kritérium na vyhodnotenie ponúk",
@@ -138,7 +138,7 @@
      },
      {
       "nazov": "zoznam uchádzačov, ktorí predložili ponuku",
-      "nesmieRiadok": "osloven"
+      "nesmieRiadok": "osloven|zaslan"
      },
      {
       "nazov": "identifikácia úspešného uchádzača",
@@ -147,7 +147,7 @@
      {
       "nazov": "konečná zmluvná cena ponuky úspešného uchádzača",
       "vzor": "[0-9][0-9 ]*[,.][0-9]{2}",
-      "nesmieRiadok": "predložil|predpoklad|osloven"
+      "nesmieRiadok": "predložil|predpoklad|osloven|ponuk"
      },
      {
       "nazov": "skutočnosti o prepojení zainteresovanej osoby a uchádzača podľa § 23 ZVO (konflikt záujmov)",

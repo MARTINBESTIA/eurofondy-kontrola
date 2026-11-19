@@ -14,7 +14,8 @@
         <p id="stav" class="tlmene male">Načítavam…</p>
       </div>
       <nav class="karty" role="tablist" aria-label="Pohľad">
-        <button class="karta aktivna" data-karta="kontrola" role="tab">Kontrola</button>
+        <button class="karta aktivna" data-karta="podatelna" role="tab">Podateľňa</button>
+        <button class="karta" data-karta="kontrola" role="tab">Kontrola</button>
         <button class="karta" data-karta="test" role="tab">Test na reálnych dátach</button>
         <button class="karta" data-karta="pravidla" role="tab">Pravidlá a zdroje</button>
       </nav>
@@ -22,7 +23,17 @@
     <nav id="moduly" class="moduly" aria-label="Krok procesu"></nav>
   </header>
 
-  <main id="kontrola" class="panel">
+  <main id="podatelna" class="panel" hidden>
+    <aside class="zoznam">
+      <button id="pod-nova" class="hlavne">+ Nová žiadosť</button>
+      <button id="pod-prehlad" class="vedlajsie">Prehľad výziev a úspešnosť</button>
+      <input id="pod-hladaj" type="search" placeholder="Hľadať číslo spisu, žiadateľa, názov" aria-label="Hľadať v spisoch">
+      <ul id="pod-spisy" class="spisy"></ul>
+    </aside>
+    <section id="podatelna-detail" class="detail"></section>
+  </main>
+
+  <main id="kontrola" class="panel" hidden>
     <aside class="zoznam">
       <input id="hladaj" type="search" placeholder="Hľadať kód, názov, subjekt" aria-label="Hľadať">
       <select id="filter" aria-label="Filter"></select>

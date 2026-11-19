@@ -40,14 +40,43 @@ npm run test:pravidla     # test 1: pravidlá žiadostí voči skutočnému rozh
 npm run test:llm          # test 2: lokálny model pri žiadostiach (asi 30 min; --iba=CD spustí len časti C a D)
 npm run test:moduly       # test 3: všetky moduly na reálnych dátach + zasadené chyby (asi 30 s)
 npm run test:llm-moduly   # test 4: lokálny model na syntetických faktúrach, výpisoch, záznamoch VO, odôvodneniach
+npm run test:podatelna    # test 5: podateľňa na demo podaniach, bez modelu (asi 3 s)
+npm run demo:podania      # vymyslené podania žiadostí (PDF, DOCX, JSON, ZIP) do demo/podania
 npm start                 # demo na http://127.0.0.1:5177
 ```
 
 Premenné prostredia: `PORT`, `VYZVA`, `KONTROLA_MODEL` (predvolene `qwen3.5:9b`), `OLLAMA_URL`,
-`KONTROLA_DNES` (referenčný dátum pre termíny, predvolene dnes).
+`KONTROLA_DNES` (referenčný dátum pre termíny, predvolene dnes), `PDFTOTEXT` (cesta k pdftotext; inak sa
+hľadá na PATH a v Git for Windows), `SPISY_DIR` (úložisko súborov podateľne, predvolene `data/spisy`).
 
 Softvér nič neodosiela. Jediný voliteľný online dopyt je overenie štatutárov v registri RPO v module VO
 (pošle IČO obstarávateľa a dodávateľa); je predvolene vypnutý a mená sa do auditnej tabuľky neukladajú.
+
+## Podateľňa: simulácia práce kontrolóra
+
+Karta **Podateľňa** simuluje prácu kontrolóra, ktorý posudzuje žiadosti o NFP. Kontrolór prijme podanie
+(ZIP alebo súbory, prípadne kód historickej žiadosti z ITMS21+), skontroluje zaradenie príloh, spustí
+posúdenie a zapíše rozhodnutie. Spisy sú rozdelené podľa výziev. Pri každej výzve je úspešnosť
+v podateľni (rozhodnutia kontrolóra) a v ITMS21+ (skutočné žiadosti). Postup krok za krokom
+s ukážkovými podaniami je v [demo/podania/README.md](demo/podania/README.md).
+
+- **Príjem.** `POST /api/podatelna/spisy` prijme súbory v base64 a ZIP rozbalí. Text vytiahne z PDF, DOCX
+  a TXT a súbory uloží do `data/spisy/<spis>/` (mimo gitu). Formulár žiadosti je JSON: buď štruktúrovaný
+  tvar, alebo surový detail z API ITMS21+, alebo `{"kodItms": "NFP…"}`. V prevádzke sem podanie pošle
+  e-mailový hook. Tú istú cestu simuluje `npm run podanie -- <priečinok|zip> [--posud]`.
+- **Zaradenie príloh.** Číslo v názve súboru (`Priloha_3_…`) sa berie ako vyhlásenie žiadateľa, rovnako ako
+  slot v ITMS21+. Súbor bez čísla softvér zaradí podľa kľúčových slov, najprv z názvu, potom z obsahu. Je to
+  len **odhad**: kým ho kontrolór nepotvrdí, pravidlo prílohy je „na preverenie“. Stačí jeden odhadnutý súbor
+  v prílohe a na preverenie ide celá príloha, lebo napr. sprievodný list, ktorý uznesenie len spomína, by
+  inak mohol modelu „dodať“ náležitosť uznesenia. Nečitateľný súbor (sken, poškodené PDF) je „priložený,
+  ale nečitateľný“, nikdy „splnený“.
+- **Výsledky sa ukladajú.** Každý posudok ide do auditnej tabuľky `posudky` s väzbou na spis. Rozhodnutie
+  kontrolóra (splnila / výzva na doplnenie / nesplnila) sa ukladá s poznámkou. Rozhodnutie proti návrhu
+  softvéru vyžaduje poznámku a v prehľade výzvy sa počíta zvlášť. Čísla spisov `POD-RRRR-NNNN` sa po
+  vymazaní spisu znova nepridelia.
+- **Úspešnosť.** V podateľni sa počíta ako splnila / (splnila + nesplnila); doplnenie a nerozhodnuté spisy
+  sa nepočítajú. V ITMS21+ ako schválené / predložené a zvlášť „splnilo podmienky“ (schválené + zásobník).
+  Pri pilotnej výzve je to 244 z 799 (30,5 %) a 481 z 799 (60,2 %).
 
 ## Architektúra
 
@@ -64,10 +93,12 @@ src/moduly/zmeny/              zmeny projektu (pravidlový klasifikátor druhu z
 src/moduly/zop/                žiadosť o platbu
 src/moduly/ukazovatele/        merateľné ukazovatele (kalkulacka.ts = prepis sankčnej kalkulačky SIEA)
 src/llm/ollama.ts              lokálny model: hľadá dôkaz v texte, vracia JSON
-src/ingest/dokument.ts         DOCX / PDF / TXT -> text
+src/ingest/dokument.ts         DOCX / PDF / TXT / ZIP -> text
+src/podatelna/podatelna.ts     podateľňa: spisy, súbory, zaradenie príloh, rozhodnutia, štatistika výziev
 src/server/server.ts           HTTP API + statické rozhranie (node:http, node:sqlite)
-web/                           rozhranie (HTML + JS bez frameworku)
-scripts/                       stiahnutie dát, normalizácia, testy
+web/                           rozhranie (HTML + JS bez frameworku; podatelna.js, ui.js = spoločné vykreslenie)
+scripts/                       stiahnutie dát, normalizácia, testy, demo podania (10), simulácia hooku (11)
+demo/podania/                  ukážkové podania žiadostí a postup pre demo
 data/zdroje/                   stiahnuté dokumenty výzvy a zoznamy rozhodnutí (zdroj pravdy pre pravidlá)
 data/odvodene/                 normalizované žiadosti s výsledkom a dôvodom
 eval/                          výsledky testov (JSON)
@@ -200,6 +231,9 @@ Do reálnych prípadov z ITMS21+ sa umelo vloží známa chyba (kópia prípadu,
 | Žiadosť o platbu | suma nad výdavok, doklad dvakrát, doklad pred 2021, úhrada po 2029, DPH od neplatiteľa, zlý výpočet DPH, hotovosť 800 EUR, chýbajú prílohy, internet banking, výpis bez účtu, uhradená ŽoP druhýkrát | 2 593 | 2 593 | 0 |
 | Merateľné ukazovatele | MU výstupu a výsledku na 94, 80, 50 a 0 % (aj s prahmi zmluvy), nepredložená monitorovacia správa | 3 125 | 3 113 | 0 |
 
+Počet zasadených chýb závisí od referenčného dátumu (`KONTROLA_DNES`), lebo časť chýb sa viaže na termíny:
+9 062 pri behu 15. 11. 2026, 9 058 pri behu 19. 11. 2026. Falošne OK bolo v oboch behoch 0.
+
 12 nezachytených pri ukazovateľoch: projekty, kde jeden MU výsledku nemá v ITMS21+ cieľovú hodnotu; pravidlo je
 „neoverené“, nie „splnené“. Pri naplnení 100 % a 97 % vyšlo pravidlo MU výstupu splnené pri 242 z 242
 projektov a MU výsledku pri 239 z 242 (zbytočné poplachy len pri chýbajúcom cieli).
@@ -233,6 +267,55 @@ Zistenia na reálnych dátach (treba overiť človekom, nie sú to obvinenia):
 - Klasifikátor zmien: 345 zmien má dodatok k zmluve; 82 z nich (24 %) softvér zatriedil ako formálne alebo
   menej významné. Časť sú záznamy poskytovateľa o zapracovaní viacerých zmien do dodatku, preto to nie je
   presná chybovosť; skutočný formulár (OoZ alebo ŽoZZ) verejné dáta neuvádzajú.
+
+### Test 4: lokálny model na syntetických dokumentoch ostatných modulov
+
+Faktúry (P11), výpisy z účtu (P12), záznamy zo zadania zákazky (V07) a odôvodnenia zmien (Z08), každý
+úplný a s jednou vynechanou náležitosťou. „Presne“ = dokument zamietnutý a v zdôvodnení je práve vynechaná
+náležitosť. **Pôvodné** dokumenty slúžili aj na ladenie poistiek. **Nové** vznikli až po oprave,
+s inými formuláciami a firmami (`scripts/09-test-llm-moduly.ts`, beh 19. 11. 2026, qwen3.5:9b).
+
+| Časť | Chybné: falošne OK | Chybné: presne | Úplné: falošný poplach |
+|---|---|---|---|
+| P11 faktúra, pôvodné | 0 z 30 | – | 0 z 3 |
+| P11 faktúra, nové | 1 z 20 (*) | 18 z 20 | 2 z 2 |
+| P12 výpis, pôvodné | 0 z 12 (predtým 6) | 12 z 12 | 0 z 3 |
+| P12 výpis, nové | 0 z 12 | 12 z 12 | 3 z 3 |
+| V07 záznam VO, pôvodné | 0 z 18 | 18 z 18 (predtým 14) | 0 z 3 (3 na preverenie: podpis) |
+| V07 záznam VO, nové | 0 z 18 | 15 z 18 (**) | 2 z 2 |
+| Z08 odôvodnenie, pôvodné | 0 z 6 (predtým 2) | 6 z 6 | 1 z 3 |
+| Z08 odôvodnenie, nové | 0 z 8 | 8 z 8 | 2 z 4 |
+
+(*) Model uviedol hlavičku tabuľky položiek ako základ dane. Pribudla poistka na riadok úryvku: riadok
+s „za MJ“, „množstvo“ alebo „jednotk“ nesmie byť základom dane a úryvok musí mať popisok aj sumu. Overená
+je bez modelu na presnom úryvku (`scripts/overenie-poistiek.ts`), s modelom sa časť P11 nové chybné
+znova nespustila.
+(**) V troch prípadoch poistky nechali prejsť nesprávny úryvok (uzavretá zmluva ako PHZ, zoznam oslovených
+ako uchádzači, zoznam ponúk ako zmluvná cena). Dokument bol aj tak zamietnutý pre inú náležitosť. Poistky
+sú doplnené a overené bez modelu na presných úryvkoch.
+
+Čo z toho plynie:
+
+- Na nových dokumentoch je falošne OK 1 z 58. Jediný prípad sa vyriešil poistkou, ktorá sa doplnila až
+  po behu. Presne pomenovaná náležitosť: 53 z 58.
+- Cenou sú falošné poplachy na nových úplných dokumentoch: 9 z 11. Poistky odmietajú aj správne úryvky
+  v nečakanej forme. Podľa zadania je to menšie zlo ako falošné OK, pre prax je to však hlavná slabina.
+- Tri nové poistky V07 vznikli z nových dokumentov, ktoré tým prestali byť nezávislé. Férové číslo
+  po tejto zmene by si vyžiadalo ďalšiu sadu nových dokumentov.
+
+### Test 5: podateľňa na demo podaniach
+
+`npm run test:podatelna`, bez modelu, 15 kontrol na podaniach z `demo/podania`:
+- odhad zaradenia (sprievodný list, certifikát bez čísla) nevedie k „splnené“, kým ho kontrolór nepotvrdí;
+- doplnenie spisu dodá chýbajúce prílohy;
+- výpočtové pravidlá zachytia úsporu 27,4 % a hodnotu za peniaze 7 615 EUR/MWh;
+- historická žiadosť z ITMS21+ zachytí NFP pod minimom;
+- nečitateľné PDF je „chýba podklad“ s dôvodom;
+- nečitateľný súbor s číslom prílohy „nepotvrdí“ text iného súboru zaradeného odhadom;
+- sedí štatistika výzvy.
+
+Všetkých 15 prešlo. Test zapisuje do dočasného priečinka, nie do `data/spisy`. Prvá verzia testu
+zapisovala tam a pri upratovaní zmazala súbory spisov bežiaceho servera s rovnakým číslom.
 
 ## Obmedzenia
 

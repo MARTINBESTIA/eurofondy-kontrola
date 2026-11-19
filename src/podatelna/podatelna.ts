@@ -1,0 +1,306 @@
+// Podateľňa: spisy žiadostí o NFP, ktoré posudzuje kontrolór.
+// Podanie príde z rozhrania (kontrolór nahrá súbory) alebo automaticky (e-mailový hook, priečinok) cez to isté API.
+// Spis = údaje formulára + súbory podania a doplnení + posudky softvéru + rozhodnutie kontrolóra.
+// Softvér navrhuje, rozhoduje človek: rozhodnutie kontrolóra sa ukladá zvlášť od návrhu softvéru.
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import type { DatabaseSync } from 'node:sqlite';
+import { dokumentNaText, rozbalZip } from '../ingest/dokument.ts';
+import { normalizujItms21 } from '../moduly/zonfp/normalizuj.ts';
+import type { Navrh, Priloha, Ziadost } from '../core/typy.ts';
+
+const KOREN = path.join(import.meta.dirname, '..', '..');
+/** Úložisko súborov spisov. SPISY_DIR prepíše cestu (test nesmie zapisovať do priečinkov spisov bežiaceho servera). */
+const ULOZISKO = path.resolve(process.env.SPISY_DIR ?? path.join(KOREN, 'data', 'spisy'));
+
+export interface Subor { nazov: string; data: Buffer }
+export type Rozhodnutie = 'splnila' | 'doplnenie' | 'nesplnila';
+export const ROZHODNUTIA: Record<Rozhodnutie, string> = { splnila: 'Splnila podmienky', doplnenie: 'Výzva na doplnenie', nesplnila: 'Nesplnila podmienky' };
+export interface Slot { cislo: string; nazov: string }
+
+// AUTOINCREMENT: číslo spisu (POD-RRRR-NNNN) sa po vymazaní spisu nesmie prideliť znova, inak by staré záznamy
+// v auditnej stope a v korešpondencii ukazovali na iné podanie. Bez neho SQLite recykluje najvyššie id.
+const TABULKY: Record<string, string> = {
+  spisy: `id INTEGER PRIMARY KEY AUTOINCREMENT, vyzva TEXT NOT NULL, kod TEXT, nazov TEXT, ziadatel TEXT, ico TEXT,
+    zdroj TEXT NOT NULL, prijate TEXT NOT NULL, stav TEXT NOT NULL, navrh TEXT, posudok_id INTEGER,
+    rozhodnutie TEXT, rozhodnutie_pozn TEXT, rozhodnutie_cas TEXT, formular_json TEXT, formular_zdroj TEXT`,
+  subory: `id INTEGER PRIMARY KEY AUTOINCREMENT, spis_id INTEGER NOT NULL, davka INTEGER NOT NULL, nazov TEXT NOT NULL, velkost INTEGER NOT NULL,
+    sha256 TEXT NOT NULL, typ TEXT NOT NULL, priloha TEXT, istota TEXT NOT NULL, text TEXT, chyba TEXT, cesta TEXT NOT NULL, nahrate TEXT NOT NULL`,
+};
+export function pripravDb(db: DatabaseSync) {
+  for (const [t, stlpce] of Object.entries(TABULKY)) {
+    const sql = (db.prepare("SELECT sql FROM sqlite_master WHERE type = 'table' AND name = ?").get(t) as { sql: string } | undefined)?.sql;
+    if (!sql) { db.exec(`CREATE TABLE ${t} (${stlpce})`); continue; }
+    if (/AUTOINCREMENT/i.test(sql)) continue;
+    // Staršia tabuľka bez AUTOINCREMENT: prenesieme ju so zachovanými id (na ne odkazujú posudky a cesty súborov).
+    db.exec(`BEGIN; ALTER TABLE ${t} RENAME TO ${t}_stara; CREATE TABLE ${t} (${stlpce}); INSERT INTO ${t} SELECT * FROM ${t}_stara; DROP TABLE ${t}_stara; COMMIT;`);
+  }
+  if (!(db.prepare('PRAGMA table_info(posudky)').all() as { name: string }[]).some((c) => c.name === 'spis_id')) db.exec('ALTER TABLE posudky ADD COLUMN spis_id INTEGER');
+}
+
+export const cisloSpisu = (id: number, prijate: string) => `POD-${prijate.slice(0, 4)}-${String(id).padStart(4, '0')}`;
+
+// ---------- zaradenie súborov k prílohám
+const bezDiakritiky = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+/** Kľúčové slová príloh ŽoNFP (bez diakritiky). Vyhráva to, ktoré je v názve alebo texte najskôr: nadpis býva na začiatku. */
+const KLUCOVE: [string, RegExp][] = [
+  ['1', /plnomocen|splnomocn|poveren/],
+  ['3', /uznesen|program\w* (hospodarskeho a socialneho )?rozvoja|\bphrsr\b|\bphsr\b|uzemn\w* plan/],
+  ['5', /energetick\w* audit|\baudit\b/],
+  ['6', /energetick\w* certifik|certifikat|\becb\b/],
+  ['7', /projektov\w* dokument|technick\w* sprav|vykres|stavebn\w* povolen|\bpd\b/],
+  ['8', /opravnenost\w* vydavkov|rozpoc|hodnot\w* za peniaze/],
+];
+function najskorsia(text: string, sloty: Set<string>): string | null {
+  let naj: { cislo: string; idx: number } | null = null;
+  for (const [cislo, re] of KLUCOVE) {
+    if (!sloty.has(cislo)) continue;
+    const idx = text.search(re);
+    if (idx >= 0 && (!naj || idx < naj.idx)) naj = { cislo, idx };
+  }
+  return naj?.cislo ?? null;
+}
+/**
+ * istota: cislo = číslo prílohy v názve súboru (vyhlásenie žiadateľa, ako slot v ITMS21+), rucne = potvrdil kontrolór;
+ * nazov / obsah = odhad podľa kľúčových slov, ktorý musí kontrolór potvrdiť, inak pravidlo prílohy nebude „splnené“.
+ */
+export type Istota = 'cislo' | 'rucne' | 'nazov' | 'obsah' | 'ziadna';
+export const jePotvrdene = (i: string) => i === 'cislo' || i === 'rucne';
+export function zarad(nazov: string, text: string, sloty: Slot[]): { typ: 'formular' | 'priloha' | 'nezaradeny'; priloha: string | null; istota: Istota } {
+  const mnozina = new Set(sloty.map((s) => s.cislo));
+  if (/\.json$/i.test(nazov)) return { typ: 'formular', priloha: null, istota: 'cislo' };
+  const meno = bezDiakritiky(nazov).replace(/[_\-.]+/g, ' ');
+  const cislo = meno.match(/priloh[ay]? *(?:c *)?(\d{1,2})(?!\d)/)?.[1];
+  if (cislo && mnozina.has(cislo)) return { typ: 'priloha', priloha: cislo, istota: 'cislo' };
+  const podlaMena = najskorsia(meno, mnozina);
+  if (podlaMena) return { typ: 'priloha', priloha: podlaMena, istota: 'nazov' };
+  const podlaObsahu = najskorsia(bezDiakritiky(text.slice(0, 1500)), mnozina);
+  if (podlaObsahu) return { typ: 'priloha', priloha: podlaObsahu, istota: 'obsah' };
+  return { typ: 'nezaradeny', priloha: null, istota: 'ziadna' };
+}
+
+// ---------- formulár žiadosti
+/**
+ * Údaje formulára ŽoNFP zo súboru JSON. Tri tvary: odkaz na žiadosť v ITMS21+ ({"kodItms": "NFP..."}),
+ * surový detail z API ITMS21+, alebo štruktúrovaný formulár v tvare Ziadost (chýbajúce polia sa doplnia prázdne).
+ */
+export function formularZJson(text: string, vyzva: string, zItms: (kod: string) => Ziadost | undefined): { ziadost: Ziadost; zdroj: string } {
+  const d = JSON.parse(text);
+  if (d.kodItms) {
+    const z = zItms(String(d.kodItms));
+    if (!z) throw new Error(`Žiadosť ${d.kodItms} sa v stiahnutých dátach ITMS21+ nenašla.`);
+    return { ziadost: structuredClone(z), zdroj: `ITMS21+ (${d.kodItms})` };
+  }
+  if (d.polozkyRozpoctu || typeof d.ziadatel?.pravnaForma === 'object') return { ziadost: normalizujItms21(d), zdroj: 'detail z API ITMS21+' };
+  if (!d.ziadatel?.nazov) throw new Error('Formulár nemá žiadateľa (ziadatel.nazov).');
+  const z: Ziadost = {
+    id: 0, kod: d.kod ?? '', nazov: d.nazov ?? '', vyzvaKod: d.vyzvaKod ?? vyzva, stav: 'Predložená', vysledok: 'ina', dovod: null, kolo: d.kolo ?? null,
+    datumPredlozenia: d.datumPredlozenia ?? null, datumRozhodnutia: null,
+    ziadatel: { nazov: d.ziadatel.nazov, ico: d.ziadatel.ico ?? '', pravnaFormaKod: String(d.ziadatel.pravnaFormaKod ?? ''), pravnaForma: d.ziadatel.pravnaForma ?? '' },
+    miesta: d.miesta ?? [], kategoriaRegionov: d.kategoriaRegionov ?? [],
+    sumaZiadanaNFP: Number(d.sumaZiadanaNFP ?? 0), sumaZiadanaCelkova: Number(d.sumaZiadanaCelkova ?? d.sumaZiadanaNFP ?? 0), sumaZiadanaVZ: Number(d.sumaZiadanaVZ ?? 0), percentoZiadane: d.percentoZiadane ?? null,
+    dlzkaHlavnychAktivitMes: d.dlzkaHlavnychAktivitMes ?? null, zaciatokHlavnychAktivit: d.zaciatokHlavnychAktivit ?? null, koniecHlavnychAktivit: d.koniecHlavnychAktivit ?? null,
+    popis: d.popis ?? '', ucel: d.ucel ?? '', opatrenia: d.opatrenia ?? [], aktivity: d.aktivity ?? [], rozpocet: d.rozpocet ?? [], ukazovatele: d.ukazovatele ?? [],
+  };
+  return { ziadost: z, zdroj: 'štruktúrovaný formulár (JSON)' };
+}
+
+// ---------- príjem podania a doplnenia
+const bezpecneMeno = (s: string) => s.replace(/[^\p{L}\p{N}._ -]+/gu, '_').slice(0, 120);
+function ulozSubory(db: DatabaseSync, spisId: number, davka: number, subory: Subor[], sloty: Slot[]): number[] {
+  const dir = path.join(ULOZISKO, String(spisId));
+  fs.mkdirSync(dir, { recursive: true });
+  const vloz = db.prepare('INSERT INTO subory (spis_id, davka, nazov, velkost, sha256, typ, priloha, istota, text, chyba, cesta, nahrate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)');
+  const ids: number[] = [];
+  for (const s of subory) {
+    let text = ''; let chyba: string | null = null;
+    try { text = dokumentNaText(s.nazov, s.data); if (!/\.json$/i.test(s.nazov) && text.trim().length < 40) chyba = 'Dokument nemá textovú vrstvu (sken?). Bez OCR sa nedá čítať.'; }
+    catch (e) { chyba = (e as Error).message; }
+    const z = zarad(s.nazov, text, sloty);
+    const sha = crypto.createHash('sha256').update(s.data).digest('hex');
+    const cesta = path.join(String(spisId), `${davka}-${sha.slice(0, 8)}-${bezpecneMeno(s.nazov)}`);
+    fs.writeFileSync(path.join(ULOZISKO, cesta), s.data);
+    ids.push(Number(vloz.run(spisId, davka, s.nazov, s.data.length, sha, z.typ, z.priloha, z.istota, text, chyba, cesta, new Date().toISOString()).lastInsertRowid));
+  }
+  return ids;
+}
+const rozbal = (subory: Subor[]) => subory.flatMap((s) => (/\.zip$/i.test(s.nazov) ? rozbalZip(s.data) : [s]));
+
+/** Načíta formulár zo súborov spisu (prvý platný JSON) a uloží ho do spisu. Chyba formulára sa zapíše k súboru. */
+function obnovFormular(db: DatabaseSync, spisId: number, vyzva: string, zItms: (kod: string) => Ziadost | undefined) {
+  const kandidati = db.prepare("SELECT id, text FROM subory WHERE spis_id = ? AND typ = 'formular' ORDER BY id").all(spisId) as { id: number; text: string }[];
+  for (const k of kandidati) {
+    try {
+      const { ziadost, zdroj } = formularZJson(k.text, vyzva, zItms);
+      db.prepare('UPDATE spisy SET formular_json = ?, formular_zdroj = ?, kod = ?, nazov = ?, ziadatel = ?, ico = ? WHERE id = ?')
+        .run(JSON.stringify(ziadost), zdroj, ziadost.kod || null, ziadost.nazov || null, ziadost.ziadatel.nazov, ziadost.ziadatel.ico, spisId);
+      db.prepare('UPDATE subory SET chyba = NULL WHERE id = ?').run(k.id);
+      return;
+    } catch (e) { db.prepare('UPDATE subory SET chyba = ? WHERE id = ?').run(`Formulár sa nedá načítať: ${(e as Error).message}`, k.id); }
+  }
+}
+
+export function prijmiPodanie(db: DatabaseSync, o: { vyzva: string; zdroj: string; kodItms?: string; subory: Subor[]; sloty: Slot[]; zItms: (kod: string) => Ziadost | undefined }): number {
+  const subory = rozbal(o.subory);
+  if (!subory.length && !o.kodItms) throw new Error('Podanie neobsahuje žiadne súbory ani kód žiadosti z ITMS21+.');
+  const prijate = new Date().toISOString();
+  const id = Number(db.prepare('INSERT INTO spisy (vyzva, zdroj, prijate, stav) VALUES (?,?,?,?)').run(o.vyzva, o.zdroj, prijate, 'prijata').lastInsertRowid);
+  const kodItms = o.kodItms?.trim();
+  if (kodItms) subory.unshift({ nazov: `formular-z-ITMS21-${bezpecneMeno(kodItms)}.json`, data: Buffer.from(JSON.stringify({ kodItms })) });
+  ulozSubory(db, id, 1, subory, o.sloty);
+  obnovFormular(db, id, o.vyzva, o.zItms);
+  const s = db.prepare('SELECT nazov FROM spisy WHERE id = ?').get(id) as { nazov: string | null };
+  if (!s.nazov) db.prepare('UPDATE spisy SET nazov = ? WHERE id = ?').run(`Podanie ${cisloSpisu(id, prijate)} (bez formulára)`, id);
+  return id;
+}
+
+export function doplnPodklady(db: DatabaseSync, spisId: number, subory: Subor[], sloty: Slot[], zItms: (kod: string) => Ziadost | undefined) {
+  const spis = db.prepare('SELECT vyzva, formular_json FROM spisy WHERE id = ?').get(spisId) as { vyzva: string; formular_json: string | null } | undefined;
+  if (!spis) throw new Error('Spis neexistuje.');
+  const davka = ((db.prepare('SELECT MAX(davka) AS d FROM subory WHERE spis_id = ?').get(spisId) as { d: number | null }).d ?? 0) + 1;
+  ulozSubory(db, spisId, davka, rozbal(subory), sloty);
+  if (!spis.formular_json) obnovFormular(db, spisId, spis.vyzva, zItms);
+  db.prepare("UPDATE spisy SET stav = 'doplnena' WHERE id = ?").run(spisId);
+}
+
+export function zmenZaradenie(db: DatabaseSync, suborId: number, ciel: string, zItms: (kod: string) => Ziadost | undefined) {
+  const s = db.prepare('SELECT spis_id FROM subory WHERE id = ?').get(suborId) as { spis_id: number } | undefined;
+  if (!s) throw new Error('Súbor neexistuje.');
+  const [typ, priloha] = ciel === 'formular' ? ['formular', null] : ciel === '' ? ['nezaradeny', null] : ['priloha', ciel];
+  db.prepare("UPDATE subory SET typ = ?, priloha = ?, istota = 'rucne' WHERE id = ?").run(typ, priloha, suborId);
+  if (typ === 'formular') { const v = db.prepare('SELECT vyzva FROM spisy WHERE id = ?').get(s.spis_id) as { vyzva: string }; obnovFormular(db, s.spis_id, v.vyzva, zItms); }
+  return s.spis_id;
+}
+
+// ---------- čítanie spisu
+interface SpisRiadok {
+  id: number; vyzva: string; kod: string | null; nazov: string | null; ziadatel: string | null; ico: string | null; zdroj: string; prijate: string; stav: string;
+  navrh: Navrh | null; posudok_id: number | null; rozhodnutie: Rozhodnutie | null; rozhodnutie_pozn: string | null; rozhodnutie_cas: string | null; formular_json: string | null; formular_zdroj: string | null;
+}
+const zakladSpisu = (s: SpisRiadok) => ({
+  id: s.id, cislo: cisloSpisu(s.id, s.prijate), vyzva: s.vyzva, kod: s.kod, nazov: s.nazov, ziadatel: s.ziadatel, ico: s.ico, zdroj: s.zdroj, prijate: s.prijate,
+  stav: s.stav, navrh: s.navrh, rozhodnutie: s.rozhodnutie, rozhodnutiePozn: s.rozhodnutie_pozn, rozhodnutieCas: s.rozhodnutie_cas, maFormular: !!s.formular_json, formularZdroj: s.formular_zdroj,
+});
+
+export function zoznamSpisov(db: DatabaseSync, vyzva?: string) {
+  const riadky = (vyzva ? db.prepare('SELECT * FROM spisy WHERE vyzva = ? ORDER BY id DESC').all(vyzva) : db.prepare('SELECT * FROM spisy ORDER BY id DESC').all()) as unknown as SpisRiadok[];
+  const pocty = new Map((db.prepare('SELECT spis_id, COUNT(*) AS n FROM subory GROUP BY spis_id').all() as { spis_id: number; n: number }[]).map((r) => [r.spis_id, r.n]));
+  return riadky.map((s) => ({ ...zakladSpisu(s), suborov: pocty.get(s.id) ?? 0 }));
+}
+
+export function spisRiadok(db: DatabaseSync, id: number) { return db.prepare('SELECT * FROM spisy WHERE id = ?').get(id) as unknown as SpisRiadok | undefined; }
+
+export function detailSpisu(db: DatabaseSync, id: number) {
+  const s = spisRiadok(db, id);
+  if (!s) return undefined;
+  const subory = (db.prepare('SELECT id, davka, nazov, velkost, typ, priloha, istota, chyba, nahrate, length(text) AS znakov FROM subory WHERE spis_id = ? ORDER BY davka, id').all(id) as any[]);
+  const posudky = db.prepare('SELECT id, cas, navrh, model, trvanie_ms AS trvanieMs FROM posudky WHERE spis_id = ? ORDER BY id DESC').all(id);
+  const posledny = s.posudok_id ? JSON.parse((db.prepare('SELECT posudok_json FROM posudky WHERE id = ?').get(s.posudok_id) as { posudok_json: string }).posudok_json) : null;
+  const z = s.formular_json ? (JSON.parse(s.formular_json) as Ziadost) : null;
+  return { spis: zakladSpisu(s), subory, posudky, posledny, ziadost: z };
+}
+
+export function textSuboru(db: DatabaseSync, suborId: number) {
+  return db.prepare('SELECT id, spis_id AS spisId, nazov, text, chyba FROM subory WHERE id = ?').get(suborId) as { id: number; spisId: number; nazov: string; text: string; chyba: string | null } | undefined;
+}
+export function suborNaStiahnutie(db: DatabaseSync, suborId: number) {
+  const r = db.prepare('SELECT nazov, cesta FROM subory WHERE id = ?').get(suborId) as { nazov: string; cesta: string } | undefined;
+  if (!r) return undefined;
+  const p = path.normalize(path.join(ULOZISKO, r.cesta));
+  return p.startsWith(ULOZISKO) && fs.existsSync(p) ? { nazov: r.nazov, data: fs.readFileSync(p) } : undefined;
+}
+
+/** Žiadosť na posúdenie: formulár spisu + priradené prílohy (viac súborov k jednej prílohe sa spojí). */
+export function ziadostSpisu(db: DatabaseSync, id: number): Ziadost {
+  const s = spisRiadok(db, id);
+  if (!s) throw new Error('Spis neexistuje.');
+  if (!s.formular_json) throw new Error('Spis nemá údaje formulára žiadosti. Priložte formulár (JSON) alebo zadajte kód žiadosti z ITMS21+.');
+  const z = JSON.parse(s.formular_json) as Ziadost;
+  z.kod ||= cisloSpisu(s.id, s.prijate);
+  z.datumPredlozenia ??= s.prijate.slice(0, 10);
+  const prilohy: Record<string, Priloha> = {};
+  const maOdhad = new Set<string>();
+  for (const r of db.prepare("SELECT priloha, nazov, text, istota, chyba FROM subory WHERE spis_id = ? AND typ = 'priloha' ORDER BY davka, id").all(id) as { priloha: string; nazov: string; text: string; istota: string; chyba: string | null }[]) {
+    const c = r.priloha; const p = prilohy[c];
+    // Nečitateľný súbor (sken, chyba pdftotext) ostane v prílohe bez textu: pravidlo povie „priložený, ale nečitateľný“,
+    // nie „chýba“. Do textu ide len čitateľný obsah, aby samotné hlavičky súborov nevyzerali ako text prílohy.
+    const citatelny = !r.chyba && r.text.trim().length > 0;
+    const text = !citatelny ? (p?.text ?? '') : p?.text ? `${p.text}\n\n=== ${r.nazov} ===\n${r.text}` : r.text;
+    // Stačí jeden čitateľný súbor zaradený len odhadom a celá príloha je odhad: jeho text (napr. sprievodný list,
+    // ktorý uznesenie len spomína) by inak mohol modelu „dodať“ náležitosť, ktorá v skutočnej prílohe chýba.
+    const odhad = citatelny && !jePotvrdene(r.istota);
+    if (odhad) maOdhad.add(c);
+    prilohy[c] = { nazov: `${p ? `${p.nazov}; ` : ''}${r.nazov}${odhad ? ' (odhad)' : ''}`, text, zaradenie: maOdhad.has(c) ? 'odhad' : 'potvrdene' };
+  }
+  z.prilohy = prilohy;
+  return z;
+}
+
+export function ulozPosudok(db: DatabaseSync, spisId: number, posudokId: number, navrh: Navrh) {
+  db.prepare("UPDATE spisy SET posudok_id = ?, navrh = ?, stav = CASE WHEN rozhodnutie IS NULL OR rozhodnutie = 'doplnenie' THEN 'posudena' ELSE stav END WHERE id = ?").run(posudokId, navrh, spisId);
+}
+
+export function rozhodni(db: DatabaseSync, spisId: number, r: Rozhodnutie, poznamka: string) {
+  if (!ROZHODNUTIA[r]) throw new Error('Neznáme rozhodnutie.');
+  db.prepare('UPDATE spisy SET rozhodnutie = ?, rozhodnutie_pozn = ?, rozhodnutie_cas = ?, stav = ? WHERE id = ?')
+    .run(r, poznamka.slice(0, 2000), new Date().toISOString(), r === 'doplnenie' ? 'caka_na_doplnenie' : 'rozhodnuta', spisId);
+}
+
+export function vymazSpis(db: DatabaseSync, spisId: number) {
+  db.prepare('DELETE FROM subory WHERE spis_id = ?').run(spisId);
+  db.prepare('UPDATE posudky SET spis_id = NULL WHERE spis_id = ?').run(spisId);
+  db.prepare('DELETE FROM spisy WHERE id = ?').run(spisId);
+  fs.rmSync(path.join(ULOZISKO, String(spisId)), { recursive: true, force: true });
+}
+
+// ---------- prehľad podľa výziev
+export interface VyzvaRegister {
+  kod: string; nazov: string; vyhlasovatel: string; maPravidla: boolean; stav: string;
+  itms: { predlozenych: number; schvalenych: number; neschvalenych: number; vKonani: number; zasobnik?: number; nesplnili?: number; zastavenych?: number } | null;
+}
+
+const citajJson = (p: string) => (fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : null);
+/** Výzvy, ktoré majú balík pravidiel pre žiadosť o NFP: len do nich sa dá podanie posúdiť. */
+export const vyzvySPravidlami = () => fs.readdirSync(path.join(KOREN, 'packs')).filter((d) => fs.existsSync(path.join(KOREN, 'packs', d, 'zonfp.json')));
+
+/**
+ * Register výziev pre prehľad: zoznam výziev programu z ITMS21+ (počty predložených, schválených a neschválených
+ * žiadostí) doplnený o výzvy s balíkom pravidiel. Pri nich sú počty spočítané zo stiahnutých žiadostí, s rozpadom
+ * neschválených na zásobník (podmienky splnila, chýbali peniaze), nesplnenie podmienok a zastavenie konania.
+ */
+export function registerVyziev(): VyzvaRegister[] {
+  const dnes = new Date().toISOString().slice(0, 10);
+  const stav = (v: any) => (v.zrusena ? 'zrušená' : v.pozastavena ? 'pozastavená' : v.uzavreta ? 'uzavretá' : v.ukoncena && v.ukoncena < dnes ? 'skončená' : 'otvorená');
+  const out = new Map<string, VyzvaRegister>();
+  for (const v of citajJson(path.join(KOREN, 'data', 'odvodene', 'vyzvy.json'))?.vyzvy ?? []) {
+    out.set(v.kod, { kod: v.kod, nazov: v.nazov, vyhlasovatel: v.vyhlasovatel ?? '', maPravidla: false, stav: stav(v),
+      itms: v.predlozenych == null ? null : { predlozenych: v.predlozenych, schvalenych: v.schvalenych ?? 0, neschvalenych: v.neschvalenych ?? 0, vKonani: v.vKonani ?? 0 } });
+  }
+  for (const kod of vyzvySPravidlami()) {
+    const b = citajJson(path.join(KOREN, 'packs', kod, 'zonfp.json'));
+    const z = citajJson(path.join(KOREN, 'data', 'odvodene', kod, 'ziadosti.json')) as Ziadost[] | null;
+    const n = (f: (x: Ziadost) => boolean) => z!.filter(f).length;
+    const itms = z?.length ? {
+      predlozenych: z.length, schvalenych: n((x) => x.vysledok === 'schvalena'), neschvalenych: n((x) => ['zasobnik', 'neschvalena', 'zastavene', 'stiahnuta'].includes(x.vysledok)),
+      vKonani: n((x) => x.vysledok === 'ina'), zasobnik: n((x) => x.vysledok === 'zasobnik'), nesplnili: n((x) => x.vysledok === 'neschvalena'), zastavenych: n((x) => x.vysledok === 'zastavene' || x.vysledok === 'stiahnuta'),
+    } : out.get(kod)?.itms ?? null;
+    out.set(kod, { kod, nazov: b.vyzvaNazov, vyhlasovatel: b.poskytovatel, maPravidla: true, stav: out.get(kod)?.stav ?? 'uzavretá', itms });
+  }
+  return [...out.values()];
+}
+
+/** Štatistika spisov podateľne za výzvu. Úspešnosť = splnila / (splnila + nesplnila); doplnenie je ešte otvorené. */
+export function statistikaSpisov(db: DatabaseSync) {
+  const out = new Map<string, { spolu: number; posudene: number; navrhy: Record<string, number>; splnila: number; nesplnila: number; doplnenie: number; nerozhodnute: number; odlisne: number }>();
+  for (const s of db.prepare('SELECT vyzva, navrh, rozhodnutie FROM spisy').all() as { vyzva: string; navrh: Navrh | null; rozhodnutie: Rozhodnutie | null }[]) {
+    const v = out.get(s.vyzva) ?? { spolu: 0, posudene: 0, navrhy: {}, splnila: 0, nesplnila: 0, doplnenie: 0, nerozhodnute: 0, odlisne: 0 };
+    v.spolu++;
+    if (s.navrh) { v.posudene++; v.navrhy[s.navrh] = (v.navrhy[s.navrh] ?? 0) + 1; }
+    if (s.rozhodnutie) v[s.rozhodnutie]++; else v.nerozhodnute++;
+    // Rozhodnutie proti návrhu softvéru: kontrolór schválil napriek zistenému porušeniu, alebo zamietol bez zistení.
+    if ((s.rozhodnutie === 'splnila' && s.navrh === 'nesplnene_podmienky') || (s.rozhodnutie === 'nesplnila' && (s.navrh === 'bez_zisteni' || s.navrh === 'ciastocne_overene'))) v.odlisne++;
+    out.set(s.vyzva, v);
+  }
+  return out;
+}

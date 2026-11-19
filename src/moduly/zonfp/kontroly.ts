@@ -118,6 +118,8 @@ export const KONTROLY: Record<string, Kontrola> = {
     if (!plati) return { stav: 'neuplatnuje_sa', zdovodnenie: 'Pre túto žiadosť sa príloha nevyžaduje.' };
     if (z.prilohy === undefined) return { stav: 'mimo_podkladov', zdovodnenie: `Príloha č. ${c} sa vyžaduje, ale prílohy nie sú súčasťou podkladov (verejné API ich neobsahuje).` };
     const pr = z.prilohy[c];
+    // Odhad zaradenia (podľa kľúčových slov) môže byť omyl, napr. sprievodný list so zoznamom príloh: rozhodne človek.
+    if (pr && pr.text.trim().length > 40 && pr.zaradenie === 'odhad') return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: ${pr.nazov}. Súbor označený „odhad“ softvér zaradil podľa kľúčových slov, nie podľa čísla prílohy. Treba potvrdiť, že ide naozaj o túto prílohu, alebo ho vyradiť.` };
     if (pr && pr.text.trim().length > 40) return { stav: 'splnene', zdovodnenie: `Príloha č. ${c} je priložená: ${pr.nazov}.` };
     if (nahrada && /https?:\/\/|www\./i.test(z.popis)) return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c} chýba. Výzva pripúšťa náhradu: ${nahrada}. V popise projektu je webový odkaz, treba overiť, či vedie na uznesenie.` };
     return { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c} sa vyžaduje a chýba${pr ? ' (súbor je prázdny alebo nečitateľný)' : ''}.${nahrada ? ` Náhrada: ${nahrada}.` : ''}` };

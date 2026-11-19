@@ -309,7 +309,8 @@
             "nazov": "podpis štatutárneho orgánu žiadateľa (splnomocniteľa)",
             "vzor": "podpis",
             "nesmie": "podpis\\S* splnomocnen(ca|ej|ého)",
-            "vizualne": true
+            "vizualne": true,
+            "vzorOkolie": 1
           },
           {
             "nazov": "označenie splnomocnenej osoby (meno)",
@@ -318,7 +319,8 @@
           {
             "nazov": "podpis splnomocnenej osoby (splnomocnenca)",
             "vzor": "podpis\\S* (splnomocnen|poveren)(ca|ej|ého)|prijímam",
-            "vizualne": true
+            "vizualne": true,
+            "vzorOkolie": 1
           },
           {
             "nazov": "rozsah plnomocenstva, teda úkony, na ktoré je osoba splnomocnená",

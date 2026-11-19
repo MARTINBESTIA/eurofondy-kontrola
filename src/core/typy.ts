@@ -15,7 +15,11 @@ export type Dovod = 'nedostatok_prostriedkov' | 'nesplnenie_ppp' | 'zastavenie_k
 export interface Ukazovatel { kod: string; nazov: string; typ: 'vystup' | 'vysledok'; jednotka: string; vychodisko: number | null; ciel: number | null }
 export interface Aktivita { kod: string; nazov: string; hlavna: boolean; opatrenie: string | null; zaciatok: string | null; koniec: string | null }
 export interface PolozkaRozpoctu { aktivita: string; hlavna: boolean; opatrenie: string | null; skupinaVydavkov: string; suma: number }
-export interface Priloha { nazov: string; text: string }
+/**
+ * zaradenie: „potvrdene“ = číslo prílohy uviedol žiadateľ (slot v ITMS21+, číslo v názve súboru) alebo ho potvrdil kontrolór;
+ * „odhad“ = softvér prílohu zaradil podľa kľúčových slov. Odhad nestačí na „splnené“. Bez údaja = potvrdené.
+ */
+export interface Priloha { nazov: string; text: string; zaradenie?: 'potvrdene' | 'odhad' }
 
 /** Žiadosť o NFP v tvare, s ktorým pracujú pravidlá. Zdroj: formulár ŽoNFP (verejné API ITMS21+ alebo nahratý súbor). */
 export interface Ziadost {
