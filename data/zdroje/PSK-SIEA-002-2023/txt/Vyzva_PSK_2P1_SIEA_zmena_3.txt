@@ -1,0 +1,750 @@
+VÝZVA
+v znení Zmeny č. 3 zo dňa 21.08.2025
+
+Slovenská inovačná a energetická agentúra
+ako sprostredkovateľský orgán pre Program Slovensko
+vyhlasuje
+výzvu na predkladanie žiadostí o poskytnutie nenávratného finančného príspevku
+
+Identifikácia výzvy
+ |
+Názov výzvy
+ | Výzva na podporu energetickej efektívnosti a využívania OZE vo verejných budovách (ďalej len „výzva“)
+ |
+Kód výzvy
+ | PSK-SIEA-002-2023-DV-EFRR
+ |
+Priorita
+ | 2P1         Energetická efektívnosť a dekarbonizácia
+ |
+Špecifický cieľ
+ | RSO2.1 Podpora energetickej efektívnosti a znižovania emisií skleníkových plynov (EFRR)
+RSO2.2  Podpora energie z obnoviteľných zdrojov v súlade so smernicou (EÚ) 2018/2001 o podpore využívania energie z obnoviteľných zdrojov vrátane kritérií udržateľnosti, ktoré sú v nej stanovené (EFRR)
+ |
+Opatrenie
+ | 2.1.2      Znižovanie energetickej náročnosti budov
+2.2.2      Podpora využívania OZE v systémoch zásobovania energiou
+ |
+Výška finančných prostriedkov určených na vyčerpanie vo výzve (zdroj EÚ)
+ | 133 700 001 EUR pre opatrenie 2.1.2 z toho
+    104 246 735 EUR v rámci MRR
+      29 453 266 EUR v rámci VRR
+10 500 000 EUR pre opatrenie 2.2.2
+   9 000 000 EUR v rámci MRR
+   1 500 000 EUR v rámci VRR
+ |
+Schéma štátnej pomoci
+ | Neuplatňuje sa.
+ |
+
+Stručný cieľ výzvy
+ |
+Cieľom výzvy je zlepšovanie energetickej hospodárnosti a obnovy verejných budov a podpora využívania OZE vrátane zariadení, ktoré sú súčasťou systému zásobovania energiou verejných budov. Bližší popis aktivít je uvedený v podmienke poskytnutia príspevku č. 7 Podmienka oprávnenosti aktivít projektu.
+ |
+
+Časové vymedzenie výzvy
+ |
+Typ výzvy
+ | otvorená
+ |
+Dátum vyhlásenia výzvy
+ | 22. 12. 2023
+ |
+Dátum uzavretia výzvy alebo iná skutočnosť, na ktorej základe sa výzva uzavrie
+ | SO uzavrie výzvu v prípade predpokladu vyčerpania finančných prostriedkov vyčlenených na výzvu. SO môže výzvu uzavrieť aj z dôvodu nedostatočného dopytu zo strany potenciálnych žiadateľov alebo z dôvodu zabezpečenia riadnej fyzickej a/alebo finančnej implementácie Programu Slovensko (ďalej len „P SK“).
+ |
+
+Financovanie projektu
+ |
+Miera spolufinancovania (intenzita pomoci)
+ | Poskytovanie príspevkov podľa tejto výzvy sa realizuje formou nenávratného finančného príspevku (ďalej len „NFP“) na základe predkladanej ŽoNFP a za podmienok ustanovených vo výzve a súvisiacich dokumentoch.
+Žiadateľ je oprávnený v rámci výzvy podať viacero ŽoNFP, každú s odlišným predmetom projektu.
+NFP sa poskytuje zo zdrojov EFRR v súlade s pravidlami stanovenými v platnej Stratégii financovania (uplatnené špecifické pravidlá financovania – financovanie aktivít so 100 % koeficientom na výpočet podpory poskytovanej na ciele v oblasti zmeny klímy), pričom maximálna miera príspevku nesmie presiahnuť nižšie stanovený strop.
+Kategorizácia oprávnených žiadateľov výzvy podľa miery príspevku
+ | Región
+ | Opatrenie
+ | Miera príspevku zo zdrojov P SK v % (NFP)
+ | Miera  spolu-
+financovania zo zdrojov prijímateľa v %
+ |
+
+ |
+ |
+ | EFRR
+ | ŠR
+ |
+ |
+Subjekty štátnej správy
+(ústredné orgány štátnej správy, ostatné ústredné orgány štátnej správy, štátne rozpočtové organizácie, štátne príspevkové organizácie)
+Ostatné subjekty
+(verejnoprávne inštitúcie, obce, vyššie územné celky a nimi zriadené rozpočtové organizácie a príspevkové organizácie, neziskové organizácie, cirkevné organizácie)
+ | všetky kraje okrem Bratislavského
+ | 2.1.2
+ | 85
+ | 15
+ | 0
+ |
+
+ |
+ | 2.2.2
+ | 85
+ | 15
+ | 0
+ |
+
+ | Bratislavský kraj
+ | 2.1.2
+ | 40
+ | 60
+ | 0
+ |
+
+ |
+ | 2.2.2
+ | 40
+ | 60
+ | 0
+ |
+
+ |
+Fond
+ | Európsky fond regionálneho rozvoja
+ |
+
+Podmienky poskytnutia príspevku
+ |
+Nižšie uvedené podmienky poskytnutia príspevku (ďalej aj „PPP“) predstavujú súbor podmienok, ktorých splnenie je nevyhnutným predpokladom na schválenie ŽoNFP, uzavretie Zmluvy o poskytnutí NFP a vyplatenie NFP.
+PPP stanovené v tejto výzve musia byť splnené bez ohľadu na skutočnosť, či ich úplné znenie je priamo uvedené v texte výzvy alebo je uvádzané, resp. bližšie popísané v dokumentoch, na ktoré sa táto výzva odvoláva.
+Poskytovateľ overuje plnenie PPP v konaní o ŽoNFP, pred zaslaním návrhu Zmluvy o poskytnutí NFP ako aj počas platnosti a účinnosti Zmluvy o poskytnutí NFP, teda počas obdobia realizácie a udržateľnosti projektu a to v závislosti od okamihu / doby plnenia PPP.
+V prípade PPP, ktorých splnenie overuje SO prostredníctvom ITMS/verejného elektronického registra, odporúčame žiadateľom, aby pred predložením ŽoNFP využili možnosť overenia splnenia predmetných PPP prostredníctvom integračných funkcií ITMS21+, resp. v elektronických verejných registroch a v prípade potreby podnikli relevantné kroky na úpravu údajov ešte pred predložením ŽoNFP. Žiadateľ v časti „Podmienky poskytnutia príspevku“, v rámci detailu príslušnej PPP stiahne informáciu o plnení podmienky (doklad vygenerovaný vo formáte .pdf) automaticky z príslušného elektronického verejného registra.
+V prípade neúspešnosti integračnej funkcie alebo ak žiadateľ overením v elektronických verejných registroch/ITMS3 zistí nesprávnosť/neúplnosť údajov, je oprávnený v rámci príloh ŽoNFP predložiť potvrdenie vydané relevantným subjektom preukazujúce splnenie PPP aj bez vyzvania zo strany SO. Potvrdenie musí jasne identifikovať údaje, ktoré sú nesprávne / neúplné v elektronických verejných registroch a zdôvodniť ich nesprávnosť / neúplnosť. Potvrdenie nesmie byť ku dňu predloženia / doplnenia ŽoNFP staršie ako 3 mesiace a žiadateľ ho predkladá vo forme skenu prostredníctvom ITMS.
+Ak SO v rámci konania o ŽoNFP identifikuje potenciálne nesplnenie PPP, alebo overenie splnenia PPP nie je možné vykonať v elektronických verejných registroch/ITMS, SO vyzve žiadateľa na predloženie potvrdenia vydaného príslušným subjektom, ktoré dokazuje splnenie PPP. Ak SO identifikuje nesplnenie PPP, potvrdenie nesmie byť vydané pred dátumom (iniciálneho overenia splnenia PPP zo strany SO) uvedeným vo výzve na doplnenie, t. j. doklad musí preukazovať, že žiadateľ ku dňu vydania dokladu po prvotnej kontrole SO spĺňa PPP.
+V prípade akýchkoľvek pochybností, je SO oprávnený vyzvať žiadateľa na preukázanie splnenia PPP prostredníctvom potvrdenia / dokladu aj napriek funkčnej integrácii ITMS s príslušným informačným systémom verejnej správy, resp. vyžiadať si od žiadateľa aj iné dokumenty, prípadne iný spôsob preukázania splnenia PPP.
+Rozhodnutie o schválení ŽoNFP môže byť vydané až po tom, ako žiadateľ v konaní o ŽoNFP preukázal a SO preukázateľne overil, že PPP definované výzvou sú splnené.
+Ak v čase medzi nadobudnutím právoplatnosti rozhodnutia o schválení ŽoNFP a zaslaním návrhu na uzavretie Zmluvy o poskytnutí NFP poskytovateľ zistí, že niektorá z PPP nie je splnená, pristúpi k informovaniu štatutárneho orgánu o potrebe uplatnenia mimoriadneho opravného prostriedku v súlade s § 21 zákona o príspevkoch z fondov.
+Ak počas trvania zmluvného vzťahu medzi poskytovateľom a prijímateľom (na základe uzavretej Zmluvy o poskytnutí NFP) dôjde k zisteniu, že PPP, ktorá má byť splnená aj po uzavretí Zmluvy o poskytnutí NFP, nie je splnená, poskytovateľ je oprávnený vyvodiť právne dôsledky vo vzťahu k prijímateľovi v súlade s príslušnými ustanoveniami uzavretej Zmluvy o poskytnutí NFP.
+V nasledujúcej tabuľke je uvedené znenie a popis PPP ako aj forma preukázania, spôsob overenia PPP zo strany SO doba (okamih) plnenia PPP. Špecifikácie požiadaviek na predloženie povinných príloh ŽoNFP, sú bližšie definované v Prílohe č. 2 výzvy – Zoznam príloh ŽoNFP.
+ |
+1
+ | Právna forma
+ | Oprávnenými žiadateľmi sú:
+   subjekty štátnej správy – ústredné orgány štátnej správy, ostatné ústredné orgány štátnej správy, štátne rozpočtové organizácie a štátne príspevkové organizácie;
+   ostatné subjekty verejnej správy, konkrétne:
+subjekty územnej samosprávy – obce a vyššie územné celky a nimi zriadené rozpočtové organizácie a príspevkové organizácie,
+verejnoprávne inštitúcie,
+verejné výskumné inštitúcie;
+   subjekty mimo pravidiel štátnej pomoci, konkrétne:
+nadácie,
+občianske združenia,
+neziskové organizácie,
+neziskové organizácie poskytujúce všeobecne prospešné služby,
+cirkevné organizácie.
+V rámci subjektov mimo pravidiel štátnej pomoci sú oprávnené výlučne subjekty, ktoré sú oprávnené na výkon činností podľa:
+§ 12 ods. 1 písm. a) bod 2.4 až 2.7 zákona č. 448/2008 Z. z. o sociálnych službách a o zmene a doplnení zákona č. 455/1991 Zb. o živnostenskom podnikaní (živnostenský zákon) v znení neskorších predpisov v znení neskorších predpisov;
+§ 1 ods. 2 zákona č. 308/1993 Z. z. o zriadení Slovenského národného strediska pre ľudské práva v znení neskorších predpisov;
+zákona č. 245/2008 Z. z. o výchove a vzdelávaní (školský zákon) a o zmene a doplnení niektorých zákonov v znení neskorších predpisov;
+§ 5 zákona 460/2007 Z. z. o Slovenskom Červenom kríži a ochrane znaku a názvu Červeného kríža a o zmene a doplnení niektorých zákonov v znení neskorších predpisov
+a predmet projektu priamo súvisí s výkonom týchto činností a zároveň tieto subjekty existujú minimálne 7 celých kalendárnych rokov ku dňu vyhlásenia výzvy.
+Upozornenia:
+Ak je osoba konajúca v mene oprávneného žiadateľa odlišná od štatutárneho orgánu, musí byť riadne splnomocnená na výkon predmetných úkonov.
+PPP č. 11 - Podmienky týkajúce sa štátnej pomoci musí byť dodržaná.
+Forma preukázania splnenia PPP
+Žiadateľ predkladá formulár ŽoNFP v ktorom je povinný v tabuľke č. 1 Identifikácia žiadateľa uviesť svoje identifikačné údaje.
+Ak v prípade žiadateľa, ktorým je príspevková organizácia štátu, rozpočtová alebo príspevková organizácia obce alebo VÚC, verejnoprávna inštitúcia, verejná výskumná inštitúcia a subjekt mimo pravidiel štátnej pomoci, nie je možné overiť splnenie podmienky prostredníctvom integračnej funkcie ITMS, alebo verejných registrov, žiadateľ predkladá Prílohu č. 2 ŽoNFP – Dokumenty preukazujúce právnu subjektivitu žiadateľa.
+Ak úkony vo vzťahu k ŽoNFP vykonáva osoba splnomocnená žiadateľom, je žiadateľ za účelom posúdenia splnenia tejto PPP v rámci Prílohy č. 1 ŽoNFP – Plnomocenstvo / Poverenie povinný preukázať, že osoby konajúce v mene žiadateľa, ktoré nie sú štatutárnym orgánom žiadateľa, sú riadne splnomocnené vykonávať relevantné úkony vo vzťahu k ŽoNFP a/alebo konaniu o ŽoNFP.
+Spôsob overenia splnenia PPP
+SO overí právnu formu prioritne prostredníctvom integračnej funkcie ITMS, resp. v Registri a identifikátore právnických osôb, podnikateľov a orgánov verejnej moci, ktorý je verejne dostupný v elektronickej podobe na webovom sídle https://rpo.statistics.sk/, resp. v iných verejných registroch a prípadne aj na základe predložených príloh. V prípade relevantnosti SO overuje splnenie PPP aj na základe vyššie uvedených dokumentov.
+Ukončenie uplatniteľnosti PPP
+Až do skončenia doby udržateľnosti projektu - v zmysle čl. 65 NSU.
+ |
+2
+ | Podmienka že voči žiadateľovi nie je vyhlásený konkurz ani povolená reštrukturalizácia a nie je v likvidácii
+ | Podmienka sa nevzťahuje na subjekty štátnej správy a subjekty územnej samosprávy.
+Voči žiadateľovi nesmie byť vyhlásený konkurz ani povolená reštrukturalizácia a nesmie byť ani v likvidácii podľa zákona.
+Forma preukázania splnenia PPP
+Nevyžaduje sa.
+Spôsob overenia splnenia PPP
+SO overuje splnenie PPP prioritne prostredníctvom ITMS, ktorý je integrovaný s informačným systémom „Registra úpadcov“, verejne dostupnom na stránke https://ru.justice.sk/ru-verejnost-web/pages/searchKonanie.xhtml?query=, resp. prostredníctvom:
+obchodného vestníka dostupnom na https://www.justice.gov.sk/PortalApp/ObchodnyVestnik/Formular/FormulareZv erejnene.aspx,
+registra a identifikátora právnických osôb, podnikateľov a orgánov verejnej moci dostupnom na https://rpo.statistics.sk,
+informačného systému verejnej správy www.oversi.gov.sk
+v prípade neziskových organizácií poskytujúcich všeobecne prospešné služby prostredníctvom Registra mimovládnych neziskových organizácií, verejne dostupnom na stránke https://ives.minv.sk/rmno/.
+Ukončenie uplatniteľnosti PPP
+Až do skončenia doby udržateľnosti projektu - v zmysle čl. 65 NSU.
+PPP sa považuje za splnenú, ak je povolená reštrukturalizácia po účinnosti zmluvy o poskytnutí NFP a následne je schválený a potom aj plnený reštrukturalizačný plán.
+ |
+3
+ | Podmienka zákazu vedenia výkonu rozhodnutia voči žiadateľovi
+ | Nerelevantné pre ministerstvá, ostatné ústredné orgány štátnej správy a ostatné štátne rozpočtové organizácie. Pre ostatné verejné orgány relevantné v rozsahu, v akom sa na nich nevzťahuje absolútna exekučná imunita.
+Voči žiadateľovi nie je vykonávaná exekúcia alebo vedený iný výkon rozhodnutia podľa osobitných predpisov, ktorých predmetom je nútený výkon povinnosti zaplatiť peňažnú sumu vo výške vymáhaného nároku za všetky takto vykonávané exekúcie alebo iné výkony rozhodnutia vyššiu ako 500 EUR.
+V prípade, ak celková súhrnná výška vymáhaného nároku za všetky exekúcie  alebo iné výkony rozhodnutia presiahla sumu 500 EUR, je pre účely posúdenia tejto podmienky rozhodujúca skutočnosť, či dlžná suma a všetky trovy súvisiace s výkonom rozhodnutia boli uhradené, resp. bola dlžná suma a výška všetkých trov exekúcie zložené do zábezpeky v celkovej výške vymáhaného nároku, na osobitný účet exekútora, zriadený na tento účel podľa Exekučného poriadku
+Za začatie vedenia výkonu rozhodnutia sa považuje doručenie poverenia na vykonanie exekúcie exekútorovi, resp. vydanie rozhodnutia o začatí daňového exekučného konania.
+Voči žiadateľovi tiež nesmie byť vedený výkon rozhodnutia na plnenie inej povinnosti, ktorá nespočíva v zaplatení peňažnej sumy, pokiaľ táto nepeňažná povinnosť akokoľvek priamo alebo nepriamo súvisí s projektom, ktorý je predmetom podanej ŽoNFP žiadateľa.
+Podmienka sa netýka výkonu rozhodnutia voči členom riadiacich a dozorných orgánov žiadateľa, ale je relevantná vo vzťahu k subjektu žiadateľa.
+Forma preukázania splnenia PPP
+Nevyžaduje sa.
+V prípadoch podľa ods. 4 kapitoly 3 výzvy je relevantným subjektom pre vydanie potvrdenia preukazujúceho splnenie PPP aj bez vyzvania zo strany SO Slovenská komora exekútorov.
+Spôsob overenia splnenia PPP
+SO overuje splnenie PPP bez súčinnosti žiadateľa, overením informácií v Centrálnom registri exekúcií dostupnom na webovom sídle www.cre.sk.
+Ukončenie uplatniteľnosti PPP
+Až do skončenia doby udržateľnosti projektu - v zmysle čl. 65 NSU.
+V čase implementácie projektu je možné uplatniť prerušenie plnenia danej PPP s tým, že prijímateľ je povinný podmienku opäť začať plniť v termíne stanovenom poskytovateľom – ak k opätovnému plneniu PPP dôjde tak, že dočasné neplnenie nespôsobí ohrozenie cieľov projektu, podmienka sa nepovažuje za porušenú (t. j. nie je potrebné postupovať v zmysle čl. 65 NSU).
+ |
+4
+ | Podmienka, zákazu vedenia výkonu rozhodnutia voči žiadateľovi v súlade s čl. 65 NSU
+ | Projekt nesmie byť predmetom niektorej z týchto skutočností:
+ukončenie alebo presun činnosti mimo regiónu úrovne NUTS 2;
+zmena vlastníctva položky infraštruktúry, ktorá poskytuje žiadateľovi/prijímateľovi nenáležité zvýhodnenie;
+podstatná zmena, ktorá ovplyvňuje jej povahu, ciele alebo podmienky vykonávania, čo by spôsobilo narušenie jej pôvodných cieľov.
+Forma preukázania splnenia PPP
+Žiadateľ preukazuje splnenie týchto PPP formou čestného vyhlásenia v tabuľke č. 15 formulára ŽoNFP.
+Spôsob overenia splnenia PPP
+SO overuje splnenie PPP bez súčinnosti žiadateľa prostredníctvom informácií evidovaných v Systéme včasného odhaľovania rizika a vylúčenia (EDES), overením majetkovo-právnych vzťahov (ak relevantné prostredníctvom listu vlastníctva) a overením čestného vyhlásenia v tabuľke č. 15 formulára ŽoNFP.
+Ukončenie uplatniteľnosti PPP
+Až do skončenia doby udržateľnosti projektu - v zmysle čl. 65 NSU.
+ |
+5
+ | Podmienka, že žiadateľ, ktorým je právnická osoba, nemá právoplatným rozsudkom uložený trest zákazu prijímať dotácie alebo subvencie, trest zrušenia PO, trest zákazu prijímať pomoc a podporu poskytovanú z fondov EÚ, trest zákazu činnosti v súlade so zameraním projektu a podmienkami výzvy alebo trest zákazu účasti vo verejnom obstarávaní
+ | Podmienka sa nevzťahuje na tie právnické osoby, ktoré sú vymedzené v § 5 zákona č. 91/2016 Z. z. o trestnej zodpovednosti právnických osôb a o zmene a doplnení niektorých zákonov v znení neskorších predpisov.
+Podmienka sa vzťahuje aj na žiadateľa, na ktorého prešla trestná zodpovednosť po zrušení právnickej osoby podľa § 7 zákona č. 91/2016 Z. z. o trestnej zodpovednosti právnických osôb a o zmene a doplnení niektorých zákonov.
+Žiadateľ, ktorým je právnická osoba nemôže mať podľa osobitného zákona právoplatným rozsudkom uložený niektorý z týchto trestov:
+trest zákazu prijímať dotácie alebo subvencie,
+trest zrušenia PO,
+trest zákazu prijímať pomoc a podporu poskytovanú z fondov EÚ,
+trest zákazu činnosti v súlade so zameraním projektu a podmienkami výzvy,
+trest zákazu účasti vo verejnom obstarávaní.
+Forma preukázania splnenia PPP
+Nevyžaduje sa.
+Spôsob overenia splnenia PPP
+SO overuje splnenie tejto PPP overením údajov a informácií v Zozname odsúdených právnických osôb, ktorý je verejne dostupný v elektronickej podobe na webovom sídle: https://esluzby.genpro.gov.sk/zoznam-odsudenych-pravnickych-osob.
+Ukončenie uplatniteľnosti PPP
+Až do skončenia doby udržateľnosti projektu - v zmysle čl. 65 NSU.
+ |
+6
+ | Podmienka schválenia programu rozvoja a príslušnej územnoplánovacej dokumentácie podľa § 7 ods. 8 a  § 8 ods. 6/ § 8a ods. 7 zákona č. 539/2008 o podpore regionálneho rozvoja v znení neskorších predpisov
+ | Podmienka sa vzťahuje iba na obce a vyššie územné celky alebo právnickú osobu, na ktorej sa zúčastňuje obec, mesto alebo VÚC.
+Žiadateľ, ktorým je obec/vyšší územný celok, musí mať schválený program rozvoja obce/spoločný program rozvoja obcí/program rozvoja vyššieho územného celku a príslušnú územnoplánovaciu dokumentáciu v súlade s ustanovením § 7 ods. 8 (v prípade VÚC) alebo § 8 ods. 6 (v prípade obce), resp. § 8a ods. 7 (v prípade spoločného programu rozvoja obcí) zákona o podpore regionálneho rozvoja.
+Podmienka sa plní vo vzťahu k územiu obce, mesta alebo vyššieho územného celku, na ktorom je podľa projektu plánované vykonávanie investícií projektu.
+Forma preukázania splnenia PPP
+Žiadateľ preukazuje splnenie PPP prostredníctvom:
+formulára ŽoNFP, tabuľka č. 7.2. Popis východiskovej situácie (ak relevantné);
+Prílohu č. 3 ŽoNFP - Uznesenie (výpis z uznesenia) o schválení programu rozvoja a príslušnej územnoplánovacej dokumentácie (ak relevantné)
+Ak obec/niektorá z obcí, na ktorej území sa realizuje projekt, nebola povinná v čase do 31.3.2024 mať vypracovaný územný plán podľa § 11 stavebného zákona v znení platnom do 31. marca 2024 alebo podľa § 22 zákona o územnom plánovaní, preukáže žiadateľ splnenie PPP prostredníctvom:
+formulára ŽoNFP, tabuľka č. 7.2. Popis východiskovej situácie (ak relevantné), v ktorom vymenuje obce zúčastnené na žiadateľovi, na ktorých území sa fyzicky realizuje projekt a ktoré v čase predloženia ŽoNFP nie sú povinné mať vypracovanú územnoplánovaciu dokumentáciu.
+Spôsob overenia splnenia PPP
+Poskytovateľ na overenie splnenia PPP využíva všetky žiadateľom poskytnuté prílohy a informácie vo formulári ŽoNFP uvedené vyššie v rámci formy preukázania splnenia PPP zo strany žiadateľa.
+Ukončenie uplatniteľnosti PPP
+Do skončenia konania o ŽoNFP.
+ |
+7
+ | Podmienka oprávnenosti aktivít projektu
+ | Výzva podporuje implementáciu opatrenia 2.1.2 a opatrenia 2.2.2 P SK.
+Pre opatrenie 2.1.2 je oprávneným typom akcie Zlepšovanie energetickej hospodárnosti a obnovy verejných budov s nasledovnými hlavnými aktivitami:
+vypracovanie energetického auditu minimálne na predmet projektu;
+vypracovanie projektovej dokumentácie na predmet projektu;
+zateplenie obvodového plášťa;
+zateplenie strešného plášťa;
+výmena otvorových konštrukcií;
+inštalácia / rekonštrukcia / modernizácia vykurovacieho systému;
+inštalácia / rekonštrukcia / modernizácia systémov chladenia a vetrania;
+inštalácia / rekonštrukcia / modernizácia systémov prípravy teplej vody;
+rekonštrukcia / modernizácia osvetlenia;
+inštalácia systémov merania a riadenia;
+iné opatrenia prinášajúce úsporu primárnej energie;
+zavádzanie energetického manažmentu;
+zavádzanie monitoringu prevádzkových údajov;
+realizácia opatrení zlepšujúcich kvalitu vnútorného prostredia; Kvalita vnútorného prostredia zahŕňa zabezpečenie: výmeny (kvality) vnútorného vzduchu, tepelnej pohody, sluchovej spokojnosti (akustiky), svetelnej pohody, zdravia a základného komfortu využívania budovy, ak základný komfort prispieva ku kvalite vnútorného prostredia. V rámci základného komfortu využívania budovy sú oprávnené výlučne výdavky na podlahové krytiny, interiérové omietky a farby, interiérové dvere, základnú sanitu a súvisiace rozvody a odstránenie zdravotných rizík napr. plesní. Výdavky na nábytok, koberce a dekoračné prvky nie sú v tejto hlavnej aktivite oprávnené.
+realizácia debarierizačných opatrení;
+inštalácia / rekonštrukcia / modernizácia elektrických nabíjacích staníc pre elektromobilitu;
+realizácia estetických opatrení „Nového Európskeho Bauhausu“;
+realizácia zelených opatrení (napr. zelené strechy / steny, systémy využitia dažďovej vody);
+realizácia opatrení ochrany biodiverzity.
+Pre opatrenie 2.2.2 je oprávneným typom akcie Podpora zariadení využívajúcich OZE vrátane zariadení, ktoré sú súčasťou systému zásobovania energiou verejných budov s nasledovnými hlavnými aktivitami:
+inštalácia zariadení využívajúcich OZE;
+uskladňovanie energie z OZE;
+zavádzanie systémov monitorovania, optimalizácie a riadenia spotreby energie.
+Podmienky oprávnenosti aktivít
+Projektom sa realizuje buď samotné opatrenie 2.1.2 alebo samotné opatrenie 2.2.2 alebo kombinácia opatrení 2.1.2 a 2.2.2.
+Projektom sa realizuje aspoň jedna hlavná aktivita z aspoň jedného opatrenia pri dodržaní ostatných podmienok oprávnenosti aktivít.
+Ak sa realizuje opatrenie 2.1.2:
+oprávnené sú iba verejné budovy. Verejnou budovou sa rozumie budova vo vlastníctve / podielovom spoluvlastníctve výlučne štátu, subjektov štátnej správy a ostatných subjektov verejnej správy v zmysle PPP č. 1. Za verejnú budovu sa nepovažuje budova vo vlastníctve subjektov mimo pravidiel štátnej pomoci v zmysle PPP č. 1.; zároveň
+oprávnené sú iba kategórie budov podľa § 3 ods. 5 písm. c), d), e), f), g), a i) zákona č. 555/2005 Z. z. o energetickej hospodárnosti budov v znení neskorších predpisov (ďalej len „zákon č. 555/2005 Z. z“); Zmena účelu využitia budovy počas účinnosti Zmluvy o poskytnutí NFP je možná iba v rámci oprávnených kategórií budov.; zároveň
+v projektovej dokumentácii musí byť stanovené dodržanie kvality vnútorného prostredia zabezpečením požadovanej výmeny vnútorného vzduchu alebo aj ďalšími opatreniami zlepšujúcimi vnútorné prostredie. Opatrenia/podmienky stanovené v projektovej dokumentácii pre dodržanie kvality vnútorného prostredia je nutné zachovať počas účinnosti Zmluvy o poskytnutí NFP.; zároveň
+v budove nie je navrhované odpojenie od účinných systémov CZT alebo od systémov CZT so schváleným plánom prechodu, ktoré je v rozpore so zákonom č. 657/2004 Z. z. o tepelnej energetike v znení neskorších predpisov; zároveň
+zlepší sa energetická klasifikácia budovy najmenej o jednu energetickú triedu; zároveň
+budova musí dosiahnuť plánovanú úsporu primárnej energie minimálne 30 %; zároveň
+budova musí spĺňať minimálnu mieru príspevku k cieľu opatrenia, stanovenú aplikáciou princípu Hodnota za Peniaze s definovanou maximálnou hodnotou 5 500 EUR/MWh/rok.
+Ak sa realizuje opatrenie 2.2.2:
+zariadením využívajúcim OZE sa pre účely tejto výzvy rozumie výstavba fotovoltického zariadenia / fotovoltickej elektrárne a/alebo tepelných čerpadiel a/alebo slnečných termických kolektorov; zároveň
+je realizácia minimálne hlavnej aktivity ustanovenej v písm. a) povinná; zároveň
+fotovoltické zariadenie / fotovoltická elektráreň môže byť umiestnená iba na verejnej budove v zmysle ods. 3 písm. a) alebo na pozemku zapísanom v katastri nehnuteľností ako „zastavaná plocha a nádvorie“ alebo ako „ostatná plocha“ ; zároveň
+projekt musí spĺňať minimálnu mieru príspevku k cieľu opatrenia, stanovenú aplikáciou princípu Hodnota za Peniaze definovanou maximálnou hodnotou 1,4 mil. EUR/MW.
+Ak sa realizuje kombinácia opatrení 2.1.2 a 2.2.2 musia byť dodržané podmienky oboch opatrení.
+Projekty podľa čl. 7 nariadenia o ERDF a KF nie sú oprávnené.
+Oprávnené na poskytnutie príspevku budú výlučne projekty, ktoré svojimi aktivitami spadajú do vyššie definovaného rámca oprávnených aktivít.
+Forma preukázania splnenia PPP
+Splnenie podmienky bude posudzované na základe informácií uvedených vo:
+formulári ŽoNFP, v rámci ktorého definuje hlavné aktivity, ktorých realizácia je predmetom projektu predloženého prostredníctvom ŽoNFP;
+formulári ŽoNFP, tabuľka 15. Čestné vyhlásenie;
+Prílohe č. 5 ŽoNFP – Energetický audit / Stanovisko energetického audítora (ak
+relevantné);
+Prílohe č. 6 ŽoNFP – Energetický certifikát (ak relevantné);
+Prílohe č. 7 ŽoNFP – Projektová dokumentácia;
+Prílohe č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov.
+Spôsob overenia splnenia PPP
+SO overuje splnenie tejto PPP na základe údajov vo vyššie definovaných dokumentoch a verejných registroch https://oversi.gov.sk alebo https://www.katasterportal.sk/kapor/.
+Ukončenie uplatniteľnosti PPP
+Až do skončenia doby udržateľnosti projektu - v zmysle čl. 65 NSU.
+ |
+8
+ | Podmienky splnenia kritérií pre výber projektov
+ | Kritériá pre výber projektov pozostávajú z vylučujúcich a vecných kritérií. Vylučujúce kritériá vyplývajú z čl. 73 NSU. Vecné kritériá vyplývajú z nastavenia výzvy.
+Vylučujúce kritériá podľa čl. 73 NSU
+
+Projekt je v súlade s Chartou základných práv EÚ, zabezpečuje a presadzuje rodovú rovnosť, nediskrimináciu a prístupnosť pre osoby so zdravotným postihnutím (článok 9 a článok 73 ods. 1 nariadenia o spoločných ustanoveniach)?
+Posudzuje sa, či projekt dodržiava základné práva a súlad s Chartou základných práv EÚ, zohľadňuje a presadzuje rovnosť mužov a žien, uplatňuje a začleňuje hľadisko rodovej rovnosti, zabraňuje akejkoľvek diskriminácií a zohľadňuje prístupnosť pre osoby so zdravotným postihnutím v súlade s čl. 9 Dohovoru OSN o právach osôb so zdravotným postihnutím.
+Doplňujúce informácie k zneniu vylučujúceho kritéria HP:
+Projekt musí byť v súlade s horizontálnymi princípmi, ktoré sú definované v čl. 9 nariadenia o spoločných ustanoveniach, s prihliadnutím na dodržiavanie zásady rovnakého zaobchádzania a aktívneho podporovania mužov a žien vo všetkých aktivitách a činnostiach, najmä ak ide o prístup k zamestnaniu, odmeňovanie a pracovný postup, odborné vzdelávanie a pracovné podmienky.
+V projektoch je potrebné odstraňovať bariéry a zabraňovať všetkým formám diskriminácie, vytvárať podmienky, ktoré zohľadňujú špecifické potreby rozmanitých skupín obyvateľstva a zabezpečiť prístupnosť fyzického prostredia, dopravy, informácií a verejných služieb pre osoby so zdravotným postihnutím, v súlade s čl. 9 Dohovoru OSN o právach osôb so zdravotným postihnutím.
+Za účelom overenia zabezpečenia súladu projektu s čl. 9 Dohovoru OSN o právach osôb so zdravotným postihnutím sú ako odborná pomôcka pre žiadateľov pri príprave ŽoNFP  k dispozícii nasledovné Checklisty – Vyhlásenie o bezbariérovej prístupnosti, spracované gestorom HP, na základe ktorých je žiadateľ schopný pre svoje vlastné potreby pred vydaním čestného vyhlásenia kvalifikovane verifikovať dosiahnutie súladu ním navrhovaného projektu s požiadavkami týkajúcimi sa plnenia HP:
+3.    CHECK LIST  - VYHLÁSENIE O BEZBARIÉROVEJ PRÍSTUPNOSTI –
+       DEBARIÉRIZÁCIA KULTÚRNEJ STAVBY,
+5.    CHECK LIST  - VYHLÁSENIE O BEZBARIÉROVEJ PRÍSTUPNOSTI –
+       DEBARIÉRIZÁCIA ADMINISTRATÍVNEJ BUDOVY,
+6.    CHECK LIST  - VYHLÁSENIE O BEZBARIÉROVEJ PRÍSTUPNOSTI –
+       DEBARIÉRIZÁCIA ŠKOLSKEJ STAVBY
+10.  CHECK LIST  - VYHLÁSENIE O BEZBARIÉROVEJ PRÍSTUPNOSTI   –
+       DEBARIÉRIZÁCIA ŠPORTOVEJ HALY,
+11.  CHECK LIST - VYHLÁSENIE O BEZBARIÉROVEJ PRÍSTUPNOSTI –
+       MULTIFUNKČNEJ STAVBY /kultúra, šport/,
+14. CHECK LIST - VYHLÁSENIE O BEZBARIÉROVEJ PRÍSTUPNOSTI –
+       ZARIADENIE SOCIÁLNYCH SLUŽIEB – ZMENA STAVBY,
+18. CHECK LIST  - VYHLÁSENIE O BEZBARIÉROVEJ PRÍSTUPNOSTI -
+       REKONŠTRUKCIA ZDRAVOTNÍCKEHO ZARIADENIA,
+19.  CHECK LIST - VYHLÁSENIE O BEZBARIÉROVEJ PRÍSTUPNOSTI –
+       REKONŠTRUKCIA VÝSKUMNÝCH A VÝVOJOVÝCH PRACOVÍSK
+21.  CHECK LIST - VYHLÁSENIE O BEZBARIÉROVEJ PRÍSTUPNOSTI –
+       BUDOVY UBYTOVACÍCH ZARIADENÍ A GASTRONÓMIE.
+Tieto Checklisty sú dostupné na webovom sídle gestora HP https://www.horizontalneprincipy.gov.sk/hp-v-novom-po-2021-2027/index.html?csrt=13762856008428084435, v časti Riadiaca dokumentácia.
+Forma preukázania splnenia kritéria
+Žiadateľ preukazuje splnenie PPP prostredníctvom:
+formulára ŽoNFP, časť 15. Čestné vyhlásenie žiadateľa.
+Spôsob overenia splnenia kritéria
+Poskytovateľ overuje splnenie PPP prostredníctvom:
+formulára ŽoNFP, časť 15. Čestné vyhlásenie žiadateľa.
+Ukončenie uplatniteľnosti kritéria
+Do skončenia konania o ŽoNFP.
+Má prijímateľ potrebné finančné zdroje a mechanizmy na pokrytie nákladov na prevádzku a údržbu v prípade projektu, ktorý zahŕňa investície do infraštruktúry alebo produktívne investície, aby zabezpečil ich finančnú udržateľnosť (článok 73 ods. 2 písm. d) nariadenia o spoločných ustanoveniach)?
+Posudzuje sa zabezpečenie udržateľnosti projektu z finančnej stránky. Konkrétny model pre posúdenie finančnej udržateľnosti projektu je určený vo výzve.
+V prípade, ak je podmienka posúdená kladne, potom je výsledok posúdenia „áno“. Ak nie je podmienka posúdená kladne, potom je výsledok posúdenia „nie“.
+Kritérium sa neposudzuje ak:
+•	sa nevyžaduje v navrhovanom projekte podpora investícií do infraštruktúry alebo na produktívne investície; alebo
+•	žiadateľom je subjekt verejnej správy.
+Doplňujúce informácie k zneniu vylučujúceho kritéria finančnej udržateľnosti:
+Žiadateľ, ktorým je subjekt mimo pravidiel štátnej pomoci v zmysle PPP č. 1 a realizuje opatrenie 2.1.2 je, s výnimkou hlavných aktivít podľa písm. a), b), l) a m) PPP č. 7, povinný zabezpečiť finančnú udržateľnosť projektu podľa čl. 73 ods. 2 písm. d) NSU v zmysle pravidiel uvedených v tabuľke 7 Popis projektu časti Situácia po realizácii projektu a udržateľnosť projektu formulára ŽoNFP.
+Forma preukázania splnenia kritéria
+V konaní o ŽoNFP žiadateľ preukazuje splnenie kritéria prostredníctvom formulára ŽoNFP v ktorom v tabuľke 7 uvedie informácie o zabezpečení finančnej udržateľnosti projektua zaviaže sa k jej zabezpečeniu aj formou čestného vyhlásenia v tabuľke č. 15 formulára ŽoNFP.
+Spôsob overenia splnenia kritéria
+V konaní o ŽoNFP SO overuje splnenie kritéria bez súčinnosti žiadateľa na základe údajov vo formulári ŽoNFP v procese administratívneho overovania v reálnom čase (v okamihu výkonu overenia).
+SO bude vyžadovať informácie o zabezpečení finančnej udržateľnosti aj počas platnosti a účinnosti Zmluvy o poskytnutí NFP.
+Ukončenie uplatniteľnosti kritéria
+Až do skončenia doby udržateľnosti projektu - v zmysle čl. 65 NSU.
+Ak sa projekt začal realizovať ešte pred predložením ŽoNFP, dodržalo sa uplatniteľné právo (článok 73 ods. 2 písm. f) nariadenia o spoločných ustanoveniach)?
+Ak sa projekt začal realizovať ešte pred predložením ŽoNFP platí, že:
+•	boli dodržané podmienky stanovené v článku 63 odsek 2, 6, 7, 8 (s výnimkou podľa čl. 20 ods. 1 písm. b)) nariadenia o spoločných ustanoveniach;
+•	uplatniteľné pravidlá štátnej pomoci umožňujú začatie realizácie projektu pred predložením ŽoNFP;
+potom je výsledkom posúdenia „áno“.
+V opačnom prípade je výsledkom posúdenia „nie“.
+Doplňujúce informácie k zneniu vylučujúceho kritéria uplatniteľného práva:
+Žiadateľ nesmie ukončiť fyzickú realizáciu všetkých oprávnených aktivít projektu pred predložením ŽoNFP, t. j. plne zrealizovať hlavné aktivity projektu, pred predložením ŽoNFP poskytovateľovi.
+Forma preukázania splnenia kritéria
+Žiadateľ je povinný za účelom posúdenia splnenia kritéria predložiť formulár ŽoNFP, v rámci ktorého v tabuľke č. 9 definuje harmonogram časovej realizácie aktivít projektu.
+Spôsob overenia splnenia kritéria
+SO overuje splnenie kritéria na základe údajov vo formulári ŽoNFP a v prípade relevantnosti aj na základe uzavretej zmluvy s úspešným uchádzačom v procese administratívneho overovania v reálnom čase (v okamihu výkonu overenia).
+Ukončenie uplatniteľnosti kritéria
+Kritérium musí byť plnené do skončenia konania o ŽoNFP.
+Vecné kritériá
+Vecné kritériá pre výber projektov pozostávajú z výberového kritéria a rozlišovacích kritérií. Aplikujú sa iba ak z disponibilnej alokácie určenej na výzvu nie je možné podporiť všetky ŽoNFP, ktoré splnili PPP v príslušnom hodnotiacom kole.
+Výberové kritérium je založené na princípe Hodnoty za Peniaze a uplatňuje sa nasledovne:
+Pre výzvy v ktorých je prípustná aj kombinácia opatrení 2.1.2 s opatreniami 2.2.2 sa bez ohľadu na projektom realizované opatrenie stanoví výberové kritérium na základe hodnoty Hodnoty za Peniaze – kombinované (HzPKOMB), ktorá sa vypočíta nasledovne:
+V prvom kroku sa stanoví váha celkových oprávnených výdavkov opatrení jednotlivých špecifických cieľov voči celkovým oprávneným výdavkom projektu.
+váhaEE=COVEECOV                         váhaOZE=COVOZECOV
+
+V druhom kroku sa vypočítajú hodnoty HzPEE a HzPOZE v zmysle prvej a druhej odrážky časti Samostatné objektívne kritérium Prílohy č. 4 výzvy Kritériá výberu projektov.
+V treťom kroku sa na základe hodnôt HzPEE a HzPOZE stanoví bodovacia škála v rozsahu 0 až 20 bodov, pričom 0 bodov bude predstavovať kritická hranica Hodnoty za Peniaze (HzPkrit) stanovená ako podmienka vo výzve a 20 bodov bude predstavovať najnižšia dosiahnutá hodnota HzPEE a/alebo HzPOZE v predmetnom hodnotiacom kole.
+Bodovacia škála bude rozdelená na  rovnaké časti, pričom rozsah každej časti sa určí nasledovne:
+
+RčEE =HzPkrit-HzPEE20                RčOZE=HzPkrit-HzPOZE20
+V štvrtom kroku sa hodnotám HzPEE a HzPOZE pridelí v zmysle uvedenej škály príslušný počet bodov, ktorý sa vynásobí príslušnou váhou vypočítanou v prvom kroku.
+HzPKOMB = váhaEE*bodyEE + váhaOZE*bodyOZE
+Poradie sa stanoví zostupne na základe hodnoty HzPKOMB. Projekt, ktorý dosiahne vyššie číslo bude uprednostnený pred projektom s nižším číslom.
+Ak nebude realizovaná kombinácia opatrení, postup podľa písm. a) až d) sa uplatní iba pre realizované opatrenie, keďže nerealizovanému opatreniu sa automaticky pridelí nulová hodnota.
+Ak budú v rámci konania o ŽoNFP identifikované neoprávnené výdavky, resp. nesprávne nastavené údaje o ročnej spotrebe primárnej energie, či hodnota merateľného ukazovateľa RCO22 do výpočtu budú vstupovať iba ich upravené hodnoty.
+Rozlišovacie kritériá sú dve, konkrétne:
+Schválenie projektu Radou Partnerstva kraja a/alebo Kooperačnou Radou UMR
+Rozlišovacie kritérium reprezentuje schválenie projektu Radou Partnerstva kraja a/alebo Kooperačnou Radou UMR k okamihu aplikácie rozlišovacieho kritéria. Vyhodnocuje sa ako prvé v poradí.
+Okamih predloženia ŽoNFP
+Reprezentuje okamih predloženia formuláru ŽoNFP bez príloh prostredníctvom ITMS a e-schránky. Vyhodnocuje sa ako druhé v poradí.
+Aplikáciou uvedených kritérií sa určí poradie ŽoNFP, podľa ktorého sú ŽoNFP schvaľované až do výšky disponibilnej alokácie na výzvu.
+Forma preukázania splnenia kritéria
+Žiadateľ za účelom posúdenia splnenia tejto PPP je povinný predložiť:
+formulár ŽoNFP, tabuľka č. 7 Popis projektu, tabuľka č. 11 Rozpočet projektu;
+Prílohu č. 5 ŽoNFP – Energetický audit / Stanovisko energetického audítora (ak
+                                    relevantné);
+Prílohu č. 7 ŽoNFP – Projektová dokumentácia;
+Prílohu č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov.
+Spôsob overenia splnenia kritéria
+SO overuje splnenie tejto PPP na základe údajov vo vyššie definovaných dokumentoch.
+Ukončenie uplatniteľnosti kritéria
+Až do ukončenia konania o ŽoNFP.
+ |
+9
+ | Podmienka, že projekt je realizovaný na oprávnenom území
+ | Žiadateľ je povinný realizovať projekt na oprávnenom území, ktorým je celé územie Slovenskej republiky.
+Forma preukázania splnenia PPP
+Žiadateľ za účelom preukázania splnenia tejto PPP je povinný  predložiť formulár ŽoNFP s tabuľkou č. 6 - Miesto realizácie projektu, v rámci ktorého definuje miesto realizácie aktivít projektu.
+Spôsob overenia splnenia PPP
+SO overuje splnenie tejto PPP na základe údajov vo formulári ŽoNFP.
+Ukončenie uplatniteľnosti PPP
+Do momentu fyzického ukončenia projektu. Prerušenie podmienky sa nepripúšťa.
+ |
+10
+ | Podmienka mať vysporiadané majetkovo-právne vzťahy
+
+ | Podmienka vzťahujúca sa na projekty opatrenia 2.1.2 alebo projekty kombinácií opatrenia 2.1.2 s opatrením 2.2.2
+Stavba (verejná budova), na ktorej dochádza k realizácii projektu, musí byť vo výlučnom vlastníctve alebo v podielovom spoluvlastníctve výlučne štátu, subjektov štátnej správy a ostatných subjektov verejnej správy v zmysle PPP č. 1. Stavba môže byť v správe alebo v nájme žiadateľa.
+V prípade podielového spoluvlastníctva k stavbe musia byť kumulatívne splnené nasledujúce podmienky:
+a)  stavba musí byť vo výlučnom vlastníctve alebo v podielovom spoluvlastníctve výlučne štátu, subjektov štátnej správy a ostatných subjektov verejnej správy v zmysle PPP č. 1,
+b)  žiadateľ musí byť vlastníkom alebo správcom väčšinového podielu k stavbe a
+c) žiadateľ musí disponovať súhlasmi všetkých ostatných podielových spoluvlastníkov stavby s realizáciou projektu.
+Upozorňujeme, že podmienka zmiešaného využitia infraštruktúry sa vzťahuje na celú infraštruktúru, bez ohľadu na skutočnosť koľko podielových vlastníkov využíva budovu na prípadné sprievodné hospodárske činnosti / činnosti mimo zmiešaného využitia.
+V prípade správy budovy musí byť budova vo výlučnom vlastníctve alebo v podielovom spoluvlastníctve výlučne štátu, subjektov štátnej správy a ostatných subjektov verejnej správy v zmysle PPP č. 1, pričom žiadateľ má budovu v správe podľa § 3 ods. 1 zákona č. 278/1993 Z. z. o správe majetku štátu v znení neskorších predpisov, § 6 ods. 1 zákona č. 446/2001 Z. z. o majetku vyšších územných celkov v znení neskorších predpisov a § 6 ods. 1 a 2 zákona č. 138/1991 Zb. o majetku obcí v znení neskorších predpisov.
+V prípade nájmu budovy musia byť kumulatívne splnené nasledujúce podmienky:
+stavba musí byť vo výlučnom vlastníctve alebo v podielovom spoluvlastníctve výlučne štátu, subjektov štátnej správy a ostatných subjektov verejnej správy v zmysle PPP č. 1,
+nájmom sa rozumie výlučne zmluvne dohodnutý nájom medzi vlastníkom / správcom  budovy a žiadateľom,
+nájomná zmluva musí byť uzavretá na dobu neurčitú alebo minimálne na 10 celých kalendárnych rokov ku dňu vyhlásenia výzvy,
+technické zhodnotenie prenajatej stavby musí byť vo výlučnom vlastníctve nájomcu, ktorý zaradí technické zhodnotenie do príslušnej odpisovej skupiny a majetok odpisuje v súlade so zákonom o dani z príjmov,
+nájomná zmluva musí obsahovať záväzok vlastníka, že po ukončení doby nájmu uhradí žiadateľovi zostatkovú hodnotu zhodnotenia nehnuteľnosti (rozdiel medzi výškou investičných výdavkov vynaložených žiadateľom na zhodnotenie prenajatej nehnuteľnosti a výškou odpisov od ukončenia investície do ukončenia doby nájmu),
+žiadateľ musí disponovať súhlasom vlastníka / správcu budovy s realizáciou projektu.
+Iné právo k stavbe, na ktorej dochádza k realizácii projektu, nie je možné považovať za splnenie podmienky mať vysporiadané majetkovo-právne vzťahy vo vzťahu k stavbe, ktorá je predmetom realizácie projektu.
+Podmienka umiestnenia fotovoltického zariadenia / fotovoltickej elektrárne pri realizácii opatrenia 2.2.2
+Fotovoltické zariadenie / fotovoltická elektráreň v zmysle PPP č. 7 ods. 4 písm. c) môže byť umiestnené iba na stavbe / pozemku vo výlučnom vlastníctve alebo v podielovom spoluvlastníctve štátu, subjektov štátnej správy a ostatných subjektov verejnej správy v zmysle PPP č. 1.
+Forma preukázania splnenia PPP
+Žiadateľ je povinný za účelom posúdenia splnenia tejto podmienky poskytnutia príspevku predkladá Prílohy č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov, v ktorej identifikuje miesto realizácie projektu. Ak relevantné, žiadateľ predkladá dokumenty v rámci predmetnej prílohy.
+Rozsah požadovaných dokumentov na preukázanie splnenia tejto PPP je uvedený v kapitole 1 Prílohy č. 2 výzvy – Zoznam príloh ŽoNFP v rámci Prílohy č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov.
+Spôsob overenia splnenia PPP
+Vlastnícke právo žiadateľa k nehnuteľnostiam bude overované prostredníctvom dostupných údajov evidovaných v informačných systémoch verejnej správy https://oversi.gov.sk alebo https://www.katasterportal.sk/kapor/.
+Ak z technických dôvodov nebude možné získať výpisy z LV prostredníctvom dostupných údajov evidovaných na uvedených webových sídlach, vyzve SO v rámci výzvy na doplnenie chýbajúcich náležitostí ŽoNFP žiadateľa na predloženie výpisu z LV, pričom tento nesmie byť starší viac ako 3 mesiace ku dňu doplnenia chýbajúcich náležitostí ŽoNFP.
+Ukončenie uplatniteľnosti PPP
+Až do skončenia doby udržateľnosti projektu - v zmysle čl. 65 NSU.
+ |
+11
+ | Podmienky týkajúce sa štátnej pomoci
+ | Financovanie projektu sa poskytuje iba v rozsahu v akom sú výstupy projektu (napr. vyrobená/ušetrená energia) využívané na výkon nehospodárskych činností, resp. zmiešaného využitia projektu.
+Vzhľadom k uvedenému podpora oprávnenej aktivity, tak ako je stanovená touto výzvou, nie je poskytovaním štátnej pomoci a je teda vylúčená z aplikácie pravidiel štátnej pomoci.
+V prípade zmiešaného využitia projektu, keď sa výstupy projektu využívajú takmer výlučne na nehospodársku činnosť, môže poskytnutie financovania projektu patriť mimo rozsah pôsobnosti pravidiel štátnej pomoci za predpokladu, že hospodárske využitie je čisto sprievodnou činnosťou, teda činnosťou, ktorá je priamo spojená s prevádzkou infraštruktúry a je pre ňu nevyhnutná alebo je neoddeliteľne spojená s jej hlavným nehospodárskym využitím. Za takýto by sa mal považovať prípad, keď hospodárske činnosti spotrebúvajú tie isté vstupy ako základné nehospodárske činnosti, napríklad materiál, vybavenie, prácu alebo fixný kapitál.
+Sprievodné hospodárske činnosti musia mať vzhľadom na kapacitu infraštruktúry obmedzený rozsah. Sprievodné hospodárske využitie infraštruktúry (v súlade s Oznámením Komisie o pojme štátna pomoc uvedenom v článku 107 ods. 1 Zmluvy o fungovaní Európskej únie) možno považovať za vedľajšie, ak kapacita vyčlenená každý rok na túto činnosť neprekračuje 20 percent celkovej ročnej kapacity infraštruktúry.
+V rámci opatrenia 2.2.2 sa v prípade zariadení na výrobu elektriny za sprievodné hospodárske činnosti považuje iba dodávanie elektrickej energie vyrobenej podporeným projektom do distribučnej sústavy.
+V prípade využitia predmetu projektu v rámci opatrenia 2.2.2 na výkon hospodárskej činnosti inej ako sprievodnej sú výdavky na realizáciu tohto opatrenia neoprávnené.
+V prípadoch využitia projektu na hospodársku činnosť mimo definície zmiešaného využitia v rámci opatrenia 2.1.2 a/alebo prekročenia 20 % využitia kapacity infraštruktúry na sprievodné hospodárske činnosti sa financovanie podľa tejto výzvy vzťahuje len na pomernú časť, ktorá nie je využívaná na žiadne hospodárske činnosti.
+Údaje o percentuálnom využití kapacity infraštruktúry na sprievodnú hospodársku činnosť sa budú kontrolovať každoročne od ukončenia hlavných aktivít projektu do uplynutia udržateľnosti projektu. Prekročenie vyššie uvedeného stropu využitia infraštruktúry na sprievodné hospodárske činnosti počas životnosti infraštruktúry bude mať právne dôsledky vo vzťahu k prijímateľovi v súlade s článkom 3.9 uzavretej Zmluvy o poskytnutí NFP.
+Upozornenia:
+V prípade pochybností ohľadne splnenia pravidiel štátnej pomoci si SO vyhradzuje právo vyžiadať si od žiadateľa stanovisko v zmysle Prílohy č. 4 ŽoNFP – Dokumenty súladu projektu s pravidlami štátnej pomoci.
+Ak žiadateľ/prijímateľ nezachová charakter projektu, ktorý svojimi aktivitami nepredstavuje štátnu pomoc, nesie za svoje konanie plnú právnu zodpovednosť v súvislosti s porušením pravidiel týkajúcich sa štátnej pomoci.
+Žiadateľ/prijímateľ zároveň berie na vedomie, že rovnaké právne následky nastanú aj v prípade, ak v rámci jeho projektu dôjde k poskytnutiu, tzv. nepriamej štátnej pomoci alebo k poskytnutiu inej formy výhody, ktorá na základe Zmluvy o fungovaní EÚ znamená porušenie pravidiel týkajúcich sa štátnej pomoci.
+Žiadateľ/prijímateľ si je zároveň vedomý, že štátnou pomocou sa v zmysle tejto PPP rozumie každá pomoc v akejkoľvek forme, ktorú poskytuje na podnikanie alebo v súvislosti s ním poskytovateľ priamo alebo nepriamo z prostriedkov štátneho rozpočtu, zo svojho rozpočtu alebo z vlastných zdrojov podnikateľovi, pričom nezáleží na právnej forme žiadateľa/prijímateľa a spôsobe jeho financovania.
+Forma preukázania splnenia PPP
+Žiadateľ je povinný za účelom preukázania splnenia tejto podmienky predložiť všetky prílohy ŽoNFP definované výzvou. V rámci Prílohy 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov žiadateľ uvádza údaje o využití kapacity infraštruktúry na sprievodnú hospodársku a hospodársku činnosť mimo zmiešaného využitia pred a po ukončení hlavných aktivít projektu.
+Spôsob overenia splnenia PPP
+SO overuje splnenie tejto PPP na základe údajov vo vyššie definovaných dokumentoch.
+Ukončenie uplatniteľnosti PPP
+Do skončenia doby udržateľnosti projektu - v zmysle čl. 65 NSU.
+ |
+12
+ | Výška príspevku
+ | Minimálna výška NFP na projekt žiadateľa je 200 000 EUR.
+Maximálna výška NFP na projekt žiadateľa nesmie presiahnuť 5 000 000 EUR.
+Forma preukázania splnenia PPP
+Žiadateľ preukazuje splnenie tejto podmienky na základe údajov uvedených vo formulári ŽoNFP v rámci tabuľky č. 11 – Rozpočet projektu a Prílohy č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov.
+Spôsob overenia splnenia PPP
+SO overuje splnenie tejto PPP na základe údajov uvedených vo vyššie stanovenej dokumentácii.
+Ukončenie uplatniteľnosti PPP
+Až do ukončenia konania o ŽoNFP.
+ |
+13
+ | Podmienka oprávnenosti výdavkov projektu
+ | Výdavky projektu musia byť preukázateľne oprávnené na financovanie z P SK, čo znamená, že sú v súlade s podmienkami oprávnenosti výdavkov definovanými v Príručke k OV, ako aj podmienkami upravenými v Prílohe č. 5 výzvy - Osobitné podmienky oprávnenosti výdavkov.
+V súlade so znením P SK opatrenia 2.1.2 sa výška oprávnených výdavkov určí podľa úspory primárnej energie a to pri každej jednotlivej budove nasledovne:
+výška oprávnených výdavkov sa neznižuje, ak plánovaná úspora primárnej energie dosiahne viac ako 60 %, výška oprávnených výdavkov teda predstavuje 100 %,
+výška oprávnených výdavkov sa zníži o 5 percentuálnych bodov, ak plánovaná úspora primárnej energie dosiahne viac ako 50 %, ale nepresiahne 60 %, teda výška oprávnených výdavkov predstavuje 95 % výšky oprávnených výdavkov,
+výška oprávnených výdavkov sa zníži o 10 percentuálnych bodov, ak plánovaná úspora primárnej energie dosiahne viac ako 40 %, ale nepresiahne 50 %, teda výška oprávnených výdavkov predstavuje 90 % výšky oprávnených výdavkov,
+výška oprávnených výdavkov sa zníži o 15 percentuálnych bodov, ak plánovaná úspora primárnej energie dosiahne minimálne 30 %, ale nepresiahne 40 %, teda výška oprávnených výdavkov predstavuje 85 % výšky oprávnených výdavkov,
+zároveň platí, že
+ak je súčasťou projektu niektorá z hlavných aktivít podľa písm. c) až k) opatrenia 2.1.2 a zároveň minimálne hlavná aktivita podľa písm. a) opatrenia 2.2.2 za účelom krytia spotreby všetkých budov, ktoré sú predmetom opatrenia 2.1.2, výška oprávnených výdavkov sa ďalej neznižuje, v opačnom prípade sa výška oprávnených výdavkov znižuje (nad rámec vyššie uvedeného) o 5 percentuálnych bodov,
+vyššie uvedené body sa neaplikujú, ak sa realizuje iba samotné opatrenie 2.2.2.
+Upozornenie:
+Ak pri realizácii hlavnej aktivity opatrenia 2.1.2 plánovaná úspora primárnej energie nedosiahne 30 %, budova nespĺňa podmienky oprávnenosti aktivít a nemôže byť podporená.
+Vyvolaná investícia ako investícia do infraštruktúry, ktorá nie je oprávnená z hľadiska PPP č. 7 avšak je nevyhnutne potrebná na realizáciu hlavnej aktivity je v rámci výzvy oprávnená.
+Forma preukázania splnenia PPP
+Žiadateľ za účelom posúdenia splnenia tejto PPP je povinný predložiť:
+formulár ŽoNFP, tabuľka č. 11 Rozpočet projektu, tabuľku č. 15 Čestné vyhlásenie žiadateľa;
+Prílohu č. 6 ŽoNFP – Energetický certifikát (ak relevantné);
+Prílohu č. 7 ŽoNFP – Projektová dokumentácia;
+Prílohu č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov.
+Spôsob overenia splnenia PPP
+SO overuje splnenie tejto PPP na základe predložených dokumentov uvedených v časti „Forma preukázania splnenia PPP“.
+Ukončenie uplatniteľnosti PPP
+Až do finančného ukončenia projektu. Týmto nie je dotknuté právo poskytovateľa vykonať kontrolu oprávnenosti výdavkov aj po stanovenej dobe a v prípade identifikácie neoprávnených výdavkov uplatniť postupy v súlade so zmluvou o NFP.
+ |
+14
+ | Časová oprávnenosť realizácie projektu
+ | Žiadateľ je povinný ukončiť realizáciu všetkých hlavných aktivít projektu do 24 mesiacov od nadobudnutia účinnosti Zmluvy o poskytnutí NFP, pri dodržaní časovej oprávnenosti výdavkov uvedenej v Príručke k OV.
+Do lehoty na ukončenie realizácie hlavných aktivít projektu sa nezarátava čas trvania okolností vylučujúcich zodpovednosť v súlade s podmienkami uvedenými v Zmluve o poskytnutí NFP a zároveň ani čas potrebný na vykonanie kontroly verejného obstarávania zo strany Úradu pre verejné obstarávanie, a to od času predloženia dokumentácie na Úrad pre verejné obstarávanie zo strany žiadateľa do ukončenia kontroly zo strany Úradu pre verejné obstarávanie.
+Forma preukázania splnenia PPP
+Žiadateľ preukazuje splnenie tejto podmienky na základe údajov uvedených vo formulári ŽoNFP v rámci tabuľky č. 9 – Harmonogram realizácie aktivít.
+Spôsob overenia splnenia PPP
+SO overuje splnenie tejto PPP na základe údajov vo formulári ŽoNFP.
+Ukončenie uplatniteľnosti PPP
+Do 24 mesiacov od účinnosti Zmluvy o poskytnutí NFP.
+ |
+15
+ | Podmienka, že žiadateľ nie je evidovaný v Systéme včasného odhaľovania rizika a vylúčenia (EDES) ako vylúčená osoba alebo subjekt (v zmysle článku 137 nariadenia č. 2024/2509)
+ | Žiadateľ nesmie byť evidovaný v Systéme včasného odhaľovania rizika a vylúčenia (EDES) ako vylúčená osoba alebo subjekt (v zmysle článku 137 Nariadenia Európskeho parlamentu a Rady (EÚ, Euratom) č. 2024/2509).
+Forma preukázania splnenia PPP
+Nevyžaduje sa.
+Spôsob overenia splnenia PPP
+SO overuje splnenie PPP bez súčinnosti žiadateľa, prostredníctvom informácií evidovaných v EDES a to v jeho neverejnej časti dostupnej na webovom sídle https://ec.europa.eu/budget/edes/index_en.cfm.
+Ukončenie uplatniteľnosti PPP
+Až do ukončenia konania o ŽoNFP.
+ |
+
+Ďalšie skutočnosti týkajúce sa poskytovania príspevku
+ |
+Ďalšie skutočnosti týkajúce sa poskytnutia príspevku obsahujú podmienky, ktoré nemajú charakter podmienok poskytnutia príspevku a predstavujú podmienky obchodnoprávneho vzťahu.
+ |
+Podmienka vlastníckeho práva predmetu projektu  opatrenia 2.2.2
+ | Predmet projektu musí byť vo výlučnom vlastníctve žiadateľa / prijímateľa. Na takomto majetku nesmie viaznuť záložné právo.
+Podmienku týkajúcu sa vysporiadania majetkovo-právnych vzťahov musí žiadateľ / prijímateľ spĺňať od začatia realizácie hlavnej aktivity do ukončenia obdobia udržateľnosti projektu, pričom prerušenie jej plnenia sa nepripúšťa.
+Poskytovateľ overuje plnenie podmienky po schválení ŽoNFP v závislosti od začatia realizácie hlavnej aktivity pred zaslaním písomného návrhu na uzavretie Zmluvy o poskytnutí NFP a/alebo počas platnosti a účinnosti Zmluvy o poskytnutí NFP.
+Pre projekty opatrenia 2.1.2 alebo kombinácie opatrenia 2.1.2 s opatrením 2.2.2 je relevantná aj PPP č. 10.
+ |
+Podmienka, že žiadateľ nie je podnikom v ťažkostiach
+ | Žiadateľ, ktorý je podnikom nesmie byť v ťažkostiach v zmysle čl. 2 bodu 18 Nariadenia Komisie (EÚ) č. 651/2014 v platnom znení.
+Žiadateľ sa ako podnik posudzuje v zmysle článku 107 ods. 1 Zmluvy o fungovaní EÚ, čo znamená, že podnikom je každý subjekt, ktorý vykonáva hospodársku činnosť bez ohľadu na jeho právnu formu a spôsob financovania.
+Rozhodujúcim okamihom pre posúdenie splnenia tejto podmienky je okamih nadobudnutia účinnosti Zmluvy o poskytnutí NFP.
+Za účelom preukázania splnenia tejto podmienky, žiadateľ, ktorým je príspevková organizácia (štátna alebo územnej samosprávy), subjekt mimo pravidiel štátnej pomoci v zmysle PPP č. 1  po schválení ŽoNFP a pred uzavretím Zmluvy o poskytnutí NFP predkladá test podniku v ťažkostiach alebo čestné vyhlásenie v ktorom deklaruje, že nie je podnikom.
+Poskytovateľ overuje splnenie podmienky po nadobudnutí účinnosti Zmluvy o poskytnutí NFP avšak pred schválením prvej žiadosti o platbu.
+Ak žiadateľ deklaruje, že nie je podnikom, poskytovateľ si vyhradzuje právo vyžiadať si od prijímateľa stanovisko advokátskej kancelárie potvrdzujúce predmetnú skutočnosť.
+ |
+Podmienky vyplývajúce zo zásady „nespôsobovať významnú škodu“ (DNSH)
+ | Projekt musí byť v súlade so zásadou „nespôsobovať významnú škodu“ čo značí, že projekt nemôže výrazne narušiť žiaden z environmentálnych cieľov uvedených v čl. 17 nariadenia o taxonómii.
+Poskytovateľ overuje plnenie podmienky v závislosti od  charakteru podmienky ustanovenej v Prílohe č. 8 výzvy.
+ |
+Súlad s horizontálnymi princípmi
+ | Projekt musí byť v súlade s horizontálnymi princípmi, ktoré sú definované v čl. 9 nariadenia o spoločných ustanoveniach, s prihliadnutím na dodržiavanie zásady rovnakého zaobchádzania a aktívneho podporovania mužov a žien vo všetkých aktivitách a činnostiach, najmä ak ide o prístup k zamestnaniu, odmeňovanie a pracovný postup, odborné vzdelávanie a pracovné podmienky.
+V projektoch je potrebné odstraňovať bariéry a zabraňovať všetkým formám diskriminácie, vytvárať podmienky, ktoré zohľadňujú špecifické potreby rozmanitých skupín obyvateľstva a zabezpečiť prístupnosť fyzického prostredia, dopravy, informácií a verejných služieb pre osoby so zdravotným postihnutím, v súlade s čl. 9 Dohovoru OSN o právach osôb so zdravotným postihnutím .
+Gestor HP upozorňuje žiadateľa, že plnenie súladu projektu s HP môže byť predmetom finančnej kontroly v implementácii projektu, ktorej právny základ vychádza z platnej a účinnej zmluvy o poskytnutí NFP.
+Čas plnenia/overenia
+V čase realizácie projektu na základe zmluvy o poskytnutí NFP až do skončenia doby udržateľnosti projektu (ak relevantné) v zmysle čl. 65 nariadenia o spoločných ustanoveniach.
+ |
+
+ |
+Informácie k spôsobu predloženia ŽoNFP
+ |
+Spôsob podania ŽoNFP
+ | Žiadateľ predkladá formulár ŽoNFP vrátane všetkých príloh elektronicky prostredníctvom verejnej časti ITMS a zároveň formulár ŽoNFP do e-schránky poskytovateľa.
+Formulár ŽoNFP vygenerovaný prostredníctvom verejnej časti ITMS vo formáte .pdf, ktorý žiadateľ zasiela prostredníctvom e-schránky, bude autorizovaný kvalifikovaným elektronickým podpisom alebo kvalifikovaným elektronickým podpisom s mandátnym certifikátom.
+Ak prílohy ŽoNFP nie je možné z technických obmedzení predložiť elektronicky, žiadateľ ich predkladá v listinnej podobe.
+Prílohy predkladané listinne žiadateľ identifikuje v časti 7.1 formulára ŽoNFP, pričom musia byť predložené najneskôr do uzavretia hodnotiaceho kola, v ktorom je predložená ŽoNFP.
+Informácie k spôsobu podania ŽoNFP sú uvedené v dokumente Všeobecná informácia k predkladaniu a schvaľovaniu žiadostí o poskytnutie nenávratného finančného príspevku - Programové obdobie 2021 – 2027 v platnom znení (ďalej len „všeobecná informácia“). Pokiaľ výzva neustanovuje inak, uplatňuje sa zmienený dokument.
+ |
+Miesto pre podanie ŽoNFP
+ | Adresa na doručovanie dokumentov v listinnej podobe:
+Slovenská inovačná a energetická agentúra
+Sekcia implementácie fondov EÚ
+Odbor riadenia OP
+Bajkalská 27
+827 99 Bratislava
+Dokumenty predkladané v listinnej podobe je nevyhnutné predložiť na vyššie uvedenú adresu SO jedným z nasledovných spôsobov:
+osobne v pracovné dni v čase 9.00 – 12.00 a 12.30 – 15.00,
+doporučenou poštou,
+kuriérskou službou.
+Žiadateľ je v zmysle § 16 zákona o príspevkoch z fondov povinný predložiť ŽoNFP riadne a včas. Ak vzniknú pochybnosti o predložení ŽoNFP riadne a včas, SO oznámi tieto pochybnosti žiadateľovi a vyzve ho, aby sa k nim v primeranej lehote vyjadril.
+Podmienky doručenia vrátane následkov ich nesplnenia ako aj informácie týkajúce sa vypracovania a predloženia ŽoNFP sú uvedené vo všeobecnej informácii.
+ |
+
+Predpokladaná lehota na vydanie rozhodnutia v konaní o ŽoNFP
+ |
+Konanie o ŽoNFP sa v zmysle § 16 ods. 2 zákona o príspevkoch z fondov začína doručením ŽoNFP a končí nadobudnutím právoplatnosti konečného rozhodnutia o ŽoNFP.
+Schvaľovanie ŽoNFP prebieha systémom hodnotiacich kôl (alebo aj „posudzovaných časových období“).
+Možnosť priebežného predkladania ŽoNFP nie je obmedzená stanovenými termínmi uzavretia jednotlivých hodnotiacich kôl. Žiadateľ môže predložiť ŽoNFP na SO kedykoľvek počas trvania otvorenej výzvy. Termíny uzavretia prvých dvoch hodnotiacich kôl sú stanovené v tabuľke nižšie.
+Stanovené hodnotiace kolá
+Termín uzavretia
+hodnotiaceho kola 1
+ | Termín uzavretia
+hodnotiaceho kola 2
+ | Termín uzavretia hodnotiaceho kola n
+ |
+23. 02. 2024
+ | 01. 03. 2024
+ | každý nasledujúci kalendárny piatok
+ |
+S cieľom optimalizovať proces schvaľovania ŽoNFP si SO vyhradzuje právo počas trvania výzvy aktualizovať termíny uzavretia jednotlivých hodnotiacich kôl, resp. upraviť interval pre uzavretie hodnotiacich kôl. Aktualizácia termínov hodnotiacich kôl sa považuje za zmenu formálnych náležitostí výzvy.
+Žiadateľ je o výsledku konania o predloženej ŽoNFP informovaný rozhodnutím SO o schválení ŽoNFP s podmienkou vo výroku rozhodnutia, rozhodnutím o neschválení ŽoNFP alebo rozhodnutím o zastavení konania o ŽoNFP.
+SO zabezpečí pre všetky ŽoNFP schvaľované v rámci príslušného hodnotiaceho kola vydanie rozhodnutia najneskôr v termíne do 70 pracovných dní od termínu uzavretia príslušného hodnotiaceho kola.
+Do lehoty na vydanie rozhodnutia sa nezapočítava lehota potrebná na odstránenie identifikovaných nedostatkov ŽoNFP (doplnenie neúplných údajov, vysvetlenie nejasností alebo nápravu nepravdivých údajov. V prípade nepredvídateľných okolností na strane SO, prípadne iných okolností ovplyvnených externými faktormi, na základe ktorých nie je možné ukončiť schvaľovanie ŽoNFP v stanovenej lehote, si SO vyhradzuje právo predĺžiť lehotu na vydanie rozhodnutia o ŽoNFP. Informáciu o predĺžení lehoty na vydanie rozhodnutia o ŽoNFP SO zverejní na webovom sídle www.eurofondy.gov.sk a v ITMS a zároveň bude informovať žiadateľa o dôvodoch nedodržania termínu, ako aj o novom predpokladanom termíne vydania rozhodnutia.
+Podrobnosti o procese schvaľovania ŽoNFP sú uvedené vo všeobecnej informácii.
+ |
+
+ |
+Ďalšie informácie a formálne náležitosti
+ |
+Ďalšie informácie obsahujú podmienku, ktorá nemá charakter podmienok poskytnutia príspevku a predstavujú podmienku administratívnoprávneho vzťahu.
+ |
+Podmienka bezúhonnosti FO za vybrané trestné činy
+ | Vo výroku Rozhodnutia o schválení ŽoNFP bude stanovená nasledovná podmienka v zmysle ktorej žiadateľ/prijímateľ, ani jeho štatutárny orgán, ani žiadny člen štatutárneho orgánu, ani osoba splnomocnená zastupovať žiadateľa/prijímateľa, nemôžu byť právoplatne odsúdení za niektorý z nasledujúcich trestných činov:
+trestný čin korupcie (§ 328 – § 336 Trestného zákona);
+trestný čin poškodzovania finančných záujmov EÚ (§ 261 – § 263 Trestného zákona);
+trestný čin legalizácie príjmu z trestnej činnosti (§ 233 – § 234 Trestného zákona);
+trestný čin založenia, zosnovania a podporovania zločineckej skupiny (§ 296 Trestného zákona);
+trestný čin machinácie pri verejnom obstarávaní a verejnej dražbe (§ 266 až § 268 Trestného zákona).
+Podmienka sa uplatňuje počas účinnosti Zmluvy o poskytnutí NFP, pričom prerušenie jej plnenia sa nepripúšťa. Splnenie podmienky je predpokladom na uzavretie Zmluvy o poskytnutí NFP. Poskytovateľ túto skutočnosť overí pred zaslaním návrhu Zmluvy o poskytnutí NFP žiadateľovi na základe údajov potrebných na vyžiadanie výpisu z registra trestov alebo na základe predloženého výpisu z registra trestov za každú relevantnú osobu (vrátane zmeny štatutárneho orgánu, jeho člena, splnomocnenej osoby). Nesplnenie podmienky vo výroku Rozhodnutia o schválení ŽoNFP bude mať za následok nezaslanie návrhu na uzavretie Zmluvy o poskytnutí NFP.
+V prípade porušenia splnenia podmienky počas účinnosti Zmluvy o poskytnutí NFP, je poskytovateľ oprávnený vyvodiť dôsledky spojené s podstatným porušením Zmluvy o poskytnutí NFP zo strany prijímateľa.
+ |
+Formálne náležitosti
+ |
+Proces schvaľovania ŽoNFP
+ | SO v konaní o ŽoNFP overuje splnenie PPP v súlade s výzvou a dokumentmi, na ktoré sa výzva odvoláva. Konanie o ŽoNFP prebieha v nasledujúcich fázach:
+administratívne overenie;
+výber (ak relevantné);
+opravné prostriedky (ak relevantné - nepovinná časť konania).
+SO na základe overenia splnenia podmienok doručenia ŽoNFP a PPP v súlade so zákonom o príspevkoch z fondov vydá:
+Rozhodnutie o schválení ŽoNFP s podmienkou vo výroku rozhodnutia;
+Rozhodnutie o neschválení ŽoNFP;
+Rozhodnutie o zastavení konania o ŽoNFP.
+Bližšie informácie o postupe SO v rámci jednotlivých fáz konania sú dostupné vo všeobecnej informácii.
+SO zverejní v ITMS a na webových sídlach www.eurofondy.gov.sk a www.siea.sk v rámci každého hodnotiaceho kola Zoznam schválených ŽoNFP a Zoznam neschválených ŽoNFP a Zoznam ŽoNFP pri ktorých bolo konanie zastavené.
+Žiadateľ berie na vedomie, že zverejňované informácií, ktoré sú považované za osobné údaje sú SO, RO a Centrálny koordinačný orgán oprávnení zverejniť aj bez osobitného súhlasu žiadateľa v súlade s § 46 zákona o príspevkoch z fondov.
+ |
+Zásobník projektov
+ | V súlade s § 18 zákona o príspevkoch z fondov EÚ je SO oprávnený využiť zásobník projektov, t. j. zmeniť právoplatné rozhodnutie o neschválení ŽoNFP a rozhodnúť o schválení ŽoNFP s podmienkou vo výroku rozhodnutia za predpokladu, že budú splnené všetky nasledovné podmienky:
+rozhodnutie o neschválení ŽoNFP bolo vydané len z dôvodu nedostatku finančných prostriedkov určených vo výzve a dôvod neschválenia bol explicitne uvedený v rozhodnutí o neschválení ŽoNFP;
+SO disponuje dostatočnými finančnými prostriedkami určenými na zabezpečenie financovania projektu, ktorý je predmetom ŽoNFP;
+žiadateľ preukázateľne spĺňa podmienky poskytnutia príspevku určené vo výzve – overenie PPP je predpokladom zmeny rozhodnutia o neschválení ŽoNFP;
+žiadateľ so zmenou rozhodnutia súhlasí – nakoľko od vydania rozhodnutia mohol uplynúť dlhší čas a žiadateľ nemusí mať už záujem na schválení ŽoNFP, je podmienkou zmeny rozhodnutia aj súhlas žiadateľa so zmenou rozhodnutia.
+Využitie zásobníka projektov je na výlučnom rozhodnutí SO a aj v prípade uvoľnenia dodatočných finančných prostriedkov nie je SO povinný zmeniť rozhodnutie podľa predchádzajúceho odseku a môže rozhodnúť o využití disponibilných finančných prostriedkov iným spôsobom (napr. vyhlásiť novú výzvu). Využitie zásobníka projektov je možné len v prípade ŽoNFP, resp. rozhodnutí o neschválení vydaných v rámci posledného hodnotiaceho kola, v ktorom došlo k neschváleniu ŽoNFP z dôvodu vyčerpania finančných prostriedkov na výzvu.
+ |
+Uzavretie Zmluvy o poskytnutí NFP
+ | Po schválení ŽoNFP zašle SO písomný návrh na uzavretie Zmluvy o poskytnutí NFP žiadateľovi v prípade, že:
+rozhodnutie o schválení ŽoNFP nadobudlo právoplatnosť a
+žiadateľ splnil podmienku stanovenú vo výroku rozhodnutia podľa § 16 ods. 9 zákona o príspevkoch z fondov a
+žiadateľ splnil zákonnú podmienku pre uzavretie Zmluvy o poskytnutí NFP (ak relevantné) a
+žiadateľ poskytol súčinnosť potrebnú na uzavretie Zmluvy o poskytnutí NFP.
+ |
+Pravidlá verejného obstarávania / obstarávania
+ | Pri realizácii verejných obstarávaní je žiadateľ / prijímateľ povinný postupovať v súlade so zákonom č. 343/2015 Z. z. o verejnom obstarávaní a o zmene a doplnení niektorých zákonov v znení neskorších predpisov a s Príručkou pre žiadateľov / prijímateľov k procesu a kontrole verejného obstarávania / obstarávania, v platnom znení (ďalej len „jednotná príručka k VO“).
+Pri realizácii obstarávaní je žiadateľ povinný postupovať v súlade s jednotnou príručkou k VO.
+Žiadateľ predkladá kompletnú dokumentáciu z VO / obstarávaní v zmysle kapitoly 4.1 jednotnej príručky k VO.
+ |
+Spôsob financovania projektu
+ | V rámci poskytnutia súčinnosti pri príprave Zmluvy o poskytnutí NFP si žiadateľ zvolí jeden z nasledovných spôsobov financovania projektu: predfinancovanie, refundácia alebo kombinácia predfinancovania a refundácie v súlade s platnou Príručkou k finančnému riadeniu fondov EÚ na programové obdobie 2021 - 2027. Podmienky využívania spôsobu financovania upraví Zmluva o poskytnutí NFP.
+Forma poskytovaného príspevku je nenávratný finančný príspevok.
+Prijímateľovi vzniká právny nárok na poskytnutie príspevku až nadobudnutím účinnosti Zmluvy o poskytnutí NFP. Poskytnutie príspevku na základe Zmluvy o poskytnutí NFP je viazané na splnenie podmienok dohodnutých v Zmluve o poskytnutí NFP.
+Bližšie podrobnosti a procesný postup pri uzatváraní Zmluvy o poskytnutí NFP je uvedený vo všeobecnej informácii.
+ |
+
+ |
+Poskytovanie informácií k príprave ŽoNFP
+ |
+ Kontaktné údaje poskytovateľa a spôsob komunikácie s poskytovateľom
+Výzva sa zverejňuje v ITMS.
+Informácie týkajúce sa výzvy je možné získať na webových sídlach www.eurofondy.gov.sk, www.siea.sk v Regionálnych centrách a zároveň jednou z nasledovných foriem:
+Telefonicky na telefónnom čísle: [telefón vynechaný]; [telefón vynechaný]; [telefón vynechaný] v nasledujúcich dňoch:
+Pondelok v čase od 9.00 – 11.00
+Utorok v čase od 9.00 – 11.00 a 13.00 – 15.00
+Streda v čase od 9.00 – 11.00
+Štvrtok nestránkový deň
+Piatok v čase od 9.00 – 11.00
+Písomne:
+Elektronickou formou na e-mailovej adrese: [e-mail vynechaný],
+Prostredníctvom e-schránky,
+Listom na adrese:
+Slovenská inovačná a energetická agentúra
+Sekcia Implementácie fondov EÚ
+Bajkalská 27
+827 99 Bratislava
+Otázky predložené písomne je potrebné označiť odkazom na výzvu (kódom výzvy PSK-SIEA-002-2023-DV-EFRR), pričom otázka musí byť formulovaná jasne a zrozumiteľne.
+SO zároveň zabezpečí zverejnenie často kladených otázok žiadateľov všeobecného charakteru, spolu s príslušnými odpoveďami (FAQ).
+Záväzný charakter majú informácie poskytnuté písomne v elektronickej alebo listinnej podobe. Informácie poskytnuté telefonicky alebo ústne nie je možné považovať za záväzné a nie je možné odvolávať sa na ne.
+Ďalšie informačné kanály pre poskytovanie doplnkových informácií k výzve, ktoré môže SO využiť sú najmä nasledovné:
+informačné semináre pre potenciálnych žiadateľov o NFP,
+informačné a propagačné materiály (plagáty, letáky, informačné panely, publikácie, tlačové informácie a pod.),
+tlačové konferencie, prezentácie, informácie v novinách, časopisoch, TV a rozhlase, internetových portáloch.
+Konkrétne informačné aktivity, vo vzťahu k tejto výzve, zverejní SO na webovom sídle www.eurofondy.gov.sk a www.siea.sk.
+Upozorňujeme žiadateľov, aby priebežne sledovali webové sídla www.eurofondy.gov.sk a www.siea.sk kde budú v prípade potreby zverejňované aktuálne informácie súvisiace s vyhlásenou výzvou.
+Upozorňujeme žiadateľov, že pre účely tejto výzvy sa pod pojmom „písomne“, resp. „písomná forma“ považuje aj komunikácia prostredníctvom elektronickej schránky poskytovateľa (SIEA) na Ústrednom portáli verejnej správy, pokiaľ nie je uvedené inak.
+ |
+
+Identifikácia synergických a komplementárnych účinkov
+ |
+Synergické a komplementárne účinky sú identifikované v Prílohe č. 9 výzvy.
+ |
+
+Zmena a zrušenie výzvy
+ |
+SO je v súlade s § 14 zákona o príspevkoch z fondov oprávnený výzvu zmeniť alebo zrušiť.
+ |
+Zmena výzvy
+ | Zmeny časovo neobmedzené (vydaním prvého rozhodnutia)
+V súlade s § 14 ods. 6 zákona o príspevkoch z fondov je SO je oprávnený vykonať zmeny formálnych náležitostí, ďalších skutočností týkajúcich sa poskytovania príspevku a príloh. Tieto zmeny možno vykonať aj po vydaní prvého rozhodnutia o ŽoNFP. V prípade zmien príloh SO v relevantných prípadoch postupuje tak, aby nedošlo k porušeniu žiadneho z princípov uvedených v § 2 ods. 2 zákona o príspevkoch z fondov.
+Za zmeny formálnych náležitostí sa považujú aj oprava chýb v písaní, v počítaní alebo iných zrejmých nesprávností (napr. vyplývajúce z potreby úpravy technických náležitostí vybraných vzorových formulárov príloh žiadosti alebo iných častí výzvy alebo dokumentov týkajúcich sa výzvy).
+Zmeny časovo obmedzené (vydaním prvého rozhodnutia)
+V súlade s § 14 ods. 4 zákona o príspevkoch z fondov je SO oprávnený zmeniť výzvu po jej zverejnení v celom rozsahu a to vydania prvého rozhodnutia o ŽoNFP posudzovanej v rámci aktuálne posudzovaného časového obdobia. Ide o posudzované časové obdobie (hodnotiace  kolo), v rámci ktorého ešte nedošlo k vydaniu ani jedného rozhodnutia o ŽoNFP predložených v rámci tohto obdobia (kola). Takáto zmena sa vzťahuje aj na všetky nasledujúce hodnotiace kolá. SO je oprávnený za vyššie uvedených podmienok zmeniť výzvu aj viackrát.
+SO pri každej zmene výzvy postupuje tak, aby nedošlo k porušeniu žiadneho z princípov uvedených v § 2 ods. 2 zákona o príspevkoch z fondov.
+Rozhodnutia o ŽoNFP vydané pred zmenou výzvy nie sú zmenou výzvy dotknuté.
+Spôsob vykonania zmeny výzvy
+Zmeny výzvy časovo neobmedzené sú realizované formou informácie (vrátane prípadného zverejnenia dotknutého dokumentu).
+Zmena výzvy časovo obmedzené sú realizované formou usmernenia k výzve. Do vykonania zmeny výzvy formou usmernenia sa na výzvu vzťahujú PPP a dokumenty (vrátane dokumentov, na ktoré výzva odkazuje) platné v čase vyhlásenia výzvy, resp. posledného zverejneného usmernenia k výzve.
+ |
+Zrušenie výzvy
+ | V súlade s § 14 ods. 7 zákona o príspevkoch z fondov je SO oprávnený zrušiť výzvu. ŽoNFP podanú do zrušenia výzvy, o ktorej nebolo rozhodnuté podľa § 16 alebo § 17 zákona o príspevkoch z fondov, vráti SO žiadateľovi. Informáciu o zrušení výzvy a zdôvodnenie jej zrušenia zverejní poskytovateľ prostredníctvom ITMS.
+Rozhodnutia o ŽoNFP vydané pred zrušením výzvy nie sú zrušením výzvy dotknuté.
+Spôsob vykonania zmeny výzvy
+Zrušenie výzvy je realizované formou informácie o zrušení výzvy, ktorá obsahuje aj zdôvodnenie jej zrušenia.
+ |
+O zmenách / zrušení výzvy informuje SO žiadateľov zverejnením v ITMS a na webových sídlach www.eurofondy.gov.sk a www.siea.sk.
+Zmena výzvy, resp. zrušenie výzvy je účinné v súlade s informáciou uvedenou v usmernení k výzve / informácii o zrušení výzvy, najskôr však dňom zverejnenia v ITMS.
+ |
+
+Prílohy výzvy
+ |
+ 1
+ | Formulár ŽoNFP a detailné inštrukcie k vyplneniu jednotlivých častí ŽoNFP
+ |
+ 2
+ | Zoznam príloh ŽoNFP
+ |
+ 3
+ | Všeobecná informácia k predkladaniu a schvaľovaniu ŽoNFP
+ |
+ 4
+ | Kritériá pre výber projektov
+ |
+ 5
+ | Zoznam merateľných ukazovateľov projektu a iných údajov
+ |
+ 6
+ | Príručka k oprávnenosti výdavkov
+ |
+ 7
+ | Osobitné podmienky oprávnenosti výdavkov
+ |
+ 8
+ | Zásada „nespôsobovať významnú škodu“
+ |
+ 9
+ | Synergické a komplementárne účinky
+ |
+10
+ | Metodika testu podniku v ťažkostiach
+ |

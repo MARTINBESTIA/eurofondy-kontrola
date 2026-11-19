@@ -1,6 +1,7 @@
-// Simulácia automatického príjmu podania (napr. e-mailový hook: príloha správy → podateľňa).
-// Robí presne to, čo by robil hook: zoberie prílohy (priečinok, ZIP alebo jednotlivé súbory) a pošle ich
-// na lokálne API podateľne. Voliteľne hneď spustí posúdenie. Nič neposiela mimo tohto počítača.
+// Lokálna simulácia príjmu podania do podateľne. Žiadateľ v skutočnosti podáva ŽoNFP v ITMS21+ (formulár a prílohy,
+// formálne podanie do e-schránky) a softvér na ITMS21+ napojený nie je: tento skript iba odovzdá lokálny export žiadosti
+// a príloh (priečinok, ZIP alebo jednotlivé súbory) lokálnemu API podateľne, ako keby ich kontrolór nahral ručne.
+// Voliteľne hneď spustí posúdenie. Nič neposiela mimo tohto počítača.
 //
 // Použitie:
 //   node scripts/11-prijem-podania.ts demo/podania/A-Obec-Vzorova.zip
@@ -14,7 +15,7 @@ import path from 'node:path';
 const volby = Object.fromEntries(process.argv.slice(2).filter((a) => a.startsWith('--')).map((a) => { const [k, ...v] = a.slice(2).split('='); return [k, v.length ? v.join('=') : true]; }));
 const cesty = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const SERVER = String(volby.server ?? `http://127.0.0.1:${process.env.PORT ?? 5177}`);
-// Hook smie hovoriť len s lokálnou podateľňou: žiadne podklady nesmú odísť na iný server.
+// Skript smie hovoriť len s lokálnou podateľňou: žiadne podklady nesmú odísť na iný server.
 if (!/^http:\/\/(127\.0\.0\.1|localhost|\[::1\])(:\d+)?$/.test(SERVER)) { console.error(`Server musí byť lokálny (127.0.0.1/localhost), nie ${SERVER}.`); process.exit(2); }
 const VYZVA = String(volby.vyzva ?? 'PSK-SIEA-002-2023-DV-EFRR');
 
@@ -39,7 +40,7 @@ try {
     await post(`/api/podatelna/spisy/${id}/subory`, { subory });
     console.log(`Doplnenie poslané do spisu ${id} (${subory.map((s) => s.nazov).join(', ')}).`);
   } else {
-    ({ id } = await post('/api/podatelna/spisy', { vyzva: VYZVA, zdroj: 'e-mail (simulácia hooku)', kodItms: volby.itms ? String(volby.itms) : undefined, subory }));
+    ({ id } = await post('/api/podatelna/spisy', { vyzva: VYZVA, zdroj: 'lokálny export (skript)', kodItms: volby.itms ? String(volby.itms) : undefined, subory }));
     console.log(`Prijaté ako spis ${id} vo výzve ${VYZVA}.`);
   }
   const d = await get(`/api/podatelna/spisy/${id}`);

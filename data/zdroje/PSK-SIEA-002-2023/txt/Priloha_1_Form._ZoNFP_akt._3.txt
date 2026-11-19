@@ -1,0 +1,796 @@
+Žiadosť o poskytnutie nenávratného finančného príspevku
+inštrukcia k vyplneniu
+
+Dátum odoslania
+ | Automaticky vyplnené
+ |
+Program
+ | Automaticky vyplnené
+ |
+Žiadateľ
+ | Automaticky vyplnené
+ |
+Identifikátor
+ | Automaticky vyplnené
+ |
+Názov projektu
+ | Automaticky vyplnené na základe poľa Názov projektu v časti 5. Identifikácia projektu.
+ |
+Kód výzvy
+ | Automaticky vyplnené
+ |
+Celkové oprávnené výdavky projektu
+ | Automaticky vyplnené zo zadaného rozpočtu
+ |
+Požadovaná výška NFP
+ | Automaticky vyplnené zo zadaného rozpočtu
+ |
+Kód žiadosti o NFP
+ | Automaticky vyplnené
+ |
+1. Identifikácia žiadateľa
+ |
+Obchodné meno / názov
+ | Automaticky vyplnené.
+Upozorňujeme žiadateľov, aby si overili súlad s údajmi uvedenými v Registri a identifikátore právnických osôb, podnikateľov a orgánov verejnej moci.
+ |
+Hlavný identifikátor
+ | Automaticky vyplnené
+ |
+Sídlo
+ | Automaticky vyplnené - Obec, ulica, číslo, PSČ.
+Upozorňujeme žiadateľov, aby si overili súlad s údajmi uvedenými v Registri a identifikátore právnických osôb, podnikateľov a orgánov verejnej moci.
+ |
+Štát
+ | Automaticky vyplnené
+ |
+Právna forma
+ | Automaticky vyplnené – výber z číselníka právnych foriem ŠÚ SR
+ |
+IČO
+ | Automaticky vyplnené.
+Upozorňujeme žiadateľov, aby si overili súlad s údajmi uvedenými v Registri a identifikátore právnických osôb, podnikateľov a orgánov verejnej moci.
+ |
+DIČ
+ | Automaticky vyplnené
+ |
+IČZ
+ | Automaticky vyplnené - identifikačné číslo zamestnávateľa pridelené Sociálnou poisťovňou (v prípade, ak je žiadateľ registrovaný ako zamestnávateľ na účely sociálneho poistenia)
+ |
+Platiteľ DPH
+ | Automaticky vyplnené - áno/nie
+ |
+IČ DPH / VAT
+ | Automaticky vyplnené
+ |
+Platiteľ DPH podľa paragrafu
+ | Automaticky vyplnené
+ |
+Štatutárny orgán
+ |
+Meno a priezvisko štatutára
+ | Vypĺňa žiadateľ (vrátane titulov pred a za menom) - v prípade kolektívneho štatutárneho orgánu uvedie žiadateľ údaje za všetkých členov, v prípade viacerých fyzických osôb oprávnených konať za spoločnosť uvedie žiadateľ všetky takéto osoby.
+ |
+2. Identifikácia partnera
+Tabuľka 2 sa nevypĺňa, je pre výzvu irelevantná, keďže inštitút partnerstva sa vo výzve neuplatňuje.
+ |
+3. Identifikácia organizačnej zložky zodpovednej za realizáciu projektu
+Tabuľka 3 sa nevypĺňa, je pre výzvu irelevantná.
+ |
+4. Komunikácia vo veci žiadosti
+ |
+Vypĺňa žiadateľ
+SO bude so žiadateľom komunikovať cez e-schránku v zmysle kapitoly „Informácie k spôsobu predloženia ŽoNFP“ výzvy.
+Ak z technických príčin nebude možné komunikovať so žiadateľom cez e-schránku, SO bude komunikovať so žiadateľom listinne v zmysle nižšie uvedených ustanovení.
+Žiadateľ uvedie jednu osobu, ktorej sa budú doručovať informácie v konaní o ŽoNFP a uvedie adresu, na ktorú majú byť doručované písomnosti. Písomnosti (ako je rozhodnutie o schválení, rozhodnutie o neschválení, rozhodnutie o zastavení konania, výzva na doplnenie a pod.) sa tejto osobe doručujú do vlastných rúk. Žiadateľ uvedie kontaktné údaje na jednu z týchto osôb:
+a)	splnomocnený zástupca – ak adresa, na ktorú majú byť doručované písomnosti, nie je totožná s adresou žiadateľa uvedenou v tab. 1 ŽoNFP, musí žiadateľ predložiť splnomocnenie na preberanie zásielok (vrátane tých do vlastných rúk), prípadne výslovné splnomocnenie na celé konanie o ŽoNFP. Adresa doručovania musí v tomto prípade korešpondovať s adresou uvedenou v splnomocnení, Pokiaľ žiadateľ nedoloží splnomocnenie pre osobu uvedenú v tejto časti, komunikácia vo veci žiadosti a doručovanie písomností sa uskutoční výhradne prostredníctvom adresy žiadateľa uvedenej v časti 1 ŽoNFP.
+b)	zamestnanec žiadateľa poverený na prijímanie písomností - adresa doručovania musí v tomto prípade korešpondovať s adresou uvedenou v časti 1 žiadosti.
+c)	člen štatutárneho orgánu - adresa doručovania musí v tomto prípade korešpondovať s adresou uvedenou v časti 1 ŽoNFP.
+Ak je v tejto časti uvedených viac osôb, písomnosti sa doručujú v poradí:
+1.	splnomocnencovi, ak existuje výslovné splnomocnenie na preberanie zásielok, prípadne výslovné splnomocnenie na celé konanie o ŽoNFP;
+2.	žiadateľovi o NFP na jeho adresu, k rukám fyzickej osoby, ktorá je zamestnancom povereným na prijímanie písomností;
+3.	žiadateľovi o NFP na jeho adresu, konkrétne osobe, ktorá je oprávnená konať za žiadateľa ako štatutárny orgán alebo jeho člen.
+V prípade nejasností ohľadne adresy doručovania bude písomnosť doručená do sídla žiadateľa. V prípade nejasností ohľadne identifikácie kontaktnej osoby bude písomnosť doručená do vlastných rúk člena štatutárneho orgánu žiadateľa na adrese sídla žiadateľa.
+V prípade nejasnej alebo chýbajúcej identifikácie člena štatutárneho orgánu žiadateľa, rozhodne poskytovateľ o tom, ktorému z členov štatutárneho orgánu žiadateľa zašle predmetnú písomnosť.
+ |
+Subjekt
+ | Automaticky vyplnené
+ |
+Identifikátor
+ | Automaticky vyplnené
+ |
+Meno a priezvisko
+ | Vypĺňa žiadateľ (vrátane titulov pred a za menom) - výber z osôb subjektu žiadateľa.
+ |
+Adresa na doručovanie písomností
+ | Automaticky vyplnené
+ |
+E-mail
+ | Automaticky vyplnené
+ |
+Telefonický kontakt
+ | Automaticky vyplnené
+ |
+5. Identifikácia projektu
+ |
+Názov projektu
+ | Vypĺňa žiadateľ - žiadateľ uvedie názov projektu, ktorý má byť predmetom realizácie v prípade schválenia ŽoNFP.
+Názov projektu musí byť v rámci ŽoNFP a všetkých príloh totožný.
+ |
+Akronym
+ | Skrátený názov projektu - vypĺňa žiadateľ - nepovinné pole, uvedie sa skratka názvu projektu
+ |
+Kód ŽoNFP
+ | Automaticky vyplnené
+ |
+Výzva
+ | Automaticky vyplnené
+ |
+NACE projektu:
+ | Vypĺňa žiadateľ - výber z číselníka SK NACE (štatistická klasifikácia ekonomických činností SK NACE Rev. 2 podľa Vyhlášky Štatistického úradu SR č. 306/2007 Z. z. z 18.6.2007).
+Žiadateľ uvedie SK NACE na ktoré je projekt v rámci ŽoNFP zameraný. Zameranie projektu na príslušné odvetvie SK NACE sa určuje na základe finálneho produktu, ktorý je ako výsledok produkčnej činnosti podniku žiadateľa predmetom tržieb.
+ |
+Zadanie percenta za položku
+rozpočtu:
+ | Žiadateľ vyberie možnosť: nie.
+ |
+Štátna pomoc
+ | Pre predmetnú výzvu sa bunka nevypĺňa, keďže výzvou sa neposkytuje štátna pomoc.
+ |
+Kategórie regiónov
+ | Automaticky vyplnené
+ |
+Projekt s relevanciou k Integrovaným územným stratégiám
+ | Žiadateľ vyberá možnosť áno/nie v závislosti od relevancie projektu k Regionálnej investičnej územnej stratégii, t. j. podľa toho, či je projekt zaradený v zozname projektov príslušnej územnej stratégie.
+ |
+Projekt s relevanciou k Udržateľnému rozvoju miest
+ | Žiadateľ vyberá možnosť áno/nie závislosti od relevancie projektu k Udržateľnému rozvoju miest, t. j. podľa toho, či je jeho projekt zaradený v zozname projektov príslušnej stratégie.
+ |
+Identifikácia príspevku k princípu udržateľného rozvoja
+ | Irelevantné.
+Pole je zobrazované z technických dôvodov dočasného využívania ITMS pre potreby úvodnej fázy  implementácie programového obdobia 2021-2027. Pre ŽoNFP programového obdobia 2021 – 2027 je pole irelevantné a v exportovanej ŽoNFP nie je zobrazované.
+ |
+Identifikácia príspevku k princípu podpory rovnosti mužov a žien a nediskriminácia
+ | Irelevantné.
+Pole je zobrazované z technických dôvodov dočasného využívania ITMS pre potreby úvodnej fázy  implementácie programového obdobia 2021-2027. Pre ŽoNFP programového obdobia 2021 – 2027 je pole irelevantné a v exportovanej ŽoNFP nie je zobrazované.
+ |
+Program
+ | Automaticky vyplnené (kód – názov)
+ |
+Priorita
+ | Automaticky vyplnené (kód – názov)
+ |
+Opatrenie / Špecifický cieľ
+ | Automaticky vyplnené (kód – názov)
+ |
+Kategorizácia za Opatrenie / Špecifický cieľ
+ |
+Opatrenie / Špecifický cieľ
+ | Automaticky vyplnené (kód – názov)
+ |
+Oblasť intervencie
+ | Vypĺňa žiadateľ - žiadateľ prostredníctvom výberu z číselníka. Žiadateľ vyberie jednu alebo viacero oblastí intervencie za každý konkrétny (špecifický) cieľ. S ohľadom na zameranie výzvy sú relevantné oblasti intervencie:
+045 – Obnova zameraná na energetickú efektívnosť alebo opatrenia zamerané na energetickú efektívnosť verejnej infraštruktúry, demonštračné projekty a podporné opatrenia v súlade s kritériami energetickej efektívnosti;
+048 – Energia z obnoviteľných zdrojov: slnečná;
+052 – Iné druhy energie z obnoviteľných zdrojov (vrátane geotermálnej energie) bnoviteľná energia – slnečná energia.
+ |
+Hospodárska činnosť
+ | Vypĺňa žiadateľ prostredníctvom výberu z číselníka hospodárskych činností. Žiadateľ s ohľadom na zameranie výzvy vyberá 24 - Činnosti súvisiace so životným prostredím.
+ |
+Územný mechanizmus realizácie
+a územné zameranie
+ | Vypĺňa žiadateľ - žiadateľ vyberie možnosť: 33 Iné prístupy – Žiadne územné zameranie.
+ |
+Forma podpory
+ | Vypĺňa žiadateľ – žiadateľ vyberie z číselníka Foriem podpory: 01 – Grant.
+ |
+Sekundárny tematický okruh ESF+
+ | Nerelevantné - v PDF sa nezobrazuje.
+ |
+Rodová rovnosť
+ | Vypĺňa žiadateľ – žiadateľ vyberie možnosť: 03 Rodovo neutrálny.
+Pozn.: v PDF sa nezobrazuje.
+ |
+Makroregionálne stratégie a
+stratégie pre morské oblasti
+ | Vypĺňa žiadateľ - žiadateľ vyberie možnosť: 04 – Stratégia pre región Dunaja
+Pozn.: v PDF sa nezobrazuje.
+ |
+Stratégia IUS
+ | Nerelevantné - v PDF sa nezobrazuje.
+ |
+Štátna pomoc
+ | Nerelevantné - v PDF sa nezobrazuje.
+ |
+6.A Miesto realizácie projektu
+ |
+Žiadateľ definuje miesto realizácie projektu na najnižšiu možnú úroveň. V prípade investičných projektov sa miestom realizácie projektu rozumie miesto fyzickej realizácie, t. j. miestom realizácie projektu sa rozumie miesto, kde budú umiestnené a využívané výstupy investičných aktivít projektu. Miesto realizácie uvádza na tú úroveň, ktorá je jednoznačne určiteľná, napr. ak miesto realizácie je v dvoch obciach, je potrebné uviesť všetky obce dotknuté fyzickou realizáciou projektu. Kategória regiónu (riadok 49) sa vypĺňa v súlade s miestom realizácie projektu.
+Pole Kategória regiónu sa vypĺňa v súlade s miestom realizácie projektu.
+ |
+P. č.
+ | Automaticky vyplnené
+ |
+Štát
+ | Vypĺňa žiadateľ
+ |
+Región (NUTS II)
+ | Vypĺňa žiadateľ
+ |
+Vyšší územný celok (NUTS III)
+ | Vypĺňa žiadateľ
+ |
+Okres (NUTS IV)
+ | Vypĺňa žiadateľ
+ |
+Obec
+ | Vypĺňa žiadateľ
+ |
+Poznámka k miestu realizácie:
+ | Vypĺňa žiadateľ - v prípadoch potreby bližšej špecifikácie konkrétneho miesta realizácie aktivít projektu. V opačnom prípade žiadateľ predmetnú bunku nevypĺňa.
+ |
+6.B Miesto realizácie projektu mimo oprávneného územia OP
+Tab. 6B sa nevypĺňa, je pre výzvu irelevantná.
+ |
+7. Popis projektu
+ |
+Stručný popis projektu:
+ | Vypĺňa žiadateľ - Žiadateľ popíše stručne obsah projektu – abstrakt (v prípade schválenia bude tento rozsah podliehať zverejneniu podľa § 47 zákona č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a o zmene a doplnení niektorých zákonov v znení neskorších predpisov). Obsah projektu obsahuje stručnú informáciu o cieľoch projektu, aktivitách, mieste realizácie a merateľných ukazovateľoch projektu (max. 2000 znakov vrátane medzier).
+Žiadateľ ktorým je subjekt mimo pravidiel štátnej pomoci v zmysle PPP č. 1 popíše ako predmet projektu priamo súvisí s výkonom činností uvedených v písm. a) až d) PPP č. 1.
+Upozornenie: Informácie tu uvedené musia byť v súlade s informáciami uvedenými v ostatných častiach formulára ŽoNFP a predkladanými prílohami ŽoNFP.
+ |
+Účel projektu a jeho očakávané výsledky
+ | Vypĺňa žiadateľ  - Žiadateľ uvedie účel (cieľ) projektu, ktorý musí pritom byť v priamej súvislosti s definovanými problémami, ktoré bude projekt riešiť. Za cieľ nie je možné považovať samotné vykonávanie konkrétnej aktivity; aktivita je nástroj, prostriedok – cieľom je očakávaná zmena stavu po realizácii projektu. Pri definovaní cieľov platí, že by mali byť stručné, jednoznačné a najmä merateľné prostredníctvom vybraných ukazovateľov.
+Žiadateľ ďalej popíše očakávané výsledky v nadväznosti na konkrétne merateľné ukazovatele.
+ |
+Popis východiskovej situácie
+ | Žiadateľ popíše východiskovú situáciu vo vzťahu k navrhovanému projektu, resp. vstupom, ktoré ovplyvňujú realizáciu projektu.
+V rámci tejto časti sa zamerajte najmä na:
+-	východiskovú situáciu vo vzťahu k navrhovanému projektu, resp. vstupom, ktoré ovplyvňujú realizáciu projektu;
+-	identifikáciu potrieb (problémov) žiadateľa (hlavné environmentálne problémy v riešenej oblasti);
+-	popis toho, ako realizácia projektu rieši identifikované potreby (problémy) skupín, v prospech ktorých je projekt realizovaný, resp. cieľového územia;
+identifikáciu projektov/aktivít obdobného charakteru realizovaných v minulosti v nadväznosti na dosiahnuté výsledky a možné duplicitné financovanie;
+identifikáciu projektov/aktivít obdobného charakteru realizovaných v dobe predkladania ŽoNFP, resp. v blízkej budúcnosti, ak o tom žiadateľ má informáciu;
+vymedzenie jednoznačných deliacich línií v prípade realizácie projektov/aktivít obdobného charakteru v minulosti, v čase predkladania ŽoNFP alebo v blízkej budúcnosti, ak o tom žiadateľ má informáciu.
+Ak žiadateľ z dôvodu technických obmedzení predkladá niektorú z príloh ŽoNFP v listinnej podobe, v tejto časti ju identifikuje (uvedie číslo prílohy ŽoNFP, jej názov a dokumenty, ktoré obsahuje).
+Ak sa v prípade realizácie Opatrenia 2.2.2 výstupy projektu vyžívajú na nehospodársku ako aj hospodársku činnosť inú ako sprievodnú, žiadateľ v tejto časti jednoznačne identifikuje priestory (miestnosti) a elektrické okruhy využívané na nehospodárske činnosti ako aj priestory (miestnosti) a elektrické okruhy využívané čo len čiastočne na hospodárske činnosti v zmysle PPP č. 11 výzvy a kapitoly 4 Prílohy č. 7 výzvy.
+
+Súlad projektu s PPP č. 6
+V prípade, ak je Uznesenie o schválení programu rozvoja a príslušnej územnoplánovacej dokumentácie (Príloha č. 3 ŽoNFP) zverejnené na webovom sídle, uvedie sa funkčný a verejne prístupný odkaz na zverejnené dokumenty. V prípade, že bola od schválenia programu rozvoja schválená aktualizácia, ktorou sa predĺžila jeho platnosť, je potrebné predložiť/uviesť aj funkčný odkaz na zverejnené uznesenie.
+Ak obec/niektorá z obcí nie je povinná mať vypracovanú územnoplánovaciu dokumentáciu podľa § 11 stavebného zákona (v znení platnom do 31. marca 2024) alebo podľa § 22 zákona o územnom plánovaní, žiadateľ vymenuje obce zúčastnené na žiadateľovi, na ktorých území sa fyzicky realizuje projekt, ktoré nie sú povinné mať vypracovanú územnoplánovaciu dokumentáciu a zároveň uvedie dôvod v súlade s § 11 stavebného zákona / § 22 zákona o územnom plánovaní, pre ktorý sa povinnosť vypracovania územnoplánovacej dokumentácie na konkrétnu obec nevzťahuje. (žiadateľ poskytne informácie nižšie osobitne za každú obec (ak relevantné)):
+Podľa § 11 stavebného zákona (v znení platnom do 31. marca 2024):
+názov obce (do 2 000 obyvateľov), ktorá nemá povinnosť mať vypracovanú územnoplánovaciu dokumentáciu:....................... (doplní žiadateľ)
+dôvod, pre ktorý sa povinnosť vypracovania územnoplánovacej dokumentácie na obec nevzťahuje:....................... (doplní žiadateľ, v súlade s ods. 2 § 11 stavebného zákona uvedie jeden alebo oba z nasledovných dôvodov podľa relevantnosti):
+netreba riešiť koncepciu územného rozvoja, uskutočňovať rozsiahlu novú výstavbu a prestavbu v obci alebo umiestniť verejnoprospešné stavby,
+mať územný plán obce nevyplýva zo záväznej časti územného plánu regiónu, najmä na splnenie medzinárodných záväzkov alebo na umiestnenie verejného dopravného a technického vybavenia územia celoštátneho významu.
+Zároveň v zmysle prechodných ustanovení § 40 zákona o územnom plánovaní v znení neskorších predpisov žiadateľ uvedie, že tieto obce budú  mať obstaranú a schválenú územnoplánovaciu dokumentáciu najneskôr do 31.3.2032.
+Alebo ak relevantné:
+Podľa § 22 zákona o územnom plánovaní:
+názov obce, ktorá nemá povinnosť mať vypracovanú územnoplánovaciu dokumentáciu:....................... (doplní žiadateľ)
+dôvod, pre ktorý sa povinnosť vypracovania územnoplánovacej dokumentácie na obec nevzťahuje:....................... (doplní žiadateľ, v súlade s ods. 1 § 22 zákona o územnom plánovaní):
+celé územie obce je súčasťou územného plánu mikroregiónu: ....................... (doplní žiadateľ).
+Súlad projektu s PPP č. 7
+Ak je predmetom ŽoNFP budova školy / školského zariadenia v zmysle Podmienky oprávnenosti aktivít, PPP č. 7, žiadateľ uvádza či je jej financovanie prevažne z verejných alebo súkromných zdrojov.
+
+Projektová dokumentácia
+Žiadateľ uvedie vyhlásenie o tom, že predkladaná projektová dokumentácia (Príloha č. 7 ŽoNFP) je úplná a totožná s projektovou dokumentáciou, ktorá bola predmetom povoľovacieho konania a bola v tomto konaní overená.
+
+Žiadateľ uvedie vyhlásenie o tom, že údaje uvedené v situačnom nákrese predloženom v rámci Prílohy č. 7 ŽoNFP – Projektová dokumentácia sú úplné a pravdivé.
+
+ |
+Spôsob realizácie aktivít projektu
+ | Žiadateľ popíše spôsob realizácie aktivít projektu, vrátane vhodnosti navrhovaných aktivít s ohľadom na očakávané výsledky.
+V rámci tejto časti sa zameria najmä na:
+popis a zdôvodnenie jednotlivých aktivít projektu a ich technické a personálne zabezpečenie;
+popis a zdôvodnenie navrhovaných postupov a riešení pri realizácii aktivít projektu;
+časovú následnosť (etapizáciu) realizácie aktivít projektu, ich nadväznosť (podrobnejšia časová následnosť) bude uvedená v tabuľke č. 9 tejto ŽoNFP;
+popis ako projekt prispieva k dosiahnutiu cieľa výzvy;
+príspevok hlavných aktivít k dosiahnutiu stanovených cieľov a predpoklady na dosiahnutie stanovenej cieľovej hodnoty merateľných ukazovateľov.
+Súlad projektu s horizontálnymi princípmi
+Žiadateľ popíše, akým spôsobom zabezpečí:
+dodržiavanie práv, slobôd a zásad, ktoré sú uvedené v Charte základných práv EÚ,
+dodržiavanie princípov presadzovania rovnosti mužov a žien a začleňovania z hľadiska rodovej rovnosti,
+zabránenia akejkoľvek diskriminácie a zabezpečenia prístupnosti aktivít, výstupov, výsledkov projektu pre osoby so zdravotným postihnutím. 
+Upozornenia pre žiadateľa:
+pri všetkých oprávnených aktivitách realizovaných v rámci projektu musí byť zohľadnený princíp rovnosti mužov a žien a princíp nediskriminácie tak, aby nedochádzalo k znevýhodneným podmienkam pre akúkoľvek skupinu osôb a aby boli vytvorené podmienky prístupnosti aj pre osoby so zdravotným postihnutím k fyzickému prostrediu, k informáciám a komunikácii vrátane informačných a komunikačných technológií a systémov, ako aj k ďalším prostriedkom a službám dostupným alebo poskytovaným verejnosti, vrátane všetkých informačných a vzdelávacích aktivít,   
+v rámci oprávnených aktivít zameraných na zvyšovanie kvalifikácie, rekvalifikácie, taktiež pri výbere účastníkov v rámci všetkých vzdelávacích aktivít nemôže dochádzať k diskriminácii, k znevýhodneným podmienkam na základe pohlavia alebo príslušnosti k akejkoľvek znevýhodnenej skupine.
+pri výbere administratívnych a odborných kapacít zapojených do riadenia a realizácie projektu musí byť dodržaný princíp rovnosti mužov a žien a princíp nediskriminácie,
+v rámci mzdového ohodnotenia administratívnych a odborných kapacít nesmie dochádzať ku diskriminácií k nerovnému odmeňovaniu za rovnakú prácu na základe pohlavia alebo príslušnosti k akejkoľvek znevýhodnenej skupine osôb.
+Viac informácii k plneniu horizontálnych princípov nájdete na stránke https://horizontalneprincipy.gov.sk/.
+
+ |
+Situácia po realizácii projektu a udržateľnosť projektu
+ | Žiadateľ popíše situáciu po realizácii projektu a očakávané výsledky.
+Žiadateľ ktorým je subjekt mimo pravidiel štátnej pomoci v zmysle PPP č. 1 a realizuje opatrenie 2.1.2 uvedie informácie o technickej, prevádzkovej, a finančnej udržateľnosti každej jednotlivej hlavnej aktivity s výnimkou hlavných aktivít podľa písm. a), b), l) a m) PPP č. 7. Uvedie najmä:
+či realizácia hlavnej aktivity bude vyžadovať náklady na údržbu / prevádzku pre zachovanie jej funkčnosti od ukončenia realizácie aktivít do ukončenia doby udržateľnosti (napr. pri zateplení obvodového plášťa budovy sa vo všeobecnosti nepredpokladajú náklady na údržbu a prevádzku, pri výmene zdroja tepla vo vykurovacej sústave sa predpokladajú výdavky na pravidelnú kontrolu kotlov, náklady na nákup paliva atď.);
+ak bude hlavná aktivita vyžadovať technickú / prevádzkovú a teda aj finančnú udržateľnosť, žiadateľ:
+uvádza akým spôsobom sa zabezpečí údržba / prevádzka hlavnej aktivity pre zachovanie jej funkčnosti od ukončenia realizácie aktivít do ukončenia doby udržateľnosti (napr. pri výmene zdroja tepla vo vykurovacej sústave bude pravidelná kontrola kotla zabezpečená raz ročne externou spoločnosťou, dodávka paliva je realizovaná na základe zmluvy o dodávke energie, údržba kotla počas udržateľnosti je zahrnutá v obstarávacej cene atď.),
+uvedie popis všetkých činností / prác údržby každej jednotlivej zrealizovanej hlavnej aktivity za účelom zachovania jej funkčnosti od ukončenia realizácie aktivít do ukončenia doby udržateľnosti,
+uvedie z akých zdrojov  budú pokryté prevádzkové výdavky, tzn. žiadateľ uvedie či ich bude financovať z vlastných zdrojov, cudzích zdrojov, resp. kombináciou uvedených zdrojov od ukončenia realizácie aktivít do ukončenia doby udržateľnosti.
+ |
+Prevádzková kapacita žiadateľa
+ | Žiadateľ uvádza Irelevantné.
+ |
+8. Popis cieľovej skupiny
+Tab. 8 sa nevypĺňa, je pre výzvu irelevantná.
+ |
+9. Harmonogram realizácie aktivít
+V zmysle PPP č. 16 výzvy bude prijímateľ povinný ukončiť realizáciu hlavných aktivít projektu do 24 mesiacov od účinnosti Zmluvy o poskytnutí NFP. K predmetnému dňu musí nadobudnúť právoplatnosť kolaudačné rozhodnutie stavby, resp. kolaudačné rozhodnutie, ktorým sa povoľuje uvedenie zariadenia OZE (ak relevantné) do trvalej prevádzky alebo vydanie protokolu o úspešne vykonanej funkčnej skúške pripojenia zariadenia na výrobu elektrickej energie z OZE do sústavy, podľa toho, ktorá z daných skutočností nastane neskôr.
+ |
+Celková dĺžka realizácie aktivít projektu (v mesiacoch)
+ | Automaticky vyplnené
+
+ |
+9.1 Aktivity projektu realizované v oprávnenom území OP
+ |
+Subjekt:
+ | Automaticky vyplnené
+ |
+Identifikátor
+ | Automaticky vyplnené
+ |
+Hlavné aktivity projektu
+ |
+Typ akcie:
+ | Automaticky vyplnené v súlade s podmienkami oprávnenosti aktivít vo výzve (výber z číselníka):
+Zlepšovanie energetickej hospodárnosti a obnovy verejných budov;
+Podpora zariadení využívajúcich OZE vrátane zariadení, ktoré sú súčasťou systému zásobovania energiou verejných budov.
+ |
+Hlavné aktivity projektu
+ | Vypĺňa žiadateľ - Žiadateľ uvedie názov aktivity / aktivít projektu:
+Pre typ akcie Zlepšovanie energetickej hospodárnosti a obnovy verejných budov Opatrenia 2.1.2 sú oprávnené nasledujúce hlavné aktivity:
+a)  vypracovanie energetického auditu minimálne na predmet projektu;
+b)	vypracovanie projektovej dokumentácie na predmet projektu;
+c)	zateplenie obvodového plášťa;
+d)	zateplenie strešného plášťa;
+e)	výmena otvorových konštrukcií;
+f)	rekonštrukcia / modernizácia vykurovacej sústavy;
+g)	rekonštrukcia / modernizácia systémov prípravy teplej vody;
+h)	inštalácia / rekonštrukcia / modernizácia systémov chladenia a vetrania;
+i)	rekonštrukcia / modernizácia osvetlenia;
+j)	inštalácia systémov merania a riadenia;
+k)	iné opatrenia prinášajúce úsporu primárnej energie;
+l)	zavádzanie energetického manažmentu;
+m)	zavádzanie monitoringu prevádzkových údajov;
+n)	realizácia opatrení zlepšujúcich kvalitu vnútorného prostredia;
+o)	inštalácia debarierizačných opatrení;
+p)	inštalácia / rekonštrukcia / modernizácia elektrických nabíjacích staníc pre elektromobilitu;
+q)	realizácia estetických opatrení „Nového Európskeho Bauhausu“ ;
+r)	realizácia zelených opatrení (napr. zelené strechy / steny, systémy využitia dažďovej vody);
+s)	realizácia opatrení ochrany biodiverzity.
+Pre typ akcie Podpora zariadení využívajúcich OZE vrátane zariadení, ktoré sú súčasťou systému zásobovania energiou verejných budov Opatrenia 2.2.2 sú oprávnené nasledujúce hlavné aktivity:
+a)	podpora zariadení využívajúcich OZE;
+b)	podpora uskladňovania energie z OZE;
+c)	zavádzanie systémov monitorovania, optimalizácie a riadenia spotreby energie.
+Žiadateľ nie je oprávnený definovať iné ako vyššie uvedené aktivity projektu.
+ |
+Začiatok realizácie
+ | Vypĺňa žiadateľ - uvedie mesiac a rok začiatku realizácie aktivity / aktivít projektu.
+ |
+Koniec realizácie
+ | Vypĺňa žiadateľ - uvedie mesiac a rok konca realizácie aktivity / aktivít projektu.
+ |
+Podporné aktivity projektu
+ |
+Podporné aktivity
+ | Predvyplnená len 1 Aktivita - "Podporné aktivity".
+Vzhľadom na to, že v rámci výzvy nie sú výdavky na podporné aktivity oprávnené, žiadateľ musí zabezpečiť ich financovanie z vlastných zdrojov.
+ |
+Začiatok realizácie
+ | Žiadateľ túto informáciu nevypĺňa.
+ |
+Koniec realizácie
+ | Žiadateľ túto informáciu nevypĺňa.
+ |
+Subjekt (partner):
+ | Automaticky vyplnené
+ |
+Identifikátor
+ | Automaticky vyplnené
+ |
+9.2 Aktivity projektu realizované mimo oprávneného územia OP
+Tab. 9.2 sa nevypĺňa, je pre výzvu irelevantná.
+ |
+10. Aktivity projektu a očakávané merateľné ukazovatele
+ |
+10.1 Aktivity projektu a očakávané merateľné ukazovatele
+Tabuľka sa opakuje v závislosti od počtu relevantných ukazovateľov
+ |
+Kód
+ | Automaticky vyplnené
+ |
+Merná jednotka
+ | Automaticky vyplnené
+ |
+Merateľný ukazovateľ
+ | Vypĺňa žiadateľ - Žiadateľ vyberie relevantné projektové ukazovatele, ktoré majú byť realizáciou aktivity projektu dosiahnuté. Aktivita projektu musí mať priradený minimálne jeden merateľný ukazovateľ. Každý merateľný ukazovateľ musí mať priradenú cieľovú hodnotu. Bližšie informácie vrátane definícií merateľných ukazovateľov sú uvedené v prílohe č. 5 výzvy - Zoznam merateľných ukazovateľov projektu a iných údajov.
+ |
+Čas plnenia
+ | Automaticky vyplnené
+ |
+Celková cieľová hodnota
+ | Automaticky vyplnené
+ |
+Typ závislosti ukazovateľa
+ | Vypĺňa žiadateľ - žiadateľ vyberie z číselníka spôsob, akým sa budú narátavať hodnoty z cieľových hodnôt do celkovej cieľovej hodnoty (Súčet, Maximálna hodnota)
+ |
+Subjekt
+ | Automaticky vyplnené
+ |
+Identifikátor
+ | Automaticky vyplnené
+ |
+Opatrenie / Špecifický cieľ
+ | Automaticky vyplnené
+ |
+Typ akcie
+ | Automaticky vyplnené podľa údajov zadaných v tab. č. 9
+ |
+Hlavné aktivity projektu
+ | Automaticky vyplnené podľa údajov zadaných v tab. č. 9
+ |
+Cieľová hodnota
+ | Vypĺňa žiadateľ. Ide o cieľovú hodnotu merateľných ukazovateľov.
+ |
+10.2 Prehľad merateľných ukazovateľov projektu
+ |
+Kód
+ | Automaticky vyplnené
+ |
+Názov
+ | Automaticky vyplnené
+ |
+Merná jednotka
+ | Automaticky vyplnené
+ |
+Celková cieľová hodnota
+ | Automaticky vyplnené
+ |
+Príznak rizika
+ | Automaticky vyplnené
+ |
+Relevancia k HP
+ | Automaticky vyplnené
+ |
+Typ závislosti ukazovateľa
+ | Automaticky vyplnené
+ |
+11. Rozpočet projektu
+ |
+11.A Rozpočet žiadateľa
+ |
+Subjekt
+ | Automaticky vyplnené
+ |
+Identifikátor
+ | Automaticky vyplnené
+ |
+Výška oprávnených výdavkov
+ | Automaticky vyplnené – načíta sa hodnota oprávnených výdavkov
+ |
+Priame výdavky
+ |
+Opatrenie /Špecifický cieľ
+ | Automaticky vyplnené
+ |
+Celková výška oprávnených výdavkov
+ | Automaticky vyplnené
+ |
+Typ akcie
+ | Automaticky vyplnené
+ |
+Celková výška oprávnených výdavkov
+ | Automaticky vyplnené
+ |
+Hlavné aktivity projektu
+ | Automaticky vyplnené
+ |
+Skupina výdavku
+ | Vypĺňa žiadateľ - (výber z číselníka výber z číselníka oprávnených výdavkov, podľa oprávnených skupín výdavkov uvedených vo výzve – Príloha č. 7 výzvy – Osobitné podmienky oprávnenosti výdavkov)
+ |
+Percento NFP
+ | Vypĺňa žiadateľ
+ |
+Oprávnený výdavok
+ | Automaticky vyplnené
+ |
+Poznámka
+ | Vypĺňa žiadateľ (ak relevantné).
+ |
+Podpoložka výdavku
+ | Vypĺňa žiadateľ. Vzhľadom na rozpočet projektu, ktorý predkladá žiadateľ v rámci prílohy č. 8 ŽoNFP – Dokumentácia k OV, žiadateľ nevypĺňa rozpočet projektu vo formulári ŽoNFP (časť 11.A) na úrovni podpoložiek výdavkov.
+Upozornenie. Zároveň však s ohľadom na technické nastavenie formuláru ŽoNFP v ITMS je potrebné v rámci každej žiadateľom definovanej skupiny oprávnených výdavkov formálne vyplniť názov jednej podpoložky výdavku a sumu. Žiadateľ môže ako názov podpoložky výdavku v rámci príslušnej skupiny výdavkov uviesť napr. názov príslušnej skupiny výdavkov, pričom vzhľadom k tomu, že v rámci príslušnej skupiny oprávnených výdavkov žiadateľ formálne uvedie názov jednej podpoložky výdavku, musí mať táto podpoložka výdavku uvedenú sumu zodpovedajúcu sume príslušnej skupine výdavkov. V prípade, ak žiadateľ nevyplní v rámci príslušnej skupiny výdavkov minimálne jednu podpoložku výdavkov, nebude môcť pokračovať vo vypĺňaní formulára ŽoNFP v ITMS.
+ |
+Merná jednotka
+ | Vypĺňa žiadateľ - žiadateľ vyberie z číselníka možnosť: projekt
+ |
+Množstvo
+ | Žiadateľ túto bunku nevypĺňa.
+ |
+Jednotková suma
+ | Žiadateľ túto bunku nevypĺňa.
+ |
+Suma
+ | Vypĺňa žiadateľ.
+ |
+Nepriame výdavky
+ |
+Opatrenie / Špecifický cieľ
+ | Automaticky vyplnené
+ |
+Celková výška oprávnených
+výdavkov
+ | Automaticky vyplnené
+ |
+Podporné aktivity
+ | Automaticky vyplnené podľa údajov zadaných v časti 9.1.
+ |
+Skupina výdavku
+ | Vzhľadom na to, že výdavky na podporné aktivity nie sú oprávnené, žiadateľ túto časť nevypĺňa.
+ |
+Percento NFP
+ | Vzhľadom na to, že výdavky na podporné aktivity nie sú oprávnené, žiadateľ túto časť nevypĺňa.
+ |
+Oprávnený výdavok
+ | Automaticky vyplnené
+ |
+Poznámka
+ | Vzhľadom na to, že výdavky na podporné aktivity nie sú oprávnené, žiadateľ túto časť nevypĺňa.
+ |
+Podpoložka výdavku
+ | Vzhľadom na to, že výdavky na podporné aktivity nie sú oprávnené, žiadateľ túto časť nevypĺňa.
+ |
+Merná jednotka
+ | Vzhľadom na to, že výdavky na podporné aktivity nie sú oprávnené, žiadateľ túto časť nevypĺňa.
+ |
+Množstvo
+ | Vzhľadom na to, že výdavky na podporné aktivity nie sú oprávnené, žiadateľ túto časť nevypĺňa.
+ |
+Jednotková suma
+ | Vzhľadom na to, že výdavky na podporné aktivity nie sú oprávnené, žiadateľ túto časť nevypĺňa.
+ |
+Suma
+ | Vzhľadom na to, že výdavky na podporné aktivity nie sú oprávnené, žiadateľ túto časť nevypĺňa.
+ |
+11.B Rozpočty partnerov
+Tab. 11.B sa nevypĺňa, je pre výzvu irelevantná.
+ |
+11.C Požadovaná výška NFP
+ |
+Celková výška oprávnených výdavkov
+ | Automaticky vyplnené
+ |
+Celková výška oprávnených výdavkov pre projekty generujúce príjem
+ | Automaticky vyplnené
+ |
+Percento spolufinancovania zo zdrojov EÚ a ŠR
+ | Automaticky vyplnené
+ |
+Žiadaná výška nenávratného finančného príspevku
+ | Automaticky vyplnené
+ |
+Výška spolufinancovania z vlastných zdrojov
+ | Automaticky vyplnené
+ |
+11.C.1 Požadovaná výška NFP žiadateľa
+ |
+Subjekt
+ | Automaticky vyplnené
+ |
+Identifikátor
+ | Automaticky vyplnené
+ |
+Celková výška oprávnených výdavkov
+ | Automaticky vyplnené
+ |
+Celková výška oprávnených výdavkov pre projekty generujúce príjem
+ | Vypĺňa žiadateľ - Žiadateľ uvedie 0 EUR, keďže výzvou podporované projekty negenerujú príjem.
+ |
+Percento spolufinancovania zo zdrojov EÚ a ŠR
+ | Vypĺňa žiadateľ - Žiadateľ uvedie zodpovedajúce % spolufinancovania zaokrúhlené na 4 desatinné miesta (pole „Miera spolufinancovania projektu v rámci ŽoNFP (v %)“ v pracovnom hárku „Miera spolufinancovania projektu“ v prílohe č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov.
+ |
+Žiadaná výška nenávratného finančného príspevku
+ | Automaticky vyplnené
+ |
+Výška spolufinancovania z vlastných zdrojov
+ | Automaticky vyplnené
+ |
+11.C.2 Požadovaná výška NFP partnerov
+Tab. 11.C.2 sa nevypĺňa, je pre výzvu irelevantná.
+ |
+12. Verejné obstarávanie
+Žiadateľ uvedie aké verejné obstarávania (VO) sa plánujú realizovať v rámci projektu.
+Ak je VO už vyhlásené alebo zrealizované, žiadateľ uvedie názov tohto VO a v časti Poznámka identifikuje toto VO číslom oznámenia o vyhlásení VO, resp. číslom výzvy na predloženie ponúk a link na web zverejnenia dokumentácie tohto obstarávania (ak relevantné).
+Žiadateľ je povinný vyplniť všetky plánované VO v stave v príprave, realizované a zrealizované VO ku všetkým skupinám výdavkov.
+Žiadateľ zadáva každé VO v samostatnej sekcii Verejné obstarávania (v ponuke ITMS v ľavej časti stránky). Pri vypĺňaní formulára ŽoNFP potom pomocou vyhľadávacej funkcie „Pridať“ priradí zo zoznamu VO evidovaných v ITMS všetky VO vzťahujúce sa k ŽoNFP. V zozname VO sa zobrazujú všetky VO, v rámci ktorých je žiadateľ uvedený ako obstarávateľ.
+ |
+Sumár realizovaných VO
+Sekcia bude automaticky vyplnená na základe údajov zadaných k jednotlivým VO.
+ |
+Počet realizovaných VO
+ | Automaticky vyplnené
+ |
+Suma VO pre projekt
+ | Automaticky vyplnené
+ |
+Sumár plánovaných VO
+Sekcia bude automaticky vyplnená na základe údajov zadaných k jednotlivým VO.
+ |
+Počet plánovaných VO
+ | Automaticky vyplnené
+ |
+Suma VO pre projekt
+ | Automaticky vyplnené
+ |
+Verejné obstarávanie
+Tabuľka sa opakuje v závislosti od počtu relevantných VO.
+ |
+Kód VO
+ | Automaticky vyplnené
+ |
+Názov VO
+ | Automaticky vyplnené
+ |
+Opis predmetu VO
+ | Vypĺňa žiadateľ – Žiadateľ stručne uvedie opis predmetu obstarávania.
+ |
+Metóda podľa finančného limitu:
+ | Automaticky vyplnené - Výber z číselníka
+ |
+Hodnota zákazky na žiadosti
+ | Vypĺňa žiadateľ – Žiadateľ uvedie odhadovanú hodnotu zákazky v prípade plánovaného VO, ktoré nebolo ešte vyhlásené (resp. nebola zverejnená/zaslaná výzva na predkladanie ponúk). V prípade VO, ktoré bolo vyhlásené (resp. bola zverejnená/zaslaná výzva na predkladanie ponúk), sa uvádza predpokladaná hodnota zákazky. V prípade ukončeného VO žiadateľ uvedie výslednú zazmluvnenú cenu. Hodnota sa uvádza za celé verejné obstarávania bez ohľadu na skutočnosť, či bolo vykonané celé výlučne len pre účely projektu
+ |
+Postup obstarávania
+ | Automaticky vyplnené - Výber z číselníka
+ |
+Plánovaný dátum začiatku VO
+ | Vypĺňa žiadateľ – Uvádza sa predpokladaný dátum vyhlásenia VO (resp. dátum zverejnenia/zaslania výzvy na predkladanie ponúk). V prípade VO, ktoré už bolo vyhlásené (výzva na predkladanie ponúk už bola zverejnená/zaslaná) sa uvádza reálny dátum.
+ |
+Doplňujúci stav VO
+ | Vypĺňa žiadateľ – Žiadateľ vyberie z prednastavených možností stavu VO ku dňu predloženia ŽoNFP:
+(Pripravované – proces VO nezačatý, VO v príprave;
+V realizácii – VO vyhlásené; VO po predložení ponúk pred podpisom zmluvy s úspešným uchádzačom;
+Ukončené – VO po podpise zmluvy s úspešným uchádzačom).
+ |
+Plánovaný dátum ukončenia VO
+ | Vypĺňa žiadateľ – Uvádza sa predpokladaný dátum ukončenia VO, resp. reálny dátum podpisu zmluvy s úspešným uchádzačom v prípade ukončeného VO.
+ |
+Poznámka:
+ |
+ |
+Zoznam aktivít pre VO
+ |
+Aktivita
+ | Vypĺňa žiadateľ – výber z harmonogramu aktivít (uvádzajú sa všetky hlavné aktivity, ku ktorým sa bude realizovať VO.
+ |
+Opatrenie / Špecifický cieľ
+ | Vypĺňa žiadateľ - (výber z číselníka)
+ |
+Subjekt
+ | Vypĺňa žiadateľ - (výber z číselníka)
+ |
+Hodnota na aktivitu projektu z celkovej hodnoty zákazky
+ | Vypĺňa žiadateľ – ak je celé VO vyhlasované v plnej výške len pre účely realizácie projektu, žiadateľ uvedie sumu totožnú s celkovou hodnotou zákazky. V prípade, ak je pre realizáciu aktivity vyžívané verejné obstarávanie len z časti, uvádza sa relevantná časť hodnoty zákazky.
+ |
+13. Identifikácia rizík a prostriedky na ich elimináciu
+ |
+Riziko
+ |
+Názov rizika
+ | Vypĺňa žiadateľ.
+ |
+Popis rizika
+ | Vypĺňa žiadateľ – Žiadateľ identifikuje hlavné riziká (napr. nenaplnenie merateľného ukazovateľa, problémy s VO), ktoré by mohli mať vplyv na realizáciu projektu, priradí im relevantnú závažnosť a popíše opatrenia, ktoré sú plánované na jeho elimináciu.
+ |
+Závažnosť
+ | Vypĺňa žiadateľ – Žiadateľ vyberie z číselníka jednu z nasledovných možností:
+nízka;
+stredná;
+vysoká.
+ |
+Opatrenia na elimináciu rizika
+ | Vypĺňa žiadateľ – Žiadateľ uvedie aké opatrenia prijíma na elimináciu identifikovaných rizík.
+ |
+14. Zoznam povinných príloh žiadosti o NFP
+ |
+Názov podmienky poskytnutia príspevku
+ | Názov prílohy
+ |
+Právna forma
+ | Príloha č. 1 ŽoNFP – Plnomocenstvo / Poverenie (ak relevantné)
+Príloha č. 2 ŽoNFP – Dokumenty preukazujúce právnu subjektivitu žiadateľa (ak relevantné)
+ |
+Podmienka, že voči žiadateľovi nie je vyhlásený konkurz ani povolená reštrukturalizácia a nie je v likvidácii
+ | Bez osobitnej prílohy
+ |
+Podmienka, zákazu vedenia výkonu rozhodnutia voči žiadateľovi
+ | Bez osobitnej prílohy
+ |
+Podmienka, zákazu vedenia výkonu rozhodnutia voči žiadateľovi v súlade s čl. 65 NSU
+ | Bez osobitnej prílohy
+ |
+Podmienka, že žiadateľ, ktorým je právnická osoba, nemá právoplatným rozsudkom uložený trest zákazu prijímať dotácie alebo subvencie, trest zrušenia PO, trest zákazu prijímať pomoc a podporu poskytovanú z fondov EÚ, trest zákazu činnosti v súlade so zameraním projektu a podmienkami výzvy alebo trest zákazu účasti vo verejnom obstarávaní
+ | Bez osobitnej prílohy
+ |
+Podmienka schválenia programu rozvoja a príslušnej územnoplánovacej dokumentácie podľa § 7 ods. 8 a  § 8 ods. 6/ § 8a ods. 7 zákona č. 539/2008 o podpore regionálneho rozvoja v znení neskorších predpisov
+ | Príloha č. 3 ŽoNFP - Uznesenie (výpis z uznesenia) o schválení programu rozvoja a príslušnej územnoplánovacej dokumentácie
+ |
+Podmienka oprávnenosti aktivít projektu
+ | Príloha č. 5 ŽoNFP – Energetický audit / Stanovisko energetického audítora (ak relevantné)
+Príloha č. 6 ŽoNFP – Energetický certifikát (ak relevantné)
+Príloha č. 7 ŽoNFP – Projektová dokumentácia
+Príloha č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov
+ |
+Podmienky splnenia kritérií pre výber projektov
+ | Príloha č. 5 ŽoNFP – Energetický audit / Stanovisko energetického audítora (ak relevantné)
+Príloha č. 7 ŽoNFP – Projektová dokumentácia
+Príloha č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov
+ |
+Podmienka, že projekt je realizovaný na oprávnenom území
+ | Bez osobitnej prílohy
+ |
+Podmienka mať vysporiadané majetkovo-právne vzťahy
+ | Príloha č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov
+ |
+Podmienky týkajúce sa štátnej pomoci
+ | Formulár ŽoNFP vrátane všetkých príloh
+ |
+Výška príspevku
+ | Príloha č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov
+ |
+Podmienka oprávnenosti výdavkov projektu
+ | Príloha č. 6 ŽoNFP – Energetický certifikát (ak relevantné)
+Príloha č. 7 ŽoNFP – Projektová dokumentácia;
+Príloha č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov
+ |
+Časová oprávnenosť realizácie projektu
+ | Bez osobitnej prílohy
+ |
+Podmienka, že žiadateľ nie je evidovaný v Systéme včasného odhaľovania rizika a vylúčenia (EDES) ako vylúčená osoba alebo subjekt (v zmysle článku 137 nariadenia č. 2024/2509)
+ | Bez osobitnej prílohy
+ |
+15. Čestné vyhlásenie žiadateľa
+ |
+Text vyhlásenia
+
+ | Automaticky vyplnené (prvá časť textu čestného vyhlásenia, preddefinovaný text v ITMS)
+Túto časť vyhlásenia žiadateľ nemôže meniť.
+Ja, dolupodpísaný žiadateľ (štatutárny orgán žiadateľa / osoba splnomocnená k predloženiu ŽoNFP) čestne vyhlasujem, že:
+údaje uvedené v žiadosti o poskytnutie NFP sú identické s údajmi odoslanými prostredníctvom verejnej časti portálu ITMS,
+všetky informácie obsiahnuté v žiadosti o poskytnutie NFP a všetkých jej prílohách sú úplné, pravdivé a správne. V prípade predloženia neúplných, nepravdivých alebo nesprávnych informácií som si vedomý možných následkov v rámci konania o ŽoNFP,
+zabezpečím finančné prostriedky na spolufinancovanie projektu tak, aby nebola ohrozená jeho implementácia,
+spĺňam podmienky poskytnutia príspevku a ďalšie skutočnosti týkajúce sa poskytovania príspevku uvedené v príslušnej výzve,
+ŽoNFP je v súlade s Chartou základných práv EÚ, princípmi rodovej rovnosti a nediskriminácie, zohľadňujúc potreby zabezpečenia prístupnosti pre osoby so zdravotným postihnutím podľa článku 9 nariadenia Európskeho parlamentu a Rady (EÚ) 2021/1060,
+na oprávnené výdavky uvedené v projekte nečerpám inú pomoc, resp. čerpanie inej pomoci je v súlade s pravidlami kumulácie ustanovenými v príslušných právnych predpisov poskytovania štátnej pomoci a na tieto výdavky v minulosti nebol poskytnutý príspevok z verejných prostriedkov.
+Zaväzujem sa bezodkladne písomne informovať poskytovateľa o všetkých zmenách, ktoré sa týkajú údajov a skutočností uvedených v ŽoNFP a jej prílohách.
+Beriem na vedomie, že všetky uvedené osobné údaje sú spracúvané podľa § 46 zákona č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a o zmene a doplnení niektorých zákonov.
+ |
+Text vyhlásenia RO
+
+ | Automaticky vyplnené – táto časť textu čestného vyhlásenia je editovateľná zo strany poskytovateľa v ITMS. Text vyhlásení na preukázanie podmienok poskytnutia príspevku vyplýva z výzvy a znie nasledovne:
+Ja, dolupodpísaný štatutárny orgán / osoba splnomocnená k predloženiu ŽoNFP zároveň čestne vyhlasujem, že:
+voči žiadateľovi nie je vedený výkon rozhodnutia podľa čl. 65 NSU v zmysle PPP č. 4,
+žiadateľ spĺňa / bude spĺňať podmienky vysporiadania majetkovo-právnych vzťahov tak ako sú ustanovené v dokumentácii výzvy a zároveň som si vedomý, že tieto podmienky musí spĺňať počas celej realizácie projektu a počas obdobia udržateľnosti projektu,
+projekt spĺňa podmienky oprávnenosti aktivít projektu definované vo výzve,pred predložením ŽoNFP nebola ukončená fyzická realizácia všetkých oprávnených aktivít projektu,
+zabezpečím financovanie oprávnených výdavkov projektu ako aj všetkých neoprávnených výdavkov súvisiacich s realizáciou projektu a po ukončení projektu zabezpečím pokrytie ostatných nákladov za účelom zabezpečenia udržateľnosti projektu,
+ |
+Text vyhlásenia PPP
+ | Automaticky vyplnené – Žiadateľ je povinný v tejto časti v prostredí ITMS vybrať a čestne vyhlásiť tie z uvádzaných skutočností, ktorého sa ho týkajú, t. j. žiadateľ nie je povinný vybrať a čestne vyhlásiť všetky skutočnosti. Pri výbere relevantných skutočností sa žiadateľ riadi inštrukciami uvedenými pod jednotlivými vyhláseniami.
+Ja, dolupodpísaný štatutárny orgán / osoba splnomocnená k predloženiu ŽoNFP zároveň čestne vyhlasujem, že:
+infraštruktúra využívajúca výstupy projektu bude dňom ukončenia realizácie hlavnej aktivity projektu využívaná výlučne na nehospodársku činnosť, (Ak relevantné, v zmysle kapitoly 3 Prílohy č. 7 výzvy Osobitné podmienky oprávnenosti výdavkov.)
+bude monitorovaná miera sprievodných hospodárskych činností / existencia hospodárskych činností iných ako sprievodných v zmysle PPP č. 1, pričom som si vedomý právnych následkov v prípadoch prekročenia stanoveného stropu sprievodných hospodárskych činností / výkonu hospodárskych činností iných ako sprievodných. (Ak relevantné.)
+ |
+Miesto podpisu
+ | Vypĺňa žiadateľ.
+ |
+Dátum podpisu
+ | Vypĺňa žiadateľ.
+ |
+Titul, meno a priezvisko štatutárneho orgánu
+ | Vypĺňa žiadateľ.
+ |
+Subjekt
+ | Automaticky vyplnené
+ |
+Podpis
+ | Vypĺňa žiadateľ.
+ |

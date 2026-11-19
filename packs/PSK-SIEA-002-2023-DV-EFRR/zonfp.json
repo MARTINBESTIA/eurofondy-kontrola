@@ -217,7 +217,15 @@
       "kontrola": "priloha_povinna",
       "parametre": {
         "cislo": "8",
-        "podmienka": "vzdy"
+        "podmienka": "vzdy",
+        "zavaznyFormular": {
+          "popis": "záväzný formulár Prílohy č. 8 (zošit MS Excel podľa vzoru výzvy, Priloha_8_ZoNFP_Dokument._k_OV)",
+          "pripona": "\\.xls[xm]$",
+          "harok": "Rozpočet B1 - Value for Money",
+          "ziadatel": "B9",
+          "projekt": "B10",
+          "polozka": { "pocet": "D", "cena": "E", "suma": "F", "nazovSumy": "Cena celkom bez DPH" }
+        }
       },
       "citacia": {
         "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
@@ -277,13 +285,15 @@
     {
       "id": "L07",
       "ppp": 7,
-      "nazov": "Predmetom projektu je verejná budova oprávnenej kategórie",
+      "nazov": "Predmetom projektu je budova oprávnenej kategórie (vlastníctvo overuje G10)",
       "druh": "llm",
       "kontrola": "llm_text",
       "parametre": {
-        "zdroj": "popis"
+        "zdroj": "popis",
+        "vzorDokazu": "úrad|administratív|škol|škôlk|nemocnic|hotel|reštaur|\\bhal[aeiy]?\\b|telocvič|športov",
+        "poznamka": "Bod overuje len kategóriu budovy podľa popisu projektu. Vlastníctvo (verejná budova) sa týmto bodom neoveruje: overuje ho G10 v katastri nehnuteľností."
       },
-      "otazka": "Podľa výzvy sú pri opatrení 2.1.2 oprávnené iba verejné budovy (vo vlastníctve štátu, obce, VÚC alebo iného subjektu verejnej správy) týchto kategórií: administratívne budovy, budovy škôl a školských zariadení, budovy nemocníc, budovy hotelov a reštaurácií, športové haly a iné budovy určené na šport, a budovy so zmiešaným účelom užívania z týchto kategórií. Oprávnené NIE SÚ: rodinné domy, bytové domy, budovy vo vlastníctve súkromných firiem alebo súkromných osôb, výrobné a skladové haly. Urči z popisu projektu, aká budova je predmetom projektu a či je oprávnená.",
+      "otazka": "Urči z popisu projektu iba KATEGÓRIU budovy, ktorá je predmetom projektu. Oprávnené kategórie pri opatrení 2.1.2: administratívne budovy, budovy škôl a školských zariadení, budovy nemocníc, budovy hotelov a reštaurácií, športové haly a iné budovy určené na šport a budovy so zmiešaným účelom užívania z týchto kategórií. Neoprávnené: rodinné domy, bytové domy, budovy pre veľkoobchodné a maloobchodné služby, výrobné a skladové haly. Vlastníctvo budovy NEPOSUDZUJ a nespomínaj: overuje sa z katastra v inom bode. Ak popis výslovne pomenúva budovu oprávnenej kategórie (napr. budova obecného úradu = administratívna budova), stav je splnene a do poľa dokaz skopíruj doslovne slová, ktoré budovu pomenúvajú. Ak pomenúva neoprávnenú kategóriu, stav je nesplnene. Ak sa kategória z popisu určiť nedá, stav je neda_sa_urcit.",
       "citacia": {
         "dokument": "Výzva v znení Zmeny č. 3",
         "cast": "PPP č. 7, ods. 3 písm. a) a b)",
@@ -307,7 +317,7 @@
           },
           {
             "nazov": "podpis štatutárneho orgánu žiadateľa (splnomocniteľa)",
-            "vzor": "podpis",
+            "vzor": "podpis|(^|\\n)[ \\t_.…]*(splnomocnite[lľ]|starost[ao]|primátor(ka)?|štatutárn\\S* orgán\\S*)[ \\t_.…]*((splnomocnen(ec|kyňa)|poveren(ec|kyňa))[ \\t_.…]*)?(\\n|$)",
             "nesmie": "podpis\\S* splnomocnen(ca|ej|ého)",
             "vizualne": true,
             "vzorOkolie": 1

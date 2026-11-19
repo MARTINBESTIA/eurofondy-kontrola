@@ -19,7 +19,14 @@ export interface PolozkaRozpoctu { aktivita: string; hlavna: boolean; opatrenie:
  * zaradenie: „potvrdene“ = číslo prílohy uviedol žiadateľ (slot v ITMS21+, číslo v názve súboru) alebo ho potvrdil kontrolór;
  * „odhad“ = softvér prílohu zaradil podľa kľúčových slov. Odhad nestačí na „splnené“. Bez údaja = potvrdené.
  */
-export interface Priloha { nazov: string; text: string; zaradenie?: 'potvrdene' | 'odhad' }
+export interface Priloha {
+  nazov: string; text: string; zaradenie?: 'potvrdene' | 'odhad';
+  /**
+   * Jednotlivé súbory prílohy (z podateľne). Treba ich pri záväznom formulári: text slotu je zlúčený zo všetkých súborov.
+   * bunky = pri zošite XLSX/XLSM hárok -> adresa (A1) -> uložená hodnota; chýba, ak sa originál nedal prečítať.
+   */
+  subory?: { nazov: string; text: string; citatelny: boolean; bunky?: Record<string, Record<string, string>> }[];
+}
 
 /** Žiadosť o NFP v tvare, s ktorým pracujú pravidlá. Zdroj: formulár ŽoNFP (verejné API ITMS21+ alebo nahratý súbor). */
 export interface Ziadost {

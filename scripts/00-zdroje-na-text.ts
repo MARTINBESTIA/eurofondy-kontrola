@@ -9,13 +9,20 @@ const koren = path.join(import.meta.dirname, '..', 'data', 'zdroje', process.arg
 const out = path.join(koren, 'txt');
 fs.mkdirSync(out, { recursive: true });
 
+const sZmenami = (meno: string) => /(?<!_bez)_SZ$/.test(meno);
 function prejdi(dir: string) {
   for (const f of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, f.name);
-    if (f.isDirectory()) { if (!['txt', 'rozhodnutia'].includes(f.name) && !f.name.endsWith('_SZ')) prejdi(p); continue; }
-    if (!/\.(docx|pdf)$/i.test(f.name) || /_SZ\./.test(f.name)) continue;
+    // _SZ = verzia so sledovanými zmenami (duplikát), preskočí sa; _bez_SZ je čistá verzia a spracovať sa musí.
+    if (f.isDirectory()) { if (!['txt', 'rozhodnutia'].includes(f.name) && !sZmenami(f.name)) prejdi(p); continue; }
+    if (!/\.(docx|pdf)$/i.test(f.name) || sZmenami(f.name.replace(/\.[^.]+$/, ''))) continue;
     try {
-      const text = dokumentNaText(f.name, fs.readFileSync(p));
+      // Odvodené texty nenesú kontakty (e-maily, telefóny), ani keď ich zverejnený dokument obsahuje.
+      const text = dokumentNaText(f.name, fs.readFileSync(p))
+        .replace(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}/g, '[e-mail vynechaný]')
+        // \s aj pre nedeliteľné medzery, ktoré pdftotext v číslach necháva
+        .replace(/\+421(?:\s*\d){8,10}(?:\s*\/\s*\d{2,4})?/g, '[telefón vynechaný]')
+        .replace(/\b09\d{2}[\s/]?\d{3}\s?\d{3}\b/g, '[telefón vynechaný]');
       const meno = f.name.replace(/\.(docx|pdf)$/i, '.txt');
       fs.writeFileSync(path.join(out, meno), text);
       console.log(String(text.length).padStart(8), meno);

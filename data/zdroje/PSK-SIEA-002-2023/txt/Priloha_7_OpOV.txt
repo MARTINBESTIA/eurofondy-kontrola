@@ -1,0 +1,146 @@
+Osobitné podmienky oprávnenosti výdavkov
+výzvy s kódom PSK-SIEA-002-2023-DV-EFRR
+Cieľom tejto prílohy je definovať oprávnené/neoprávnené výdavky výzvy a uľahčiť orientáciu pri aplikácií špecifík oprávnených výdavkov. Z obsahového hľadiska je príloha rozdelená do nasledujúcich častí:
+ TOC \o "1-2" \f \u 1  Zoznam oprávnených výdavkov	 PAGEREF _Toc530730775 \h 1
+2  Zoznam neoprávnených výdavkov	3
+3  Percentuálne limity	4
+4  Podmienky štátnej pomoci	4
+
+1   Zoznam oprávnených výdavkov
+Poskytovateľ overuje vecnú oprávnenosť výdavkov projektu na základe posúdenia, či žiadané výdavky projektu vecne spadajú do rozsahu oprávnených výdavkov určených v tomto zozname. Zoznam oprávnených výdavkov obsahuje uzavretý zoznam tried a skupín oprávnených výdavkov a v rámci nich najčastejšie sa vyskytujúce typy oprávnených výdavkov v rámci tejto výzvy v súlade s Číselníkom oprávnených výdavkov, ktorý tvorí Prílohu č. 2 Príručky k oprávnenosti výdavkov, v platnom znení (ďalej len „Príručka k OV“).
+V tejto výzve sa aplikuje reálne vykazovanie výdavkov.
+Upozornenie:
+Oprávnené sú iba tie výdavky, ktoré sú nevyhnutné pre realizáciu a dosiahnutie cieľov projektu.
+ |
+
+Trieda 01 – Dlhodobý nehmotný majetok
+ |
+Skupina 013 – Softvér
+ |
+nákup softvéru bezprostredne súvisiaceho s meraním a riadením prevádzky zariadení do výšky max. 10 % celkových oprávnených výdavkov (ďalej len „COV“) na projekt (ŽoNFP), ak nie je súčasťou zmluvy o dodávke zariadenia a ak je zakúpený samostatne, tzn. že nie je súčasťou dodávky zariadenia a jeho ocenenia, vrátane výdavkov na nákup licencií súvisiacich s používaním tohto softvéru.
+ |
+Trieda 02 – Dlhodobý hmotný majetok
+ |
+Skupina 021 – Stavby
+ |
+prípravná a projektová dokumentácia:
+vypracovanie projektovej dokumentácie vrátane zmien, variantných riešení a doplnkov (pre stavebné povolenie, realizačná dokumentácia, dokumentácia skutočného vyhotovenia stavby, atď.);
+plán organizácie výstavby;
+zameriavacie práce (zameranie súčasného stavu stavby a iné).
+stavebný dozor, technický dozor a autorský dohľad;
+stavebné práce bezprostredne súvisiace s:
+rekonštrukcia a modernizácia stavieb za účelom zníženia ich energetickej náročnosti, resp. zlepšenia ich energetickej hospodárnosti;
+nevyhnutné zariadenie staveniska;
+zateplenie obvodového plášťa;
+zateplenie strešného plášťa;
+výmena otvorových konštrukcií;
+inštalácia / rekonštrukcia / modernizácia vykurovacieho systému;
+inštalácia / rekonštrukcia / modernizácia systémov chladenia a vetrania;
+inštalácia / rekonštrukcia / modernizácia systémov prípravy teplej vody;
+rekonštrukcia / modernizácia osvetlenia;
+inštalácia systémov merania a riadenia;
+iné opatrenia prinášajúce úsporu primárnej energie;
+prípojka CZT do budovy;
+opatrenia na zabránenie vzlínavej vlhkosti stien a odvedenia dažďovej vody z bezprostredného okolia budovy (napr. podrezaním) - za predpokladu uvedenia defektu v projektovej dokumentácii a podmienky preukázania fyzikálno-technického riešenia v projektovej dokumentácii;
+zelené opatrenia, napr. zelené strechy, zelené steny, zadržiavanie a využívanie dažďovej vody;
+realizácia opatrení zlepšujúcich kvalitu vnútorného prostredia;
+realizácia estetických opatrení „Nového Európskeho Bauhausu“;
+realizácia debarierizačných opatrení;
+inštalácia / rekonštrukcia / modernizácia elektrických nabíjacích staníc pre elektromobilitu;
+zavádzanie prvkov na ochranu biodiverzity - opatrenia určené na zachovanie miest hniezdenia, rozmnožovania alebo odpočinku chráneného živočícha, pokiaľ sú tieto miesta dotknuté činnosťou, ktorá je predmetom podpory, a to len v prípade potvrdenia výskytu chránených živočíchov a ich úkrytov v budove, ktoré vyplynú z konania pri povoľovaní stavebných úprav a udržiavacích prác budov (najmä zatepľovaní), t. j. zo stavebného povolenia (v zmysle § 3 ods. 4 zákona o ochrane prírody a krajiny);
+nákup prevádzkových strojov, prístrojov a zariadení (napr. výťah) bezprostredne súvisiacich
+so zlepšením energetickej hospodárnosti budov a energetickej efektívnosti technických zariadení budov, ak sú obstarávané ako súčasť stavebných prác.
+ |
+Skupina 022 – Samostatné hnuteľné veci a súbory hnuteľných vecí (výlučne opatrenie 2.2.2)
+ |
+nákup strojov, prístrojov, zariadení, techniky a náradia, vrátane dodávky a montáže zariadení a prvého zaškolenia zariadení využívajúcich OZE.
+ |
+Trieda 51 – Služby
+ |
+Skupina 518 – Ostatné služby
+ |
+výdavky na zavádzanie energetického manažmentu (priame výdavky), ak nie sú realizované ako súčasť stavebných prác;
+výdavky na zavádzanie monitoringu prevádzkových údajov (priame výdavky) ak nie sú realizované ako súčasť stavebných prác;
+výdavky na vypracovanie energetického auditu na predmet projektu / stanoviska energetického audítora (priame výdavky);
+výdavky na vypracovanie energetického certifikátu pred a po realizácii projektu (priame výdavky);
+výdavky na odborné prehliadky / skúšky / revízne správy po realizácii projektu súvisiacimi s uvedením zariadení do prevádzky, ak nie sú súčasťou zmluvy o dodávke zariadenia a ak sú obstarané samostatne, tzn. že nie sú súčasťou dodávky zariadenia a jeho ocenenia.
+ |
+V prípade identifikácie neoprávnených výdavkov projektu z dôvodu vecnej neoprávnenosti, neúčelnosti alebo nehospodárnosti poskytovateľ v procese konania o ŽoNFP zníži výšku žiadaných COV projektu o identifikované neoprávnené výdavky, ktoré nebudú z P SK financované.
+
+2   Zoznam neoprávnených výdavkov
+Neoprávnené výdavky sú exemplifikatívne uvedené nižšie:
+výdavky vynaložené pred 1. januárom 2021;
+výdavky, ktoré vznikli mimo termínu realizácie projektu, t. j. pred začiatkom realizácie projektu alebo po ukončení realizácie projektu;
+výdavky, ktoré priamo nesúvisia s realizáciou projektu;
+výdavky vynaložené na výstavbu novej budovy, resp. nadstavbu a prístavbu existujúcej budovy;
+výdavky na nákup alebo nájom nehnuteľností (pozemkov a stavieb);
+výdavky na nákup alebo nájom dopravných prostriedkov a dopravných zariadení (s výnimkou výťahu, resp. iných debarierizačných prostriedkov);
+výdavky na obstaranie prepravných služieb (pokial nie su obstarávané ako súčasť dodávky);
+výdavky súvisiace s poskytovaním energetickej služby s garantovanou úsporou energie;
+rezerva na nepredvídané výdavky súvisiace so stavebnými prácami;
+energetický audit overenia reálne dosiahnutých úspor energie po obnove budovy;
+nepriame výdavky;
+mzdové výdavky zamestnancov prijímateľa, resp. odmeny za práce vykonávané mimo pracovného pomeru bezprostredne súvisiace s realizáciou hlavných aktivít projektu (priame výdavky);
+vlastná práca (napr. orezanie stromov a kríkov nachádzajúcich sa v bezprostrednom okolí stavby, maľby vrátane ošetrenia prvkov na fasáde napr. mreží, okapové chodníky, zemné práce);
+hotovostné platby zahŕňajúce výdavky na obstaranie dlhodobého hmotného a nehmotného majetku;
+nákup alebo nájom telekomunikačnej techniky (napr. mobilné telefóny a pod.);
+nákup kancelárskeho materiálu (napr. kopírovací a grafický papier) a pod.;
+spotreba energie a ostatných neskladovateľných dodávok;
+interiérové upratovacie služby;
+cestovné náhrady;
+správne poplatky (podľa zákona č. 145/1995 Z. z. o správnych poplatkoch v znení neskorších predpisov), miestne poplatky a pod.;
+daň z pridanej hodnoty, ak je nárokovateľný jej odpočet na vstupe podľa zákona č. 222/2004 Z. z. o dani z pridanej hodnoty v znení neskorších predpisov.
+ |
+
+Uvedené neoprávnené výdavky nepredstavujú kompletný (konečný) zoznam. Poskytovateľ nemôže, vzhľadom na rozmanitosť činností realizovaných na základe tejto výzvy, identifikovať všetky neoprávnené výdavky, ktoré môžu v súvislosti s realizáciou projektov vzniknúť.
+
+3   Percentuálne limity
+V kapitole 1 Zoznam oprávnených výdavkov je stanovený nasledujúci percentuálny limit:
+Názov výdavku
+ | Percentuálny limit
+ | Poznámka
+ |
+Nákup softvéru
+ | 10 % z COV projektu
+ | Ak nie je súčasťou zmluvy na uskutočnenie stavebných prác a ak je kúpený samostatne, tzn. že nie je súčasťou dodávky hardvéru a jeho ocenenia.
+ |
+
+4   Podmienky štátnej pomoci
+Výzva v PPP č. 11 ustanovuje „Financovanie projektu sa poskytuje iba v rozsahu v akom sú výstupy projektu (napr. vyrobená/ušetrená energia) využívané na výkon nehospodárskych činností, resp. zmiešaného využitia projektu.“
+Pre účely výzvy sa za hospodársku činnosť považuje každá činnosť, ktorá spočíva v ponuke tovaru a/alebo služieb na trhu. Okolnosť, že tovary alebo služby nie sú ponúkané s cieľom zisku, nebráni tomu, aby sa subjekt vykonávajúci tieto činnosti na trhu považoval za podnik, pokiaľ táto ponuka konkuruje ponuke iných subjektov, ktorých cieľom je zisk.
+Hospodárskou činnosťou v rámci tejto výzvy je v prípade projektov zlepšenia energetickej hospodárnosti verejnej budovy napr. úspora energie z ktorej má prospech prijímateľ alebo 3 osoba v prípade nájmu časti budovy. V prípadoch podpory využívania OZE je to napr. využitie projektom generovanej elektrickej energie na výkon vlastných hospodárskych činností prijímateľom, dodávka projektom generovanej elektrickej energie tretej osobe, napr. nájomcovi atď.
+Realizácia Opatrenia 2.1.2 – Zlepšovanie energetickej hospodárnosti a obnova verejných budov
+Výzva v PPP č. 11 ustanovuje, že financovanie projektu sa poskytuje iba v rozsahu v akom sú výstupy projektu (napr. vyrobená/ušetrená energia) využívané na výkon nehospodárskych činností, resp. zmiešaného využitia projektu.
+V zmysle PPP č. 11 výzvy sa v prípadoch prekročenia 20 % využitia kapacity infraštruktúry na sprievodné hospodárske činnosti alebo  v prípadoch využitia predmetu projektu na výkon hospodárskych činností iných ako sprievodných financovanie podľa tejto výzvy vzťahuje len na pomernú časť, ktorá nie je využívaná na žiadne hospodárske činnosti.
+Výpočet podielu sprievodných hospodárskych činností / hospodárskych činností mimo zmiešaného využitia na celkovom využití infraštruktúry zohľadňuje priestor a čas využívania infraštruktúry a je automaticky počítaný v rámci Prílohy č. 8 Dokumentácia k oprávnenosti výdavkov po zadaní vstupných údajov žiadateľom.
+Tento postup sa uplatňuje aj v prípade realizácie opatrenia 2.2.2, ak je zamerané na výrobu tepla využívaného v rámci zmiešaného využitia projektu, (teda generované teplo je dodávané do vykurovacieho okruhu budovy v ktorom je vykonávaná nehospodárska a sprievodná hospodárska činnosť). V prípade hospodárskej činnosti mimo zmiešaného využitia infraštruktúry (teda generované teplo je dodávané tretím subjektom (napr. do systému CZT alebo iným tretím subjektom so samostatným vykurovacím okruhom)) sú výdavky na realizáciu tohto opatrenia neoprávnené.
+Prekročenie stanovenej hranice zmiešaného využitia budovy alebo zmena využitia budovy na hospodársku činnosť mimo definície zmiešaného využitia budovy v danom roku bude mať právne dôsledky vo vzťahu k prijímateľovi v súlade s článkom 2.5 uzavretej Zmluvy o poskytnutí NFP.
+Realizácia Opatrenia 2.2.2 - Podpora využívania OZE
+Výzva v PPP č. 11 ustanovuje, že financovanie projektu sa poskytuje iba v rozsahu v akom sú výstupy projektu využívané na výkon nehospodárskych činností, resp. zmiešaného využitia projektu.
+Výzva v PPP č. 11 ustanovuje, že podpora projektu, ktorý je zameraný na podporu využívania OZE nie je poskytovaním štátnej pomoci.
+Pre účely splnenia vyššie uvedených podmienok sú podmienky podpory zariadení na výrobu tepla popísané vyššie v časti Realizácia Opatrenia 2.1.2 – Zlepšovanie energetickej hospodárnosti a obnova verejných budov.
+Pre účely splnenia vyššie uvedených podmienok musia byť zariadenia na výrobu elektriny zapojené do samostatného elektrického okruhu v ktorom od ukončenia hlavných aktivít projektu nebude vykonávaná iná hospodárska činnosť ako sprievodná. V prípade hospodárskej činnosti mimo zmiešaného využitia infraštruktúry (teda generovaná elektrina je dodávaná iným subjektom ako prevádzkovateľom distribučných sústav napr. nájomcom alebo na výkon vlastných hospodárskych činností prijímateľa iných ako sprievodných) sú výdavky na realizáciu tohto opatrenia neoprávnené.
+Preukázanie splnenia podmienky v čase konania o ŽoNFP
+Za účelom preukázania splnenia tejto podmienky žiadateľ prostredníctvom časti 15 formulára ŽoNFP čestne vyhlasuje, že spĺňa podmienky oprávnenosti aktivít projektu definované vo výzve. Zároveň žiadateľ v rámci Prílohy č. 7 ŽoNFP – Projektová dokumentácia predkladá situačný nákres zapojenia fotovoltického zariadenia vypracovaný projektantom. Situačný nákres musí obsahovať pôdorys infraštruktúry (areálu / budovy), ktorá bude využívať výstupy projektu (najmä vyrobenú elektrinu) s jednoznačne zobrazenými priestormi (miestnosťami) vrátane zobrazenia umiestnenia FVZ. Zároveň musí jasne a jednoznačne identifikovať elektrický okruh / elektrické okruhy pripojené na FVZ a ak je infraštruktúra využívaná čo len čiastočne na hospodárske činnosti iné ako sprievodné aj všetky ostatné elektrické okruhy.
+Ak infraštruktúra využívajúca výstupy projektu bude využívaná výlučne na nehospodársku činnosť, potvrdí túto skutočnosť žiadateľ čestným vyhlásením prostredníctvom časti 15 formulára ŽoNFP.
+Ak infraštruktúra využívajúca výstupy projektu bude využívaná čo len čiastočne na hospodársku činnosť inú ako sprievodnú, žiadateľ v časti 7.1 Popis východiskovej situácie formulára ŽoNFP jednoznačne identifikuje priestory (miestnosti) a elektrický okruh, resp. okruhy pripojené na FVZ, ostatné priestory (miestnosti) a elektrický okruh, resp. okruhy nepripojené na FVZ využívané na nehospodárske činnosti ako aj priestory (miestnosti) a elektrické okruhy nepripojené na FVZ využívané čo len čiastočne na hospodárske činnosti iné ako sprievodné.
+Aplikačné príklady
+Ak je FVZ umiestnené a zapojené iba v infraštruktúre (budove) výlučne využívajúcej výstupy projektu v ktorej prebieha výlučne nehospodárska činnosť, situačný nákres obsahuje pôdorys budovy (podlaží) s jednoznačne identifikovanými a zakreslenými priestormi (miestnosťami). Zároveň v pôdoryse musí byť samostatne zakreslený elektrický okruh (okruhy) na ktorý je zapojené FVZ. V takomto prípade žiadateľ prostredníctvom časti 15 formulára ŽoNFP čestne vyhlasuje, že budova využívajúca výstupy projektu bude dňom ukončenia realizácie hlavnej aktivity projektu využívaná výlučne na nehospodársku činnosť.
+Ak je FVZ umiestnené a zapojené v infraštruktúre (budove / budovách / areáli) využívajúcej výstupy projektu, ktorá slúži čo len čiastočne aj na výkon hospodárskych činností (iných ako sprievodných), situačný nákres musí obsahovať pôdorys budovy (podlaží) s jednoznačne identifikovanými a zakreslenými priestormi (miestnosťami). V pôdoryse musí byť samostatne identifikovaný a zakreslený elektrický okruh (okruhy) na ktorý je zapojené FVZ. Zároveň v pôdoryse musia byť samostatne zakreslené aj všetky ostatné elektrické okruhy. V takomto prípade žiadateľ v časti 7.1 Popis východiskovej situácie formulára ŽoNFP jednoznačne identifikuje priestory (miestnosti) a elektrický okruh, resp. okruhy využívané na nehospodárske činnosti ako aj priestory (miestnosti) a elektrické okruhy využívané čo len čiastočne na hospodárske činnosti.
+Ak je FVZ umiestnené a zapojené na infraštruktúru (areál obsahujúci viacero budov) využívanú výlučne na výkon nehospodárskych činností, pre každú budovu v areáli sa uplatňuje rovnaký postup ako v prípade infraštruktúry využívanej výlučne na nehospodárske činnosti. Ak je FVZ umiestnené a zapojené na infraštruktúru (areál obsahujúci viacero budov) využívaný čo len čiastočne na výkon hospodárskych činností iných ako sprievodných, pre každú budovu v areáli sa uplatňuje postup ako v prípade infraštruktúry využívanej čo len čiastočne na hospodárske činnosti, iné ako sprievodné.
+Preukázanie splnenia podmienky ku dňu ukončenia realizácie hlavnej aktivity projektu
+Za účelom preukázania splnenia tejto podmienky bude prijímateľ povinný pri záverečnej žiadosti o platbu v rámci záverečnej monitorovacej správy predložiť revíznu správu vypracovanú odborne spôsobilou osobou, ktorá musí jednoznačne potvrdiť súlad skutočného zapojenia elektrických okruhov a spotrebičov so zapojením elektrických okruhov a spotrebičov uvedených v situačnom nákrese predloženom v rámci konania o ŽoNFP.
+Upozornenie
+Porušenie predmetnej podmienky bude považované za porušenie PPP č. 11 a vyvolávať právne dôsledky vo vzťahu k prijímateľovi v súlade s článkom 2.5  uzavretej Zmluvy o poskytnutí NFP.
+Výzva v rámci PPP č. 11 umožňuje v obmedzenej miere výkon sprievodných hospodárskych činností. Za sprievodné hospodárske činnosti sa považujú výlučne dodávky elektrickej energie vyrobenej podporeným projektom do distribučnej sústavy. Sprievodné hospodárske činnosti musia mať obmedzený rozsah neprekračujúci 20 % celkovej ročnej kapacity infraštruktúry.
+Výpočet podielu ročných sprievodných hospodárskych činností na celkovej ročnej kapacite infraštruktúry:
+RP = ( RSHČ / CRKI ) x 100
+kde:
+RP	Ročný Podiel Sprievodnej Hospodárskej Činnosti voči Celkovej Ročnej Kapacite Infraštruktúry	 %
+RSHČ	Ročná Sprievodná Hospodárska Činnosť
+Vyjadruje ročné množstvo elektrickej energie dodanej do distribučnej sústavy.	   		MWhe/rok
+CRKI	Celková Ročná Kapacita Infraštruktúry
+Vyjadruje celkové ročné množstvo vyrobenej elektrickej energie podporeným projektom. 	MWhe/rok
+Predmetná podmienka sa vzťahuje na celé obdobie životnosti zariadenia, pričom bude overovaná každoročne počas obdobia udržateľnosti projektu na základe odpisu meradiel / výstupu informačného systému. V poslednom roku udržateľnosti projektu prijímateľ predloží údaje za zostávajúce obdobie životnosti infraštruktúry podľa plánovaného množstva vyrobenej energie a spotreby energie v budove / areáli ohraničenom najbližším bodom pripojenia do distribučnej sústavy v prípade zariadení s pripojením do distribučnej sústavy alebo jedným spoločným uzlom v prípade ostrovnej prevádzky.
+Prekročenie stropu využitia infraštruktúry na sprievodné hospodárske činnosti v danom roku bude mať právne dôsledky vo vzťahu k prijímateľovi v súlade s článkom 2.5 uzavretej Zmluvy o poskytnutí NFP.
+Za účelom preukázania splnenia tejto podmienky je žiadateľ / prijímateľ povinný najneskôr ku dňu ukončenia realizácie hlavnej aktivity projektu zabezpečiť meranie množstva vyrobenej energie na výstupe FVZ ako aj meranie množstva dodanej energie do distribučnej sústavy. Absencia merania množstva vyrobenej a dodanej energie a následná nemožnosť preukázania splnenia podmienky bude mať právne dôsledky vo vzťahu k prijímateľovi v súlade s článkom 2.5 uzavretej Zmluvy o poskytnutí NFP za daný rok.

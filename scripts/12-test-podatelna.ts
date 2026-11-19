@@ -47,11 +47,16 @@ try {
   let p = await posudSpis(a);
   over('A: certifikát bez čísla prílohy je len odhad → P06 na preverenie', stav(p, 'P06'), 'na_preverenie');
   over('A: sprievodný list odhadnutý do Prílohy č. 3 strhne aj potvrdené uznesenie na preverenie', stav(p, 'P03'), 'na_preverenie');
-  over('A: výrok pred potvrdením nie je OK', p.navrh, 'na_preverenie');
+  over('A: výrok pred potvrdením nie je OK', p.navrh, 'vyzva_na_doplnenie');
   pod.zmenZaradenie(db, suborId(a, 'Sprievodny_list.pdf'), '', zItms);
   pod.zmenZaradenie(db, suborId(a, 'Energeticky_certifikat_ZS_Vzorova.pdf'), '6', zItms);
   p = await posudSpis(a);
   over('A: po vyradení listu a potvrdení certifikátu sú P03 a P06 splnené', [stav(p, 'P03'), stav(p, 'P06')], ['splnene', 'splnene']);
+  // Syntetická Príloha 8 vo vzorke A je DOCX. Záväzný formulár je zošit MS Excel podľa vzoru výzvy, takže P08 = chýba podklad.
+  over('A: Príloha 8 ako DOCX nie je záväzný zošit → P08 chýba podklad, výzva na doplnenie', [stav(p, 'P08'), p.navrh], ['chyba_podklad', 'vyzva_na_doplnenie']);
+  pod.doplnPodklady(db, a, [{ nazov: 'Priloha_8_Obec_Vzorova.xlsm', data: fs.readFileSync(path.join(DEMO, 'testy', 'Priloha_8_Obec_Vzorova.xlsm')) }], SLOTY, zItms);
+  p = await posudSpis(a);
+  over('A: po doplnení vyplneného zošita (Excel) je P08 splnená', stav(p, 'P08'), 'splnene');
   over('A: bez modelu ostanú textové pravidlá neoverené → čiastočne overené', p.navrh, 'ciastocne_overene');
 
   // B: chýbajú prílohy 6 a 8 → výzva na doplnenie; po doplnení sú priložené.
@@ -61,7 +66,11 @@ try {
   pod.rozhodni(db, b, 'doplnenie', 'test');
   pod.doplnPodklady(db, b, [subor('B-Mesto-Ukazkovo-doplnenie.zip')], SLOTY, zItms);
   p = await posudSpis(b);
-  over('B: po doplnení sú prílohy č. 6 a 8 priložené', [stav(p, 'P06'), stav(p, 'P08')], ['splnene', 'splnene']);
+  over('B: po doplnení je P06 splnená, P08 len DOCX → záväzný zošit stále chýba', [stav(p, 'P06'), stav(p, 'P08')], ['splnene', 'chyba_podklad']);
+  // Zošit inej žiadosti (vzorka A, Obec Vzorová) pri spise mesta Ukážkovo: žiadateľ ani projekt nesedia → človek.
+  pod.doplnPodklady(db, b, [{ nazov: 'Priloha_8_Obec_Vzorova.xlsm', data: fs.readFileSync(path.join(DEMO, 'testy', 'Priloha_8_Obec_Vzorova.xlsm')) }], SLOTY, zItms);
+  p = await posudSpis(b);
+  over('B: zošit cudzej žiadosti → P08 na preverenie, nie splnené', stav(p, 'P08'), 'na_preverenie');
   over('B: stav spisu po doplnení', pod.spisRiadok(db, b)!.stav, 'doplnena');
 
   // C: úspora 27,4 % a prekročená hodnota za peniaze → nesplnené podmienky.

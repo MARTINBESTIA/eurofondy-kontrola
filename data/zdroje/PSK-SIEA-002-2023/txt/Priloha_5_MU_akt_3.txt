@@ -1,0 +1,919 @@
+Zoznam merateľných ukazovateľov projektu a iných údajov
+Kód výzvy: PSK-SIEA-002-2023-DV-EFRR
+Názov výzvy: Výzva na podporu energetickej efektívnosti a využívania OZE vo verejných budovách
+
+Žiadateľ priraďuje do ŽoNFP len tie merateľné ukazovatele (ďalej aj „MU“) projektu, ktoré sú relevantné pre ním vybrané oprávnené hlavné aktivity projektu v zmysle tabuľky 1 pod textom.
+Žiadateľ je povinný stanoviť cieľové hodnoty merateľných ukazovateľov projektu pre každú kombináciu priority, špecifického cieľa a kategórie regiónu osobitne v závislosti od výberu príkladov oprávnených hlavných aktivít projektu.
+
+Tabuľka 1: Prehľad oprávnených hlavných aktivít projektu
+Kód priority a špecifického cieľa
+ | Kategória
+regiónov
+ | Poradové číslo
+ | Názov oprávnenej hlavnej aktivity projektu
+ | Kódy relevantných MU projektu
+ |
+
+ |
+ |
+ |
+ | výstup
+ | výsledok
+ |
+2P1 / RSO2.1
+ | MRR
+ | 1.a
+ | Hlavné aktivity písm. a) až s) opatrenia 2.1.2 PPP č. 7
+ | PSKPRCO19
+ | PSKPRCR26b
+PSKPRCR29
+ |
+2P1 / RSO2.1
+ | VRR
+ | 1.b
+ | Hlavné aktivity písm. a) až s) opatrenia 2.1.2 PPP č. 7
+ | PSKPRCO19
+ | PSKPRCR26b
+PSKPRCR29
+ |
+
+ |
+ |
+ |
+ |
+ |
+ |
+2P1 / RSO2.2
+ | MRR
+ | 2.a
+ | Hlavné aktivity písm. a) až c) opatrenia 2.2.2 PPP č. 7
+ | PSKPRCO22a
+PSKPRCO22b
+ | PSKPRCR31a
+PSKPRCR31b
+ |
+2P1 / RSO2.2
+ | VRR
+ | 2.b
+ | Hlavné aktivity písm. a) až c) opatrenia 2.2.2 PPP č. 7
+ | PSKPRCO22a
+PSKPRCO22b
+ | PSKPRCR31a
+PSKPRCR31b
+ |
+
+Merateľné ukazovatele projektu
+Merateľné ukazovatele projektu, ako aj iné údaje sú vykazované prijímateľom v rámci monitorovacích správ projektu.
+Počas obdobia účinnosti Zmluvy o poskytnutí NFP je prijímateľ povinný najmenej raz ročne predkladať poskytovateľovi monitorovacie správy projektu, v ktorých prijímateľ monitoruje plnenie merateľných ukazovateľov projektu.
+Prijímateľ v monitorovacích správach projektu vykazuje spravidla dosiahnuté kumulatívne hodnoty merateľných ukazovateľov aktuálne k dátumu konca monitorovacieho obdobia.
+Cieľová hodnota merateľného ukazovateľa výstupu nesmie klesnúť pod 85 % jeho cieľovej hodnoty uvedenej v schválenej ŽoNFP. Pokles cieľovej hodnoty merateľného ukazovateľa výstupu pod uvedené percento nemožno schváliť v rámci procesu podľa čl. 16 Všeobecných zmluvných podmienok k Zmluve o poskytnutí NFP a považuje sa to za podstatnú zmenu projektu. Projekt, ktorý je zaťažený podstatnou zmenou projektu nie je možné financovať. Cieľová hodnota merateľného ukazovateľa výstupu je záväzná z hľadiska dosiahnutia jej cieľovej hodnoty podľa schválenej žiadosti o NFP. Nedosiahnutie cieľovej hodnoty merateľného ukazovateľa výstupu automaticky spôsobuje zníženie výšky NFP na základe aplikácie sankčného mechanizmu.
+Cieľová hodnota merateľného ukazovateľa výsledku nesmie klesnúť pod 40 % jeho cieľovej hodnoty uvedenej v schválenej ŽoNFP. Pokles cieľovej hodnoty merateľného ukazovateľa výsledku pod uvedené percento nemožno schváliť v rámci procesu definovanom podľa čl. 16 Všeobecných zmluvných podmienok k Zmluve o poskytnutí NFP a považuje sa to za podstatnú zmenu projektu. Projekt, ktorý je zaťažený podstatnou zmenou projektu nie je možné financovať. Poskytovateľ schváli zníženie cieľovej hodnoty merateľného ukazovateľa výsledku bez aplikácie sankčného mechanizmu t. j. vplyvu na zníženie NFP, len ak sú splnené nasledovné podmienky:
+dôvody požadovaného zníženia sú spôsobené v prevažnej miere faktormi, ktoré prijímateľ objektívne nemohol ovplyvniť,
+nová cieľová hodnota ukazovateľa výsledku je primeraná z časového, finančného a vecného hľadiska v porovnaní so stavom a očakávaniami, ktoré vyplývajú zo schválenej žiadosti o NFP.
+Ak nie je splnená čo i len jedna časť z vyššie uvedených podmienok poskytovateľ je oprávnený schváliť zníženie cieľovej hodnoty merateľného ukazovateľa výsledku s tým, že automatickým dôsledkom takéhoto schválenia je zníženie výšky NFP na základe aplikácie sankčného mechanizmu.
+Doba udržateľnosti projektu je 5 rokov.
+
+Tabuľka 2: Prehľad merateľných ukazovateľov projektu
+Typ MU projektu
+ | Kód MU projektu
+ | Názov MU projektu
+ | Merná jednotka
+ | Čas plnenia MU projektu
+ | Zber záznamov jedinečnosti
+ | Identifikátor
+jedinečnosti
+ |
+výstup
+ | PSKPRCO19
+ | Verejné budovy so zlepšenou energetickou hospodárnosťou
+ | metre štvorcové
+ | ku koncu realizácie hlavných aktivít projektu
+ | nie
+ | n/a
+ |
+výsledok
+ | PSKPRCR26b
+ | Ročná primárna spotreba energie: verejné budovy
+ | MWh / rok
+ | v rámci udržateľnosti projektu
+ | nie
+ | n/a
+ |
+výsledok
+ | PSKPRCR29
+ | Odhadované emisie skleníkových plynov
+ | tony CO2 ekv. / rok
+ | v rámci udržateľnosti projektu
+ | nie
+ | n/a
+ |
+
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+výstup
+ | PSKPRCO22a
+ | Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: elektrická
+ | MW
+ | ku koncu realizácie hlavných aktivít projektu
+ | nie
+ | n/a
+ |
+výstup
+ | PSKPRCO22b
+ | Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: tepelná
+ | MW
+ | ku koncu realizácie hlavných aktivít projektu
+ | nie
+ | n/a
+ |
+výsledok
+ | PSKPRCR31a
+ | Celková vyrobená energia z obnoviteľných zdrojov: elektrická
+ | MWh / rok
+ | v rámci udržateľnosti projektu
+ | nie
+ | n/a
+ |
+výsledok
+ | PSKPRCR31b
+ | Celková vyrobená energia z obnoviteľných zdrojov: tepelná
+ | MWh / rok
+ | v rámci udržateľnosti projektu
+ | nie
+ | n/a
+ |
+
+Definície merateľných ukazovateľov projektu
+Zlepšovanie energetickej hospodárnosti a obnovy verejných budov
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PSKPRCO19
+ |
+2
+ | Názov ukazovateľa
+ | Verejné budovy so zlepšenou energetickou hospodárnosťou
+ |
+3
+ | Merná jednotka
+ | metre štvorcové
+ |
+4
+ | Typ ukazovateľa
+ | výstup
+ |
+5
+ | Východisková hodnota
+ | nie
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+7
+ | Zber záznamov jedinečnosti
+ | nie
+ |
+8
+ | Identifikátor jedinečnosti
+ | Vyberte položku.
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.1
+ | Celková podlahová plocha verejných budov so zlepšenou energetickou hospodárnosťou.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ po realizácii projektu.
+Ak je predmetom projektu viacero budov hodnota vyjadruje súčet celkovej podlahovej plochy jednotlivých budov so zlepšenou energetickou hospodárnosťou.
+ |
+2.1
+ | Verejné budovy sú definované ako budovy vo vlastníctve orgánov verejnej moci a budovy vo vlastníctve neziskovej organizácie. Nezisková organizácia je právnická osoba organizovaná a prevádzkovaná za účelom kolektívneho, verejného alebo sociálneho prospechu, na rozdiel od subjektu, ktorý funguje ako podnikateľská činnosť zameraná na vytváranie zisku pre svojich vlastníkov.  Medzi príklady patria budovy pre verejnú správu, školy, nemocnice atď.
+Ukazovateľ sa nevzťahuje na
+–	sociálne bývanie (ako je uvedené v RCO18),
+–	súkromné školy alebo súkromné nemocnice, ktoré sú vo vlastníctve súkromných investorov.
+ | áno
+ | List vlastníctva
+ |
+3.1
+ | Zlepšenou energetickou hospodárnosťou sa rozumie zlepšenie energetickej klasifikácie verejnej budovy najmenej o jednu energetickú triedu a má sa dokumentovať na základe energetického certifikátu (EC).  Stanovená energetická klasifikácia zodpovedá definícii v národnom energetickom certifikáte v súlade so smernicou 2010/31/EÚ.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ pred a po realizácii projektu.
+ |
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PSKPRCR26b
+ |
+2
+ | Názov ukazovateľa
+ | Ročná primárna spotreba energie: verejné budovy
+ |
+3
+ | Merná jednotka
+ | MWh / rok
+ |
+4
+ | Typ ukazovateľa
+ | výsledok
+ |
+5
+ | Východisková hodnota
+ | áno
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+7
+ | Zber záznamov jedinečnosti
+ | nie
+ |
+8
+ | Identifikátor jedinečnosti
+ | Vyberte položku.
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.1
+ | Celková ročná spotreba primárnej energie: verejné budovy (Východisková hodnota)
+Východisková hodnota sa týka ročnej spotreby primárnej energie pred intervenciou.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ pred realizáciou projektu
+Ak je predmetom projektu viacero budov hodnota vyjadruje súčet spotreby primárnej energie jednotlivých budov. Upozorňujeme na rozdielnosť mernej jednotky v EC a MU.
+ |
+2.1
+ | Celková ročná spotreba primárnej energie: verejné budovy (Dosiahnutá hodnota)
+Dosiahnutá hodnota sa týka ročnej spotreby primárnej energie za rok po intervencii.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ po realizácii projektu
+Ak je predmetom projektu viacero budov hodnota vyjadruje súčet spotreby primárnej energie jednotlivých budov. Upozorňujeme na rozdielnosť mernej jednotky v EC a MU.
+ |
+3.1
+ | Verejné budovy sú definované ako budovy vo vlastníctve verejných orgánov a budovy vo vlastníctve neziskovej organizácie za predpokladu, že tieto orgány sledujú ciele všeobecného záujmu, akými sú vzdelávanie, zdravie, životné prostredie a doprava.  Medzi príklady patria budovy pre verejnú správu, školy, nemocnice atď.
+Pre účely tohto MU je definícia verejných budov zhodná s definíciou verejných budov ustanovenou v definičnej matici v bode 2 MU PO037 / PSKPRCO19.
+ | áno
+ | List vlastníctva
+ |
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PSKPRCR29
+ |
+2
+ | Názov ukazovateľa
+ | Odhadované emisie skleníkových plynov
+ |
+3
+ | Merná jednotka
+ | tony CO2 ekv. / rok
+ |
+4
+ | Typ ukazovateľa
+ | výsledok
+ |
+5
+ | Východisková hodnota
+ | áno
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+7
+ | Zber záznamov jedinečnosti
+ | nie
+ |
+8
+ | Identifikátor jedinečnosti
+ | Vyberte položku.
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.1
+ | Celkové odhadované emisie skleníkových plynov za podporovaný subjekt. (Východisková hodnota)
+Východisková hodnota sa týka úrovne odhadovaných emisií skleníkových plynov počas roka pred začiatkom intervencie.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ pred realizáciou projektu (relevantné pre opatrenie 2.1.2).
+Energetický audit (ak sa energetický certifikát nevydáva).
+Modelový prepočet (relevantné pre opatrenie 2.2.3).
+Ak je predmetom projektu viacero budov hodnota vyjadruje súčet emisií CO2 jednotlivých budov. Upozorňujeme na rozdielnosť mernej jednotky v EC a MU.
+ |
+1.2
+ | Celkové odhadované emisie skleníkových plynov za podporovaný subjekt. (Dosiahnutá hodnota)
+Dosiahnutá hodnota je vypočítaná ako celkové odhadované emisie skleníkových plynov na základe dosiahnutej úrovne energetickej hospodárnosti počas roka po ukončení intervencie.
+V prípade NP Zelená domácnostiam sa pojem „na základe dosiahnutej úrovne energetickej hospodárnosti“ nahradí pojmom „na základe modelového prepočtu dosiahnutej úspory“.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ po realizácii projektu (relevantné pre opatrenie 2.1.2).
+Energetický audit (ak sa energetický certifikát nevydáva).
+Modelový prepočet (relevantné pre opatrenie 2.2.3).
+Ak je predmetom projektu viacero budov hodnota vyjadruje súčet emisií CO2 jednotlivých budov. Upozorňujeme na rozdielnosť mernej jednotky v EC a MU.
+ |
+
+Podpora zariadení využívajúcich OZE vrátane zariadení, ktoré sú súčasťou systému zásobovania energiou verejných budov
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PSKPRCO22a
+ |
+2
+ | Názov ukazovateľa
+ | Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: elektrická
+ |
+3
+ | Merná jednotka
+ | MW
+ |
+4
+ | Typ ukazovateľa
+ | výstup
+ |
+5
+ | Východisková hodnota
+ | nie
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+7
+ | Zber záznamov jedinečnosti
+ | nie
+ |
+8
+ | Identifikátor jedinečnosti
+ | Vyberte položku.
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.
+ | Dodatočná výrobná kapacita pre obnoviteľnú energiu: elektrická.
+Vďaka podpore bola vybudovaná alebo rozšírená dodatočná výrobná kapacita pre obnoviteľnú energiu.
+Tento ukazovateľ zastrešuje aj výrobnú kapacitu, ktorá bola vybudovaná alebo rozšírená a ešte nie je pripojená k sieti (ak je k dispozícii) alebo ešte nie je úplne pripravená na výrobu energie.
+Výrobná kapacita sa chápe ako „čistá maximálna elektrická kapacita“, ktorú Eurostat definuje ako „maximálnu aktívnu energiu, ktorú je možné dodávať nepretržite pri všetkých operáciách v mieste výstupu (t. j. po odobratí zdrojov energie pre pomocné zariadenia stanice a zohľadnenie strát v týchto transformátoroch považovaných za neoddeliteľnú súčasť stanice)“.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | Osvedčenie o príslušnej technickej špecifikácii
+ |
+2.
+ | Zariadenie pre výrobu obnoviteľnej energie.
+ | áno
+ | Smernica Európskeho parlamentu a Rady 2018/2001 o podpore využívania energie z obnoviteľných zdrojov
+ |
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PSKPRCO22b
+ |
+2
+ | Názov ukazovateľa
+ | Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: tepelná
+ |
+3
+ | Merná jednotka
+ | MW
+ |
+4
+ | Typ ukazovateľa
+ | výstup
+ |
+5
+ | Východisková hodnota
+ | nie
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+7
+ | Zber záznamov jedinečnosti
+ | nie
+ |
+8
+ | Identifikátor jedinečnosti
+ | Vyberte položku.
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.1
+ | Dodatočná výrobná kapacita pre obnoviteľnú energiu: tepelná.
+Vďaka podpore bola vybudovaná alebo rozšírená dodatočná výrobná kapacita pre obnoviteľnú energiu.
+Tento ukazovateľ zastrešuje aj výrobnú kapacitu, ktorá bola vybudovaná alebo rozšírená a ešte nie je pripojená k sieti (ak je k dispozícii) alebo ešte nie je úplne pripravená na výrobu energie.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | Osvedčenie o príslušnej technickej špecifikácii
+ |
+2.1
+ | Zariadenie pre výrobu obnoviteľnej energie.
+ | áno
+ | Smernica Európskeho parlamentu a Rady 2018/2001 o podpore využívania energie z obnoviteľných zdrojov
+ |
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PSKPRCR31a
+ |
+2
+ | Názov ukazovateľa
+ | Celková vyrobená energia z obnoviteľných zdrojov: elektrická
+ |
+3
+ | Merná jednotka
+ | MWh / rok
+ |
+4
+ | Typ ukazovateľa
+ | výsledok
+ |
+5
+ | Východisková hodnota
+ | áno
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+7
+ | Zber záznamov jedinečnosti
+ | nie
+ |
+8
+ | Identifikátor jedinečnosti
+ | Vyberte položku.
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.1
+ | Ročná energia vyrobená z obnoviteľných zdrojov: elektrická. (Východisková hodnota)
+Východisková hodnota sa týka ročnej energie vyrobenej v roku pred začiatkom intervencie a môže byť nenulová v prípade rozšírenia výrobnej kapacity.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | IT systém  / Meradlo
+Energetický audit (ak meranie IT systémom / meradlom nie je možné)
+Meradlo - odpis vyrobeného množstva musí byť objektívne overiteľný
+IT systém - softvér bezprostredne súvisiaci s výrobou, meraním a riadením prevádzky zariadenia na výrobu elektriny zo slnečnej energie
+ |
+2.1
+ | Ročná energia vyrobená z obnoviteľných zdrojov: elektrická. (Dosiahnutá hodnota)
+Dosiahnutá hodnota je ročná energia vyrobená v roku po ukončení intervencie.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | IT systém / Meradlo
+Energetický audit (ak meranie IT systémom / meradlom nie je možné)
+Meradlo - odpis vyrobeného množstva musí byť objektívne overiteľný
+IT systém - softvér bezprostredne súvisiaci s výrobou, meraním a riadením prevádzky zariadenia na výrobu elektriny zo slnečnej energie
+ |
+
+ |
+ |
+ |
+ |
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PSKPRCR31b
+ |
+2
+ | Názov ukazovateľa
+ | Celková vyrobená energia z obnoviteľných zdrojov: tepelná
+ |
+3
+ | Merná jednotka
+ | MWh / rok
+ |
+4
+ | Typ ukazovateľa
+ | výsledok
+ |
+5
+ | Východisková hodnota
+ | áno
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+7
+ | Zber záznamov jedinečnosti
+ | nie
+ |
+8
+ | Identifikátor jedinečnosti
+ | Vyberte položku.
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.1
+ | Ročná energia vyrobená z obnoviteľných zdrojov: tepelná. (Východisková hodnota)
+Východisková hodnota sa týka ročnej energie vyrobenej v roku pred začiatkom intervencie a môže byť nenulová v prípade rozšírenia výrobnej kapacity.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | IT systém / Meradlo
+Energetický audit (ak meranie IT systémom / meradlom nie je možné)
+Meradlo - odpis vyrobeného množstva musí byť objektívne overiteľný
+IT systém - softvér bezprostredne súvisiaci s výrobou, meraním a riadením prevádzky zariadenia na výrobu elektriny zo slnečnej energie
+ |
+2.1
+ | Ročná energia vyrobená z obnoviteľných zdrojov: tepelná. (Dosiahnutá hodnota)
+Dosiahnutá hodnota je ročná energia vyrobená v roku po ukončení intervencie.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | IT systém / Meradlo
+Energetický audit (ak meranie IT systémom / meradlom nie je možné)
+Meradlo - odpis vyrobeného množstva musí byť objektívne overiteľný
+IT systém - softvér bezprostredne súvisiaci s výrobou, meraním a riadením prevádzky zariadenia na výrobu elektriny zo slnečnej energie
+ |
+
+Iné údaje
+Iné údaje sú údaje, resp. parametre (iné ako merateľné ukazovatele projektu), ktoré prijímateľ povinne a každoročne poskytuje prostredníctvom monitorovacích správ počas implementácie projektu, resp. v rámci udržateľnosti projektu v zmysle Zmluvy o poskytnutí NFP. Žiadateľ neuvádza iné údaje v rámci formuláru Žiadosti o poskytnutie NFP. V zmysle výzvy sa prenášajú do prílohy 2: Predmet podpory NFP Zmluvy o poskytnutí NFP. V priebehu implementácie projektu môže dôjsť doplneniu iných údajov.
+
+Tabuľka 3: Prehľad iných údajov
+Kód priority a  špecific. cieľa
+ | Kategória regiónov
+ | Kód iného údaja
+ | Názov iného údaja
+ | Merná jednotka
+ | Čas plnenia iného údaja
+ | Zber záznamov jedinečnosti
+ | Identifikátor    jedinečnosti
+ |
+2P1 / RSO2.1
+
+ | MRR
+ | DPSK031
+ | Počet identifikovaných bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím
+ | počet
+ | K
+ | nie
+ | n/a
+ |
+2P1 / RSO2.1
+
+ | VRR
+ | DPSK031
+ | Počet identifikovaných bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím
+ | počet
+ | K
+ | nie
+ | n/a
+ |
+2P1 / RSO2.1
+
+ | MRR
+ | DPSK032
+ | Počet odstránených bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím
+ | počet
+ | K
+ | nie
+ | n/a
+ |
+2P1 / RSO2.1
+
+ | VRR
+ | DPSK032
+ | Počet odstránených bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím
+ | počet
+ | K
+ | nie
+ | n/a
+ |
+2P1 / RSO2.1
+
+ | MRR
+ | DPSK033
+ | Počet nástrojov zabezpečujúcich prístupnosť pre osoby so zdravotným postihnutím
+ | počet
+ | K
+ | nie
+ | n/a
+ |
+2P1 / RSO2.1
+
+ | VRR
+ | DPSK033
+ | Počet nástrojov zabezpečujúcich prístupnosť pre osoby so zdravotným postihnutím
+ | počet
+ | K
+ | nie
+ | n/a
+ |
+2P1 / RSO2.2
+
+ | MRR
+ | DPSK033
+ | Počet nástrojov zabezpečujúcich prístupnosť pre osoby so zdravotným postihnutím
+ | počet
+ | K
+ | nie
+ | n/a
+ |
+2P1 / RSO2.2
+
+ | VRR
+ | DPSK033
+ | Počet nástrojov zabezpečujúcich prístupnosť pre osoby so zdravotným postihnutím
+ | počet
+ | K
+ | nie
+ | n/a
+ |
+Iný údaj sa monitoruje v rámci projektu len na jednej relevantnej kombinácii: „priorita, špecifický cieľ a kategória regiónu“.
+
+ | DPSK047
+ | Ďalšia skutočnosť DNSH overovaná v čase implementácie a udržateľnosti projektu
+ | číselná konvencia vykazovania
+ | K, U
+ | nie
+ | n/a
+ |
+
+Definície iných údajov
+Číslo riadka
+ | Oblasť
+ | Metadáta iného údaja
+ |
+1
+ | Kód iného údaja
+ | DPSK031
+ |
+2
+ | Názov iného údaja
+ | Počet identifikovaných bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím
+ |
+3
+ | Merná jednotka
+ | počet
+ |
+4
+ | Vykazovanie hodnôt rozdelené podľa pohlavia
+ | nie
+ |
+5
+ | Zber záznamov jedinečnosti
+ | nie
+ |
+6
+ | Identifikátor jedinečnosti
+ | n/a
+ |
+Definičná matica iného údaja
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroje overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.1
+ | Iný údaj vyjadruje počet identifikovaných bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím. Uvedené bariéry – všetky prekážky, ktoré bránia osobám so zdravotným postihnutím dosiahnuť cieľ v rámci fyzického prostredia a dopravy (budovy, cesty, dopravné prostriedky verejnej dopravy,  dopravné a iné vnútorné a vonkajšie zariadenia vrátane škôl, obytných budov, zdravotníckych zariadení a pracovísk) t.j. každé stavebnotechnické a dispozično-prevádzkové riešenie, ktoré nespĺňa technické požiadavky podľa prílohy „Všeobecné technické požiadavky zabezpečujúce užívanie na stavby užívané osobami s obmedzenou schopnosťou pohybu a orientácie“ k vyhláške Ministerstva životného prostredia SR č. 532/2002 Z. z. účinná do 31.3.2025.
+Výslednou hodnotou musí byť na základe legislatívy Slovenskej republiky a požiadaviek EÚ identifikácia všetkých bariér na začiatku a počas realizácie projektu.
+Ide o projekty, ktorých predmetom sú aj stavebné práce, prostredníctvom ktorých je možné identifikované bariéry prístupnosti fyzického prostredia odstrániť.
+Metóda výpočtu: Hodnota iného údaja sa stanovuje ako počet bariér brániacich prístupu osôb so zdravotným postihnutím, ktoré existovali v rámci predmetnej stavby v deň začatia realizácie projektu alebo boli identifikované počas realizácie projektu. Vykazuje sa kumulatívna hodnota.
+Každé stavebnotechnické a dispozično-prevádzkové riešenie, ktoré nespĺňa technické požiadavky podľa prílohy „Všeobecné technické požiadavky zabezpečujúce užívanie na stavby užívané osobami s obmedzenou schopnosťou pohybu a orientácie“ k vyhláške Ministerstva životného prostredia SR č. 532/2002 Z. z. účinná do 31.3.2025 (ustanovujú sa ňou aj podrobnosti o všeobecných technických požiadavkách na výstavbu a o všeobecných technických požiadavkách na stavby užívané osobami s obmedzenou schopnosťou pohybu a orientácie), je definované ako bariéra, prekážka brániaca prístupu osobám so zdravotným postihnutím.
+Existujúce bariéry identifikuje odborník (architekt) v projektovej dokumentácii podľa parametrov špecifikovaných najmä vo Vyhláške Ministerstva životného prostredia SR č. 532/2002 Z. z. účinnej do 31.3.2025. V projektovej dokumentácii na rekonštrukciu sa uvádzajú všetky úpravy, ktoré sa majú v objekte vykonať. Hodnota iného údaja sa stanovuje ako celkový počet identifikovaných bariér, prekážok brániacich prístupu osôb so zdravotným postihnutím, ktoré existovali v rámci predmetnej stavby v deň začatia realizácie projektu („Check list  - Vyhlásenie o bezbariérovej prístupnosti projektu“) alebo boli identifikované dodatočne počas realizácie projektu. Teda tento údaj sa eviduje na začiatku alebo počas realizácie projektu, kým iný údaj č. DPSK032 - Počet odstránených bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím sa eviduje na konci realizácie projektu.
+Identifikované bariéry  v projektovej dokumentácii podľa parametrov špecifikovaných  v:
+-	Zákon č. 50/1976 Zb. - Zákon o územnom plánovaní a stavebnom poriadku (stavebný zákon),
+Bližšie špecifikované na:
+ https://p-un.sk/stavby/.
+Príklad výpočtu: 5 vstupných dverí užších ako 90 cm = 5 prekážok.
+Ak nie sú v rámci projektu identifikované žiadne bariéry, uvádza sa hodnota 0 tak v počte identifikovaných, ako aj odstránených bariér (iný údaj č. DPSK032 - Počet odstránených bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím), napr. pri výstavbe novej budovy.
+ | áno
+ | Projektová a technická dokumentácia posúdená architektom, „Check list – vyhlásenie o bezbariérovej prístupnosti“, správa z kontroly na mieste
+
+ |
+
+Číslo riadka
+ | Oblasť
+ | Metadáta iného údaja
+ |
+1
+ | Kód iného údaja
+ | DPSK032
+ |
+2
+ | Názov iného údaja
+ | Počet odstránených bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím
+ |
+3
+ | Merná jednotka
+ | počet
+ |
+4
+ | Vykazovanie hodnôt rozdelené podľa pohlavia
+ | nie
+ |
+5
+ | Zber záznamov jedinečnosti
+ | nie
+ |
+6
+ | Identifikátor jedinečnosti
+ | n/a
+ |
+Definičná matica iného údaja
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroje overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.1
+ | Iný údaj vyjadruje počet odstránených bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím. Nadväzuje na iný údaj „Počet identifikovaných bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím“. Uvedené bariéry - všetky prekážky, ktoré bránia osobám so zdravotným postihnutím dosiahnuť cieľ v rámci fyzického prostredia a dopravy (budovy, cesty, dopravné prostriedky verejnej dopravy, dopravné a iné vnútorné a vonkajšie zariadenia vrátane škôl, obytných budov, zdravotníckych zariadení a pracovísk), t.j. každé stavebnotechnické a dispozično-prevádzkové riešenie, ktoré nespĺňa technické požiadavky podľa prílohy. „Všeobecné technické požiadavky zabezpečujúce užívanie na stavby užívané osobami s obmedzenou schopnosťou pohybu a orientácie“ k vyhláške Ministerstva životného prostredia SR č. 532/2002 Z. z. účinnej do 31.3.2025.
+Výslednou hodnotou musí byť na základe legislatívy Slovenskej republiky a požiadaviek EÚ odstránenie všetkých bariér vo fyzickom prostredí, ktoré boli identifikované na začiatku a počas realizácie projektu, teda zabezpečenie bezbariérovosti v plnej miere.
+Metóda výpočtu: Hodnota iného údaja sa stanovuje ako celkový počet odstránených bariér, prekážok brániacich prístupu osôb so zdravotným postihnutím, ktoré existovali v rámci predmetnej stavby v deň začatia realizácie projektu („check list - Vyhlásenie o bezbariérovej prístupnosti projektu“) alebo boli identifikované dodatočne počas realizácie projektu. Teda tento údaj sa eviduje na konci realizácie projektu. Vykazuje sa kumulatívna hodnota.
+Identifikované bariéry  v projektovej dokumentácii podľa parametrov špecifikovaných v:
+-	Zákon č. 50/1976 Zb. - Zákon o územnom plánovaní a stavebnom poriadku (stavebný zákon),
+-	Vyhláška Ministerstva životného prostredia Slovenskej republiky č. 532/2002 Z. z. účinná do 31.3.2025, ktorou sa ustanovujú podrobnosti o všeobecných technických požiadavkách na výstavbu a o všeobecných technických požiadavkách na stavby užívané osobami s obmedzenou schopnosťou pohybu a orientácie. Bariéra je definovaná ako  prekážka brániaca prístupu osobám so zdravotným postihnutím.
+Existujúce bariéry identifikuje odborník (architekt) v projektovej dokumentácii podľa parametrov špecifikovaných najmä vo Vyhláške Ministerstva životného prostredia SR č. 532/2002 Z. z. účinná do 31.3.2025 V projektovej dokumentácii na rekonštrukciu sa uvádzajú všetky úpravy, ktoré sa majú v objekte vykonať.
+Bližšie špecifikované na:  https://p-un.sk/stavby/.
+Príklad výpočtu: 5 upravených/odstránených  vstupných dverí užších ako 90 cm identifikovaných na začiatku alebo počas realizácie projektu = 5 odstránených prekážok. Resp. 5 vybudovaných nových dverí širších ako 90 cm, ak v projekte na začiatku realizácie projektu bolo plánované osadenie 5 dverí užších ako 90 cm.
+Iný údaj  nadväzuje a priamo súvisí s iným údajom: DPSK031 - Počet identifikovaných bariér brániacich prístupnosti fyzického prostredia pre osoby so zdravotným postihnutím.
+Ak nie sú v rámci projektu identifikované žiadne bariéry, uvádza sa hodnota 0 tak v počte identifikovaných, ako aj odstránených bariér, napr. pri výstavbe novej budovy.
+ | áno
+ | Projektová a technická dokumentácia posúdená architektom, „Check list – vyhlásenie o bezbariérovej prístupnosti“, správa z kontroly na mieste
+
+ |
+
+Číslo riadka
+ | Oblasť
+ | Metadáta iného údaja
+ |
+1
+ | Kód iného údaja
+ | DPSK033
+ |
+2
+ | Názov iného údaja
+ | Počet nástrojov zabezpečujúcich prístupnosť pre osoby so zdravotným postihnutím
+ |
+3
+ | Merná jednotka
+ | počet
+ |
+4
+ | Vykazovanie hodnôt rozdelené podľa pohlavia
+ | nie
+ |
+5
+ | Zber záznamov jedinečnosti
+ | nie
+ |
+6
+ | Identifikátor jedinečnosti
+ | n/a
+ |
+Definičná matica iného údaja
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroje overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.1
+ | Hodnota iného údaja sa stanovuje ako celkový počet nástrojov zabezpečujúcich prístupnosť pre osoby so zdravotným postihnutím, ktoré vznikli realizáciou   projektu.
+Nástroje = opatrenia, služby alebo zariadenia zamerané na odstraňovanie prekážok a bariér brániacich v prístupnosti osobám so zdravotným postihnutím k výstupom projektu. Ide o nástroje  zlepšenia prístupnosti
+k fyzickému prostrediu (napr. bezbariérová stavba, chodník s reliéfnym povrchom, odstránenie výškových rozdielov, rampy)
+k doprave (napr. nástupište, zdvíhacie plošiny, výťah, oznamovacie a navádzacie systémy a pod.),
+k informáciám a komunikácii vrátane informačných a komunikačných technológií a systémov (napr. webová stránka, odporúčaný typ písma zverejňovaných textov a pod.), ako aj k ďalším prostriedkom a službám dostupným alebo poskytovaným verejnosti.
+Bližšie informácie uvedené v rámci Systému implementácie horizontálnych princípov
+Ide o prístupnosť najmä v zmysle:
+ Vyhlášky Ministerstva životného prostredia SR č. 532/2002 Z.z., účinnej do 31.3.2025, ktorou sa ustanovujú podrobnosti o všeobecných technických požiadavkách na výstavbu a o všeobecných technických požiadavkách na stavby užívané osobami s obmedzenou schopnosťou pohybu a orientácie,
+Vyhlášky Úradu podpredsedu vlády Slovenskej republiky pre investície a informatizáciu č. 78/2020 Z.z. o štandardoch pre informačné technológie verejnej správy v znení neskorších predpisov
+Za osobu so zdravotným postihnutím sa považuje osoba s dlhodobými telesnými, mentálnymi, intelektuálnymi alebo zmyslovými postihnutiami, ktoré v súčinnosti s rôznymi prekážkami môžu brániť ich plnému a účinnému zapojeniu sa do spoločnosti na rovnakom základe s ostatnými. (Dohovor OSN) Osoby so zdravotným postihnutím zahŕňajú všetky osoby so zdravotným postihnutím, a to osoby, ktorým je priznaný status osoby so zdravotným postihnutím buď podľa zákona 5/2004 Z. z. o službách zamestnanosti, alebo  podľa zákona č. 447/2008 Z. z. o peňažných príspevkoch na kompenzáciu ťažkého zdravotného postihnutia (osoba s ťažkým zdravotným postihnutím) alebo podľa zákona č. 461/2003 Z. z. o sociálnom poistení (osoba, ktorá má zníženú mieru schopnosti vykonávať zárobkovú činnosť).
+Medzi vykazované nástroje sa nezapočítavajú komunikačné nástroje použité na informovanie verejnosti o podpore realizovaného projektu (napr. informačná tabuľa, banner, roll-up o podpore z programu, letáky, brožúry, webová stránka, kde bola z dôvodu realizácie projektu len dodaná informácia po podpore z fondov EÚ apod.), ktoré povinne podliehajú technickým charakteristikám uvedeným v rámci prílohy IX Informovanie a zviditeľnenie v súlade s čl. 47, 49 a 50 Nariadenia o všeobecných ustanoveniach.
+ | Áno
+ | Realizované aktivity projektu, projektová a technická dokumentácia, inštalačný list, „Check list  – vyhlásenie o bezbariérovom prístupe“, kolaudačné rozhodnutie, plagát, leták, webová stránka, správy z finančnej kontroly na mieste  a pod.
+ |
+2.1
+ | Vykazuje sa jedinečný počet nástrojov
+Príklady výpočtu:
+4 vybudované/prispôsobené výťahy = 1 nástroj,
+ odporúčaný typ písma – bezpätkové = 1 nástroj
+Výťah je považovaný za nástroj odstraňujúci bariéru fyzického prístupu, správny typ písma je nástroj na získavanie informácií pre zrakovo znevýhodnené osoby, t. z. že v uvedenom prípade ide o dva osobitné nástroje odstraňujúce dve rôzne znevýhodnenia.
+ | Áno
+ |
+ |
+
+Číslo riadka
+ | Oblasť
+ | Metadáta iného údaja
+ |
+1
+ | Kód iného údaja
+ | DPSK047
+ |
+2
+ | Názov iného údaja
+ | Ďalšia skutočnosť DNSH overovaná v čase implementácie a udržateľnosti projektu
+ |
+3
+ | Merná jednotka
+ | číselná konvencia vykazovania
+ |
+4
+ | Vykazovanie hodnôt rozdelené podľa pohlavia
+ | nie
+ |
+5
+ | Zber záznamov jedinečnosti
+ | nie
+ |
+6
+ | Identifikátor jedinečnosti
+ | n/a
+ |
+Definičná matica iného údaja
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroje overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.1
+ | Prijímateľ označuje relevanciu ďalších skutočností DNSH uvedených vo Výzve//Rozhodnutí o schválení ŽoNFP/v Zmluve o poskytnutí NFP overovaných v čase implementácie a udržateľnosti projektu zo zoznamu kategórie dodatočného delenia  (Príloha 6b MD RO P SK č. 7 – Metodického usmernenia k uplatňovaniu zásady „nespôsobovať významnú škodu“) podľa číselnej konvencie vykazovania:
+0 = daná ďalšia skutočnosť DNSH nie je relevantná  pre daný projekt,
+ 1 = daná ďalšia skutočnosť DNSH je relevantná pre projekt a je splnená,
+ 2 = daná ďalšia skutočnosť DNSH je relevantná pre daný projekt, ale nie je splnená
+ | Áno
+ | Výzva/Zmluva o poskytnutí NFP. V prípade, že prijímateľ nesplnil niektorú z relevantných ďalších skutočností/zmluvných podmienok DNSH, resp. vykazuje v rámci hodnôt dodatočného delenia hodnotu „2“, uvádza ďalej v rámci záverečnej monitorovacej správy v ITMS21+, konkrétne v dialógovom okne s názvom „Vytvorenie odchádzajúcej komunikácie“, v textovom poli s názvom „Text“, číselné označenie a názov príslušnej ďalšej skutočnosti/zmluvnej podmienky DNSH spolu s popisom okolností zdôvodňujúcich neplnenie príslušnej ďalšej skutočnosti/zmluvnej podmienky DNSH.
+ |
+1.2
+ | V rámci každej  výročnej monitorovacej správy prijímateľ vyplní hodnotu iného údaja a to tak, že do skutočnej kumulatívnej hodnoty iného údaja DNSH uvedie položku „0“.
+ | Áno
+ | Výzva/Zmluva o poskytnutí NFP.
+ |
+1.3
+ | V rámci záverečnej monitorovacej správy sa vykazujú relevantné kategórie dodatočného delenia zo zoznamu všetkých kategórií dodatočného delenia iného údaja.
+ | Áno
+ | Výzva /Zmluva o poskytnutí NFP.
+ |
+1.4
+ | V rámci udržateľnosti – prostredníctvom následných monitorovacích správ sa vykazujú relevantné kategórie dodatočného delenia zo zoznamu kategórií dodatočného delenia  č. 15 až č. 18, ktoré sa týkajú likvidácie.
+ | Áno
+ | Výzva/Zmluva o poskytnutí NFP.
+ |

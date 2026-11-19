@@ -1,0 +1,436 @@
+Zoznam príloh ŽoNFP
+Žiadateľ spolu s formulárom ŽoNFP predkladá prílohy, ktoré sú uvedené v nižšie uvedenej tabuľke. Povinné prílohy sa predkladajú prostredníctvom ITMS, okrem prípadu, že ich nie je možné z dôvodu technických obmedzení predložiť elektronicky. V takom prípade sa predkladajú v listinnej podobe.
+Povinné prílohy majú záväzný charakter a žiadateľ je povinný predložiť prílohu v definovanej forme. Záväzné formuláre obsahujú presné inštrukcie, ktoré je žiadateľ povinný dodržať pri vypracovaní týchto príloh.
+Ak sú prílohy ŽoNFP vyhotovené v inom ako slovenskom alebo českom jazyku, je žiadateľ povinný priložiť aj úradný preklad do slovenského jazyka. V tabuľke sú uvedené bližšie informácie o príslušnej prílohe, subjekte, ktorý príslušnú povinnú prílohu vydáva, o tom, či je pre danú prílohu zo strany SO definovaný záväzný formulár, o PPP, ktorých splnenie preukazuje žiadateľ príslušnou prílohou, o referenčnom termíne na preukázanie splnenia podmienky poskytnutia príspevku, o spôsoboch predloženia tejto prílohy a o povinnosti predloženia prílohy cez ITMS.
+V prípade, že SO má akékoľvek pochybnosti ohľadom preukázania splnenia PPP, vyzve žiadateľa na predloženie konkrétnej prílohy ŽoNFP, resp. dokumentu. Ak žiadateľ nepreukáže splnenie PPP, SO rozhodne o zastavení konania o ŽoNFP. SO má právo, v prípade pochybností o splnení PPP, vyžadovať od žiadateľa aj doklady, ktoré nie sú explicitne definované v dokumentácii výzvy.
+Zoznam povinných príloh ŽoNFP Výzvy PSK-SIEA-002-2023-DV-EFRR:
+Plnomocenstvo / Poverenie (ak relevantné) (záväzný formulár)
+Dokumenty preukazujúce právnu subjektivitu žiadateľa (ak relevantné)
+Uznesenie (výpis z uznesenia) o schválení programu rozvoja a príslušnej územnoplánovacej dokumentácie (ak relevantné)
+Dokumenty súladu projektu s pravidlami štátnej pomoci (ak relevantné)
+Energetický audit / Stanovisko energetického audítora (ak relevantné)
+Energetický certifikát (ak relevantné)
+Projektová dokumentácia
+Dokumentácia k oprávnenosti výdavkov (záväzný formulár)
+
+Príloha č. 1 ŽoNFP – Plnomocenstvo / Poverenie
+ |
+Vydáva: Žiadateľ
+ |
+Záväzný formulár: Áno
+ |
+Podmienka poskytnutia príspevku:
+Právna forma
+Podmienky týkajúce sa štátnej pomoci
+ |
+Možnosť doplnenia/opravy prílohy:
+Áno. Plnomocenstvo / poverenie musí byť udelené pred vykonaním úkonu, na ktorý sa plnomocenstvo / poverenie vzťahuje.
+ |
+Hraničný termín pre preukázanie splnenia podmienky poskytnutia príspevku:
+Príloha musí byť predložená riadne spolu so ŽoNFP, resp. najneskôr ku dňu doplnenia chýbajúcich náležitostí ŽoNFP v zmysle výzvy na doplnenie chýbajúcich náležitostí ŽoNFP.
+ |
+Spôsob predloženia prílohy:
+sken originálu s osvedčeným podpisom štatutárneho orgánu žiadateľa (vo formáte .pdf) cez ITMS21+
+ |
+Ak štatutárny orgán žiadateľa splnomocní na úkony súvisiace s predložením a/alebo konaním o ŽoNFP inú osobu/osoby, je potrebné predložiť sken plnomocenstva / poverenia  (Príloha č. 1a/b ŽoNFP) s úradne osvedčeným podpisom štatutárneho orgánu žiadateľa, ktorým štatutárny orgán žiadateľa oprávňuje danú osobu/osoby na predmetné úkony, resp. v prípade obce, pri poverení zástupcu starostu, písomné poverenie starostu v zmysle § 13b zákona o obecnom zriadení s úradne osvedčeným podpisom starostu.
+Plnomocenstvo / poverenie musí obsahovať minimálne:
+označenie a podpis štatutárneho orgánu žiadateľa,
+označenie a podpis každej splnomocnenej osoby,
+rozsah plnomocenstva / poverenia, t. j. identifikácia úkonov, na ktoré sú osoby splnomocnené,
+dátum udelenia plnomocenstva / poverenia.
+Ak je plnomocenstvo / poverenie vydané na obmedzený časový úsek, musí byť v čase predloženia platné a zahŕňať v stanovenom čase platnosti obdobie potrebné na výkon činností, na ktoré je splnomocnenie vydané a ktoré je v rámci predloženej ŽoNFP potrebné vykonať.
+ |
+Príloha č. 2 ŽoNFP – Dokumenty preukazujúce právnu subjektivitu žiadateľa
+ |
+Vydáva: Žiadateľ
+ |
+Záväzný formulár: Nie
+ |
+Podmienka poskytnutia príspevku:
+Právna forma
+Podmienky týkajúce sa štátnej pomoci
+ |
+Možnosť doplnenia/opravy prílohy: Áno, na základe výzvy na doplnenie ŽoNFP zaslanej SIEA
+ |
+Hraničný termín pre preukázanie splnenia podmienky poskytnutia príspevku:
+Príloha musí byť predložená najneskôr ku dňu doplnenia chýbajúcich náležitostí ŽoNFP na základe výzvy na doplnenie chýbajúcich náležitostí ŽoNFP.
+ |
+Spôsob predloženia prílohy:
+sken originálu (vo formáte .pdf) cez ITMS21+
+ |
+Ak overenie splnenia PPP č. 1 a 11 nie je možné prostredníctvom integračnej funkcie ITMS, resp. verejných registrov žiadateľ podľa právnej formy predkladá / bude počas administratívneho overenia ŹoNFP vyzvaný na predloženie nižšie uvedených dokumentov.
+Rozpočtová / príspevková organizácia obce alebo VÚC predloží:
+zriaďovaciu listinu a
+menovací dekrét aktuálneho zástupcu štatutárneho orgánu žiadateľa, z ktorej vyplýva, kto je oprávnený konať v mene organizácie.
+Verejnoprávna inštitúcia / verejná výskumná inštitúcia predloží:
+zriaďovaciu listinu a
+menovací dekrét aktuálneho zástupcu štatutárneho orgánu žiadateľa, z ktorej vyplýva, kto je oprávnený konať v mene organizácie.
+Nezisková organizácia / nezisková organizácia poskytujúce všeobecne prospešné služby, predloží štatút, resp. obdobný dokument z ktorého musí byť zrejmé:
+jej založenie podľa zákona č. 213/1997 Z. z. o neziskových organizáciách poskytujúcich všeobecne prospešné služby v znení neskorších predpisov (v prípade neziskových organizácií poskytujúcich všeobecne prospešné služby),
+jej založenie podľa zákona č. 308/1993 Z. z. o zriadení Slovenského národného strediska pre ľudské práva v znení neskorších predpisov, podľa §19 ods. 2 písm. d), e) zákona č. 596/2003 Z. z. o štátnej správe v školstve a školskej samospráve a o zmene a doplnení niektorých zákonov v znení neskorších predpisov a podľa zákona 460/2007 Z. z. o Slovenskom Červenom kríži a ochrane znaku a názvu Červeného kríža a o zmene a doplnení niektorých zákonov v znení neskorších predpisov (v prípade neziskových organizácií),
+dátum jej založenia,
+výkon činností v zmysle PPP č. 1,
+kto je členom neziskovej organizácie ku dňu predloženia ŽoNFP,
+kto je osobou oprávnenou konať za neziskovú organizáciu ku dňu predloženia ŽoNFP,
+spôsob konania oprávnenej osoby v mene neziskovej organizácie.
+Nadácia / Občianske združenie predloží štatút / zakladaciu listinu, resp. obdobný dokument z ktorého musí byť zrejmé:
+jej založenie podľa zákona č. 34/2002 Z. z. o nadáciách a o zmene Občianskeho zákonníka v znení neskorších predpisov (nadácie),
+jeho založenie podľa zákona 83/1990 Zb. o združovaní občanov v znení neskorších predpisov (v prípade Občianskeho združenia),
+dátum jej založenia,
+výkon činností v zmysle PPP č. 1,
+kto je členom žiadateľa ku dňu predloženia ŽoNFP,
+kto je osobou oprávnenou konať za žiadateľa ku dňu predloženia ŽoNFP,
+spôsob konania oprávnenej osoby v mene nadácie / občianskeho združenia.
+Cirkevná organizácia, predloží štatút, resp. obdobný dokument z ktorého musí byť zrejmé:
+jej registráciu podľa zákona č. 308/1991 Zb. o slobode náboženskej viery a postavení cirkví a náboženských spoločností v znení neskorších predpisov,
+dátum jej založenia,
+výkon činností v zmysle PPP č. 1,
+kto je osobou oprávnenou konať za žiadateľa ku dňu predloženia ŽoNFP,
+spôsob konania oprávnenej osoby v mene organizácie.
+Predložené doklady musia byť aktuálne a platné a to bez ohľadu na dátum ich vydania.
+Doklad preukazujúci právnu subjektivitu žiadateľa môže byť vydaný tiež subjektom, ktorý je oprávnený na výkon činností ako, tzv. osvedčujúca osoba podľa § 26 ods. 2 zákona č. 95/2019 Z. z. o informačných technológiách vo verejnej správe a o zmene a doplnení niektorých zákonov v znení neskorších predpisov.
+ |
+Príloha č. 3 ŽoNFP –  Uznesenie (výpis z uznesenia) o schválení programu rozvoja a príslušnej   územnoplánovacej dokumentácie
+ |
+Vydáva: Žiadateľ
+ |
+Záväzný formulár: Nie
+ |
+Podmienka poskytnutia príspevku:
+Podmienka schválenia programu rozvoja a príslušnej územnoplánovacej dokumentácie podľa § 7 ods. 8 a  § 8 ods. 6/ § 8a ods. 7 zákona č. 539/2008 o podpore regionálneho rozvoja v znení neskorších predpisov
+Podmienky týkajúce sa štátnej pomoci
+ |
+Možnosť doplnenia/opravy prílohy: Áno, na základe výzvy na doplnenie ŽoNFP zaslanej SIEA
+ |
+Hraničný termín pre preukázanie splnenia podmienky poskytnutia príspevku: Uznesenie o schválení programu rozvoja a príslušnej územnoplánovacej dokumentácie musí byť prijaté najneskôr v deň bezprostredne predchádzajúcemu dňu predloženia ŽoNFP. Výpis z uznesenia však môže byť vyhotovený aj po termíne predloženia ŽoNFP, avšak najneskôr ku dňu doplnenia chýbajúcich náležitostí ŽoNFP.
+ |
+Spôsob predloženia prílohy:
+sken podpísaného originálu (vo formáte .pdf) cez ITMS21+
+ |
+Prílohu predkladá výlučne žiadateľ, ktorým je obec alebo VÚC.
+V rámci tejto prílohy ŽoNFP žiadateľ predkladá (ak relevantné):
+sken uznesenia (výpis z uznesenia) o schválení programu rozvoja obce, resp. spoločného programu rozvoja obcí alebo programu rozvoja VÚC
+      a 
+sken uznesenia (výpis z uznesenia) o schválení príslušnej územnoplánovacej dokumentácie.
+Ak bola od schválenia programu rozvoja schválená aktualizácia, ktorou sa predĺžila jeho platnosť, je potrebné predložiť v rámci tejto prílohy aj sken uznesenia (výpisu z uznesenia) o schválení aktualizácie programu rozvoja.
+Ak obec/niektorá z obcí nie je povinná mať vypracovanú územnoplánovaciu dokumentáciu (podľa § 11 stavebného zákona / § 22 zákona o územnom plánovaní), uznesenie k jej schváleniu žiadateľ nepredkladá a uvedené preukáže prostredníctvom tab. 7.2. formulára ŽoNFP, v ktorej vymenuje obce zúčastnené na žiadateľovi, na ktorých území sa fyzicky realizuje projekt, ktoré nie sú povinné mať vypracovanú územnoplánovaciu dokumentáciu, a zároveň uvedie dôvod v súlade s § 11 stavebného zákona / § 22 zákona o územnom plánovaní, pre ktorý sa povinnosť vypracovania územnoplánovacej dokumentácie na konkrétnu obec nevzťahuje. Zároveň v zmysle prechodných ustanovení § 40 zákona o územnom plánovaní uvedie, že tieto obce budú mať obstaranú a schválenú územnoplánovaciu dokumentáciu najneskôr do 31.3.2032 (relevantné pre obce, ktoré nie sú povinné mať vypracovanú územnoplánovaciu dokumentáciu podľa § 11 stavebného zákona).
+Ak uznesenie o schválení programu rozvoja obce, resp. spoločného programu rozvoja obcí alebo programu rozvoja VÚC a/alebo príslušnej územnoplánovacej dokumentácie je zverejnené na webovom sídle, je postačujúce, aby žiadateľ uviedol aktuálny odkaz na webové sídlo (funkčný a verejne prístupný link) na zverejnené dokumenty v tabuľke č. 7.2. formulára ŽoNFP. V prípade, že bola od schválenia programu rozvoja schválená aktualizácia, ktorou sa predĺžila jeho platnosť, je potrebné predložiť/uviesť aj funkčný odkaz na zverejnené uznesenie.
+ |
+Príloha č. 4 ŽoNFP – Dokumenty súladu projektu s pravidlami štátnej pomoci
+ |
+Vydáva: Advokát / advokátska kancelária
+ |
+Záväzný formulár: Nie
+ |
+Podmienka poskytnutia príspevku:
+Právna forma
+Podmienky týkajúce sa štátnej pomoci
+ |
+Možnosť doplnenia/opravy prílohy: Áno, na základe výzvy na doplnenie ŽoNFP zaslanej SIEA
+ |
+Hraničný termín pre preukázanie splnenia podmienky poskytnutia príspevku:
+Príloha musí byť predložená najneskôr ku dňu doplnenia chýbajúcich náležitostí ŽoNFP na základe výzvy na doplnenie chýbajúcich náležitostí ŽoNFP, pričom môže byť vypracovaná aj po predložení ŽoNFP.
+ |
+Spôsob predloženia prílohy:
+sken originálu (vo formáte .pdf) cez ITMS21+
+ |
+SO si vyhradzuje právo vyžiadať túto prílohu.
+V prípadoch pochybností žiadateľa ohľadne splnenia PPP č. 11 za účelom odstránenia potenciálu predlžovania konania o ŽoNFP odporúčame žiadateľom predloženie stanoviska v rámci ŽoNFP, najmä v prípadoch nasledujúcej infraštruktúry:
+zdravotnícke zariadenia,
+strediská sociálnych služieb, centrá sociálnych služieb / denné stacionáre,
+športoviská, plavárne,
+múzeá, kultúrne centrá.
+Stanovisko vydávajúceho subjektu musí byť preskúmateľné súdom a musí obsahovať minimálne:
+popis činností využívania infraštruktúry,
+podrobnú analýzu súladu s PPP č. 11,
+záver, ktorý musí jednoznačne ustanovovať, že PPP č. 11 výzvy bude splnená, a že využitie projektu bude v súlade s pravidlami štátnej pomoci uplatňovanými v EÚ,
+označenie, dátum a podpis / pečiatku vydávajúceho subjektu.
+ |
+Príloha č. 5 ŽoNFP – Energetický audit / Stanovisko energetického audítora
+ |
+Vydáva: Oprávnená osoba
+ |
+Záväzný formulár: Nie
+ |
+Podmienka poskytnutia príspevku:
+Podmienka oprávnenosti aktivít projektu
+Podmienky splnenia kritérií pre výber projektov
+Podmienky týkajúce sa štátnej pomoci
+ |
+Možnosť doplnenia/opravy prílohy: Áno, na základe výzvy na doplnenie ŽoNFP zaslanej SIEA
+ |
+Hraničný termín pre preukázanie splnenia podmienky poskytnutia príspevku:
+Príloha musí byť predložená najneskôr ku dňu doplnenia chýbajúcich náležitostí ŽoNFP na základe výzvy na doplnenie chýbajúcich náležitostí ŽoNFP, pričom musí byť vypracovaná pred predložením ŽoNFP.
+ |
+Spôsob predloženia prílohy:
+sken originálu (vo formáte .pdf) cez ITMS21+
+ |
+Žiadateľ predkladá energetický audit iba ak realizuje hlavnú aktivitu a) opatrenia 2.1.2 PPP č. 7.
+Energetický audit musí byť vypracovaný:
+odborne spôsobilou osobou v zmysle § 12 ods. 1 alebo § 13 zákona č. zákona č. 321/2014 Z. z. o energetickej efektívnosti a o zmene a doplnení niektorých zákonov v znení neskorších predpisov (ďalej len „zákon č. 321/2014 Z. z.“),
+v zmysle § 2 písm. j) zákona č. 321/2014 Z. z.,
+minimálne na predmet projektu,
+obsahovať časti v zmysle § 2 ods. 1 písm. a) až f) Vyhlášky Ministerstva hospodárstva SR č. 179/2015 Z. z. o energetickom audite.
+Výdavky vynaložené na EA uvádza žiadateľ v rámci aktivity Energetický audit, časti Zlepšovanie energ. hospodárnosti a obnova VB, hárku Rozpočet B, Prílohy č. 8 ŽoNFP.
+Žiadateľ predkladá stanovisko energetického audítora iba ak prioritne Príloha č. 7 ŽoNFP – Projektová dokumentácia a následne ani prípadný Energetický audit neustanovujú hodnoty MU OZE.
+Stanovisko energetického audítora:
+musí byť vypracované odborne spôsobilou osobou v zmysle § 12 ods. 1 alebo § 13 zákona č. zákona č. 321/2014 Z. z.,
+musí obsahovať minimálne základné identifikačné údaje:
+ projektu, ku ktorému sa stanovisko vzťahuje vrátane jeho popisu,
+ žiadateľa, minimálne v rozsahu: názov, právna forma, adresa, IČO,
+energetického audítora, minimálne v rozsahu, meno, priezvisko, dátum vyhotovenia a podpis.
+Výdavky vynaložené na stanovisko EA uvádza žiadateľ v rámci aktivity Ostatné, časti Podpora využívania OZE..., hárku Rozpočet B, Prílohy č. 8 ŽoNFP.
+ |
+Príloha č. 6 ŽoNFP – Energetický certifikát
+ |
+Vydáva: Oprávnená osoba
+ |
+Záväzný formulár: Nie
+ |
+Podmienka poskytnutia príspevku:
+Podmienka oprávnenosti aktivít projektu
+Podmienky týkajúce sa štátnej pomoci
+Podmienka oprávnenosti výdavkov projektu
+ |
+Možnosť doplnenia/opravy prílohy: Áno, na základe výzvy na doplnenie ŽoNFP zaslanej SIEA
+ |
+Hraničný termín pre preukázanie splnenia podmienky poskytnutia príspevku:
+Príloha musí byť predložená najneskôr ku dňu doplnenia chýbajúcich náležitostí ŽoNFP na základe výzvy na doplnenie chýbajúcich náležitostí ŽoNFP, pričom musí byť vypracovaná pred predložením ŽoNFP.
+ |
+Spôsob predloženia prílohy:
+sken originálu (vo formáte .pdf) cez ITMS21+
+ |
+Za účelom stanovenia východiskovej hodnoty MU P PR022 / PSKPRCR26b a MU PR025 / PSKPRCR29 žiadateľ realizujúci hlavné aktivity opatrenia 2.1.2 predkladá predrealizačný energetický certifikát podľa § 7 zákona č. 555/2005 Z. z. o energetickej hospodárnosti budov a o zmene a doplnení niektorých zákonov v znení neskorších predpisov.
+ |
+Príloha č. 7 ŽoNFP – Projektová dokumentácia
+(Technická správa, Statické posúdenie stavby, Výkresová časť, Energetické hodnotenie – Opatrenie 2.1.2)
+(Technická správa, Výkresová časť, Situačný návrh – Opatrenie 2.2.2)
+ |
+Vydáva: Oprávnená osoba
+ |
+Záväzný formulár: Nie
+ |
+Podmienka poskytnutia príspevku:
+Podmienka oprávnenosti aktivít projektu
+Podmienky splnenia kritérií pre výber projektov
+Podmienky týkajúce sa štátnej pomoci
+Podmienka oprávnenosti výdavkov projektu
+ |
+Možnosť doplnenia/opravy prílohy: Áno, na základe výzvy na doplnenie ŽoNFP zaslanej SIEA
+ |
+Hraničný termín pre preukázanie splnenia podmienky poskytnutia príspevku:
+Príloha musí byť predložená riadne spolu so ŽoNFP, resp. najneskôr ku dňu doplnenia chýbajúcich náležitostí ŽoNFP v zmysle výzvy na doplnenie chýbajúcich náležitostí ŽoNFP, pričom musí byť vypracovaná pred predložením ŽoNFP.
+ |
+Spôsob predloženia prílohy:
+sken zhotoviteľom (oprávnenou osobou) autorizovaného a povoľovacím orgánom overeného   originálu (vo formáte .pdf) cez ITMS. (Ak prílohu z technických obmedzení nie je možné predložiť elektronicky prostredníctvom verejnej časti ITMS predkladá ju žiadateľ v listinnej podobe.)
+ |
+Opatrenie 2.1.2
+Žiadateľ predkladá projektovú dokumentáciu, ktorá bola predmetom posúdenia v príslušnom povoľovacom konaní.4 Súčasťou projektovej dokumentácie musí byť aj energetické hodnotenie.
+Energetické hodnotenie budovy musí stavebník priložiť k projektu stavby, ktorý predkladá stavebnému úradu alebo inému príslušnému orgánu za účelom povolenia realizácie stavby.4 V štádiu povoľovania stavby ním preukazuje splnenie požiadavky na energetickú hospodárnosť budov (stanovenie plánovanej hodnoty hornej hranice energetickej triedy pre globálny ukazovateľ) ako aj stanovenie plánovaných hodnôt MU.
+K ukončeniu realizácie hlavných aktivít projektu musí stavebník zabezpečiť energetický certifikát budovy, ktorý bude povinný predložiť SIEA.
+Oprávnená osoba pri príprave projektovej dokumentácie zohľadňuje, pre potreby dosiahnutia súladu navrhovaného projektu s požiadavkami týkajúcimi sa plnenia horizontálnych princípov, podmienky vyplývajúce z check listov uvedených v rámci podmienky splnenia kritérií pre výber projektov, v časti doplňujúce informácie k zneniu vylučujúceho kritéria HP.
+Minimálne požiadavky na vypracovanie energetického hodnotenia
+Výsledkom energetického hodnotenia bude integrovaná energetická hospodárnosť budovy, ktorá je predpokladom na zatriedenie budovy do energetickej triedy podľa § 4 ods. 5 zákona 555/2005 Z. z. o energetickej hospodárnosti budov a o zmene a doplnení niektorých zákonov v znení neskorších predpisov (ďalej aj „zákon 555/2005 Z. z.“).
+Energetické hodnotenie musí obsahovať identifikáciu budovy, spolu so spôsobom využitia budovy a zaradenie do kategórie budovy v súlade s platnou legislatívou. 
+Hodnotenie sa uskutočňuje pre každé miesto spotreby energie nachádzajúce sa v budove (vykurovanie, príprava teplej vody, vetranie a chladenie, osvetlenie) a pre každý energetický nosič.
+
+Miesto spotreby - Vykurovanie
+Potreba energie na vykurovanie budovy je súčtom potreby tepla na vykurovanie a celkových tepelných strát systému vykurovania.
+Pri návrhu stavebných konštrukcií a budov je potrebné v energetickom hodnotení uviesť:
+splnenie kritéria minimálnych tepelnoizolačných vlastností stavebnej konštrukcie (maximálnej hodnoty súčiniteľa prechodu tepla konštrukcie U) vrátane spôsobu výpočtu súčiniteľa prechodu tepla U a skladby jednotlivých konštrukcií existujúceho stavu a navrhovaného stavu ;
+splnenie kritéria maximálnej mernej potreby tepla na vykurovanie (energetické kritérium) vrátane spôsobu jeho stanovenia v rámci pôvodného stavu  a najmä navrhovaného stavu a zhodnotenie priemerného súčiniteľa prechodu tepla pôvodného stavu a najmä navrhovaného stavu. Z hľadiska potreby tepla na vykurovanie je potrebné tiež uviesť porovnanie mernej potreby tepla za rok na m2 mernej plochy alebo m3 vykurovaného objemu s tzv. energetickým kritériom podľa platnej STN normy;
+splnenie kritéria minimálnej teploty vnútorného povrchu (hygienické kritérium) pre pôvodný stav a najmä navrhovaný stav (eliminácia vzniku kondenzácie na vnútornom povrchu, odstránenie vplyvu negatívneho sálania, najnižšia teplota stanovená v závislosti od požadovanej hodnoty tepelného odporu, priemerná teplota na vnútornom povrchu plôch obklopujúcich miestnosť na splnenie rovnice tepelnej pohody pri uvažovaní teploty  vnútorného vzduchu v závislosti od kategórie budovy);
+splnenie kritéria minimálnej priemernej výmeny vzduchu v miestnosti (kritérium výmeny vzduchu) pre pôvodný stav a najmä pre navrhovaný stav v zmysle platnej normy;
+predpoklad splnenia minimálnej požiadavky na energetickú hospodárnosť budov (maximálnu potrebu tepla na vykurovanie na dosiahnutie energetickej hospodárnosti budovy);
+Od potreby tepla na vykurovanie musí byť v energetickom hodnotení odpočítané spätne získané teplo:
+zo systému vykurovania, ktorý nie je započítaný v celkových tepelných stratách systému (sú súčtom podsystémov: odovzdávania tepla do vnútorného prostredia, distribučného systému, podsystému akumulácie, podsystému výroby tepla vzniknutého počas prevádzky, resp. z riadenia a regulácie) vykurovania;
+zo systému prípravy teplej vody;
+Celkové tepelné straty systému vykurovania musia byť súčtom tepelných strát z týchto podsystémov:
+podsystému odovzdávania tepla do vnútorného prostredia;
+distribučného podsystému;
+podsystému akumulácie;
+podsystému výroby tepla, ktoré vzniká počas prevádzky, počas pohotovostného režimu a z riadenia a regulácie.
+
+Miesto spotreby – Nútené vetranie a chladenie – ak relevantné:
+uviesť podlahovú plochu chladených miestností v budove (ak je chladená celková podlahová plocha v budove viac ako 80% budova je predmetom hodnotenia podľa miesta spotreby energie na chladenie);
+uviesť  vstupné údaje na výpočet prietoku vzduchu a tepelných strát vetraním a infiltráciou;
+ročná potreba energie na vetranie a chladenie je stanovená mesačnou metódou a podľa prevádzkového času;
+pri výpočte potreby tepla na vykurovanie alebo chladu na chladenie je potrebné odrátať tepelné straty spôsobené infiltráciou, ktoré by mali byť zahrnuté do výpočtu tepelných strát;
+celkové tepelné straty a zisky systému chladenia sú súčtom tepelných strát a ziskov týchto podsystémov: podsystému odovzdávania vzduchu, distribučného podsystému, podsystému akumulácie, podsystému riadenia a regulácie;
+ak je budova len nútene vetraná, je potrebné uviesť, či sa vzduch na vetranie tepelne upravuje bez eliminácie tepelných ziskov dochladzovaním priestorov na normalizovanú hodnotu 26°C v letnom období;
+od potreby chladu na chladenie priestorov verejnej budovy je potrebné odrátať spätne získané teplo alebo chlad;
+potreba energie na chladenie priestorov verejnej budovy je súčtom potreby energie na výrobu chladu a vlastnej potreby energie chladiaceho systému (napr. kompresora, čerpadla, chladiacej veže, či ventilátora).
+
+3. Miesto spotreby - Príprava teplej vody
+celková potreba energie na prípravu teplej vody musí vyjadrovať správnu potrebu energie na prípravu teplej vody a vlastnú spotrebu energie podľa platných technických noriem;
+v projekte sú považované vo výpočte potreby energie na vykurovanie za vnútorné tepelné zisky tzv. tepelné straty zo systémov distribúcie a zo zariadení na výrobu teplej vody vo vykurovaných priestoroch budovy;
+distribučná sústava verejnej budovy pri výmene systému prípravy teplej vody je navrhnutá tak, aby:
+-  výpočtová teplota teplej vody s možnosťou termickej dezinfekcie bola 60 °C;
+-  výpočtová teplota teplej vody bez možnosti termickej dezinfekcie bola 70 °C;
+-  tepelná strata potrubia neprekročila hodnotu 10W/(m.K).
+
+4. Miesto spotreby - Osvetlenie
+čas využitia denného svetla a čas využitia osvetlenia bez denného svetla musí byť v súlade s platnou technickou normou STN EN 12464-1. Pri použití rýchlej metódy je potrebné správne stanoviť čas využitia denného svetla a čas využitia osvetlenia bez denného svetla podľa kategórie budovy. V prípade rýchlej metódy je potrebné zároveň správne použiť hodnotu pasívnej ročnej potreby energie na osvetlenie. V prípade komplexnej metódy je potrebné správne určiť prevádzkové časy budovy.
+
+Energetické hodnotenie musí obsahovať určenie primárnej energie z dodanej energie podľa jednotlivých miest spotreby a energetických nosičov, resp. určenie primárnej energie pomocou faktorov primárnej energie (neobnoviteľnej energie) z dodanej energie stanovenej podľa energetického nosiča. Primárna energia musí byť upravená konverzným alebo transformačným procesom pomocou faktorov primárnej energie.
+
+Upozornenia:
+Projektová dokumentácia v zmysle tejto prílohy musí byť vypracovaná samostatne pre každú budovu.
+Projektová dokumentácia musí obsahovať dodržanie kvality vnútorného prostredia zabezpečením požadovanej výmeny vnútorného vzduchu alebo aj ďalšími opatreniami zlepšujúcimi vnútorné prostredie.
+V prípade výdavkov základného komfortu budovy sa v projektovej dokumentácie uvedie či navrhované výdavky prispievajú ku kvalite vnútorného prostredia.
+Žiadateľ čestným vyhlásením v časti 7.2 Formulára ŽoNFP vyhlasuje, že predložená projektová dokumentácia je úplná a totožná s projektovou dokumentáciou, ktorá bola predmetom povoľovacieho konania a bola v tomto konaní overená.
+Opatrenie 2.2.2
+Žiadateľ predkladá projektovú dokumentáciu, ktorá bola predmetom posúdenia v príslušnom povoľovacom konaní.
+Súčasťou projektovej dokumentácie musí byť:
+technická správa,
+výkresová časť,
+situačný nákres.
+Upozornenie:
+Žiadateľ v rámci formulára ŽoNFP, časť 7.2 Čestné vyhlásenie zároveň vyhlasuje, že projektová dokumentácia je kompletná a je zhodná s projektovou dokumentáciou, ktorá bola predmetom príslušného povoľovacieho konania.
+V prípade aktualizácie projektovej dokumentácie v povoľovacom konaní resp. v realizácii, je žiadateľ/prijímateľ povinný poskytovateľa o takejto zmene bezodkladne informovať.
+Závery/podmienky určené v záverečnom stanovisku/rozhodnutí zo zisťovacieho konania posudzovania vplyvov navrhovanej činnosti podľa zákona č. 24/2006 Z. z. o posudzovaní vplyvov na životné prostredie (ďalej aj ako „zákon o posudzovaní vplyvov na životné prostredie“) musia byť zohľadnené v projektovej dokumentácii. Splnenie podmienky bude predmetom overenia v rámci poskytnutia súčinnosti pri uzatváraní zmluvy o NFP.
+V prípade výroby elektriny z geotermálnej energie zariadenie musí znižovať emisie skleníkových plynov počas životného cyklu, t. j. emisie musia byť nižšie ako 100 g ekvivalentu CO2/kWh. Splnenie podmienky musí byť preukázané v projektovej dokumentácii, resp. technickej špecifikácii zariadenia.
+ |
+Príloha č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov
+ |
+Vydáva: Žiadateľ
+ |
+Záväzný formulár: Áno
+ |
+Podmienka poskytnutia príspevku:
+Podmienka oprávnenosti aktivít projektu
+Podmienky splnenia kritérií pre výber projektov
+Podmienka mať vysporiadané majetkovo – právne vzťahy
+Maximálna a minimálna výška príspevku
+Podmienky týkajúce sa štátnej pomoci
+Podmienka oprávnenosti výdavkov projektu
+ |
+Možnosť doplnenia/opravy prílohy: Áno, na základe výzvy na doplnenie ŽoNFP zaslanej SIEA
+ |
+Hraničný termín pre preukázanie splnenia podmienky poskytnutia príspevku:
+Príloha musí byť predložená riadne spolu so ŽoNFP, resp. najneskôr ku dňu doplnenia chýbajúcich náležitostí ŽoNFP v zmysle výzvy na doplnenie chýbajúcich náležitostí ŽoNFP.
+ |
+Spôsob predloženia prílohy:
+editovateľný formát MS Excel cez ITMS
+sken originálu (vo formáte .pdf) cez ITMSv prípade nároku pomerného odpočítania DPH (ak relevantné)
+ |
+Žiadateľ predkladá dokumentáciu k oprávnenosti výdavkov, vypracovanú podľa inštrukcií uvedených nižšie.
+1  Stanovenie výšky výdavkov
+Žiadateľ v rámci tejto prílohy ŽoNFP predkladá dokumentáciu, na základe ktorej preukazuje oprávnenosť výdavkov nárokovaných v rozpočte projektu. Stanovenie výšky výdavkov žiadateľ vykoná niektorým z nasledujúcich štyroch spôsobov, alebo ich kombináciou:
+1.1  Stanovenie výšky výdavkov na základe prieskumu trhu
+Žiadateľ vypĺňa a predkladá hárok Prieskum trhu. Zároveň je povinný vyplniť aj hárok Rozpočet projektu.
+Ak žiadateľ stanovil výšku výdavkov v rozpočte projektu rozpočte na základe prieskumu trhu, je povinný predložiť v rámci tejto prílohy ŽoNFP nasledovné dokumenty:
+Cenové ponuky
+Záznam z vyhodnotenia prieskumu trhu.
+Špecifikácia predmetu zákazky
+Cenové ponuky
+Žiadateľ predkladá minimálne 3 cenové ponuky za každý logický celok, ktoré ku dňu predloženia ŽoNFP musia byť platné a nemôžu byť staršie ako 6 mesiacov. Cenová ponuka vzniká nacenením špecifikácie predmetu zákazky, ktorá bola predmetom prieskumu trhu, pričom cenovú ponuku žiadateľ získava oslovením potenciálnych dodávateľov.
+Za akceptovanú cenovú ponuku možno pokladať takú, ktorej obsah zodpovedá špecifikácii predmetu zákazky (Opisu predmetu zákazky), ktorá bola predmetom prieskumu trhu (zaslaná dodávateľom), t. j. zodpovedá parametrom špecifikácie (požiadaviek) logického celku, resp. predmetu zákazky stanovených žiadateľom pre účely prieskumu trhu. Cenové ponuky, z ktorých nie je jasné, že presne zodpovedajú špecifikácii predmetu zákazky nemôžu byť akceptované. Z uvedeného vyplýva, že jednotlivé ponuky musia byť jasne vyhodnotiteľné a vzájomne porovnateľné.
+Položky nacenené v prieskume trhu, nepreklopené do rozpočtu, príp. položky uvedené v rozpočte projektu, ktoré neboli predmetom prieskumu trhu budú považované za neoprávnené. Cenová ponuka musí zároveň obsahovať nasledovné údaje:
+obchodné meno, sídlo a kontakt na predkladateľa ponuky, ktorý cenovú ponuku vypracoval,
+dátum vypracovania cenovej ponuky,
+označenie logického celku,
+opis ponúkaného tovaru/služby, ktoré sú predmetom cenovej ponuky, resp. doklady preukazujúce, že cenová ponuka spĺňa všetky požadované parametre, charakteristiky a požiadavky na predmet zákazky podľa špecifikácie predmetu zákazky.
+Ak žiadateľ nezíska v prvom kole prieskumu dostatočný počet ponúk (minimálne tri), je potrebné prieskum trhu opakovať, resp. doplniť ho o subjekty neoslovené v prvom kole. AK žiadateľ nebude ani po opakovanom/doplňujúcom prieskume trhu disponovať cenovou ponukou na niektorý z logických celkov od troch predkladateľov ponuky (najmä pokiaľ pôjde o logické celky, pri ktorých žiadateľ nemá objektívnu možnosť získať cenovú ponuku od troch predkladateľov ponuky), bude pre účely stanovenia výšky výdavkov v podrobnom rozpočte projektu postačujúce predloženie cenových ponúk minimálne od dvoch predkladateľov ponuky. Žiadateľ je v takom prípade povinný objektívne príčiny vzniknutej situácie detailne zdôvodniť v rámci Záznamu z vyhodnotenia prieskumu trhu.
+Okrem výnimky ustanovenej v nasledujúcom odseku, výšku výdavkov v rozpočte projektu nie je možné stanoviť na základe jednej cenovej ponuky, nakoľko uvedený postup nebude mať charakter prieskumu trhu, t. j. nedôjde k súťaži ponúk. V takom prípade nebude možné posúdiť oprávnenosť výdavkov a uvedené výdavky budú považované za neoprávnené.
+Výnimka: Stanovenie výšky výdavkov v rozpočte projektu na základe jednej cenovej ponuky je oprávnené výlučne v prípade, že niektoré časti predmetu zákazky, t. j. niektoré alebo všetky logické celky, je možné preukázateľne získať len z jedného zdroja. V takom prípade je žiadateľ povinný spolu s cenovou ponukou uchádzača (cenová ponuka musí byť vypracovaná v súlade s vyššie uvedenými požiadavkami na obsah cenovej ponuky, vrátane vyjadrenia uchádzača o spôsobe splnenia jednotlivých parametrov špecifikácie logického celku) predložiť zároveň znalecký/odborný posudok, ktorého záver bude potvrdzovať relevantnosť výšky jednej cenovej ponuky.
+Ak žiadateľ stanovil výšku výdavku na základe prieskumu trhu, ale v rámci ŽoNFP ani po doplnení chýbajúcich údajov nepredloží k výdavku príslušné cenové ponuky z prieskumu trhu, resp. iným, výzvou definovaným, spôsobom nepreukáže spôsob stanovenia výšky výdavku, poskytovateľ nebude môcť posúdiť oprávnenosť výdavku a výdavok uvedený bude považovaný za neoprávnený.
+Záznam z vyhodnotenia prieskumu trhu
+Žiadateľ predkladá vyhodnotenie prieskumu trhu prostredníctvom záväzného formulára Záznam z vyhodnotenia prieskumu trhu nachádzajúceho sa v hárku Prieskum trhu.
+Cenové ponuky získané v rámci prieskumu trhu môže žiadateľ zahrnúť do vyhodnotenia prieskumu trhu len za predpokladu, že ich obsah zodpovedá špecifikácii predmetu zákazky (Opisu predmetu zákazky), ktorá bola predmetom prieskumu trhu.
+Žiadateľ je povinný vyhodnotiť jednotlivé cenové ponuky na úrovni jednotlivých logických celkov, pričom jediným kritériom na vyhodnotenie cenových ponúk  je priemerná cena.
+Žiadateľ zodpovedá za presný súlad položiek z vyhodnotenia prieskumu trhu s údajmi uvedenými v hárku Rozpočet projektu.
+Špecifikácia predmetu zákazky
+V prípade, že žiadateľ začal VO pred predložením ŽoNFP, predkladá opis predmetu zákazky, ktorý je súčasťou dokumentácie k VO (t. j. súčasťou Súťažných podkladov). Opis predmetu zákazky uvedený v Súťažných podkladoch musí byť zhodný so špecifikáciou predmetu zákazky použitou v prieskume trhu za účelom určenia výšky oprávnených výdavkov.
+V prípade, že žiadateľ nezačal VO pred predložením ŽoNFP, predkladá špecifikáciu predmetu zákazky použitú pre účely prieskumu trhu.
+Špecifikácia predmetu zákazky / opis predmetu zákazky musí byť žiadateľom vypracovaná presne, jednoznačne a úplne tak, aby požiadavky žiadateľa pokrývali všetky položky príslušné k logickému celku, t. j. vrátane doplnkových položiek súvisiacich s obstaraním predmetu zákazky ako napr. príslušný software, zaškolenie personálu, doprava na miesto, montáž, testovanie a pod. Špecifikácia predmetu zákazky musí byť vypracovaná samostatne pre každý logický celok.
+Špecifikácia predmetu zákazky / opis predmetu zákazky musí byť zároveň vypracovaná s ohľadom na zachovanie čestnej hospodárskej súťaže a zachovania princípov nediskriminácie, rovnakého zaobchádzania, hospodárnosti a efektívnosti.
+Logický celok je súbor tovarov a/alebo služieb, ktoré z hľadiska ekonomického, technického, funkčného alebo z hľadiska realizácie nie je možné alebo účelné deliť. Predložené cenové ponuky, na základe ktorých žiadateľ stanovuje výšku výdavkov v Rozpočte projektu, musia byť v súlade so štruktúrou a parametrami logického celku.
+1. 2  Stanovenie výšky výdavkov na základe znaleckého / odborného posudku
+Žiadateľ vypĺňa a predkladá hárok Rozpočet projektu.
+Stanovenie výšky výdavkov na základe znaleckého / odborného posudku je možné výlučne v prípade jedinej cenovej ponuky a/alebo ak sa jedná o originálny produkt, ktorý nie je bežne dostupný na trhu a žiadateľ ho bude obstarávať od jediného možného subjektu, ktorý takýto produkt neponúka na trhu (napr. produkt skonštruovaný originálne pre žiadateľa od konkrétneho subjektu). V prípade výdavkov, ktorých výšku stanovil žiadateľ na základe znaleckého / odborného posudku, predkladá v rámci tejto prílohy príslušný znalecký posudok a čestné vyhlásenie o nemožnosti vykonania prieskumu trhu.
+Znaleckým posudkom vyhotoveným znalcom v príslušnom odvetví podľa zákona č. 382/2004 Z. z. o znalcoch, tlmočníkoch a predkladateľoch a o zmene a doplnení niektorých zákonov v znení neskorších predpisov (ďalej len „zákon o znalcoch, tlmočníkoch a predkladateľoch“) je možné zo strany žiadateľa preukázať oprávnenosť výdavkov v prípade, ak nebolo objektívne možné (na základe čestného vyhlásenia žiadateľa) vykonať riadny prieskum trhu z dôvodu, že predmet projektu nie je dostupný na trhu. Znalecký resp. odborný posudok nesmie byť starší ako 6 mesiacov ku dňu predloženia ŽoNFP.
+Znalecký posudok musí byť spracovaný spôsobom, ktorý umožní preskúmať spôsob, akým bola stanovená výsledná cena a na základe čoho znalec dospel k záverom uvedeným v znaleckom posudku.
+V rámci zadania požiadavky na znalecký / odborný posudok platia obdobné ustanovenia pre definovanie špecifikácie predmetu zákazky / opisu predmetu zákazky uvedené v časti C. Špecifikácia predmetu zákazky (viď. časť 1.1 Stanovenie výšky výdavkov na základe prieskumu trhu). To znamená, že v znaleckom/odbornom posudku musí byť jasne vymedzený logický celok/logické celky a v rámci neho presná, jednoznačná a úplná definícia predmetu zákazky.
+1.3  Stanovenie výšky výdavkov na predmet projektu na základe vykonaného verejného obstarávania
+Žiadateľ vypĺňa a predkladá hárok Rozpočet projektu.
+V prípade výdavkov, ktorých výšku stanovil žiadateľ na základe uzavretej zmluvy s úspešným uchádzačom ako výsledkom vykonaného verejného obstarávania, ktoré bolo vyhlásené v súvislosti s predloženou ŽoNFP, predkladá žiadateľ sken originálu alebo úradne osvedčenej kópie platnej Zmluvy s úspešným uchádzačom. Táto zmluva musí byť platná najneskôr ku dňu predloženia ŽoNFP.
+Žiadateľ k ŽoNFP nepredkladá kompletnú dokumentáciu k verejnému obstarávaniu.
+1.4  Stanovenie výšky stavebných výdavkov na základe podrobného rozpočtu stavebných prác (vo forme výkazu výmer) vypracovaného a overeného oprávnenou osobou (projektantom) s využitím stavebných cenníkov
+Žiadateľ vypĺňa a predkladá hárok Rozpočet projektu.
+V súvislosti s realizáciou stavebných prác môže žiadateľ cenovú ponuku nahradiť podrobným rozpočtom stavebných prác (na úrovni podrobnosti výkazu výmer) vypracovaným a osvedčeným oprávnenou osobou - projektantom s využitím stavebných cenníkov. Podrobný rozpočet stavebných prác vo forme výkaz výmer nesmie byť starší ako 6 mesiacov ku dňu predloženia ŽoNFP.
+Upozornenie:
+V prípade kombinácie uvedených spôsobov stanovenia výšky výdavkov je žiadateľ povinný predložiť všetku súvisiacu dokumentáciu.
+2 Rozpočet projektu
+Žiadateľ predkladá podrobný rozpočet projektu vo formáte MS Excel vypracovaný v súlade s inštrukciami uvedenými priamo v záväznom formulári a tejto časti Príručky. V úvodnej časti hárku „Rozpočet B1 – Value for Money“ uvádza názov žiadateľa, názov projektu, informáciu o platiteľovi DPH v rozsahu projektu, druhy realizovaných opatrení, informáciu k schváleniu projektu Radou Partnerstva kraja a/alebo Kooperačnou Radou UMR a ak relevantné aj počet budov v rámci predkladanej ŽoNPF. Zároveň pre každý výdavok uvedie/vyberie príslušné požadované údaje (Názov výdavku, Merná jednotka, Počet jednotiek, Jednotková cena bez/s DPH a ak relevantné aj Vecný popis výdavku).
+V stĺpci s názvom „Vecný popis výdavku“ žiadateľ uvedie v prípade potreby ďalšie doplňujúce informácie súvisiace so špecifikáciou jednotlivých výdavkov z hľadiska ich predmetu, resp. rozsahu. Ak výdavok pozostáva z viacerých položiek, je potrebné tieto položky v rámci vecného popisu výdavku bližšie špecifikovať, t. j. uviesť, z akých položiek pozostáva cena výdavku, vrátane výšky týchto položiek, prípadne uviesť odkaz na dokument, z ktorého je skladba výdavku zrejmá (napr. ak je opis bližšie uvedený v rámci prieskumu trhu,  alebo v niektorej časti/prílohy ŽoNFP a pod.).
+Pri posudzovaní každej položky rozpočtu je rozhodujúca jej oprávnenosť, účelnosť, efektívnosť a hospodárnosť. Z uvedeného dôvodu nesmie rozpočet obsahovať agregované položky (súborné položky) s výnimkou prípadov, kde nie je možné použiť detailnejšiu špecifikáciu.
+Výdavky je potrebné rozdeliť jednotlivých opatrení a hlavných aktivít.
+Bunky v rozpočte sú predformátované, žiadateľ vypĺňa bielo podfarbené bunky, žlto podfarbené bunky majú upozorniť žiadateľa na ich vyplnenie. Ich nevyplnenie v hárkoch Rozpočet alebo v hárkoch MU Budova (napr. časť „Využívanie budovy na hosp. činnosť“, „Kategória budovy“, „Realizované opatrenia“, „Majetkovo-právne vzťahy k budove“, „Energetická trieda“ atď.), má za následok, absenciu výpočtu výdavkov.
+Odporúčame najprv vypracovať hárok/hárky MU Budova, keďže na základe poskytnutých informácií sa určí oprávnenosť aktivít projektu ako aj výška COV.
+Ak je predmetom projektu viac samostatných budov, žiadateľ vyplní a predloží rozpočet samostatne za každú budovu.
+Súčasťou rozpočtu je aj automatický výpočet miery príspevku projektu k cieľu opatrenia 2.1.2 a opatrenia 2.2.2 prostredníctvom princípu Hodnota za Peniaze - BudovaEE(HzPBudovaEE) a princípu Hodnota za Peniaze – ProjektOZE (HzPProjektOZE) v zmysle PPP č. 7.
+Žiadateľ zodpovedá za presný súlad údajov z vykonaného VO s údajmi uvedenými v Rozpočte projektu.
+3  Merateľné ukazovatele / Sumárny prehľad MU
+V hárku „MU Budova“ a v prípade obnovy viacerých samostatných budov aj ďalších hárkoch žiadateľ vypĺňa výlučne žlto podfarbené bunky. Relevantné hodnoty sú automaticky vypočítané.
+4  Majetkovo-právne vzťahy k budove / pozemku
+Pre posúdenie PPP č. 10 je v hárku „Rozpočet“ je potrebné v žlto podfarbených bunkách vyplniť údaje identifikácie budovy a ak relevantné aj pozemku na základe ktorých bude poskytovateľom overený majetkovo-právny vzťah k budove a ak relevantné aj k pozemku v zmysle PPP č. 7 a 10. Ich nevyplnenie má za následok, absenciu výpočtu celkových výdavkov. Zároveň pre posúdenie splnenia PPP č. 10 je žiadateľ v rámci tejto prílohy:
+v prípade podielového spoluvlastníctva,
+povinný predložiť súhlas všetkých podielových spoluvlastníkov budovy s realizáciou projektu,
+v prípade správy budovy predložiť doklad o väčšinovom podiele k stavbe (ak to z listu vlastníctva nevyplýva),
+v prípade správy nehnuteľnosti,
+v zmysle zákona č. 278/1993 Z. z. v znení neskorších predpisov, zákona č. 446/2001 Z. z. v znení neskorších predpisov a zákona č. 138/1991 Zb. v znení neskorších predpisov, ktorá je vo vlastníctve zriaďovateľa žiadateľa, resp. vo vlastníctve Slovenskej republiky, povinný identifikovať list vlastníctva preukazujúci správu budovy ktorá je predmetom realizácie projektu žiadateľom. V prípade, že žiadateľ je správcom nehnuteľnosti a táto skutočnosť nie je priamo uvedená na výpise z listu vlastníctva, je žiadateľ povinný predložiť relevantný doklad preukazujúci výkon správy nehnuteľnosti zo strany žiadateľa,
+ktorá je vo vlastníctve iného subjektu ako zriaďovateľa žiadateľa v zmysle predchádzajúceho bodu,
+povinný predložiť súhlas vlastníka nehnuteľnosti, resp. všetkých podielových spoluvlastníkov s realizáciou projektu,
+predložiť doklad o väčšinovom podiele k budove (ak to z listu vlastníctva nevyplýva).
+v prípade nájmu,
+povinný predložiť súhlas vlastníka / správcu (ak je vlastníkom štát) budovy s realizáciou projektu,
+povinný predložiť nájomnú zmluvu.
+Ak relevantné, žiadateľ zodpovedá za súlad údajov z Prílohy č. 7 - Projektová dokumentácia s údajmi uvedenými v hárkoch tejto prílohy.
+ |
+ Prílohy predkladané mimo formulára ŽoNFP
+Žiadateľ predkladá dokumenty k VO/obstarávaniu, iba ak ukončil VO/obstarávanie pred podaním ŽoNFP. Žiadateľ vkladá dokumenty k VO do ITMS v súlade s inštrukciou uvedenou nižšie.
+Dokumentácia k VO/obstarávaniu
+ |
+Vydáva: Žiadateľ
+ |
+Záväzný formulár: Nie
+ |
+Podmienka poskytnutia príspevku:
+Oprávnenosť z hľadiska VO na hlavnú aktivitu projektu
+Podmienky týkajúce sa štátnej pomoci
+ |
+Možnosť doplnenia/opravy prílohy: Áno, na základe výzvy na doplnenie zaslanej SIEA
+ |
+Hraničný termín pre preukázanie splnenia podmienky poskytnutia príspevku:
+Príloha musí byť predložená riadne spolu so ŽoNFP, resp. najneskôr ku dňu doplnenia chýbajúcich náležitostí v zmysle výzvy na doplnenie chýbajúcich náležitostí.
+ |
+Spôsob predloženia prílohy:
+sken originálu (vo formáte .pdf) cez ITMSbez možnosti predloženia v listinnej podobe
+ |
+Žiadateľ predkladá kompletnú dokumentáciu k procesu VO/obstarávania výlučne prostredníctvom ITMS. Dokumentáciu k VO/obstarávaniu vkladá žiadateľ v evidencii „Verejné obstarávanie“ (teda nie v evidencii „Žiadosti o nenávratný finančný príspevok“) v záložke „Prílohy [10]“, pričom je nevyhnutné, aby vložená dokumentácia k VO/obstarávaniu bola cez ITMS aj predložená (t. j. je potrebné kliknúť na odkaz „Predložiť“), čím sa umožní jej overenie zo strany SO. Bez predloženia dokumentov nie je možné dokumenty k VO/obstarávaniu považovať za predložené v súlade s podmienkami výzvy. Dokumenty k VO/obstarávaniu je potrebné predkladať samostatne tak, aby objem dát žiadneho z nich neprekročil 100 MB.
+Sken zmluvy s úspešným uchádzačom, je potrebné nahrať v rámci evidencie „Verejné obstarávanie“ a to tak, že v záložke „Zmluvy“ sa potvrdí odkaz „+ Vytvoriť“ a vyplnia sa relevantné údaje a sken sa nahrá do záložky „Dokumenty [5]“.
+Postupy predkladania dokumentácie z obstarávania sú prístupné aj prostredníctvom linkov:
+https://www.itms2014.sk/doc/navody/vo/vo_vytvorenie.html 
+https://www.itms2014.sk/doc/navody/vo/vo_vytvorenie_realizovaneho.html 
+https://www.itms2014.sk/doc/navody/vo/vo_detail.html
+https://www.itms2014.sk/doc/navody/vo/vo_zmluvy.html
+https://www.itms2014.sk/doc/navody/vo/vo_predlozenie.html
+Za kompletnú dokumentáciu sa považujú doklady, ktorými sa zdokumentuje celý priebeh VO/obstarávania s dôrazom na preskúmateľnosť rozhodnutí prijatých vo všetkých fázach VO/obstarávania, bez ohľadu na použité prostriedky komunikácie. Kompletnosť dokumentácie bude overená v rámci kontroly VO/obstarávania po ukončení konania o ŽoNFP.
+Žiadateľ je v rámci tabuľky č. 15 formulára ŽoNFP povinný čestne vyhlásiť, že predkladaná elektronická verzia dokumentácie k VO/obstarávania je úplná, kompletná a zhodná s originálom dokumentácie k VO/obstarávaniu.
+ |
+ Prílohy
+Prílohu tohto dokumentu tvoria záväzné formuláre vybraných príloh, pri ktorých SO vopred definuje záväznú formu predloženia týchto príloh. Žiadateľ nie je oprávnený na predloženie príloh, vo vzťahu ku ktorým sú definované záväzné formuláre, použiť iný formulár. Zároveň žiadateľ nie je oprávnený pri vypĺňaní záväzných formulárov meniť vopred preddefinované a formátované bunky (najmä vzorové formuláre dokumentácie k preukázaniu oprávnenosti výdavkov), ak takáto možnosť nie je priamo uvedená v príslušnom záväznom formulári.
+Prílohy Všeobecnej informácie sú tvorené nasledovnými záväznými formulármi:
+Názov záväzného formulára
+ | Číslo prílohy ŽoNFP
+ | Povinné predloženie prílohy cez ITMS
+ |
+Plnomocenstvo / Poverenie
+ | 1
+ | ÁNO
+ |
+Dokumentácia k oprávnenosti výdavkov
+ | 8
+ | ÁNO
+ |

@@ -12,6 +12,80 @@ const maHlavnu = (z: Ziadost, opatrenie: string) => z.aktivity.some((a) => a.hla
 const covHlavnych = (z: Ziadost, opatrenie: string) => z.rozpocet.filter((r) => r.hlavna && r.opatrenie === opatrenie).reduce((s, r) => s + r.suma, 0);
 const mesiace = (od: string, po: string) => (new Date(po).getTime() - new Date(od).getTime()) / 86400_000 / 30.44;
 
+/**
+ * Príloha so záväzným formulárom (napr. Príloha č. 8: zošit MS Excel podľa vzoru výzvy). Nestačí, že slot má text:
+ * prázdny vzor má tisíce znakov popiskov a PDF či DOCX v tom istom slote nie sú záväzný formulár.
+ * Vyplnenosť sa overuje na konkrétnych bunkách hárku `harok` (adresy sú v balíku pravidiel), nie hľadaním v texte:
+ * v texte sa stratí poloha stĺpcov a ručne vpísané nuly by sa nedali odlíšiť od sumy.
+ * „Splnené“ znamená iba toto: je priložený identifikovateľný, vyplnený vzor patriaci k tejto žiadosti. Vecnú správnosť
+ * rozpočtu (oprávnenosť, hospodárnosť) to neoveruje: to je odborná časť administratívneho overenia.
+ */
+interface ZavaznyFormular {
+  popis: string; pripona: string; harok: string;
+  /** Adresy buniek s názvom žiadateľa a projektu, napr. "B9", "B10". */
+  ziadatel?: string; projekt?: string;
+  /**
+   * Položka rozpočtu = riadok, kde stĺpce `pocet` a `cena` majú čísla a stĺpec `suma` (vzorec počet × cena) kladné číslo.
+   * Podľa stĺpca skupiny výdavkov sa nedá: vo vzore ju sekcie „Ostatné“ nemajú predvyplnenú.
+   */
+  polozka?: { pocet: string; cena: string; suma: string; nazovSumy: string };
+}
+const normNazov = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+/**
+ * Rovnaký názov = zhoda po normalizácii (diakritika, veľkosť písmen, interpunkcia; čísla a etapy ostávajú). Nič voľnejšie:
+ * „Obnova budovy OcÚ I“ a „… II“ či „Obec Nová Ves“ a „Obec Nová Ves nad Žitavou“ sú rôzne. Radšej planý poplach
+ * (na preverenie) ako nesprávne „splnené“.
+ */
+const rovnakyNazov = (a: string, b: string) => normNazov(a) === normNazov(b);
+/** Riadky položiek rozpočtu s kladnou sumou v hárku (podľa adries buniek). */
+function polozkyRozpoctu(h: Record<string, string>, p: NonNullable<ZavaznyFormular['polozka']>): { riadok: number; suma: number }[] {
+  const cislo = (a: string) => (h[a] !== undefined && h[a].trim() !== '' ? Number(h[a]) : NaN);
+  return Object.keys(h).map((a) => a.match(/^([A-Z]+)(\d+)$/)).filter((m): m is RegExpMatchArray => !!m && m[1] === p.suma)
+    .map((m) => ({ riadok: Number(m[2]), suma: cislo(m[0]) }))
+    .filter((x) => x.suma > 0 && Number.isFinite(cislo(`${p.pocet}${x.riadok}`)) && Number.isFinite(cislo(`${p.cena}${x.riadok}`)));
+}
+function zavaznyFormular(z: Ziadost, c: string, pr: NonNullable<Ziadost['prilohy']>[string], zf: ZavaznyFormular): VysledokKontroly {
+  if (!pr.subory) return pr.text.trim().length > 40
+    ? { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c} je priložená (${pr.nazov}), ale z podkladov sa nedá overiť, či ide o ${zf.popis}.` }
+    : { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c} sa vyžaduje a chýba (súbor je prázdny alebo nečitateľný).` };
+  const zosity = pr.subory.filter((s) => new RegExp(zf.pripona, 'i').test(s.nazov));
+  const ine = pr.subory.filter((s) => !zosity.includes(s)).map((s) => s.nazov);
+  const aj = ine.length ? ` Ďalšie súbory v prílohe: ${ine.join(', ')}.` : '';
+  if (!zosity.length) return { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c} sa predkladá ako ${zf.popis}. V prílohe je len ${ine.join(', ')}, záväzný zošit chýba.` };
+  const citatelne = zosity.filter((s) => s.citatelny);
+  if (!citatelne.length) return { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c}: zošit ${zosity.map((s) => s.nazov).join(', ')} je priložený, ale nečitateľný.${aj}` };
+  const vzorove = citatelne.filter((s) => s.text.includes(`=== Hárok: ${zf.harok} ===`));
+  if (!vzorove.length) return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: zošit ${citatelne.map((s) => s.nazov).join(', ')} nemá hárok „${zf.harok}“ zo vzoru výzvy. Treba overiť, či ide o ${zf.popis}.${aj}` };
+  // Každý zošit sa posudzuje zvlášť: prázdny vzor a vyplnená kópia v jednom slote = rozhoduje vyplnená.
+  const udaje = vzorove.map((s) => {
+    const h = s.bunky?.[zf.harok];
+    if (!h) return { nazov: s.nazov, overitelny: false, chyba: [] as string[], polozky: [] as { riadok: number; suma: number }[] };
+    const ziadatel = zf.ziadatel ? h[zf.ziadatel]?.trim() || undefined : undefined;
+    const projekt = zf.projekt ? h[zf.projekt]?.trim() || undefined : undefined;
+    const polozky = zf.polozka ? polozkyRozpoctu(h, zf.polozka) : [];
+    const chyba = [zf.ziadatel && !ziadatel && `názov žiadateľa (${zf.ziadatel})`, zf.projekt && !projekt && `názov projektu (${zf.projekt})`,
+      zf.polozka && !polozky.length && `aspoň jedna položka rozpočtu s kladnou sumou (stĺpec ${zf.polozka.suma}, ${zf.polozka.nazovSumy})`].filter((x): x is string => !!x);
+    return { nazov: s.nazov, overitelny: true, ziadatel, projekt, polozky, chyba };
+  });
+  const vyplnene = udaje.filter((u) => u.overitelny && !u.chyba.length);
+  if (!vyplnene.length) {
+    const neoverene = udaje.filter((u) => !u.overitelny);
+    if (neoverene.length) return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: zošit ${neoverene.map((u) => u.nazov).join(', ')} má hárok zo vzoru, ale jeho bunky sa nedali prečítať z originálu. Vyplnenosť treba overiť ručne.${aj}` };
+    const naj = [...udaje].sort((a, b) => a.chyba.length - b.chyba.length)[0];
+    return { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c}: priložený zošit ${naj.nazov} je nevyplnený vzor. Chýba: ${naj.chyba.join(', ')}.${aj}` };
+  }
+  const nesedi = (u: (typeof udaje)[number]) => [
+    u.ziadatel && !rovnakyNazov(u.ziadatel, z.ziadatel.nazov) && `žiadateľ „${u.ziadatel}“ (vo formulári „${z.ziadatel.nazov}“)`,
+    u.projekt && !rovnakyNazov(u.projekt, z.nazov) && `projekt „${u.projekt}“ (vo formulári „${z.nazov}“)`,
+  ].filter((x): x is string => !!x);
+  const cudzie = vyplnene.filter((u) => nesedi(u).length);
+  if (cudzie.length) return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: v zošite ${cudzie[0].nazov} je uvedený ${nesedi(cudzie[0]).join(' a ')}. Treba overiť, či zošit patrí k tejto žiadosti.${aj}` };
+  const u = vyplnene[0];
+  const suma = u.polozky.reduce((s, p) => s + p.suma, 0);
+  return { stav: 'splnene', hodnoty: zf.polozka ? { polozky: u.polozky.length, sumaPoloziek: Math.round(suma * 100) / 100 } : undefined,
+    zdovodnenie: `Príloha č. ${c} je priložená ako ${zf.popis}: ${vyplnene.map((v) => v.nazov).join(', ')}${u.ziadatel ? ` (žiadateľ: ${u.ziadatel}${u.projekt ? `, projekt: ${u.projekt}` : ''})` : ''}.${zf.polozka ? ` Položky s kladnou sumou: ${u.polozky.length}, spolu ${eur(suma)} (${zf.polozka.nazovSumy}).` : ''} Overená je len prítomnosť vyplneného vzoru, nie vecná správnosť rozpočtu.${aj}` };
+}
+
 /** Úspora primárnej energie z ukazovateľa (východisková - cieľová hodnota). */
 export function uspora(z: Ziadost, kod: string): { vych: number; ciel: number; mwh: number; percent: number } | null {
   const u = uk(z, kod);
@@ -120,6 +194,8 @@ export const KONTROLY: Record<string, Kontrola> = {
     const pr = z.prilohy[c];
     // Odhad zaradenia (podľa kľúčových slov) môže byť omyl, napr. sprievodný list so zoznamom príloh: rozhodne človek.
     if (pr && pr.text.trim().length > 40 && pr.zaradenie === 'odhad') return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: ${pr.nazov}. Súbor označený „odhad“ softvér zaradil podľa kľúčových slov, nie podľa čísla prílohy. Treba potvrdiť, že ide naozaj o túto prílohu, alebo ho vyradiť.` };
+    const zf = p.parametre!.zavaznyFormular as ZavaznyFormular | undefined;
+    if (pr && zf) return zavaznyFormular(z, c, pr, zf);
     if (pr && pr.text.trim().length > 40) return { stav: 'splnene', zdovodnenie: `Príloha č. ${c} je priložená: ${pr.nazov}.` };
     if (nahrada && /https?:\/\/|www\./i.test(z.popis)) return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c} chýba. Výzva pripúšťa náhradu: ${nahrada}. V popise projektu je webový odkaz, treba overiť, či vedie na uznesenie.` };
     return { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c} sa vyžaduje a chýba${pr ? ' (súbor je prázdny alebo nečitateľný)' : ''}.${nahrada ? ` Náhrada: ${nahrada}.` : ''}` };

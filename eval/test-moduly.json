@@ -1,11 +1,11 @@
 {
- "cas": "2026-11-19T22:35:04.997Z",
+ "cas": "2026-11-19T23:52:18.746Z",
  "dnes": "2026-11-19",
  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
  "moduly": {
   "vyzvy": {
    "pripadov": 186,
-   "trvanieMs": 25,
+   "trvanieMs": 34,
    "navrhy": {
     "ciastocne_overene": 65,
     "nesplnene_podmienky": 33,
@@ -133,7 +133,7 @@
   },
   "zonfp": {
    "pripadov": 799,
-   "trvanieMs": 161,
+   "trvanieMs": 190,
    "navrhy": {
     "ciastocne_overene": 615,
     "nesplnene_podmienky": 58,
@@ -262,7 +262,7 @@
     },
     {
      "id": "L07",
-     "nazov": "Predmetom projektu je verejná budova oprávnenej kategórie",
+     "nazov": "Predmetom projektu je budova oprávnenej kategórie (vlastníctvo overuje G10)",
      "pocty": {
       "mimo_podkladov": 799
      }
@@ -332,7 +332,7 @@
   },
   "vo": {
    "pripadov": 659,
-   "trvanieMs": 111,
+   "trvanieMs": 113,
    "navrhy": {
     "na_preverenie": 276,
     "ciastocne_overene": 382,
@@ -477,7 +477,7 @@
   },
   "zmeny": {
    "pripadov": 2336,
-   "trvanieMs": 526,
+   "trvanieMs": 523,
    "navrhy": {
     "na_preverenie": 1307,
     "ciastocne_overene": 1029
@@ -685,7 +685,7 @@
   },
   "zop": {
    "pripadov": 1362,
-   "trvanieMs": 852,
+   "trvanieMs": 902,
    "navrhy": {
     "ciastocne_overene": 1046,
     "na_preverenie": 315,
@@ -940,7 +940,7 @@
   },
   "ukazovatele": {
    "pripadov": 242,
-   "trvanieMs": 5,
+   "trvanieMs": 6,
    "navrhy": {
     "na_preverenie": 242
    },
@@ -1185,5 +1185,5 @@
    ]
   }
  },
- "trvanieMs": 5668
+ "trvanieMs": 5631
 }

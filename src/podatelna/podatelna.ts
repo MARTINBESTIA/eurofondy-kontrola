@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import type { DatabaseSync } from 'node:sqlite';
-import { dokumentNaText, rozbalZip } from '../ingest/dokument.ts';
+import { dokumentNaText, rozbalZip, xlsxBunky } from '../ingest/dokument.ts';
 import { normalizujItms21 } from '../moduly/zonfp/normalizuj.ts';
 import type { Navrh, Priloha, Ziadost } from '../core/typy.ts';
 
@@ -211,6 +211,13 @@ export function suborNaStiahnutie(db: DatabaseSync, suborId: number) {
   return p.startsWith(ULOZISKO) && fs.existsSync(p) ? { nazov: r.nazov, data: fs.readFileSync(p) } : undefined;
 }
 
+/** Bunky zošita z uloženého originálu (pre kontrolu záväzného formulára); iný formát alebo chyba čítania -> undefined. */
+function bunkyZosita(nazov: string, cesta: string): Record<string, Record<string, string>> | undefined {
+  if (!/\.xls[xm]$/i.test(nazov)) return undefined;
+  const p = path.normalize(path.join(ULOZISKO, cesta));
+  try { return p.startsWith(ULOZISKO) ? xlsxBunky(fs.readFileSync(p)) : undefined; } catch { return undefined; }
+}
+
 /** Žiadosť na posúdenie: formulár spisu + priradené prílohy (viac súborov k jednej prílohe sa spojí). */
 export function ziadostSpisu(db: DatabaseSync, id: number): Ziadost {
   const s = spisRiadok(db, id);
@@ -221,7 +228,7 @@ export function ziadostSpisu(db: DatabaseSync, id: number): Ziadost {
   z.datumPredlozenia ??= s.prijate.slice(0, 10);
   const prilohy: Record<string, Priloha> = {};
   const maOdhad = new Set<string>();
-  for (const r of db.prepare("SELECT priloha, nazov, text, istota, chyba FROM subory WHERE spis_id = ? AND typ = 'priloha' ORDER BY davka, id").all(id) as { priloha: string; nazov: string; text: string; istota: string; chyba: string | null }[]) {
+  for (const r of db.prepare("SELECT priloha, nazov, text, istota, chyba, cesta FROM subory WHERE spis_id = ? AND typ = 'priloha' ORDER BY davka, id").all(id) as { priloha: string; nazov: string; text: string; istota: string; chyba: string | null; cesta: string }[]) {
     const c = r.priloha; const p = prilohy[c];
     // Nečitateľný súbor (sken, chyba pdftotext) ostane v prílohe bez textu: pravidlo povie „priložený, ale nečitateľný“,
     // nie „chýba“. Do textu ide len čitateľný obsah, aby samotné hlavičky súborov nevyzerali ako text prílohy.
@@ -231,7 +238,8 @@ export function ziadostSpisu(db: DatabaseSync, id: number): Ziadost {
     // ktorý uznesenie len spomína) by inak mohol modelu „dodať“ náležitosť, ktorá v skutočnej prílohe chýba.
     const odhad = citatelny && !jePotvrdene(r.istota);
     if (odhad) maOdhad.add(c);
-    prilohy[c] = { nazov: `${p ? `${p.nazov}; ` : ''}${r.nazov}${odhad ? ' (odhad)' : ''}`, text, zaradenie: maOdhad.has(c) ? 'odhad' : 'potvrdene' };
+    prilohy[c] = { nazov: `${p ? `${p.nazov}; ` : ''}${r.nazov}${odhad ? ' (odhad)' : ''}`, text, zaradenie: maOdhad.has(c) ? 'odhad' : 'potvrdene',
+      subory: [...(p?.subory ?? []), { nazov: r.nazov, text: citatelny ? r.text : '', citatelny, bunky: citatelny ? bunkyZosita(r.nazov, r.cesta) : undefined }] };
   }
   z.prilohy = prilohy;
   return z;

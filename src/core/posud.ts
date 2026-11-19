@@ -73,6 +73,36 @@ export function overUryvok(n: Nalezitost, dokaz: string, text: string): { najden
   return { najdene: !!blok, dokaz: blok ?? dokaz };
 }
 
+/** Riadky textu, ktoré zodpovedajú vzoru náležitosti a nie zákazu (pre náležitosť, ktorú model nenašiel). */
+function riadkyVzoru(n: Nalezitost, text: string): string[] {
+  if (!n.vzor) return [];
+  const vzor = new RegExp(n.vzor, 'i'); const zakaz = n.nesmie ? new RegExp(n.nesmie, 'i') : null; const zakazR = n.nesmieRiadok ? new RegExp(n.nesmieRiadok, 'i') : null;
+  return text.split(/\r?\n/).map((r) => r.trim()).filter((r) => r && vzor.test(r) && !zakaz?.test(r) && !zakazR?.test(r));
+}
+/**
+ * Výsledok kontroly náležitostí z výsledkov hľadania po jednej (bez volania modelu, testovateľné samostatne).
+ * „Nesplnené“ len vtedy, keď náležitosť nenašiel model ani vzor v texte. Ostatné prípady idú človeku:
+ * - vizuálna náležitosť (podpis): z textu sa nedá overiť, či tam je, ani že chýba (prázdna čiara aj podpis dajú rovnaký text);
+ * - model nenašiel, ale text obsahuje riadok zodpovedajúci vzoru: malý model niekedy prehliadne aj dvakrát uvedený dátum.
+ */
+export function vyhodnotNalezitosti(nalezitosti: Nalezitost[], vysledky: { najdene: boolean; dokaz: string }[], text: string, zdroj: string, ms = 0): VysledokKontroly {
+  const najdene: string[] = []; const chybajuce: string[] = []; const vizualne: string[] = []; const sporne: string[] = [];
+  nalezitosti.forEach((n, i) => {
+    const r = vysledky[i];
+    if (r.najdene) { najdene.push(`${n.nazov}: „${r.dokaz}“`); if (n.vizualne) vizualne.push(n.nazov); return; }
+    if (n.vizualne) { vizualne.push(`${n.nazov} (model ju v texte nenašiel)`); return; }
+    const kandidat = riadkyVzoru(n, text)[0];
+    if (kandidat) sporne.push(`${n.nazov}: model ju nenašiel, ale text obsahuje „${kandidat.slice(0, 160)}“`);
+    else chybajuce.push(n.nazov);
+  });
+  const hodnoty = { ms, najdene: najdene.length, chybajuce: chybajuce.length, sporne: sporne.length };
+  const dokaz = najdene.join('\n') || undefined;
+  const aj = [sporne.length ? ` Sporné: ${sporne.join('; ')}.` : '', vizualne.length ? ` Treba pozrieť sken (podpisy sa z textu overiť nedajú): ${vizualne.join('; ')}.` : ''].join('');
+  if (chybajuce.length) return { stav: 'nesplnene', zdovodnenie: `V dokumente sa nenašlo: ${chybajuce.join('; ')}.${aj} (zdroj: ${zdroj})`, dokaz, hodnoty };
+  if (sporne.length || vizualne.length) return { stav: 'na_preverenie', zdovodnenie: `Nájdené náležitosti: ${najdene.length} z ${nalezitosti.length}.${aj} (zdroj: ${zdroj})`, dokaz, hodnoty };
+  return { stav: 'splnene', zdovodnenie: `Všetkých ${nalezitosti.length} náležitostí sa v dokumente našlo. (zdroj: ${zdroj})`, dokaz, hodnoty };
+}
+
 async function kontrolaLlm(v: any, p: Pravidlo, modul: Modul): Promise<VysledokKontroly> {
   const par = p.parametre ?? {};
   let text = ''; let zdroj = 'text vo formulári';
@@ -89,24 +119,21 @@ async function kontrolaLlm(v: any, p: Pravidlo, modul: Modul): Promise<VysledokK
   // vizualne = z textu sa dá overiť len to, že dokument s náležitosťou počíta, nie že tam naozaj je (podpis).
   const nalezitosti = par.nalezitosti as Nalezitost[] | undefined;
   if (nalezitosti?.length) {
-    const najdene: string[] = []; const chybajuce: string[] = []; const vizualne: string[] = []; let ms = 0;
-    for (const n of nalezitosti) {
-      const r = await najdiVTexte(n, text); ms += r.ms;
-      if (!r.najdene) chybajuce.push(n.nazov);
-      else { najdene.push(`${n.nazov}: „${r.dokaz}“`); if (n.vizualne) vizualne.push(n.nazov); }
-    }
-    const hodnoty = { ms, najdene: najdene.length, chybajuce: chybajuce.length };
-    if (chybajuce.length) return { stav: 'nesplnene', zdovodnenie: `V dokumente sa nenašlo: ${chybajuce.join('; ')}. (zdroj: ${zdroj})`, dokaz: najdene.join('\n') || undefined, hodnoty };
-    if (vizualne.length) return { stav: 'na_preverenie', zdovodnenie: `Všetkých ${nalezitosti.length} náležitostí sa v texte našlo. Z textu sa však nedá overiť, či je dokument naozaj podpísaný: ${vizualne.join('; ')}. Treba pozrieť sken. (zdroj: ${zdroj})`, dokaz: najdene.join('\n'), hodnoty };
-    return { stav: 'splnene', zdovodnenie: `Všetkých ${nalezitosti.length} náležitostí sa v dokumente našlo. (zdroj: ${zdroj})`, dokaz: najdene.join('\n'), hodnoty };
+    const vysledky: { najdene: boolean; dokaz: string }[] = []; let ms = 0;
+    for (const n of nalezitosti) { const r = await najdiVTexte(n, text); ms += r.ms; vysledky.push(r); }
+    return vyhodnotNalezitosti(nalezitosti, vysledky, text, zdroj, ms);
   }
 
   const o = await posudText(p.otazka!, text, modul.kontext(v));
   const dolozene = dokazJeVTexte(o.dokaz, text);
+  // poznamka = pevná veta pravidla k výsledku (napr. čo bod NEoveruje), aby ju neprekryla úvaha modelu.
+  const pozn = par.poznamka ? ` ${par.poznamka}` : '';
   // Poistka proti vymyslenému dôkazu: verdikt bez doslovného úryvku z textu ide človeku.
-  if (o.stav !== 'neda_sa_urcit' && !dolozene) return { stav: 'na_preverenie', zdovodnenie: `Model navrhol „${o.stav}“, ale neuviedol doslovný úryvok z textu. ${o.zdovodnenie}`, dokaz: o.dokaz, hodnoty: { ms: o.ms } };
+  if (o.stav !== 'neda_sa_urcit' && !dolozene) return { stav: 'na_preverenie', zdovodnenie: `Model navrhol „${o.stav}“, ale neuviedol doslovný úryvok z textu. ${o.zdovodnenie}${pozn}`, dokaz: o.dokaz, hodnoty: { ms: o.ms } };
+  // vzorDokazu: pri „splnené“ musí úryvok obsahovať aj výslovný údaj, o ktorý sa verdikt opiera (inak človek).
+  if (o.stav === 'splnene' && par.vzorDokazu && !new RegExp(par.vzorDokazu, 'i').test(o.dokaz)) return { stav: 'na_preverenie', zdovodnenie: `Model navrhol „splnené“, ale úryvok „${o.dokaz}“ neobsahuje výslovný údaj, o ktorý by sa to dalo oprieť. ${o.zdovodnenie}${pozn}`, dokaz: o.dokaz, hodnoty: { ms: o.ms } };
   const stav: Stav = o.stav === 'splnene' ? 'splnene' : o.stav === 'nesplnene' ? 'nesplnene' : 'na_preverenie';
-  return { stav, zdovodnenie: `${o.zdovodnenie} (zdroj: ${zdroj})`, dokaz: dolozene ? o.dokaz : undefined, hodnoty: { ms: o.ms } };
+  return { stav, zdovodnenie: `${o.zdovodnenie}${pozn} (zdroj: ${zdroj})`, dokaz: dolozene ? o.dokaz : undefined, hodnoty: { ms: o.ms } };
 }
 
 export interface MoznostiPosudku { llm?: boolean; iba?: string[] }

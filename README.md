@@ -60,10 +60,22 @@ posúdenie a zapíše rozhodnutie. Spisy sú rozdelené podľa výziev. Pri kaž
 v podateľni (rozhodnutia kontrolóra) a v ITMS21+ (skutočné žiadosti). Postup krok za krokom
 s ukážkovými podaniami je v [demo/podania/README.md](demo/podania/README.md).
 
-- **Príjem.** `POST /api/podatelna/spisy` prijme súbory v base64 a ZIP rozbalí. Text vytiahne z PDF, DOCX
-  a TXT a súbory uloží do `data/spisy/<spis>/` (mimo gitu). Formulár žiadosti je JSON: buď štruktúrovaný
-  tvar, alebo surový detail z API ITMS21+, alebo `{"kodItms": "NFP…"}`. V prevádzke sem podanie pošle
-  e-mailový hook. Tú istú cestu simuluje `npm run podanie -- <priečinok|zip> [--posud]`.
+- **Odkiaľ podanie prichádza (lokálna simulácia).** V skutočnosti žiadateľ vypĺňa ŽoNFP v ITMS21+:
+  štruktúrovaný formulár a prílohy nahraté k jednotlivým podmienkam, potom žiadosť odošle a formálne podá
+  elektronicky do e-schránky poskytovateľa (alebo listinne). Poskytovateľ ju administruje tiež v ITMS21+.
+  Tento softvér **nie je napojený na ITMS21+**. Verejné API vracia iba formulár, prílohy nie. Spis
+  v podateľni preto predstavuje lokálny export žiadosti a jej príloh, ktorý kontrolór nahrá ručne alebo
+  skriptom `npm run podanie -- <priečinok|zip> [--posud]`.
+- **Príjem.** `POST /api/podatelna/spisy` prijme súbory v base64 a ZIP rozbalí. Text vytiahne z PDF, DOCX,
+  XLSX/XLSM a TXT a súbory uloží do `data/spisy/<spis>/` (mimo gitu). Formulár žiadosti je JSON: buď
+  štruktúrovaný tvar, alebo surový detail z API ITMS21+, alebo `{"kodItms": "NFP…"}`.
+- **Záväzný zošit Prílohy č. 8.** Príloha č. 8 sa predkladá ako zošit MS Excel podľa vzoru výzvy. P08 preto
+  nestačí, že príloha má text, ani PDF či DOCX v tom istom slote. Overuje sa po bunkách originálu
+  (hárok „Rozpočet B1 - Value for Money“): žiadateľ B9 a projekt B10 sa musia po normalizácii zhodovať
+  s formulárom a aspoň jeden riadok musí mať počet, cenu a kladnú „Cenu celkom bez DPH“. Inak výsledok je
+  chýba podklad (prázdny vzor) alebo na preverenie (cudzí zošit). „Splnené“ znamená len prítomnosť
+  vyplneného vzoru tejto žiadosti, nie vecnú správnosť rozpočtu. Demo zošity vypĺňa a prepočíta skutočný
+  Excel (`scripts/lib/priloha8.ts`, makrá vypnuté), aby uložené hodnoty vzorcov boli tie, ktoré vidí hodnotiteľ.
 - **Zaradenie príloh.** Číslo v názve súboru (`Priloha_3_…`) sa berie ako vyhlásenie žiadateľa, rovnako ako
   slot v ITMS21+. Súbor bez čísla softvér zaradí podľa kľúčových slov, najprv z názvu, potom z obsahu. Je to
   len **odhad**: kým ho kontrolór nepotvrdí, pravidlo prílohy je „na preverenie“. Stačí jeden odhadnutý súbor
@@ -97,7 +109,7 @@ src/ingest/dokument.ts         DOCX / PDF / TXT / ZIP -> text
 src/podatelna/podatelna.ts     podateľňa: spisy, súbory, zaradenie príloh, rozhodnutia, štatistika výziev
 src/server/server.ts           HTTP API + statické rozhranie (node:http, node:sqlite)
 web/                           rozhranie (HTML + JS bez frameworku; podatelna.js, ui.js = spoločné vykreslenie)
-scripts/                       stiahnutie dát, normalizácia, testy, demo podania (10), simulácia hooku (11)
+scripts/                       stiahnutie dát, normalizácia, testy, demo podania (10), lokálny príjem podania (11), Príloha 8 cez Excel (lib/priloha8.ts)
 demo/podania/                  ukážkové podania žiadostí a postup pre demo
 data/zdroje/                   stiahnuté dokumenty výzvy a zoznamy rozhodnutí (zdroj pravdy pre pravidlá)
 data/odvodene/                 normalizované žiadosti s výsledkom a dôvodom
