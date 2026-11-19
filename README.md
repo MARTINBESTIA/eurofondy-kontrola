@@ -200,7 +200,7 @@ výška NFP (2 neschválené, 3 zastavené, 0 vyhovujúcich). Väčšinu zamietn
 | Reálne popisy žiadostí, ktoré podmienky splnili (pravidlo L07) | 60 | 45 splnené, 3 nesprávne „nesplnené“, 12 na preverenie |
 | Reálne popisy žiadostí neschválených pre nesplnenie podmienok | 30 | 24 splnené, 1 nesplnené, 5 na preverenie |
 | Vymyslené popisy neoprávnených budov | 20 | 20 správne „nesplnené“ |
-| Chybné plnomocenstvá, jedna otázka na dokument | 20 | 2 správne, 18 nesprávne „splnené“ |
+| Chybné plnomocenstvá, jedna otázka na dokument | 20 | 1 až 2 správne, 18 až 19 nesprávne „splnené“ (dva behy) |
 | Chybné plnomocenstvá, každá náležitosť zvlášť so vzorom | 20 | 20 správne, vždy presne vynechaná náležitosť |
 | Úplné plnomocenstvá, každá náležitosť zvlášť | 5 | 5 „na preverenie“ (podpis treba pozrieť), ako má byť |
 | Chybné plnomocenstvá s inými formuláciami | 8 | 8 „nesplnené“, ale pri 5 softvér hlási aj náležitosti, ktoré v dokumente sú |
@@ -214,6 +214,14 @@ výška NFP (2 neschválené, 3 zastavené, 0 vyhovujúcich). Väčšinu zamietn
   „V Starej Turej, 3. marca 2025“ ani podpis bez slova „podpis“.
 - Vzory náležitostí boli ladené na dokumentoch z piateho riadku tabuľky, preto je ten výsledok optimistický.
   Skutočnú mieru ukážu až reálne dokumenty.
+- Opakovaný beh plnomocenstiev 19. 11. 2026 po pridaní `vzorOkolie` (pri podpise smie vzor sedieť aj o riadok
+  vedľa citovaného úryvku) dal rovnaké čísla v riadkoch 4 až 8:
+  - žiadny nový falošný OK;
+  - falošné poplachy pri iných formuláciách sa nezmenili (5 z 8 chybných, 1 z 2 úplných), lebo ich príčina je
+    iná: meno splnomocnenca a dátum v nezvyčajnej formulácii.
+
+  `vzorOkolie` odstránilo falošný poplach v demo podaní B z Podateľne, kde model citoval meno pod čiarou na
+  podpis namiesto riadku s podpisom.
 - Jedna kontrola textu trvá asi 5 s, plnomocenstvo so šiestimi náležitosťami asi 25 s. Platí to s celým
   modelom na grafickej karte (`num_gpu: 99`); pri automatickom rozdelení to bolo 17 až 20 s na kontrolu.
 

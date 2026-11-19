@@ -1,22 +1,35 @@
 {
- "cas": "2026-11-19T21:48:03.444Z",
+ "cas": "2026-11-19T22:07:42.761Z",
  "model": "qwen3.5:9b",
- "trvanieMs": 51,
+ "trvanieMs": 1172723,
  "casti": [
   {
+   "kod": "P11u",
    "modul": "zop",
    "nazov": "Faktúra úplná (P11)",
+   "nove": false,
    "n": 3,
-   "splnene": 2,
-   "nesplnene": 1,
+   "splnene": 3,
+   "nesplnene": 0,
    "na_preverenie": 0,
    "ine": 0,
    "falosneOk": null,
-   "msPriemer": 55069,
-   "chyby": [
-    "faktúra 3: nesplnené – V dokumente sa nenašlo: uplatnená sadzba dane alebo oslobodenie od dane. (zdroj: príloha č. faktura (faktura.txt))"
-   ],
-   "cas": "2026-11-15T15:01:39.162Z"
+   "presne": null,
+   "nezachytene": [],
+   "msPriemer": 23231,
+   "chyby": [],
+   "cas": "2026-11-19T21:48:10.082Z",
+   "historia": [
+    {
+     "cas": "2026-11-15T15:01:39.162Z",
+     "n": 3,
+     "splnene": 2,
+     "nesplnene": 1,
+     "na_preverenie": 0,
+     "falosneOk": null,
+     "presne": null
+    }
+   ]
   },
   {
    "modul": "zop",
@@ -44,12 +57,23 @@
    "falosneOk": null,
    "presne": null,
    "nezachytene": [],
-   "msPriemer": 50643,
+   "msPriemer": 29217,
    "chyby": [
-    "nová faktúra 1: nesplnené – V dokumente sa nenašlo: množstvo a druh dodaného tovaru alebo rozsah a druh služby. (zdroj: príloha č. faktura (faktura.txt))",
+    "nová faktúra 1: nesplnené – V dokumente sa nenašlo: množstvo a druh dodaného tovaru alebo rozsah a druh služby; základ dane alebo cena bez DPH (nie samotná daň ani celková suma). (zdroj: príloha č. faktura (faktura.txt))",
     "nová faktúra 2: nesplnené – V dokumente sa nenašlo: poradové číslo faktúry. (zdroj: príloha č. faktura (faktura.txt))"
    ],
-   "cas": "2026-11-19T21:10:47.674Z"
+   "cas": "2026-11-19T21:49:19.783Z",
+   "historia": [
+    {
+     "cas": "2026-11-19T21:10:47.674Z",
+     "n": 2,
+     "splnene": 0,
+     "nesplnene": 2,
+     "na_preverenie": 0,
+     "falosneOk": null,
+     "presne": null
+    }
+   ]
   },
   {
    "kod": "P11nc",
@@ -168,17 +192,32 @@
    "cas": "2026-11-19T21:31:45.838Z"
   },
   {
+   "kod": "V07u",
    "modul": "vo",
    "nazov": "Záznam zo zadania zákazky úplný (V07)",
+   "nove": false,
    "n": 3,
    "splnene": 0,
    "nesplnene": 0,
    "na_preverenie": 3,
    "ine": 0,
    "falosneOk": null,
-   "msPriemer": 24444,
+   "presne": null,
+   "nezachytene": [],
+   "msPriemer": 23610,
    "chyby": [],
-   "cas": "2026-11-15T15:01:39.162Z"
+   "cas": "2026-11-19T21:50:18.224Z",
+   "historia": [
+    {
+     "cas": "2026-11-15T15:01:39.162Z",
+     "n": 3,
+     "splnene": 0,
+     "nesplnene": 0,
+     "na_preverenie": 3,
+     "falosneOk": null,
+     "presne": null
+    }
+   ]
   },
   {
    "kod": "V07c",
@@ -187,20 +226,15 @@
    "nove": false,
    "n": 18,
    "splnene": 0,
-   "nesplnene": 14,
-   "na_preverenie": 4,
+   "nesplnene": 18,
+   "na_preverenie": 0,
    "ine": 0,
    "falosneOk": 0,
-   "presne": 14,
-   "nezachytene": [
-    "záznam 1 bez „cena“: na preverenie, model namiesto chýbajúcej náležitosti uviedol „Ponuky predložili: STAVMONT Prešov, s.r.o. (39 980,00 EUR bez DPH); Stavby Sever s.r.o. (42 115,00 EUR bez DPH)“",
-    "záznam 2 bez „phz“: na preverenie, model namiesto chýbajúcej náležitosti uviedol „Konečná zmluvná cena: 47 210,00 EUR bez DPH“",
-    "záznam 2 bez „uchadzaci“: na preverenie, model namiesto chýbajúcej náležitosti uviedol „Oslovené hospodárske subjekty: Energie Plus a.s.; Stavby Sever s.r.o.; Montáže Východ, s.r.o.; výzva na predloženie ponuky odoslaná 03.02",
-    "záznam 2 bez „cena“: na preverenie, model namiesto chýbajúcej náležitosti uviedol „Ponuky predložili: Energie Plus a.s. (47 210,00 EUR bez DPH); Stavby Sever s.r.o. (49 800,00 EUR bez DPH)“"
-   ],
-   "msPriemer": 24658,
+   "presne": 18,
+   "nezachytene": [],
+   "msPriemer": 24749,
    "chyby": [],
-   "cas": "2026-11-19T21:34:38.564Z",
+   "cas": "2026-11-19T21:51:29.056Z",
    "historia": [
     {
      "cas": "2026-11-15T15:01:39.162Z",
@@ -210,8 +244,58 @@
      "na_preverenie": 3,
      "falosneOk": 0,
      "presne": null
+    },
+    {
+     "cas": "2026-11-19T21:34:38.564Z",
+     "n": 18,
+     "splnene": 0,
+     "nesplnene": 14,
+     "na_preverenie": 4,
+     "falosneOk": 0,
+     "presne": 14
     }
    ]
+  },
+  {
+   "kod": "V07nu",
+   "modul": "vo",
+   "nazov": "Nový záznam úplný (V07)",
+   "nove": true,
+   "n": 2,
+   "splnene": 0,
+   "nesplnene": 2,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": null,
+   "presne": null,
+   "nezachytene": [],
+   "msPriemer": 29084,
+   "chyby": [
+    "nový záznam 1: nesplnené – V dokumente sa nenašlo: identifikácia úspešného uchádzača. (zdroj: príloha č. zaznam (zaznam.txt))",
+    "nový záznam 2: nesplnené – V dokumente sa nenašlo: zoznam uchádzačov, ktorí predložili ponuku; meno, funkcia, dátum a podpis zodpovednej osoby. (zdroj: príloha č. zaznam (zaznam.txt))"
+   ],
+   "cas": "2026-11-19T21:58:54.541Z"
+  },
+  {
+   "kod": "V07nc",
+   "modul": "vo",
+   "nazov": "Nový záznam bez jednej náležitosti (V07)",
+   "nove": true,
+   "n": 18,
+   "splnene": 0,
+   "nesplnene": 18,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": 0,
+   "presne": 15,
+   "nezachytene": [
+    "nový záznam 1 bez „phz“: nesplnené, model namiesto chýbajúcej náležitosti uviedol „Zmluva o dielo bola uzavretá 09.02.2026 na sumu 44 870,00 EUR bez DPH.“",
+    "nový záznam 1 bez „uchadzaci“: nesplnené, model namiesto chýbajúcej náležitosti uviedol „Výzva na predloženie cenovej ponuky bola 12.01.2026 zaslaná e-mailom týmto subjektom: ELTECH Košice s.r.o., Svetlo Plus s.r.o., VO-Light ",
+    "nový záznam 2 bez „cena“: nesplnené, model namiesto chýbajúcej náležitosti uviedol „Prijaté ponuky: 1. Zelená strecha, s. r. o. – 46 125,00 EUR s DPH; 2. Strechy Hron s.r.o. – 48 708,00 EUR s DPH; 3. GreenRoof SK s.r.o. –"
+   ],
+   "msPriemer": 26113,
+   "chyby": [],
+   "cas": "2026-11-19T21:59:52.711Z"
   },
   {
    "kod": "Z08u",

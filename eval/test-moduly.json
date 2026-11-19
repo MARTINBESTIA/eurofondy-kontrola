@@ -1,11 +1,11 @@
 {
- "cas": "2026-11-19T21:56:26.939Z",
+ "cas": "2026-11-19T22:35:04.997Z",
  "dnes": "2026-11-19",
  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
  "moduly": {
   "vyzvy": {
    "pripadov": 186,
-   "trvanieMs": 18,
+   "trvanieMs": 25,
    "navrhy": {
     "ciastocne_overene": 65,
     "nesplnene_podmienky": 33,
@@ -133,7 +133,7 @@
   },
   "zonfp": {
    "pripadov": 799,
-   "trvanieMs": 164,
+   "trvanieMs": 161,
    "navrhy": {
     "ciastocne_overene": 615,
     "nesplnene_podmienky": 58,
@@ -332,7 +332,7 @@
   },
   "vo": {
    "pripadov": 659,
-   "trvanieMs": 99,
+   "trvanieMs": 111,
    "navrhy": {
     "na_preverenie": 276,
     "ciastocne_overene": 382,
@@ -477,7 +477,7 @@
   },
   "zmeny": {
    "pripadov": 2336,
-   "trvanieMs": 459,
+   "trvanieMs": 526,
    "navrhy": {
     "na_preverenie": 1307,
     "ciastocne_overene": 1029
@@ -685,7 +685,7 @@
   },
   "zop": {
    "pripadov": 1362,
-   "trvanieMs": 749,
+   "trvanieMs": 852,
    "navrhy": {
     "ciastocne_overene": 1046,
     "na_preverenie": 315,
@@ -940,7 +940,7 @@
   },
   "ukazovatele": {
    "pripadov": 242,
-   "trvanieMs": 6,
+   "trvanieMs": 5,
    "navrhy": {
     "na_preverenie": 242
    },
@@ -1185,5 +1185,5 @@
    ]
   }
  },
- "trvanieMs": 5772
+ "trvanieMs": 5668
 }
