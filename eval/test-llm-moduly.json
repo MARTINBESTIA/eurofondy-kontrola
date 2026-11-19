@@ -1,0 +1,312 @@
+{
+ "cas": "2026-11-19T21:48:03.444Z",
+ "model": "qwen3.5:9b",
+ "trvanieMs": 51,
+ "casti": [
+  {
+   "modul": "zop",
+   "nazov": "Faktúra úplná (P11)",
+   "n": 3,
+   "splnene": 2,
+   "nesplnene": 1,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": null,
+   "msPriemer": 55069,
+   "chyby": [
+    "faktúra 3: nesplnené – V dokumente sa nenašlo: uplatnená sadzba dane alebo oslobodenie od dane. (zdroj: príloha č. faktura (faktura.txt))"
+   ],
+   "cas": "2026-11-15T15:01:39.162Z"
+  },
+  {
+   "modul": "zop",
+   "nazov": "Faktúra bez jednej náležitosti (P11)",
+   "n": 30,
+   "splnene": 0,
+   "nesplnene": 30,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": 0,
+   "msPriemer": 40090,
+   "chyby": [],
+   "cas": "2026-11-15T15:01:39.162Z"
+  },
+  {
+   "kod": "P11nu",
+   "modul": "zop",
+   "nazov": "Nová faktúra úplná (P11)",
+   "nove": true,
+   "n": 2,
+   "splnene": 0,
+   "nesplnene": 2,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": null,
+   "presne": null,
+   "nezachytene": [],
+   "msPriemer": 50643,
+   "chyby": [
+    "nová faktúra 1: nesplnené – V dokumente sa nenašlo: množstvo a druh dodaného tovaru alebo rozsah a druh služby. (zdroj: príloha č. faktura (faktura.txt))",
+    "nová faktúra 2: nesplnené – V dokumente sa nenašlo: poradové číslo faktúry. (zdroj: príloha č. faktura (faktura.txt))"
+   ],
+   "cas": "2026-11-19T21:10:47.674Z"
+  },
+  {
+   "kod": "P11nc",
+   "modul": "zop",
+   "nazov": "Nová faktúra bez jednej náležitosti (P11)",
+   "nove": true,
+   "n": 20,
+   "splnene": 1,
+   "nesplnene": 19,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": 1,
+   "presne": 18,
+   "nezachytene": [
+    "nová faktúra 1 bez „zaklad“: splnené, model namiesto chýbajúcej náležitosti uviedol „Označenie dodávky | Množstvo | MJ | Cena za MJ bez DPH | Spolu bez DPH",
+    "nová faktúra 2 bez „zaklad“: nesplnené, model namiesto chýbajúcej náležitosti uviedol „Označenie dodávky | Množstvo | MJ | Cena za MJ bez DPH | Spolu bez DPH"
+   ],
+   "msPriemer": 44249,
+   "chyby": [
+    "nová faktúra 1 bez „zaklad“: splnené – Všetkých 10 náležitostí sa v dokumente našlo. (zdroj: príloha č. faktura (faktura.txt))"
+   ],
+   "cas": "2026-11-19T21:12:28.964Z"
+  },
+  {
+   "kod": "P12u",
+   "modul": "zop",
+   "nazov": "Výpis z účtu úplný (P12)",
+   "nove": false,
+   "n": 3,
+   "splnene": 3,
+   "nesplnene": 0,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": null,
+   "presne": null,
+   "nezachytene": [],
+   "msPriemer": 14779,
+   "chyby": [],
+   "cas": "2026-11-19T21:27:13.954Z",
+   "historia": [
+    {
+     "cas": "2026-11-15T15:01:39.162Z",
+     "n": 3,
+     "splnene": 3,
+     "nesplnene": 0,
+     "na_preverenie": 0,
+     "falosneOk": null,
+     "presne": null
+    }
+   ]
+  },
+  {
+   "kod": "P12c",
+   "modul": "zop",
+   "nazov": "Výpis z účtu bez jednej náležitosti (P12)",
+   "nove": false,
+   "n": 12,
+   "splnene": 0,
+   "nesplnene": 12,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": 0,
+   "presne": 12,
+   "nezachytene": [],
+   "msPriemer": 15202,
+   "chyby": [],
+   "cas": "2026-11-19T21:27:58.309Z",
+   "historia": [
+    {
+     "cas": "2026-11-15T15:01:39.162Z",
+     "n": 12,
+     "splnene": 6,
+     "nesplnene": 6,
+     "na_preverenie": 0,
+     "falosneOk": 6,
+     "presne": null
+    }
+   ]
+  },
+  {
+   "kod": "P12nu",
+   "modul": "zop",
+   "nazov": "Nový výpis úplný (P12)",
+   "nove": true,
+   "n": 3,
+   "splnene": 0,
+   "nesplnene": 3,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": null,
+   "presne": null,
+   "nezachytene": [],
+   "msPriemer": 15025,
+   "chyby": [
+    "nový výpis 1: nesplnené – V doklade o úhrade sa nenašlo: suma odpísaná z účtu.",
+    "nový výpis 2: nesplnené – V doklade o úhrade sa nenašlo: suma odpísaná z účtu.",
+    "nový výpis 3: nesplnené – V doklade o úhrade sa nenašlo: číslo účtu alebo IBAN majiteľa účtu (prijímateľa), nie účet protistrany; suma odpísaná z účtu."
+   ],
+   "cas": "2026-11-19T21:31:00.750Z"
+  },
+  {
+   "kod": "P12nc",
+   "modul": "zop",
+   "nazov": "Nový výpis bez jednej náležitosti (P12)",
+   "nove": true,
+   "n": 12,
+   "splnene": 0,
+   "nesplnene": 12,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": 0,
+   "presne": 12,
+   "nezachytene": [],
+   "msPriemer": 14393,
+   "chyby": [],
+   "cas": "2026-11-19T21:31:45.838Z"
+  },
+  {
+   "modul": "vo",
+   "nazov": "Záznam zo zadania zákazky úplný (V07)",
+   "n": 3,
+   "splnene": 0,
+   "nesplnene": 0,
+   "na_preverenie": 3,
+   "ine": 0,
+   "falosneOk": null,
+   "msPriemer": 24444,
+   "chyby": [],
+   "cas": "2026-11-15T15:01:39.162Z"
+  },
+  {
+   "kod": "V07c",
+   "modul": "vo",
+   "nazov": "Záznam bez jednej náležitosti (V07)",
+   "nove": false,
+   "n": 18,
+   "splnene": 0,
+   "nesplnene": 14,
+   "na_preverenie": 4,
+   "ine": 0,
+   "falosneOk": 0,
+   "presne": 14,
+   "nezachytene": [
+    "záznam 1 bez „cena“: na preverenie, model namiesto chýbajúcej náležitosti uviedol „Ponuky predložili: STAVMONT Prešov, s.r.o. (39 980,00 EUR bez DPH); Stavby Sever s.r.o. (42 115,00 EUR bez DPH)“",
+    "záznam 2 bez „phz“: na preverenie, model namiesto chýbajúcej náležitosti uviedol „Konečná zmluvná cena: 47 210,00 EUR bez DPH“",
+    "záznam 2 bez „uchadzaci“: na preverenie, model namiesto chýbajúcej náležitosti uviedol „Oslovené hospodárske subjekty: Energie Plus a.s.; Stavby Sever s.r.o.; Montáže Východ, s.r.o.; výzva na predloženie ponuky odoslaná 03.02",
+    "záznam 2 bez „cena“: na preverenie, model namiesto chýbajúcej náležitosti uviedol „Ponuky predložili: Energie Plus a.s. (47 210,00 EUR bez DPH); Stavby Sever s.r.o. (49 800,00 EUR bez DPH)“"
+   ],
+   "msPriemer": 24658,
+   "chyby": [],
+   "cas": "2026-11-19T21:34:38.564Z",
+   "historia": [
+    {
+     "cas": "2026-11-15T15:01:39.162Z",
+     "n": 18,
+     "splnene": 0,
+     "nesplnene": 15,
+     "na_preverenie": 3,
+     "falosneOk": 0,
+     "presne": null
+    }
+   ]
+  },
+  {
+   "kod": "Z08u",
+   "modul": "zmeny",
+   "nazov": "Odôvodnenie zmeny úplné (Z08)",
+   "nove": false,
+   "n": 3,
+   "splnene": 2,
+   "nesplnene": 1,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": null,
+   "presne": null,
+   "nezachytene": [],
+   "msPriemer": 7504,
+   "chyby": [
+    "odôvodnenie 2: nesplnené – V dokumente sa nenašlo: dopad (vplyv) zmeny na ciele, aktivity, merateľné ukazovatele alebo rozpočet projektu. (zdroj: odôvodnenie OoZ/ŽoZZ)"
+   ],
+   "cas": "2026-11-19T21:42:02.416Z",
+   "historia": [
+    {
+     "cas": "2026-11-15T15:01:39.162Z",
+     "n": 3,
+     "splnene": 3,
+     "nesplnene": 0,
+     "na_preverenie": 0,
+     "falosneOk": null,
+     "presne": null
+    }
+   ]
+  },
+  {
+   "kod": "Z08c",
+   "modul": "zmeny",
+   "nazov": "Odôvodnenie bez dôvodu alebo dopadu (Z08)",
+   "nove": false,
+   "n": 6,
+   "splnene": 0,
+   "nesplnene": 6,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": 0,
+   "presne": 6,
+   "nezachytene": [],
+   "msPriemer": 8563,
+   "chyby": [],
+   "cas": "2026-11-19T21:42:24.930Z",
+   "historia": [
+    {
+     "cas": "2026-11-15T15:01:39.162Z",
+     "n": 6,
+     "splnene": 2,
+     "nesplnene": 4,
+     "na_preverenie": 0,
+     "falosneOk": 2,
+     "presne": null
+    }
+   ]
+  },
+  {
+   "kod": "Z08nu",
+   "modul": "zmeny",
+   "nazov": "Nové odôvodnenie úplné (Z08)",
+   "nove": true,
+   "n": 4,
+   "splnene": 2,
+   "nesplnene": 2,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": null,
+   "presne": null,
+   "nezachytene": [],
+   "msPriemer": 8229,
+   "chyby": [
+    "nové odôvodnenie 1: nesplnené – V dokumente sa nenašlo: dôvod, prečo k zmene dochádza. (zdroj: odôvodnenie OoZ/ŽoZZ)",
+    "nové odôvodnenie 4: nesplnené – V dokumente sa nenašlo: dôvod, prečo k zmene dochádza. (zdroj: odôvodnenie OoZ/ŽoZZ)"
+   ],
+   "cas": "2026-11-19T21:43:16.308Z"
+  },
+  {
+   "kod": "Z08nc",
+   "modul": "zmeny",
+   "nazov": "Nové odôvodnenie bez dôvodu alebo dopadu (Z08)",
+   "nove": true,
+   "n": 8,
+   "splnene": 0,
+   "nesplnene": 8,
+   "na_preverenie": 0,
+   "ine": 0,
+   "falosneOk": 0,
+   "presne": 8,
+   "nezachytene": [],
+   "msPriemer": 8554,
+   "chyby": [],
+   "cas": "2026-11-19T21:43:49.225Z"
+  }
+ ]
+}
