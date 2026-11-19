@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { nacitajBalik, posud } from '../src/core/posud.ts';
+import { zonfp } from '../src/moduly/zonfp/modul.ts';
 import type { Ziadost, Stav } from '../src/core/typy.ts';
 
 const kodVyzvy = process.argv[2] ?? 'PSK-SIEA-002-2023-DV-EFRR';
@@ -26,7 +27,7 @@ const priklady: { kod: string; skupina: string; pravidlo: string; zdovodnenie: s
 const t0 = Date.now();
 for (const z of ziadosti) {
   const g = skupina(z); pocetSkupin[g]++;
-  const p = await posud(z, balik, { llm: false });
+  const p = await posud(z, balik, zonfp, { llm: false });
   let nesplnene = false;
   for (const n of p.nalezy.filter((x) => x.druh === 'data')) {
     ((poPravidlach[n.pravidlo] ??= {})[g] ??= {} as Record<Stav, number>)[n.stav] = (poPravidlach[n.pravidlo][g][n.stav] ?? 0) + 1;

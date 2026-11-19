@@ -1,0 +1,264 @@
+{
+ "id": "PSK-SIEA-002-2023-DV-EFRR/zop",
+ "modul": "zop",
+ "vyzvaKod": "PSK-SIEA-002-2023-DV-EFRR",
+ "vyzvaNazov": "Výzva na podporu energetickej efektívnosti a využívania OZE vo verejných budovách",
+ "poskytovatel": "Slovenská inovačná a energetická agentúra (sprostredkovateľský orgán pre Program Slovensko)",
+ "verzia": "VZP verzia 2.2; Príručka pre prijímateľa DOP verzia 3.2 (1. 6. 2026); Príručka k procesu VO/O verzia 2 (1. 8. 2024)",
+ "platnaOd": "2026-06-01",
+ "zdroje": [
+  {
+   "nazov": "Vzor zmluvy o NFP, príloha č. 1 VZP, verzia 2.2",
+   "subor": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+   "url": ""
+  },
+  {
+   "nazov": "Príručka pre prijímateľa DOP, verzia 3.2, kap. 4.6 a 4.7",
+   "subor": "data/zdroje/SIEA-prirucka-DOP-3.2/prirucka-DOP-3.2.pdf",
+   "url": ""
+  },
+  {
+   "nazov": "Príručka k procesu a kontrole VO/O, verzia 2",
+   "subor": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
+   "url": ""
+  },
+  {
+   "nazov": "ŽoP, výdavky a účtovné doklady projektov výzvy",
+   "subor": "data/odvodene/PSK-SIEA-002-2023-DV-EFRR/zop.json",
+   "url": "https://api.itms21.sk/public/v1/zop"
+  }
+ ],
+ "proces": [
+  "Prijímateľ predloží ŽoP (refundácia, predfinancovanie alebo zúčtovanie) so zoznamom deklarovaných výdavkov a podpornou dokumentáciou.",
+  "Poskytovateľ vykoná administratívnu finančnú kontrolu ŽoP: oprávnenosť výdavkov, doklady, súlad s VO a rozpočtom.",
+  "Neoprávnené sumy sa z ŽoP vylúčia, oprávnené sa schvália a uhradia."
+ ],
+ "pravidla": [
+  {
+   "id": "P01",
+   "ppp": null,
+   "nazov": "Výdavky vznikli počas realizácie hlavných aktivít a boli uhradené do 31. 12. 2029",
+   "druh": "data",
+   "kontrola": "zop_obdobie",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 ods. 1 písm. a) a b)",
+    "znenie": "vznikli počas Realizácie hlavných aktivít Projektu (od Začatia realizácie hlavných aktivít Projektu do Ukončenia realizácie hlavných aktivít Projektu) na realizáciu Projektu (nutná existencia priameho spojenia s Projektom) v rámci oprávneného časového obdobia stanoveného vo Výzve, najskôr 1. januárom 2021 a boli uhradené najneskôr 31. decembra 2029"
+   },
+   "overenieZdroj": "Dátum vzniku = dátum vyhotovenia účtovného dokladu v ITMS21+; podporné aktivity najneskôr 3 mesiace po ukončení hlavných aktivít (čl. 15 ods. 1 písm. b)."
+  },
+  {
+   "id": "P02",
+   "ppp": null,
+   "nazov": "Žiadané sumy neprevyšujú výdavok ani účtovný doklad",
+   "druh": "data",
+   "kontrola": "zop_sumy",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 ods. 1",
+    "znenie": "sú identifikovateľné, preukázateľné a sú doložené Účtovnými dokladmi, ktoré sú riadne evidované u Prijímateľa v súlade s Právnymi predpismi SR"
+   }
+  },
+  {
+   "id": "P03",
+   "ppp": null,
+   "nazov": "Ten istý doklad nie je nárokovaný v ŽoP viackrát nad svoju hodnotu",
+   "druh": "data",
+   "kontrola": "zop_duplicita",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.4 Oprávnenosť výdavkov",
+    "znenie": "Za oprávnené nemožno považovať ani také výdavky, ktoré by predstavovali dvojité financovanie."
+   },
+   "overenieZdroj": "Porovnanie všetkých ŽoP projektov výzvy v ITMS21+; refundácia a predfinancovanie sa sčítavajú, zúčtovanie predfinancovania sa počíta osobitne."
+  },
+  {
+   "id": "P04",
+   "ppp": null,
+   "nazov": "DPH sa žiada len bez nároku na odpočet a len od platiteľa DPH",
+   "druh": "data",
+   "kontrola": "zop_dph",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.7, DPH",
+    "znenie": "Daň z pridanej hodnoty (ďalej aj „DPH“) je neoprávneným výdavkom okrem prípadov, kedy nie je možné nárokovať jej odpočet podľa platnej legislatívy SR. DPH nie je oprávneným výdavkom v prípade, že Prijímateľ má nárok na jej odpočet na vstupe."
+   }
+  },
+  {
+   "id": "P05",
+   "ppp": null,
+   "nazov": "Výpočet DPH v položkách dokladov sedí",
+   "druh": "data",
+   "kontrola": "zop_dph_vypocet",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.7, náležitosti daňových dokladov podľa § 74 zákona o DPH",
+    "znenie": "základ dane pre každú sadzbu dane, jednotkovú cenu bez dane a zľavy a rabaty, ak nie sú obsiahnuté v jednotkovej cene"
+   }
+  },
+  {
+   "id": "P06",
+   "ppp": null,
+   "nazov": "Výdavky z externých dokladov majú priradené VO",
+   "druh": "data",
+   "kontrola": "zop_vo_vazba",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 ods. 1",
+    "znenie": "v záveroch z kontroly Verejného obstarávania bolo skonštatované, že je možné výdavky pripustiť do financovania, ak relevantné"
+   }
+  },
+  {
+   "id": "P07",
+   "ppp": null,
+   "nazov": "Kontrola VO prebehla pred zahrnutím výdavkov do ŽoP",
+   "druh": "data",
+   "kontrola": "zop_vo_kontrola",
+   "citacia": {
+    "dokument": "Príručka k procesu a kontrole VO/O, verzia 2",
+    "cast": "Definovanie kontrol VO, tabuľka druhov kontrol",
+    "znenie": "Po uzavretí zmluvy s úspešným uchádzačom, pred predložením výdavkov v rámci ŽoP a po schválení príspevku z prostriedkov EÚ"
+   },
+   "overenieZdroj": "Či je kontrola po uzavretí zmluvy povinná, závisí od postupu, PHZ a druhu obstarávateľa (tabuľka v príručke VO); hranica 50 000 EUR."
+  },
+  {
+   "id": "P08",
+   "ppp": null,
+   "nazov": "Nárokované výdavky neprevyšujú zmluvu z VO",
+   "druh": "data",
+   "kontrola": "zop_vo_zmluva",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.13.5, poznámka 71",
+    "znenie": "Platí, že Prijímateľ je povinný predložiť Poskytovateľovi na kontrolu všetky dodatky súvisiace s výsledkom VO alebo výsledkom obstarávania po ich podpise."
+   },
+   "overenieZdroj": "Suma zmluvy z ITMS21+ (zmluvyVO.celkovaSumaZmluvy); keďže nie je isté, či je s DPH, hlási sa až prekročenie o viac ako 23 %."
+  },
+  {
+   "id": "P09",
+   "ppp": null,
+   "nazov": "Hotovostné platby v limitoch",
+   "druh": "data",
+   "kontrola": "zop_hotovost",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.7, poznámka 37",
+    "znenie": "Hotovostné platby zahŕňajúce výdavky na obstaranie dlhodobého majetku, vrátane výdavkov súvisiacich s obstaraním tohto majetku, nie sú oprávnené. V prípade úhrad spotrebného materiálu sú výdavky uhrádzané v hotovosti oprávnené, ak hotovostné platby jednotlivo neprekročia sumu 500,00 EUR, pričom max. hodnota realizovaných úhrad v hotovosti v jednom mesiaci nepresiahne 1 500,00 EUR."
+   }
+  },
+  {
+   "id": "P10",
+   "ppp": null,
+   "nazov": "Povinné dokumenty podľa typu ŽoP a výdavkov sú priložené",
+   "druh": "priloha",
+   "kontrola": "zop_prilohy",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.7 Podporná dokumentácia k ŽoP, Stavebné práce",
+    "znenie": "súpis vykonaných prác a dodávok (predkladá sa aj elektronicky vo formáte .xls/.xlsx) tvorí prílohu každej faktúry vystavenej zhotoviteľom"
+   }
+  },
+  {
+   "id": "P11",
+   "ppp": null,
+   "nazov": "Faktúra má náležitosti daňového dokladu podľa § 74 zákona o DPH",
+   "druh": "llm",
+   "kontrola": "llm_text",
+   "parametre": {
+    "zdroj": "priloha",
+    "cislo": "faktura",
+    "akChyba": "mimo_podkladov",
+    "nalezitosti": [
+     {
+      "nazov": "obchodné meno a adresa dodávateľa (s PSČ)",
+      "vzor": "[0-9]{3} ?[0-9]{2}",
+      "nesmie": "odberate|príjemc"
+     },
+     {
+      "nazov": "identifikačné číslo pre daň (IČ DPH) dodávateľa",
+      "vzor": "SK ?[0-9]{10}",
+      "nesmie": "IBAN|ú[čc]et"
+     },
+     {
+      "nazov": "názov a adresa odberateľa (príjemcu), s PSČ",
+      "vzor": "[0-9]{3} ?[0-9]{2}",
+      "nesmie": "dodávate"
+     },
+     {
+      "nazov": "poradové číslo faktúry",
+      "vzor": "[0-9]",
+      "nesmie": "IČO|DIČ|IČ DPH|IBAN|PSČ|variabiln|\\bVS\\b"
+     },
+     {
+      "nazov": "dátum vyhotovenia faktúry",
+      "vzor": "[0-9]{1,2}[.] ?[0-9]{1,2}[.] ?[0-9]{4}",
+      "nesmie": "splatn|dodan|dodani"
+     },
+     {
+      "nazov": "dátum dodania tovaru alebo služby",
+      "vzor": "[0-9]{1,2}[.] ?[0-9]{1,2}[.] ?[0-9]{4}",
+      "nesmie": "splatn|vyhotov|vystav"
+     },
+     {
+      "nazov": "množstvo a druh dodaného tovaru alebo rozsah a druh služby",
+      "vzor": "[0-9]"
+     },
+     {
+      "nazov": "základ dane alebo cena bez DPH (nie samotná daň ani celková suma)",
+      "vzor": "^(?=[\\s\\S]*(základ|bez DPH|bez dane))(?=[\\s\\S]*[0-9][0-9 ]*[,.][0-9]{2})",
+      "nesmie": "celkom|k úhrade|^\\s*DPH\\b",
+      "nesmieRiadok": "za MJ|jednotk|množstvo|\\bMJ\\b"
+     },
+     {
+      "nazov": "uplatnená sadzba dane alebo oslobodenie od dane",
+      "vzor": "[0-9]{1,2} ?%|oslobod"
+     },
+     {
+      "nazov": "suma DPH v eurách (samotná daň, nie základ dane ani celková suma)",
+      "vzor": "[0-9][0-9 ]*[,.][0-9]{2}",
+      "nesmie": "základ|celkom|k úhrade|bez DPH"
+     }
+    ]
+   },
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.7 Náležitosti účtovných a daňových dokladov",
+    "znenie": "Účtovné doklady používané pre preukázanie oprávnenosti výdavkov musia spĺňať náležitosti daňových dokladov stanovených platným ustanovením § 74 zákona o DPH"
+   }
+  },
+  {
+   "id": "P12",
+   "ppp": null,
+   "nazov": "Doklad o úhrade je bankový výpis, nie výstup z internet bankingu",
+   "druh": "llm",
+   "kontrola": "zop_uhrada",
+   "parametre": {
+    "nalezitosti": [
+     {
+      "nazov": "označenie dokumentu ako výpis z účtu",
+      "vzor": "výpis z (bankového |bežného )?účtu|bankový výpis|výpis (č\\.|číslo)|account statement"
+     },
+     {
+      "nazov": "číslo účtu alebo IBAN majiteľa účtu (prijímateľa), nie účet protistrany",
+      "vzor": "SK[0-9]{2} ?[0-9]{4}|[0-9]{6,10}/[0-9]{4}",
+      "nesmieRiadok": "protistran|príjemc|dodávate|odberate|beneficient|v prospech|na účet"
+     },
+     {
+      "nazov": "dátum zaúčtovania alebo úhrady platby",
+      "vzor": "[0-9]{1,2}[.] ?[0-9]{1,2}[.] ?[0-9]{4}"
+     },
+     {
+      "nazov": "suma odpísaná z účtu",
+      "vzor": "[0-9][0-9 ]*[,.][0-9]{2}",
+      "nesmie": "zostatok"
+     }
+    ]
+   },
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.7, poznámka 34",
+    "znenie": "Doklad o úhrade z internet bankingu neakceptujeme."
+   }
+  }
+ ]
+}

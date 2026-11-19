@@ -1,0 +1,30 @@
+{
+ "id": "PSK/vyzvy",
+ "modul": "vyzvy",
+ "vyzvaKod": "PSK",
+ "vyzvaNazov": "Všetky výzvy a plánované výzvy Programu Slovensko 2021 – 2027",
+ "poskytovatel": "Vyhlasovatelia výziev Programu Slovensko (údaje ITMS21+)",
+ "verzia": "Údaje ITMS21+ k dátumu stiahnutia (data/odvodene/vyzvy.json)",
+ "platnaOd": "2026-11-14",
+ "zdroje": [
+  { "nazov": "Výzvy Programu Slovensko (stav, kolá, verzie)", "subor": "data/odvodene/vyzvy.json", "url": "https://api.itms21.sk/public/v1/vyzva" },
+  { "nazov": "Plánované výzvy a ich denné snímky", "subor": "data/odvodene/snimky-planovanych-vyziev/", "url": "https://api.itms21.sk/public/v1/planovanavyzva" }
+ ],
+ "proces": [
+  "Žiadateľ sleduje plánované výzvy a pripravuje prílohy s predstihom.",
+  "Po vyhlásení pracuje s poslednou verziou výzvy; zmeny výzvy môžu meniť podmienky aj termíny.",
+  "Žiadosť predkladá do uzávierky kola (uzavretá výzva) alebo priebežne do vyčerpania alokácie (otvorená výzva)."
+ ],
+ "pravidla": [
+  { "id": "C01", "ppp": null, "nazov": "Výzva je k dátumu predloženia otvorená", "druh": "data", "kontrola": "vyzva_stav",
+    "citacia": { "dokument": "ITMS21+ verejné API, výzva", "cast": "polia zrusena, pozastavenePredkladanieZonfp, uzavreta, datumVyhlasenia, datumUkoncenia", "znenie": "Údaj ITMS21+ (nie právny text): stav výzvy a jej časové ohraničenie." } },
+  { "id": "C02", "ppp": null, "nazov": "Po dátume predloženia existuje uzávierka", "druh": "data", "kontrola": "vyzva_kolo",
+    "citacia": { "dokument": "ITMS21+ verejné API, výzva", "cast": "posudzované obdobia (kolá) a ich uzávierky", "znenie": "Údaj ITMS21+ (nie právny text): uzávierky kôl výzvy." } },
+  { "id": "C03", "ppp": null, "nazov": "Príprava žiadosti sa stihne do uzávierky", "druh": "data", "kontrola": "vyzva_rezerva",
+    "citacia": { "dokument": "Plán žiadateľa", "cast": "dni prípravy a rezerva zadané používateľom", "znenie": "Výpočet: dni do najbližšej uzávierky mínus dni prípravy a rezerva." } },
+  { "id": "C04", "ppp": null, "nazov": "Žiadateľ pracuje s poslednou verziou výzvy", "druh": "data", "kontrola": "vyzva_verzia",
+    "citacia": { "dokument": "ITMS21+ verejné API, výzva", "cast": "verzie výzvy (číslo, dátum, dôvod zmeny)", "znenie": "Údaj ITMS21+ (nie právny text): zmeny výzvy po vyhlásení." } },
+  { "id": "C05", "ppp": null, "nazov": "Plánovaná výzva sa vyhlasuje v plánovanom termíne", "druh": "data", "kontrola": "vyzva_plan",
+    "citacia": { "dokument": "ITMS21+ verejné API, plánovaná výzva", "cast": "plánovaný dátum vyhlásenia, porovnanie denných snímok", "znenie": "Údaj ITMS21+ (nie právny text): plán vyhlásenia výzvy." } }
+ ]
+}

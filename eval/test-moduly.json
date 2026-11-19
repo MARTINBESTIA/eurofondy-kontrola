@@ -1,0 +1,1189 @@
+{
+ "cas": "2026-11-19T21:56:26.939Z",
+ "dnes": "2026-11-19",
+ "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
+ "moduly": {
+  "vyzvy": {
+   "pripadov": 186,
+   "trvanieMs": 18,
+   "navrhy": {
+    "ciastocne_overene": 65,
+    "nesplnene_podmienky": 33,
+    "na_preverenie": 87,
+    "bez_zisteni": 1
+   },
+   "pravidla": [
+    {
+     "id": "C01",
+     "nazov": "Výzva je k dátumu predloženia otvorená",
+     "pocty": {
+      "splnene": 164,
+      "nesplnene": 18,
+      "neuplatnuje_sa": 4
+     }
+    },
+    {
+     "id": "C02",
+     "nazov": "Po dátume predloženia existuje uzávierka",
+     "pocty": {
+      "splnene": 65,
+      "nesplnene": 33,
+      "na_preverenie": 84,
+      "neuplatnuje_sa": 4
+     }
+    },
+    {
+     "id": "C03",
+     "nazov": "Príprava žiadosti sa stihne do uzávierky",
+     "pocty": {
+      "mimo_podkladov": 182,
+      "neuplatnuje_sa": 4
+     }
+    },
+    {
+     "id": "C04",
+     "nazov": "Žiadateľ pracuje s poslednou verziou výzvy",
+     "pocty": {
+      "mimo_podkladov": 182,
+      "neuplatnuje_sa": 4
+     }
+    },
+    {
+     "id": "C05",
+     "nazov": "Plánovaná výzva sa vyhlasuje v plánovanom termíne",
+     "pocty": {
+      "neuplatnuje_sa": 182,
+      "na_preverenie": 3,
+      "splnene": 1
+     }
+    }
+   ],
+   "zasadene": [
+    {
+     "nazov": "Výzva zrušená",
+     "pravidlo": "C01",
+     "ocakavane": "nesplnene",
+     "n": 65,
+     "zachytene": 65,
+     "presne": 65,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 65
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Predloženie po skončení výzvy",
+     "pravidlo": "C01",
+     "ocakavane": "nesplnene",
+     "n": 61,
+     "zachytene": 61,
+     "presne": 61,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 61
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Príprava trvá dlhšie, ako ostáva do uzávierky",
+     "pravidlo": "C03",
+     "ocakavane": "nesplnene",
+     "n": 65,
+     "zachytene": 65,
+     "presne": 65,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 65
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Žiadateľ čítal starú verziu výzvy",
+     "pravidlo": "C04",
+     "ocakavane": "nesplnene",
+     "n": 91,
+     "zachytene": 91,
+     "presne": 91,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 91
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Plánovaná výzva po termíne nevyhlásená",
+     "pravidlo": "C05",
+     "ocakavane": "na_preverenie",
+     "n": 4,
+     "zachytene": 4,
+     "presne": 4,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 4
+     },
+     "priklady": []
+    }
+   ],
+   "poznamky": [
+    "Z 182 výziev má 91 aspoň dve datované verzie (zmenu po vyhlásení); žiadateľ, ktorý pracuje so starou verziou, je reálne riziko.",
+    "Plánované výzvy: 4, z toho po plánovanom termíne vyhlásenia a nevyhlásené k 2026-11-19: 3 (2026/00027 plán 2026-11-01, 2025/00012 plán 2025-07-01, 2024/00035 plán 2026-03-01).",
+    "Bez zadaného plánu žiadateľa (dni prípravy, dátum oboznámenia) ostávajú pravidlá C03 a C04 neoverené, preto väčšina reálnych výrokov je „čiastočne overené“."
+   ]
+  },
+  "zonfp": {
+   "pripadov": 799,
+   "trvanieMs": 164,
+   "navrhy": {
+    "ciastocne_overene": 615,
+    "nesplnene_podmienky": 58,
+    "na_preverenie": 110,
+    "vyzva_na_doplnenie": 16
+   },
+   "pravidla": [
+    {
+     "id": "D01",
+     "nazov": "Právna forma žiadateľa je oprávnená",
+     "pocty": {
+      "splnene": 799
+     }
+    },
+    {
+     "id": "D07a",
+     "nazov": "Projekt obsahuje aspoň jednu hlavnú aktivitu",
+     "pocty": {
+      "splnene": 799
+     }
+    },
+    {
+     "id": "D07b",
+     "nazov": "Plánovaná úspora primárnej energie je aspoň 30 %",
+     "pocty": {
+      "splnene": 196,
+      "mimo_podkladov": 575,
+      "na_preverenie": 10,
+      "neuplatnuje_sa": 16,
+      "nesplnene": 2
+     }
+    },
+    {
+     "id": "D07c",
+     "nazov": "Hodnota za peniaze pri energetickej efektívnosti najviac 5 500 EUR/MWh/rok",
+     "pocty": {
+      "splnene": 180,
+      "mimo_podkladov": 587,
+      "nesplnene": 7,
+      "neuplatnuje_sa": 16,
+      "na_preverenie": 9
+     }
+    },
+    {
+     "id": "D07d",
+     "nazov": "Hodnota za peniaze pri OZE najviac 1,4 mil. EUR/MW",
+     "pocty": {
+      "splnene": 490,
+      "na_preverenie": 76,
+      "neuplatnuje_sa": 181,
+      "nesplnene": 46,
+      "chyba_podklad": 6
+     }
+    },
+    {
+     "id": "D09",
+     "nazov": "Projekt sa realizuje na území Slovenskej republiky",
+     "pocty": {
+      "splnene": 799
+     }
+    },
+    {
+     "id": "D12",
+     "nazov": "Výška NFP je medzi 200 000 a 5 000 000 EUR",
+     "pocty": {
+      "splnene": 794,
+      "nesplnene": 5
+     }
+    },
+    {
+     "id": "D13",
+     "nazov": "Pásmo oprávnených výdavkov podľa úspory energie",
+     "pocty": {
+      "splnene": 196,
+      "mimo_podkladov": 585,
+      "neuplatnuje_sa": 16,
+      "nesplnene": 2
+     }
+    },
+    {
+     "id": "D14",
+     "nazov": "Hlavné aktivity sa stihnú do 24 mesiacov od účinnosti zmluvy",
+     "pocty": {
+      "splnene": 760,
+      "na_preverenie": 24,
+      "chyba_podklad": 15
+     }
+    },
+    {
+     "id": "P07",
+     "nazov": "Príloha č. 7 ŽoNFP – Projektová dokumentácia je priložená",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "P08",
+     "nazov": "Príloha č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov je priložená",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "P06",
+     "nazov": "Príloha č. 6 ŽoNFP – Energetický certifikát (pri opatrení 2.1.2)",
+     "pocty": {
+      "mimo_podkladov": 783,
+      "neuplatnuje_sa": 16
+     }
+    },
+    {
+     "id": "P05",
+     "nazov": "Príloha č. 5 ŽoNFP – Energetický audit (ak je audit hlavnou aktivitou)",
+     "pocty": {
+      "neuplatnuje_sa": 722,
+      "mimo_podkladov": 77
+     }
+    },
+    {
+     "id": "P03",
+     "nazov": "Príloha č. 3 ŽoNFP – Uznesenie o schválení programu rozvoja a územnoplánovacej dokumentácie (obec, VÚC)",
+     "pocty": {
+      "mimo_podkladov": 698,
+      "neuplatnuje_sa": 101
+     }
+    },
+    {
+     "id": "L07",
+     "nazov": "Predmetom projektu je verejná budova oprávnenej kategórie",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "L01",
+     "nazov": "Plnomocenstvo má povinné náležitosti (ak je priložené)",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "L05",
+     "nazov": "Energetický audit vypracovala oprávnená osoba a pokrýva predmet projektu (ak je priložený)",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "G02",
+     "nazov": "Žiadateľ nie je v konkurze, reštrukturalizácii ani likvidácii",
+     "pocty": {
+      "neuplatnuje_sa": 698,
+      "mimo_podkladov": 101
+     }
+    },
+    {
+     "id": "G03",
+     "nazov": "Voči žiadateľovi sa nevedie výkon rozhodnutia nad 500 EUR",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "G05",
+     "nazov": "Žiadateľ nemá uložený trest zákazu prijímať dotácie alebo pomoc z fondov EÚ",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "G10",
+     "nazov": "Vysporiadané majetkovo-právne vzťahy k budove",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "G11",
+     "nazov": "Projekt nie je štátnou pomocou (hospodárske využitie najviac 20 % kapacity)",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "G15",
+     "nazov": "Žiadateľ nie je v systéme EDES ako vylúčená osoba",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    }
+   ],
+   "poznamky": [
+    "Porovnanie so skutočným rozhodnutím poskytovateľa (falošné poplachy a zachytené zamietnutia) je v časti nižšie, test 03-test-pravidla.",
+    "Prílohy ŽoNFP nie sú verejné, preto pravidlá o prílohách na reálnych dátach ostávajú neoverené."
+   ]
+  },
+  "vo": {
+   "pripadov": 659,
+   "trvanieMs": 99,
+   "navrhy": {
+    "na_preverenie": 276,
+    "ciastocne_overene": 382,
+    "nesplnene_podmienky": 1
+   },
+   "pravidla": [
+    {
+     "id": "V01",
+     "nazov": "PHZ nepresahuje limit zvoleného zjednodušeného postupu",
+     "pocty": {
+      "neuplatnuje_sa": 494,
+      "splnene": 158,
+      "na_preverenie": 6,
+      "nesplnene": 1
+     }
+    },
+    {
+     "id": "V02",
+     "nazov": "VO nemá nízky počet ponúk (1 až 2)",
+     "pocty": {
+      "neuplatnuje_sa": 180,
+      "na_preverenie": 136,
+      "splnene": 340,
+      "mimo_podkladov": 3
+     }
+    },
+    {
+     "id": "V03",
+     "nazov": "Cena zmlúv zodpovedá PHZ",
+     "pocty": {
+      "na_preverenie": 32,
+      "splnene": 433,
+      "mimo_podkladov": 194
+     }
+    },
+    {
+     "id": "V04",
+     "nazov": "Fakturácia neprevyšuje zmluvy z VO",
+     "pocty": {
+      "splnene": 330,
+      "neuplatnuje_sa": 98,
+      "mimo_podkladov": 194,
+      "na_preverenie": 37
+     }
+    },
+    {
+     "id": "V05",
+     "nazov": "Zákazka malého rozsahu nie je časťou rozdeleného predmetu",
+     "pocty": {
+      "neuplatnuje_sa": 405,
+      "splnene": 224,
+      "na_preverenie": 30
+     }
+    },
+    {
+     "id": "V06",
+     "nazov": "Štatutári obstarávateľa a dodávateľa nie sú tie isté osoby (RPO)",
+     "pocty": {
+      "mimo_podkladov": 659
+     }
+    },
+    {
+     "id": "V07",
+     "nazov": "Záznam zo zadania zákazky má minimálne náležitosti",
+     "pocty": {
+      "mimo_podkladov": 659
+     }
+    }
+   ],
+   "zasadene": [
+    {
+     "nazov": "Zákazka malého rozsahu s PHZ 60 000 EUR (po 1. 8. 2024)",
+     "pravidlo": "V01",
+     "ocakavane": "nesplnene",
+     "n": 75,
+     "zachytene": 75,
+     "presne": 75,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 75
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Súťaž s jedinou ponukou",
+     "pravidlo": "V02",
+     "ocakavane": "na_preverenie",
+     "n": 479,
+     "zachytene": 479,
+     "presne": 479,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 479
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Zmluva o 60 % nad PHZ (s DPH)",
+     "pravidlo": "V03",
+     "ocakavane": "na_preverenie",
+     "n": 659,
+     "zachytene": 659,
+     "presne": 659,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 659
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Faktúry o 50 % nad zmluvy (s DPH)",
+     "pravidlo": "V04",
+     "ocakavane": "na_preverenie",
+     "n": 367,
+     "zachytene": 367,
+     "presne": 367,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 367
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Tri zákazky malého rozsahu po 30 000 EUR na rovnaký predmet v jednom roku",
+     "pravidlo": "V05",
+     "ocakavane": "na_preverenie",
+     "n": 74,
+     "zachytene": 74,
+     "presne": 74,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 74
+     },
+     "priklady": []
+    }
+   ],
+   "poznamky": [
+    "V06 (štatutári v RPO) je online dopyt a je predvolene vypnutý; test ho nespúšťa, aby sa nič neodosielalo.",
+    "V07 (záznam zo zadania zákazky) číta lokálny model, testuje ho 09-test-llm-moduly na syntetických záznamoch.",
+    "Limit postupu sa overuje len pri zákazkách malého rozsahu a podlimitných s oslovením 3 subjektov; pred 1. 8. 2024 len „na preverenie“, lebo staršie limity neboli overené."
+   ]
+  },
+  "zmeny": {
+   "pripadov": 2336,
+   "trvanieMs": 459,
+   "navrhy": {
+    "na_preverenie": 1307,
+    "ciastocne_overene": 1029
+   },
+   "pravidla": [
+    {
+     "id": "Z01",
+     "nazov": "Druh zmeny a predložený formulár zodpovedajú zmluve",
+     "pocty": {
+      "na_preverenie": 1233,
+      "mimo_podkladov": 1103
+     }
+    },
+    {
+     "id": "Z02",
+     "nazov": "Zmena nemá znaky podstatnej zmeny projektu",
+     "pocty": {
+      "splnene": 1439,
+      "na_preverenie": 897
+     }
+    },
+    {
+     "id": "Z03",
+     "nazov": "Zmena nenavyšuje NFP",
+     "pocty": {
+      "neuplatnuje_sa": 2282,
+      "na_preverenie": 54
+     }
+    },
+    {
+     "id": "Z04",
+     "nazov": "Predĺžené hlavné aktivity neprekročia 24 mesiacov od účinnosti zmluvy ani 31. 12. 2029",
+     "pocty": {
+      "mimo_podkladov": 587,
+      "neuplatnuje_sa": 1749
+     }
+    },
+    {
+     "id": "Z05",
+     "nazov": "Významnejšia zmena podaná včas (ex ante pred zmenou, ex post 30 dní pred ŽoP)",
+     "pocty": {
+      "neuplatnuje_sa": 2246,
+      "mimo_podkladov": 90
+     }
+    },
+    {
+     "id": "Z06",
+     "nazov": "Znížený MU neklesne pod hranicu z čl. 4.3 zmluvy",
+     "pocty": {
+      "neuplatnuje_sa": 2297,
+      "mimo_podkladov": 39
+     }
+    },
+    {
+     "id": "Z07",
+     "nazov": "Priložené dokumenty požadované pre daný typ zmeny",
+     "pocty": {
+      "mimo_podkladov": 2257,
+      "na_preverenie": 33,
+      "neuplatnuje_sa": 46
+     }
+    },
+    {
+     "id": "Z08",
+     "nazov": "Odôvodnenie obsahuje popis, dôvod a dopad zmeny",
+     "pocty": {
+      "mimo_podkladov": 2336
+     }
+    }
+   ],
+   "zasadene": [
+    {
+     "nazov": "Zmena miesta realizácie predložená ako OoZ",
+     "pravidlo": "Z01",
+     "ocakavane": "nesplnene",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Nová výška NFP o 5 % vyššia",
+     "pravidlo": "Z03",
+     "ocakavane": "nesplnene",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Koniec hlavných aktivít mesiac po limite 24 mesiacov",
+     "pravidlo": "Z04",
+     "ocakavane": "nesplnene",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Ex ante zmena vykonaná pred podaním ŽoZZ",
+     "pravidlo": "Z05",
+     "ocakavane": "nesplnene",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Ex post zmena (prečerpanie 20 %) podaná 11 dní pred ŽoP",
+     "pravidlo": "Z05",
+     "ocakavane": "nesplnene",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU znížený na 50 % pri hranici 70 %",
+     "pravidlo": "Z06",
+     "ocakavane": "nesplnene",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Zmena štatutára: priložený doklad, chýba formulár OoZ",
+     "pravidlo": "Z07",
+     "ocakavane": "chyba_podklad",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "chyba_podklad": 200
+     },
+     "priklady": []
+    }
+   ],
+   "overenia": [
+    {
+     "ok": true,
+     "nazov": "Zatriedenie „menej významná zmena“",
+     "vysledok": "926 zmien, z toho 78 s dodatkom k zmluve (8 %)"
+    },
+    {
+     "ok": true,
+     "nazov": "Zatriedenie „nezaradená“",
+     "vysledok": "842 zmien, z toho 69 s dodatkom k zmluve (8 %)"
+    },
+    {
+     "ok": true,
+     "nazov": "Zatriedenie „menej významná alebo významnejšia (podľa dopadu)“",
+     "vysledok": "391 zmien, z toho 164 s dodatkom k zmluve (42 %)"
+    },
+    {
+     "ok": true,
+     "nazov": "Zatriedenie „významnejšia zmena ex ante“",
+     "vysledok": "55 zmien, z toho 10 s dodatkom k zmluve (18 %)"
+    },
+    {
+     "ok": true,
+     "nazov": "Zatriedenie „technická zmena (z iniciatívy poskytovateľa)“",
+     "vysledok": "46 zmien, z toho 8 s dodatkom k zmluve (17 %)"
+    },
+    {
+     "ok": true,
+     "nazov": "Zatriedenie „formálna zmena“",
+     "vysledok": "41 zmien, z toho 4 s dodatkom k zmluve (10 %)"
+    },
+    {
+     "ok": true,
+     "nazov": "Zatriedenie „významnejšia zmena ex post“",
+     "vysledok": "35 zmien, z toho 12 s dodatkom k zmluve (34 %)"
+    }
+   ],
+   "poznamky": [
+    "Klasifikátor voči dodatkom: 345 zmien má dodatok k zmluve. Ako formálne alebo menej významné (OoZ bez dodatku) softvér zatriedil 82 z nich (24 %). Sú to kandidáti na „falošne ľahkú“ zmenu; dodatok však môže zahŕňať aj menej významné zmeny zapracované neskôr, preto to nie je presná chybovosť. Príklady na ručnú kontrolu: 592775 (menej významná zmena, dodatok D2): Technická zmena - ktorá zahŕňa zmeny už zapracované v ITMS21+ do Dodatku č.2. Jedná sa o nasledujúce zmeny: V rámci plnenia úloh Slovenskej  | 593440 (menej významná zmena, dodatok 1): vypracovanie dodatku k schváleným zmenám: Zmena č.1, formálna zmena, sa týka: harmonogramu po predloženom Hlásení o začatí realizácie HAP, z | 592224 (menej významná zmena, dodatok Dodatok č. 2): Predmet D2 k ZoNFP sú nasledovné schválené zmeny: · menej významná – zmena umiestnenia a typu tepelného čerpadla: Zmena schválená v zmenovom | 591397 (menej významná zmena, dodatok 3): Oznámenie MVZ - skoršie ukonč. realizácie HAP Pôvodný harmonogram: 02/2024 – 10/2026 Navrhovaný harmonogram: 02/2024 – 07/2026 so skutočným  | 590793 (menej významná zmena, dodatok PSK-SIEA-002-2023-DV-EFRR/B979/D1): Z01: Významnejšia zmena /časový harmonogram projektu/ - Žiadosť o zmenu schválená 22/10/2025 (nová príloha č. 2 Predmet podpory NFP); Z02: M | 591008 (menej významná zmena, dodatok 3): MVZ harmonogramu, predcasne ukončenie realizácie projektu pôvodne hrm : 06/23 - 08/26 navrh : 06/23 - 06/26",
+    "Projekty s koncom hlavných aktivít po 24 mesiacoch od účinnosti zmluvy (PPP č. 14) podľa ITMS21+: 47 z 242 (napr. 401201A012: koniec 2026-12-01, limit 2026-09-06; 401201A108: koniec 2027-05-01, limit 2026-10-23; 401201A191: koniec 2028-02-01, limit 2028-01-16; 401201A498: koniec 2027-05-01, limit 2026-10-23; 401201B054: koniec 2027-05-01, limit 2026-11-21). Pravdepodobne ide o predĺženie z dôvodu okolnosti vylučujúcej zodpovednosť alebo o zmenu výzvy; overiť."
+   ]
+  },
+  "zop": {
+   "pripadov": 1362,
+   "trvanieMs": 749,
+   "navrhy": {
+    "ciastocne_overene": 1046,
+    "na_preverenie": 315,
+    "nesplnene_podmienky": 1
+   },
+   "pravidla": [
+    {
+     "id": "P01",
+     "nazov": "Výdavky vznikli počas realizácie hlavných aktivít a boli uhradené do 31. 12. 2029",
+     "pocty": {
+      "splnene": 1356,
+      "na_preverenie": 6
+     }
+    },
+    {
+     "id": "P02",
+     "nazov": "Žiadané sumy neprevyšujú výdavok ani účtovný doklad",
+     "pocty": {
+      "splnene": 1361,
+      "nesplnene": 1
+     }
+    },
+    {
+     "id": "P03",
+     "nazov": "Ten istý doklad nie je nárokovaný v ŽoP viackrát nad svoju hodnotu",
+     "pocty": {
+      "splnene": 1306,
+      "na_preverenie": 56
+     }
+    },
+    {
+     "id": "P04",
+     "nazov": "DPH sa žiada len bez nároku na odpočet a len od platiteľa DPH",
+     "pocty": {
+      "splnene": 1200,
+      "na_preverenie": 162
+     }
+    },
+    {
+     "id": "P05",
+     "nazov": "Výpočet DPH v položkách dokladov sedí",
+     "pocty": {
+      "splnene": 1349,
+      "na_preverenie": 7,
+      "mimo_podkladov": 6
+     }
+    },
+    {
+     "id": "P06",
+     "nazov": "Výdavky z externých dokladov majú priradené VO",
+     "pocty": {
+      "splnene": 1306,
+      "na_preverenie": 56
+     }
+    },
+    {
+     "id": "P07",
+     "nazov": "Kontrola VO prebehla pred zahrnutím výdavkov do ŽoP",
+     "pocty": {
+      "mimo_podkladov": 1174,
+      "neuplatnuje_sa": 188
+     }
+    },
+    {
+     "id": "P08",
+     "nazov": "Nárokované výdavky neprevyšujú zmluvu z VO",
+     "pocty": {
+      "mimo_podkladov": 280,
+      "splnene": 1002,
+      "na_preverenie": 80
+     }
+    },
+    {
+     "id": "P09",
+     "nazov": "Hotovostné platby v limitoch",
+     "pocty": {
+      "mimo_podkladov": 1362
+     }
+    },
+    {
+     "id": "P10",
+     "nazov": "Povinné dokumenty podľa typu ŽoP a výdavkov sú priložené",
+     "pocty": {
+      "mimo_podkladov": 1362
+     }
+    },
+    {
+     "id": "P11",
+     "nazov": "Faktúra má náležitosti daňového dokladu podľa § 74 zákona o DPH",
+     "pocty": {
+      "mimo_podkladov": 1362
+     }
+    },
+    {
+     "id": "P12",
+     "nazov": "Doklad o úhrade je bankový výpis, nie výstup z internet bankingu",
+     "pocty": {
+      "mimo_podkladov": 1362
+     }
+    }
+   ],
+   "zasadene": [
+    {
+     "nazov": "Žiadaná suma o 100 EUR vyššia ako výdavok",
+     "pravidlo": "P02",
+     "ocakavane": "nesplnene",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Ten istý doklad nárokovaný druhýkrát v tej istej ŽoP",
+     "pravidlo": "P02",
+     "ocakavane": "nesplnene",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Doklad vystavený pred 1. 1. 2021",
+     "pravidlo": "P01",
+     "ocakavane": "nesplnene",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Výdavok uhradený po 31. 12. 2029",
+     "pravidlo": "P01",
+     "ocakavane": "nesplnene",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Dodávateľ neplatiteľ DPH fakturuje DPH",
+     "pravidlo": "P04",
+     "ocakavane": "na_preverenie",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Chybne vypočítaná DPH v položke dokladu",
+     "pravidlo": "P05",
+     "ocakavane": "na_preverenie",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Hotovostná platba 800 EUR",
+     "pravidlo": "P09",
+     "ocakavane": "nesplnene",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Priložená len faktúra, chýba výpis a ďalšie dokumenty",
+     "pravidlo": "P10",
+     "ocakavane": "chyba_podklad",
+     "n": 143,
+     "zachytene": 143,
+     "presne": 143,
+     "falosneOk": 0,
+     "stavy": {
+      "chyba_podklad": 143
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Doklad o úhrade je výstup z internet bankingu",
+     "pravidlo": "P12",
+     "ocakavane": "nesplnene",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Výpis z účtu bez čísla účtu (bez modelu)",
+     "pravidlo": "P12",
+     "ocakavane": "nesplnene",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Uhradená ŽoP predložená druhýkrát (rovnaké doklady)",
+     "pravidlo": "P03",
+     "ocakavane": "nesplnene",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 200
+     },
+     "priklady": []
+    }
+   ],
+   "poznamky": [
+    "Doklady ŽoP (faktúry, výpisy) nie sú verejné; na reálnych dátach sa overujú len údaje ITMS21+ (sumy, dátumy, DPH, väzba na VO a zmluvy).",
+    "Zasadené chyby v dokladoch používajú syntetické kópie reálnych dokladov; reálne dáta sa nemenia.",
+    "Pravidlo P03 považuje za dvojité nárokovanie len súčet nad hodnotu dokladu v uhradených ŽoP; neuhradené (zamietnuté alebo stiahnuté) opakovania dáva na preverenie."
+   ]
+  },
+  "ukazovatele": {
+   "pripadov": 242,
+   "trvanieMs": 6,
+   "navrhy": {
+    "na_preverenie": 242
+   },
+   "pravidla": [
+    {
+     "id": "U01",
+     "nazov": "MU výstupu dosiahnuté aspoň na 95 % (inak krátenie NFP)",
+     "pocty": {
+      "mimo_podkladov": 242
+     }
+    },
+    {
+     "id": "U02",
+     "nazov": "MU výsledku dosiahnuté aspoň na 95 % alebo preukázané externé faktory",
+     "pocty": {
+      "mimo_podkladov": 242
+     }
+    },
+    {
+     "id": "U03",
+     "nazov": "Monitorovacie správy predložené do uplynutých termínov",
+     "pocty": {
+      "na_preverenie": 221,
+      "neuplatnuje_sa": 20,
+      "mimo_podkladov": 1
+     }
+    }
+   ],
+   "zasadene": [
+    {
+     "nazov": "MU výstupu naplnené na 94 %, prahy zo zmluvy nezadané",
+     "pravidlo": "U01",
+     "ocakavane": "nesplnene",
+     "n": 242,
+     "zachytene": 242,
+     "presne": 242,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 242
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU výstupu na 94 %, testovacie prahy C=D=65 %, max. zníženie 30 %",
+     "pravidlo": "U01",
+     "ocakavane": "nesplnene",
+     "n": 242,
+     "zachytene": 242,
+     "presne": 242,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 242
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU výsledku naplnené na 94 %",
+     "pravidlo": "U02",
+     "ocakavane": "na_preverenie",
+     "n": 242,
+     "zachytene": 239,
+     "presne": 239,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 239,
+      "mimo_podkladov": 3
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU výstupu naplnené na 80 %, prahy zo zmluvy nezadané",
+     "pravidlo": "U01",
+     "ocakavane": "nesplnene",
+     "n": 242,
+     "zachytene": 242,
+     "presne": 242,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 242
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU výstupu na 80 %, testovacie prahy C=D=65 %, max. zníženie 30 %",
+     "pravidlo": "U01",
+     "ocakavane": "nesplnene",
+     "n": 242,
+     "zachytene": 242,
+     "presne": 242,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 242
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU výsledku naplnené na 80 %",
+     "pravidlo": "U02",
+     "ocakavane": "na_preverenie",
+     "n": 242,
+     "zachytene": 239,
+     "presne": 239,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 239,
+      "mimo_podkladov": 3
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU výstupu naplnené na 50 %, prahy zo zmluvy nezadané",
+     "pravidlo": "U01",
+     "ocakavane": "nesplnene",
+     "n": 242,
+     "zachytene": 242,
+     "presne": 242,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 242
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU výstupu na 50 %, testovacie prahy C=D=65 %, max. zníženie 30 %",
+     "pravidlo": "U01",
+     "ocakavane": "nesplnene",
+     "n": 242,
+     "zachytene": 242,
+     "presne": 242,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 242
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU výsledku naplnené na 50 %",
+     "pravidlo": "U02",
+     "ocakavane": "na_preverenie",
+     "n": 242,
+     "zachytene": 239,
+     "presne": 239,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 239,
+      "mimo_podkladov": 3
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU výstupu naplnené na 0 %, prahy zo zmluvy nezadané",
+     "pravidlo": "U01",
+     "ocakavane": "nesplnene",
+     "n": 242,
+     "zachytene": 242,
+     "presne": 242,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 242
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU výstupu na 0 %, testovacie prahy C=D=65 %, max. zníženie 30 %",
+     "pravidlo": "U01",
+     "ocakavane": "nesplnene",
+     "n": 242,
+     "zachytene": 242,
+     "presne": 242,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 242
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "MU výsledku naplnené na 0 %",
+     "pravidlo": "U02",
+     "ocakavane": "na_preverenie",
+     "n": 242,
+     "zachytene": 239,
+     "presne": 239,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 239,
+      "mimo_podkladov": 3
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Uplynul termín monitorovacej správy, žiadna nepredložená",
+     "pravidlo": "U03",
+     "ocakavane": "nesplnene",
+     "n": 221,
+     "zachytene": 221,
+     "presne": 221,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 221
+     },
+     "priklady": []
+    }
+   ],
+   "overenia": [
+    {
+     "nazov": "Výstup 90/100, C=70, E=25, COV 1 000 000: zníženie 25/(95−70)×(95−90) = 5 %, krátenie 50 000 EUR",
+     "vysledok": "E34 5, E35 50000",
+     "ok": true
+    },
+    {
+     "nazov": "Výsledok 80/100, D=60, F=25: zníženie 25/35×15 = 10,714 %, krátenie 107 142,86 EUR",
+     "vysledok": "F34 10.714285714285715, F35 107142.85714285714",
+     "ok": true
+    },
+    {
+     "nazov": "Jediný výstup 60/100 pod hranicou C=70: odstúpenie od zmluvy",
+     "vysledok": "odstúpenie od Zmluvy o poskytnutý NFP",
+     "ok": true
+    },
+    {
+     "nazov": "Jeden z dvoch výstupov 60/100 pod C=70: možnosť odstúpiť alebo maximálna sankcia",
+     "vysledok": "možnosť odstúpiť od Zmluvy o poskytnutí NFP, resp. udelenie maximálnej sankcie",
+     "ok": true
+    },
+    {
+     "nazov": "Výsledok 50/100 pod D=60: možnosť odstúpiť od zmluvy",
+     "vysledok": "možnosť odstúpiť od Zmluvy o poskytnutí NFP",
+     "ok": true
+    },
+    {
+     "nazov": "Výstup 97/100 (nad 95 %): bez krátenia",
+     "vysledok": "E34 0, E35 0",
+     "ok": true
+    }
+   ],
+   "poznamky": [
+    "Pri naplnení 100 %: U01 splnené v 242 z 242, U02 v 239 z 242 projektov.",
+    "Pri naplnení 97 %: U01 splnené v 242 z 242, U02 v 239 z 242 projektov.",
+    "Skutočné hodnoty MU nie sú vo verejných dátach; reálne výroky sú preto „na preverenie“ (chýbajú hodnoty). Zasadené chyby simulujú hodnoty z monitorovacej správy.",
+    "Klesajúce ukazovatele (spotreba energie, emisie) kalkulačka SIEA priamo nevie; softvér počíta podiel dosiahnutého poklesu.",
+    "Prahy z čl. 4.3 zmluvy (C, D) a maximálne zníženie COV (E, F) v teste sú testovacie hodnoty, nie hodnoty z konkrétnych zmlúv."
+   ]
+  }
+ },
+ "trvanieMs": 5772
+}

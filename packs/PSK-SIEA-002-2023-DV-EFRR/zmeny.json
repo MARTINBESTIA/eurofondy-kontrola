@@ -1,0 +1,162 @@
+{
+ "id": "PSK-SIEA-002-2023-DV-EFRR/zmeny",
+ "modul": "zmeny",
+ "vyzvaKod": "PSK-SIEA-002-2023-DV-EFRR",
+ "vyzvaNazov": "Výzva na podporu energetickej efektívnosti a využívania OZE vo verejných budovách",
+ "poskytovatel": "Slovenská inovačná a energetická agentúra (sprostredkovateľský orgán pre Program Slovensko)",
+ "verzia": "VZP verzia 2.2 (čl. 16); Príručka pre prijímateľa DOP verzia 3.2, kap. 4.13 (1. 6. 2026)",
+ "platnaOd": "2026-06-01",
+ "zdroje": [
+  {
+   "nazov": "Vzor zmluvy o NFP, príloha č. 1 VZP, verzia 2.2, čl. 16 Zmena zmluvy",
+   "subor": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+   "url": ""
+  },
+  {
+   "nazov": "Príručka pre prijímateľa DOP, verzia 3.2, kap. 4.13 a prílohy č. 2 (OoZ) a č. 3 (ŽoZZ)",
+   "subor": "data/zdroje/SIEA-prirucka-DOP-3.2/prirucka-DOP-3.2.pdf",
+   "url": ""
+  },
+  {
+   "nazov": "Výzva v znení Zmeny č. 3, PPP č. 14",
+   "subor": "data/zdroje/PSK-SIEA-002-2023/akt3/PSK-SIEA-002-2023-DV-EFRR_bez_SZ/Vyzva_PSK_2P1_SIEA_zmena_3.docx",
+   "url": ""
+  },
+  {
+   "nazov": "Zmeny projektov výzvy v ITMS21+ (predmet, dodatok, prílohy)",
+   "subor": "data/odvodene/PSK-SIEA-002-2023-DV-EFRR/projekty.json",
+   "url": "https://api.itms21.sk/public/v1/projekt"
+  }
+ ],
+ "proces": [
+  "Prijímateľ oznámi formálnu alebo menej významnú zmenu formulárom OoZ; poskytovateľ ju akceptuje, akceptuje v zúženom rozsahu, preklasifikuje alebo neakceptuje.",
+  "Významnejšiu zmenu prijímateľ predkladá ako ŽoZZ (ex ante pred vykonaním zmeny, ex post najneskôr 30 dní pred ŽoP s dotknutými výdavkami); schválená sa premietne do dodatku.",
+  "Technické a plošné zmeny iniciuje poskytovateľ.",
+  "Podstatnú zmenu projektu nemožno schváliť."
+ ],
+ "pravidla": [
+  {
+   "id": "Z01",
+   "ppp": null,
+   "nazov": "Druh zmeny a predložený formulár zodpovedajú zmluve",
+   "druh": "data",
+   "kontrola": "zmena_druh",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.13.3 Významnejšia zmena Zmluvy o poskytnutí NFP",
+    "znenie": "Významnejšie zmeny projektu sú zmeny, ktoré zásadným spôsobom ovplyvňujú charakter a parametre projektu alebo plnenie podmienok stanovených v Zmluve o poskytnutí NFP/Rozhodnutí o schválení ŽoNFP alebo Výzve."
+   },
+   "overenieZdroj": "Typy zmien a ich zaradenie: VZP čl. 16 ods. 4, 9, 12 a 18; príručka kap. 4.13.1 až 4.13.5."
+  },
+  {
+   "id": "Z02",
+   "ppp": null,
+   "nazov": "Zmena nemá znaky podstatnej zmeny projektu",
+   "druh": "data",
+   "kontrola": "zmena_podstatna",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 16",
+    "znenie": "Zmenu, ktorá má charakter Podstatnej zmeny Projektu, nie je možné schváliť. Projekt, ktorý je zaťažený Podstatnou zmenou Projektu (definovanou v čl. 1 ods. 3 VZP), nie je možné financovať."
+   }
+  },
+  {
+   "id": "Z03",
+   "ppp": null,
+   "nazov": "Zmena nenavyšuje NFP",
+   "druh": "data",
+   "kontrola": "zmena_nfp",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.13.5",
+    "znenie": "Výška NFP uvedená v Prílohe č. 2 Zmluvy o poskytnutí NFP nesmie byť prekročená a nie je možné ju zmenou žiadnym spôsobom navyšovať"
+   },
+   "overenieZdroj": "Poznámka 65 príručky: výnimkou je odchýlka najviac 0,01 % z technických dôvodov na strane poskytovateľa."
+  },
+  {
+   "id": "Z04",
+   "ppp": 14,
+   "nazov": "Predĺžené hlavné aktivity neprekročia 24 mesiacov od účinnosti zmluvy ani 31. 12. 2029",
+   "druh": "data",
+   "kontrola": "zmena_harmonogram",
+   "parametre": {
+    "maxMesiacov": 24
+   },
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 16, pravidlá pri predlžovaní doby Realizácie hlavných aktivít",
+    "znenie": "Dobu Realizácie hlavných aktivít Projektu nie je možné predĺžiť nad rámec maximálnej doby, ktorá pre realizáciu hlavných aktivít projektov vyplýva z Výzvy a ktorá je uvedená pri definícii Realizácie hlavných aktivít Projektu v čl. 1 ods. 3 VZP, a ktorá nesmie presiahnuť 31.12.2029."
+   },
+   "overenieZdroj": "Výzva, PPP č. 14: ukončiť realizáciu všetkých hlavných aktivít do 24 mesiacov od nadobudnutia účinnosti Zmluvy o poskytnutí NFP."
+  },
+  {
+   "id": "Z05",
+   "ppp": null,
+   "nazov": "Významnejšia zmena podaná včas (ex ante pred zmenou, ex post 30 dní pred ŽoP)",
+   "druh": "data",
+   "kontrola": "zmena_lehota",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 16 (ex ante a ex post významnejšie zmeny)",
+    "znenie": "Významnejšia zmena ex ante nadobúda účinnosť, vrátane jej dôsledkov z hľadiska oprávnenosti výdavkov, v kalendárny deň odoslania žiadosti o zmenu zo strany Prijímateľa Poskytovateľovi, ak bola zmena schválená"
+   },
+   "overenieZdroj": "Ex post: Prijímateľ je povinný požiadať o ex-post významnejšiu zmenu najneskôr 30 dní pred predložením Žiadosti o platbu, ktorá ako prvá zahŕňa aspoň niektoré výdavky, ktoré sú požadovanou ex-post významnejšou zmenou dotknuté."
+  },
+  {
+   "id": "Z06",
+   "ppp": null,
+   "nazov": "Znížený MU neklesne pod hranicu z čl. 4.3 zmluvy",
+   "druh": "data",
+   "kontrola": "zmena_mu",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 16, pravidlá zníženia cieľovej hodnoty MU",
+    "znenie": "Poskytovateľ zníženie cieľovej hodnoty Merateľného ukazovateľa výsledku neschváli, ak by v dôsledku zníženia cieľová hodnota Merateľného ukazovateľa výsledku klesla pod hranicu vyjadrenú v čl. 4 ods. 4.3 zmluvy oproti výške cieľovej hodnoty Merateľného ukazovateľa výsledku, ktorá bola uvedená v Schválenej žiadosti o NFP."
+   },
+   "overenieZdroj": "Rovnaká hranica platí pre MU výstupu; porovnáva sa s cieľovou hodnotou v projekte (môže byť už zmenená oproti schválenej ŽoNFP)."
+  },
+  {
+   "id": "Z07",
+   "ppp": null,
+   "nazov": "Priložené dokumenty požadované pre daný typ zmeny",
+   "druh": "priloha",
+   "kontrola": "zmena_prilohy",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.13.5",
+    "znenie": "Schválenie akejkoľvek zmeny Zmluvy je podmienené predložením všetkých relevantných príloh, ktoré Poskytovateľ požaduje."
+   }
+  },
+  {
+   "id": "Z08",
+   "ppp": null,
+   "nazov": "Odôvodnenie obsahuje popis, dôvod a dopad zmeny",
+   "druh": "llm",
+   "kontrola": "llm_text",
+   "parametre": {
+    "zdroj": "pole",
+    "pole": "odovodnenie",
+    "nazovPola": "odôvodnenie OoZ/ŽoZZ",
+    "akKratky": "mimo_podkladov",
+    "nalezitosti": [
+     {
+      "nazov": "popis navrhovanej zmeny"
+     },
+     {
+      "nazov": "dôvod, prečo k zmene dochádza",
+      "vzor": "dôvod|pretože|nakoľko|keďže|vzhľadom|v dôsledku|z titulu|kvôli"
+     },
+     {
+      "nazov": "dopad (vplyv) zmeny na ciele, aktivity, merateľné ukazovatele alebo rozpočet projektu",
+      "vzor": "vplyv|dopad|ovplyvn|nemen|nezmen|zachov|zostáv|zníži|zvýši|neprejav|bez vplyvu|bez dopadu"
+     }
+    ]
+   },
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.13.2 Menej významná zmena",
+    "znenie": "V oznámení uvedie popis a dôvody navrhovanej zmeny, jej dopad najmä na ciele, aktivity, merateľné ukazovatele a rozpočet projektu a predloží podpornú dokumentáciu podľa typu zmeny"
+   }
+  }
+ ]
+}

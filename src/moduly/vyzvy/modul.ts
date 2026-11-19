@@ -1,0 +1,126 @@
+// Modul: plánovanie výziev. Vstup: výzvy a plánované výzvy Programu Slovensko z ITMS21+ (stav, kolá, verzie)
+// + plán žiadateľa (kedy chce predložiť, koľko dní potrebuje na prípravu, kedy naposledy čítal dokumentáciu).
+import fs from 'node:fs';
+import path from 'node:path';
+import type { Modul, VysledokKontroly } from '../../core/typy.ts';
+import { KOREN, dnes, eur, num, rozdielDni, skDatum } from '../spolocne.ts';
+
+export interface Vyzva { kod: string; nazov: string; program: string; vyhlasovatel: string; druh: string; typ: string; zameranie: string; vyhlasena: string | null; ukoncena: string | null; uzavreta: boolean; zrusena: boolean; pozastavena: boolean; sumaEu: number | null; predlozenych: number | null; schvalenych: number | null; neschvalenych: number | null; kola: { cislo: number; uzavierka: string | null }[]; verzie: { cislo: number; datum: string | null; dovod: string }[] }
+export interface Planovana { kod: string; nazov: string; program: string; vyhlasovatel: string; zameranie: string; planVyhlasenia: string | null; sumaEu: number | null; vyhlasena: boolean; zrusena: boolean }
+export interface VstupVyzva { vyzva?: Vyzva; planovana?: Planovana; datumPredlozenia: string | null; dniPripravy: number | null; rezerva: number | null; datumOboznamenia: string | null }
+
+const DATA = (() => { const p = path.join(KOREN, 'data', 'odvodene', 'vyzvy.json'); return fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : { vyzvy: [], planovane: [] }; })();
+const VYZVY: Vyzva[] = DATA.vyzvy; const PLANOVANE: Planovana[] = DATA.planovane;
+/** Snímky plánovaných výziev (jedna za deň stiahnutia) na zistenie posunov termínu vyhlásenia. */
+function snimky(): { datum: string; planovane: Planovana[] }[] {
+  const dir = path.join(KOREN, 'data', 'odvodene', 'snimky-planovanych-vyziev');
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort().map((f) => { const j = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')); return { datum: f.slice(0, 10), planovane: Array.isArray(j) ? j : j.planovane ?? [] }; });
+}
+const ref = (v: VstupVyzva) => v.datumPredlozenia ?? dnes();
+
+/** Najbližšia uzávierka po dátume: uzávierka kola, inak koniec výzvy. */
+export function uzavierka(vz: Vyzva, od: string): { datum: string; popis: string } | null {
+  const kolo = vz.kola.filter((k) => k.uzavierka && k.uzavierka >= od).sort((a, b) => a.uzavierka!.localeCompare(b.uzavierka!))[0];
+  if (kolo) return { datum: kolo.uzavierka!, popis: `uzávierka ${kolo.cislo}. kola` };
+  if (vz.ukoncena && vz.ukoncena >= od) return { datum: vz.ukoncena, popis: 'ukončenie výzvy' };
+  return null;
+}
+
+function stav(v: VstupVyzva): VysledokKontroly {
+  const vz = v.vyzva; if (!vz) return { stav: 'neuplatnuje_sa', zdovodnenie: 'Plánovaná výzva ešte nie je vyhlásená.' };
+  const d = ref(v);
+  if (vz.zrusena) return { stav: 'nesplnene', zdovodnenie: 'Výzva je zrušená.' };
+  if (vz.pozastavena) return { stav: 'nesplnene', zdovodnenie: 'Predkladanie žiadostí do výzvy je pozastavené.' };
+  if (vz.uzavreta) return { stav: 'nesplnene', zdovodnenie: 'Výzva je uzavretá.' };
+  if (vz.ukoncena && vz.ukoncena < d) return { stav: 'nesplnene', zdovodnenie: `Výzva skončila ${skDatum(vz.ukoncena)}, pred plánovaným predložením ${skDatum(d)}.` };
+  if (vz.vyhlasena && vz.vyhlasena > d) return { stav: 'na_preverenie', zdovodnenie: `Výzva bude vyhlásená až ${skDatum(vz.vyhlasena)}.` };
+  return { stav: 'splnene', zdovodnenie: `Výzva je k ${skDatum(d)} otvorená (vyhlásená ${skDatum(vz.vyhlasena)}${vz.ukoncena ? `, do ${skDatum(vz.ukoncena)}` : ', bez dátumu ukončenia'}).` };
+}
+
+function kolo(v: VstupVyzva): VysledokKontroly {
+  const vz = v.vyzva; if (!vz) return { stav: 'neuplatnuje_sa', zdovodnenie: 'Plánovaná výzva nemá uzávierky.' };
+  const d = ref(v); const u = uzavierka(vz, d);
+  if (!u) {
+    if (!vz.ukoncena && !vz.kola.length) return { stav: 'na_preverenie', zdovodnenie: 'Výzva nemá v ITMS21+ uzávierky kôl ani dátum ukončenia (otvorená výzva); žiadosti sa posudzujú priebežne do vyčerpania alokácie.' };
+    return { stav: 'nesplnene', zdovodnenie: `Po ${skDatum(d)} už nie je žiadna uzávierka.` };
+  }
+  return { stav: 'splnene', zdovodnenie: `Najbližšia: ${u.popis} ${skDatum(u.datum)}, o ${rozdielDni(dnes(), u.datum)} dní.`, hodnoty: { uzavierka: u.datum, dni: rozdielDni(dnes(), u.datum) } };
+}
+
+function rezerva(v: VstupVyzva): VysledokKontroly {
+  const vz = v.vyzva; if (!vz) return { stav: 'neuplatnuje_sa', zdovodnenie: 'Plánovaná výzva nemá uzávierku.' };
+  if (v.dniPripravy == null) return { stav: 'mimo_podkladov', zdovodnenie: 'Nie je zadané, koľko dní potrebuje žiadateľ na prípravu žiadosti a príloh.' };
+  const u = uzavierka(vz, dnes());
+  if (!u) return { stav: 'mimo_podkladov', zdovodnenie: 'Výzva nemá budúcu uzávierku.' };
+  const potrebne = v.dniPripravy + (v.rezerva ?? 0); const ostava = rozdielDni(dnes(), u.datum); const naviac = ostava - potrebne;
+  const hodnoty = { ostava, potrebne, naviac };
+  if (naviac < 0) return { stav: 'nesplnene', zdovodnenie: `Do ${u.popis} (${skDatum(u.datum)}) ostáva ${ostava} dní, príprava s rezervou potrebuje ${potrebne}. Chýba ${-naviac} dní.`, hodnoty };
+  if (naviac < 7) return { stav: 'na_preverenie', zdovodnenie: `Stihne sa len tesne: rezerva ${naviac} dní do ${skDatum(u.datum)}.`, hodnoty };
+  return { stav: 'splnene', zdovodnenie: `Do ${u.popis} (${skDatum(u.datum)}) ostáva ${ostava} dní, potrebných ${potrebne}, rezerva ${naviac} dní.`, hodnoty };
+}
+
+function verzia(v: VstupVyzva): VysledokKontroly {
+  const vz = v.vyzva; if (!vz) return { stav: 'neuplatnuje_sa', zdovodnenie: 'Plánovaná výzva nemá verzie.' };
+  const posledna = [...vz.verzie].filter((x) => x.datum).sort((a, b) => b.datum!.localeCompare(a.datum!))[0];
+  const popis = posledna ? `Posledná verzia č. ${posledna.cislo} zo ${skDatum(posledna.datum)}${posledna.dovod ? ` (${posledna.dovod.slice(0, 160)})` : ''}.` : 'Výzva nemá v ITMS21+ zaznamenané zmeny.';
+  if (!v.datumOboznamenia) return { stav: 'mimo_podkladov', zdovodnenie: `${popis} Nie je zadané, kedy žiadateľ naposledy čítal dokumentáciu výzvy.` };
+  if (posledna && posledna.datum! > v.datumOboznamenia) return { stav: 'nesplnene', zdovodnenie: `${popis} Žiadateľ čítal dokumentáciu ${skDatum(v.datumOboznamenia)}, teda starú verziu. Treba prejsť zmeny.`, hodnoty: { posledna: posledna.datum } };
+  return { stav: 'splnene', zdovodnenie: `${popis} Žiadateľ čítal dokumentáciu ${skDatum(v.datumOboznamenia)}, po poslednej zmene.` };
+}
+
+function plan(v: VstupVyzva): VysledokKontroly {
+  const p = v.planovana; if (!p) return { stav: 'neuplatnuje_sa', zdovodnenie: 'Výzva je už vyhlásená.' };
+  const hist = snimky().map((s) => ({ datum: s.datum, plan: s.planovane.find((x) => x.kod === p.kod)?.planVyhlasenia ?? null })).filter((x) => x.plan);
+  const posuny = hist.filter((x, i) => i > 0 && x.plan !== hist[i - 1].plan).map((x, i) => `${skDatum(hist[hist.indexOf(x) - 1].plan)} → ${skDatum(x.plan)} (zistené ${skDatum(x.datum)})`);
+  if (p.zrusena) return { stav: 'nesplnene', zdovodnenie: 'Plánovaná výzva je zrušená.' };
+  if (p.planVyhlasenia && p.planVyhlasenia < dnes() && !p.vyhlasena) return { stav: 'na_preverenie', zdovodnenie: `Plánované vyhlásenie ${skDatum(p.planVyhlasenia)} uplynulo a výzva nie je vyhlásená.${posuny.length ? ` Posuny: ${posuny.join('; ')}.` : ''}` };
+  if (posuny.length) return { stav: 'na_preverenie', zdovodnenie: `Termín vyhlásenia sa posunul: ${posuny.join('; ')}.` };
+  return { stav: 'splnene', zdovodnenie: `Plánované vyhlásenie ${skDatum(p.planVyhlasenia)}; v ${hist.length} snímkach plánu bez posunu.${hist.length < 2 ? ' (Na zistenie posunov treba aspoň dve snímky.)' : ''}` };
+}
+
+const FILTRE: Record<string, (v: { vyzva?: Vyzva; planovana?: Planovana }) => boolean> = {
+  otvorene: (x) => !!x.vyzva && !x.vyzva.uzavreta && !x.vyzva.zrusena && (!x.vyzva.ukoncena || x.vyzva.ukoncena >= dnes()),
+  planovane: (x) => !!x.planovana, zmenene: (x) => (x.vyzva?.verzie.length ?? 0) > 1,
+};
+const vsetky = () => [...VYZVY.map((vyzva) => ({ vyzva })), ...PLANOVANE.filter((p) => !p.vyhlasena).map((planovana) => ({ planovana }))] as { vyzva?: Vyzva; planovana?: Planovana }[];
+
+export const vyzvy: Modul<VstupVyzva> = {
+  id: 'vyzvy', nazov: 'Plánovanie výziev', balikVyzva: 'PSK',
+  popis: 'Pre žiadateľa a konzultanta: je výzva otvorená, kedy je najbližšia uzávierka, stihne sa príprava, pracuje sa s aktuálnou verziou výzvy, posunul sa termín plánovanej výzvy.',
+  filtre: [{ hodnota: 'otvorene', nazov: 'Otvorené' }, { hodnota: 'planovane', nazov: 'Plánované' }, { hodnota: 'zmenene', nazov: 'Menené po vyhlásení' }],
+  pripady(q, filter, limit = 80) {
+    const s = q.toLowerCase();
+    const v = vsetky().filter((x) => (!filter || FILTRE[filter]?.(x)) && (!s || `${(x.vyzva ?? x.planovana)!.kod} ${(x.vyzva ?? x.planovana)!.nazov} ${(x.vyzva ?? x.planovana)!.vyhlasovatel}`.toLowerCase().includes(s)));
+    return { spolu: v.length, pripady: v.slice(0, limit).map((x) => { const y = (x.vyzva ?? x.planovana)!; return { id: y.kod, nazov: y.nazov, podnazov: y.vyhlasovatel, stitok: x.planovana ? `plánovaná na ${skDatum(x.planovana.planVyhlasenia)}` : x.vyzva!.zrusena ? 'zrušená' : x.vyzva!.uzavreta ? 'uzavretá' : `do ${skDatum(x.vyzva!.ukoncena)}` }; }) };
+  },
+  nacitaj(id) {
+    const x = vsetky().find((y) => (y.vyzva ?? y.planovana)!.kod === id);
+    return x ? { ...x, datumPredlozenia: null, dniPripravy: null, rezerva: null, datumOboznamenia: null } : undefined;
+  },
+  polia: () => [
+    { kluc: 'datumPredlozenia', nazov: 'Plánovaný dátum predloženia žiadosti', typ: 'datum', napoveda: 'Prázdne = dnes.' },
+    { kluc: 'dniPripravy', nazov: 'Dni potrebné na prípravu žiadosti a príloh', typ: 'cislo', napoveda: 'Napr. energetický audit, projektová dokumentácia, uznesenie zastupiteľstva.' },
+    { kluc: 'rezerva', nazov: 'Rezerva (dni), napr. na kontrolu konzultantom', typ: 'cislo' },
+    { kluc: 'datumOboznamenia', nazov: 'Kedy žiadateľ naposledy čítal dokumentáciu výzvy', typ: 'datum' },
+  ],
+  prilohy: () => [],
+  doFormulara: (v) => ({ datumPredlozenia: v.datumPredlozenia, dniPripravy: v.dniPripravy, rezerva: v.rezerva, datumOboznamenia: v.datumOboznamenia }),
+  zFormulara(v, f) {
+    const d = (x: any) => (typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x) ? x : null);
+    return { ...v, datumPredlozenia: d(f.datumPredlozenia), dniPripravy: num(f.dniPripravy), rezerva: num(f.rezerva), datumOboznamenia: d(f.datumOboznamenia) };
+  },
+  kontroly: { vyzva_stav: stav, vyzva_kolo: kolo, vyzva_rezerva: rezerva, vyzva_verzia: verzia, vyzva_plan: plan },
+  hlavnyText: () => '',
+  kontext: (v) => (v.vyzva ?? v.planovana)!.nazov,
+  titulok: (v) => { const y = (v.vyzva ?? v.planovana)!; return { kod: y.kod, nazov: y.nazov, podnazov: `${y.vyhlasovatel}${v.vyzva ? ` · ${v.vyzva.typ === 'UZAVRETA' ? 'uzavretá výzva (kolá)' : 'otvorená výzva'}` : ' · plánovaná výzva'}` }; },
+  suhrn: (v) => v.vyzva ? `Alokácia EÚ ${eur(v.vyzva.sumaEu)} · vyhlásená ${skDatum(v.vyzva.vyhlasena)} · kolá: ${v.vyzva.kola.map((k) => `${k.cislo}. do ${skDatum(k.uzavierka)}`).join(', ') || '–'} · zmien výzvy po vyhlásení ${Math.max(0, v.vyzva.verzie.length - 1)}${v.vyzva.predlozenych != null ? ` · predložených žiadostí ${v.vyzva.predlozenych}, schválených ${v.vyzva.schvalenych ?? '–'}` : ''}`
+    : `Plánované vyhlásenie ${skDatum(v.planovana!.planVyhlasenia)} · alokácia EÚ ${eur(v.planovana!.sumaEu)}`,
+  vystupy(v) {
+    if (!v.vyzva) return [];
+    const u = uzavierka(v.vyzva, dnes());
+    if (!u || v.dniPripravy == null) return [];
+    const zaciatok = new Date(Date.parse(`${u.datum}T12:00:00Z`) - (v.dniPripravy + (v.rezerva ?? 0)) * 86_400_000).toISOString().slice(0, 10);
+    return [{ nazov: 'Spätný plán prípravy', text: `Uzávierka: ${skDatum(u.datum)} (${u.popis})\nZačať najneskôr: ${skDatum(zaciatok)}\nRezerva pred uzávierkou: ${v.rezerva ?? 0} dní\nPred predložením skontrolovať poslednú verziu výzvy${v.vyzva.verzie.length ? ` (č. ${Math.max(...v.vyzva.verzie.map((x) => x.cislo))})` : ''}.` }];
+  },
+};

@@ -3,72 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Eurofondy – predkontrola žiadosti</title>
+  <title>Eurofondy – predkontrola</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="hlavicka">
-    <div>
-      <h1>Predkontrola žiadosti o NFP</h1>
-      <p id="balik" class="tlmene">Načítavam pravidlá…</p>
+    <div class="riadok">
+      <div>
+        <h1>Predkontrola eurofondov</h1>
+        <p id="stav" class="tlmene male">Načítavam…</p>
+      </div>
+      <nav class="karty" role="tablist" aria-label="Pohľad">
+        <button class="karta aktivna" data-karta="kontrola" role="tab">Kontrola</button>
+        <button class="karta" data-karta="test" role="tab">Test na reálnych dátach</button>
+        <button class="karta" data-karta="pravidla" role="tab">Pravidlá a zdroje</button>
+      </nav>
     </div>
-    <nav class="karty" role="tablist">
-      <button class="karta aktivna" data-karta="kontrola" role="tab">Kontrola žiadosti</button>
-      <button class="karta" data-karta="test" role="tab">Test na reálnych dátach</button>
-      <button class="karta" data-karta="pravidla" role="tab">Pravidlá a zdroje</button>
-    </nav>
+    <nav id="moduly" class="moduly" aria-label="Krok procesu"></nav>
   </header>
 
   <main id="kontrola" class="panel">
     <aside class="zoznam">
-      <input id="hladaj" type="search" placeholder="Hľadať kód, názov, žiadateľa" aria-label="Hľadať žiadosť">
-      <select id="skupina" aria-label="Skutočný výsledok">
-        <option value="">Všetky výsledky</option>
-        <option value="schvalena">Schválené</option>
-        <option value="nedostatok">Neschválené len pre nedostatok peňazí</option>
-        <option value="neschvalena">Neschválené</option>
-        <option value="zastavene">Zastavené konanie</option>
-      </select>
+      <input id="hladaj" type="search" placeholder="Hľadať kód, názov, subjekt" aria-label="Hľadať">
+      <select id="filter" aria-label="Filter"></select>
       <p id="pocet" class="tlmene male"></p>
-      <ul id="ziadosti"></ul>
+      <ul id="pripady"></ul>
     </aside>
 
     <section class="detail">
       <div id="prazdne" class="prazdne">
-        <h2>Vyberte žiadosť</h2>
-        <p>Vľavo je 799 reálnych žiadostí výzvy z verejného registra ITMS21+. Po výbere môžete údaje upraviť, priložiť dokumenty a spustiť kontrolu.</p>
+        <h2 id="prazdne-nazov"></h2>
+        <p id="prazdne-popis"></p>
+        <p class="tlmene male">Vľavo sú reálne prípady z verejného registra ITMS21+. Po výbere môžete doplniť údaje, priložiť dokumenty a spustiť kontrolu. Nič sa nikam neodosiela, všetko beží na tomto počítači.</p>
       </div>
       <div id="obsah" hidden>
         <div class="titul">
           <div>
             <p id="kod" class="tlmene male"></p>
             <h2 id="nazov"></h2>
-            <p id="ziadatel" class="tlmene"></p>
+            <p id="podnazov" class="tlmene"></p>
           </div>
           <div class="akcie">
             <label class="prepinac"><input type="checkbox" id="llm" checked> Čítať text lokálnym modelom</label>
             <button id="posud" class="hlavne">Skontrolovať</button>
           </div>
         </div>
+        <p id="suhrn" class="suhrn"></p>
 
         <div class="mriezka">
           <div class="box">
-            <h3>Údaje z formulára <span class="tlmene male">(dajú sa upraviť a vyskúšať chybu)</span></h3>
-            <div class="polia">
-              <label>Žiadaný NFP (EUR)<input id="f-nfp" type="number" step="1"></label>
-              <label>Právna forma (kód)<input id="f-forma" type="text"></label>
-              <label>Spotreba energie pred (MWh/rok)<input id="f-vych" type="number" step="0.01"></label>
-              <label>Spotreba energie po (MWh/rok)<input id="f-ciel" type="number" step="0.01"></label>
-              <label>Kapacita OZE elektrická (MW)<input id="f-mwa" type="number" step="0.0001"></label>
-              <label>Kapacita OZE tepelná (MW)<input id="f-mwb" type="number" step="0.0001"></label>
-            </div>
-            <label class="siroke">Popis projektu<textarea id="f-popis" rows="7"></textarea></label>
-            <p id="metriky" class="tlmene male"></p>
+            <h3>Údaje <span class="tlmene male">(predvyplnené z registra; dajú sa doplniť alebo zmeniť a vyskúšať chybu)</span></h3>
+            <div id="polia" class="polia"></div>
           </div>
-          <div class="box">
-            <h3>Prílohy ŽoNFP</h3>
-            <p class="tlmene male">Verejný register prílohy neobsahuje. Priložte .docx, .pdf alebo .txt. Bez zaškrtnutia sa prílohy nehodnotia.</p>
-            <label class="prepinac"><input type="checkbox" id="mamPrilohy"> Hodnotiť aj prílohy</label>
+          <div class="box" id="box-prilohy">
+            <h3>Dokumenty</h3>
+            <p class="tlmene male">Verejný register dokumenty neobsahuje. Priložte .docx, .pdf alebo .txt. Bez zaškrtnutia sa dokumenty nehodnotia a príslušné pravidlá ostanú neoverené.</p>
+            <label class="prepinac"><input type="checkbox" id="mamPrilohy"> Hodnotiť aj priložené dokumenty</label>
             <div id="prilohy"></div>
           </div>
         </div>
@@ -77,6 +67,7 @@
           <div id="verdikt" class="verdikt"></div>
           <div id="skutocnost" class="skutocnost"></div>
           <div id="nalezy"></div>
+          <div id="vystupy"></div>
         </div>
       </div>
     </section>

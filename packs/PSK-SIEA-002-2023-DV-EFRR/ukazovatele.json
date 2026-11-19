@@ -1,0 +1,38 @@
+{
+ "id": "PSK-SIEA-002-2023-DV-EFRR/ukazovatele",
+ "modul": "ukazovatele",
+ "vyzvaKod": "PSK-SIEA-002-2023-DV-EFRR",
+ "vyzvaNazov": "Výzva na podporu energetickej efektívnosti a využívania OZE vo verejných budovách",
+ "poskytovatel": "Slovenská inovačná a energetická agentúra (sprostredkovateľský orgán pre Program Slovensko)",
+ "verzia": "VZP verzia 2.2; Príručka pre prijímateľa DOP verzia 3.2 (1. 6. 2026) s prílohou č. 12",
+ "platnaOd": "2026-06-01",
+ "zdroje": [
+  { "nazov": "Vzor zmluvy o NFP, príloha č. 1 Všeobecné zmluvné podmienky, verzia 2.2", "subor": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt", "url": "" },
+  { "nazov": "Príručka pre prijímateľa DOP, verzia 3.2", "subor": "data/zdroje/SIEA-prirucka-DOP-3.2/prirucka-DOP-3.2.pdf", "url": "" },
+  { "nazov": "Príloha č. 12 príručky: Sankčná kalkulačka MU", "subor": "data/zdroje/SIEA-prirucka-DOP-3.2/priloha-12-Sank_n_kalkula_ka_MU.ods", "url": "" },
+  { "nazov": "Projekty výzvy: cieľové hodnoty MU a harmonogram monitorovania", "subor": "data/odvodene/PSK-SIEA-002-2023-DV-EFRR/projekty.json", "url": "https://api.itms21.sk/public/v1/projekt" }
+ ],
+ "proces": [
+  "Prijímateľ deklaruje dosiahnuté hodnoty MU v monitorovacích správach (výročná, záverečná, následné).",
+  "Poskytovateľ porovná dosiahnuté hodnoty s cieľovými hodnotami v prílohe č. 2 zmluvy.",
+  "Pri nedosiahnutí MU výstupu sa NFP kráti sankčným mechanizmom (kalkulačka, príloha č. 12 príručky).",
+  "Pri nedosiahnutí MU výsledku sa sankcia neuplatní, ak prijímateľ preukáže externé faktory a odchýlka je primeraná."
+ ],
+ "pravidla": [
+  {
+   "id": "U01", "ppp": null, "nazov": "MU výstupu dosiahnuté aspoň na 95 % (inak krátenie NFP)", "druh": "data", "kontrola": "mu_vystup",
+   "citacia": { "dokument": "VZP verzia 2.2", "cast": "čl. 1 ods. 3, definícia Merateľného ukazovateľa výstupu; čl. 18 ods. 1 písm. h)", "znenie": "dosiahnutie jeho cieľovej hodnoty je pre Prijímateľa záväzné. Pri nedosiahnutí cieľovej hodnoty Merateľného ukazovateľa výstupu sa uplatní tzv. sankčný mechanizmus podľa článku 18 ods. 1 písm. h) VZP" },
+   "overenieZdroj": "Výpočet krátenia: Príloha č. 12 Príručky DOP 3.2, hárok Kalkulačka, bunky E32 až E35."
+  },
+  {
+   "id": "U02", "ppp": null, "nazov": "MU výsledku dosiahnuté aspoň na 95 % alebo preukázané externé faktory", "druh": "data", "kontrola": "mu_vysledok",
+   "citacia": { "dokument": "VZP verzia 2.2", "cast": "čl. 1 ods. 3, definícia Merateľného ukazovateľa výsledku", "znenie": "Nedosiahnutie cieľovej hodnoty Merateľného ukazovateľa výsledku v rámci akceptovateľnej miery odchýlky pri preukázaní externého vplyvu mimo vplyv Prijímateľa nemusí byť spojené s finančnou sankciou vo vzťahu k Prijímateľovi" },
+   "overenieZdroj": "Výpočet krátenia: Príloha č. 12 Príručky DOP 3.2, bunky F32 až F35."
+  },
+  {
+   "id": "U03", "ppp": null, "nazov": "Monitorovacie správy predložené do uplynutých termínov", "druh": "data", "kontrola": "monitorovanie",
+   "citacia": { "dokument": "VZP verzia 2.2", "cast": "čl. 4 (monitorovanie)", "znenie": "Prijímateľ je povinný do 30 dní od ukončenia Realizácie aktivít Projektu, najneskôr však spolu so Žiadosťou o platbu (s príznakom „záverečná“), predložiť Poskytovateľovi záverečnú Monitorovaciu správu." },
+   "overenieZdroj": "Termíny: ITMS21+ projekt, pole monitorovacieTerminy (datumPredlozeniaNajneskorsi)."
+  }
+ ]
+}

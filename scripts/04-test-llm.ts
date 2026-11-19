@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { nacitajBalik, posud } from '../src/core/posud.ts';
+import { zonfp } from '../src/moduly/zonfp/modul.ts';
 import { MODEL, dostupny, vyloz } from '../src/llm/ollama.ts';
 import type { Ziadost } from '../src/core/typy.ts';
 
@@ -28,7 +29,7 @@ type Riadok = { cast: string; id: string; ocakavane: string; stav: string; ms: n
 const predosle = path.join(koren, 'eval', 'test-llm.json');
 const riadky: Riadok[] = IBA !== 'ABCD' && fs.existsSync(predosle) ? (JSON.parse(fs.readFileSync(predosle, 'utf8')).riadky as Riadok[]).filter((r) => !IBA.includes(r.cast[0])) : [];
 async function spusti(cast: string, id: string, z: Ziadost, pravidlo: string, ocakavane: string, b = balik) {
-  const p = await posud(z, b, { iba: [pravidlo] });
+  const p = await posud(z, b, zonfp, { iba: [pravidlo] });
   const n = p.nalezy[0];
   riadky.push({ cast, id, ocakavane, stav: n.stav, ms: Number(n.hodnoty?.ms ?? p.trvanieMs), zdovodnenie: n.zdovodnenie, dokaz: n.dokaz });
   fs.writeFileSync(path.join(koren, 'eval', 'test-llm.priebeh.json'), JSON.stringify(riadky)); // priebežne, aby sa prerušený beh nestratil

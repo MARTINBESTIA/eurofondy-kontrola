@@ -68,7 +68,55 @@ export interface BalikPravidiel {
   proces: string[]; pravidla: Pravidlo[];
 }
 
-export type Navrh = 'bez_zisteni' | 'vyzva_na_doplnenie' | 'nesplnene_podmienky' | 'na_preverenie';
+/** Projekt po uzavretí zmluvy (verejné API ITMS21+). Vstup modulov ukazovatele, zmeny a verejné obstarávanie. */
+export interface Projekt {
+  id: number; kod: string; nazov: string; vyzvaKod: string; stav: string; ukonceny: boolean;
+  prijimatel: { nazov: string; ico: string; pravnaFormaKod: string; pravnaForma: string };
+  zmluva: { cislo: string; ucinnost: string | null; url: string | null };
+  zonfpKod: string; zonfpPredlozenie: string | null; zonfpSchvalenie: string | null;
+  cov: number; nfp: number; poskytnute: number;
+  planZaciatok: string | null; planKoniec: string | null; skutZaciatok: string | null; skutKoniec: string | null;
+  popis: string;
+  ukazovatele: Ukazovatel[];
+  terminy: { typ: string; poradie: number; termin: string | null; najneskor: string | null }[];
+  zmeny: { id: number; predmet: string; dodatok: string | null; ucinnost: string | null; dokumenty?: string[] }[];
+  dodavatelia: { nazov: string; ico: string }[];
+}
+
+/** Pole formulára v rozhraní. Rozhranie je všeobecné: modul povie, aké polia a prílohy chce. */
+export interface Pole {
+  kluc: string; nazov: string; typ: 'cislo' | 'text' | 'datum' | 'vyber' | 'dlhy_text' | 'anone';
+  moznosti?: { hodnota: string; nazov: string }[]; napoveda?: string;
+}
+export interface Pripad { id: string; nazov: string; podnazov: string; stitok?: string }
+export interface VysledokKontroly { stav: Stav; zdovodnenie: string; hodnoty?: Record<string, number | string | null>; dokaz?: string }
+
+/** Modul = jeden krok procesu (žiadosť, obstarávanie, platba, ukazovatele, zmena, plánovanie). */
+export interface Modul<V = any> {
+  id: string; nazov: string; popis: string;
+  /** Balík pravidiel: packs/<balikVyzva>/<id>.json. Predvolene výzva z premennej VYZVA. */
+  balikVyzva?: string;
+  filtre?: { hodnota: string; nazov: string }[];
+  pripady(q: string, filter: string, limit?: number): { spolu: number; pripady: Pripad[] };
+  nacitaj(id: string): V | undefined;
+  polia(v: V): Pole[];
+  prilohy(v: V): { cislo: string; nazov: string }[];
+  doFormulara(v: V): Record<string, any>;
+  zFormulara(v: V, f: Record<string, any>): V;
+  kontroly: Record<string, (v: V, p: Pravidlo) => VysledokKontroly | Promise<VysledokKontroly>>;
+  hlavnyText(v: V): string;
+  kontext(v: V): string;
+  titulok(v: V): { kod: string; nazov: string; podnazov: string };
+  suhrn?(v: V): string;
+  skutocnost?(v: V): string | null;
+  /** Návrhy dokumentov, ktoré modul vie predvyplniť (napr. oznámenie o zmene). */
+  vystupy?(v: V, nalezy: Nalez[]): { nazov: string; text: string }[];
+  /** Osobné údaje z registrov sa do auditnej tabuľky neukladajú. */
+  neukladatDokazy?: boolean;
+}
+
+/** bez_zisteni len ak sa overilo všetko, čo pravidlá žiadajú; ak niečo z podkladov overiť nejde, výrok je ciastocne_overene. */
+export type Navrh = 'bez_zisteni' | 'ciastocne_overene' | 'vyzva_na_doplnenie' | 'nesplnene_podmienky' | 'na_preverenie';
 
 export interface Posudok {
   ziadostKod: string; balik: string; verziaBalika: string; cas: string; trvanieMs: number; model: string | null;

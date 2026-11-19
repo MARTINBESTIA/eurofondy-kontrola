@@ -1,0 +1,260 @@
+// Test modulov na reálnych dátach ITMS21+ bez modelu.
+// 1. Všetky reálne prípady: aké výroky a stavy pravidiel softvér dáva.
+// 2. Zasadené chyby: do reálnych prípadov sa vloží známa chyba a meria sa, či ju softvér zachytí.
+//    Najhorší omyl je „falošne OK“: chyba je, ale pravidlo vyšlo splnené alebo celý výrok bez zistení.
+// 3. Ručne overené príklady (kalkulačka MU, klasifikátor zmien voči dodatkom).
+// Výstup: eval/test-moduly.json (zobrazuje ho karta „Test na reálnych dátach“).
+import fs from 'node:fs';
+import path from 'node:path';
+import { nacitajBalik, posud } from '../src/core/posud.ts';
+import type { BalikPravidiel, Modul, Posudok, Stav } from '../src/core/typy.ts';
+import { dnes, pridajDni, pridajMesiace, projekty, rozdielDni } from '../src/moduly/spolocne.ts';
+import { zonfp } from '../src/moduly/zonfp/modul.ts';
+import { vyzvy, uzavierka, type VstupVyzva } from '../src/moduly/vyzvy/modul.ts';
+import { vo, VSETKY as VSETKY_VO, type VstupVo } from '../src/moduly/vo/modul.ts';
+import { zmeny, zatried, limitHA, NAZOV_KAT, type VstupZmena } from '../src/moduly/zmeny/modul.ts';
+import { zop, DOKLADY, VSETKY_ZOP, doklad, type VstupZop } from '../src/moduly/zop/modul.ts';
+import { ukazovatele, jeZnizujuci, type VstupUkazovatele } from '../src/moduly/ukazovatele/modul.ts';
+import { kalkulacka } from '../src/moduly/ukazovatele/kalkulacka.ts';
+
+const KOREN = path.join(import.meta.dirname, '..');
+const VYZVA = process.env.VYZVA ?? 'PSK-SIEA-002-2023-DV-EFRR';
+const balik = (m: Modul) => nacitajBalik(m.balikVyzva ?? VYZVA, m.id);
+const ZAVAZNOST: Record<Stav, number> = { nesplnene: 3, chyba_podklad: 2, na_preverenie: 1, mimo_podkladov: 0, splnene: 0, neuplatnuje_sa: 0 };
+const okVyrok = (p: Posudok) => p.navrh === 'bez_zisteni' || p.navrh === 'ciastocne_overene';
+const t0 = Date.now();
+const vystup: any = { cas: new Date().toISOString(), dnes: dnes(), vyzva: VYZVA, moduly: {} };
+
+async function realne(m: Modul, b: BalikPravidiel) {
+  const t = Date.now();
+  const ids = m.pripady('', '', 1e9).pripady.map((p) => p.id);
+  const navrhy: Record<string, number> = {}; const pravidla = new Map(b.pravidla.map((p) => [p.id, { id: p.id, nazov: p.nazov, pocty: {} as Record<string, number> }]));
+  for (const id of ids) {
+    const p = await posud(m.nacitaj(id), b, m, { llm: false });
+    navrhy[p.navrh] = (navrhy[p.navrh] ?? 0) + 1;
+    for (const n of p.nalezy) { const r = pravidla.get(n.pravidlo)!; r.pocty[n.stav] = (r.pocty[n.stav] ?? 0) + 1; }
+  }
+  return { pripadov: ids.length, trvanieMs: Date.now() - t, navrhy, pravidla: [...pravidla.values()] };
+}
+
+/** Spustí posudok na prípadoch so zasadenou chybou a vyhodnotí cieľové pravidlo. */
+async function zasad(m: Modul, b: BalikPravidiel, nazov: string, pravidlo: string, ocakavane: Stav, vstupy: any[]) {
+  let zachytene = 0, presne = 0, falosneOk = 0; const priklady: string[] = []; const stavy: Record<string, number> = {};
+  for (const v of vstupy) {
+    const p = await posud(v, b, m, { llm: false, });
+    const n = p.nalezy.find((x) => x.pravidlo === pravidlo)!;
+    stavy[n.stav] = (stavy[n.stav] ?? 0) + 1;
+    if (ZAVAZNOST[n.stav] >= 1) zachytene++;
+    if (n.stav === ocakavane) presne++;
+    if (n.stav === 'splnene' || n.stav === 'neuplatnuje_sa' || okVyrok(p)) { falosneOk++; if (priklady.length < 3) priklady.push(`${p.ziadostKod}: ${n.stav} / ${p.navrh}: ${n.zdovodnenie.slice(0, 200)}`); }
+  }
+  const r = { nazov, pravidlo, ocakavane, n: vstupy.length, zachytene, presne, falosneOk, stavy, priklady };
+  console.log(`  [${pravidlo}] ${nazov}: zachytené ${zachytene}/${vstupy.length}, presne ${presne}, falošne OK ${falosneOk}${priklady.length ? `\n     napr. ${priklady[0]}` : ''}`);
+  return r;
+}
+const nacitaj = <V>(m: Modul<V>, id: string) => structuredClone(m.nacitaj(id)!) as V;
+const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
+
+// ---------------------------------------------------------------- plánovanie výziev
+{
+  const m = vyzvy; const b = balik(m); console.log(`\n== ${m.nazov}`);
+  const r: any = await realne(m, b);
+  const ids = vsetkyId(m); const vs = ids.map((id) => nacitaj<VstupVyzva>(m, id));
+  const otvorene = vs.filter((v) => v.vyzva && !v.vyzva.zrusena && !v.vyzva.uzavreta && uzavierka(v.vyzva, dnes()));
+  const s_koncom = vs.filter((v) => v.vyzva?.ukoncena);
+  const s_verziami = vs.filter((v) => (v.vyzva?.verzie.filter((x) => x.datum).length ?? 0) > 1);
+  const planovane = vs.filter((v) => v.planovana);
+  r.zasadene = [
+    await zasad(m, b, 'Výzva zrušená', 'C01', 'nesplnene', otvorene.map((v) => { const x = structuredClone(v); x.vyzva!.zrusena = true; return x; })),
+    await zasad(m, b, 'Predloženie po skončení výzvy', 'C01', 'nesplnene', s_koncom.map((v) => ({ ...structuredClone(v), datumPredlozenia: pridajDni(v.vyzva!.ukoncena!, 10) }))),
+    await zasad(m, b, 'Príprava trvá dlhšie, ako ostáva do uzávierky', 'C03', 'nesplnene', otvorene.map((v) => ({ ...structuredClone(v), dniPripravy: rozdielDni(dnes(), uzavierka(v.vyzva!, dnes())!.datum) + 30, rezerva: 0 }))),
+    await zasad(m, b, 'Žiadateľ čítal starú verziu výzvy', 'C04', 'nesplnene', s_verziami.map((v) => { const d = [...v.vyzva!.verzie].filter((x) => x.datum).sort((a, c) => c.datum!.localeCompare(a.datum!))[0].datum!; return { ...structuredClone(v), datumOboznamenia: pridajDni(d, -1) }; })),
+    await zasad(m, b, 'Plánovaná výzva po termíne nevyhlásená', 'C05', 'na_preverenie', planovane.map((v) => { const x = structuredClone(v); x.planovana!.planVyhlasenia = '2026-01-15'; x.planovana!.vyhlasena = false; return x; })),
+  ];
+  const meskajuce = planovane.filter((v) => v.planovana!.planVyhlasenia && v.planovana!.planVyhlasenia < dnes());
+  r.poznamky = [
+    `Z ${vs.filter((v) => v.vyzva).length} výziev má ${s_verziami.length} aspoň dve datované verzie (zmenu po vyhlásení); žiadateľ, ktorý pracuje so starou verziou, je reálne riziko.`,
+    `Plánované výzvy: ${planovane.length}, z toho po plánovanom termíne vyhlásenia a nevyhlásené k ${dnes()}: ${meskajuce.length}${meskajuce.length ? ` (${meskajuce.map((v) => `${v.planovana!.kod} plán ${v.planovana!.planVyhlasenia}`).join(', ')})` : ''}.`,
+    'Bez zadaného plánu žiadateľa (dni prípravy, dátum oboznámenia) ostávajú pravidlá C03 a C04 neoverené, preto väčšina reálnych výrokov je „čiastočne overené“.',
+  ];
+  vystup.moduly[m.id] = r;
+}
+
+// ---------------------------------------------------------------- žiadosť o NFP (zasadené chyby testuje 03-test-pravidla)
+{
+  const m = zonfp; const b = balik(m); console.log(`\n== ${m.nazov}`);
+  const r: any = await realne(m, b);
+  r.poznamky = ['Porovnanie so skutočným rozhodnutím poskytovateľa (falošné poplachy a zachytené zamietnutia) je v časti nižšie, test 03-test-pravidla.', 'Prílohy ŽoNFP nie sú verejné, preto pravidlá o prílohách na reálnych dátach ostávajú neoverené.'];
+  vystup.moduly[m.id] = r;
+}
+
+// ---------------------------------------------------------------- verejné obstarávanie
+{
+  const m = vo; const b = balik(m); console.log(`\n== ${m.nazov}`);
+  const r: any = await realne(m, b);
+  const vs = vsetkyId(m).map((id) => nacitaj<VstupVo>(m, id));
+  const zmr = vs.filter((v) => /malého rozsahu podľa § 1 ods\. 14/.test(v.vo.postup) && !/učebnic/.test(v.vo.postup));
+  const sutaz = vs.filter((v) => !/výnimk|in-house|nerelevantné|čiastková zmluva|koncesi/i.test(v.vo.postup) && !/stiahnut|pripravovan/i.test(v.vo.stav));
+  const sPhz = vs.filter((v) => (v.vo.phz ?? 0) > 0);
+  const sZmluvou = vs.filter((v) => v.vo.zmluvy.some((z) => z.suma != null) && v.vo.doklady.length);
+  r.zasadene = [
+    await zasad(m, b, 'Zákazka malého rozsahu s PHZ 60 000 EUR (po 1. 8. 2024)', 'V01', 'nesplnene', zmr.map((v) => { const x = structuredClone(v); x.vo.phz = 60_000; x.vo.vytvorene = '2025-03-01'; return x; })),
+    await zasad(m, b, 'Súťaž s jedinou ponukou', 'V02', 'na_preverenie', sutaz.map((v) => { const x = structuredClone(v); x.vo.ponuky = 1; x.vo.vylucene = 0; return x; })),
+    await zasad(m, b, 'Zmluva o 60 % nad PHZ (s DPH)', 'V03', 'na_preverenie', sPhz.map((v) => { const x = structuredClone(v); x.vo.zmluvy = [{ id: -1, kod: 'T', cislo: 'T', ucinnost: null, suma: Math.round(x.vo.phz! * 1.23 * 1.6), dodavatel: null }]; return x; })),
+    await zasad(m, b, 'Faktúry o 50 % nad zmluvy (s DPH)', 'V04', 'na_preverenie', sZmluvou.map((v) => { const x = structuredClone(v); const s = x.vo.zmluvy.reduce((a, z) => a + (z.suma ?? 0), 0); x.vo.doklady = [{ id: -1, cislo: 'T', celkom: s * 1.23 * 1.5, datum: null }]; return x; })),
+  ];
+  // Delenie zákazky: k zákazke malého rozsahu sa do dát pridajú dve ďalšie s rovnakým obstarávateľom, CPV a rokom.
+  const delit = zmr.filter((v) => v.vo.cpv && v.vo.vytvorene && (v.vo.phz ?? 0) < 50_000).slice(0, 150);
+  const pridane: any[] = [];
+  const vstupyDelenie = delit.map((v, i) => {
+    const x = structuredClone(v); x.vo.phz = 30_000;
+    for (const k of [1, 2]) pridane.push({ ...structuredClone(v.vo), id: -(i * 10 + k), kod: `${v.vo.kod}-T${k}`, phz: 30_000, stav: 'Ukončené' });
+    return x;
+  });
+  VSETKY_VO.push(...pridane);
+  r.zasadene.push(await zasad(m, b, 'Tri zákazky malého rozsahu po 30 000 EUR na rovnaký predmet v jednom roku', 'V05', 'na_preverenie', vstupyDelenie));
+  VSETKY_VO.splice(VSETKY_VO.length - pridane.length, pridane.length);
+  r.poznamky = [
+    'V06 (štatutári v RPO) je online dopyt a je predvolene vypnutý; test ho nespúšťa, aby sa nič neodosielalo.',
+    'V07 (záznam zo zadania zákazky) číta lokálny model, testuje ho 09-test-llm-moduly na syntetických záznamoch.',
+    'Limit postupu sa overuje len pri zákazkách malého rozsahu a podlimitných s oslovením 3 subjektov; pred 1. 8. 2024 len „na preverenie“, lebo staršie limity neboli overené.',
+  ];
+  vystup.moduly[m.id] = r;
+}
+
+// ---------------------------------------------------------------- zmeny projektu
+{
+  const m = zmeny; const b = balik(m); console.log(`\n== ${m.nazov}`);
+  const r: any = await realne(m, b);
+  const vs = vsetkyId(m).map((id) => nacitaj<VstupZmena>(m, id));
+  const sUcinnostou = vs.filter((v) => v.projekt.zmluva.ucinnost);
+  const sMU = vs.filter((v) => v.projekt.ukazovatele.some((u) => (u.ciel ?? 0) > 0 && !jeZnizujuci(u)));
+  const vzorka = (a: VstupZmena[], n = 200) => a.filter((_, i) => i % Math.max(1, Math.floor(a.length / n)) === 0).slice(0, n);
+  const s = vzorka(vs);
+  r.zasadene = [
+    await zasad(m, b, 'Zmena miesta realizácie predložená ako OoZ', 'Z01', 'nesplnene', s.map((v) => ({ ...structuredClone(v), zmena: { ...v.zmena, predmet: 'Zmena miesta realizácie projektu: rozšírenie o susednú parcelu.' }, formular: 'OoZ' as const }))),
+    await zasad(m, b, 'Nová výška NFP o 5 % vyššia', 'Z03', 'nesplnene', s.map((v) => ({ ...structuredClone(v), novaNfp: Math.round(v.projekt.nfp * 1.05) }))),
+    await zasad(m, b, 'Koniec hlavných aktivít mesiac po limite 24 mesiacov', 'Z04', 'nesplnene', vzorka(sUcinnostou).map((v) => ({ ...structuredClone(v), novyKoniecHA: pridajMesiace(limitHA(v.projekt)!, 1) }))),
+    await zasad(m, b, 'Ex ante zmena vykonaná pred podaním ŽoZZ', 'Z05', 'nesplnene', s.map((v) => ({ ...structuredClone(v), zmena: { ...v.zmena, predmet: 'Zmena miesta realizácie projektu.' }, formular: 'ZoZZ' as const, datumPodania: '2026-05-10', datumZmeny: '2026-04-01' }))),
+    await zasad(m, b, 'Ex post zmena (prečerpanie 20 %) podaná 11 dní pred ŽoP', 'Z05', 'nesplnene', s.map((v) => ({ ...structuredClone(v), zmena: { ...v.zmena, predmet: 'Presun prostriedkov medzi položkami rozpočtu.' }, precerpanie: 20, formular: 'ZoZZ' as const, datumPodania: '2026-06-20', datumZop: '2026-07-01' }))),
+    await zasad(m, b, 'MU znížený na 50 % pri hranici 70 %', 'Z06', 'nesplnene', vzorka(sMU).map((v) => { const u = v.projekt.ukazovatele.find((x) => (x.ciel ?? 0) > 0 && !jeZnizujuci(x))!; return { ...structuredClone(v), muKod: u.kod, muNova: u.ciel! * 0.5, prahPercent: 70 }; })),
+    await zasad(m, b, 'Zmena štatutára: priložený doklad, chýba formulár OoZ', 'Z07', 'chyba_podklad', s.map((v) => ({ ...structuredClone(v), zmena: { ...v.zmena, predmet: 'Zmena štatutárneho orgánu, nový starosta obce.' }, prilohy: { statutar_1: { nazov: 'osvedcenie.pdf', text: 'Osvedčenie o zvolení za starostu obce.' } } }))),
+  ];
+  // Klasifikátor voči skutočnosti: zmena s dodatkom k zmluve mala ísť cez ŽoZZ (alebo bola technická).
+  const kat: Record<string, { s: number; bez: number }> = {};
+  const podozrive: string[] = [];
+  for (const v of vs) {
+    const z = zatried(v.zmena.predmet); const d = !!v.zmena.dodatok;
+    (kat[z.kategoria] ??= { s: 0, bez: 0 })[d ? 's' : 'bez']++;
+    if (d && (z.kategoria === 'formalna' || z.kategoria === 'menej_vyznamna') && podozrive.length < 6) podozrive.push(`${v.zmena.id} (${NAZOV_KAT[z.kategoria]}, dodatok ${v.zmena.dodatok}): ${v.zmena.predmet.replace(/\s+/g, ' ').slice(0, 140)}`);
+  }
+  const sDodatkom = Object.values(kat).reduce((a, x) => a + x.s, 0);
+  const lahke = (kat.formalna?.s ?? 0) + (kat.menej_vyznamna?.s ?? 0);
+  r.overenia = Object.entries(kat).sort((a, c) => c[1].s + c[1].bez - a[1].s - a[1].bez).map(([k, x]) => ({ ok: true, nazov: `Zatriedenie „${NAZOV_KAT[k as keyof typeof NAZOV_KAT]}“`, vysledok: `${x.s + x.bez} zmien, z toho ${x.s} s dodatkom k zmluve (${Math.round((x.s / (x.s + x.bez)) * 100)} %)` }));
+  // Projekty: koniec hlavných aktivít po limite 24 mesiacov od účinnosti zmluvy (údaj ITMS21+, už po schválených zmenách).
+  const ps = projekty(); const poLimite = ps.filter((p) => p.planKoniec && limitHA(p) && p.planKoniec > limitHA(p)!);
+  r.poznamky = [
+    `Klasifikátor voči dodatkom: ${sDodatkom} zmien má dodatok k zmluve. Ako formálne alebo menej významné (OoZ bez dodatku) softvér zatriedil ${lahke} z nich (${Math.round((lahke / Math.max(1, sDodatkom)) * 100)} %). Sú to kandidáti na „falošne ľahkú“ zmenu; dodatok však môže zahŕňať aj menej významné zmeny zapracované neskôr, preto to nie je presná chybovosť.${podozrive.length ? ` Príklady na ručnú kontrolu: ${podozrive.join(' | ')}` : ''}`,
+    `Projekty s koncom hlavných aktivít po 24 mesiacoch od účinnosti zmluvy (PPP č. 14) podľa ITMS21+: ${poLimite.length} z ${ps.length}${poLimite.length ? ` (napr. ${poLimite.slice(0, 5).map((p) => `${p.kod}: koniec ${p.planKoniec}, limit ${limitHA(p)}`).join('; ')})` : ''}. Pravdepodobne ide o predĺženie z dôvodu okolnosti vylučujúcej zodpovednosť alebo o zmenu výzvy; overiť.`,
+  ];
+  vystup.moduly[m.id] = r;
+}
+
+// ---------------------------------------------------------------- žiadosť o platbu
+{
+  const m = zop; const b = balik(m); console.log(`\n== ${m.nazov}`);
+  const r: any = await realne(m, b);
+  const vs = vsetkyId(m).map((id) => nacitaj<VstupZop>(m, id));
+  const sDokladom = vs.filter((v) => { const x = v.zop.vydavky[0]; const d = doklad(x?.dokladId ?? null); return x && x.bezDph != null && d?.celkom != null; });
+  const vz = sDokladom.filter((_, i) => i % Math.max(1, Math.floor(sDokladom.length / 250)) === 0).slice(0, 250);
+  let novyId = -1;
+  /** Syntetický doklad: kópia dokladu prvého výdavku so zmenou; vloží sa do dát pod záporným id. */
+  const sDokladom2 = (v: VstupZop, uprav: (d: any) => void) => { const x = structuredClone(v); const d = structuredClone(doklad(x.zop.vydavky[0].dokladId)!); d.id = novyId--; uprav(d); DOKLADY[String(d.id)] = d; x.zop.vydavky[0].dokladId = d.id; return x; };
+  r.zasadene = [
+    await zasad(m, b, 'Žiadaná suma o 100 EUR vyššia ako výdavok', 'P02', 'nesplnene', vz.map((v) => { const x = structuredClone(v); const y = x.zop.vydavky[0]; y.ziadana = y.bezDph! + (y.dph ?? 0) + 100; return x; })),
+    await zasad(m, b, 'Ten istý doklad nárokovaný druhýkrát v tej istej ŽoP', 'P02', 'nesplnene', vz.map((v) => { const x = structuredClone(v); const y = x.zop.vydavky[0]; x.zop.vydavky.push({ ...structuredClone(y), id: -1, poradie: 999, ziadana: doklad(y.dokladId)!.celkom }); return x; })),
+    await zasad(m, b, 'Doklad vystavený pred 1. 1. 2021', 'P01', 'nesplnene', vz.map((v) => sDokladom2(v, (d) => { d.datumVyhotovenia = '2020-06-15'; }))),
+    await zasad(m, b, 'Výdavok uhradený po 31. 12. 2029', 'P01', 'nesplnene', vz.map((v) => { const x = structuredClone(v); x.zop.vydavky[0].datumUhrady = '2030-02-01'; return x; })),
+    await zasad(m, b, 'Dodávateľ neplatiteľ DPH fakturuje DPH', 'P04', 'na_preverenie', vz.map((v) => sDokladom2(v, (d) => { d.dodavatel = { ...(d.dodavatel ?? { nazov: 'Test s.r.o.', ico: '12345678' }), platitelDph: false }; d.polozky = [{ bezDph: 1000, dph: 230, sadzba: 23, spolu: 1230 }]; }))),
+    await zasad(m, b, 'Chybne vypočítaná DPH v položke dokladu', 'P05', 'na_preverenie', vz.map((v) => sDokladom2(v, (d) => { d.polozky = [{ bezDph: 1000, dph: 280, sadzba: 23, spolu: 1280 }]; }))),
+    await zasad(m, b, 'Hotovostná platba 800 EUR', 'P09', 'nesplnene', vz.map((v) => ({ ...structuredClone(v), hotovostMax: 800 }))),
+    await zasad(m, b, 'Priložená len faktúra, chýba výpis a ďalšie dokumenty', 'P10', 'chyba_podklad', vz.filter((v) => v.zop.typ !== 'PREDFINANCOVANIE').map((v) => ({ ...structuredClone(v), prilohy: { faktura: { nazov: 'faktura.pdf', text: 'Faktúra č. 2026001' } } }))),
+    await zasad(m, b, 'Doklad o úhrade je výstup z internet bankingu', 'P12', 'nesplnene', vz.map((v) => ({ ...structuredClone(v), prilohy: { uhrada: { nazov: 'platba.pdf', text: 'Internet banking – detail transakcie\nSuma: 12 450,00 EUR\nDátum: 14.03.2026\nZ účtu SK31 1200 0000 1987 4263 7541' } } }))),
+    await zasad(m, b, 'Výpis z účtu bez čísla účtu (bez modelu)', 'P12', 'nesplnene', vz.map((v) => ({ ...structuredClone(v), prilohy: { uhrada: { nazov: 'vypis.pdf', text: 'Výpis z bankového účtu č. 3/2026\nDátum zaúčtovania 14.03.2026\nOdpísaná suma 12 450,00 EUR\nPríjemca: Stavby s.r.o.' } } }))),
+  ];
+  // Opätovné predloženie uhradenej ŽoP: tie isté doklady, tá istá rodina nárokov, obe uhradené.
+  const uhradene = VSETKY_ZOP.filter((z) => z.neuhradena === false && !z.typ.startsWith('ZUCTOVANIE') && z.vydavky.some((x) => { const d = doklad(x.dokladId); return d?.celkom && (x.ziadana ?? 0) >= d.celkom * 0.5; })).slice(0, 200);
+  r.zasadene.push(await zasad(m, b, 'Uhradená ŽoP predložená druhýkrát (rovnaké doklady)', 'P03', 'nesplnene', uhradene.map((z) => { const v = nacitaj<VstupZop>(m, z.kod); v.zop.kod = `${z.kod}-T`; return v; })));
+  r.poznamky = [
+    'Doklady ŽoP (faktúry, výpisy) nie sú verejné; na reálnych dátach sa overujú len údaje ITMS21+ (sumy, dátumy, DPH, väzba na VO a zmluvy).',
+    'Zasadené chyby v dokladoch používajú syntetické kópie reálnych dokladov; reálne dáta sa nemenia.',
+    'Pravidlo P03 považuje za dvojité nárokovanie len súčet nad hodnotu dokladu v uhradených ŽoP; neuhradené (zamietnuté alebo stiahnuté) opakovania dáva na preverenie.',
+  ];
+  vystup.moduly[m.id] = r;
+}
+
+// ---------------------------------------------------------------- merateľné ukazovatele
+{
+  const m = ukazovatele; const b = balik(m); console.log(`\n== ${m.nazov}`);
+  const r: any = await realne(m, b);
+  const vs = vsetkyId(m).map((id) => nacitaj<VstupUkazovatele>(m, id)).filter((v) => v.projekt.ukazovatele.some((u) => (u.ciel ?? 0) > 0));
+  /** Skutočná hodnota pri naplnení k (pri klesajúcom MU podiel dosiahnutého poklesu). */
+  const pri = (v: VstupUkazovatele, k: number, len?: 'vystup' | 'vysledok') => {
+    const x = structuredClone(v);
+    for (const u of x.projekt.ukazovatele) {
+      if (u.ciel == null) continue;
+      const ciel = len && u.typ !== len ? 1 : k; // druhý typ ukazovateľov ostane splnený
+      x.skutocne[u.kod] = jeZnizujuci(u) ? (u.vychodisko == null ? null : u.vychodisko - ciel * (u.vychodisko - u.ciel)) : u.ciel * ciel;
+    }
+    return x;
+  };
+  r.zasadene = [];
+  const prehlad: string[] = [];
+  for (const k of [1, 0.97, 0.94, 0.8, 0.5, 0]) {
+    const sVystupom = vs.filter((v) => v.projekt.ukazovatele.some((u) => u.typ === 'vystup' && (u.ciel ?? 0) > 0));
+    const sVysledkom = vs.filter((v) => v.projekt.ukazovatele.some((u) => u.typ === 'vysledok' && (u.ciel ?? 0) > 0));
+    if (k < 0.95) {
+      r.zasadene.push(await zasad(m, b, `MU výstupu naplnené na ${Math.round(k * 100)} %, prahy zo zmluvy nezadané`, 'U01', 'nesplnene', sVystupom.map((v) => pri(v, k, 'vystup'))));
+      r.zasadene.push(await zasad(m, b, `MU výstupu na ${Math.round(k * 100)} %, testovacie prahy C=D=65 %, max. zníženie 30 %`, 'U01', 'nesplnene', sVystupom.map((v) => ({ ...pri(v, k, 'vystup'), prahVystup: 65, prahVysledok: 65, maxVystup: 30, maxVysledok: 30 }))));
+      r.zasadene.push(await zasad(m, b, `MU výsledku naplnené na ${Math.round(k * 100)} %`, 'U02', 'na_preverenie', sVysledkom.map((v) => pri(v, k, 'vysledok'))));
+    } else {
+      // Pri naplnení ≥ 95 % má byť splnené; tu sa meria opak: zbytočné poplachy.
+      let u1 = 0, u2 = 0;
+      for (const v of sVystupom) if ((await posud(pri(v, k), b, m, { llm: false })).nalezy.find((n) => n.pravidlo === 'U01')!.stav === 'splnene') u1++;
+      for (const v of sVysledkom) if ((await posud(pri(v, k), b, m, { llm: false })).nalezy.find((n) => n.pravidlo === 'U02')!.stav === 'splnene') u2++;
+      prehlad.push(`Pri naplnení ${Math.round(k * 100)} %: U01 splnené v ${u1} z ${sVystupom.length}, U02 v ${u2} z ${sVysledkom.length} projektov.`);
+    }
+  }
+  const s3 = vs.filter((v) => v.projekt.terminy.some((t) => t.najneskor && t.najneskor < dnes()));
+  r.zasadene.push(await zasad(m, b, 'Uplynul termín monitorovacej správy, žiadna nepredložená', 'U03', 'nesplnene', s3.map((v) => ({ ...structuredClone(v), predlozene: 0 }))));
+
+  // Ručne prepočítané príklady sankčnej kalkulačky (príloha č. 12 príručky).
+  const tol = (a: unknown, e: number) => typeof a === 'number' && Math.abs(a - e) < 0.01;
+  const k1 = kalkulacka({ A: 1_000_000, C: 70, D: 60, E: 25, F: 25, riadky: [{ kod: 'O1', typ: 'výstup', ciel: 100, skutocnost: 90 }, { kod: 'R1', typ: 'výsledok', ciel: 100, skutocnost: 80 }] });
+  const k2 = kalkulacka({ A: 1_000_000, C: 70, D: 60, E: 25, F: 25, riadky: [{ kod: 'O1', typ: 'výstup', ciel: 100, skutocnost: 60 }] });
+  const k3 = kalkulacka({ A: 1_000_000, C: 70, D: 60, E: 25, F: 25, riadky: [{ kod: 'O1', typ: 'výstup', ciel: 100, skutocnost: 60 }, { kod: 'O2', typ: 'výstup', ciel: 10, skutocnost: 10 }] });
+  const k4 = kalkulacka({ A: 1_000_000, C: 70, D: 60, E: 25, F: 25, riadky: [{ kod: 'O1', typ: 'výstup', ciel: 100, skutocnost: 97 }, { kod: 'R1', typ: 'výsledok', ciel: 100, skutocnost: 50 }] });
+  r.overenia = [
+    { nazov: 'Výstup 90/100, C=70, E=25, COV 1 000 000: zníženie 25/(95−70)×(95−90) = 5 %, krátenie 50 000 EUR', vysledok: `E34 ${k1.E34}, E35 ${k1.E35}`, ok: tol(k1.E34, 5) && tol(k1.E35, 50_000) },
+    { nazov: 'Výsledok 80/100, D=60, F=25: zníženie 25/35×15 = 10,714 %, krátenie 107 142,86 EUR', vysledok: `F34 ${k1.F34}, F35 ${k1.F35}`, ok: tol(k1.F34, 10.7142857) && tol(k1.F35, 107_142.857) },
+    { nazov: 'Jediný výstup 60/100 pod hranicou C=70: odstúpenie od zmluvy', vysledok: String(k2.E35), ok: /^odstúpenie/.test(String(k2.E35)) },
+    { nazov: 'Jeden z dvoch výstupov 60/100 pod C=70: možnosť odstúpiť alebo maximálna sankcia', vysledok: String(k3.E35), ok: /^možnosť odstúpiť/.test(String(k3.E35)) },
+    { nazov: 'Výsledok 50/100 pod D=60: možnosť odstúpiť od zmluvy', vysledok: String(k4.F35), ok: /^možnosť odstúpiť/.test(String(k4.F35)) },
+    { nazov: 'Výstup 97/100 (nad 95 %): bez krátenia', vysledok: `E34 ${k4.E34}, E35 ${k4.E35}`, ok: k4.E34 === 0 && k4.E35 === 0 },
+  ];
+  for (const o of r.overenia) console.log(`  ${o.ok ? '✓' : '✗'} ${o.nazov} → ${o.vysledok}`);
+  r.poznamky = [
+    ...prehlad,
+    'Skutočné hodnoty MU nie sú vo verejných dátach; reálne výroky sú preto „na preverenie“ (chýbajú hodnoty). Zasadené chyby simulujú hodnoty z monitorovacej správy.',
+    'Klesajúce ukazovatele (spotreba energie, emisie) kalkulačka SIEA priamo nevie; softvér počíta podiel dosiahnutého poklesu.',
+    'Prahy z čl. 4.3 zmluvy (C, D) a maximálne zníženie COV (E, F) v teste sú testovacie hodnoty, nie hodnoty z konkrétnych zmlúv.',
+  ];
+  vystup.moduly[m.id] = r;
+}
+
+vystup.trvanieMs = Date.now() - t0;
+fs.mkdirSync(path.join(KOREN, 'eval'), { recursive: true });
+fs.writeFileSync(path.join(KOREN, 'eval', 'test-moduly.json'), JSON.stringify(vystup, null, 1));
+const fok = Object.values(vystup.moduly).flatMap((x: any) => x.zasadene ?? []).reduce((s: number, z: any) => s + z.falosneOk, 0);
+const spolu = Object.values(vystup.moduly).flatMap((x: any) => x.zasadene ?? []).reduce((s: number, z: any) => s + z.n, 0);
+console.log(`\nZasadených chýb spolu ${spolu}, falošne OK ${fok}. Hotovo za ${(vystup.trvanieMs / 1000).toFixed(1)} s → eval/test-moduly.json`);

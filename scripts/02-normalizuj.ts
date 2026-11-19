@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
+import { bezKontaktov } from '../src/moduly/spolocne.ts';
 import { normalizujItms21 } from '../src/moduly/zonfp/normalizuj.ts';
 import type { Dovod, Ziadost } from '../src/core/typy.ts';
 
@@ -43,7 +44,7 @@ for (const f of fs.readdirSync(raw)) {
 ziadosti.sort((a, b) => a.kod.localeCompare(b.kod));
 const out = path.join(koren, 'data', 'odvodene', kodVyzvy);
 fs.mkdirSync(out, { recursive: true });
-fs.writeFileSync(path.join(out, 'ziadosti.json'), JSON.stringify(ziadosti));
+fs.writeFileSync(path.join(out, 'ziadosti.json'), bezKontaktov(ziadosti));
 
 const tab: Record<string, number> = {};
 for (const z of ziadosti) { const k = `${z.vysledok} / ${z.dovod ?? 'dôvod nezverejnený'}`; tab[k] = (tab[k] ?? 0) + 1; }
