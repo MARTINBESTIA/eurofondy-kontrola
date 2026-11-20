@@ -47,9 +47,12 @@ try {
   const subory = fs.readdirSync(path.join(demo, 'subory')).map((meno) => zabal(meno, fs.readFileSync(path.join(demo, 'subory', meno))));
   assert.equal(subory.length, 8);
   const archiv = rozbalZip(komplet);
-  assert.equal(archiv.length, subory.length);
+  assert.deepEqual(archiv.map(s => s.nazov).sort(), subory.map(s => s.nazov).sort());
   for (const { nazov, data } of archiv) {
-    assert.deepEqual(data, fs.readFileSync(path.join(demo, 'subory', nazov)));
+    const samostatny = fs.readFileSync(path.join(demo, 'subory', nazov));
+    // Git môže pri načítaní projektu zmeniť konce riadkov samostatného formulára.
+    if (nazov.endsWith('.json')) assert.deepEqual(JSON.parse(data.toString('utf8')), JSON.parse(samostatny.toString('utf8')));
+    else assert.deepEqual(data, samostatny);
   }
   const xlsm = archiv.find(s => s.nazov === 'Priloha_8_Rozpocet.xlsm');
   assert(xlsm);
