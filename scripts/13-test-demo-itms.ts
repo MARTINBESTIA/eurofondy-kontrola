@@ -62,7 +62,11 @@ try {
   assert.equal(Number(ukazovatele.N44), 5);
   const naCenty = (hodnota: string) => Math.round(Number(hodnota) * 100);
   assert.deepEqual(['M209', 'M210', 'M269', 'M270'].map(k => naCenty(rozpocet[k])),
-    [20368617, 20368617, 3641928, 3641928], 'Excel musí mať prepočítané výdavky budovy aj OZE.');
+    [21440649, 21440649, 3641928, 3641928], 'Excel musí mať prepočítané výdavky budovy aj OZE.');
+  // Po krátení na 95 % (PPP 13) sa oprávnené výdavky zošita rovnajú sume žiadanej vo formulári ŽoNFP.
+  assert.equal(naCenty(String(Number(rozpocet.M210) + Number(rozpocet.M270))), 25082577,
+    'Oprávnené výdavky zošita sa musia rovnať žiadanej sume formulára.');
+  assert.deepEqual([ukazovatele.F47, ukazovatele.F48], ['A1', 'A0'], 'Triedy podľa škály pre administratívne budovy.');
   const indikatory = ['M51', 'N51', 'H77', 'I77', 'H78', 'I78'];
   assert.deepEqual(indikatory.map(k => Number(Number(ukazovatele[k]).toFixed(4))),
     [19.6398, 4.1322, 0, 3.337, 0, 32.25]);
