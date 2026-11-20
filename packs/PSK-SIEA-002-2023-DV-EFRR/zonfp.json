@@ -290,7 +290,9 @@
       "kontrola": "llm_text",
       "parametre": {
         "zdroj": "popis",
-        "vzorDokazu": "úrad|administratív|škol|škôlk|nemocnic|hotel|reštaur|\\bhal[aeiy]?\\b|telocvič|športov",
+        "vzorDokazu": "úrad|administratív|škol|škôlk|nemocnic|hotel|reštaur|telocvič|športov",
+        "vzorPodozrenia": "(?:vo\\s+(?:výlučnom\\s+|podielovom\\s+)?(?:spolu)?vlastníctve|vlastní|vlastník\\p{L}*)(?:[\\s,–-]+(?!obc|obec|mest|kraj|štát|samospráv|vúc|republik)[^\\s.,]+){0,3}?[\\s,–-]+(?:obchodn\\p{L}+\\s+spoločnost\\p{L}*|s\\.\\s?r\\.\\s?o\\.|a\\.\\s?s\\.|fyzick\\p{L}+\\s+osob\\p{L}*|súkromn\\p{L}+|podnikateľ\\p{L}*|vlastník\\p{L}*\\s+bytov|spoločenstv\\p{L}+\\s+vlastník\\p{L}*|spoločnosť|spoločnosti)",
+        "podozrenie": "Popis uvádza súkromného vlastníka budovy, oprávnené sú len verejné budovy: vlastníctvo treba overiť v katastri (G10).",
         "poznamka": "Bod overuje len kategóriu budovy podľa popisu projektu. Vlastníctvo (verejná budova) sa týmto bodom neoveruje: overuje ho G10 v katastri nehnuteľností."
       },
       "otazka": "Urči z popisu projektu iba KATEGÓRIU budovy, ktorá je predmetom projektu. Oprávnené kategórie pri opatrení 2.1.2: administratívne budovy, budovy škôl a školských zariadení, budovy nemocníc, budovy hotelov a reštaurácií, športové haly a iné budovy určené na šport a budovy so zmiešaným účelom užívania z týchto kategórií. Neoprávnené: rodinné domy, bytové domy, budovy pre veľkoobchodné a maloobchodné služby, výrobné a skladové haly. Vlastníctvo budovy NEPOSUDZUJ a nespomínaj: overuje sa z katastra v inom bode. Ak popis výslovne pomenúva budovu oprávnenej kategórie (napr. budova obecného úradu = administratívna budova), stav je splnene a do poľa dokaz skopíruj doslovne slová, ktoré budovu pomenúvajú. Ak pomenúva neoprávnenú kategóriu, stav je nesplnene. Ak sa kategória z popisu určiť nedá, stav je neda_sa_urcit.",

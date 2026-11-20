@@ -1,7 +1,7 @@
 // Cielené overenie poistiek na konkrétnych úryvkoch: bez modelu sa skontroluje, či úryvok,
 // ktorý model v teste uviedol namiesto chýbajúcej náležitosti, poistky odmietnu,
 // a či správny úryvok z úplného dokumentu prejde. Spustenie: node scripts/overenie-poistiek.ts
-import { nacitajBalik, overUryvok, vyhodnotNalezitosti, type Nalezitost } from '../src/core/posud.ts';
+import { nacitajBalik, overUryvok, overVerdikt, vyhodnotNalezitosti, type Nalezitost } from '../src/core/posud.ts';
 
 const VYZVA = 'PSK-SIEA-002-2023-DV-EFRR';
 const nal = (modul: string, id: string, zaciatok: string) =>
@@ -70,12 +70,24 @@ const hladanie = (nenajdene: number[], zoznam = L01) => zoznam.map((_, i) => ({ 
 const bezDatumu = vzor1a.replace(/dňa: 12.03.2025/g, 'dňa:');
 const lenNarodenie = bezDatumu.replace('Splnomocnenec    : Mgr. Eva Ukážková', 'Splnomocnenec    : Mgr. Eva Ukážková, narodená 1. 1. 1970');
 const neviz = L01.filter((n) => !n.vizualne);
+const parL07 = nacitajBalik(VYZVA, 'zonfp').pravidla.find((p) => p.id === 'L07')!.parametre!;
+const l07 = (stav: string, dokaz: string, text: string) => overVerdikt({ stav, zdovodnenie: 'Úvaha modelu.', dokaz }, text, parL07, 'test');
+const popisUrad = 'Predmetom projektu je obnova budovy obecného úradu v obci Vzorová. Budova je vo výlučnom vlastníctve obce. Stavebné práce zrealizuje dodávateľ Stavby Prešov, s.r.o., vybraný vo verejnom obstarávaní.';
+const popisSportHala = 'Predmetom projektu je rekonštrukcia športovej haly vo vlastníctve mesta Ukážkovo, ktorú využíva základná škola a verejnosť.';
+const popisPenzion = 'Projekt rieši energetickú obnovu budovy penziónu a reštaurácie v obci Vzorová, ktorú vlastní a prevádzkuje súkromný podnikateľ – fyzická osoba.';
+const popisHala = 'Predmetom projektu je obnova výrobnej haly spoločnosti KOVOSTROJ Vzorová, s.r.o. Hala je vo výlučnom vlastníctve obchodnej spoločnosti.';
 const vyhodnotenia: [string, ReturnType<typeof vyhodnotNalezitosti>, string][] = [
   ['L01 G856: model nenašiel podpisy ani dátum, dátum v texte je', vyhodnotNalezitosti(L01, hladanie([1, 3, 5]), vzor1a, 'test'), 'na_preverenie'],
   ['L01 všetko nájdené vrátane podpisov', vyhodnotNalezitosti(L01, hladanie([]), vzor1a, 'test'), 'na_preverenie'],
   ['L01 dátum naozaj chýba', vyhodnotNalezitosti(L01, hladanie([5]), bezDatumu, 'test'), 'nesplnene'],
   ['L01 dátum narodenia nie je dátum udelenia', vyhodnotNalezitosti(L01, hladanie([5]), lenNarodenie, 'test'), 'nesplnene'],
   ['L01 bez vizuálnych náležitostí, všetko nájdené', vyhodnotNalezitosti(neviz, hladanie([], neviz), vzor1a, 'test'), 'splnene'],
+  // L07: poistky nad verdiktom modelu (vzorDokazu, vzorPodozrenia), bez volania modelu
+  ['L07 obecný úrad, dodávateľ s.r.o. vlastníkom nie je', l07('splnene', 'obnova budovy obecného úradu', popisUrad), 'splnene'],
+  ['L07 športová hala vo vlastníctve mesta', l07('splnene', 'rekonštrukcia športovej haly', popisSportHala), 'splnene'],
+  ['L07 penzión súkromníka: kategória oprávnená, vlastník súkromný', l07('splnene', 'budovy penziónu a reštaurácie', popisPenzion), 'na_preverenie'],
+  ['L07 výrobná hala: samotné „haly“ už nie je dôkaz kategórie', l07('splnene', 'obnova výrobnej haly', popisHala), 'na_preverenie'],
+  ['L07 nesplnené ostáva nesplnené', l07('nesplnene', 'obnova výrobnej haly', popisHala), 'nesplnene'],
 ];
 for (const [nazov, r, ocak] of vyhodnotenia) {
   if (r.stav !== ocak) zle++;

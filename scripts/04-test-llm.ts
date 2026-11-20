@@ -51,12 +51,14 @@ const sablony: ((o: string) => string)[] = [
   (o) => `Projekt rieši energetickú obnovu budovy penziónu a reštaurácie v obci ${o}, ktorú vlastní a prevádzkuje súkromný podnikateľ – fyzická osoba. Budova slúži na komerčné ubytovanie turistov a stravovanie. Navrhované opatrenia: zateplenie obvodového plášťa, výmena okien a dverí, nový zdroj tepla – tepelné čerpadlo, a solárne kolektory na prípravu teplej vody. Očakávaná úspora primárnej energie je 48 %.`,
 ];
 let i = 0;
-for (const o of obce) for (const s of sablony) {
+for (const o of obce) for (const [k, s] of sablony.entries()) {
   if (!IBA.includes('B')) break;
   const vzor = presli[i % presli.length];
   // žiadateľ v údajoch sedí s obcou v texte, aby model nereagoval na nesúlad, ktorý vyrobil test
   const z: Ziadost = { ...vzor, ziadatel: { ...vzor.ziadatel, nazov: `Obec ${o}` }, kod: `SYN-B${String(++i).padStart(2, '0')}`, nazov: `Zníženie energetickej náročnosti budovy v obci ${o}`, popis: s(o), ucel: '' };
-  await spusti('B_neopravnena_budova', z.kod, z, 'L07', 'nesplnene');
+  // bytový dom, rodinný dom a výrobná hala sú neoprávnené kategóriou; penzión s reštauráciou je oprávnená kategória
+  // so súkromným vlastníkom: L07 vlastníctvo neposudzuje (G10), ale „splnené“ nesmie byť (vzorPodozrenia → človek)
+  await spusti('B_neopravnena_budova', z.kod, z, 'L07', k === 3 ? 'nie_splnene' : 'nesplnene');
 }
 
 // C) riadené chyby v prílohe: plnomocenstvo s vynechanou náležitosťou
@@ -137,6 +139,6 @@ console.log('časť                       n  splnené nesplnené preveriť  s/pr
 for (const [k, s] of Object.entries(suhrn)) console.log(k.padEnd(25), String(s.n).padStart(3), String(s.splnene).padStart(8), String(s.nesplnene).padStart(9), String(s.na_preverenie).padStart(8), (s.msPriemer / 1000).toFixed(1).padStart(9));
 console.log('\nodchýlky od očakávaného výsledku:');
 for (const r of riadky) {
-  const zle = r.ocakavane === 'neznamy_dovod' ? false : r.ocakavane === 'nie_nesplnene' ? r.stav === 'nesplnene' : r.stav !== r.ocakavane;
+  const zle = r.ocakavane === 'neznamy_dovod' ? false : r.ocakavane === 'nie_nesplnene' ? r.stav === 'nesplnene' : r.ocakavane === 'nie_splnene' ? r.stav === 'splnene' : r.stav !== r.ocakavane;
   if (zle) console.log(' ', r.cast, r.id, `-> ${r.stav} (očakávané ${r.ocakavane})`, '|', r.zdovodnenie.slice(0, 160));
 }

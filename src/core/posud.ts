@@ -124,16 +124,29 @@ async function kontrolaLlm(v: any, p: Pravidlo, modul: Modul): Promise<VysledokK
     return vyhodnotNalezitosti(nalezitosti, vysledky, text, zdroj, ms);
   }
 
-  const o = await posudText(p.otazka!, text, modul.kontext(v));
+  return overVerdikt(await posudText(p.otazka!, text, modul.kontext(v)), text, par, zdroj);
+}
+
+// Deterministické poistky nad verdiktom modelu. Bez volania modelu, aby ich overenie-poistiek vedelo otestovať.
+export function overVerdikt(o: { stav: string; zdovodnenie: string; dokaz: string; ms?: number }, text: string, par: Record<string, any>, zdroj: string): VysledokKontroly {
   const dolozene = dokazJeVTexte(o.dokaz, text);
+  const hodnoty = { ms: o.ms };
   // poznamka = pevná veta pravidla k výsledku (napr. čo bod NEoveruje), aby ju neprekryla úvaha modelu.
   const pozn = par.poznamka ? ` ${par.poznamka}` : '';
   // Poistka proti vymyslenému dôkazu: verdikt bez doslovného úryvku z textu ide človeku.
-  if (o.stav !== 'neda_sa_urcit' && !dolozene) return { stav: 'na_preverenie', zdovodnenie: `Model navrhol „${o.stav}“, ale neuviedol doslovný úryvok z textu. ${o.zdovodnenie}${pozn}`, dokaz: o.dokaz, hodnoty: { ms: o.ms } };
+  if (o.stav !== 'neda_sa_urcit' && !dolozene) return { stav: 'na_preverenie', zdovodnenie: `Model navrhol „${o.stav}“, ale neuviedol doslovný úryvok z textu. ${o.zdovodnenie}${pozn}`, dokaz: o.dokaz, hodnoty };
   // vzorDokazu: pri „splnené“ musí úryvok obsahovať aj výslovný údaj, o ktorý sa verdikt opiera (inak človek).
-  if (o.stav === 'splnene' && par.vzorDokazu && !new RegExp(par.vzorDokazu, 'i').test(o.dokaz)) return { stav: 'na_preverenie', zdovodnenie: `Model navrhol „splnené“, ale úryvok „${o.dokaz}“ neobsahuje výslovný údaj, o ktorý by sa to dalo oprieť. ${o.zdovodnenie}${pozn}`, dokaz: o.dokaz, hodnoty: { ms: o.ms } };
+  if (o.stav === 'splnene' && par.vzorDokazu && !new RegExp(par.vzorDokazu, 'i').test(o.dokaz)) return { stav: 'na_preverenie', zdovodnenie: `Model navrhol „splnené“, ale úryvok „${o.dokaz}“ neobsahuje výslovný údaj, o ktorý by sa to dalo oprieť. ${o.zdovodnenie}${pozn}`, dokaz: o.dokaz, hodnoty };
+  // vzorPodozrenia: text žiadosti sám uvádza okolnosť, ktorú bod neposudzuje, ale ktorá oprávnenosť môže vylúčiť
+  // (pri L07 súkromné vlastníctvo, ktoré overuje G10). „Splnené“ vtedy ide človeku aj s citovaným miestom.
+  const m = o.stav === 'splnene' && par.vzorPodozrenia ? text.match(new RegExp(par.vzorPodozrenia, 'iu')) : null;
+  if (m) {
+    const zac = text.lastIndexOf(' ', Math.max(0, m.index! - 40)) + 1, kon = text.indexOf(' ', m.index! + m[0].length + 20);
+    const okolie = text.slice(zac, kon < 0 ? undefined : kon).replace(/\s+/g, ' ').trim();
+    return { stav: 'na_preverenie', zdovodnenie: `Model navrhol „splnené“, ale text žiadosti uvádza: „…${okolie}…“. ${par.podozrenie ?? 'Treba to overiť.'}${pozn} (zdroj: ${zdroj})`, dokaz: o.dokaz, hodnoty };
+  }
   const stav: Stav = o.stav === 'splnene' ? 'splnene' : o.stav === 'nesplnene' ? 'nesplnene' : 'na_preverenie';
-  return { stav, zdovodnenie: `${o.zdovodnenie}${pozn} (zdroj: ${zdroj})`, dokaz: dolozene ? o.dokaz : undefined, hodnoty: { ms: o.ms } };
+  return { stav, zdovodnenie: `${o.zdovodnenie}${pozn} (zdroj: ${zdroj})`, dokaz: dolozene ? o.dokaz : undefined, hodnoty };
 }
 
 export interface MoznostiPosudku { llm?: boolean; iba?: string[] }
