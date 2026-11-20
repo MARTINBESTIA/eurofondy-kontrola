@@ -1,11 +1,11 @@
 {
- "cas": "2026-11-19T23:52:18.746Z",
- "dnes": "2026-11-19",
+ "cas": "2026-11-20T22:41:57.163Z",
+ "dnes": "2026-11-20",
  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
  "moduly": {
   "vyzvy": {
    "pripadov": 186,
-   "trvanieMs": 34,
+   "trvanieMs": 18,
    "navrhy": {
     "ciastocne_overene": 65,
     "nesplnene_podmienky": 33,
@@ -127,13 +127,13 @@
    ],
    "poznamky": [
     "Z 182 výziev má 91 aspoň dve datované verzie (zmenu po vyhlásení); žiadateľ, ktorý pracuje so starou verziou, je reálne riziko.",
-    "Plánované výzvy: 4, z toho po plánovanom termíne vyhlásenia a nevyhlásené k 2026-11-19: 3 (2026/00027 plán 2026-11-01, 2025/00012 plán 2025-07-01, 2024/00035 plán 2026-03-01).",
+    "Plánované výzvy: 4, z toho po plánovanom termíne vyhlásenia a nevyhlásené k 2026-11-20: 3 (2026/00027 plán 2026-11-01, 2025/00012 plán 2025-07-01, 2024/00035 plán 2026-03-01).",
     "Bez zadaného plánu žiadateľa (dni prípravy, dátum oboznámenia) ostávajú pravidlá C03 a C04 neoverené, preto väčšina reálnych výrokov je „čiastočne overené“."
    ]
   },
   "zonfp": {
    "pripadov": 799,
-   "trvanieMs": 190,
+   "trvanieMs": 169,
    "navrhy": {
     "ciastocne_overene": 615,
     "nesplnene_podmienky": 58,
@@ -237,6 +237,13 @@
      }
     },
     {
+     "id": "P08b",
+     "nazov": "Oprávnené výdavky vypočítané v Prílohe č. 8 sa zhodujú s rozpočtom formulára",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
      "id": "P06",
      "nazov": "Príloha č. 6 ŽoNFP – Energetický certifikát (pri opatrení 2.1.2)",
      "pocty": {
@@ -332,7 +339,7 @@
   },
   "vo": {
    "pripadov": 659,
-   "trvanieMs": 113,
+   "trvanieMs": 96,
    "navrhy": {
     "na_preverenie": 276,
     "ciastocne_overene": 382,
@@ -477,7 +484,7 @@
   },
   "zmeny": {
    "pripadov": 2336,
-   "trvanieMs": 523,
+   "trvanieMs": 471,
    "navrhy": {
     "na_preverenie": 1307,
     "ciastocne_overene": 1029
@@ -1185,5 +1192,5 @@
    ]
   }
  },
- "trvanieMs": 5631
+ "trvanieMs": 5556
 }

@@ -16,7 +16,7 @@ const doklad = nalez('L07', 'Hlavným zámerom a cieľom projektu je znížiť e
 for (const text of [surovina.replace(/\r?\n/g, '\r\n'), JSON.stringify(data), JSON.stringify(z, null, 2)]) {
   const najdi = pripravDokladyFormulara(text, z);
   const riadky = text.split(/\r\n|\r|\n/);
-  for (const id of ['D01', 'D07a', 'D07b', 'D07c', 'D07d', 'D09', 'D12', 'D13', 'D14', 'P08', 'L07']) {
+  for (const id of ['D01', 'D07a', 'D07b', 'D07c', 'D07d', 'D09', 'D12', 'D13', 'D14', 'P08', 'P08b', 'L07']) {
     const refs = najdi(id === 'L07' ? doklad : nalez(id));
     assert(refs.length, id);
     for (const r of refs) {
@@ -29,6 +29,8 @@ for (const text of [surovina.replace(/\r?\n/g, '\r\n'), JSON.stringify(data), JS
   assert.deepEqual(najdi(nalez('L07', 'obecného úradu ... tento následný úryvok v žiadosti nie je')), []);
   assert.equal(najdi(nalez('D07c')).filter(r => /\.(sumaOpravnenehoVydavku|suma) ·/.test(r.miesto)).length, 7);
   assert.equal(najdi(nalez('D07d')).filter(r => /\.(sumaOpravnenehoVydavku|suma) ·/.test(r.miesto)).length, 2);
+  assert.equal(najdi(nalez('P08b')).filter(r => /\.(sumaOpravnenehoVydavku|suma) ·/.test(r.miesto)).length, 9);
+  assert(najdi(nalez('P08b')).some(r => r.miesto.startsWith('$.sumaZiadanaCelkova ')));
 }
 
 const duplicitne = surovina.replace('"sumaZiadanaNFP":', '"sumaZiadanaNFP": 11, "sumaZiadanaNFP":');
@@ -36,7 +38,7 @@ assert.deepEqual(pripravDokladyFormulara(duplicitne, z)(nalez('D12')), []);
 assert.deepEqual(pripravDokladyFormulara('{"kodItms":"NFP401201G856"}', z)(nalez('D01')), []);
 const bezPoli = { ...z, datumPredlozenia: null, rozpocet: [], ukazovatele: z.ukazovatele.filter(u => u.kod !== 'PSKPRCO22b') };
 const neuplny = pripravDokladyFormulara(JSON.stringify(bezPoli), bezPoli);
-for (const id of ['D07c', 'D07d', 'D14']) assert.deepEqual(neuplny(nalez(id)), [], id);
+for (const id of ['D07c', 'D07d', 'D14', 'P08b']) assert.deepEqual(neuplny(nalez(id)), [], id);
 const popis = { ...data, popis: '<p title="Úryvok iba z HTML atribútu">Energetická obnova <b>obecného úradu</b>.</p>' };
 const sHtml = pripravDokladyFormulara(JSON.stringify(popis), normalizujItms21(popis));
 assert.deepEqual(sHtml(nalez('L07', 'Úryvok iba z HTML atribútu')), []);

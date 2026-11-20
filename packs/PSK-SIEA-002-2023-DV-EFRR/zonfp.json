@@ -234,6 +234,39 @@
       }
     },
     {
+      "id": "P08b",
+      "ppp": 13,
+      "nazov": "Oprávnené výdavky vypočítané v Prílohe č. 8 sa zhodujú s rozpočtom formulára",
+      "druh": "priloha",
+      "kontrola": "priloha8_sulad",
+      "parametre": {
+        "cislo": "8",
+        "zavaznyFormular": {
+          "popis": "záväzný formulár Prílohy č. 8 (zošit MS Excel podľa vzoru výzvy, Priloha_8_ZoNFP_Dokument._k_OV)",
+          "pripona": "\\.xls[xm]$",
+          "harok": "Rozpočet B1 - Value for Money",
+          "ziadatel": "B9",
+          "projekt": "B10",
+          "polozka": { "pocet": "D", "cena": "E", "suma": "F", "nazovSumy": "Cena celkom bez DPH" }
+        },
+        "sulad": {
+          "budova": "M210",
+          "budovaPredKratenim": "M208",
+          "oze": "M270",
+          "pocetBudov": "B13",
+          "dalsieBudovy": { "harok": "Rozpočet B{n}", "bunka": "M207", "hlaska": "D14", "maxBudov": 7 },
+          "hlasky": ["D17", "D212", "A17", "A202", "A262"],
+          "opatrenieBudova": "2.1.2",
+          "opatrenieOze": "2.2.2"
+        }
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 3",
+        "cast": "PPP č. 13 Podmienka oprávnenosti výdavkov projektu, Forma a spôsob overenia splnenia PPP",
+        "znenie": "Žiadateľ za účelom posúdenia splnenia tejto PPP je povinný predložiť: formulár ŽoNFP, tabuľka č. 11 Rozpočet projektu [...] Prílohu č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov. [...] SO overuje splnenie tejto PPP na základe predložených dokumentov uvedených v časti „Forma preukázania splnenia PPP“."
+      }
+    },
+    {
       "id": "P06",
       "ppp": 7,
       "nazov": "Príloha č. 6 ŽoNFP – Energetický certifikát (pri opatrení 2.1.2)",

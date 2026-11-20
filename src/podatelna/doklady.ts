@@ -14,11 +14,13 @@ function citovanie(z: Ziadost, formular: ZdrojFormulara | undefined, balik: Bali
     const pravidlo = balik.pravidla.find(p => p.id === n.pravidlo);
     if (!pravidlo) return [];
     const jeZFormulara = n.druh === 'data' || n.pravidlo === 'L07';
-    const citacie = (jeZFormulara || n.pravidlo === 'P08') && formular && zFormulara
+    const citacie = (jeZFormulara || n.pravidlo === 'P08' || n.pravidlo === 'P08b') && formular && zFormulara
       ? zFormulara(n).map(d => ({ ...d, nazov: formular.nazov, suborId: formular.suborId })) : [];
     if (jeZFormulara) return citacie;
     const prilohy = dokladyPriloh(z, n, pravidlo);
     if (n.pravidlo === 'P08' && n.stav === 'splnene') return prilohy.length && citacie.length ? [...prilohy, ...citacie] : [];
+    // Porovnanie má dve strany: bez buniek zošita alebo bez položiek formulára nie je doložené ani jedno.
+    if (n.pravidlo === 'P08b') return prilohy.length && citacie.length ? [...prilohy, ...citacie] : [];
     return prilohy;
   };
 }

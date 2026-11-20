@@ -128,6 +128,12 @@ export function pripravDokladyFormulara(text: string, z: Ziadost): (n: Nalez) =>
         pridaj(['ziadatel', 'nazov']);
         pridaj(['nazov']);
         break;
+      case 'P08b':
+        // Súčty opatrení, výdavky mimo nich aj kontrola celkovej sumy idú zo všetkých položiek, nielen z hlavných aktivít.
+        if (!z.rozpocet.length || povodne.rozpocet?.length !== z.rozpocet.length || Number(povodne.sumaZiadanaCelkova) !== z.sumaZiadanaCelkova) return [];
+        z.rozpocet.forEach((_, i) => vydavok(i));
+        pridaj(['sumaZiadanaCelkova']);
+        break;
       case 'D01':
         if (String(povodne.ziadatel.pravnaFormaKod) !== z.ziadatel.pravnaFormaKod) return [];
         pridaj(['ziadatel', ...(formaItms ? ['pravnaForma', 'kodZdroj'] : ['pravnaFormaKod'])]);

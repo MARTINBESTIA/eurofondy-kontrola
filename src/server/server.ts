@@ -58,7 +58,7 @@ async function stavPriloh(spisId: number, vyzva: string) {
     const formular = pod.zdrojFormulara(db, pod.spisRiadok(db, spisId)!);
     const p = dolozPosudok(await posud(z, balik, zonfp, { llm: false, iba: PRAVIDLA_PRILOH(balik) }), z, formular, balik);
     return p.nalezy.map(n => ({ cislo: String(balik.pravidla.find(r => r.id === n.pravidlo)?.parametre?.cislo ?? ''),
-      pravidlo: n.pravidlo, stav: n.stav, zdovodnenie: n.zdovodnenie, doklady: n.doklady }));
+      pravidlo: n.pravidlo, nazov: n.nazov, stav: n.stav, zdovodnenie: n.zdovodnenie, doklady: n.doklady }));
   } catch { return null; }
 }
 

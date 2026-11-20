@@ -224,12 +224,15 @@ function boxPrilohy(prilohyStav, sloty) {
   const meno = (c) => sloty.find((x) => x.cislo === c)?.nazov ?? '';
   return el('div', { class: 'box' },
     el('h3', {}, 'Povinné prílohy podľa výzvy'),
-    prilohyStav ? el('ul', { class: 'prilohy-stav' }, prilohyStav.filter((p) => p.stav !== 'neuplatnuje_sa').map((p) => el('li', {},
-      el('span', { class: `stitok s-${p.stav}` }, STAVY[p.stav]), el('div', {}, el('b', {}, `Príloha č. ${p.cislo}`), ` ${meno(p.cislo)}`, el('br'), el('span', { class: 'tlmene male' }, p.zdovodnenie),
+    prilohyStav ? el('ul', { class: 'prilohy-stav' }, prilohyStav.filter((p) => p.stav !== 'neuplatnuje_sa').map((p, i, vsetky) => el('li', {},
+      el('span', { class: `stitok s-${p.stav}` }, STAVY[p.stav]), el('div', {},
+        // Druhé pravidlo k tej istej prílohe (napr. súlad zošita s formulárom) sa označí svojím názvom, nie znova názvom slotu.
+        vsetky.slice(0, i).some((x) => x.cislo === p.cislo) && p.nazov ? el('b', {}, p.nazov) : [el('b', {}, `Príloha č. ${p.cislo}`), ` ${meno(p.cislo)}`],
+        el('br'), el('span', { class: 'tlmene male' }, p.zdovodnenie),
         p.doklady?.length ? el('details', { class: 'priloha-doklady' }, el('summary', {}, 'Podklady kontroly'), kresliDoklady(p.doklady)) : null))))
       : el('p', { class: 'tlmene' }, 'Bez formulára žiadosti sa nedá určiť, ktoré prílohy sú povinné.'),
     prilohyStav?.some((p) => p.stav === 'neuplatnuje_sa') ? el('p', { class: 'tlmene male' }, `Na túto žiadosť sa nevzťahujú: ${prilohyStav.filter((p) => p.stav === 'neuplatnuje_sa').map((p) => `č. ${p.cislo}`).join(', ')}.`) : null,
-    el('p', { class: 'tlmene male' }, 'Tento prehľad kontroluje priradenie a čitateľnosť príloh. Pri rozpočte kontroluje aj identifikáciu žiadosti a vyplnenie položiek v záväznom zošite.'));
+    el('p', { class: 'tlmene male' }, 'Tento prehľad kontroluje priradenie a čitateľnosť príloh. Pri rozpočte kontroluje aj identifikáciu žiadosti, vyplnenie položiek v záväznom zošite a zhodu ním vypočítaných oprávnených výdavkov s rozpočtom formulára.'));
 }
 
 function vysledok(p, skutocnost, zastaraly, nazov = 'Posledný posudok') {

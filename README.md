@@ -76,6 +76,15 @@ s ukážkovými podaniami je v [demo/podania/README.md](demo/podania/README.md).
   chýba podklad (prázdny vzor) alebo na preverenie (cudzí zošit). „Splnené“ znamená len prítomnosť
   vyplneného vzoru tejto žiadosti, nie vecnú správnosť rozpočtu. Demo zošity vypĺňa a prepočíta skutočný
   Excel (`scripts/lib/priloha8.ts`, makrá vypnuté), aby uložené hodnoty vzorcov boli tie, ktoré vidí hodnotiteľ.
+- **Súlad Prílohy č. 8 s formulárom (P08b).** Zošit sám vypočíta oprávnené výdavky po krátení podľa pásma
+  úspory (PPP č. 13) a podmienok Hodnoty za peniaze: budova M210 (+ M207 ďalších budov podľa B13), OZE M270.
+  P08b ich porovná so súčtom položiek formulára za opatrenie 2.1.2 a 2.2.2. Tolerancia je pol centa na položku
+  (formulár zaokrúhľuje položky na centy). Pri zhode = splnené. Rozdiel, hlásenie zošita (D17, D212, A17,
+  A202, A262), neprečítaná budova alebo výdavok mimo oboch opatrení = na preverenie. Pri zhode formulára
+  so sumou pred krátením (M208) to zdôvodnenie povie. Zošit, ktorý nič nevypočítal (nevyplnený hárok
+  MU Budova), = chýba podklad („absencia výpočtu výdavkov“ podľa Prílohy č. 2). Nesúlad nikdy nevedie
+  k „nesplnené“, rozhoduje človek. Skryté hárky (B2–B7) sa nečítajú, preto viac budov bez čitateľného
+  hárku = na preverenie.
 - **Zaradenie príloh.** Číslo v názve súboru (`Priloha_3_…`) sa berie ako vyhlásenie žiadateľa, rovnako ako
   slot v ITMS21+. Súbor bez čísla softvér zaradí podľa kľúčových slov, najprv z názvu, potom z obsahu. Je to
   len **odhad**: kým ho kontrolór nepotvrdí, pravidlo prílohy je „na preverenie“. Stačí jeden odhadnutý súbor

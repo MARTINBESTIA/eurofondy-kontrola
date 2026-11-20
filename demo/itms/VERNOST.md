@@ -85,5 +85,5 @@ Generátor `scripts/demo-itms/vytvor.py` teraz počíta tieto údaje z verejnýc
 ## Otvorené
 
 - Reálne prílohy nie sú verejné: verejné API ITMS21+ nemá endpoint pre prílohy žiadosti (KB `2026-11-20-real-templates-and-itms-submission`). Vernosť príloh 6 až 8 sa dá zlepšiť len so súhlasom obce alebo poskytovateľa.
-- Kontrola súladu Prílohy 8 s formulárom (M210 + M270 voči žiadanej sume) v pravidlách chýba. Demo je teraz zosúladené, takže na skúšku takého pravidla treba podanie, v ktorom sa sumy líšia.
+- ~~Kontrola súladu Prílohy 8 s formulárom v pravidlách chýba.~~ Doplnené pravidlom **P08b** (2026-11-20): zošit M210 (+ ďalšie budovy) a M270 voči súčtu položiek formulára za opatrenie 2.1.2 a 2.2.2. Demo `01-komplet.zip` dáva splnené. Starší spis so zošitom pred opravou (formulár 2.1.2 = 214 406,49 € = vtedajšie M208, zošit po krátení 203 686,17 €) dáva na preverenie s diagnózou „suma pred krátením“. Nesúlad pokrývajú syntetické prípady v `scripts/14-test-priloha8.ts`. **Neoverené:** vyplnenie hárkov B2–B7 pri viacerých budovách. Sú skryté a vzor bez makier ich neodkryje, takže P08b ich pri B13 > 1 posiela na preverenie.
 - **Neoverené:** celková podlahová plocha 1 059,55 m² pri budove z roku 1942 dáva východiskový ukazovateľ 112 kWh/(m².a), čo je na neobnovenú budovu nízka hodnota. Čísla sú z verejného formulára. Vysvetlenie by bolo v originálnom certifikáte.

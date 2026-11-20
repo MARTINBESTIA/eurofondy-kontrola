@@ -1,10 +1,11 @@
+import { isDeepStrictEqual } from 'node:util';
 import type { Doklad, Nalez, Pravidlo, Priloha, Ziadost } from '../../core/typy.ts';
-import { zavaznyFormular, type ZavaznyFormular } from './kontroly.ts';
+import { suladPrilohy8, zavaznyFormular, type ZavaznyFormular } from './kontroly.ts';
 import { textBunky } from '../../ingest/dokument.ts';
 
 type Subor = NonNullable<Priloha['subory']>[number] & { suborId: number };
 type CitatPrilohy = Doklad & { suborId: number };
-const cislaPriloh: Record<string, string> = { P03: '3', P05: '5', P06: '6', P07: '7', P08: '8', L01: '1', L05: '5' };
+const cislaPriloh: Record<string, string> = { P03: '3', P05: '5', P06: '6', P07: '7', P08: '8', P08b: '8', L01: '1', L05: '5' };
 
 // Čísla sa vzťahujú na nemenný text extrahovaný pri príjme. Staršie PDF v úložisku
 // môžu mať po trim() odstránené úvodné prázdne strany, preto neodhadujeme čísla fyzických strán.
@@ -77,6 +78,23 @@ function dokladRozpoctu(z: Ziadost, n: Nalez, pr: Priloha, config: ZavaznyFormul
   return doklady;
 }
 
+/** Bunky zošita, z ktorých P08b vzala sumy, len ak opakovaná kontrola dá presne ten istý výsledok ako nález. */
+function dokladSuladu(z: Ziadost, n: Nalez, pravidlo: Pravidlo): CitatPrilohy[] {
+  const doklady: CitatPrilohy[] = [];
+  let uplne = true;
+  const kontrola = suladPrilohy8(z, pravidlo, (s, bunky) => {
+    const suborId = s.suborId;
+    if (suborId == null) { uplne = false; return; }
+    for (const { harok, adresa } of bunky) {
+      const v = s.bunky?.[harok]?.[adresa];
+      if (v === undefined) { uplne = false; return; }
+      doklady.push({ suborId, nazov: s.nazov, miesto: `Hárok „${harok}“, bunka ${adresa}`, citat: textBunky(v) });
+    }
+  });
+  if (!uplne || kontrola.stav !== n.stav || kontrola.zdovodnenie !== n.zdovodnenie || !isDeepStrictEqual(kontrola.hodnoty, n.hodnoty)) return [];
+  return doklady;
+}
+
 /** Model často zmení rozostupy alebo zalomenia. Hľadáme jeho slová v poradí,
  * ale do výsledku vraciame výlučne skutočný podreťazec pôvodného súboru. */
 function najdiCitat(s: Subor, hladany: string): CitatPrilohy | undefined {
@@ -127,6 +145,8 @@ export function dokladyPriloh(z: Ziadost, n: Nalez, pravidlo?: Pravidlo): CitatP
   if (!pr || pr.zaradenie !== 'potvrdene') return [];
   const subory = (pr.subory ?? []).filter((s): s is Subor => s.suborId != null && s.citatelny && s.text.trim().length > 0);
   if (n.pravidlo === 'L01' || n.pravidlo === 'L05') return dokladyModelu(z, n, subory);
+  // Pri nesúlade súm sú bunky zošita podkladom pre kontrolóra rovnako ako pri zhode.
+  if (n.pravidlo === 'P08b') return pravidlo?.id === n.pravidlo ? dokladSuladu(z, n, pravidlo) : [];
   if (n.stav !== 'splnene') return [];
   if (n.pravidlo === 'P08') {
     const config = pravidlo?.id === n.pravidlo ? pravidlo.parametre?.zavaznyFormular : undefined;

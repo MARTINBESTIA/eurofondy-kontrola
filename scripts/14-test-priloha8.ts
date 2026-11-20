@@ -7,6 +7,7 @@ import path from 'node:path';
 import { nacitajBalik } from '../src/core/posud.ts';
 import { xlsxNaText, xlsxBunky } from '../src/ingest/dokument.ts';
 import { KONTROLY } from '../src/moduly/zonfp/kontroly.ts';
+import { normalizujItms21 } from '../src/moduly/zonfp/normalizuj.ts';
 import { VZOR_PRILOHY_8, vyplnPrilohu8, type Priloha8Spec } from './lib/priloha8.ts';
 import type { Priloha, Ziadost } from '../src/core/typy.ts';
 
@@ -79,10 +80,59 @@ if (fs.existsSync(FIXTURE)) {
 } else console.log(`(chýba ${path.relative(KOREN, FIXTURE)}, prípady so skutočným zošitom sa preskočia)`);
 
 let zle = 0;
+const priloha8 = (subory: Subor[], zaradenie?: Priloha['zaradenie']): Priloha => ({ nazov: subory.map((s) => s.nazov).join('; '), text: subory.map((s) => s.text).join('\n'), subory, zaradenie });
 for (const [nazov, z, subory, ocak] of pripady) {
-  const r = KONTROLY[p.kontrola]({ ...z, prilohy: { '8': { nazov: subory.map((s) => s.nazov).join('; '), text: subory.map((s) => s.text).join('\n'), subory } } }, p);
+  const r = KONTROLY[p.kontrola]({ ...z, prilohy: { '8': priloha8(subory) } }, p);
   if (r.stav !== ocak) zle++;
   console.log(`${r.stav === ocak ? '✓' : '✗'} ${nazov}: ${r.stav}${r.stav === ocak ? '' : ` (očakáva sa ${ocak}) – ${r.zdovodnenie}`}`);
 }
-console.log(zle ? `\n${zle} prípadov nesedí.` : `\nVšetkých ${pripady.length} prípadov sedí.`);
+
+// P08b: súlad oprávnených výdavkov zo zošita (M210 + ďalšie budovy, M270) s rozpočtom formulára demo žiadosti G856.
+// Formulár: 2.1.2 = 214 406,49 € (7 položiek), 2.2.2 = 36 419,28 € (2 položky), spolu 250 825,77 €.
+console.log('\nP08b – súlad Prílohy č. 8 s rozpočtom formulára');
+const p8b = nacitajBalik('PSK-SIEA-002-2023-DV-EFRR', 'zonfp').pravidla.find((x) => x.id === 'P08b')!;
+const zG = normalizujItms21(JSON.parse(fs.readFileSync(path.join(KOREN, 'demo', 'itms', 'subory', 'Formular_NFP401201G856.json'), 'utf8')));
+const id = { B9: zG.ziadatel.nazov, B10: zG.nazov, ...pol };
+const zosit8b = (zmeny: Record<string, string | undefined>, harky: Record<string, Record<string, string>> = {}): Subor => {
+  const s = zosit('P8.xlsm', id);
+  for (const [k, v] of Object.entries(zmeny)) if (v === undefined) delete s.bunky![H][k]; else s.bunky![H][k] = v;
+  return { ...s, bunky: { ...s.bunky, ...harky } };
+};
+const zhoda = { M208: '225691.0395', M209: '214406.487525', M210: '214406.487525', M269: '36419.2791', M270: '36419.2791', B13: '1' };
+const sPolozkou = (r: Partial<Ziadost['rozpocet'][number]>, o = 0) => ({ ...zG, rozpocet: [...zG.rozpocet, { aktivita: 'X', hlavna: false, opatrenie: null, skupinaVydavkov: '', suma: 0, ...r }], sumaZiadanaCelkova: zG.sumaZiadanaCelkova + o });
+const pripady8b: [string, Ziadost, Priloha | undefined | null, string, RegExp?][] = [
+  ['zhoda po krátení (demo G856)', zG, priloha8([zosit8b(zhoda)]), 'splnene'],
+  ['zaokrúhlenie v tolerancii', zG, priloha8([zosit8b({ ...zhoda, M210: '214406.4851', M270: '36419.2849' })]), 'splnene'],
+  ['OZE o 5 centov inak (mimo tolerancie)', zG, priloha8([zosit8b({ ...zhoda, M270: '36419.33' })]), 'na_preverenie', /2\.2\.2 formulár žiada o 0,05 EUR menej/],
+  ['formulár uvádza sumu pred krátením (starý demo zošit)', zG, priloha8([zosit8b({ ...zhoda, M208: '214406.49', M209: '203686.1655', M210: '203686.1655', M270: '36419.28' })]), 'na_preverenie', /pred krátením/],
+  ['zošit počíta viac než formulár', zG, priloha8([zosit8b({ ...zhoda, M210: '220000' })]), 'na_preverenie', /o 5\s593,51 EUR menej/],
+  ['súčet sedí, rozdelenie medzi opatrenia nie', zG, priloha8([zosit8b({ ...zhoda, M210: '224406.49', M270: '26419.28' })]), 'na_preverenie', /rozdelenie medzi opatrenia/],
+  ['chýba uložený výsledok M210', zG, priloha8([zosit8b({ ...zhoda, M210: undefined })]), 'na_preverenie', /MS Excel/],
+  ['zošit nevypočítal nič (nevyplnené MU)', zG, priloha8([zosit8b({ M208: '0', M209: '0', M210: '0', M269: '0', M270: '0' })]), 'chyba_podklad', /absenciu výpočtu/],
+  ['hlásenie HzP budovy (D17), budova 0', zG, priloha8([zosit8b({ ...zhoda, M210: '0', D17: 'Budova nespĺňa podmienku Hodnoty za Peniaze.' })]), 'na_preverenie', /Hodnoty za Peniaze/],
+  ['hlásenie výšky NFP (A17) pri zhode súm', zG, priloha8([zosit8b({ ...zhoda, A17: 'Projekt nespĺňa podmienku výšky NFP.' })]), 'na_preverenie', /výšky NFP/],
+  ['B13 = 2, hárok Rozpočet B2 sa nedá prečítať', zG, priloha8([zosit8b({ ...zhoda, B13: '2' })]), 'na_preverenie', /Rozpočet B2/],
+  ['B13 = 2, budova B2 dopĺňa sumu 2.1.2', zG, priloha8([zosit8b({ ...zhoda, B13: '2', M210: '204406.49' }, { 'Rozpočet B2': { M207: '10000' } })]), 'splnene'],
+  ['B13 = 1, ale hárok B2 má sumu', zG, priloha8([zosit8b({ ...zhoda, M210: '204406.49' }, { 'Rozpočet B2': { M207: '10000' } })]), 'na_preverenie', /sumu majú aj hárky/],
+  ['výdavok mimo opatrení 2.1.2 a 2.2.2', sPolozkou({ opatrenie: '1.1.1', suma: 300 }, 300), priloha8([zosit8b(zhoda)]), 'na_preverenie', /mimo opatrení/],
+  ['súčet položiek ≠ celkové výdavky formulára', { ...zG, sumaZiadanaCelkova: zG.sumaZiadanaCelkova + 1000 }, priloha8([zosit8b(zhoda)]), 'na_preverenie', /nerovná celkovým/],
+  ['formulár bez rozpočtu', { ...zG, rozpocet: [] }, priloha8([zosit8b(zhoda)]), 'chyba_podklad'],
+  ['zošit inej žiadosti (P08 na preverenie)', zBase, priloha8([zosit8b(zhoda)]), 'na_preverenie', /bod P08/],
+  ['prázdny vzor (P08 chýba podklad)', zG, priloha8([zosit('P8.xlsm')]), 'chyba_podklad', /bod P08/],
+  ['zaradenie len odhadom', zG, priloha8([zosit8b(zhoda)], 'odhad'), 'na_preverenie'],
+  ['príloha č. 8 chýba', zG, null, 'chyba_podklad'],
+  ['prílohy nie sú v podkladoch (verejné API)', zG, undefined, 'mimo_podkladov'],
+];
+const DEMO8 = path.join(KOREN, 'demo', 'itms', 'subory', 'Priloha_8_Rozpocet.xlsm');
+const buf8 = fs.readFileSync(DEMO8);
+const demo8: Subor = { nazov: path.basename(DEMO8), text: xlsxNaText(buf8), citatelny: true, bunky: xlsxBunky(buf8) };
+pripady8b.push(['skutočný demo zošit G856 (uložený Excelom)', zG, priloha8([demo8]), 'splnene']);
+for (const [nazov, z, pr, ocak, text] of pripady8b) {
+  const r = KONTROLY[p8b.kontrola]({ ...z, prilohy: pr === undefined ? undefined : pr === null ? {} : { '8': pr } }, p8b);
+  const ok = r.stav === ocak && (!text || text.test(r.zdovodnenie)) && !/vecne overen|obsah (je|bol) overen|správnosť (je|bola) overen/i.test(r.zdovodnenie);
+  if (!ok) zle++;
+  console.log(`${ok ? '✓' : '✗'} ${nazov}: ${r.stav}${ok ? '' : ` (očakáva sa ${ocak}${text ? `, text ${text}` : ''}) – ${r.zdovodnenie}`}`);
+}
+const vsetky = pripady.length + pripady8b.length;
+console.log(zle ? `\n${zle} z ${vsetky} prípadov nesedí.` : `\nVšetkých ${vsetky} prípadov sedí.`);
 process.exit(zle ? 1 : 0);

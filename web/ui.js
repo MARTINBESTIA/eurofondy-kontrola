@@ -137,7 +137,8 @@ export function kresliNalezy(k, nalezy, zoSpisu = false, formularItms) {
         n.doklady?.length ? el('section', { class: 'podklad-bodu' },
           el('h4', {}, 'Dôkaz k výsledku kontroly'),
           n.povodDokladov === 'rekonstrukcia' ? el('p', { class: 'tlmene male' }, 'Citácie boli dohľadané dodatočne v podkladoch dostupných v čase posúdenia.') : null,
-          n.druh === 'priloha' && n.stav === 'splnene' ? el('p', { class: 'tlmene male' }, n.pravidlo === 'P08'
+          n.pravidlo === 'P08b' ? el('p', { class: 'tlmene male' }, 'Kontrola porovnala oprávnené výdavky vypočítané v záväznom zošite so sumami položiek rozpočtu vo formulári. Oprávnenosť jednotlivých výdavkov neposudzuje.')
+          : n.druh === 'priloha' && n.stav === 'splnene' ? el('p', { class: 'tlmene male' }, n.pravidlo === 'P08'
             ? 'Kontrola overila vyplnenie záväzného zošita a jeho priradenie k žiadosti.'
             : 'Kontrola overila prítomnosť čitateľnej prílohy priradenej k tomuto bodu.') : null,
           kresliDoklady(n.doklady, formularItms)) : null,

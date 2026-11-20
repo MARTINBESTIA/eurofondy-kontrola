@@ -83,26 +83,32 @@ try {
     assert.equal(d.subory.find((s: any) => s.nazov === 'Ziadost_o_NFP_NFP401201G856.pdf')?.typ, 'nezaradeny');
     assert.deepEqual(d.subory.map((s: any) => s.nazov).sort(), subory.map((s) => s.nazov).sort());
     assert(d.subory.every((s: any) => !s.chyba && s.znakov > 40));
-    assert.deepEqual(['P03', 'P06', 'P07', 'P08'].map(k => stav(d.prilohyStav, k)), Array(4).fill('splnene'));
+    assert.deepEqual(['P03', 'P06', 'P07', 'P08', 'P08b'].map(k => stav(d.prilohyStav, k)), Array(5).fill('splnene'));
+    // Súlad zošita s formulárom: doložené obe strany porovnania (bunky zošita aj položky formulára).
+    const sulad = d.prilohyStav.find((p: any) => p.pravidlo === 'P08b');
+    assert(['bunka M210', 'bunka M270'].every(b => sulad.doklady.some((x: any) => x.miesto.endsWith(b))), 'P08b cituje M210 a M270.');
+    assert.equal(sulad.doklady.filter((x: any) => /\.sumaOpravnenehoVydavku · /.test(x.miesto)).length, 9);
     assert.equal(stav(d.prilohyStav, 'P05'), 'neuplatnuje_sa');
     const hodnotenie = await posud(id);
     assert.equal(stav(hodnotenie.nalezy, 'D07b'), 'splnene');
+    assert.equal(stav(hodnotenie.nalezy, 'P08b'), 'splnene');
     assert.equal(hodnotenie.navrh, 'ciastocne_overene');
     console.log(`${nazov}: otvorenie spisu s kontrolou prítomnosti, ${subory.length} súborov, ${ms} ms; návrh bez modelu: ${hodnotenie.navrh}`);
   }
   const bezExcelu = await prijmi(subory.filter((s) => !s.nazov.endsWith('.xlsm')));
-  assert.equal(stav((await api(`spisy/${bezExcelu}`)).prilohyStav, 'P08'), 'chyba_podklad',
+  const bezZositu = (await api(`spisy/${bezExcelu}`)).prilohyStav;
+  assert.deepEqual(['P08', 'P08b'].map(k => stav(bezZositu, k)), ['chyba_podklad', 'chyba_podklad'],
     'Samostatný PDF podklad k oceneniu nesmie nahradiť záväzný zošit.');
 
   const b = await prijmi([zip('02-pred-doplnenim.zip')]);
   const pred = await posud(b);
   assert.equal(pred.navrh, 'vyzva_na_doplnenie');
-  for (const k of ['P06', 'P08']) assert.equal(stav(pred.nalezy, k), 'chyba_podklad');
+  for (const k of ['P06', 'P08', 'P08b']) assert.equal(stav(pred.nalezy, k), 'chyba_podklad');
   await api(`spisy/${b}/rozhodnutie`, { rozhodnutie: 'doplnenie', poznamka: 'Doplňte certifikát a dokumentáciu k rozpočtu.' });
   await api(`spisy/${b}/subory`, { subory: [zip('03-doplnenie.zip')] });
   const po = await posud(b);
   assert.equal(po.navrh, 'ciastocne_overene');
-  for (const k of ['P06', 'P08']) assert.equal(stav(po.nalezy, k), 'splnene');
+  for (const k of ['P06', 'P08', 'P08b']) assert.equal(stav(po.nalezy, k), 'splnene');
   const doplnene = await api(`spisy/${b}`);
   assert.equal(doplnene.posudky.length, 2);
   assert.equal(doplnene.subory.length, subory.length);

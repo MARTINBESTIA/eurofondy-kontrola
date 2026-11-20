@@ -57,7 +57,10 @@ try {
   pod.doplnPodklady(db, a, [{ nazov: 'Priloha_8_Obec_Vzorova.xlsm', data: fs.readFileSync(path.join(DEMO, 'testy', 'Priloha_8_Obec_Vzorova.xlsm')) }], SLOTY, zItms);
   p = await posudSpis(a);
   over('A: po doplnení vyplneného zošita (Excel) je P08 splnená', stav(p, 'P08'), 'splnene');
-  over('A: bez modelu ostanú textové pravidlá neoverené → čiastočne overené', p.navrh, 'ciastocne_overene');
+  // Syntetický zošit vzorky A nemá vyplnený hárok MU Budova, vzorce oprávnených výdavkov (M210, M270) dajú 0.
+  // P08b to podľa Prílohy č. 2 výzvy vráti ako absenciu výpočtu výdavkov. Čiastočne overený výrok skúša test 13 (G856).
+  over('A: zošit bez výpočtu oprávnených výdavkov → P08b chýba podklad, výrok ostáva výzva na doplnenie', [stav(p, 'P08b'), p.navrh], ['chyba_podklad', 'vyzva_na_doplnenie']);
+  over('A: okrem P08b nie je v posudku nič nesplnené ani chýbajúce', p.nalezy.filter((n) => n.pravidlo !== 'P08b' && ['nesplnene', 'chyba_podklad'].includes(n.stav)).map((n) => n.pravidlo), []);
 
   // B: chýbajú prílohy 6 a 8 → výzva na doplnenie; po doplnení sú priložené.
   const b = prijmi(fs.readdirSync(path.join(DEMO, 'B-Mesto-Ukazkovo')).map((f) => subor(path.join('B-Mesto-Ukazkovo', f)))); spisy.push(b);

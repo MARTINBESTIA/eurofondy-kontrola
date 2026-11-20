@@ -90,6 +90,97 @@ export function zavaznyFormular(z: Ziadost, c: string, pr: NonNullable<Ziadost['
     zdovodnenie: `Príloha č. ${c} je priložená ako ${zf.popis}: ${vyplnene.map((v) => v.nazov).join(', ')}${u.ziadatel ? ` (žiadateľ: ${u.ziadatel}${u.projekt ? `, projekt: ${u.projekt}` : ''})` : ''}.${zf.polozka ? ` Položky s kladnou sumou: ${u.polozky.length}, spolu ${eur(suma)} (${zf.polozka.nazovSumy}).` : ''} Overená je len prítomnosť vyplneného vzoru, nie vecná správnosť rozpočtu.${aj}` };
 }
 
+/**
+ * Súlad Prílohy č. 8 s rozpočtom formulára (tabuľka č. 11). Zošit vzorcami určí oprávnené výdavky po krátení podľa pásma
+ * úspory (PPP 13) a podmienok Hodnoty za peniaze; formulár ITMS ich uvádza po položkách. Porovnáva sa každé opatrenie zvlášť.
+ * Adresy buniek sú v balíku pravidiel (vzor výzvy), tu je len logika.
+ */
+export interface SuladPrilohy8 {
+  /** Oprávnené výdavky budovy B1 po krátení (M210), pred krátením (M208), OZE po krátení (M270), počet budov (B13). */
+  budova: string; budovaPredKratenim: string; oze: string; pocetBudov: string;
+  /** Ďalšie budovy: hárok s {n} (2..maxBudov), bunka oprávnených výdavkov po krátení a bunka hlásenia. */
+  dalsieBudovy: { harok: string; bunka: string; hlaska: string; maxBudov: number };
+  /** Bunky, v ktorých vzor vypíše upozornenie (nesplnená HzP, výška NFP, percentuálny limit). */
+  hlasky: string[];
+  opatrenieBudova: string; opatrenieOze: string;
+}
+const eur2 = (n: number) => n.toLocaleString('sk-SK', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' EUR';
+const centy = (n: number) => Math.round(n * 100) / 100;
+export type BunkaZositu = { harok: string; adresa: string };
+export function suladPrilohy8(z: Ziadost, p: Pravidlo, priPorovnani?: (subor: PrilozenySubor, bunky: BunkaZositu[]) => void): VysledokKontroly {
+  const { cislo: c, zavaznyFormular: zf, sulad: s } = p.parametre as { cislo: string; zavaznyFormular: ZavaznyFormular; sulad: SuladPrilohy8 };
+  if (z.prilohy === undefined) return { stav: 'mimo_podkladov', zdovodnenie: `Prílohy nie sú súčasťou podkladov (verejné API ich neobsahuje), súlad Prílohy č. ${c} s rozpočtom formulára sa nedá overiť.` };
+  const pr = z.prilohy[c];
+  if (!pr || pr.text.trim().length <= 40) return { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c} chýba, preto sa oprávnené výdavky z nej nedajú porovnať s rozpočtom formulára.` };
+  if (pr.zaradenie === 'odhad') return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: ${pr.nazov} je zaradená len odhadom podľa kľúčových slov. Najprv treba potvrdiť, že ide o túto prílohu.` };
+  let zosit: PrilozenySubor | undefined;
+  const f = zavaznyFormular(z, c, pr, zf, (sub) => { zosit = sub; });
+  if (f.stav !== 'splnene' || !zosit?.bunky?.[zf.harok]) return { stav: f.stav === 'splnene' ? 'na_preverenie' : f.stav, zdovodnenie: `Súlad s rozpočtom formulára sa nedá overiť, kým nie je v poriadku samotný zošit (bod P08): ${f.zdovodnenie}` };
+  const sub = zosit, bunky = sub.bunky!, h = bunky[zf.harok];
+  const num = (harok: Record<string, string> | undefined, a: string) => { const v = harok?.[a]?.trim(); return v ? (Number.isFinite(Number(v)) ? Number(v) : NaN) : undefined; };
+  const citovane: BunkaZositu[] = [];
+  const bunka = (harok: string, adresa: string) => { citovane.push({ harok, adresa }); return `„${harok}“!${adresa}`; };
+
+  const wB1 = num(h, s.budova), wO = num(h, s.oze);
+  const chyba = [[s.budova, wB1], [s.oze, wO]].filter(([, v]) => v === undefined || Number.isNaN(v)).map(([a]) => a);
+  if (chyba.length) return { stav: 'na_preverenie', zdovodnenie: `V zošite ${sub.nazov} chýba vypočítaná suma v bunke ${chyba.join(', ')} (hárok „${zf.harok}“). Vzorce zošita zrejme nemajú uložené výsledky (súbor nebol uložený v MS Excel) alebo bol vzor zmenený. Zošit treba otvoriť v MS Excel a sumy porovnať s rozpočtom formulára ručne.` };
+  const pocet = num(h, s.pocetBudov);
+  const n = pocet !== undefined && Number.isInteger(pocet) && pocet > 1 ? pocet : 1;
+  if (n > s.dalsieBudovy.maxBudov) return { stav: 'na_preverenie', zdovodnenie: `Zošit ${sub.nazov} uvádza ${n} budov (bunka ${s.pocetBudov}), vzor má hárky len pre ${s.dalsieBudovy.maxBudov}. Súlad treba overiť ručne.` };
+  // Ďalšie budovy: povinné do počtu z B13; hárok so sumou nad tento počet je rozpor v zošite, nie dôvod ho ignorovať.
+  const dalsie: { harok: string; suma: number }[] = [], neprecitane: string[] = [], navyse: string[] = [], hlasky: string[] = [];
+  for (let i = 2; i <= s.dalsieBudovy.maxBudov; i++) {
+    const harok = s.dalsieBudovy.harok.replace('{n}', String(i)), v = num(bunky[harok], s.dalsieBudovy.bunka);
+    if (i <= n && (v === undefined || Number.isNaN(v))) { neprecitane.push(harok); continue; }
+    if (v === undefined || Number.isNaN(v) || (i > n && v === 0)) continue;
+    if (i > n) navyse.push(harok);
+    dalsie.push({ harok, suma: v });
+    const t = bunky[harok]?.[s.dalsieBudovy.hlaska]?.trim();
+    if (t) hlasky.push(`„${t}“ (${bunka(harok, s.dalsieBudovy.hlaska)})`);
+  }
+  if (neprecitane.length) return { stav: 'na_preverenie', zdovodnenie: `Zošit ${sub.nazov} uvádza ${n} budov (bunka ${s.pocetBudov}), ale z hárkov ${neprecitane.map((x) => `„${x}“`).join(', ')} sa nedala prečítať vypočítaná suma (bunka ${s.dalsieBudovy.bunka}). Skryté hárky sa nenačítavajú. Súlad treba overiť ručne.` };
+  for (const a of s.hlasky) { const t = h[a]?.trim(); if (t) hlasky.push(`„${t}“ (${bunka(zf.harok, a)})`); }
+
+  const wB = (wB1 as number) + dalsie.reduce((x, d) => x + d.suma, 0), wOze = wO as number;
+  const rB = z.rozpocet.filter((r) => r.opatrenie === s.opatrenieBudova), rO = z.rozpocet.filter((r) => r.opatrenie === s.opatrenieOze);
+  const ine = z.rozpocet.filter((r) => r.opatrenie !== s.opatrenieBudova && r.opatrenie !== s.opatrenieOze && r.suma !== 0);
+  if (!z.rozpocet.length) return { stav: 'chyba_podklad', zdovodnenie: `Vo formulári chýba rozpočet projektu (tabuľka č. 11), s ktorým by sa dali porovnať oprávnené výdavky zo zošita ${sub.nazov}.` };
+  const fB = rB.reduce((x, r) => x + r.suma, 0), fO = rO.reduce((x, r) => x + r.suma, 0);
+  const riadkyZositu = Number(f.hodnoty?.polozky ?? 0);
+  // Formulár zaokrúhľuje každú položku na centy, zošit počíta presne: pol centa na každú položku, nič viac.
+  const tolB = 0.005 * (rB.length + riadkyZositu) + 0.005, tolO = 0.005 * (rO.length + riadkyZositu) + 0.005;
+  const hodnoty = { budovaZosit: centy(wB), budovaFormular: centy(fB), ozeZosit: centy(wOze), ozeFormular: centy(fO) };
+  const zdrojB = [bunka(zf.harok, s.budova), ...dalsie.map((d) => bunka(d.harok, s.dalsieBudovy.bunka))].join(' + ');
+  const zdrojO = bunka(zf.harok, s.oze);
+  const opis = `opatrenie ${s.opatrenieBudova}: zošit ${eur2(wB)} (${zdrojB}), formulár ${eur2(fB)}; opatrenie ${s.opatrenieOze}: zošit ${eur2(wOze)} (${zdrojO}), formulár ${eur2(fO)}`;
+  const vysledok = (stav: VysledokKontroly['stav'], zdovodnenie: string): VysledokKontroly => { priPorovnani?.(sub, citovane); return { stav, zdovodnenie, hodnoty }; };
+
+  const okB = Math.abs(fB - wB) <= tolB, okO = Math.abs(fO - wOze) <= tolO;
+  const sumaRozpoctu = z.rozpocet.reduce((x, r) => x + r.suma, 0);
+  const vady: string[] = [];
+  if (navyse.length) vady.push(`Zošit uvádza ${n} budov (bunka ${s.pocetBudov}), ale sumu majú aj hárky ${navyse.map((x) => `„${x}“`).join(', ')}.`);
+  if (hlasky.length) vady.push(`Zošit hlási ${hlasky.join(', ')}.`);
+  if (ine.length) vady.push(`Formulár má aj výdavky mimo opatrení ${s.opatrenieBudova} a ${s.opatrenieOze} (${ine.map((r) => `${r.opatrenie ?? 'bez opatrenia'}: ${eur2(r.suma)}`).join(', ')}), zošit ich nepočíta.`);
+  if (Math.abs(sumaRozpoctu - z.sumaZiadanaCelkova) > 0.005 * (z.rozpocet.length + 1)) vady.push(`Súčet položiek rozpočtu formulára (${eur2(sumaRozpoctu)}) sa nerovná celkovým oprávneným výdavkom formulára (${eur2(z.sumaZiadanaCelkova)}).`);
+  if (okB && okO && !vady.length) return vysledok('splnene', `Oprávnené výdavky vypočítané v záväznom zošite ${sub.nazov} sa zhodujú s rozpočtom formulára (${opis}). Rozdiel je najviac zaokrúhlenie položiek na centy. Kontrola porovnáva sumy, oprávnenosť a hospodárnosť jednotlivých výdavkov neposudzuje.`);
+
+  // Opatrenie, pre ktoré zošit nič nevypočítal, hoci formulár výdavky žiada: bez hlásenia ide o neúplne vyplnený zošit.
+  const nulove = [[s.opatrenieBudova, wB, fB], [s.opatrenieOze, wOze, fO]].filter(([, w, fx]) => (w as number) === 0 && (fx as number) > 0).map(([o]) => o);
+  if (nulove.length && !hlasky.length) return vysledok('chyba_podklad', `Zošit ${sub.nazov} pri opatrení ${nulove.join(' a ')} nevypočítal žiadne oprávnené výdavky, hoci formulár ich žiada (${opis}). Podľa Prílohy č. 2 výzvy má nevyplnenie žlto podfarbených buniek v hárkoch Rozpočet a MU Budova „za následok absenciu výpočtu výdavkov“. Treba doplniť úplne vyplnený zošit.${vady.length ? ' ' + vady.join(' ') : ''}`);
+
+  const pricina: string[] = [];
+  const smer = (o: string, fx: number, w: number) => `pri opatrení ${o} formulár žiada o ${eur2(Math.abs(fx - w))} ${fx > w ? 'viac' : 'menej'}, než vypočítal zošit`;
+  if (!okB) pricina.push(smer(s.opatrenieBudova, fB, wB));
+  if (!okO) pricina.push(smer(s.opatrenieOze, fO, wOze));
+  const pred = num(h, s.budovaPredKratenim);
+  if (!okB && pred !== undefined && !Number.isNaN(pred) && pred > wB1! && !dalsie.length && Math.abs(fB - pred) <= tolB)
+    pricina.push(`suma formulára pri opatrení ${s.opatrenieBudova} sa rovná výdavkom budovy pred krátením podľa pásma úspory (${bunka(zf.harok, s.budovaPredKratenim)} = ${eur2(pred)}). Podľa PPP č. 13 sa oprávnené výdavky krátia, zošit po krátení uvádza ${eur2(wB1!)}`);
+  if (!okB && !okO && Math.abs(fB + fO - wB - wOze) <= tolB + tolO) pricina.push('celková suma sedí, ale rozdelenie medzi opatrenia nie');
+  const prvy = pricina.length ? pricina[0][0].toUpperCase() + pricina.join('; ').slice(1) + '.' : '';
+  const zaver = pricina.length ? 'Treba overiť, ktorá suma platí, a zosúladiť formulár so zošitom.' : 'Sumy opatrení sa zhodujú, ale uvedený rozpor treba posúdiť.';
+  return vysledok('na_preverenie', `Oprávnené výdavky zo zošita ${sub.nazov} a rozpočet formulára: ${opis}. ${[prvy, ...vady].filter(Boolean).join(' ')} ${zaver}`);
+}
+
 /** Úspora primárnej energie z ukazovateľa (východisková - cieľová hodnota). */
 export function uspora(z: Ziadost, kod: string): { vych: number; ciel: number; mwh: number; percent: number } | null {
   const u = uk(z, kod);
@@ -204,6 +295,8 @@ export const KONTROLY: Record<string, Kontrola> = {
     if (nahrada && /https?:\/\/|www\./i.test(z.popis)) return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c} chýba. Výzva pripúšťa náhradu: ${nahrada}. V popise projektu je webový odkaz, treba overiť, či vedie na uznesenie.` };
     return { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c} sa vyžaduje a chýba${pr ? ' (súbor je prázdny alebo nečitateľný)' : ''}.${nahrada ? ` Náhrada: ${nahrada}.` : ''}` };
   },
+
+  priloha8_sulad: (z, p) => suladPrilohy8(z, p),
 
   register(z, p) {
     const vynimka = p.parametre?.nevztahujeSaNa as string[] | undefined;
