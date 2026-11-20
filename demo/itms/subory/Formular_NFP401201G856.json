@@ -1,0 +1,421 @@
+{
+  "id": 206978,
+  "kod": "NFP401201G856",
+  "nazov": "Zníženie energetickej náročnosti budovy obecného úradu v obci Chorvátsky Grob",
+  "datumPredlozenia": 1758232800000,
+  "sumaZiadanaNFP": 250825.77,
+  "sumaZiadanaCelkova": 250825.77,
+  "sumaZiadanaVZ": 0,
+  "percetnoZiadane": 1,
+  "dlzkaZiadanaCelkovaHlavnychAktivit": 26,
+  "datumZiadanyZaciatkuHlavnychAktivit": 1711922400000,
+  "datumZiadanyKoncaHlavnychAktivit": 1777586400000,
+  "vyzva": {
+    "kod": "PSK-SIEA-002-2023-DV-EFRR"
+  },
+  "kategoriaRegionov": [
+    {
+      "kodZdroj": "VRR"
+    }
+  ],
+  "opatrenie": [
+    {
+      "kod": "401201R20102"
+    },
+    {
+      "kod": "401201R20202"
+    }
+  ],
+  "ziadatel": {
+    "nazov": "Obec Chorvátsky Grob",
+    "ico": "00304760",
+    "pravnaForma": {
+      "kodZdroj": "801",
+      "nazovSk": "Obec (obecný úrad), mesto (mestský úrad)"
+    }
+  },
+  "aktivity": [
+    {
+      "kod": "401G85600004",
+      "nazov": "Systémy chladenia a vetrania",
+      "datumZaciatkuPlanovany": 1772319600000,
+      "datumKoncaPlanovany": 1777586400000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401G85600002",
+      "nazov": "Zateplenie obvodového plášťa",
+      "datumZaciatkuPlanovany": 1772319600000,
+      "datumKoncaPlanovany": 1777586400000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401G85600003",
+      "nazov": "Vykurovací systém",
+      "datumZaciatkuPlanovany": 1772319600000,
+      "datumKoncaPlanovany": 1777586400000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401G85600009",
+      "nazov": "Zariadenia OZE - výroba tepla",
+      "datumZaciatkuPlanovany": 1772319600000,
+      "datumKoncaPlanovany": 1777586400000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20202"
+        }
+      }
+    },
+    {
+      "kod": "401G85600001",
+      "nazov": "Projektová dokumentácia",
+      "datumZaciatkuPlanovany": 1711922400000,
+      "datumKoncaPlanovany": 1730415600000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401G856P0002",
+      "nazov": "Podporné aktivity",
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20202"
+        }
+      }
+    },
+    {
+      "kod": "401G85600008",
+      "nazov": "Zariadenia OZE - výroba elektriny",
+      "datumZaciatkuPlanovany": 1772319600000,
+      "datumKoncaPlanovany": 1777586400000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20202"
+        }
+      }
+    },
+    {
+      "kod": "401G85600005",
+      "nazov": "Osvetlenie",
+      "datumZaciatkuPlanovany": 1772319600000,
+      "datumKoncaPlanovany": 1777586400000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401G85600007",
+      "nazov": "Ostatné okrem softvéru",
+      "datumZaciatkuPlanovany": 1772319600000,
+      "datumKoncaPlanovany": 1777586400000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401G85600006",
+      "nazov": "Kvalita vnútorného prostredia",
+      "datumZaciatkuPlanovany": 1772319600000,
+      "datumKoncaPlanovany": 1777586400000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401G856P0001",
+      "nazov": "Podporné aktivity",
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    }
+  ],
+  "polozkyRozpoctu": [
+    {
+      "sumaOpravnenehoVydavku": 17538.79,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401G85600003",
+        "nazov": "Vykurovací systém",
+        "datumZaciatkuPlanovany": 1772319600000,
+        "datumKoncaPlanovany": 1777586400000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 28643.14,
+      "skupinaVydavkov": {
+        "nazovSk": "Samostatné hnuteľné veci a súbory hnuteľných vecí"
+      },
+      "aktivita": {
+        "kod": "401G85600009",
+        "nazov": "Zariadenia OZE - výroba tepla",
+        "datumZaciatkuPlanovany": 1772319600000,
+        "datumKoncaPlanovany": 1777586400000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20202"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 33385.36,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401G85600005",
+        "nazov": "Osvetlenie",
+        "datumZaciatkuPlanovany": 1772319600000,
+        "datumKoncaPlanovany": 1777586400000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 10663.75,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401G85600001",
+        "nazov": "Projektová dokumentácia",
+        "datumZaciatkuPlanovany": 1711922400000,
+        "datumKoncaPlanovany": 1730415600000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 117597.18,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401G85600002",
+        "nazov": "Zateplenie obvodového plášťa",
+        "datumZaciatkuPlanovany": 1772319600000,
+        "datumKoncaPlanovany": 1777586400000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 15738.1,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401G85600004",
+        "nazov": "Systémy chladenia a vetrania",
+        "datumZaciatkuPlanovany": 1772319600000,
+        "datumKoncaPlanovany": 1777586400000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 16018.09,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401G85600006",
+        "nazov": "Kvalita vnútorného prostredia",
+        "datumZaciatkuPlanovany": 1772319600000,
+        "datumKoncaPlanovany": 1777586400000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 3465.22,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401G85600007",
+        "nazov": "Ostatné okrem softvéru",
+        "datumZaciatkuPlanovany": 1772319600000,
+        "datumKoncaPlanovany": 1777586400000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 7776.14,
+      "skupinaVydavkov": {
+        "nazovSk": "Samostatné hnuteľné veci a súbory hnuteľných vecí"
+      },
+      "aktivita": {
+        "kod": "401G85600008",
+        "nazov": "Zariadenia OZE - výroba elektriny",
+        "datumZaciatkuPlanovany": 1772319600000,
+        "datumKoncaPlanovany": 1777586400000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20202"
+          }
+        }
+      }
+    }
+  ],
+  "miestoRealizacieFull": [
+    {
+      "nuts3": {
+        "nazovSk": "Bratislavský kraj"
+      },
+      "nuts4": {
+        "nazovSk": "Senec"
+      },
+      "nuts5": {
+        "nazovSk": "Chorvátsky Grob"
+      },
+      "lokalita": "SLOVENSKA_REPUBLIKA"
+    }
+  ],
+  "ukazovatelZiadanyVystupu": [
+    {
+      "cielovaHodnotaSpolu": 0.0231,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCO22b",
+          "nazovSk": "Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: tepelná",
+          "mernaJednotka": {
+            "nazovSk": "MW"
+          }
+        }
+      }
+    },
+    {
+      "cielovaHodnotaSpolu": 0.0033,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCO22a",
+          "nazovSk": "Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: elektrická",
+          "mernaJednotka": {
+            "nazovSk": "MW"
+          }
+        }
+      }
+    },
+    {
+      "cielovaHodnotaSpolu": 1059.55,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCO19",
+          "nazovSk": "Verejné budovy so zlepšenou energetickou hospodárnosťou",
+          "mernaJednotka": {
+            "nazovSk": "m2"
+          }
+        }
+      }
+    }
+  ],
+  "ukazovatelZiadanyVysledku": [
+    {
+      "vychodiskovaHodnotaSpolu": 119.0248,
+      "cielovaHodnotaSpolu": 54.8423,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCR26b",
+          "nazovSk": "Ročná primárna spotreba energie: verejné budovy",
+          "mernaJednotka": {
+            "nazovSk": "MWh/rok"
+          }
+        }
+      }
+    },
+    {
+      "vychodiskovaHodnotaSpolu": 19.6398,
+      "cielovaHodnotaSpolu": 4.1322,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCR29",
+          "nazovSk": "Odhadované emisie skleníkových plynov",
+          "mernaJednotka": {
+            "nazovSk": "tony CO2 eq/rok"
+          }
+        }
+      }
+    },
+    {
+      "vychodiskovaHodnotaSpolu": 0,
+      "cielovaHodnotaSpolu": 32.25,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCR31b",
+          "nazovSk": "Celková vyrobená energia z obnoviteľných zdrojov: tepelná",
+          "mernaJednotka": {
+            "nazovSk": "MWh/rok"
+          }
+        }
+      }
+    },
+    {
+      "vychodiskovaHodnotaSpolu": 0,
+      "cielovaHodnotaSpolu": 3.337,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCR31a",
+          "nazovSk": "Celková vyrobená energia z obnoviteľných zdrojov: elektrická",
+          "mernaJednotka": {
+            "nazovSk": "MWh/rok"
+          }
+        }
+      }
+    }
+  ],
+  "popis": "Hlavným zámerom a cieľom projektu je znížiť energetickú náročnosť objektu obecného úradu v obci Chorvátsky Grob, ako aj celková obnova budovy, čím sa prispeje k zlepšeniu energetickej hospodárnosti a obnove verejných budov, podpore využívania OZE vrátane zariadení, ktoré sú súčasťou systému zásobovania energiou verejných budov.\nBudova obecného úradu slúži výlučne ako sídlo obecného úradu, ktorého prevádzka nepredstavuje hospodársku činnosť. Budova bola skolaudovaná v roku 1942. Odvtedy prešla viacerými rekonštrukciami, pričom posledná z nich prebehla v roku 2007. Prevádzka budovy sa aj napriek zrealizovaným rekonštrukciám naďalej vyznačuje vysokými prevádzkovými nákladmi predovšetkým na vykurovanie.\nProjekt sa realizuje kombináciou opatrení 2.1.2 Zlepšovanie energetickej hospodárnosti a obnovy verejných budov a 2.2.2 Podpora zariadení využívajúcich OZE vrátane zariadení, ktoré sú súčasťou systému zásobovania energiou verejných budov.\nHlavné aktivity projektu:\nAktivita 1: Zlepšovanie energetickej hospodárnosti a obnovy budovy\nAktivita 2: Podpora zariadení využívajúcich OZE\nMiestom realizácie projektu je katastrálne územie obec Chorvátsky Grob, ulica Nám. Josipa Andriča 3672/17, 900 25, konkrétne parcela č. 247/1.\nMerateľné ukazovatele:\nPO037 - Verejné budovy so zlepšenou energetickou hospodárnosťou - m2 – cieľová hodnota: 1 059,550\nPR022 - Ročná primárna spotreba energie: verejné budovy - MWh/rok – cieľová hodnota: 54,8423\nPR025 - Odhadované emisie skleníkových plynov - tony CO2 ekv. / rok – cieľová hodnota: 4,1322\nPO040 - Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: elektrická – MW – cieľová hodnota: 0,00325\nPO041 - Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: tepelná – MW- cieľová hodnota: 0,02307\nPR027 - Celková vyrobená energia z obnoviteľných zdrojov: elektrická - MWh/rok – cieľová hodnota: 3,3370\nPR028 - Celková vyrobená energia z obnoviteľných zdrojov: tepelná - MWh/rok – cieľová hodnota: 32,2500",
+  "ucel": "Cieľom projektu je zníženie energetickej náročnosti budovy obecného úradu v obci Chorvátsky Grob. Pričom v prípade tohto projektu pôjde o zníženie energetickej náročnosti o 53,9236 % prostredníctvom zateplenia obvodového plášťa, výmeny vykurovacieho systému, výmeny pôvodných svietidiel za LED svietidlá, ako aj zvýšenia kvality vnútorného prostredia zabezpečením požadovanej výmeny vnútorného vzduchu. Inštalácia fotovoltických panelov s výkonom 3,0 kWp na strechu, inštalácia tepelného čerpadla s výkonom 25,0 kW zvýšia pridanú hodnotu celého projektu a prispejú veľkou mierou k ochrane životného prostredia.",
+  "_zdroj": "https://api.itms21.sk/public/v1/zonfp/id/206978",
+  "_poznamka": "Výber verejných údajov na skúšku príjmu. Historické rozhodnutie je mimo vstupu hodnotiteľa."
+}

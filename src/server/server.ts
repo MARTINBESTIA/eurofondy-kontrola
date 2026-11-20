@@ -32,7 +32,7 @@ function balik(m: Modul): BalikPravidiel {
 }
 
 // Auditná stopa: každý posudok sa uloží aj s modulom a verziou pravidiel, ktorou vznikol.
-const db = new DatabaseSync(path.join(KOREN, 'data', 'app.db'));
+const db = new DatabaseSync(process.env.PODATELNA_DB ?? path.join(KOREN, 'data', 'app.db'));
 db.exec(`CREATE TABLE IF NOT EXISTS posudky (
   id INTEGER PRIMARY KEY, cas TEXT NOT NULL, ziadost_kod TEXT NOT NULL, balik TEXT NOT NULL, verzia TEXT NOT NULL,
   model TEXT, navrh TEXT NOT NULL, upravena INTEGER NOT NULL, trvanie_ms INTEGER NOT NULL, posudok_json TEXT NOT NULL)`);
@@ -169,6 +169,13 @@ const server = http.createServer(async (req, res) => {
     }
     if (url.pathname.startsWith('/api/')) return json(res, 404, { chyba: 'Neznáma adresa API.' });
 
+    if (req.method === 'GET' && url.pathname === '/demo/01-komplet.zip') {
+      const balik = path.join(KOREN, 'demo', 'itms', '01-komplet.zip');
+      if (!fs.existsSync(balik)) return json(res, 404, { chyba: 'Ukážkové podanie nie je dostupné.' });
+      res.writeHead(200, { 'content-type': 'application/zip', 'content-disposition': 'attachment; filename="01-komplet.zip"' });
+      return void fs.createReadStream(balik).pipe(res);
+    }
+
     // statické súbory
     const subor = path.normalize(path.join(KOREN, 'web', url.pathname === '/' ? 'index.html' : url.pathname));
     if (!subor.startsWith(path.join(KOREN, 'web')) || !fs.existsSync(subor) || fs.statSync(subor).isDirectory()) { res.writeHead(404); return res.end('Nenájdené'); }
@@ -178,4 +185,7 @@ const server = http.createServer(async (req, res) => {
     json(res, 500, { chyba: (e as Error).message });
   }
 });
-server.listen(PORT, '127.0.0.1', () => console.log(`Eurofondy kontrola beží na http://127.0.0.1:${PORT} (výzva ${VYZVA}; moduly: ${MODULY.map((m) => m.id).join(', ')})`));
+server.listen(PORT, '127.0.0.1', () => {
+  const adresa = server.address();
+  if (adresa && typeof adresa !== 'string') console.log(`Eurofondy kontrola beží na http://127.0.0.1:${adresa.port} (výzva ${VYZVA}; moduly: ${MODULY.map((m) => m.id).join(', ')})`);
+});

@@ -1,7 +1,9 @@
 // Podateľňa: kontrolór prijme podanie (súbory žiadosti alebo kód z ITMS21+), skontroluje zaradenie príloh,
 // spustí posúdenie a zapíše rozhodnutie. Výsledky sa ukladajú do spisu (SQLite) a sčítavajú za výzvu.
-// V prevádzke by podanie prišlo automaticky (e-mailový hook) cez to isté API: POST /api/podatelna/spisy.
+// Lokálna simulácia importu podania z ITMS21+ používa POST /api/podatelna/spisy.
 import { $, el, api, cislo, pct, datum, naBase64, STAVY, NAVRHY_KRATKO, kresliVerdikt, kresliNalezy } from './ui.js';
+
+const FORMATY_PODANIA = '.zip,.pdf,.xlsx,.xlsm,.docx,.txt,.json';
 
 const ROZHODNUTIA = { splnila: 'Splnila podmienky', doplnenie: 'Výzva na doplnenie', nesplnila: 'Nesplnila podmienky' };
 const STAV_SPISU = { prijata: 'prijatá, neposúdená', posudena: 'posúdená, čaká na rozhodnutie', caka_na_doplnenie: 'čaká na doplnenie', doplnena: 'doplnená, treba posúdiť znova', rozhodnuta: 'rozhodnutá' };
@@ -114,11 +116,11 @@ function kresliNovu(vyzvaPredvolena) {
   const kresliVybrane = () => zoznam.replaceChildren(...vybrane.map((f, k) => el('li', {}, el('span', {}, f.name), el('span', { class: 'tlmene male' }, `${cislo(f.size / 1024, 0)} kB`),
     el('button', { class: 'odober', type: 'button', 'aria-label': `Odobrať ${f.name}`, onclick: () => { vybrane.splice(k, 1); kresliVybrane(); } }, '×'))));
   const pridaj = (subory) => { vybrane.push(...subory); kresliVybrane(); };
-  const vstup = el('input', { type: 'file', multiple: '', accept: '.zip,.pdf,.docx,.txt,.json', onchange: (e) => { pridaj([...e.target.files]); e.target.value = ''; } });
+  const vstup = el('input', { type: 'file', multiple: '', accept: FORMATY_PODANIA, onchange: (e) => { pridaj([...e.target.files]); e.target.value = ''; } });
   const zona = el('div', { class: 'dropzona', tabindex: '0', role: 'button', onclick: () => vstup.click(), onkeydown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); vstup.click(); } },
     ondragover: (e) => { e.preventDefault(); zona.classList.add('nad'); }, ondragleave: () => zona.classList.remove('nad'),
     ondrop: (e) => { e.preventDefault(); zona.classList.remove('nad'); pridaj([...e.dataTransfer.files]); } },
-  el('b', {}, 'Pretiahnite sem ZIP alebo súbory podania'), el('span', { class: 'tlmene male' }, 'alebo kliknite a vyberte (.zip, .pdf, .docx, .txt, .json formulára)'));
+  el('b', {}, 'Pretiahnite sem ZIP alebo súbory podania'), el('span', { class: 'tlmene male' }, 'alebo vyberte formulár JSON a prílohy PDF, Excel, DOCX či TXT naraz'));
   const vyzva = el('select', { 'aria-label': 'Výzva' }, sPravidlami.map((v) => el('option', { value: v.kod }, `${v.kod} – ${v.nazov}`)));
   if (vyzvaPredvolena) vyzva.value = vyzvaPredvolena;
   const kod = el('input', { type: 'text', placeholder: 'napr. NFP401201A973', 'aria-label': 'Kód žiadosti z ITMS21+' });
@@ -141,11 +143,12 @@ function kresliNovu(vyzvaPredvolena) {
   vstup.hidden = true;
   detail().replaceChildren(el('div', { class: 'sirka-detail' },
     el('h2', {}, 'Nová žiadosť o NFP'),
-    el('p', { class: 'tlmene' }, 'Simulácia príjmu podania. V prevádzke by sem podanie prišlo samo, napríklad z e-mailovej schránky alebo z ITMS21+, cez to isté rozhranie (POST /api/podatelna/spisy). Súbory sa uložia do spisu na tomto počítači; nič sa nikam neodosiela.'),
+    el('p', { class: 'tlmene' }, 'Lokálna ukážka príjmu podkladov z ITMS21+. Nahraté súbory sa uložia do jedného spisu na tomto počítači.'),
     form,
     el('div', { class: 'pozn' }, el('b', {}, 'Ako softvér zaradí súbory. '),
       'Formulár žiadosti je súbor .json. Príloha s číslom v názve súboru (napr. Priloha_3_Uznesenie.pdf) sa zaradí podľa čísla, ako keby ju žiadateľ nahral do slotu v ITMS21+. Súbor bez čísla softvér zaradí podľa kľúčových slov; je to len odhad a kým ho kontrolór nepotvrdí, pravidlo prílohy nebude „splnené“. ZIP sa rozbalí.'),
-    el('p', { class: 'tlmene male' }, 'Ukážkové podania sú v priečinku demo/podania/ (postup v demo/podania/README.md).')));
+    el('p', {}, el('a', { href: '/demo/01-komplet.zip', download: '01-komplet.zip' }, 'Stiahnuť ukážkové podanie (ZIP)'),
+      ' · Chorvátsky Grob, verejný formulár a modelové prílohy.')));
 }
 
 // ---------- detail spisu
@@ -202,7 +205,7 @@ function boxPodklady(id, subory, sloty) {
           }
         } }, 'Text'))), nahlad);
   }
-  const vstup = el('input', { type: 'file', multiple: '', accept: '.zip,.pdf,.docx,.txt,.json', 'aria-label': 'Súbory doplnenia' });
+  const vstup = el('input', { type: 'file', multiple: '', accept: FORMATY_PODANIA, 'aria-label': 'Súbory doplnenia' });
   const stav = el('span', { class: 'tlmene male', role: 'status' });
   return el('div', { class: 'box' },
     el('h3', {}, `Podklady v spise (${subory.length})`),
