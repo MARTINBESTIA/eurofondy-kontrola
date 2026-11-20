@@ -177,7 +177,7 @@ export async function posud(v: any, balik: BalikPravidiel, modul: Modul, m: Mozn
   const vety: Record<Navrh, string> = {
     nesplnene_podmienky: `Nesplnené: ${nalezy.filter((n) => n.stav === 'nesplnene').map(id).join(', ')}.`,
     vyzva_na_doplnenie: `Chýbajú podklady: ${nalezy.filter((n) => n.stav === 'chyba_podklad').map((n) => n.pravidlo).join(', ')}.`,
-    na_preverenie: pocty.na_preverenie ? `Bez jasného porušenia, ale ${pocty.na_preverenie} bodov musí posúdiť človek.` : 'Z dostupných podkladov sa nedalo overiť žiadne pravidlo, treba doplniť údaje.',
+    na_preverenie: pocty.na_preverenie ? `Bez jasného porušenia, ale ${pocty.na_preverenie} ${pocty.na_preverenie === 1 ? 'bod musí' : pocty.na_preverenie < 5 ? 'body musia' : 'bodov musí'} posúdiť človek.` : 'Z dostupných podkladov sa nedalo overiť žiadne pravidlo, treba doplniť údaje.',
     ciastocne_overene: `V ${pocty.splnene} overených bodoch bez zistení, ale ${pocty.mimo_podkladov} bodov sa z podkladov overiť nedá (${nalezy.filter((n) => n.stav === 'mimo_podkladov').map((n) => n.pravidlo).join(', ')}). Nie je to súhlas s celým prípadom.`,
     bez_zisteni: 'Všetky pravidlá overené, bez zistení.',
   };
