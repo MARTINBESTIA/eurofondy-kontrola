@@ -74,8 +74,8 @@ label.prepinac { color: var(--text); }
 .skutocnost { margin: 10px 0 18px; font-size: 14px; padding: 10px 14px; border: 1px dashed var(--ciara); border-radius: 8px; }
 .sk-nadpis { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--tlmene); margin: 20px 0 8px; }
 .nalez { background: var(--plocha); border: 1px solid var(--ciara); border-radius: 8px; margin-bottom: 8px; }
-.nalez summary { display: grid; grid-template-columns: 118px 1fr; gap: 12px; padding: 11px 14px; cursor: pointer; list-style: none; align-items: start; }
-.nalez summary::-webkit-details-marker { display: none; }
+.nalez > summary { display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 12px; padding: 11px 14px; cursor: pointer; list-style: none; align-items: start; }
+.nalez > summary::-webkit-details-marker { display: none; }
 .stitok { font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 999px; text-align: center; white-space: nowrap; }
 .s-splnene { background: var(--ok-bg); color: var(--ok); } .s-nesplnene { background: var(--zle-bg); color: var(--zle); }
 .s-na_preverenie { background: var(--pozor-bg); color: var(--pozor); } .s-chyba_podklad { background: var(--chyba-bg); color: var(--chyba); }
@@ -84,6 +84,22 @@ label.prepinac { color: var(--text); }
 .nalez .vnutro { padding: 0 14px 14px 144px; font-size: 13.5px; }
 blockquote { margin: 8px 0; padding: 8px 12px; border-left: 3px solid var(--ciara); background: var(--pozadie); border-radius: 0 6px 6px 0; }
 .dokaz { border-left-color: var(--akcent); white-space: pre-line; }
+.vysvetlenie-ppp { margin: 12px 0; }
+.nalez h4 { margin: 10px 0 4px; font-size: 14px; }
+.doklad { margin: 8px 0 14px; overflow-wrap: anywhere; }
+.zdroj-dokladu { display: block; }
+.citacia-podkladu { margin: 6px 0; }
+.citacia-podkladu blockquote { margin: 2px 0 6px; white-space: pre-wrap; }
+.priloha-doklady > summary, .dalsie-citacie > summary, .okolie-citacie > summary { cursor: pointer; color: var(--akcent); font-size: 13px; }
+.prvy-doklad { display: block; margin-top: 4px; color: var(--akcent); font-size: 12.5px; overflow-wrap: anywhere; }
+.nahlad-riadkov { font: 12px/1.6 Consolas, ui-monospace, monospace; padding: 8px; background: var(--pozadie); border-radius: 4px; margin: 4px 0 8px; }
+.riadok-podkladu { display: grid; grid-template-columns: 4ch minmax(0, 1fr); gap: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.cislo-riadku { text-align: right; color: var(--tlmene); }
+.riadok-podkladu mark { background: var(--pozor-bg); color: var(--text); }
+.historia tbody tr { cursor: pointer; }
+.historia tbody tr:hover, .historia tbody tr:has([aria-expanded=true]) { background: var(--pozadie); }
+.odkaz-posudku { color: var(--akcent); border: 0; background: transparent; padding: 0; text-decoration: underline; cursor: pointer; }
+.historia-zaznam { margin-bottom: 16px; }
 table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 8px 0 20px; }
 th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--ciara); vertical-align: top; }
 th { font-size: 12.5px; color: var(--tlmene); font-weight: 600; } td.c, th.c { text-align: right; font-variant-numeric: tabular-nums; }

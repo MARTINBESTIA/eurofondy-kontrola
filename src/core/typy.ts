@@ -25,7 +25,7 @@ export interface Priloha {
    * Jednotlivé súbory prílohy (z podateľne). Treba ich pri záväznom formulári: text slotu je zlúčený zo všetkých súborov.
    * bunky = pri zošite XLSX/XLSM hárok -> adresa (A1) -> uložená hodnota; chýba, ak sa originál nedal prečítať.
    */
-  subory?: { nazov: string; text: string; citatelny: boolean; bunky?: Record<string, Record<string, string>> }[];
+  subory?: { suborId?: number; nazov: string; text: string; citatelny: boolean; bunky?: Record<string, Record<string, string>> }[];
 }
 
 /** Žiadosť o NFP v tvare, s ktorým pracujú pravidlá. Zdroj: formulár ŽoNFP (verejné API ITMS21+ alebo nahratý súbor). */
@@ -70,6 +70,13 @@ export interface Nalez {
   pravidlo: string; ppp: number | null; nazov: string; druh: Pravidlo['druh']; stav: Stav;
   zdovodnenie: string; dokaz?: string; hodnoty?: Record<string, number | string | null>;
   citacia: Citacia; overenieZdroj?: string;
+  doklady?: Doklad[];
+  povodDokladov?: 'archiv' | 'rekonstrukcia' | 'nedostupne';
+}
+
+export interface Doklad {
+  suborId?: number; nazov: string; miesto: string; citat: string;
+  riadokOd?: number; riadokDo?: number; strana?: number;
 }
 
 export interface BalikPravidiel {
@@ -132,4 +139,5 @@ export type Navrh = 'bez_zisteni' | 'ciastocne_overene' | 'vyzva_na_doplnenie' |
 export interface Posudok {
   ziadostKod: string; balik: string; verziaBalika: string; cas: string; trvanieMs: number; model: string | null;
   nalezy: Nalez[]; navrh: Navrh; zhrnutie: string; pocty: Record<Stav, number>;
+  formularItms?: { nazov: string; text: string };
 }

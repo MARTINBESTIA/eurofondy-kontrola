@@ -15,6 +15,7 @@ import { zmeny } from '../moduly/zmeny/modul.ts';
 import { zop } from '../moduly/zop/modul.ts';
 import { ukazovatele } from '../moduly/ukazovatele/modul.ts';
 import * as pod from '../podatelna/podatelna.ts';
+import { dolozPosudok, precitajPosudok } from '../podatelna/doklady.ts';
 
 const KOREN = path.join(import.meta.dirname, '..', '..');
 const PORT = Number(process.env.PORT ?? 5177);
@@ -52,8 +53,12 @@ const subory = (b: any): pod.Subor[] => (Array.isArray(b.subory) ? b.subory : []
 /** Ktoré prílohy žiadosť vyžaduje a či sú priložené: pravidlá príloh z balíka, bez modelu (milisekundy). */
 async function stavPriloh(spisId: number, vyzva: string) {
   try {
-    const p = await posud(pod.ziadostSpisu(db, spisId), balikVyzvy(vyzva), zonfp, { llm: false, iba: PRAVIDLA_PRILOH(balikVyzvy(vyzva)) });
-    return p.nalezy.map((n) => ({ cislo: String((balikVyzvy(vyzva).pravidla.find((r) => r.id === n.pravidlo)?.parametre as any)?.cislo ?? ''), pravidlo: n.pravidlo, stav: n.stav, zdovodnenie: n.zdovodnenie }));
+    const balik = balikVyzvy(vyzva);
+    const z = pod.ziadostSpisu(db, spisId);
+    const formular = pod.zdrojFormulara(db, pod.spisRiadok(db, spisId)!);
+    const p = dolozPosudok(await posud(z, balik, zonfp, { llm: false, iba: PRAVIDLA_PRILOH(balik) }), z, formular, balik);
+    return p.nalezy.map(n => ({ cislo: String(balik.pravidla.find(r => r.id === n.pravidlo)?.parametre?.cislo ?? ''),
+      pravidlo: n.pravidlo, stav: n.stav, zdovodnenie: n.zdovodnenie, doklady: n.doklady }));
   } catch { return null; }
 }
 
@@ -79,15 +84,23 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
     if (!s) return json(res, 404, { chyba: 'Spis neexistuje.' });
     if (!c[2]) {
       const d = pod.detailSpisu(db, id)!;
+      if (s.posudok_id && !d.posledny?.nalezy?.some((n: { povodDokladov?: string }) => n.povodDokladov))
+        d.posledny = await precitajPosudok(db, id, s.posudok_id, balikVyzvy(s.vyzva));
       const zIts = d.spis.formularZdroj?.startsWith('ITMS21+') && d.ziadost ? zonfp.skutocnost?.(d.ziadost) ?? null : null;
       return json(res, 200, { ...d, sloty: SLOTY, prilohyStav: await stavPriloh(id, s.vyzva), skutocnost: zIts, titulok: d.ziadost ? zonfp.titulok(d.ziadost) : null, suhrn: d.ziadost ? zonfp.suhrn?.(d.ziadost) ?? '' : '' });
+    }
+    if (c[2] === 'posudky' && req.method === 'GET') {
+      const p = await precitajPosudok(db, id, Number(c[3]) || 0, balikVyzvy(s.vyzva));
+      return p ? json(res, 200, { posudok: p }) : json(res, 404, { chyba: 'Posudok sa v tomto spise nenašiel.' });
     }
     if (req.method !== 'POST') return json(res, 405, { chyba: 'Použite POST.' });
     const b = await telo(req, 120 << 20);
     if (c[2] === 'subory') { pod.doplnPodklady(db, id, subory(b), SLOTY, zItms); return json(res, 200, { ok: true }); }
     if (c[2] === 'posud') {
       const v = pod.ziadostSpisu(db, id);
-      const p = await posud(v, balikVyzvy(s.vyzva), zonfp, { llm: b.llm !== false });
+      const formular = pod.zdrojFormulara(db, s);
+      const balik = balikVyzvy(s.vyzva);
+      const p = dolozPosudok(await posud(v, balik, zonfp, { llm: b.llm !== false }), v, formular, balik);
       const r = vlozSpisovy.run(p.cas, zonfp.id, p.ziadostKod, p.balik, p.verziaBalika, p.model, p.navrh, 0, p.trvanieMs, JSON.stringify(naAudit(zonfp, p)), id);
       pod.ulozPosudok(db, id, Number(r.lastInsertRowid), p.navrh);
       return json(res, 200, { posudok: p });

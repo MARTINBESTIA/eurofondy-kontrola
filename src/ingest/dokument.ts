@@ -78,8 +78,7 @@ function xlsxHarky(buf: Buffer, ajSkryte = false): { meno: string; riadky: Bunka
         const typ = c[1].match(/t="(\w+)"/)?.[1]; const vnutro = c[2] ?? '';
         const v = vnutro.match(/<v>([\s\S]*?)<\/v>/)?.[1];
         const hodnota = typ === 's' ? zdielane[Number(v)] ?? '' : typ === 'inlineStr' ? xmlText(vnutro.replace(/<[^>]+>/g, '')) : typ === 'b' ? (v === '1' ? 'PRAVDA' : 'NEPRAVDA') : v !== undefined ? xmlText(v) : '';
-        const t = hodnota.replace(/\s+/g, ' ').trim();
-        if (t) bunky.push({ adresa: c[1].match(/\br="([A-Z]+\d+)"/)?.[1] ?? '', hodnota: t, vzorec: vnutro.includes('<f') });
+        if (hodnota.trim()) bunky.push({ adresa: c[1].match(/\br="([A-Z]+\d+)"/)?.[1] ?? '', hodnota, vzorec: vnutro.includes('<f') });
       }
       if (bunky.length) riadky.push(bunky);
     }
@@ -87,10 +86,15 @@ function xlsxHarky(buf: Buffer, ajSkryte = false): { meno: string; riadky: Bunka
   }
   return harky;
 }
+/** Hodnota bunky tak, ako je v texte zošita (xlsxNaText): zlúčené medzery, desatinné čísla na 6 miest.
+ * Citát z bunky sa musí formátovať rovnako, inak ho kontrolór v náhľade „Text“ nenájde. */
+export function textBunky(hodnota: string): string {
+  const v = hodnota.replace(/\s+/g, ' ').trim(); const n = Number(v);
+  return v && Number.isFinite(n) && !Number.isInteger(n) ? String(Math.round(n * 1e6) / 1e6) : v;
+}
 export function xlsxNaText(buf: Buffer): string {
-  const cislo = (v: string) => { const n = Number(v); return Number.isFinite(n) && !Number.isInteger(n) ? String(Math.round(n * 1e6) / 1e6) : v; };
   return xlsxHarky(buf).map(({ meno, riadky }) => {
-    const text = riadky.map((r) => r.filter((b) => !(b.vzorec && b.hodnota === '0')).map((b) => cislo(b.hodnota)).join(' | ')).filter(Boolean);
+    const text = riadky.map((r) => r.filter((b) => !(b.vzorec && b.hodnota.trim() === '0')).map((b) => textBunky(b.hodnota)).join(' | ')).filter(Boolean);
     return text.length ? `=== Hárok: ${meno} ===\n${text.join('\n')}` : '';
   }).filter(Boolean).join('\n\n');
 }

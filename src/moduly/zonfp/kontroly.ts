@@ -20,7 +20,7 @@ const mesiace = (od: string, po: string) => (new Date(po).getTime() - new Date(o
  * „Splnené“ znamená iba toto: je priložený identifikovateľný, vyplnený vzor patriaci k tejto žiadosti. Vecnú správnosť
  * rozpočtu (oprávnenosť, hospodárnosť) to neoveruje: to je odborná časť administratívneho overenia.
  */
-interface ZavaznyFormular {
+export interface ZavaznyFormular {
   popis: string; pripona: string; harok: string;
   /** Adresy buniek s názvom žiadateľa a projektu, napr. "B9", "B10". */
   ziadatel?: string; projekt?: string;
@@ -44,7 +44,9 @@ function polozkyRozpoctu(h: Record<string, string>, p: NonNullable<ZavaznyFormul
     .map((m) => ({ riadok: Number(m[2]), suma: cislo(m[0]) }))
     .filter((x) => x.suma > 0 && Number.isFinite(cislo(`${p.pocet}${x.riadok}`)) && Number.isFinite(cislo(`${p.cena}${x.riadok}`)));
 }
-function zavaznyFormular(z: Ziadost, c: string, pr: NonNullable<Ziadost['prilohy']>[string], zf: ZavaznyFormular): VysledokKontroly {
+type PrilozenySubor = NonNullable<NonNullable<Ziadost['prilohy']>[string]['subory']>[number];
+export function zavaznyFormular(z: Ziadost, c: string, pr: NonNullable<Ziadost['prilohy']>[string], zf: ZavaznyFormular,
+  priZhode?: (subor: PrilozenySubor, riadky: number[]) => void): VysledokKontroly {
   if (!pr.subory) return pr.text.trim().length > 40
     ? { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c} je priložená (${pr.nazov}), ale z podkladov sa nedá overiť, či ide o ${zf.popis}.` }
     : { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c} sa vyžaduje a chýba (súbor je prázdny alebo nečitateľný).` };
@@ -59,13 +61,13 @@ function zavaznyFormular(z: Ziadost, c: string, pr: NonNullable<Ziadost['prilohy
   // Každý zošit sa posudzuje zvlášť: prázdny vzor a vyplnená kópia v jednom slote = rozhoduje vyplnená.
   const udaje = vzorove.map((s) => {
     const h = s.bunky?.[zf.harok];
-    if (!h) return { nazov: s.nazov, overitelny: false, chyba: [] as string[], polozky: [] as { riadok: number; suma: number }[] };
+    if (!h) return { subor: s, nazov: s.nazov, overitelny: false, chyba: [] as string[], polozky: [] as { riadok: number; suma: number }[] };
     const ziadatel = zf.ziadatel ? h[zf.ziadatel]?.trim() || undefined : undefined;
     const projekt = zf.projekt ? h[zf.projekt]?.trim() || undefined : undefined;
     const polozky = zf.polozka ? polozkyRozpoctu(h, zf.polozka) : [];
     const chyba = [zf.ziadatel && !ziadatel && `názov žiadateľa (${zf.ziadatel})`, zf.projekt && !projekt && `názov projektu (${zf.projekt})`,
       zf.polozka && !polozky.length && `aspoň jedna položka rozpočtu s kladnou sumou (stĺpec ${zf.polozka.suma}, ${zf.polozka.nazovSumy})`].filter((x): x is string => !!x);
-    return { nazov: s.nazov, overitelny: true, ziadatel, projekt, polozky, chyba };
+    return { subor: s, nazov: s.nazov, overitelny: true, ziadatel, projekt, polozky, chyba };
   });
   const vyplnene = udaje.filter((u) => u.overitelny && !u.chyba.length);
   if (!vyplnene.length) {
@@ -82,6 +84,8 @@ function zavaznyFormular(z: Ziadost, c: string, pr: NonNullable<Ziadost['prilohy
   if (cudzie.length) return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: v zošite ${cudzie[0].nazov} je uvedený ${nesedi(cudzie[0]).join(' a ')}. Treba overiť, či zošit patrí k tejto žiadosti.${aj}` };
   const u = vyplnene[0];
   const suma = u.polozky.reduce((s, p) => s + p.suma, 0);
+  // Dôkaz sa viaže na ten istý zošit a riadky, z ktorých pochádza počet a súčet vo výsledku.
+  priZhode?.(u.subor, u.polozky.map(p => p.riadok));
   return { stav: 'splnene', hodnoty: zf.polozka ? { polozky: u.polozky.length, sumaPoloziek: Math.round(suma * 100) / 100 } : undefined,
     zdovodnenie: `Príloha č. ${c} je priložená ako ${zf.popis}: ${vyplnene.map((v) => v.nazov).join(', ')}${u.ziadatel ? ` (žiadateľ: ${u.ziadatel}${u.projekt ? `, projekt: ${u.projekt}` : ''})` : ''}.${zf.polozka ? ` Položky s kladnou sumou: ${u.polozky.length}, spolu ${eur(suma)} (${zf.polozka.nazovSumy}).` : ''} Overená je len prítomnosť vyplneného vzoru, nie vecná správnosť rozpočtu.${aj}` };
 }

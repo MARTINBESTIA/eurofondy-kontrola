@@ -167,6 +167,10 @@ export async function posud(v: any, balik: BalikPravidiel, modul: Modul, m: Mozn
     } catch (e) { r = { stav: 'na_preverenie', zdovodnenie: `Kontrola zlyhala: ${(e as Error).message}` }; }
     nalezy.push({ pravidlo: p.id, ppp: p.ppp, nazov: p.nazov, druh: p.druh, ...r, citacia: p.citacia, overenieZdroj: p.overenieZdroj });
   }
+  return { ziadostKod: modul.titulok(v).kod, balik: balik.id, verziaBalika: balik.verzia, cas: new Date().toISOString(), trvanieMs: Date.now() - t0, model: m.llm === false ? null : MODEL, nalezy, ...vyrokPosudku(nalezy) };
+}
+
+export function vyrokPosudku(nalezy: Nalez[]): Pick<Posudok, 'navrh' | 'zhrnutie' | 'pocty'> {
   const pocty = { splnene: 0, nesplnene: 0, chyba_podklad: 0, na_preverenie: 0, mimo_podkladov: 0, neuplatnuje_sa: 0 } as Record<Stav, number>;
   for (const n of nalezy) pocty[n.stav]++;
   // Poradie závažnosti: nesplnené pravidlo, potom chýbajúci podklad, potom bod pre človeka.
@@ -182,5 +186,5 @@ export async function posud(v: any, balik: BalikPravidiel, modul: Modul, m: Mozn
     bez_zisteni: 'Všetky pravidlá overené, bez zistení.',
   };
   const zhrnutie = `${vety[navrh]} Overené z podkladov: ${pocty.splnene + pocty.nesplnene} pravidiel. Neoverené, lebo to z podkladov nejde: ${pocty.mimo_podkladov}.`;
-  return { ziadostKod: modul.titulok(v).kod, balik: balik.id, verziaBalika: balik.verzia, cas: new Date().toISOString(), trvanieMs: Date.now() - t0, model: m.llm === false ? null : MODEL, nalezy, navrh, zhrnutie, pocty };
+  return { navrh, zhrnutie, pocty };
 }

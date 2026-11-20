@@ -1,6 +1,6 @@
 // Rozhranie dema. Bez frameworku; všetok text ide cez textContent, nič z dát sa nevkladá ako HTML.
 // Rozhranie je všeobecné: modul cez API povie, aké má prípady, polia, dokumenty a pravidlá.
-import { $, el, api, cislo, pct, naBase64, STAVY, VERDIKTY, DRUHY, kresliVerdikt, kresliNalezy } from './ui.js';
+import { $, el, api, cislo, pct, naBase64, STAVY, VERDIKTY, DRUHY, kresliVerdikt, kresliNalezy, VYSVETLENIE_PPP } from './ui.js';
 import { zobrazPodatelnu } from './podatelna.js';
 
 let stav = null, modul = null, vybrane = null, povodny = null, prilohy = {};
@@ -186,6 +186,7 @@ async function nacitajPravidla() {
   o.replaceChildren(el('h2', {}, `${modul.nazov}: ${b.vyzvaNazov}`), el('p', { class: 'tlmene' }, `${b.vyzvaKod} · ${b.poskytovatel} · ${b.verzia}`),
     el('h3', {}, 'Proces'), el('ol', {}, b.proces.map((k) => el('li', {}, k))),
     el('h3', {}, `Pravidlá (${b.pravidla.length})`),
+    b.pravidla.some(p => p.ppp) ? el('p', { class: 'tlmene male' }, VYSVETLENIE_PPP) : null,
     ...b.pravidla.map((p) => el('details', { class: 'nalez' },
       el('summary', {}, el('span', { class: 'stitok s-neuplatnuje_sa' }, p.id), el('span', {}, el('span', { class: 'nz' }, `${p.ppp ? `PPP č. ${p.ppp} · ` : ''}${p.nazov}`), el('br'), el('span', { class: 'zd' }, DRUHY[p.druh] ?? p.druh))),
       el('div', { class: 'vnutro' }, el('span', { class: 'tlmene' }, `${p.citacia.dokument}, ${p.citacia.cast}:`), el('blockquote', {}, p.citacia.znenie), p.overenieZdroj ? el('div', { class: 'tlmene' }, p.overenieZdroj) : null))),

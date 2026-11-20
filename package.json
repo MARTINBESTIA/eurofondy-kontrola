@@ -21,6 +21,7 @@
     "test:podatelna": "node scripts/12-test-podatelna.ts",
     "test:demo-itms": "node scripts/13-test-demo-itms.ts",
     "test:priloha8": "node scripts/14-test-priloha8.ts",
+    "test:doklady": "node scripts/15-over-doklady.ts",
     "demo:podania": "node scripts/10-demo-podania.ts",
     "podanie": "node scripts/11-prijem-podania.ts",
     "start": "node src/server/server.ts"

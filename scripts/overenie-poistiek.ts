@@ -2,6 +2,8 @@
 // ktorý model v teste uviedol namiesto chýbajúcej náležitosti, poistky odmietnu,
 // a či správny úryvok z úplného dokumentu prejde. Spustenie: node scripts/overenie-poistiek.ts
 import { nacitajBalik, overUryvok, overVerdikt, vyhodnotNalezitosti, type Nalezitost } from '../src/core/posud.ts';
+import { dokladyPriloh } from '../src/moduly/zonfp/doklady-priloh.ts';
+import type { Doklad, Nalez, Ziadost } from '../src/core/typy.ts';
 
 const VYZVA = 'PSK-SIEA-002-2023-DV-EFRR';
 const nal = (modul: string, id: string, zaciatok: string) =>
@@ -92,6 +94,22 @@ const vyhodnotenia: [string, ReturnType<typeof vyhodnotNalezitosti>, string][] =
 for (const [nazov, r, ocak] of vyhodnotenia) {
   if (r.stav !== ocak) zle++;
   console.log(`${r.stav === ocak ? 'OK ' : 'ZLE'} ${nazov}: ${r.stav} (má byť ${ocak}) – ${r.zdovodnenie.slice(0, 140)}`);
+}
+
+// Doklady z prílohy: citát dostane len text, ktorý v súbore naozaj je, s riadkom, na ktorom je.
+const zPrilohou = { ...({} as Ziadost), prilohy: { '1': { nazov: 'P1.pdf', text: vzor1a, zaradenie: 'potvrdene' as const, subory: [{ suborId: 7, nazov: 'P1.pdf', text: vzor1a, citatelny: true }] } } };
+const l01 = (stav: Nalez['stav'], dokaz: string, najdene: number): Nalez => ({ pravidlo: 'L01', ppp: 1, nazov: '', druh: 'llm', stav, zdovodnenie: '', dokaz, hodnoty: { najdene }, citacia: { dokument: '', cast: '', znenie: '' } });
+const riadokSplnomocnenca = vzor1a.split('\n').findIndex((r) => r.includes('Mgr. Eva Ukážková')) + 1;
+const dokladove: [string, Doklad[], (d: Doklad[]) => boolean][] = [
+  ['L01 skutočný úryvok dostane súbor a riadok', dokladyPriloh(zPrilohou, l01('na_preverenie', 'označenie splnomocnenej osoby: „Splnomocnenec    : Mgr. Eva Ukážková“', 1)),
+    (d) => d.length === 1 && d[0].suborId === 7 && d[0].riadokOd === riadokSplnomocnenca],
+  ['L01 vymyslený úryvok nedostane doklad', dokladyPriloh(zPrilohou, l01('na_preverenie', 'podpis štatutárneho orgánu: „podpísal starosta Ing. Ján Vymyslený“', 1)), (d) => d.length === 0],
+  ['L01 splnené s jedným vymysleným z dvoch úryvkov nedostane nič', dokladyPriloh(zPrilohou, l01('splnene',
+    'označenie splnomocnenej osoby: „Splnomocnenec    : Mgr. Eva Ukážková“\nrozsah plnomocenstva: „na podpis zmluvy o úvere“', 2)), (d) => d.length === 0],
+];
+for (const [nazov, d, ok] of dokladove) {
+  if (!ok(d)) zle++;
+  console.log(`${ok(d) ? 'OK ' : 'ZLE'} ${nazov}: ${d.map((x) => `${x.miesto} „${x.citat.slice(0, 40)}“`).join('; ') || 'bez dokladu'}`);
 }
 console.log(zle ? `${zle} nesedí` : 'všetko sedí');
 process.exit(zle ? 1 : 0);

@@ -1,7 +1,7 @@
 // Podateľňa: kontrolór prijme podanie (súbory žiadosti alebo kód z ITMS21+), skontroluje zaradenie príloh,
 // spustí posúdenie a zapíše rozhodnutie. Výsledky sa ukladajú do spisu (SQLite) a sčítavajú za výzvu.
 // Lokálna simulácia importu podania z ITMS21+ používa POST /api/podatelna/spisy.
-import { $, el, api, cislo, pct, datum, naBase64, STAVY, NAVRHY_KRATKO, kresliVerdikt, kresliNalezy } from './ui.js';
+import { $, el, api, cislo, pct, datum, naBase64, STAVY, NAVRHY_KRATKO, kresliVerdikt, kresliNalezy, kresliDoklady } from './ui.js';
 
 const FORMATY_PODANIA = '.zip,.pdf,.xlsx,.xlsm,.docx,.txt,.json';
 
@@ -225,17 +225,18 @@ function boxPrilohy(prilohyStav, sloty) {
   return el('div', { class: 'box' },
     el('h3', {}, 'Povinné prílohy podľa výzvy'),
     prilohyStav ? el('ul', { class: 'prilohy-stav' }, prilohyStav.filter((p) => p.stav !== 'neuplatnuje_sa').map((p) => el('li', {},
-      el('span', { class: `stitok s-${p.stav}` }, STAVY[p.stav]), el('span', {}, el('b', {}, `Príloha č. ${p.cislo}`), ` ${meno(p.cislo)}`, el('br'), el('span', { class: 'tlmene male' }, p.zdovodnenie)))))
+      el('span', { class: `stitok s-${p.stav}` }, STAVY[p.stav]), el('div', {}, el('b', {}, `Príloha č. ${p.cislo}`), ` ${meno(p.cislo)}`, el('br'), el('span', { class: 'tlmene male' }, p.zdovodnenie),
+        p.doklady?.length ? el('details', { class: 'priloha-doklady' }, el('summary', {}, 'Podklady kontroly'), kresliDoklady(p.doklady)) : null))))
       : el('p', { class: 'tlmene' }, 'Bez formulára žiadosti sa nedá určiť, ktoré prílohy sú povinné.'),
     prilohyStav?.some((p) => p.stav === 'neuplatnuje_sa') ? el('p', { class: 'tlmene male' }, `Na túto žiadosť sa nevzťahujú: ${prilohyStav.filter((p) => p.stav === 'neuplatnuje_sa').map((p) => `č. ${p.cislo}`).join(', ')}.`) : null,
-    el('p', { class: 'tlmene male' }, 'Tu sa kontroluje len prítomnosť príloh (okamžite, bez modelu). Obsah príloh overí až posúdenie.'));
+    el('p', { class: 'tlmene male' }, 'Tento prehľad kontroluje priradenie a čitateľnosť príloh. Pri rozpočte kontroluje aj identifikáciu žiadosti a vyplnenie položiek v záväznom zošite.'));
 }
 
-function vysledok(p, skutocnost, zastaraly) {
+function vysledok(p, skutocnost, zastaraly, nazov = 'Posledný posudok') {
   const v = el('div'); kresliVerdikt(v, p);
-  const n = el('div'); kresliNalezy(n, p.nalezy);
+  const n = el('div'); kresliNalezy(n, p.nalezy, true, p.formularItms);
   return el('div', {},
-    el('div', { class: 'sk-nadpis' }, `Posledný posudok · ${datum(p.cas)}`),
+    el('div', { class: 'sk-nadpis' }, `${nazov} · ${datum(p.cas)}`),
     zastaraly ? el('div', { class: 'pozn' }, 'Po tomto posudku pribudli do spisu nové podklady. Posúďte žiadosť znova.') : null,
     v,
     skutocnost ? el('div', { class: 'skutocnost' }, `Historická žiadosť z ITMS21+, pre porovnanie: ${skutocnost}`) : null,
@@ -279,13 +280,38 @@ function boxRozhodnutie(id, s, posledny) {
 }
 
 function boxHistoria(id, s, posudky) {
+  const ciel = `historia-posudku-${id}`;
+  const zaznam = el('div', { id: ciel, class: 'historia-zaznam', hidden: '' });
+  let otvoreny = null;
+  const riadok = (p) => {
+    const volba = el('button', { type: 'button', class: 'odkaz-posudku', 'aria-controls': ciel, 'aria-expanded': 'false',
+      'aria-label': `Otvoriť posudok č. ${p.id} z ${datum(p.cas)}`, onclick: async () => {
+        if (otvoreny) otvoreny.setAttribute('aria-expanded', 'false');
+        if (otvoreny === volba) { otvoreny = null; zaznam.hidden = true; return; }
+        otvoreny = volba;
+        volba.setAttribute('aria-expanded', 'true');
+        zaznam.hidden = false;
+        zaznam.replaceChildren(el('p', { role: 'status' }, 'Načítavam posudok…'));
+        try {
+          const { posudok } = await api(`/api/podatelna/spisy/${id}/posudky/${p.id}`);
+          if (otvoreny === volba && zaznam.isConnected) {
+            zaznam.replaceChildren(vysledok(posudok, null, false, `Posudok č. ${p.id} z histórie`));
+            zaznam.scrollIntoView({ block: 'start' });
+          }
+        } catch (e) {
+          if (otvoreny === volba) zaznam.replaceChildren(el('p', { role: 'alert', class: 'chyba' }, `Posudok sa nepodarilo načítať. ${e.message}`));
+        }
+      } }, datum(p.cas));
+    return el('tr', { onclick: e => { if (!e.target.closest('button')) volba.click(); } },
+      el('td', {}, volba), el('td', {}, el('span', { class: `stitok s-${FARBA_NAVRHU[p.navrh]}` }, NAVRHY_KRATKO[p.navrh] ?? p.navrh)),
+      el('td', {}, p.model ?? 'bez modelu'), el('td', { class: 'c' }, `${(p.trvanieMs / 1000).toFixed(1)} s`));
+  };
   return el('div', { class: 'box historia' },
     el('h3', {}, 'História posudkov (auditná stopa)'),
     posudky.length ? el('table', {}, el('thead', {}, el('tr', {}, ['Čas', 'Návrh softvéru', 'Model', 'Trvanie'].map((h, k) => el('th', { class: k === 3 ? 'c' : '' }, h)))),
-      el('tbody', {}, posudky.map((p) => el('tr', {}, el('td', {}, datum(p.cas)), el('td', {}, el('span', { class: `stitok s-${FARBA_NAVRHU[p.navrh]}` }, NAVRHY_KRATKO[p.navrh] ?? p.navrh)),
-        el('td', {}, p.model ?? 'bez modelu'), el('td', { class: 'c' }, `${(p.trvanieMs / 1000).toFixed(1)} s`)))))
+      el('tbody', {}, posudky.map(riadok)))
       : el('p', { class: 'tlmene' }, 'Zatiaľ žiadny posudok.'),
-    el('div', { class: 'akcie' }, el('button', { class: 'vedlajsie nebezpecne', onclick: async () => {
+    zaznam, el('div', { class: 'akcie' }, el('button', { class: 'vedlajsie nebezpecne', onclick: async () => {
       if (!confirm(`Vymazať spis ${s.cislo} aj s nahratými súbormi? Posudky ostanú v auditnej stope bez väzby na spis.`)) return;
       try { await api(`/api/podatelna/spisy/${id}/vymaz`, {}); await obnovZoznam(); nav('#p/prehlad'); } catch (e) { alert(e.message); }
     } }, 'Vymazať spis')));

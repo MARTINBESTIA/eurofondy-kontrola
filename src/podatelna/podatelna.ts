@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { isDeepStrictEqual } from 'node:util';
 import type { DatabaseSync } from 'node:sqlite';
 import { dokumentNaText, rozbalZip, xlsxBunky } from '../ingest/dokument.ts';
 import { normalizujItms21 } from '../moduly/zonfp/normalizuj.ts';
@@ -37,6 +38,7 @@ export function pripravDb(db: DatabaseSync) {
     db.exec(`BEGIN; ALTER TABLE ${t} RENAME TO ${t}_stara; CREATE TABLE ${t} (${stlpce}); INSERT INTO ${t} SELECT * FROM ${t}_stara; DROP TABLE ${t}_stara; COMMIT;`);
   }
   if (!(db.prepare('PRAGMA table_info(posudky)').all() as { name: string }[]).some((c) => c.name === 'spis_id')) db.exec('ALTER TABLE posudky ADD COLUMN spis_id INTEGER');
+  if (!db.prepare("SELECT 1 FROM pragma_table_info('spisy') WHERE name = 'formular_subor_id'").get()) db.exec('ALTER TABLE spisy ADD COLUMN formular_subor_id INTEGER');
 }
 
 export const cisloSpisu = (id: number, prijate: string) => `POD-${prijate.slice(0, 4)}-${String(id).padStart(4, '0')}`;
@@ -133,8 +135,8 @@ function obnovFormular(db: DatabaseSync, spisId: number, vyzva: string, zItms: (
   for (const k of kandidati) {
     try {
       const { ziadost, zdroj } = formularZJson(k.text, vyzva, zItms);
-      db.prepare('UPDATE spisy SET formular_json = ?, formular_zdroj = ?, kod = ?, nazov = ?, ziadatel = ?, ico = ? WHERE id = ?')
-        .run(JSON.stringify(ziadost), zdroj, ziadost.kod || null, ziadost.nazov || null, ziadost.ziadatel.nazov, ziadost.ziadatel.ico, spisId);
+      db.prepare('UPDATE spisy SET formular_json = ?, formular_zdroj = ?, formular_subor_id = ?, kod = ?, nazov = ?, ziadatel = ?, ico = ? WHERE id = ?')
+        .run(JSON.stringify(ziadost), zdroj, k.id, ziadost.kod || null, ziadost.nazov || null, ziadost.ziadatel.nazov, ziadost.ziadatel.ico, spisId);
       db.prepare('UPDATE subory SET chyba = NULL WHERE id = ?').run(k.id);
       return;
     } catch (e) { db.prepare('UPDATE subory SET chyba = ? WHERE id = ?').run(`Formulár sa nedá načítať: ${(e as Error).message}`, k.id); }
@@ -175,6 +177,7 @@ export function zmenZaradenie(db: DatabaseSync, suborId: number, ciel: string, z
 
 // ---------- čítanie spisu
 interface SpisRiadok {
+  formular_subor_id: number | null;
   id: number; vyzva: string; kod: string | null; nazov: string | null; ziadatel: string | null; ico: string | null; zdroj: string; prijate: string; stav: string;
   navrh: Navrh | null; posudok_id: number | null; rozhodnutie: Rozhodnutie | null; rozhodnutie_pozn: string | null; rozhodnutie_cas: string | null; formular_json: string | null; formular_zdroj: string | null;
 }
@@ -226,9 +229,16 @@ export function ziadostSpisu(db: DatabaseSync, id: number): Ziadost {
   const z = JSON.parse(s.formular_json) as Ziadost;
   z.kod ||= cisloSpisu(s.id, s.prijate);
   z.datumPredlozenia ??= s.prijate.slice(0, 10);
+  z.prilohy = prilohySpisu(db, id);
+  return z;
+}
+
+function prilohySpisu(db: DatabaseSync, id: number, pred?: string) {
   const prilohy: Record<string, Priloha> = {};
   const maOdhad = new Set<string>();
-  for (const r of db.prepare("SELECT priloha, nazov, text, istota, chyba, cesta FROM subory WHERE spis_id = ? AND typ = 'priloha' ORDER BY davka, id").all(id) as { priloha: string; nazov: string; text: string; istota: string; chyba: string | null; cesta: string }[]) {
+  const riadky = db.prepare("SELECT id, priloha, nazov, text, istota, chyba, cesta FROM subory WHERE spis_id = ? AND typ = 'priloha' AND (? IS NULL OR nahrate < ?) ORDER BY davka, id")
+    .all(id, pred ?? null, pred ?? null) as { id: number; priloha: string; nazov: string; text: string; istota: string; chyba: string | null; cesta: string }[];
+  for (const r of riadky) {
     const c = r.priloha; const p = prilohy[c];
     // Nečitateľný súbor (sken, chyba pdftotext) ostane v prílohe bez textu: pravidlo povie „priložený, ale nečitateľný“,
     // nie „chýba“. Do textu ide len čitateľný obsah, aby samotné hlavičky súborov nevyzerali ako text prílohy.
@@ -239,10 +249,40 @@ export function ziadostSpisu(db: DatabaseSync, id: number): Ziadost {
     const odhad = citatelny && !jePotvrdene(r.istota);
     if (odhad) maOdhad.add(c);
     prilohy[c] = { nazov: `${p ? `${p.nazov}; ` : ''}${r.nazov}${odhad ? ' (odhad)' : ''}`, text, zaradenie: maOdhad.has(c) ? 'odhad' : 'potvrdene',
-      subory: [...(p?.subory ?? []), { nazov: r.nazov, text: citatelny ? r.text : '', citatelny, bunky: citatelny ? bunkyZosita(r.nazov, r.cesta) : undefined }] };
+      subory: [...(p?.subory ?? []), { suborId: r.id, nazov: r.nazov, text: citatelny ? r.text : '', citatelny, bunky: citatelny ? bunkyZosita(r.nazov, r.cesta) : undefined }] };
   }
-  z.prilohy = prilohy;
-  return z;
+  return prilohy;
+}
+
+export interface ZdrojFormulara { nazov: string; text: string; suborId?: number }
+type UlozenyFormular = { id: number; nazov: string; text: string };
+
+/** JSON odkaz obsahuje iba kód. Hodnoty sa vtedy citujú z výpisu, ktorý sa uložil pri príjme. */
+export function zdrojFormulara(db: DatabaseSync, s: SpisRiadok): ZdrojFormulara | undefined {
+  if (!s.formular_json) return;
+  const z = JSON.parse(s.formular_json) as Ziadost;
+  if (s.formular_zdroj?.startsWith('ITMS21+ (')) return { nazov: `Uložený výpis ITMS21+ · ${z.kod}`, text: JSON.stringify(z, null, 2) };
+  const kandidati = db.prepare("SELECT id, nazov, text FROM subory WHERE spis_id = ? AND (id = ? OR (? IS NULL AND typ = 'formular')) ORDER BY id")
+    .all(s.id, s.formular_subor_id, s.formular_subor_id) as UlozenyFormular[];
+  const zhodne = kandidati.filter(k => {
+    try { return isDeepStrictEqual(JSON.parse(JSON.stringify(formularZJson(k.text, s.vyzva, () => undefined).ziadost)), z); }
+    catch { return false; }
+  });
+  if (zhodne.length === 1) return { suborId: zhodne[0].id, nazov: zhodne[0].nazov, text: zhodne[0].text };
+}
+
+/** Pri starých posudkoch chýba história priradenia súborov. Rekonštruovať sa dá iba jednoznačné pôvodné podanie. */
+export function historickePodklady(db: DatabaseSync, s: SpisRiadok, pred: string) {
+  const subory = db.prepare('SELECT id, nazov, text, typ, istota FROM subory WHERE spis_id = ? AND nahrate < ? ORDER BY id')
+    .all(s.id, pred) as (UlozenyFormular & { typ: string; istota: string })[];
+  const kandidati = subory.filter(f => f.typ === 'formular' && /\.json$/i.test(f.nazov));
+  if (kandidati.length !== 1 || subory.some(f => f.istota === 'rucne')) return;
+  const f = kandidati[0];
+  // Odkaz na register bez vtedajšieho výpisu ani súčasná verzia formulára nemôžu doložiť staré hodnoty.
+  let z: Ziadost;
+  try { z = formularZJson(f.text, s.vyzva, () => undefined).ziadost; } catch { return; }
+  z.prilohy = prilohySpisu(db, s.id, pred);
+  return { z, formular: { suborId: f.id, nazov: f.nazov, text: f.text } };
 }
 
 export function ulozPosudok(db: DatabaseSync, spisId: number, posudokId: number, navrh: Navrh) {
