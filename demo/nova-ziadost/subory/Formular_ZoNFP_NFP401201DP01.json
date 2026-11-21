@@ -1,0 +1,393 @@
+{
+  "id": 990150,
+  "kod": "NFP401201DP01",
+  "nazov": "Obnova budovy obecného úradu Dolné Posudzovce",
+  "datumPredlozenia": 1764111600000,
+  "sumaZiadanaNFP": 580978.2,
+  "sumaZiadanaCelkova": 580978.2,
+  "sumaZiadanaVZ": 0,
+  "percetnoZiadane": 1,
+  "dlzkaZiadanaCelkovaHlavnychAktivit": 18,
+  "datumZiadanyZaciatkuHlavnychAktivit": 1777586400000,
+  "datumZiadanyKoncaHlavnychAktivit": 1824933600000,
+  "vyzva": {
+    "kod": "PSK-SIEA-002-2023-DV-EFRR"
+  },
+  "kategoriaRegionov": [
+    {
+      "kodZdroj": "VRR"
+    }
+  ],
+  "opatrenie": [
+    {
+      "kod": "401201R20102"
+    },
+    {
+      "kod": "401201R20202"
+    }
+  ],
+  "ziadatel": {
+    "nazov": "Obec Dolné Posudzovce",
+    "ico": "00998206",
+    "pravnaForma": {
+      "kodZdroj": "801",
+      "nazovSk": "Obec (obecný úrad), mesto (mestský úrad)"
+    }
+  },
+  "aktivity": [
+    {
+      "kod": "401DP0100001",
+      "nazov": "Projektová dokumentácia",
+      "datumZaciatkuPlanovany": 1777586400000,
+      "datumKoncaPlanovany": 1824933600000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401DP0100002",
+      "nazov": "Zateplenie obvodového plášťa",
+      "datumZaciatkuPlanovany": 1777586400000,
+      "datumKoncaPlanovany": 1824933600000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401DP0100003",
+      "nazov": "Zateplenie strešného plášťa",
+      "datumZaciatkuPlanovany": 1777586400000,
+      "datumKoncaPlanovany": 1824933600000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401DP0100004",
+      "nazov": "Výmena otvorových konštrukcií",
+      "datumZaciatkuPlanovany": 1777586400000,
+      "datumKoncaPlanovany": 1824933600000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401DP0100005",
+      "nazov": "Osvetlenie",
+      "datumZaciatkuPlanovany": 1777586400000,
+      "datumKoncaPlanovany": 1824933600000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401DP0100006",
+      "nazov": "Vykurovací systém",
+      "datumZaciatkuPlanovany": 1777586400000,
+      "datumKoncaPlanovany": 1824933600000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401DP0100007",
+      "nazov": "Zariadenia OZE - výroba elektriny",
+      "datumZaciatkuPlanovany": 1777586400000,
+      "datumKoncaPlanovany": 1824933600000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20202"
+        }
+      }
+    },
+    {
+      "kod": "401DP0100008",
+      "nazov": "Zariadenia OZE - výroba tepla",
+      "datumZaciatkuPlanovany": 1777586400000,
+      "datumKoncaPlanovany": 1824933600000,
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20202"
+        }
+      }
+    },
+    {
+      "kod": "401DP01P0001",
+      "nazov": "Podporné aktivity",
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20102"
+        }
+      }
+    },
+    {
+      "kod": "401DP01P0002",
+      "nazov": "Podporné aktivity",
+      "typAkcieProgramu": {
+        "opatrenie": {
+          "kod": "401201R20202"
+        }
+      }
+    }
+  ],
+  "polozkyRozpoctu": [
+    {
+      "sumaOpravnenehoVydavku": 31980,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401DP0100001",
+        "nazov": "Projektová dokumentácia",
+        "datumZaciatkuPlanovany": 1777586400000,
+        "datumKoncaPlanovany": 1824933600000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 181917,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401DP0100002",
+        "nazov": "Zateplenie obvodového plášťa",
+        "datumZaciatkuPlanovany": 1777586400000,
+        "datumKoncaPlanovany": 1824933600000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 63025.2,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401DP0100003",
+        "nazov": "Zateplenie strešného plášťa",
+        "datumZaciatkuPlanovany": 1777586400000,
+        "datumKoncaPlanovany": 1824933600000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 114574.5,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401DP0100004",
+        "nazov": "Výmena otvorových konštrukcií",
+        "datumZaciatkuPlanovany": 1777586400000,
+        "datumKoncaPlanovany": 1824933600000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 34501.5,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401DP0100005",
+        "nazov": "Osvetlenie",
+        "datumZaciatkuPlanovany": 1777586400000,
+        "datumKoncaPlanovany": 1824933600000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 50430,
+      "skupinaVydavkov": {
+        "nazovSk": "Stavby"
+      },
+      "aktivita": {
+        "kod": "401DP0100006",
+        "nazov": "Vykurovací systém",
+        "datumZaciatkuPlanovany": 1777586400000,
+        "datumKoncaPlanovany": 1824933600000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20102"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 36900,
+      "skupinaVydavkov": {
+        "nazovSk": "Samostatné hnuteľné veci a súbory hnuteľných vecí"
+      },
+      "aktivita": {
+        "kod": "401DP0100007",
+        "nazov": "Zariadenia OZE - výroba elektriny",
+        "datumZaciatkuPlanovany": 1777586400000,
+        "datumKoncaPlanovany": 1824933600000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20202"
+          }
+        }
+      }
+    },
+    {
+      "sumaOpravnenehoVydavku": 67650,
+      "skupinaVydavkov": {
+        "nazovSk": "Samostatné hnuteľné veci a súbory hnuteľných vecí"
+      },
+      "aktivita": {
+        "kod": "401DP0100008",
+        "nazov": "Zariadenia OZE - výroba tepla",
+        "datumZaciatkuPlanovany": 1777586400000,
+        "datumKoncaPlanovany": 1824933600000,
+        "typAkcieProgramu": {
+          "opatrenie": {
+            "kod": "401201R20202"
+          }
+        }
+      }
+    }
+  ],
+  "miestoRealizacieFull": [
+    {
+      "nuts3": {
+        "nazovSk": "Bratislavský kraj"
+      },
+      "nuts4": {
+        "nazovSk": "Malacky"
+      },
+      "nuts5": {
+        "nazovSk": "Dolné Posudzovce"
+      },
+      "lokalita": "SLOVENSKA_REPUBLIKA"
+    }
+  ],
+  "ukazovatelZiadanyVystupu": [
+    {
+      "cielovaHodnotaSpolu": 1150,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCO19",
+          "nazovSk": "Verejné budovy so zlepšenou energetickou hospodárnosťou",
+          "mernaJednotka": {
+            "nazovSk": "m2"
+          }
+        }
+      }
+    },
+    {
+      "cielovaHodnotaSpolu": 0.03,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCO22a",
+          "nazovSk": "Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: elektrická",
+          "mernaJednotka": {
+            "nazovSk": "MW"
+          }
+        }
+      }
+    },
+    {
+      "cielovaHodnotaSpolu": 0.06,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCO22b",
+          "nazovSk": "Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: tepelná",
+          "mernaJednotka": {
+            "nazovSk": "MW"
+          }
+        }
+      }
+    }
+  ],
+  "ukazovatelZiadanyVysledku": [
+    {
+      "vychodiskovaHodnotaSpolu": 266.8,
+      "cielovaHodnotaSpolu": 138,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCR26b",
+          "nazovSk": "Ročná primárna spotreba energie: verejné budovy",
+          "mernaJednotka": {
+            "nazovSk": "MWh/rok"
+          }
+        }
+      }
+    },
+    {
+      "vychodiskovaHodnotaSpolu": 58.7,
+      "cielovaHodnotaSpolu": 30.36,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCR29",
+          "nazovSk": "Odhadované emisie skleníkových plynov",
+          "mernaJednotka": {
+            "nazovSk": "tony CO2 eq/rok"
+          }
+        }
+      }
+    },
+    {
+      "vychodiskovaHodnotaSpolu": 0,
+      "cielovaHodnotaSpolu": 31.5,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCR31a",
+          "nazovSk": "Celková vyrobená energia z obnoviteľných zdrojov: elektrická",
+          "mernaJednotka": {
+            "nazovSk": "MWh/rok"
+          }
+        }
+      }
+    },
+    {
+      "vychodiskovaHodnotaSpolu": 0,
+      "cielovaHodnotaSpolu": 84,
+      "ukazovatelProjektovySC": {
+        "ukazovatelProjektovy": {
+          "kod": "PSKPRCR31b",
+          "nazovSk": "Celková vyrobená energia z obnoviteľných zdrojov: tepelná",
+          "mernaJednotka": {
+            "nazovSk": "MWh/rok"
+          }
+        }
+      }
+    }
+  ],
+  "popis": "<p>Predmetom projektu je obnova administratívnej budovy obecného úradu Dolné Posudzovce z roku 1979, ktorej vlastníkom je obec. V budove sídli obecný úrad, matrika a spoločný stavebný úrad. Projekt zahŕňa zateplenie obvodového a strešného plášťa, výmenu okien a dverí, modernizáciu osvetlenia, rekonštrukciu vykurovacej sústavy, tepelné čerpadlo vzduch-voda a fotovoltickú elektráreň na vlastnú spotrebu budovy. Po obnove sa budova podľa globálneho ukazovateľa primárna energia zlepší z triedy B na triedu A1.</p>",
+  "ucel": "<p>Účelom projektu je znížiť spotrebu primárnej energie budovy obecného úradu a pokryť časť jej spotreby z obnoviteľných zdrojov energie.</p>",
+  "_zdroj": "Fiktívna testovacia žiadosť v štruktúre detailu ŽoNFP z verejného API ITMS21+ (https://api.itms21.sk/public/v1/zonfp/id/{id}).",
+  "_poznamka": "Skúšobná žiadosť eurofondy-kontrola (Obec Dolné Posudzovce). Žiadateľ, IČO, osoby a všetky údaje sú vymyslené."
+}

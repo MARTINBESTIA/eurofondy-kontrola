@@ -8,7 +8,9 @@
 // - dátumy a kolá podľa harmonogramu výzvy a MD č. 21 (MIRRI, Konanie o ŽoNFP v1.0): včasnosť, doplnenie, zastavenie.
 // Žiadatelia, osoby, IČO a čísla dokladov sú vymyslené. Každý dokument má v päte upozornenie, že nejde o skutočný doklad.
 // Výstup: demo/testovacia-sada/ (ZIP na prípad a doplnenie, ocakavane.json pre skript 19, README.md pre človeka).
-// Spustenie (Windows, MS Excel, Edge alebo Chrome): node scripts/18-testovacia-sada.ts
+// Spustenie (Windows, MS Excel, Edge alebo Chrome): node scripts/18-testovacia-sada.ts (iný priečinok: SADA_OUT=cesta).
+// Stavebné bloky (model prípadu, formulár, prílohy, vytvorPodanie) používa aj scripts/20-nova-ziadost.ts; sada sa zapíše
+// len pri priamom spustení tohto skriptu.
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -17,27 +19,32 @@ import { vyplnPrilohu8, type Priloha8Spec, type Priloha8Vysledok } from './lib/p
 import type { Navrh, Stav } from '../src/core/typy.ts';
 
 const KOREN = path.join(import.meta.dirname, '..');
-const OUT = path.join(KOREN, 'demo', 'testovacia-sada');
-const VYZVA = 'PSK-SIEA-002-2023-DV-EFRR';
+const OUT = process.env.SADA_OUT ? path.resolve(process.env.SADA_OUT) : path.join(KOREN, 'demo', 'testovacia-sada');
+export const VYZVA = 'PSK-SIEA-002-2023-DV-EFRR';
 const PATA = 'Testovací dokument pre eurofondy-kontrola (testovacia sada). Fiktívny subjekt, nejde o skutočný doklad.';
 const KOD_OPATRENIA: Record<string, string> = { '2.1.2': '401201R20102', '2.2.2': '401201R20202', '2.1.1': '401201R20101' };
 const PRAVNE_FORMY: Record<string, string> = { '801': 'Obec (obecný úrad), mesto (mestský úrad)', '112': 'Spoločnosť s ručením obmedzeným' };
 
 // ---------- model prípadu
-type Opatrenie = '2.1.2' | '2.2.2';
-type Kategoria = 'administratívna budova' | 'budova škôl a školských zariadení';
-type Skupina = 'Stavby' | 'Samostatné hnuteľné veci a súbory hnuteľných vecí';
-interface Polozka { nazov: string; mj: string; pocet: number; cena: number; sposob: 1 | 2 | 3 | 4; opis: string }
+export type Opatrenie = '2.1.2' | '2.2.2';
+export type Kategoria = 'administratívna budova' | 'budova škôl a školských zariadení';
+export type Skupina = 'Stavby' | 'Samostatné hnuteľné veci a súbory hnuteľných vecí';
+export interface Polozka { nazov: string; mj: string; pocet: number; cena: number; sposob: 1 | 2 | 3 | 4; opis: string }
 /** sekcia = názov aktivity v ITMS21+ = nadpis sekcie hárku Rozpočet B1 zošita Prílohy č. 8. */
-interface Aktivita { sekcia: string; opatrenie: Opatrenie; skupina: Skupina; parameter?: number; polozky: Polozka[]; technika: string }
-interface Budova {
+export interface Aktivita { sekcia: string; opatrenie: Opatrenie; skupina: Skupina; parameter?: number; polozky: Polozka[]; technika: string }
+export interface Budova {
   nazov: string; adresa: string; kategoria: Kategoria; plocha: number; guPred: number; guPo: number;
   ku: string; lv: string; supisne: string; parcela: string; rok: number; podlazia: number;
 }
-interface Ziadatel { nazov: string; ico: string; forma: '801' | '112'; ulica: string; psc: string; sidlo: string; statutar: string; funkcia: string }
-interface Ocakavane { navrh: Navrh; verzia: 'akt2' | 'zmena3'; ver: string[]; nalezy: Record<string, Stav> }
-interface Pripad {
+export interface Ziadatel { nazov: string; ico: string; forma: '801' | '112'; ulica: string; psc: string; sidlo: string; statutar: string; funkcia: string }
+/** obsahuje: časť zdôvodnenia, ktorú musí mať nález daného pravidla (skript 19). */
+export interface Ocakavane { navrh: Navrh; verzia: 'akt2' | 'zmena3'; ver: string[]; nalezy: Record<string, Stav>; obsahuje?: Record<string, string> }
+export interface Pripad {
   cislo: string; slug: string; titul: string; scenar: string; preco: string;
+  /** Kód žiadosti za NFP401201 (predvolene TS a číslo prípadu) a poznámka do formulára a zošita (predvolene testovacia sada). */
+  kod?: string; poznamka?: string;
+  /** Chyba žiadateľa: formulár žiada výdavky budovy (2.1.2) pred krátením podľa pásma úspory (PPP č. 13), zošit ich kráti. */
+  formularBezKratenia?: boolean;
   ziadatel: Ziadatel; miesto: { kraj: string; okres: string; obec: string }; kategoriaRegionov: 'VRR' | 'MRR';
   vyzvaKod?: string; predlozenie: string | null; zaciatok: string; koniec: string;
   projekt: { nazov: string; popis: string; ucel: string }; budova: Budova; aktivity: Aktivita[];
@@ -53,75 +60,75 @@ interface Pripad {
 }
 
 // ---------- pomocné výpočty
-const r2 = (n: number) => Math.round(n * 100) / 100;
-const eur = (n: number) => n.toLocaleString('sk-SK', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' EUR';
-const cis = (n: number, d = 1) => n.toLocaleString('sk-SK', { maximumFractionDigits: d });
-const datumSk = (iso: string) => { const [r, m, d] = iso.split('-'); return `${Number(d)}. ${Number(m)}. ${r}`; };
-const posunDni = (iso: string, dni: number) => new Date(Date.parse(iso) + dni * 86_400_000).toISOString().slice(0, 10);
+export const r2 = (n: number) => Math.round(n * 100) / 100;
+export const eur = (n: number) => n.toLocaleString('sk-SK', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' EUR';
+export const cis = (n: number, d = 1) => n.toLocaleString('sk-SK', { maximumFractionDigits: d });
+export const datumSk = (iso: string) => { const [r, m, d] = iso.split('-'); return `${Number(d)}. ${Number(m)}. ${r}`; };
+export const posunDni = (iso: string, dni: number) => new Date(Date.parse(iso) + dni * 86_400_000).toISOString().slice(0, 10);
 /** Polnoc v Bratislave ako UTC milisekundy (tak dáva dátumy API ITMS21+). */
-function msPolnoc(iso: string): number {
+export function msPolnoc(iso: string): number {
   const utc = Date.parse(`${iso}T00:00:00Z`);
   const posun = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Bratislava', timeZoneName: 'shortOffset' }).formatToParts(utc).find((p) => p.type === 'timeZoneName')!.value;
   return utc - Number(posun.replace('GMT', '') || 0) * 3_600_000;
 }
-const mesiace = (od: string, po: string) => Math.round((Date.parse(po) - Date.parse(od)) / 86_400_000 / 30.44);
+export const mesiace = (od: string, po: string) => Math.round((Date.parse(po) - Date.parse(od)) / 86_400_000 / 30.44);
 /** Orientačné hranice energetických tried globálneho ukazovateľa PE v kWh/(m2.rok) pre dve kategórie budov (neoverené voči vyhláške, len pre test). */
-const HRANICE: Record<Kategoria, number[]> = { 'administratívna budova': [61, 122, 244, 366, 488, 610, 732], 'budova škôl a školských zariadení': [34, 68, 136, 204, 272, 340, 408] };
-const trieda = (k: Kategoria, kwhM2: number) => ['A0', 'A1', 'B', 'C', 'D', 'E', 'F'][HRANICE[k].findIndex((h) => kwhM2 <= h)] ?? 'G';
-const peVych = (b: Budova) => (b.guPred * b.plocha) / 1000;
-const pePo = (b: Budova) => (b.guPo * b.plocha) / 1000;
-const EMISIE_T_NA_MWH = 0.22; // orientačný faktor emisií CO2 na MWh primárnej energie (len pre test)
-const vyrobaOze = (o: { elMW: number; tepMW: number }) => ({ elVych: 0, elPlan: r2(o.elMW * 1050), tepVych: 0, tepPlan: r2(o.tepMW * 1400) });
-const pol = (nazov: string, mj: string, pocet: number, cena: number, opis: string, sposob: 1 | 2 | 3 | 4 = 4): Polozka => ({ nazov, mj, pocet, cena, opis, sposob });
+export const HRANICE: Record<Kategoria, number[]> = { 'administratívna budova': [61, 122, 244, 366, 488, 610, 732], 'budova škôl a školských zariadení': [34, 68, 136, 204, 272, 340, 408] };
+export const trieda = (k: Kategoria, kwhM2: number) => ['A0', 'A1', 'B', 'C', 'D', 'E', 'F'][HRANICE[k].findIndex((h) => kwhM2 <= h)] ?? 'G';
+export const peVych = (b: Budova) => (b.guPred * b.plocha) / 1000;
+export const pePo = (b: Budova) => (b.guPo * b.plocha) / 1000;
+export const EMISIE_T_NA_MWH = 0.22; // orientačný faktor emisií CO2 na MWh primárnej energie (len pre test)
+export const vyrobaOze = (o: { elMW: number; tepMW: number }) => ({ elVych: 0, elPlan: r2(o.elMW * 1050), tepVych: 0, tepPlan: r2(o.tepMW * 1400) });
+export const pol = (nazov: string, mj: string, pocet: number, cena: number, opis: string, sposob: 1 | 2 | 3 | 4 = 4): Polozka => ({ nazov, mj, pocet, cena, opis, sposob });
 
 // ---------- archetypy projektov (skutočné typy aktivít výzvy = sekcie zošita Prílohy č. 8)
-const PD = (cena: number, investicia: number): Aktivita => ({ sekcia: 'Projektová dokumentácia', opatrenie: '2.1.2', skupina: 'Stavby', parameter: investicia,
+export const PD = (cena: number, investicia: number): Aktivita => ({ sekcia: 'Projektová dokumentácia', opatrenie: '2.1.2', skupina: 'Stavby', parameter: investicia,
   polozky: [pol('Projektová dokumentácia pre stavebné povolenie a realizáciu stavby vrátane energetického hodnotenia', 'súbor', 1, cena, 'Cenová ponuka projektanta, prieskum trhu.', 1)],
   technika: 'projektová dokumentácia stavby v rozsahu pre povolenie a realizáciu, energetické hodnotenie budovy' });
-const zateplenieSteny = (m2: number, cena: number): Aktivita => ({ sekcia: 'Zateplenie obvodového plášťa', opatrenie: '2.1.2', skupina: 'Stavby', parameter: m2,
+export const zateplenieSteny = (m2: number, cena: number): Aktivita => ({ sekcia: 'Zateplenie obvodového plášťa', opatrenie: '2.1.2', skupina: 'Stavby', parameter: m2,
   polozky: [pol('Kontaktný zatepľovací systém z minerálnej vlny hr. 160 mm vrátane omietky', 'm²', m2, cena, 'Podrobný rozpočet stavebných prác (výkaz výmer).')],
   technika: 'kontaktný zatepľovací systém z minerálnej vlny hrúbky 160 mm, U = 0,21 W/(m2.K)' });
-const zateplenieStrechy = (m2: number, cena: number): Aktivita => ({ sekcia: 'Zateplenie strešného plášťa', opatrenie: '2.1.2', skupina: 'Stavby', parameter: m2,
+export const zateplenieStrechy = (m2: number, cena: number): Aktivita => ({ sekcia: 'Zateplenie strešného plášťa', opatrenie: '2.1.2', skupina: 'Stavby', parameter: m2,
   polozky: [pol('Zateplenie plochej strechy minerálnou vlnou hr. 300 mm s novou hydroizoláciou', 'm²', m2, cena, 'Podrobný rozpočet stavebných prác (výkaz výmer).')],
   technika: 'zateplenie plochej strechy minerálnou vlnou hrúbky 300 mm, U = 0,13 W/(m2.K)' });
-const okna = (m2: number, cena: number): Aktivita => ({ sekcia: 'Výmena otvorových konštrukcií', opatrenie: '2.1.2', skupina: 'Stavby', parameter: m2,
+export const okna = (m2: number, cena: number): Aktivita => ({ sekcia: 'Výmena otvorových konštrukcií', opatrenie: '2.1.2', skupina: 'Stavby', parameter: m2,
   polozky: [pol('Okná a dvere z plastových profilov s izolačným trojsklom', 'm²', m2, cena, 'Podrobný rozpočet stavebných prác (výkaz výmer).')],
   technika: 'okná a dvere s izolačným trojsklom, Uw ≤ 0,85 W/(m2.K)' });
-const osvetlenie = (ks: number, cena: number, kw: number): Aktivita => ({ sekcia: 'Osvetlenie', opatrenie: '2.1.2', skupina: 'Stavby', parameter: kw,
+export const osvetlenie = (ks: number, cena: number, kw: number): Aktivita => ({ sekcia: 'Osvetlenie', opatrenie: '2.1.2', skupina: 'Stavby', parameter: kw,
   polozky: [pol('LED svietidlá s reguláciou podľa denného svetla a prítomnosti osôb', 'ks', ks, cena, 'Prieskum trhu (tri cenové ponuky).', 1)],
   technika: `LED svietidlá s reguláciou podľa denného svetla, inštalovaný príkon ${cis(kw)} kW` });
-const vykurovanie = (cena: number, kw: number): Aktivita => ({ sekcia: 'Vykurovací systém', opatrenie: '2.1.2', skupina: 'Stavby', parameter: kw,
+export const vykurovanie = (cena: number, kw: number): Aktivita => ({ sekcia: 'Vykurovací systém', opatrenie: '2.1.2', skupina: 'Stavby', parameter: kw,
   polozky: [pol('Rekonštrukcia vykurovacej sústavy s ekvitermickou reguláciou a termostatickými ventilmi', 'súbor', 1, cena, 'Podrobný rozpočet stavebných prác (výkaz výmer).')],
   technika: `rekonštrukcia vykurovacej sústavy s ekvitermickou reguláciou, výkon ${cis(kw, 0)} kW` });
-const vetranie = (cena: number): Aktivita => ({ sekcia: 'Systémy chladenia a vetrania', opatrenie: '2.1.2', skupina: 'Stavby', parameter: 0.5,
+export const vetranie = (cena: number): Aktivita => ({ sekcia: 'Systémy chladenia a vetrania', opatrenie: '2.1.2', skupina: 'Stavby', parameter: 0.5,
   polozky: [pol('Vzduchotechnika s rekuperáciou tepla (účinnosť min. 80 %)', 'súbor', 1, cena, 'Podrobný rozpočet stavebných prác (výkaz výmer).')],
   technika: 'nútené vetranie s rekuperáciou tepla, intenzita výmeny vzduchu 0,5 1/h' });
-const fve = (kwp: number, cena: number): Aktivita => ({ sekcia: 'Zariadenia OZE - výroba elektriny', opatrenie: '2.2.2', skupina: 'Samostatné hnuteľné veci a súbory hnuteľných vecí',
+export const fve = (kwp: number, cena: number): Aktivita => ({ sekcia: 'Zariadenia OZE - výroba elektriny', opatrenie: '2.2.2', skupina: 'Samostatné hnuteľné veci a súbory hnuteľných vecí',
   polozky: [pol(`Fotovoltická elektráreň ${cis(kwp)} kWp vrátane striedača a montáže`, 'súbor', 1, cena, 'Prieskum trhu (tri cenové ponuky).', 1)],
   technika: `fotovoltická elektráreň na streche s výkonom ${cis(kwp)} kWp na vlastnú spotrebu budovy` });
-const tc = (kw: number, cena: number): Aktivita => ({ sekcia: 'Zariadenia OZE - výroba tepla', opatrenie: '2.2.2', skupina: 'Samostatné hnuteľné veci a súbory hnuteľných vecí',
+export const tc = (kw: number, cena: number): Aktivita => ({ sekcia: 'Zariadenia OZE - výroba tepla', opatrenie: '2.2.2', skupina: 'Samostatné hnuteľné veci a súbory hnuteľných vecí',
   polozky: [pol(`Tepelné čerpadlo vzduch-voda ${cis(kw, 0)} kW vrátane akumulačnej nádrže a napojenia`, 'súbor', 1, cena, 'Prieskum trhu (tri cenové ponuky).', 1)],
   technika: `tepelné čerpadlo vzduch-voda s tepelným výkonom ${cis(kw, 0)} kW` });
 
-const OBEC = (nazov: string, ulica: string, psc: string, zaklad: string, statutar: string, funkcia = 'starosta obce'): Ziadatel =>
+export const OBEC = (nazov: string, ulica: string, psc: string, zaklad: string, statutar: string, funkcia = 'starosta obce'): Ziadatel =>
   ({ nazov, ico: ico(zaklad), forma: '801', ulica, psc, sidlo: nazov.replace(/^(Obec|Mesto) /, ''), statutar, funkcia });
-const skolaBudova = (obec: string, o: Partial<Budova> = {}): Budova => ({ nazov: `Základná škola ${obec}`, adresa: `Školská 4, ${obec}`, kategoria: 'budova škôl a školských zariadení',
+export const skolaBudova = (obec: string, o: Partial<Budova> = {}): Budova => ({ nazov: `Základná škola ${obec}`, adresa: `Školská 4, ${obec}`, kategoria: 'budova škôl a školských zariadení',
   plocha: 1800, guPred: 230, guPo: 95, ku: obec, lv: '1', supisne: '204', parcela: '312/4', rok: 1976, podlazia: 3, ...o });
-const uradBudova = (obec: string, o: Partial<Budova> = {}): Budova => ({ nazov: `budova obecného úradu ${obec}`, adresa: `Hlavná 1, ${obec}`, kategoria: 'administratívna budova',
+export const uradBudova = (obec: string, o: Partial<Budova> = {}): Budova => ({ nazov: `budova obecného úradu ${obec}`, adresa: `Hlavná 1, ${obec}`, kategoria: 'administratívna budova',
   plocha: 950, guPred: 420, guPo: 150, ku: obec, lv: '1', supisne: '1', parcela: '45/1', rok: 1968, podlazia: 2, ...o });
-const skolaAktivity = (k = 1): Aktivita[] => [PD(r2(38000 * k), r2(620000 * k)), zateplenieSteny(Math.round(2600 * k), 105), zateplenieStrechy(Math.round(1100 * k), 85),
+export const skolaAktivity = (k = 1): Aktivita[] => [PD(r2(38000 * k), r2(620000 * k)), zateplenieSteny(Math.round(2600 * k), 105), zateplenieStrechy(Math.round(1100 * k), 85),
   okna(Math.round(420 * k), 410), osvetlenie(Math.round(150 * k), 260, r2(18 * k)), fve(r2(49.5 * k), r2(52000 * k))];
-const uradAktivity = (): Aktivita[] => [PD(22000, 340000), zateplenieSteny(1300, 98), zateplenieStrechy(520, 80), okna(210, 395), vykurovanie(48000, 70), vetranie(36000), tc(70, 68000)];
-const popisSkoly = (obec: string, b: Budova) => `Predmetom projektu je obnova budovy Základnej školy ${obec}, ktorej vlastníkom je Obec ${obec}. Budova z roku ${b.rok} slúži na výchovu a vzdelávanie žiakov 1. až 9. ročníka. Projekt rieši zateplenie obvodového a strešného plášťa, výmenu otvorových konštrukcií, modernizáciu osvetlenia a inštaláciu fotovoltickej elektrárne na vlastnú spotrebu školy. Po obnove sa budova podľa globálneho ukazovateľa primárna energia zlepší z triedy ${trieda(b.kategoria, b.guPred)} na triedu ${trieda(b.kategoria, b.guPo)}.`;
-const popisUradu = (obec: string, b: Budova) => `Predmetom projektu je obnova administratívnej budovy obecného úradu ${obec} vo vlastníctve obce. V budove sídli obecný úrad, matrika a kancelária prvého kontaktu. Projekt zahŕňa zateplenie obvodového a strešného plášťa, výmenu okien a dverí, rekonštrukciu vykurovacej sústavy, vetranie s rekuperáciou tepla a tepelné čerpadlo vzduch-voda ako obnoviteľný zdroj tepla. Po obnove sa budova zlepší z triedy ${trieda(b.kategoria, b.guPred)} na triedu ${trieda(b.kategoria, b.guPo)}.`;
+export const uradAktivity = (): Aktivita[] => [PD(22000, 340000), zateplenieSteny(1300, 98), zateplenieStrechy(520, 80), okna(210, 395), vykurovanie(48000, 70), vetranie(36000), tc(70, 68000)];
+export const popisSkoly = (obec: string, b: Budova) => `Predmetom projektu je obnova budovy Základnej školy ${obec}, ktorej vlastníkom je Obec ${obec}. Budova z roku ${b.rok} slúži na výchovu a vzdelávanie žiakov 1. až 9. ročníka. Projekt rieši zateplenie obvodového a strešného plášťa, výmenu otvorových konštrukcií, modernizáciu osvetlenia a inštaláciu fotovoltickej elektrárne na vlastnú spotrebu školy. Po obnove sa budova podľa globálneho ukazovateľa primárna energia zlepší z triedy ${trieda(b.kategoria, b.guPred)} na triedu ${trieda(b.kategoria, b.guPo)}.`;
+export const popisUradu = (obec: string, b: Budova) => `Predmetom projektu je obnova administratívnej budovy obecného úradu ${obec} vo vlastníctve obce. V budove sídli obecný úrad, matrika a kancelária prvého kontaktu. Projekt zahŕňa zateplenie obvodového a strešného plášťa, výmenu okien a dverí, rekonštrukciu vykurovacej sústavy, vetranie s rekuperáciou tepla a tepelné čerpadlo vzduch-voda ako obnoviteľný zdroj tepla. Po obnove sa budova zlepší z triedy ${trieda(b.kategoria, b.guPred)} na triedu ${trieda(b.kategoria, b.guPo)}.`;
 
 // ---------- očakávané výsledky (len to, čo je pre scenár určujúce; VER-ITMS a VER-KONTROLA závisia od prostredia)
-const ZAKLAD = (o: { oze: boolean; akt2?: boolean; obec?: boolean } = { oze: true }): Record<string, Stav> => ({
+export const ZAKLAD = (o: { oze: boolean; akt2?: boolean; obec?: boolean } = { oze: true }): Record<string, Stav> => ({
   V01: 'splnene', F01: 'splnene', D01: 'splnene', D07a: 'splnene', D07b: 'splnene', D07c: 'splnene', D07d: o.oze ? 'splnene' : 'neuplatnuje_sa',
   D09: 'splnene', D12: 'splnene', D13: 'splnene', D14: 'splnene', P03: o.obec === false ? 'neuplatnuje_sa' : 'splnene', P05: 'neuplatnuje_sa',
   P06: 'splnene', P07: 'splnene', P08: 'splnene', P08b: 'splnene', ...(o.akt2 ? { P09: 'splnene' as Stav } : {}),
 });
-const bez = (m: Record<string, Stav>, ...kluce: string[]) => Object.fromEntries(Object.entries(m).filter(([k]) => !kluce.includes(k))) as Record<string, Stav>;
+export const bez = (m: Record<string, Stav>, ...kluce: string[]) => Object.fromEntries(Object.entries(m).filter(([k]) => !kluce.includes(k))) as Record<string, Stav>;
 
 // ---------- prípady
 const P: Pripad[] = [];
@@ -317,7 +324,7 @@ const SKRATKA_OPATRENI = (p: Pripad) => {
   const o = new Set(p.aktivity.map((a) => a.opatrenie));
   return o.has('2.1.2') && o.has('2.2.2') ? 'Budovy a OZE' : o.has('2.2.2') ? '2.2.2 - OZE' : '2.1.2 - Budovy';
 };
-function specPrilohy8(p: Pripad): Priloha8Spec {
+export function specPrilohy8(p: Pripad): Priloha8Spec {
   const b = p.budova, oze = p.oze;
   return {
     ziadatel: p.ziadatel.nazov, projekt: p.projekt.nazov, platcaDph: false, opatrenia: SKRATKA_OPATRENI(p),
@@ -330,21 +337,24 @@ function specPrilohy8(p: Pripad): Priloha8Spec {
     },
     sekcie: p.aktivity.map((a) => ({ sekcia: a.sekcia, parameter: a.parameter, opatrenie: a.opatrenie,
       polozky: a.polozky.map((x) => ({ nazov: x.nazov, mj: x.mj, pocet: x.pocet, jednotkovaCenaBezDph: x.cena, sposob: x.sposob, opis: x.opis })) })),
-    poznamka: 'TESTOVACIA SADA – fiktívny žiadateľ, nejde o skutočnú prílohu žiadosti.',
+    poznamka: p.poznamka ?? 'TESTOVACIA SADA – fiktívny žiadateľ, nejde o skutočnú prílohu žiadosti.',
   };
 }
 /** Suma aktivity vo formulári = výdavok sekcie zošita (s DPH, žiadateľ nie je platiteľ) krátený ako v zošite (M210/M270 k súčtu sekcií). */
-function rozpocet(p: Pripad, r: Priloha8Vysledok) {
+export function rozpocet(p: Pripad, r: Priloha8Vysledok) {
   const sekcia = new Map(r.sekcie.map((s) => [s.sekcia, s.vydavok ?? 0]));
   const sucet = (o: Opatrenie) => p.aktivity.filter((a) => a.opatrenie === o).reduce((s, a) => s + (sekcia.get(a.sekcia) ?? 0), 0);
   // Zošit, ktorý budovu alebo OZE zamietne (úspora, hodnota za peniaze), dá 0: žiadateľ vo formulári aj tak žiada celé výdavky.
-  const faktor = (o: Opatrenie) => { const ciel = o === '2.1.2' ? r.poHodnoteZaPeniaze : r.ozePoHodnoteZaPeniaze; const s = sucet(o); return ciel && s ? ciel / s : 1; };
+  const faktor = (o: Opatrenie) => {
+    if (o === '2.1.2' && p.formularBezKratenia) return 1;
+    const ciel = o === '2.1.2' ? r.poHodnoteZaPeniaze : r.ozePoHodnoteZaPeniaze; const s = sucet(o); return ciel && s ? ciel / s : 1;
+  };
   return p.aktivity.map((a) => ({ a, suma: r2((sekcia.get(a.sekcia) ?? 0) * faktor(a.opatrenie)) }));
 }
 
 // ---------- formulár ŽoNFP v štruktúre API ITMS21+
-function formular(p: Pripad, r: Priloha8Vysledok, n: number) {
-  const suf = `TS${p.cislo}`;
+export function formular(p: Pripad, r: Priloha8Vysledok, n: number) {
+  const suf = p.kod ?? `TS${p.cislo}`;
   const kodAkt = (i: number) => `401${suf}000${String(i + 1).padStart(2, '0')}`;
   const op = (o: string) => ({ opatrenie: { kod: KOD_OPATRENIA[o] } });
   const polozky = rozpocet(p, r);
@@ -386,14 +396,14 @@ function formular(p: Pripad, r: Priloha8Vysledok, n: number) {
     ],
     popis: `<p>${p.projekt.popis}</p>`, ucel: `<p>${p.projekt.ucel}</p>`,
     _zdroj: 'Fiktívna testovacia žiadosť v štruktúre detailu ŽoNFP z verejného API ITMS21+ (https://api.itms21.sk/public/v1/zonfp/id/{id}).',
-    _poznamka: `Testovacia sada eurofondy-kontrola, prípad ${p.cislo}: ${p.titul}. Žiadateľ, IČO a všetky údaje sú vymyslené.`,
+    _poznamka: p.poznamka ?? `Testovacia sada eurofondy-kontrola, prípad ${p.cislo}: ${p.titul}. Žiadateľ, IČO a všetky údaje sú vymyslené.`,
   };
 }
 
 // ---------- prílohy (obsah podľa Prílohy č. 2 výzvy; osoby a čísla dokladov sú vymyslené)
-const hlavicka = (z: Ziadatel) => `${z.nazov}\n${z.ulica}, ${z.psc} ${z.sidlo} · IČO ${z.ico}`;
-const podpis = (meno: string, funkcia: string) => `......................................... podpis\n${meno}, ${funkcia}`;
-const plnomoc = (p: Pripad): Odsek[] => [
+export const hlavicka = (z: Ziadatel) => `${z.nazov}\n${z.ulica}, ${z.psc} ${z.sidlo} · IČO ${z.ico}`;
+export const podpis = (meno: string, funkcia: string) => `......................................... podpis\n${meno}, ${funkcia}`;
+export const plnomoc = (p: Pripad): Odsek[] => [
   'podľa § 31 a nasl. zákona č. 40/1964 Zb. Občianskeho zákonníka v znení neskorších predpisov',
   { tab: [['Splnomocniteľ', ''], ['Obchodné meno/názov organizácie', p.ziadatel.nazov], ['Sídlo', `${p.ziadatel.ulica}, ${p.ziadatel.psc} ${p.ziadatel.sidlo}`], ['IČO', p.ziadatel.ico], ['V zastúpení', `${p.ziadatel.statutar}, ${p.ziadatel.funkcia}`]] },
   'týmto udeľuje plnomocenstvo',
@@ -406,7 +416,7 @@ const plnomoc = (p: Pripad): Odsek[] => [
   `${podpis(p.ziadatel.statutar, p.ziadatel.funkcia)} (splnomocniteľ)`,
   'Plnomocenstvo prijímam.\n......................................... podpis\nIng. Lucia Zastupujúca (splnomocnenec)',
 ];
-function uznesenie(p: Pripad): Odsek[] {
+export function uznesenie(p: Pripad): Odsek[] {
   const mesto = p.ziadatel.nazov.startsWith('Mesto'); const zast = mesto ? 'Mestské zastupiteľstvo' : 'Obecné zastupiteľstvo'; const obce = mesto ? 'mesta' : 'obce';
   const den = posunDni(p.predlozenie ?? p.zaciatok, -75);
   return [
@@ -422,10 +432,10 @@ function uznesenie(p: Pripad): Odsek[] {
     podpis(p.ziadatel.statutar, p.ziadatel.funkcia),
   ];
 }
-function certifikat(p: Pripad, r: Priloha8Vysledok): Odsek[] {
+export function certifikat(p: Pripad, r: Priloha8Vysledok): Odsek[] {
   const b = p.budova;
   return [
-    `Číslo certifikátu: EC-TS${p.cislo}-0001 (fiktívne) · energetický certifikát budovy podľa § 7 zákona č. 555/2005 Z. z. o energetickej hospodárnosti budov · stav pred obnovou (predrealizačný)`,
+    `Číslo certifikátu: EC-${p.kod ?? `TS${p.cislo}`}-0001 (fiktívne) · energetický certifikát budovy podľa § 7 zákona č. 555/2005 Z. z. o energetickej hospodárnosti budov · stav pred obnovou (predrealizačný)`,
     { b: 'Identifikácia budovy' },
     { tab: [['Údaj', 'Hodnota'], ['Budova', b.nazov], ['Adresa', b.adresa], ['Katastrálne územie, parcela, súpisné číslo', `${b.ku}, parc. č. ${b.parcela}, súp. č. ${b.supisne}`], ['Kategória budovy', b.kategoria], ['Vlastník', p.ziadatel.nazov], ['Rok kolaudácie', String(b.rok)], ['Celková podlahová plocha', `${cis(b.plocha, 0)} m2`]] },
     { b: 'Globálny ukazovateľ – primárna energia (súčasný stav)' },
@@ -434,7 +444,7 @@ function certifikat(p: Pripad, r: Priloha8Vysledok): Odsek[] {
     `Spracovateľ: Ing. Marek Certifikačný, odborne spôsobilá osoba na energetickú certifikáciu budov, osvedčenie č. EC-T-0000/2020 (fiktívne).\nDátum vydania: ${datumSk(posunDni(p.predlozenie ?? p.zaciatok, -120))}\n......................................... podpis`,
   ];
 }
-function projektovaDokumentacia(p: Pripad, r: Priloha8Vysledok): Odsek[] {
+export function projektovaDokumentacia(p: Pripad, r: Priloha8Vysledok): Odsek[] {
   const b = p.budova, oze = p.aktivity.filter((a) => a.opatrenie === '2.2.2');
   return [
     `Stavba: ${p.projekt.nazov}\nMiesto stavby: ${b.adresa}, k. ú. ${b.ku}, parc. č. ${b.parcela}\nStavebník: ${p.ziadatel.nazov}\nStupeň: dokumentácia pre stavebné povolenie (overená v stavebnom konaní)`,
@@ -453,7 +463,7 @@ function projektovaDokumentacia(p: Pripad, r: Priloha8Vysledok): Odsek[] {
     'Zodpovedný projektant: Ing. arch. Jana Projektová, autorizovaný architekt, reg. č. 0000 AA (fiktívne)\n......................................... podpis a pečiatka',
   ];
 }
-function kontrolnyZoznam(p: Pripad, typ: '9a' | '9b'): Odsek[] {
+export function kontrolnyZoznam(p: Pripad, typ: '9a' | '9b'): Odsek[] {
   const skola = typ === '9b';
   const riadky = skola
     ? ['Parkovanie', 'Chodníky', 'Vstup do budovy', 'Vstupné dvere a priestory', 'Parametre rampy', 'Vybavenie rampy', 'Trasy po budove', 'Riešenie výškových rozdielov v budove', 'Bezbariér. toalety', 'Učebne, dielne', 'Šatne a umyvárne', 'Telocvičňa', 'Jedáleň', 'Školský areál', 'Ubytovacie zariadenie']
@@ -473,19 +483,13 @@ function kontrolnyZoznam(p: Pripad, typ: '9a' | '9b'): Odsek[] {
   ];
 }
 
-// ---------- zápis
-const { pdf, prehliadac, uprac } = tlaciarenPdf(PATA);
-if (!prehliadac) throw new Error('Na PDF prílohy treba Edge alebo Chrome (premenná PREHLIADAC).');
-fs.mkdirSync(OUT, { recursive: true });
-for (const f of fs.readdirSync(OUT)) fs.rmSync(path.join(OUT, f), { recursive: true, force: true });
-const pracovny = fs.mkdtempSync(path.join(os.tmpdir(), 'testovacia-sada-'));
-interface SuborVZipe { nazov: string; typ: 'formular' | 'priloha'; priloha: string | null; istota: 'cislo' | 'nazov' }
-const vystup: { cislo: string; slug: string; titul: string; scenar: string; preco: string; zip: string; subory: SuborVZipe[]; ocakavane: Ocakavane;
-  doplnenie?: { zip: string; subory: SuborVZipe[]; ocakavane: Ocakavane }; potvrdenie?: { ocakavane: Ocakavane };
-  predlozenie: string | null; kraj: string; kategoria: string; nfp: number; uspora: number | null }[] = [];
+// ---------- zápis jedného podania (používa ho aj scripts/20-nova-ziadost.ts)
+type Pdf = ReturnType<typeof tlaciarenPdf>['pdf'];
+export interface Subor { nazov: string; priloha: string | null }
+export interface SuborVZipe { nazov: string; typ: 'formular' | 'priloha'; priloha: string | null; istota: 'cislo' | 'nazov' }
 
-P.forEach((p, n) => {
-  const dir = path.join(pracovny, p.cislo); fs.mkdirSync(dir);
+/** Súbory jedného podania v priečinku dir: zošit Prílohy č. 8 (vyplní a prepočíta MS Excel), formulár ŽoNFP (JSON) a prílohy (PDF). */
+export function vytvorPodanie(p: Pripad, n: number, dir: string, pdf: Pdf) {
   const cesta = (meno: string) => path.join(dir, meno);
   const meno = (sCislom: string, bezCisla: string) => (p.bezCisla ? bezCisla : sCislom);
   const ascii = (t: string) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, '_');
@@ -504,39 +508,59 @@ P.forEach((p, n) => {
   { const m = meno('Priloha_7_Projektova_dokumentacia.pdf', 'Technicka_sprava_a_vykresy.pdf'); pdf(cesta(m), 'Projektová dokumentácia stavby', 'Projektová dokumentácia', projektovaDokumentacia(p, r)); pridaj(m, '7'); }
   pridaj(p8, '8');
   if (p.priloha9) { const m = 'Priloha_9_Horizontalne_principy_kontrolny_zoznam.pdf'; pdf(cesta(m), hl, `Checklist – vyhlásenie o bezbariérovej prístupnosti – debarierizácia ${p.priloha9 === '9b' ? 'školy' : 'administratívnej budovy'}`, kontrolnyZoznam(p, p.priloha9)); pridaj(m, '9'); }
+  return { f, r, subory };
+}
 
-  const vZipe = (s: { nazov: string; priloha: string | null }): SuborVZipe => ({ nazov: s.nazov, typ: s.priloha ? 'priloha' : 'formular', priloha: s.priloha, istota: s.priloha && p.bezCisla ? 'nazov' : 'cislo' });
-  const doDoplnenia = (s: { priloha: string | null }) => !!s.priloha && (p.doplnenie as string[] | undefined)?.includes(s.priloha);
-  const hlavne = subory.filter((s) => !doDoplnenia(s)), neskor = subory.filter(doDoplnenia);
-  const zapisZip = (nazov: string, zoznam: typeof subory) => fs.writeFileSync(path.join(OUT, nazov), zip(zoznam.map((s) => ({ nazov: s.nazov, data: fs.readFileSync(cesta(s.nazov)) }))));
-  const zipMeno = `${p.cislo}-${p.slug}.zip`;
-  zapisZip(zipMeno, hlavne);
-  let doplnenie;
-  if (neskor.length) { const z = `${p.cislo}-doplnenie.zip`; zapisZip(z, neskor); doplnenie = { zip: z, subory: neskor.map(vZipe), ocakavane: p.poDoplneni! }; }
-  vystup.push({ cislo: p.cislo, slug: p.slug, titul: p.titul, scenar: p.scenar, preco: p.preco, zip: zipMeno, subory: hlavne.map(vZipe), ocakavane: p.ocakavane,
-    ...(doplnenie ? { doplnenie } : {}), ...(p.poPotvrdeni ? { potvrdenie: { ocakavane: p.poPotvrdeni } } : {}),
-    predlozenie: p.predlozenie, kraj: p.miesto.kraj, kategoria: p.kategoriaRegionov, nfp: f.sumaZiadanaNFP, uspora: r.usporaPercent });
-  console.log(`${p.cislo} ${p.titul}: NFP ${eur(f.sumaZiadanaNFP)}, úspora ${r.usporaPercent == null ? '?' : cis(r.usporaPercent)} %, zošit M210 ${eur(r.poHodnoteZaPeniaze ?? 0)} + M270 ${eur(r.ozePoHodnoteZaPeniaze ?? 0)}; ${hlavne.length} súborov${neskor.length ? ` + doplnenie ${neskor.length}` : ''}`);
-});
-uprac();
-fs.rmSync(pracovny, { recursive: true, force: true });
+// ---------- zápis sady (len pri priamom spustení skriptu, nie pri importe)
+if (import.meta.main) zapisSadu();
 
-// ---------- očakávané výsledky a návod
-const ocakavane = {
-  vyzva: VYZVA,
-  poznamka: 'Očakávané výsledky posudku bez modelu (llm: false). Body VER-ITMS a VER-KONTROLA závisia od kontroly zmien výzvy v prostredí a neporovnávajú sa. Porovnávajú sa len uvedené pravidlá.',
-  pripady: vystup.map(({ predlozenie, kraj, kategoria, nfp, uspora, ...v }) => v),
-};
-fs.writeFileSync(path.join(OUT, 'ocakavane.json'), JSON.stringify(ocakavane, null, 2) + '\n');
+function zapisSadu() {
+  const { pdf, prehliadac, uprac } = tlaciarenPdf(PATA);
+  if (!prehliadac) throw new Error('Na PDF prílohy treba Edge alebo Chrome (premenná PREHLIADAC).');
+  fs.mkdirSync(OUT, { recursive: true });
+  for (const f of fs.readdirSync(OUT)) fs.rmSync(path.join(OUT, f), { recursive: true, force: true });
+  const pracovny = fs.mkdtempSync(path.join(os.tmpdir(), 'testovacia-sada-'));
+  const vystup: { cislo: string; slug: string; titul: string; scenar: string; preco: string; zip: string; subory: SuborVZipe[]; ocakavane: Ocakavane;
+    doplnenie?: { zip: string; subory: SuborVZipe[]; ocakavane: Ocakavane }; potvrdenie?: { ocakavane: Ocakavane };
+    predlozenie: string | null; kraj: string; kategoria: string; nfp: number; uspora: number | null }[] = [];
 
-const NAVRH: Record<Navrh, string> = { nesplnene_podmienky: 'nesplnené podmienky', vyzva_na_doplnenie: 'výzva na doplnenie', na_preverenie: 'na preverenie', ciastocne_overene: 'čiastočne overené', bez_zisteni: 'bez zistení' };
-const VERZIA = { akt2: 'zmena č. 2', zmena3: 'zmena č. 3' };
-const kluc = (o: Ocakavane, zaklad: Ocakavane | null) => {
-  const zmeny = Object.entries(o.nalezy).filter(([k, s]) => s !== 'splnene' && s !== 'neuplatnuje_sa' && (!zaklad || zaklad.nalezy[k] !== s)).map(([k, s]) => `${k} ${s.replace('_', ' ')}`);
-  return [...zmeny, ...o.ver].join(', ') || '–';
-};
-const riadok = (v: typeof vystup[number]) => `| ${v.cislo} | ${v.titul} | ${v.predlozenie ? datumSk(v.predlozenie) : 'chýba'} | ${v.kraj} (${v.kategoria}) | ${VERZIA[v.ocakavane.verzia]} | **${NAVRH[v.ocakavane.navrh]}** | ${kluc(v.ocakavane, null)} |`;
-const readme = `# Testovacia sada: nové žiadosti o NFP
+  P.forEach((p, n) => {
+    const dir = path.join(pracovny, p.cislo); fs.mkdirSync(dir);
+    const cesta = (meno: string) => path.join(dir, meno);
+    const { f, r, subory } = vytvorPodanie(p, n, dir, pdf);
+
+    const vZipe = (s: { nazov: string; priloha: string | null }): SuborVZipe => ({ nazov: s.nazov, typ: s.priloha ? 'priloha' : 'formular', priloha: s.priloha, istota: s.priloha && p.bezCisla ? 'nazov' : 'cislo' });
+    const doDoplnenia = (s: { priloha: string | null }) => !!s.priloha && (p.doplnenie as string[] | undefined)?.includes(s.priloha);
+    const hlavne = subory.filter((s) => !doDoplnenia(s)), neskor = subory.filter(doDoplnenia);
+    const zapisZip = (nazov: string, zoznam: typeof subory) => fs.writeFileSync(path.join(OUT, nazov), zip(zoznam.map((s) => ({ nazov: s.nazov, data: fs.readFileSync(cesta(s.nazov)) }))));
+    const zipMeno = `${p.cislo}-${p.slug}.zip`;
+    zapisZip(zipMeno, hlavne);
+    let doplnenie;
+    if (neskor.length) { const z = `${p.cislo}-doplnenie.zip`; zapisZip(z, neskor); doplnenie = { zip: z, subory: neskor.map(vZipe), ocakavane: p.poDoplneni! }; }
+    vystup.push({ cislo: p.cislo, slug: p.slug, titul: p.titul, scenar: p.scenar, preco: p.preco, zip: zipMeno, subory: hlavne.map(vZipe), ocakavane: p.ocakavane,
+      ...(doplnenie ? { doplnenie } : {}), ...(p.poPotvrdeni ? { potvrdenie: { ocakavane: p.poPotvrdeni } } : {}),
+      predlozenie: p.predlozenie, kraj: p.miesto.kraj, kategoria: p.kategoriaRegionov, nfp: f.sumaZiadanaNFP, uspora: r.usporaPercent });
+    console.log(`${p.cislo} ${p.titul}: NFP ${eur(f.sumaZiadanaNFP)}, úspora ${r.usporaPercent == null ? '?' : cis(r.usporaPercent)} %, zošit M210 ${eur(r.poHodnoteZaPeniaze ?? 0)} + M270 ${eur(r.ozePoHodnoteZaPeniaze ?? 0)}; ${hlavne.length} súborov${neskor.length ? ` + doplnenie ${neskor.length}` : ''}`);
+  });
+  uprac();
+  fs.rmSync(pracovny, { recursive: true, force: true });
+
+  // ---------- očakávané výsledky a návod
+  const ocakavane = {
+    vyzva: VYZVA,
+    poznamka: 'Očakávané výsledky posudku bez modelu (llm: false). Body VER-ITMS a VER-KONTROLA závisia od kontroly zmien výzvy v prostredí a neporovnávajú sa. Porovnávajú sa len uvedené pravidlá.',
+    pripady: vystup.map(({ predlozenie, kraj, kategoria, nfp, uspora, ...v }) => v),
+  };
+  fs.writeFileSync(path.join(OUT, 'ocakavane.json'), JSON.stringify(ocakavane, null, 2) + '\n');
+
+  const NAVRH: Record<Navrh, string> = { nesplnene_podmienky: 'nesplnené podmienky', vyzva_na_doplnenie: 'výzva na doplnenie', na_preverenie: 'na preverenie', ciastocne_overene: 'čiastočne overené', bez_zisteni: 'bez zistení' };
+  const VERZIA = { akt2: 'zmena č. 2', zmena3: 'zmena č. 3' };
+  const kluc = (o: Ocakavane, zaklad: Ocakavane | null) => {
+    const zmeny = Object.entries(o.nalezy).filter(([k, s]) => s !== 'splnene' && s !== 'neuplatnuje_sa' && (!zaklad || zaklad.nalezy[k] !== s)).map(([k, s]) => `${k} ${s.replace('_', ' ')}`);
+    return [...zmeny, ...o.ver].join(', ') || '–';
+  };
+  const riadok = (v: typeof vystup[number]) => `| ${v.cislo} | ${v.titul} | ${v.predlozenie ? datumSk(v.predlozenie) : 'chýba'} | ${v.kraj} (${v.kategoria}) | ${VERZIA[v.ocakavane.verzia]} | **${NAVRH[v.ocakavane.navrh]}** | ${kluc(v.ocakavane, null)} |`;
+  const readme = `# Testovacia sada: nové žiadosti o NFP
 
 Pätnásť fiktívnych žiadostí o NFP do výzvy **${VYZVA}** na skúšku podateľne. Každý ZIP je jedno nové podanie: formulár ŽoNFP a prílohy. Pri každom je uvedené, čo má softvér navrhnúť a prečo.
 
@@ -600,5 +624,6 @@ Súbory v \`${v.zip}\`: ${v.subory.map((s) => `\`${s.nazov}\``).join(', ')}${v.d
 - Registre (G02 až G15): softvér ich z podkladov neoverí, vždy idú človeku.
 - Hranice energetických tried v certifikátoch sú orientačné (nie sú overené voči vyhláške), na pravidlá softvéru nemajú vplyv.
 `;
-fs.writeFileSync(path.join(OUT, 'README.md'), readme);
-console.log(`Hotovo: ${vystup.length} prípadov → ${path.relative(KOREN, OUT)}`);
+  fs.writeFileSync(path.join(OUT, 'README.md'), readme);
+  console.log(`Hotovo: ${vystup.length} prípadov → ${path.relative(KOREN, OUT)}`);
+}

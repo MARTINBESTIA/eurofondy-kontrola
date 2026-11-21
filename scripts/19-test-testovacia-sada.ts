@@ -4,6 +4,8 @@
 // prípad so súbormi bez čísla prílohy potvrdí zaradenie ako kontrolór. Body VER-ITMS a VER-KONTROLA závisia od kontroly
 // zmien výzvy v prostredí, preto sa neporovnávajú.
 // Vlastný server: port 0, databáza v pamäti, dočasné úložisko spisov. Spustenie: node scripts/19-test-testovacia-sada.ts
+// Iná sada v rovnakom formáte: node scripts/19-test-testovacia-sada.ts demo/nova-ziadost (ocakavane.json v koreni sady
+// alebo v podpriečinku riesenie, kde ho kontrolór pri skúške neuvidí).
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
 import fs from 'node:fs';
@@ -12,12 +14,15 @@ import path from 'node:path';
 import { createInterface } from 'node:readline';
 
 const root = path.join(import.meta.dirname, '..');
-const SADA = path.join(root, 'demo', 'testovacia-sada');
-interface Ocakavane { navrh: string; verzia: string; ver: string[]; nalezy: Record<string, string> }
+const SADA = process.argv[2] ? path.resolve(process.argv[2]) : path.join(root, 'demo', 'testovacia-sada');
+/** obsahuje: časť zdôvodnenia, ktorú musí mať nález daného pravidla. */
+interface Ocakavane { navrh: string; verzia: string; ver: string[]; nalezy: Record<string, string>; obsahuje?: Record<string, string> }
 interface SuborVZipe { nazov: string; typ: string; priloha: string | null; istota: string }
 interface Pripad { cislo: string; titul: string; zip: string; subory: SuborVZipe[]; ocakavane: Ocakavane;
   doplnenie?: { zip: string; subory: SuborVZipe[]; ocakavane: Ocakavane }; potvrdenie?: { ocakavane: Ocakavane } }
-const { vyzva, pripady } = JSON.parse(fs.readFileSync(path.join(SADA, 'ocakavane.json'), 'utf8')) as { vyzva: string; pripady: Pripad[] };
+const OCAKAVANE = [path.join(SADA, 'ocakavane.json'), path.join(SADA, 'riesenie', 'ocakavane.json')].find((x) => fs.existsSync(x));
+if (!OCAKAVANE) throw new Error(`V ${SADA} chýba ocakavane.json (ani v podpriečinku riesenie).`);
+const { vyzva, pripady } = JSON.parse(fs.readFileSync(OCAKAVANE, 'utf8')) as { vyzva: string; pripady: Pripad[] };
 const PROSTREDIE = new Set(['VER-ITMS', 'VER-KONTROLA']);
 /** Závažnosť návrhu: mäkší výsledok, než sa čaká, je riziko falošného OK. */
 const ZAVAZNOST: Record<string, number> = { bez_zisteni: 0, ciastocne_overene: 1, na_preverenie: 2, vyzva_na_doplnenie: 3, nesplnene_podmienky: 4 };
@@ -61,6 +66,10 @@ try {
       const n = p.nalezy.find((x: any) => x.pravidlo === k);
       if (!n) vady.push(`${k} chýba v posudku`);
       else if (n.stav !== s) vady.push(`${k} ${n.stav}, čaká sa ${s} (${String(n.zdovodnenie).slice(0, 160)})`);
+    }
+    for (const [k, text] of Object.entries(o.obsahuje ?? {})) {
+      const n = p.nalezy.find((x: any) => x.pravidlo === k);
+      if (n && !String(n.zdovodnenie).includes(text)) vady.push(`${k}: zdôvodnenie nemá „${text}“ (${String(n.zdovodnenie).slice(0, 200)})`);
     }
     return vady.map((v) => `${krok}: ${v}`);
   }

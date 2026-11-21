@@ -1,0 +1,80 @@
+{
+  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
+  "poznamka": "Riešenie skúšobnej žiadosti: očakávaný posudok bez modelu (llm: false). Body VER-ITMS a VER-KONTROLA závisia od kontroly zmien výzvy v prostredí a neporovnávajú sa.",
+  "pripady": [
+    {
+      "cislo": "DP",
+      "slug": "dolne-posudzovce",
+      "titul": "Obnova budovy obecného úradu Dolné Posudzovce",
+      "scenar": "Obec, Bratislavský kraj (VRR), predložená 26. 11. 2025. Úplné podanie: formulár, plnomocenstvo, uznesenia, energetický certifikát, projektová dokumentácia a záväzný zošit Prílohy č. 8.",
+      "preco": "Formulár žiada výdavky obnovy budovy (opatrenie 2.1.2) v plnej výške, hoci pri úspore 48,3 % sú podľa PPP č. 13 oprávnené len na 90 %. Zošit Prílohy č. 8 ich kráti správne, preto sa so žiadosťou nezhoduje: P08b ide kontrolórovi.",
+      "zip": "ZoNFP_Dolne_Posudzovce.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201DP01.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_1a_Plnomocenstvo.pdf",
+          "typ": "priloha",
+          "priloha": "1",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Dolne_Posudzovce.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "na_preverenie",
+        "verzia": "zmena3",
+        "ver": [],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene",
+          "P08b": "na_preverenie"
+        },
+        "obsahuje": {
+          "P08b": "pred krátením podľa pásma úspory",
+          "D13": "Očakávaná výška: 90 %"
+        }
+      }
+    }
+  ]
+}

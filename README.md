@@ -43,9 +43,11 @@ npm run test:llm-moduly   # test 4: lokálny model na syntetických faktúrach, 
 npm run test:podatelna    # test 5: podateľňa na demo podaniach, bez modelu (asi 3 s)
 npm run test:inventar     # inventár podmienok, poistky, verzie podľa kola a zmeny výzvy (bez siete)
 npm run test:sada         # test 6: 15 nových podaní z demo/testovacia-sada cez API podateľne, bez modelu (asi 6 s)
+npm run test:nova         # test 6 na novej skúšobnej žiadosti z demo/nova-ziadost (asi 3 s)
 npm run zmeny             # kontrola zmien výzvy v ITMS21+ oproti posúdenému základu (len čítanie verejného API)
 npm run demo:podania      # vymyslené podania žiadostí (PDF, DOCX, JSON, ZIP) do demo/podania
 npm run demo:sada         # testovacia sada podľa oficiálnych vzorov do demo/testovacia-sada (Windows, Excel, Edge; asi 3 min)
+npm run demo:nova         # nová skúšobná žiadosť pre kontrolóra do demo/nova-ziadost (Windows, Excel, Edge; asi 15 s)
 npm start                 # demo na http://127.0.0.1:5177
 ```
 
@@ -64,7 +66,8 @@ posúdenie a zapíše rozhodnutie. Spisy sú rozdelené podľa výziev. Pri kaž
 v podateľni (rozhodnutia kontrolóra) a v ITMS21+ (skutočné žiadosti). Postup krok za krokom
 s ukážkovými podaniami je v [demo/podania/README.md](demo/podania/README.md). Testovacia sada 15 úplne nových
 podaní podľa oficiálnych vzorov, s očakávaným výsledkom pri každom, je v
-[demo/testovacia-sada/README.md](demo/testovacia-sada/README.md).
+[demo/testovacia-sada/README.md](demo/testovacia-sada/README.md). Novú žiadosť na samostatnú skúšku kontrolóra,
+s riešením v osobitnom priečinku, nájdete v [demo/nova-ziadost/README.md](demo/nova-ziadost/README.md).
 
 - **Odkiaľ podanie prichádza (lokálna simulácia).** V skutočnosti žiadateľ vypĺňa ŽoNFP v ITMS21+:
   štruktúrovaný formulár a prílohy nahraté k jednotlivým podmienkam, potom žiadosť odošle a formálne podá
@@ -139,10 +142,11 @@ src/ingest/dokument.ts         DOCX / PDF / TXT / ZIP -> text
 src/podatelna/podatelna.ts     podateľňa: spisy, súbory, zaradenie príloh, rozhodnutia, štatistika výziev
 src/server/server.ts           HTTP API + statické rozhranie (node:http, node:sqlite)
 web/                           rozhranie (HTML + JS bez frameworku; podatelna.js, ui.js = spoločné vykreslenie)
-scripts/                       stiahnutie dát, normalizácia, testy, demo podania (10), lokálny príjem podania (11), testovacia sada (18) a jej test (19)
+scripts/                       stiahnutie dát, normalizácia, testy, demo podania (10), lokálny príjem podania (11), testovacia sada (18), jej test (19) a nová skúšobná žiadosť (20)
 scripts/lib/                   Príloha 8 cez Excel (priloha8.ts); ZIP, DOCX a PDF cez Edge pre vymyslené doklady (dokumenty.ts)
 demo/podania/                  ukážkové podania žiadostí a postup pre demo
 demo/testovacia-sada/          15 nových podaní podľa oficiálnych vzorov, očakávané výsledky (ocakavane.json) a postup
+demo/nova-ziadost/             nová skúšobná žiadosť pre kontrolóra, riešenie oddelene v riesenie/
 data/zdroje/                   stiahnuté dokumenty výzvy a zoznamy rozhodnutí (zdroj pravdy pre pravidlá)
 data/odvodene/                 normalizované žiadosti s výsledkom a dôvodom
 eval/                          výsledky testov (JSON)
@@ -386,6 +390,8 @@ nové spisy (vlastný server, databáza v pamäti). Formulár má tvar detailu z
 oficiálnych vzorov a Príloha č. 8 je vzor výzvy vyplnený a prepočítaný Excelom. Pri každom podaní test porovná
 zaradenie súborov, návrh, vybrané znenie výzvy, body o znení (bez VER-ITMS a VER-KONTROLA, ktoré závisia
 od prostredia) a stavy určujúcich pravidiel. Dve podania sa doplnia, v jednom kontrolór potvrdí zaradenie.
+Ten istý test s argumentom priečinka overí aj novú skúšobnú žiadosť (`npm run test:nova`, očakávania
+v `demo/nova-ziadost/riesenie/ocakavane.json`), pri nej aj časť zdôvodnenia P08b a D13.
 Mäkší návrh, než sa čaká, test hlási zvlášť ako riziko falošného OK.
 
 Všetkých 15 prešlo (0 rozdielov). Pri tvorbe sada našla päť chýb, všetky sú opravené:
