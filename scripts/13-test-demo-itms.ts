@@ -92,7 +92,10 @@ try {
     const hodnotenie = await posud(id);
     assert.equal(stav(hodnotenie.nalezy, 'D07b'), 'splnene');
     assert.equal(stav(hodnotenie.nalezy, 'P08b'), 'splnene');
-    assert.equal(hodnotenie.navrh, 'ciastocne_overene');
+    assert.equal(hodnotenie.navrh, 'na_preverenie'); // podmienky z inventára, ktoré softvér nekontroluje celé, idú kontrolórovi
+    assert(['PPP4', 'PPP8'].every((k) => stav(hodnotenie.nalezy, k) === 'na_preverenie'), 'Nepokryté PPP musia byť v posudku.');
+    assert.equal(stav(hodnotenie.nalezy, 'V01'), 'splnene');
+    assert.equal(stav(hodnotenie.nalezy, 'F01'), 'splnene');
     console.log(`${nazov}: otvorenie spisu s kontrolou prítomnosti, ${subory.length} súborov, ${ms} ms; návrh bez modelu: ${hodnotenie.navrh}`);
   }
   const bezExcelu = await prijmi(subory.filter((s) => !s.nazov.endsWith('.xlsm')));
@@ -107,7 +110,7 @@ try {
   await api(`spisy/${b}/rozhodnutie`, { rozhodnutie: 'doplnenie', poznamka: 'Doplňte certifikát a dokumentáciu k rozpočtu.' });
   await api(`spisy/${b}/subory`, { subory: [zip('03-doplnenie.zip')] });
   const po = await posud(b);
-  assert.equal(po.navrh, 'ciastocne_overene');
+  assert.equal(po.navrh, 'na_preverenie');
   for (const k of ['P06', 'P08', 'P08b']) assert.equal(stav(po.nalezy, k), 'splnene');
   const doplnene = await api(`spisy/${b}`);
   assert.equal(doplnene.posudky.length, 2);

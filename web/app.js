@@ -1,6 +1,6 @@
 // Rozhranie dema. Bez frameworku; všetok text ide cez textContent, nič z dát sa nevkladá ako HTML.
 // Rozhranie je všeobecné: modul cez API povie, aké má prípady, polia, dokumenty a pravidlá.
-import { $, el, api, cislo, pct, naBase64, STAVY, VERDIKTY, DRUHY, kresliVerdikt, kresliNalezy, VYSVETLENIE_PPP } from './ui.js';
+import { $, el, api, cislo, pct, naBase64, STAVY, VERDIKTY, DRUHY, POKRYTIE, OKAMIH, kresliVerdikt, kresliNalezy, VYSVETLENIE_PPP } from './ui.js';
 import { zobrazPodatelnu } from './podatelna.js';
 
 let stav = null, modul = null, vybrane = null, povodny = null, prilohy = {};
@@ -190,6 +190,14 @@ async function nacitajPravidla() {
     ...b.pravidla.map((p) => el('details', { class: 'nalez' },
       el('summary', {}, el('span', { class: 'stitok s-neuplatnuje_sa' }, p.id), el('span', {}, el('span', { class: 'nz' }, `${p.ppp ? `PPP č. ${p.ppp} · ` : ''}${p.nazov}`), el('br'), el('span', { class: 'zd' }, DRUHY[p.druh] ?? p.druh))),
       el('div', { class: 'vnutro' }, el('span', { class: 'tlmene' }, `${p.citacia.dokument}, ${p.citacia.cast}:`), el('blockquote', {}, p.citacia.znenie), p.overenieZdroj ? el('div', { class: 'tlmene' }, p.overenieZdroj) : null))),
+    ...(b.podmienky ? [el('h3', {}, `Podmienky výzvy (${b.podmienky.length})`),
+      el('p', { class: 'tlmene male' }, `Inventár všetkých podmienok výzvy. Pravidlami úplne pokrytých: ${b.podmienky.filter((p) => p.pokrytie === 'uplne').length}. Ostatné sú v každom posudku ako bod pre kontrolóra.`),
+      ...b.podmienky.map((p) => el('details', { class: 'nalez' },
+        el('summary', {}, el('span', { class: `stitok ${p.pokrytie === 'uplne' ? 's-splnene' : 's-na_preverenie'}` }, p.id),
+          el('span', {}, el('span', { class: 'nz' }, `${p.ppp ? `PPP č. ${p.ppp} · ` : ''}${p.nazov}`), el('br'),
+            el('span', { class: 'zd' }, `${POKRYTIE[p.pokrytie] ?? p.pokrytie} · ${OKAMIH[p.okamih] ?? p.okamih}${p.pravidla.length ? ` · pravidlá ${p.pravidla.join(', ')}` : ''}`))),
+        el('div', { class: 'vnutro' }, p.neoverene ? el('p', {}, `Neoverené softvérom: ${p.neoverene}.`) : null,
+          el('span', { class: 'tlmene' }, `${p.citacia.dokument}, ${p.citacia.cast}:`), el('blockquote', {}, p.citacia.znenie))))] : []),
     el('h3', {}, 'Zdrojové dokumenty'), el('ul', {}, b.zdroje.map((z) => el('li', {}, z.url ? el('a', { href: z.url, target: '_blank', rel: 'noreferrer' }, z.nazov) : z.nazov, z.subor ? el('span', { class: 'tlmene male' }, ` · ${z.subor}`) : null))));
 }
 

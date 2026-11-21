@@ -66,10 +66,32 @@ export interface Pravidlo {
   overenieZdroj?: string; // kde to overuje poskytovateľ (druh register)
 }
 
+/**
+ * Podmienka výzvy v inventári balíka. Balík vymenúva VŠETKY podmienky výzvy, nielen tie, ktoré softvér kontroluje:
+ * PPP, podmienky doručenia (riadne a včas, § 16 ods. 4 zákona č. 121/2022 Z. z.), ďalšie skutočnosti a podmienku vo výroku rozhodnutia.
+ * pokrytie = či nálezy pravidiel spolu predstavujú CELÚ podmienku: každú jej časť overia alebo výslovne povedia,
+ * kde ju overuje poskytovateľ. Pri „ciastocne“ a „ziadne“ (aj keď údaj chýba) pridá posudok bod pre kontrolóra (druh rucne).
+ */
+export interface Podmienka {
+  id: string;
+  typ: 'ppp' | 'dorucenie' | 'dalsia_skutocnost' | 'podmienka_rozhodnutia';
+  ppp: number | null; nazov: string;
+  /** Kedy ju poskytovateľ overuje: v konaní o ŽoNFP, po schválení pred uzavretím zmluvy, alebo počas realizácie. */
+  okamih: 'konanie' | 'pred_zmluvou' | 'realizacia';
+  /** Pravidlá balíka, ktoré overujú podmienku alebo jej časť. */
+  pravidla: string[];
+  pokrytie: 'uplne' | 'ciastocne' | 'ziadne';
+  /** Čo z podmienky žiadne pravidlo neoveruje (povinné pri inom pokrytí než „uplne“). */
+  neoverene?: string;
+  citacia: Citacia;
+}
+
 export interface Nalez {
-  pravidlo: string; ppp: number | null; nazov: string; druh: Pravidlo['druh']; stav: Stav;
+  /** rucne = podmienka z inventára, ktorú pravidlá nepokrývajú celú; pravidlo je vtedy id podmienky. */
+  pravidlo: string; ppp: number | null; nazov: string; druh: Pravidlo['druh'] | 'rucne'; stav: Stav;
   zdovodnenie: string; dokaz?: string; hodnoty?: Record<string, number | string | null>;
   citacia: Citacia; overenieZdroj?: string;
+  okamih?: Podmienka['okamih'];
   doklady?: Doklad[];
   povodDokladov?: 'archiv' | 'rekonstrukcia' | 'nedostupne';
 }
@@ -84,6 +106,8 @@ export interface BalikPravidiel {
   verzia: string; platnaOd: string;
   zdroje: { nazov: string; subor: string; url: string; sha256?: string }[];
   proces: string[]; pravidla: Pravidlo[];
+  /** Inventár všetkých podmienok výzvy. Chýba len pri moduloch, ktoré ho nevyžadujú (Modul.inventarPodmienok). */
+  podmienky?: Podmienka[];
 }
 
 /** Projekt po uzavretí zmluvy (verejné API ITMS21+). Vstup modulov ukazovatele, zmeny a verejné obstarávanie. */
@@ -131,6 +155,8 @@ export interface Modul<V = any> {
   vystupy?(v: V, nalezy: Nalez[]): { nazov: string; text: string }[];
   /** Osobné údaje z registrov sa do auditnej tabuľky neukladajú. */
   neukladatDokazy?: boolean;
+  /** Balík musí vymenovať všetky podmienky výzvy (BalikPravidiel.podmienky). Bez inventára ide celá úplnosť človeku. */
+  inventarPodmienok?: boolean;
 }
 
 /** bez_zisteni len ak sa overilo všetko, čo pravidlá žiadajú; ak niečo z podkladov overiť nejde, výrok je ciastocne_overene. */

@@ -12,14 +12,14 @@
   },
   "miesta": [
     {
-      "kraj": "Žilinský kraj",
-      "okres": "Martin",
+      "kraj": "Bratislavský kraj",
+      "okres": "Pezinok",
       "obec": "Ukážkovo",
       "lokalita": "SLOVENSKA_REPUBLIKA"
     }
   ],
   "kategoriaRegionov": [
-    "MRR"
+    "VRR"
   ],
   "sumaZiadanaNFP": 2450000,
   "sumaZiadanaCelkova": 2450000,

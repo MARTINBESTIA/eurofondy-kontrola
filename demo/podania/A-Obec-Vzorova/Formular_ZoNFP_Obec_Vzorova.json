@@ -12,14 +12,14 @@
   },
   "miesta": [
     {
-      "kraj": "Prešovský kraj",
-      "okres": "Prešov",
+      "kraj": "Bratislavský kraj",
+      "okres": "Senec",
       "obec": "Vzorová",
       "lokalita": "SLOVENSKA_REPUBLIKA"
     }
   ],
   "kategoriaRegionov": [
-    "MRR"
+    "VRR"
   ],
   "sumaZiadanaNFP": 1180000,
   "sumaZiadanaCelkova": 1180000,

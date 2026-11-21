@@ -12,14 +12,14 @@
   },
   "miesta": [
     {
-      "kraj": "Trnavský kraj",
-      "okres": "Trnava",
+      "kraj": "Bratislavský kraj",
+      "okres": "Malacky",
       "obec": "Skúšobná",
       "lokalita": "SLOVENSKA_REPUBLIKA"
     }
   ],
   "kategoriaRegionov": [
-    "MRR"
+    "VRR"
   ],
   "sumaZiadanaNFP": 412000,
   "sumaZiadanaCelkova": 412000,

@@ -1,3 +1,4 @@
+import { isDeepStrictEqual } from 'node:util';
 import type { Nalez, Ziadost } from '../../core/typy.ts';
 import { normalizujItms21 } from './normalizuj.ts';
 
@@ -134,6 +135,24 @@ export function pripravDokladyFormulara(text: string, z: Ziadost): (n: Nalez) =>
         z.rozpocet.forEach((_, i) => vydavok(i));
         pridaj(['sumaZiadanaCelkova']);
         break;
+      case 'V01':
+        if (!z.vyzvaKod || povodne.vyzvaKod !== z.vyzvaKod) return [];
+        pridaj(formaItms ? ['vyzva', 'kod'] : ['vyzvaKod']);
+        break;
+      case 'F01': {
+        // Dátum vždy; kategória regiónu a kraje len vtedy, keď ich kontrola použila (hodnoty kategoriaZ a kraj).
+        if (!z.datumPredlozenia || povodne.datumPredlozenia !== z.datumPredlozenia) return [];
+        pridaj(['datumPredlozenia']);
+        if (n.hodnoty?.kategoriaZ === 'formular') {
+          if (!isDeepStrictEqual(povodne.kategoriaRegionov, z.kategoriaRegionov)) return [];
+          z.kategoriaRegionov.forEach((_, i) => pridaj(formaItms ? ['kategoriaRegionov', i, 'kodZdroj'] : ['kategoriaRegionov', i]));
+        }
+        if (n.hodnoty?.kraj === 'pouzity') {
+          if (povodne.miesta?.length !== z.miesta.length || povodne.miesta.some((m, i) => m.kraj !== z.miesta[i].kraj)) return [];
+          z.miesta.forEach((_, i) => pridaj(formaItms ? ['miestoRealizacieFull', i, 'nuts3', 'nazovSk'] : ['miesta', i, 'kraj']));
+        }
+        break;
+      }
       case 'D01':
         if (String(povodne.ziadatel.pravnaFormaKod) !== z.ziadatel.pravnaFormaKod) return [];
         pridaj(['ziadatel', ...(formaItms ? ['pravnaForma', 'kodZdroj'] : ['pravnaFormaKod'])]);

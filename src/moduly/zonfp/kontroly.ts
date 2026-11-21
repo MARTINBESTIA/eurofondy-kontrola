@@ -205,19 +205,83 @@ function trojpasmo(hodnota: number, max: number, rezerva: number, jednotka: stri
   return { stav: 'nesplnene', zdovodnenie: `Hodnota za peniaze je ${h}. Limit ${cislo(max, 0)} je prekročený aj po odrátaní DPH.`, hodnoty };
 }
 
+const dmr = (d: string) => d.split('-').reverse().join('.');
+
+/** Kategórie regiónov projektu z formulára; odvodene = podľa kraja miesta realizácie (null, ak niektorý kraj chýba). */
+export function kategorieRegionu(z: Ziadost, krajeVRR: string[]): { kategorie: string[]; zdroj: 'formular' | 'kraj' | null; odvodene: string[] | null } {
+  const odvodene = z.miesta.length && z.miesta.every((m) => m.kraj) ? [...new Set(z.miesta.map((m) => (krajeVRR.includes(m.kraj) ? 'VRR' : 'MRR')))].sort() : null;
+  if (z.kategoriaRegionov.length) return { kategorie: [...new Set(z.kategoriaRegionov)].sort(), zdroj: 'formular', odvodene };
+  return { kategorie: odvodene ?? [], zdroj: odvodene ? 'kraj' : null, odvodene };
+}
+
+/**
+ * Predloženie včas (§ 16 ods. 4 zákona č. 121/2022 Z. z.): po vyhlásení výzvy a pred jej uzavretím; ak bola výzva uzavretá
+ * len pre niektorú kategóriu regiónov (MRR), aj pred týmto uzavretím. V deň uzavretia nepoznáme hodinu, rozhodne človek.
+ * Kategória vo formulári, ktorá nezodpovedá kraju miesta realizácie, ide človeku: v dátach výzvy mali takýto nesúlad
+ * 2 žiadosti z 799 a obe skončili zastavením konania.
+ */
+function predlozenieVcas(z: Ziadost, p: Pravidlo): VysledokKontroly {
+  const { vyhlasenie, uzavretie, uzavretieKategorie = {}, krajeVRR = [] } = p.parametre as
+    { vyhlasenie: string; uzavretie?: string; uzavretieKategorie?: Record<string, string>; krajeVRR?: string[] };
+  const d = z.datumPredlozenia?.slice(0, 10);
+  if (!d) return { stav: 'na_preverenie', zdovodnenie: 'Vo formulári chýba dátum predloženia. Kontrolór ho overí v ITMS21+ alebo podľa doručenia do e-schránky poskytovateľa.' };
+  const k = kategorieRegionu(z, krajeVRR);
+  const hodnoty = { datumPredlozenia: d, kategoria: k.kategorie.join('+') || null, kategoriaZ: k.zdroj, kraj: k.odvodene ? 'pouzity' : null };
+  const kat = k.kategorie.join(', ');
+  if (d < vyhlasenie) return { stav: 'na_preverenie', zdovodnenie: `Dátum predloženia ${dmr(d)} je pred vyhlásením výzvy (${dmr(vyhlasenie)}). Údaj je pravdepodobne chybný, treba ho overiť.`, hodnoty };
+  if (uzavretie && d > uzavretie) return { stav: 'nesplnene', zdovodnenie: `Žiadosť je predložená ${dmr(d)}, po uzavretí výzvy ${dmr(uzavretie)}. Po uzavretí výzvy nie je možné predkladať žiadosti.`, hodnoty };
+  if (uzavretie && d === uzavretie) return { stav: 'na_preverenie', zdovodnenie: `Žiadosť je predložená v deň uzavretia výzvy (${dmr(uzavretie)}). Rozhoduje čas doručenia, treba ho overiť.`, hodnoty };
+  if (k.zdroj === 'formular' && k.odvodene && k.odvodene.join() !== k.kategorie.join())
+    return { stav: 'na_preverenie', zdovodnenie: `Kategória regiónu vo formulári (${kat}) nezodpovedá miestu realizácie (${[...new Set(z.miesta.map((m) => m.kraj))].join(', ')}, teda ${k.odvodene.join(', ')}). Od kategórie závisí alokácia aj uzavretie výzvy, treba to preveriť.`, hodnoty };
+  for (const [kategoria, od] of Object.entries(uzavretieKategorie)) {
+    if (d < od) continue;
+    if (!k.kategorie.length) return { stav: 'na_preverenie', zdovodnenie: `Od ${dmr(od)} je výzva pre ${kategoria} uzavretá a kategória regiónu sa z formulára nedá určiť (chýba kategória aj kraj miesta realizácie). Treba ju overiť.`, hodnoty };
+    if (!k.kategorie.includes(kategoria)) continue;
+    if (d === od) return { stav: 'na_preverenie', zdovodnenie: `Žiadosť pre ${kategoria} je predložená v deň, keď sa výzva pre ${kategoria} uzavrela (${dmr(od)}). Rozhoduje čas, treba ho overiť.`, hodnoty };
+    if (k.kategorie.length > 1) return { stav: 'na_preverenie', zdovodnenie: `Projekt patrí do viacerých kategórií regiónov (${kat}) a od ${dmr(od)} je výzva pre ${kategoria} uzavretá. Treba overiť, ktorá časť projektu je ešte oprávnená.`, hodnoty };
+    return { stav: 'nesplnene', zdovodnenie: `Žiadosť pre ${kategoria}${k.zdroj === 'kraj' ? ' (kategória odvodená z kraja miesta realizácie)' : ''} je predložená ${dmr(d)}, ale od ${dmr(od)} je výzva pre ${kategoria} uzavretá.`, hodnoty };
+  }
+  return { stav: 'splnene', zdovodnenie: `Žiadosť je predložená ${dmr(d)}, keď bola výzva otvorená${kat ? ` pre kategóriu regiónu ${kat}${k.zdroj === 'kraj' ? ' (odvodenú z kraja miesta realizácie)' : ''}` : ''}.`, hodnoty };
+}
+
 export const KONTROLY: Record<string, Kontrola> = {
   pravna_forma(z, p) {
     const kod = z.ziadatel.pravnaFormaKod;
     if (!kod) return { stav: 'chyba_podklad', zdovodnenie: 'Vo formulári chýba právna forma žiadateľa.' };
     const ok = (p.parametre?.povolene as string[]).includes(kod);
-    return { stav: ok ? 'splnene' : 'nesplnene', zdovodnenie: `Právna forma žiadateľa: ${z.ziadatel.pravnaForma} (kód ${kod}). ${ok ? 'Je medzi oprávnenými.' : 'Nie je medzi oprávnenými žiadateľmi výzvy.'}`, hodnoty: { kod } };
+    const zaklad = `Právna forma žiadateľa: ${z.ziadatel.pravnaForma} (kód ${kod}).`;
+    if (!ok) return { stav: 'nesplnene', zdovodnenie: `${zaklad} Nie je medzi oprávnenými žiadateľmi výzvy.`, hodnoty: { kod } };
+    // Pri niektorých právnych formách výzva pridáva podmienky, ktoré kód formy nepreukáže (napr. oprávnenosť na činnosti podľa zákona).
+    const doplnok = p.parametre?.doplnkovePodmienky as { formy: string[]; text: string } | undefined;
+    if (doplnok?.formy.includes(kod)) return { stav: 'na_preverenie', zdovodnenie: `${zaklad} Forma je oprávnená, ale výzva pri nej vyžaduje aj: ${doplnok.text} Z kódu právnej formy sa to overiť nedá.`, hodnoty: { kod } };
+    return { stav: 'splnene', zdovodnenie: `${zaklad} Je medzi oprávnenými.`, hodnoty: { kod } };
   },
 
-  hlavna_aktivita(z) {
-    const n = z.aktivity.filter((a) => a.hlavna).length;
-    return n > 0 ? { stav: 'splnene', zdovodnenie: `Projekt má ${n} hlavných aktivít v opatreniach ${[...new Set(z.aktivity.filter((a) => a.hlavna).map((a) => a.opatrenie))].join(', ')}.`, hodnoty: { pocet: n } }
-      : { stav: 'nesplnene', zdovodnenie: 'Projekt nemá žiadnu hlavnú aktivitu.' };
+  hlavna_aktivita(z, p) {
+    const hlavne = z.aktivity.filter((a) => a.hlavna);
+    if (!hlavne.length) return { stav: 'nesplnene', zdovodnenie: 'Projekt nemá žiadnu hlavnú aktivitu.' };
+    const opatrenia = [...new Set(hlavne.map((a) => a.opatrenie ?? 'neuvedené'))].join(', ');
+    const hodnoty = { pocet: hlavne.length, opatrenia };
+    // Opatrenia výzvy: hlavná aktivita z iného opatrenia nie je oprávnená, bez opatrenia sa to nedá posúdiť.
+    const povolene = p.parametre?.opatrenia as string[] | undefined;
+    if (povolene) {
+      const mimo = hlavne.filter((a) => a.opatrenie && !povolene.includes(a.opatrenie));
+      if (mimo.length) return { stav: 'nesplnene', zdovodnenie: `Hlavné aktivity mimo opatrení výzvy (${povolene.join(', ')}): ${mimo.map((a) => `${a.nazov || a.kod} (opatrenie ${a.opatrenie})`).join('; ')}.`, hodnoty };
+      const bez = hlavne.filter((a) => !a.opatrenie);
+      if (bez.length) return { stav: 'na_preverenie', zdovodnenie: `Pri hlavných aktivitách ${bez.map((a) => a.nazov || a.kod).join('; ')} chýba opatrenie, nedá sa overiť, či patria do opatrení výzvy (${povolene.join(', ')}).`, hodnoty };
+    }
+    return { stav: 'splnene', zdovodnenie: `Projekt má ${hlavne.length} hlavných aktivít v opatreniach ${opatrenia}${povolene ? ', všetky patria do opatrení výzvy' : ''}.`, hodnoty };
   },
+
+  /** Formulár patrí do výzvy, ktorej pravidlami sa posudzuje. Pravidlá inej výzvy by dali nezmyselný výsledok. */
+  vyzva_formulara(z, p) {
+    const vyzva = p.parametre!.vyzva as string;
+    if (!z.vyzvaKod) return { stav: 'na_preverenie', zdovodnenie: `Vo formulári chýba kód výzvy. Žiadosť sa posudzuje pravidlami výzvy ${vyzva}; kontrolór overí, že bola predložená do nej.` };
+    return z.vyzvaKod === vyzva ? { stav: 'splnene', zdovodnenie: `Formulár je predložený do výzvy ${vyzva}.`, hodnoty: { vyzvaKod: z.vyzvaKod } }
+      : { stav: 'nesplnene', zdovodnenie: `Formulár je predložený do výzvy ${z.vyzvaKod}, nie do výzvy ${vyzva}. Pravidlá výzvy ${vyzva} sa naň nevzťahujú a ostatné výsledky tohto posudku neplatia.`, hodnoty: { vyzvaKod: z.vyzvaKod } };
+  },
+
+  predlozenie_vcas: (z, p) => predlozenieVcas(z, p),
 
   uspora_min(z, p) {
     if (!maHlavnu(z, '2.1.2')) return { stav: 'neuplatnuje_sa', zdovodnenie: 'Projekt nerealizuje opatrenie 2.1.2.' };

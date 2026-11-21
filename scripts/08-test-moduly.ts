@@ -32,7 +32,11 @@ async function realne(m: Modul, b: BalikPravidiel) {
   for (const id of ids) {
     const p = await posud(m.nacitaj(id), b, m, { llm: false });
     navrhy[p.navrh] = (navrhy[p.navrh] ?? 0) + 1;
-    for (const n of p.nalezy) { const r = pravidla.get(n.pravidlo)!; r.pocty[n.stav] = (r.pocty[n.stav] ?? 0) + 1; }
+    // Body z inventára podmienok (druh rucne) nie sú pravidlá balíka, pridajú sa pri prvom výskyte.
+    for (const n of p.nalezy) {
+      if (!pravidla.has(n.pravidlo)) pravidla.set(n.pravidlo, { id: n.pravidlo, nazov: n.nazov, pocty: {} });
+      const r = pravidla.get(n.pravidlo)!; r.pocty[n.stav] = (r.pocty[n.stav] ?? 0) + 1;
+    }
   }
   return { pripadov: ids.length, trvanieMs: Date.now() - t, navrhy, pravidla: [...pravidla.values()] };
 }

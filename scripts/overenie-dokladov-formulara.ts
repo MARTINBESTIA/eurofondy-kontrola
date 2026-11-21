@@ -16,7 +16,7 @@ const doklad = nalez('L07', 'Hlavným zámerom a cieľom projektu je znížiť e
 for (const text of [surovina.replace(/\r?\n/g, '\r\n'), JSON.stringify(data), JSON.stringify(z, null, 2)]) {
   const najdi = pripravDokladyFormulara(text, z);
   const riadky = text.split(/\r\n|\r|\n/);
-  for (const id of ['D01', 'D07a', 'D07b', 'D07c', 'D07d', 'D09', 'D12', 'D13', 'D14', 'P08', 'P08b', 'L07']) {
+  for (const id of ['V01', 'F01', 'D01', 'D07a', 'D07b', 'D07c', 'D07d', 'D09', 'D12', 'D13', 'D14', 'P08', 'P08b', 'L07']) {
     const refs = najdi(id === 'L07' ? doklad : nalez(id));
     assert(refs.length, id);
     for (const r of refs) {

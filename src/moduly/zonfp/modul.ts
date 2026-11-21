@@ -47,6 +47,7 @@ export const zonfp: Modul<Ziadost> = {
     return z;
   },
   kontroly: KONTROLY,
+  inventarPodmienok: true,
   hlavnyText: (z) => [z.popis, z.ucel].filter(Boolean).join('\n'),
   kontext: (z) => `Názov projektu: ${z.nazov}\nŽiadateľ: ${z.ziadatel.nazov} (${z.ziadatel.pravnaForma})`,
   titulok: (z) => ({ kod: z.kod, nazov: z.nazov, podnazov: `${z.ziadatel.nazov} · ${z.ziadatel.pravnaForma} · opatrenia ${z.opatrenia.join(', ') || '–'} · predložená ${z.datumPredlozenia ?? '–'}` }),

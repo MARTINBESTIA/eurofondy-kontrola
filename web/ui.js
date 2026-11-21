@@ -35,7 +35,10 @@ export const VERDIKTY = {
 export const NAVRHY_KRATKO = {
   nesplnene_podmienky: 'porušenie', vyzva_na_doplnenie: 'chýbajú podklady', na_preverenie: 'na preverenie', ciastocne_overene: 'čiastočne overené', bez_zisteni: 'bez zistení',
 };
-export const DRUHY = { data: 'výpočet z údajov', priloha: 'prítomnosť dokumentu', llm: 'text číta lokálny model', register: 'register (voliteľný online dopyt alebo overuje poskytovateľ)' };
+export const DRUHY = { data: 'výpočet z údajov', priloha: 'prítomnosť dokumentu', llm: 'text číta lokálny model', register: 'register (voliteľný online dopyt alebo overuje poskytovateľ)', rucne: 'overí kontrolór (softvér podmienku nekontroluje celú)' };
+/** Pokrytie podmienky výzvy pravidlami (inventár balíka). */
+export const POKRYTIE = { uplne: 'pokrytá pravidlami', ciastocne: 'pokrytá čiastočne, zvyšok overí kontrolór', ziadne: 'nepokrytá, overí kontrolór' };
+export const OKAMIH = { konanie: 'v konaní o žiadosti', pred_zmluvou: 'pred uzavretím zmluvy', realizacia: 'počas realizácie' };
 
 export const VYSVETLENIE_PPP = 'PPP je podmienka poskytnutia príspevku. Číslo odkazuje na podmienku vo výzve. Jednu podmienku môže overovať viac kontrolných bodov.';
 
@@ -117,7 +120,7 @@ export function kresliVerdikt(v, p) {
   v.replaceChildren(el('strong', {}, VERDIKTY[p.navrh]), el('span', {}, p.zhrnutie),
     el('div', { class: 'pokrytie', title: 'Podiel pravidiel, ktoré softvér z podkladov naozaj overil' },
       el('div', { class: 'pruh' }, el('span', { style: `width:${overitelne ? ((p.pocty.splnene + p.pocty.nesplnene) / overitelne) * 100 : 0}%` })),
-      el('span', { class: 'male' }, `Overené ${p.pocty.splnene + p.pocty.nesplnene} z ${overitelne} pravidiel, ktoré sa na prípad vzťahujú`)),
+      el('span', { class: 'male' }, `Overené ${p.pocty.splnene + p.pocty.nesplnene} z ${overitelne} bodov, ktoré sa na prípad vzťahujú`)),
     el('div', { class: 'tlmene male' }, `Pravidlá: ${p.verziaBalika} · ${p.model ? `model ${p.model}` : 'bez modelu'} · ${(p.trvanieMs / 1000).toFixed(1)} s · softvér navrhuje, rozhoduje človek`));
 }
 
@@ -143,6 +146,7 @@ export function kresliNalezy(k, nalezy, zoSpisu = false, formularItms) {
             : 'Kontrola overila prítomnosť čitateľnej prílohy priradenej k tomuto bodu.') : null,
           kresliDoklady(n.doklady, formularItms)) : null,
         zoSpisu && n.stav === 'splnene' && !n.doklady?.length ? el('p', { class: 'tlmene male' }, 'K tomuto výsledku chýba overiteľná citácia z podkladu.') : null,
+        n.druh === 'rucne' ? el('p', { class: 'tlmene male' }, `Podmienka výzvy z inventára balíka, overuje sa ${OKAMIH[n.okamih] ?? 'podľa výzvy'}. Softvér ju nekontroluje celú, preto je v zozname: posudok nesmie vyzerať úplnejší, než je.`) : null,
         n.dokaz && !n.doklady?.length ? el('div', {}, el('strong', {}, 'Text zaznamenaný pri posúdení'),
           el('p', { class: 'tlmene male' }, 'Posudok pri ňom neuvádza presné miesto v podklade.'), el('blockquote', {}, n.dokaz)) : null,
         el('h4', {}, 'Znenie pravidla'), el('span', { class: 'tlmene' }, `${n.pravidlo} · ${n.citacia.dokument}, ${n.citacia.cast}`), el('blockquote', {}, n.citacia.znenie),

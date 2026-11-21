@@ -1,7 +1,7 @@
 // Jadro: prejde pravidlá balíka, spustí kontroly modulu a zloží posudok. Nevie nič o výzve ani o type vstupu.
 import fs from 'node:fs';
 import path from 'node:path';
-import type { BalikPravidiel, Modul, Nalez, Navrh, Posudok, Pravidlo, Stav, VysledokKontroly } from './typy.ts';
+import type { BalikPravidiel, Modul, Nalez, Navrh, Podmienka, Posudok, Pravidlo, Stav, VysledokKontroly } from './typy.ts';
 import { posudText, dokazJeVTexte, MODEL } from '../llm/ollama.ts';
 
 const KOREN = path.join(import.meta.dirname, '..', '..');
@@ -167,7 +167,38 @@ export async function posud(v: any, balik: BalikPravidiel, modul: Modul, m: Mozn
     } catch (e) { r = { stav: 'na_preverenie', zdovodnenie: `Kontrola zlyhala: ${(e as Error).message}` }; }
     nalezy.push({ pravidlo: p.id, ppp: p.ppp, nazov: p.nazov, druh: p.druh, ...r, citacia: p.citacia, overenieZdroj: p.overenieZdroj });
   }
+  // Výber pravidiel (iba) je čiastková kontrola, napr. len prílohy po nahratí; úplnosť sa posudzuje len pri celom posudku.
+  if (!m.iba) nalezy.push(...nalezyInventara(balik, modul));
   return { ziadostKod: modul.titulok(v).kod, balik: balik.id, verziaBalika: balik.verzia, cas: new Date().toISOString(), trvanieMs: Date.now() - t0, model: m.llm === false ? null : MODEL, nalezy, ...vyrokPosudku(nalezy) };
+}
+
+const KEDY: Record<Exclude<Podmienka['okamih'], 'konanie'>, string> = {
+  pred_zmluvou: 'po schválení žiadosti, pred uzavretím zmluvy o NFP',
+  realizacia: 'počas realizácie projektu podľa zmluvy o NFP',
+};
+
+/**
+ * Poistka úplnosti: podmienka výzvy, ktorú pravidlá nepokrývajú celú, ide kontrolórovi ako samostatný bod (druh rucne).
+ * V konaní je to na_preverenie: údaje sú v podaní, softvér ich len nečíta. Podmienka overovaná až po konaní je
+ * mimo_podkladov: v tomto podaní sa overiť nedá, ale výsledok preto nesmie znieť ako úplné „bez zistení“.
+ * Pokrytie, ktoré balík neuvádza, sa berie ako žiadne.
+ */
+export function nalezyInventara(balik: BalikPravidiel, modul: Pick<Modul, 'inventarPodmienok'>): Nalez[] {
+  if (!balik.podmienky) return modul.inventarPodmienok ? [{
+    pravidlo: 'INV', ppp: null, nazov: 'Úplnosť kontroly voči podmienkam výzvy', druh: 'rucne', stav: 'na_preverenie', okamih: 'konanie',
+    zdovodnenie: 'Balík pravidiel nevymenúva podmienky výzvy, preto softvér nevie, či jeho kontrola pokrýva všetky. Kontrolór musí prejsť všetky podmienky výzvy sám.',
+    citacia: { dokument: balik.vyzvaNazov || balik.vyzvaKod, cast: 'celá výzva', znenie: '' },
+  }] : [];
+  return balik.podmienky.filter((p) => p.pokrytie !== 'uplne').map((p): Nalez => {
+    const zvysok = p.neoverene?.trim() || 'celú podmienku podľa znenia výzvy';
+    const zdovodnenie = p.okamih !== 'konanie'
+      ? `V konaní o žiadosti sa neoveruje, poskytovateľ ju overuje ${KEDY[p.okamih]}. Týka sa: ${zvysok}.`
+      : p.pravidla.length && p.pokrytie === 'ciastocne'
+        ? `Pravidlá ${p.pravidla.join(', ')} overujú len časť podmienky. Kontrolór overí: ${zvysok}.`
+        : `Softvér túto podmienku nekontroluje. Kontrolór overí: ${zvysok}.`;
+    return { pravidlo: p.id, ppp: p.ppp, nazov: p.nazov, druh: 'rucne', okamih: p.okamih,
+      stav: p.okamih === 'konanie' ? 'na_preverenie' : 'mimo_podkladov', zdovodnenie, citacia: p.citacia };
+  });
 }
 
 export function vyrokPosudku(nalezy: Nalez[]): Pick<Posudok, 'navrh' | 'zhrnutie' | 'pocty'> {
@@ -185,6 +216,7 @@ export function vyrokPosudku(nalezy: Nalez[]): Pick<Posudok, 'navrh' | 'zhrnutie
     ciastocne_overene: `V ${pocty.splnene} overených bodoch bez zistení, ale ${pocty.mimo_podkladov} bodov sa z podkladov overiť nedá (${nalezy.filter((n) => n.stav === 'mimo_podkladov').map((n) => n.pravidlo).join(', ')}). Nie je to súhlas s celým prípadom.`,
     bez_zisteni: 'Všetky pravidlá overené, bez zistení.',
   };
-  const zhrnutie = `${vety[navrh]} Overené z podkladov: ${pocty.splnene + pocty.nesplnene} pravidiel. Neoverené, lebo to z podkladov nejde: ${pocty.mimo_podkladov}.`;
+  const rucne = nalezy.filter((n) => n.druh === 'rucne').length;
+  const zhrnutie = `${vety[navrh]} Overené z podkladov: ${pocty.splnene + pocty.nesplnene} pravidiel. Neoverené, lebo to z podkladov nejde: ${pocty.mimo_podkladov}.${rucne ? ` Podmienky výzvy, ktoré softvér nekontroluje vôbec alebo len sčasti: ${rucne}.` : ''}`;
   return { navrh, zhrnutie, pocty };
 }

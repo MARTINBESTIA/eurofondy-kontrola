@@ -97,7 +97,8 @@ export function formularZJson(text: string, vyzva: string, zItms: (kod: string) 
   if (d.polozkyRozpoctu || typeof d.ziadatel?.pravnaForma === 'object') return { ziadost: normalizujItms21(d), zdroj: 'detail z API ITMS21+' };
   if (!d.ziadatel?.nazov) throw new Error('Formulár nemá žiadateľa (ziadatel.nazov).');
   const z: Ziadost = {
-    id: 0, kod: d.kod ?? '', nazov: d.nazov ?? '', vyzvaKod: d.vyzvaKod ?? vyzva, stav: 'Predložená', vysledok: 'ina', dovod: null, kolo: d.kolo ?? null,
+    // Kód výzvy len z formulára: doplnený kód spisu by pravidlo V01 „splnilo“ bez dôkazu.
+    id: 0, kod: d.kod ?? '', nazov: d.nazov ?? '', vyzvaKod: d.vyzvaKod ?? '', stav: 'Predložená', vysledok: 'ina', dovod: null, kolo: d.kolo ?? null,
     datumPredlozenia: d.datumPredlozenia ?? null, datumRozhodnutia: null,
     ziadatel: { nazov: d.ziadatel.nazov, ico: d.ziadatel.ico ?? '', pravnaFormaKod: String(d.ziadatel.pravnaFormaKod ?? ''), pravnaForma: d.ziadatel.pravnaForma ?? '' },
     miesta: d.miesta ?? [], kategoriaRegionov: d.kategoriaRegionov ?? [],

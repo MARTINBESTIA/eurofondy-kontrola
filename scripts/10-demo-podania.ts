@@ -101,7 +101,7 @@ const UK = {
 };
 
 const A: Demo = {
-  kluc: 'A', priecinok: 'A-Obec-Vzorova', obec: 'Obec Vzorová', ulica: 'Hlavná 1', psc: '082 99', okres: 'Prešov', kraj: 'Prešovský kraj', ico: ico('0099991'),
+  kluc: 'A', priecinok: 'A-Obec-Vzorova', obec: 'Obec Vzorová', ulica: 'Hlavná 1', psc: '903 99', okres: 'Senec', kraj: 'Bratislavský kraj', ico: ico('0099991'),
   statutar: 'Ing. Martin Vzorný', funkcia: 'starosta obce', kod: 'DEMO-A-2025-001', nazov: 'Obnova budovy Základnej školy Vzorová',
   predlozenie: '2025-11-27', zaciatok: '2026-03-01', koniec: '2027-10-31', budova: 'budova Základnej školy Vzorová, Školská 5, Vzorová', kategoria: 'budova školy a školského zariadenia',
   popis: 'Predmetom projektu je obnova budovy Základnej školy Vzorová, ktorej vlastníkom je Obec Vzorová. Budova slúži na výchovu a vzdelávanie približne 260 žiakov 1. až 9. ročníka a je v pôvodnom technickom stave z roku 1978. Projekt rieši zateplenie obvodového plášťa a strechy, výmenu otvorových konštrukcií, modernizáciu osvetlenia a inštaláciu fotovoltickej elektrárne s výkonom 49,5 kWp na streche školy. Po obnove sa budova podľa globálneho ukazovateľa primárna energia zlepší z triedy D na triedu B.',
@@ -116,7 +116,7 @@ const A: Demo = {
   uk: [UK.m2(1650), UK.pe(412.6, 168.3), UK.ozeE(0.0495)],
 };
 const B: Demo = {
-  kluc: 'B', priecinok: 'B-Mesto-Ukazkovo', obec: 'Mesto Ukážkovo', ulica: 'Námestie slobody 10', psc: '036 99', okres: 'Martin', kraj: 'Žilinský kraj', ico: ico('0099992'),
+  kluc: 'B', priecinok: 'B-Mesto-Ukazkovo', obec: 'Mesto Ukážkovo', ulica: 'Námestie slobody 10', psc: '902 99', okres: 'Pezinok', kraj: 'Bratislavský kraj', ico: ico('0099992'),
   statutar: 'Mgr. Jana Ukážková', funkcia: 'primátorka mesta', kod: 'DEMO-B-2025-002', nazov: 'Zníženie energetickej náročnosti budovy Mestského úradu Ukážkovo',
   predlozenie: '2025-11-20', zaciatok: '2026-04-01', koniec: '2028-03-31', budova: 'budova Mestského úradu Ukážkovo, Námestie slobody 10, Ukážkovo', kategoria: 'administratívna budova',
   popis: 'Predmetom projektu je obnova administratívnej budovy Mestského úradu Ukážkovo vo vlastníctve Mesta Ukážkovo. V budove sídli mestský úrad a matrika, denne ju navštívi približne 150 občanov. Projekt zahŕňa zateplenie obvodového plášťa a strechy, výmenu okien a dverí, inštaláciu vzduchotechniky s rekuperáciou tepla a náhradu plynovej kotolne tepelnými čerpadlami vzduch-voda s tepelným výkonom 180 kW.',
@@ -131,7 +131,7 @@ const B: Demo = {
   uk: [UK.m2(3900), UK.pe(905.0, 391.0), UK.ozeT(0.18)],
 };
 const C: Demo = {
-  kluc: 'C', priecinok: 'C-Obec-Skusobna', obec: 'Obec Skúšobná', ulica: 'Obecná 12', psc: '919 99', okres: 'Trnava', kraj: 'Trnavský kraj', ico: ico('0099993'),
+  kluc: 'C', priecinok: 'C-Obec-Skusobna', obec: 'Obec Skúšobná', ulica: 'Obecná 12', psc: '901 99', okres: 'Malacky', kraj: 'Bratislavský kraj', ico: ico('0099993'),
   statutar: 'Ing. Ján Skúšobný', funkcia: 'starosta obce', kod: 'DEMO-C-2025-003', nazov: 'Obnova obecného nájomného bytového domu Skúšobná',
   predlozenie: '2025-11-24', zaciatok: '2026-05-01', koniec: '2027-06-30', budova: 'obecný nájomný bytový dom, Lipová 3, Skúšobná', kategoria: 'bytový dom',
   popis: 'Predmetom projektu je obnova obecného nájomného bytového domu so 16 bytmi na ulici Lipová 3, ktorý vlastní Obec Skúšobná a prenajíma ho mladým rodinám. Projekt rieši zateplenie obvodového plášťa a výmenu okien v spoločných priestoroch aj v bytoch.',
@@ -163,7 +163,8 @@ function formular(d: Demo) {
     kod: d.kod, nazov: d.nazov, vyzvaKod: VYZVA, datumPredlozenia: d.predlozenie,
     ziadatel: { nazov: d.obec, ico: d.ico, pravnaFormaKod: '801', pravnaForma: OBEC },
     miesta: [{ kraj: d.kraj, okres: d.okres, obec: d.obec.replace(/^(Obec|Mesto) /, ''), lokalita: 'SLOVENSKA_REPUBLIKA' }],
-    kategoriaRegionov: ['MRR'], sumaZiadanaNFP: s.spolu, sumaZiadanaCelkova: s.spolu, percentoZiadane: 1,
+    // Demo podania sú z novembra 2025: od 9. 1. 2025 bola výzva pre MRR uzavretá (ITMS21+, verzia 5 výzvy), preto Bratislavský kraj (VRR).
+    kategoriaRegionov: ['VRR'], sumaZiadanaNFP: s.spolu, sumaZiadanaCelkova: s.spolu, percentoZiadane: 1,
     dlzkaHlavnychAktivitMes: mesiace, zaciatokHlavnychAktivit: d.zaciatok, koniecHlavnychAktivit: d.koniec,
     popis: d.popis, ucel: d.ucel, opatrenia: [...new Set(d.akt.filter((a) => a.hlavna).map((a) => a.opatrenie))],
     aktivity: d.akt.map((a) => ({ kod: a.kod, nazov: a.nazov, hlavna: a.hlavna, opatrenie: a.opatrenie, zaciatok: a.hlavna ? d.zaciatok : null, koniec: a.hlavna ? d.koniec : null })),
@@ -263,9 +264,9 @@ const sprievodnyList = (d: Demo): Odsek[] => [
 ];
 
 // ---------- zápis podaní
-// Zmažú sa len vygenerované podania; ručne písaný postup demo/podania/README.md ostane.
+// Zmažú sa len vygenerované podania; ručne písaný postup demo/podania/README.md a testovacie súbory v testy/ ostanú.
 fs.mkdirSync(OUT, { recursive: true });
-for (const f of fs.readdirSync(OUT)) if (f !== 'README.md') fs.rmSync(path.join(OUT, f), { recursive: true, force: true });
+for (const f of fs.readdirSync(OUT)) if (f !== 'README.md' && f !== 'testy') fs.rmSync(path.join(OUT, f), { recursive: true, force: true });
 const podania: { priecinok: string; subory: string[] }[] = [];
 function podanie(priecinok: string, subory: [string, () => Buffer | void][]) {
   const dir = path.join(OUT, priecinok); fs.mkdirSync(dir, { recursive: true });

@@ -1,11 +1,11 @@
 {
- "cas": "2026-11-20T22:41:57.163Z",
+ "cas": "2026-11-20T23:43:30.608Z",
  "dnes": "2026-11-20",
  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
  "moduly": {
   "vyzvy": {
    "pripadov": 186,
-   "trvanieMs": 18,
+   "trvanieMs": 20,
    "navrhy": {
     "ciastocne_overene": 65,
     "nesplnene_podmienky": 33,
@@ -133,19 +133,34 @@
   },
   "zonfp": {
    "pripadov": 799,
-   "trvanieMs": 169,
+   "trvanieMs": 178,
    "navrhy": {
-    "ciastocne_overene": 615,
+    "na_preverenie": 725,
     "nesplnene_podmienky": 58,
-    "na_preverenie": 110,
     "vyzva_na_doplnenie": 16
    },
    "pravidla": [
     {
+     "id": "V01",
+     "nazov": "Formulár je predložený do tejto výzvy",
+     "pocty": {
+      "splnene": 799
+     }
+    },
+    {
+     "id": "F01",
+     "nazov": "Žiadosť je predložená, keď bola výzva otvorená (aj pre kategóriu regiónu)",
+     "pocty": {
+      "splnene": 782,
+      "na_preverenie": 17
+     }
+    },
+    {
      "id": "D01",
      "nazov": "Právna forma žiadateľa je oprávnená",
      "pocty": {
-      "splnene": 799
+      "splnene": 795,
+      "na_preverenie": 4
      }
     },
     {
@@ -330,6 +345,83 @@
      "pocty": {
       "mimo_podkladov": 799
      }
+    },
+    {
+     "id": "F1",
+     "nazov": "Predloženie žiadosti riadne a včas",
+     "pocty": {
+      "na_preverenie": 799
+     }
+    },
+    {
+     "id": "PPP4",
+     "nazov": "Projekt nie je predmetom skutočností podľa čl. 65 NSU (trvácnosť operácií)",
+     "pocty": {
+      "na_preverenie": 799
+     }
+    },
+    {
+     "id": "PPP6",
+     "nazov": "Schválený program rozvoja a územnoplánovacia dokumentácia",
+     "pocty": {
+      "na_preverenie": 799
+     }
+    },
+    {
+     "id": "PPP7",
+     "nazov": "Oprávnenosť aktivít projektu",
+     "pocty": {
+      "na_preverenie": 799
+     }
+    },
+    {
+     "id": "PPP8",
+     "nazov": "Kritériá pre výber projektov",
+     "pocty": {
+      "na_preverenie": 799
+     }
+    },
+    {
+     "id": "PPP13",
+     "nazov": "Oprávnenosť výdavkov projektu",
+     "pocty": {
+      "na_preverenie": 799
+     }
+    },
+    {
+     "id": "DS1",
+     "nazov": "Výlučné vlastníctvo predmetu projektu opatrenia 2.2.2 bez záložného práva",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "DS2",
+     "nazov": "Žiadateľ nie je podnikom v ťažkostiach",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "DS3",
+     "nazov": "Zásada „nespôsobovať významnú škodu“ (DNSH)",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "DS4",
+     "nazov": "Súlad s horizontálnymi princípmi počas realizácie",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
+    },
+    {
+     "id": "R1",
+     "nazov": "Bezúhonnosť žiadateľa a osôb konajúcich za neho (podmienka vo výroku rozhodnutia)",
+     "pocty": {
+      "mimo_podkladov": 799
+     }
     }
    ],
    "poznamky": [
@@ -339,7 +431,7 @@
   },
   "vo": {
    "pripadov": 659,
-   "trvanieMs": 96,
+   "trvanieMs": 99,
    "navrhy": {
     "na_preverenie": 276,
     "ciastocne_overene": 382,
@@ -484,7 +576,7 @@
   },
   "zmeny": {
    "pripadov": 2336,
-   "trvanieMs": 471,
+   "trvanieMs": 483,
    "navrhy": {
     "na_preverenie": 1307,
     "ciastocne_overene": 1029
@@ -692,7 +784,7 @@
   },
   "zop": {
    "pripadov": 1362,
-   "trvanieMs": 902,
+   "trvanieMs": 857,
    "navrhy": {
     "ciastocne_overene": 1046,
     "na_preverenie": 315,
@@ -1192,5 +1284,5 @@
    ]
   }
  },
- "trvanieMs": 5556
+ "trvanieMs": 5287
 }
