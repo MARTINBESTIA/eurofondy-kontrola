@@ -1,6 +1,6 @@
 # Vernosť demo podkladov G856 voči reálnemu spisu
 
-Nezávislý audit sady `demo/itms/` k historickej žiadosti NFP401201G856 (Obec Chorvátsky Grob). Podklady pripravila astra (Codex), audit napísal Claude, 20. 11. 2026. Vnútorné nesúlady, ktoré audit našiel, Claude v ten istý deň opravil (pozri časť Opravy). Porovnávali sme ich s textom výzvy v znení zmeny č. 3 (`data/zdroje/PSK-SIEA-002-2023/txt/`), s verejným detailom žiadosti v ITMS21+ (`data/odvodene/PSK-SIEA-002-2023-DV-EFRR/ziadosti.json`) a s verejnými dokumentmi obce. Ku každému tvrdeniu je uvedený zdroj. Čo sa z verejných údajov overiť nedá, je označené slovom **neoverené**.
+Audit modelového podania NFP401201G856 obce Chorvátsky Grob. Pôvodné porovnanie s dokumentáciou výzvy zo zmeny č. 3 a verejnými dokumentmi obce napísal Claude 20. 11. 2026. Doplnenie z 21. 11. 2026 napísala astra (Codex) a Claude jeho čísla v ten istý deň overil. Doplnenie overuje aj úplné pole `ucel` a schválené rozpočtové položky priamo vo verejnom detaile ITMS21+. Lokálna kópia odpovede je v `data/raw/itms21/PSK-SIEA-002-2023-DV-EFRR/zonfp/206978.json.gz`. [Verejný detail žiadosti](https://api.itms21.sk/public/v1/zonfp/id/206978)
 
 ## Čo je PPP
 
@@ -24,11 +24,11 @@ PPP sú **podmienky poskytnutia príspevku**. Výzva ich definuje ako súbor pod
 | 14 | Časová oprávnenosť realizácie | 499 |
 | 15 | Žiadateľ nie je v systéme EDES | 510 |
 
-Jedna PPP sa v aplikácii zvyčajne rozkladá na viac pravidiel. Napríklad PPP 7 overuje 9 pravidiel balíka (`packs/PSK-SIEA-002-2023-DV-EFRR/zonfp.json`, pole `ppp`). Pri náleze sa preto zobrazuje číslo PPP aj kód pravidla (napr. L07). Citácia pod nálezom je znenie **výzvy**, teda požiadavka. Nie je to dôkaz z podania.
+Jedna PPP sa v aplikácii často rozkladá na viac kontrolných bodov. Pri náleze sa preto zobrazí číslo PPP aj kód bodu, napríklad L07. Citácia z výzvy určuje požiadavku. V časti s dôkazmi zo spisu nájdete odkaz na podklad žiadateľa a citovaný riadok, pole alebo bunku.
 
 ## Verdikt
 
-Údaje formulára sú prevzaté z verejného detailu ITMS21+ a zhodujú sa s ním. Prílohy sú rekonštrukcie, ktoré obsahom nadväzujú na verejné údaje. Formou a rozsahom sa však od toho, čo by kontrolór dostal od obce, líšia výrazne. Demo preto ukazuje, ako podateľňa pracuje. Nedokazuje, že softvér zvládne reálne prílohy.
+Žiadateľ, projekt, sumy a štruktúrované ukazovatele pochádzajú z verejného ITMS21+. Demo JSON vyberá iba niektoré polia a pri G856 preberá iba prvý odsek účelu projektu. Vynechané odseky obsahujú dôležité údaje o energetickom hodnotení. Vernosť rekonštruovaných príloh možno posúdiť voči týmto údajom a vzorom výzvy. Porovnanie s podpísanými originálmi by vyžadovalo prístup k skutočnému spisu obce.
 
 | Rozmer | Zhoda | Prečo |
 |---|---|---|
@@ -38,7 +38,7 @@ Jedna PPP sa v aplikácii zvyčajne rozkladá na viac pravidiel. Napríklad PPP 
 | Štruktúra príloh (sloty 1, 3, 6, 7, 8) | stredná až vysoká | podľa Prílohy 2 výzvy; vynechanie príloh 2, 4 a 5 je zdôvodnené v `README.md` |
 | Forma príloh (sken, podpis, pečiatka, osvedčenie) | nízka | demo má generované textové PDF; skutočný obrázkový sken je len v `04-sken.zip` |
 | Rozsah príloh 6 a 7 | veľmi nízka | 1–2 strany namiesto certifikátu oprávnenej osoby a projektovej dokumentácie stavby s energetickým hodnotením |
-| Energetické údaje v prílohách 6 a 7 | vysoká v číslach, nízka v rozsahu | primárna energia, emisie a plocha sú z formulára, merný ukazovateľ a trieda sú z nich dopočítané podľa vyhlášky; chýbajú ostatné časti certifikátu |
+| Energetické údaje v prílohách 6 a 7 | zhodné ročné ukazovatele, odlišné merné hodnotenie | ročná energia, emisie a cieľová plocha pochádzajú z formulára. Demo predpokladá rovnakú plochu pred a po obnove a z nej určuje triedy. Žiadateľ v úplnom poli `ucel` uvádza iné zatriedenie aj inú východiskovú mernú energiu. |
 | Rozpočet (Príloha 8) | stredná | oficiálny vzor, 9 skutočných súm aktivít a súlad s formulárom po krátení podľa PPP 13; výmery a jednotkové ceny sú modelové |
 | Kanál doručenia | nízka | kontrolór reálne pracuje v neverejnej časti ITMS21+, nie so ZIP súborom |
 
@@ -46,13 +46,13 @@ Jedna PPP sa v aplikácii zvyčajne rozkladá na viac pravidiel. Napríklad PPP 
 
 | Dokument v sade | Z verejných zdrojov | Modelové alebo rekonštruované | Čím sa líši od reálneho podania |
 |---|---|---|---|
-| `Formular_NFP401201G856.json` | polia verejného detailu ITMS21+ v štruktúre API | výber polí, bez historického rozhodnutia | Kontrolór vidí formulár ako štruktúrované údaje v ITMS21+ (časti 1–15), nie ako súbor JSON. Súčasťou spisu sú aj výpisy z registrov z integrácií (PPP 2–5, 15), tie v sade nie sú. |
+| `Formular_NFP401201G856.json` | vybrané polia verejného detailu ITMS21+ v štruktúre API | generátor pri G856 skracuje `ucel` na prvý odsek a vynecháva historické rozhodnutie | Kontrolór pracuje so štruktúrovanými údajmi v ITMS21+ a s výpismi z registrov. V demo JSON chýbajú aj dva odseky, v ktorých žiadateľ opisuje pôvodný a plánovaný energetický stav. |
 | `Ziadost_o_NFP_NFP401201G856.pdf` | hodnoty z formulára | výber častí, vlastná úprava | Reálny tlačový výstup ITMS21+ má všetky časti formulára a podáva sa podpísaný kvalifikovaným elektronickým podpisom (KB `2026-11-20-real-templates-and-itms-submission`). |
 | `Priloha_1a_Plnomocenstvo.pdf` | údaje obce, kód výzvy, názov projektu | starostka bez mena, splnomocnenec „Eva Modelová (fiktívna osoba)“, osobné údaje „[anonymizované]“, dátum 18. 9. 2025 | Výzva vyžaduje sken originálu s úradne osvedčeným podpisom štatutára (`Priloha_2_Zoznam_Priloh_akt._3.txt:33`, `:35`). Demo má prázdne miesta pre podpisy a osvedčovaciu doložku. Pravidlo L01 preto podpisy správne posiela človeku. |
 | `Priloha_3_Uznesenia.pdf` | č. 44/2025 z 9. 9. 2025, hlasovanie 8 : 0 : 1 (overené vo verejnom PDF obce, uznesenie na str. 7), územný plán 6/OZ-2001 (**neoverené**, podľa `README.md` zo ZaD č. 14/2019) | jednostranový prepis | Reálne ide o sken výpisu z uznesenia s podpisom (`Priloha_2…:108–115`). Verejné PDF obce obsahuje aj mená poslancov; demo ich nepreberá. |
-| `Priloha_6_Predrealizacny_certifikat.pdf` | primárna energia 119,0248 MWh/rok, emisie 19,6398 t, celková podlahová plocha 1 059,55 m² (PSKPRCO19), adresa, parcela; z nich globálny ukazovateľ 112,3 kWh/(m².rok) a trieda A1 | číslo „EC-DEMO-G856“; predpoklad, že vzťažná plocha certifikátu je celková podlahová plocha z ukazovateľa (Príloha 5 výzvy ju tak definuje, `Priloha_5_MU_akt_3.txt:198`) | Výzva chce predrealizačný energetický certifikát podľa § 7 zákona 555/2005 Z. z., vydaný oprávnenou osobou, ako sken originálu (`Priloha_2…:184–203`). Reálny certifikát má aj dodanú energiu, potrebu tepla a hodnotenie miest spotreby. Demo ich neuvádza, lebo sa nedajú odvodiť z verejných údajov. |
-| `Priloha_7_Projektova_dokumentacia.pdf` | ukazovatele pred a po obnove, úspora 53,92 %, globálny ukazovateľ 112,3 → 51,8 kWh/(m².rok), triedy A1 → A0, kapacity OZE 0,0033 / 0,0231 MW | technická správa na 2 strany a schéma bez mierky | Výzva chce sken projektovej dokumentácie autorizovanej projektantom a overenej povoľovacím orgánom, ktorej súčasťou je energetické hodnotenie (súčinitele U, potreba tepla, hygienické kritérium, vetranie…) (`Priloha_2…:225–262`). Reálne ide o desiatky až stovky strán s výkresmi. Demo má 2 strany a podateľňa z nich prečíta 2 767 znakov. |
-| `Priloha_8_Rozpocet.xlsm` | oficiálny vzor SIEA, sumy 9 aktivít (spolu 250 825,77 € oprávnených výdavkov), emisie, výroba z OZE, triedy a merné ukazovatele z Prílohy 6 | výmery, jednotkové ceny, ponuky, prevádzkové údaje, LV, „schválené radou: nie“ | Zošit obsahuje plné náklady 262 110,32 € s DPH. Pri úspore 53,92 % ich pre opatrenie 2.1.2 sám kráti na 95 % (`MU Budova 1!N44`, PPP 13 výzvy `:479`). Po krátení dáva M210 + M270 = 250 825,77 €, teda presne žiadanú sumu formulára; jednotlivé aktivity sa líšia najviac o 1 cent. Prečo formulár uvádza sumy už po krátení, vyplýva z troch faktov: projektová dokumentácia 10 663,75 € je presne 95 % z 11 225,00 €, ostatné výdavky 3 465,22 € presne 95 % z 3 647,60 € a schválená suma 248 453,79 € je vyššia ako 240 105,45 €, ktoré by zostali po krátení súm formulára. Čím sa reálny zošit líši od schválenej sumy, je **neoverené**. |
+| `Priloha_6_Predrealizacny_certifikat.pdf` | východisková primárna energia 119,0248 MWh/rok, emisie 19,6398 t, adresa a parcela. Plocha 1 059,55 m² je **cieľový** ukazovateľ PSKPRCO19. | označenie EC-DEMO-G856, použitie cieľovej plochy aj pred obnovou, výsledných 112,3 kWh/(m²·rok) a trieda A1 | Žiadateľ uvádza v poli `ucel` dodanú energiu 90,1 a primárnu energiu 115,4 kWh/(m²·rok), obe v triede B. Originál certifikátu vystavený oprávnenou osobou by umožnil overiť plochy, kategóriu budovy a zatriedenie (`Priloha_2…:184–203`). |
+| `Priloha_7_Projektova_dokumentacia.pdf` | ročná primárna energia, úspora 53,9236 % a štruktúrované kapacity OZE 0,0033 / 0,0231 MW | technická správa na dve strany, schéma bez mierky, modelové hodnotenie 112,3 → 51,8 kWh/(m²·rok) a A1 → A0 | Výzva vyžaduje sken autorizovanej a overenej projektovej dokumentácie vrátane energetického hodnotenia (`Priloha_2…:225–262`). Žiadateľ uvádza plánovaných 51,76 kWh/(m²·rok) a triedu A1. |
+| `Priloha_8_Rozpocet.xlsm` | záväzný vzor SIEA, žiadané výdavky deviatich aktivít, emisie a výroba z OZE | výmery, ceny, ponuky, prevádzka, LV, údaj o rade partnerstva a merné hodnotenie z modelového certifikátu | Plné náklady 262 110,32 € s DPH sme odvodili tak, aby po 5 % krátení budovy vyšli žiadané výdavky. P08b overí súčty za opatrenia. Rovnaký výsledok môže vzniknúť aj z iných jednotkových cien a množstiev. |
 | `Priloha_8_Podklad_k_oceneniu.pdf` | sumy aktivít z formulára, krátenie podľa PPP 13 | celá kalkulácia, tri ponuky prieskumu trhu | Ceny bez DPH sú na centy. Tri sekcie majú druhú položku výkazu (lešenie, demontáž, rozvody), aby súčet sekcie vyšiel na cent. Skutočný výkaz výmer má desiatky až stovky položiek a ponuky sú samostatné doklady dodávateľov. |
 
 ## Čo demo dokazuje a čo nie
@@ -67,23 +67,39 @@ Nedokazuje:
 - čítanie reálnych príloh: sú to väčšinou skeny bez textovej vrstvy a softvér nemá OCR, takže by ich označil za nečitateľné (v `04-sken.zip` to vidno na uznesení);
 - presnosť modelu na reálnych textoch príloh: model sa skúšal na krátkych rekonštrukciách a syntetických textoch;
 - overenie podpisov, pečiatok a osvedčovacej doložky;
-- vecnú správnosť rozpočtu. Demo je so formulárom zosúladené, no aplikácia súlad Prílohy 8 s formulárom nekontroluje.
+- hospodárnosť a oprávnenosť každej rozpočtovej položky. P08b kontroluje súlad súm za opatrenia 2.1.2 a 2.2.2 medzi vyplneným zošitom a formulárom. Ceny, množstvá a oprávnenosť konkrétnych výdavkov posudzuje kontrolór.
 
 ## Odporúčaná veta na prezentáciu
 
-„Údaje žiadosti sú skutočné z ITMS21+, prílohy sú rekonštrukcie na oficiálnych vzoroch výzvy. Skutočné prílohy sú skeny podpísaných originálov. Tie dnes softvér bez OCR neprečíta a pošle ich na preverenie človeku.“
+„Ukazujeme príjem skutočných údajov obce a modelových príloh. Žiadateľ uviedol primárnu energiu 115,4 kWh/(m²·rok) a triedu B. Demo používa pre oba stavy rovnakú plochu a vychádza mu 112,3 a trieda A1. Takýto rozdiel by kontrolór overil v originálnom certifikáte.“
 
-## Opravy (20. 11. 2026)
+## Porovnanie pôvodného podania a aktuálnej sady
 
-Generátor `scripts/demo-itms/vytvor.py` teraz počíta tieto údaje z verejných čísel, namiesto toho aby ich mal napevno:
+**Energia a podlahová plocha.** V úplnom poli `ucel` žiadateľ odkazuje na projektové hodnotenie z 12. 11. 2024. Uvádza vykurovanie v triede C, teplú vodu v triede B, celkovú dodanú energiu 90,1 kWh/(m²·rok) v triede B a primárnu energiu 115,4 kWh/(m²·rok) v triede B. Po obnove uvádza 51,76 kWh/(m²·rok) v triede A1 a výpočet úspory 53,9236 % z kombinácie plôch. [Verejný formulár, pole ucel](https://api.itms21.sk/public/v1/zonfp/id/206978)
 
-1. **Príloha 6:** pôvodný list uvádzal 115,4 kWh/(m².rok), čo pri ploche 1 059,55 m² dáva 122,3 MWh, kým ten istý list uvádzal 119,0248 MWh. Merný ukazovateľ je teraz podiel ročnej primárnej energie a plochy (112,3) a list plochu uvádza. Vymyslená dodaná energia 90,1 je odstránená.
-2. **Trieda:** pri overovaní škály sa ukázal ďalší nesúlad. Pôvodná trieda B nezodpovedala ani pôvodnej hodnote 115,4: podľa vyhlášky č. 364/2012 Z. z. (príloha č. 3, tabuľka F) majú administratívne budovy A0 do 61, A1 od 62 do 122 a B od 123 do 244 kWh/(m².a). Nové triedy sú A1 pred obnovou a A0 po nej, čo spĺňa podmienku výzvy o zlepšení aspoň o jednu triedu (`Vyzva…:274`). Pôvodná veta „trieda pochádza z verejného opisu“ bola nepravdivá a je nahradená skutočným pôvodom.
-3. **Podklad k oceneniu:** jednotkové ceny sú na centy, nie na štyri desatinné miesta. V prieskume trhu sa ponuka C už nerovná presne priemeru.
-4. **Príloha 8:** zošit vychádzal na 240 105,45 € oproti 250 825,77 € vo formulári. Teraz obsahuje plné náklady a po krátení sa s formulárom zhoduje (pozri tabuľku vyššie). Test `scripts/13-test-demo-itms.ts` to overuje.
+V staršom modelovom zošite v spise č. 5 sú na hárku `MU Budova 1` v bunkách F50 a F52 plochy 1 031,41 a 1 059,55 m². Prvá je dopočet 119,0248 MWh × 1 000 / 115,4 kWh/m². Druhá je cieľová plocha v žiadosti. Príloha 5 výzvy určuje ako podklad pre PSKPRCO19 certifikát **po** realizácii (`Priloha_5_MU_akt_3.txt:198–201`). Pôvodnú výmeru, ktorú použil energetický hodnotiteľ, treba doložiť jeho výpočtom.
+
+Modelový zošit v aktuálnom ZIP uvádza v oboch bunkách 1 059,55 m² a prepočítané merné energie 112,34 a 51,76 kWh/(m²·rok). Podľa poľa `popis` ide o budovu obecného úradu. Tabuľka F pre administratívne budovy zaraďuje 115,4 aj 112,34 do A1 a 51,76 do A0. Medzi touto škálou a údajom žiadateľa tak ostáva rozpor aj pri použití jeho východiskovej hodnoty. Hodnota 90,1 kWh/(m²·rok), ktorú žiadateľ uvádza ako celkovú dodanú energiu, patrí v tabuľke E (celková potreba energie budovy) do triedy B, rovnako ako uvádza žiadateľ. Rozpor sa teda týka tried primárnej energie pred obnovou aj po nej. Rozhodujúce sú pôvodný certifikát a projektové hodnotenie. [Vyhláška č. 35/2020 Z. z., tabuľky E a F na s. 13](https://static.slov-lex.sk/pdf/SK/ZZ/2020/35/ZZ_2020_35_20200310.pdf)
+
+**Kapacity OZE.** Pole `ucel` uvádza 3,0 kWp fotovoltiky a 25,0 kW tepelného čerpadla. V poli `popis` sú cieľové ukazovatele 0,00325 a 0,02307 MW, teda 3,25 a 23,07 kW. Žiadané štruktúrované ukazovatele PSKPRCO22a a PSKPRCO22b v ITMS21+ majú 0,0033 a 0,0231 MW (3,3 a 23,1 kW) a tieto hodnoty používajú aj modelové prílohy. Technické parametre zariadení a vzťah k vykazovaným ukazovateľom by kontrolór preveril v projektovej dokumentácii. [Verejný detail žiadosti](https://api.itms21.sk/public/v1/zonfp/id/206978)
+
+**Rozpočet.** Žiadaný NFP aj žiadané celkové oprávnené výdavky sú 250 825,77 €, vlastné zdroje 0 €. Modelový zošit obsahuje 262 110,32 € plných nákladov s DPH. Po uplatnení pásma 95 % na budovu sa M210 (214 406,49 €) a M270 (36 419,28 € na OZE) zhodujú so žiadosťou na cent. Zošit spätne zostavený na túto sumu dokladá výpočet v deme. Pôvodné obstarávacie ceny a spôsob zostavenia rozpočtu obce by doložili jej prílohy.
+
+Schválený NFP aj schválené celkové oprávnené výdavky sú 248 453,79 €, schválené vlastné zdroje 0 €. Verejné polia `polozkyRozpoctu` a `polozkyRozpoctuSchvalene` ukazujú, ktoré čiastky sa zmenili. Odôvodnenie jednotlivých úprav by muselo vyplývať z rozhodnutia alebo posudku. [Verejný detail žiadosti](https://api.itms21.sk/public/v1/zonfp/id/206978)
+
+| Zmenená aktivita | Žiadané (€) | Schválené (€) | Rozdiel (€) |
+|---|---:|---:|---:|
+| Osvetlenie | 33 385,36 | 31 983,18 | −1 402,18 |
+| Systémy chladenia a vetrania | 15 738,10 | 14 768,25 | −969,85 |
+| Vykurovací systém | 17 538,79 | 17 538,80 | +0,01 |
+| Zateplenie obvodového plášťa | 117 597,18 | 117 597,21 | +0,03 |
+| Kvalita vnútorného prostredia | 16 018,09 | 16 018,10 | +0,01 |
+| **Rozdiel za všetkých deväť aktivít** | | | **−2 371,98** |
+
+Obe aktivity OZE, projektová dokumentácia a ostatné výdavky majú rovnaké žiadané aj schválené sumy. Mierne sa líšia aj schválené ukazovatele: cieľová ročná primárna energia PSKPRCR26b je 54,8847 namiesto žiadaných 54,8423 MWh/rok a kapacity OZE PSKPRCO22a a PSKPRCO22b sú 0,0032 a 0,023 MW namiesto 0,0033 a 0,0231 MW.
 
 ## Otvorené
 
 - Reálne prílohy nie sú verejné: verejné API ITMS21+ nemá endpoint pre prílohy žiadosti (KB `2026-11-20-real-templates-and-itms-submission`). Vernosť príloh 6 až 8 sa dá zlepšiť len so súhlasom obce alebo poskytovateľa.
-- ~~Kontrola súladu Prílohy 8 s formulárom v pravidlách chýba.~~ Doplnené pravidlom **P08b** (2026-11-20): zošit M210 (+ ďalšie budovy) a M270 voči súčtu položiek formulára za opatrenie 2.1.2 a 2.2.2. Demo `01-komplet.zip` dáva splnené. Starší spis so zošitom pred opravou (formulár 2.1.2 = 214 406,49 € = vtedajšie M208, zošit po krátení 203 686,17 €) dáva na preverenie s diagnózou „suma pred krátením“. Nesúlad pokrývajú syntetické prípady v `scripts/14-test-priloha8.ts`. **Neoverené:** vyplnenie hárkov B2–B7 pri viacerých budovách. Sú skryté a vzor bez makier ich neodkryje, takže P08b ich pri B13 > 1 posiela na preverenie.
-- **Neoverené:** celková podlahová plocha 1 059,55 m² pri budove z roku 1942 dáva východiskový ukazovateľ 112 kWh/(m².a), čo je na neobnovenú budovu nízka hodnota. Čísla sú z verejného formulára. Vysvetlenie by bolo v originálnom certifikáte.
+- **Viac budov.** P08b porovnáva výdavky za jednotlivé opatrenia. Pri viacerých budovách potrebuje aj príslušné čitateľné hárky B2–B7. Skúška s originálnym podaním na viac budov ostáva otvorená. Aktuálna sada G856 má jednu budovu. So starším zošitom zo spisu č. 5 vychádza dnes P08b na preverenie, keďže M210 pre budovu je 203 686,17 € a žiadosť uvádza 214 406,49 €. Výsledok pôvodného posudku treba čítať podľa jeho vtedajšej verzie pravidiel.
+- **Podklady pre energetické hodnotenie.** Kategóriu budovy, pôvodnú vzťažnú plochu a dôvod rozdielu v energetických triedach treba porovnať s pôvodným hodnotením. Samotný verejný formulár uvádza, že budova prešla rekonštrukciami, naposledy v roku 2007. [Verejná žiadosť](https://api.itms21.sk/public/v1/zonfp/id/206978)
