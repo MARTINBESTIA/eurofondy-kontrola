@@ -336,7 +336,9 @@ export const KONTROLY: Record<string, Kontrola> = {
   },
 
   harmonogram(z, p) {
-    if (!z.koniecHlavnychAktivit || !z.datumPredlozenia) return { stav: 'chyba_podklad', zdovodnenie: 'Vo formulári chýba harmonogram hlavných aktivít alebo dátum predloženia.' };
+    if (!z.koniecHlavnychAktivit) return { stav: 'chyba_podklad', zdovodnenie: 'Vo formulári chýba harmonogram hlavných aktivít (koniec realizácie).' };
+    // Dátum predloženia nie je podklad, ktorý by mal doložiť žiadateľ: kontrolór ho zistí v ITMS21+ alebo v e-schránke.
+    if (!z.datumPredlozenia) return { stav: 'na_preverenie', zdovodnenie: `Hlavné aktivity končia ${z.koniecHlavnychAktivit}, ale vo formulári chýba dátum predloženia, od ktorého sa dĺžka orientačne počíta. Kontrolór ho overí v ITMS21+ alebo podľa doručenia do e-schránky poskytovateľa.` };
     const m = mesiace(z.datumPredlozenia, z.koniecHlavnychAktivit); const limit = (p.parametre!.maxMesiacov as number) + (p.parametre!.rezervaNaKonanieMesiacov as number);
     const hodnoty = { koniecHlavnychAktivit: z.koniecHlavnychAktivit, mesiacovOdPredlozenia: +m.toFixed(1) };
     return m > limit ? { stav: 'na_preverenie', zdovodnenie: `Hlavné aktivity končia ${z.koniecHlavnychAktivit}, teda ${cislo(m)} mesiaca po predložení žiadosti. Lehota 24 mesiacov beží až od účinnosti zmluvy, ale harmonogram je dlhý, treba ho preveriť.`, hodnoty }

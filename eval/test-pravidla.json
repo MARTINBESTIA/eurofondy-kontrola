@@ -1,9 +1,9 @@
 {
  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
  "balik": "Zmena č. 3 zo dňa 21.08.2025",
- "datum": "2026-11-20T23:43:12.192Z",
+ "datum": "2026-11-21T03:52:17.898Z",
  "pocetZiadosti": 799,
- "trvanieMs": 200,
+ "trvanieMs": 193,
  "skupiny": {
   "presli": 480,
   "nesplnili": 108,
@@ -218,8 +218,7 @@
    },
    "zastavene": {
     "splnene": 162,
-    "chyba_podklad": 15,
-    "na_preverenie": 2
+    "na_preverenie": 17
    },
    "nesplnili": {
     "splnene": 104,

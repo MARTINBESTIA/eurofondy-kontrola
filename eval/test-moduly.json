@@ -1,11 +1,11 @@
 {
- "cas": "2026-11-20T23:43:30.608Z",
- "dnes": "2026-11-20",
+ "cas": "2026-11-21T03:52:18.161Z",
+ "dnes": "2026-11-21",
  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
  "moduly": {
   "vyzvy": {
    "pripadov": 186,
-   "trvanieMs": 20,
+   "trvanieMs": 19,
    "navrhy": {
     "ciastocne_overene": 65,
     "nesplnene_podmienky": 33,
@@ -127,17 +127,17 @@
    ],
    "poznamky": [
     "Z 182 výziev má 91 aspoň dve datované verzie (zmenu po vyhlásení); žiadateľ, ktorý pracuje so starou verziou, je reálne riziko.",
-    "Plánované výzvy: 4, z toho po plánovanom termíne vyhlásenia a nevyhlásené k 2026-11-20: 3 (2026/00027 plán 2026-11-01, 2025/00012 plán 2025-07-01, 2024/00035 plán 2026-03-01).",
+    "Plánované výzvy: 4, z toho po plánovanom termíne vyhlásenia a nevyhlásené k 2026-11-21: 3 (2026/00027 plán 2026-11-01, 2025/00012 plán 2025-07-01, 2024/00035 plán 2026-03-01).",
     "Bez zadaného plánu žiadateľa (dni prípravy, dátum oboznámenia) ostávajú pravidlá C03 a C04 neoverené, preto väčšina reálnych výrokov je „čiastočne overené“."
    ]
   },
   "zonfp": {
    "pripadov": 799,
-   "trvanieMs": 178,
+   "trvanieMs": 182,
    "navrhy": {
-    "na_preverenie": 725,
+    "na_preverenie": 735,
     "nesplnene_podmienky": 58,
-    "vyzva_na_doplnenie": 16
+    "vyzva_na_doplnenie": 6
    },
    "pravidla": [
     {
@@ -233,8 +233,7 @@
      "nazov": "Hlavné aktivity sa stihnú do 24 mesiacov od účinnosti zmluvy",
      "pocty": {
       "splnene": 760,
-      "na_preverenie": 24,
-      "chyba_podklad": 15
+      "na_preverenie": 39
      }
     },
     {
@@ -431,7 +430,7 @@
   },
   "vo": {
    "pripadov": 659,
-   "trvanieMs": 99,
+   "trvanieMs": 110,
    "navrhy": {
     "na_preverenie": 276,
     "ciastocne_overene": 382,
@@ -576,7 +575,7 @@
   },
   "zmeny": {
    "pripadov": 2336,
-   "trvanieMs": 483,
+   "trvanieMs": 470,
    "navrhy": {
     "na_preverenie": 1307,
     "ciastocne_overene": 1029
@@ -784,7 +783,7 @@
   },
   "zop": {
    "pripadov": 1362,
-   "trvanieMs": 857,
+   "trvanieMs": 763,
    "navrhy": {
     "ciastocne_overene": 1046,
     "na_preverenie": 315,
@@ -1284,5 +1283,5 @@
    ]
   }
  },
- "trvanieMs": 5287
+ "trvanieMs": 5147
 }

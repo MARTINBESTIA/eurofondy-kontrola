@@ -230,7 +230,9 @@ export function ziadostSpisu(db: DatabaseSync, id: number): Ziadost {
   if (!s.formular_json) throw new Error('Spis nemá údaje formulára žiadosti. Priložte formulár (JSON) alebo zadajte kód žiadosti z ITMS21+.');
   const z = JSON.parse(s.formular_json) as Ziadost;
   z.kod ||= cisloSpisu(s.id, s.prijate);
-  z.datumPredlozenia ??= s.prijate.slice(0, 10);
+  // Dátum predloženia sa nedopĺňa dátumom nahratia do podateľne: rozhoduje odoslanie do e-schránky poskytovateľa (MD č. 21)
+  // a neskoršie nahratie by vybralo neskoršie kolo, teda iné znenie výzvy (napr. bez povinnej prílohy). Bez dátumu
+  // idú včasnosť (F01), harmonogram (D14) a výber znenia (VER-KOLO) kontrolórovi.
   z.prilohy = prilohySpisu(db, id);
   return z;
 }
