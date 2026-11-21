@@ -152,7 +152,15 @@ table.subory select { width: 100%; max-width: 250px; padding: 5px 6px; border: 1
 .prilohy-stav { list-style: none; margin: 0 0 10px; padding: 0; }
 .prilohy-stav li { display: grid; grid-template-columns: 112px 1fr; gap: 10px; align-items: start; padding: 8px 0; border-top: 1px solid var(--ciara); font-size: 13.5px; }
 .prazdne-vysledok { margin: 22px 0; padding: 14px 16px; border: 1px dashed var(--ciara); border-radius: 8px; }
-.rozhodnutie, .historia { margin-top: 18px; }
+.rozhodnutie, .historia, .vyzva-navrh { margin-top: 18px; }
+.vyzva-navrh > summary { cursor: pointer; font-weight: 600; margin-bottom: 8px; }
+.polozky-vyzvy { list-style: none; margin: 10px 0; padding: 0; }
+.polozky-vyzvy li { border-top: 1px solid var(--ciara); padding: 9px 0; }
+.polozka-vyzvy { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; color: var(--text); font-size: 13.5px; }
+.polozka-vyzvy input { margin-top: 4px; }
+.upozornenia-vyzvy { margin: 4px 0 12px; padding-left: 18px; } .upozornenia-vyzvy:empty { display: none; }
+.lehota-vyzvy input { width: 90px; display: block; padding: 6px 8px; border: 1px solid var(--ciara); border-radius: 6px; background: var(--pozadie); }
+.text-vyzvy { margin: 10px 0 8px; font: 13px/1.5 Consolas, ui-monospace, monospace; }
 .rozhodnutie textarea { margin: 8px 0; }
 .volby { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
 .volba { border: 1px solid var(--ciara); background: var(--pozadie); border-radius: 6px; padding: 8px 14px; cursor: pointer; font-weight: 600; }

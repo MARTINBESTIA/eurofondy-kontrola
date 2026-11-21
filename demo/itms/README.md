@@ -15,7 +15,7 @@ Pri samostatnej skúške obsahových pravidiel 20. 11. 2026 model `qwen3.5:9b` r
 
 | Vstup | Úkon kontrolóra | Čo očakávať |
 |---|---|---|
-| [02-pred-doplnenim.zip](02-pred-doplnenim.zip) | Prijať ako **novú** žiadosť a posúdiť. | Chýba energetický certifikát (6) a podklady k rozpočtu (8). Vybrať **Výzva na doplnenie** a uložiť rozhodnutie. |
+| [02-pred-doplnenim.zip](02-pred-doplnenim.zip) | Prijať ako **novú** žiadosť a posúdiť. | Chýba energetický certifikát (6) a podklady k rozpočtu (8). Box **Návrh výzvy na doplnenie** zostaví výzvu s PPP 7 a PPP 13, lehotou 5 pracovných dní a poučením. Text sa dá upraviť a skopírovať. Potom vybrať **Výzva na doplnenie**: poznámka sa predvyplní zaradenými bodmi. Uložiť rozhodnutie. |
 | [03-doplnenie.zip](03-doplnenie.zip) | V **tom istom spise** vybrať súbor v časti **Doplniť podklady**, nahrať a znova posúdiť. | Pribudnú tri súbory. Body P06 aj P08 sú splnené v rozsahu kontroly prítomnosti. V histórii sú oba posudky. |
 | [04-sken.zip](04-sken.zip) | Prijať ako novú žiadosť. Otvoriť súbor pri prílohe 3. | Uznesenie je vizuálne čitateľné, PDF však má iba obraz. Súbor ostáva v spise a pravidlo P03 hlási nečitateľný podklad. |
 | [05-historicky-nalez.zip](05-historicky-nalez.zip) | Prijať ako novú žiadosť a posúdiť. | Miloslavov žiadal 176 316,80 €. Pravidlo D12 zistí sumu pod hranicou 200 000 €. Aplikácia používa pravidlá zmeny č. 3 aj na túto žiadosť z roku 2024. Verejný historický zoznam uvádza všeobecnú kategóriu nesplnených podmienok. Priradenie konkrétneho pravidla je výsledkom našej predkontroly. |

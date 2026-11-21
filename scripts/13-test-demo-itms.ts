@@ -114,6 +114,18 @@ try {
   const pred = await posud(b);
   assert.equal(pred.navrh, 'vyzva_na_doplnenie');
   for (const k of ['P06', 'P08', 'P08b']) assert.equal(stav(pred.nalezy, k), 'chyba_podklad');
+  // Návrh výzvy na doplnenie: príloha 8 je jedna položka za P08 aj P08b; nič sa neukladá, lehota pod 5 dní sa odmietne.
+  const navrh = await api(`spisy/${b}/vyzva`, {});
+  assert.deepEqual(navrh.vybrane, ['P06', 'P08+P08b']);
+  assert.match(navrh.text, /\n1\. PPP č\. 7 – [^\n]+\n {3}Zistenie: Príloha č\. 6 sa vyžaduje a chýba\.\n {3}Požadujeme: Predložte Prílohu č\. 6 ŽoNFP/);
+  assert.match(navrh.text, /\n2\. PPP č\. 13 – [^\n]+\n[^\n]+\n {3}Požadujeme: Predložte Prílohu č\. 8 ŽoNFP/);
+  assert.match(navrh.text, /do 5 pracovných dní odo dňa doručenia/);
+  assert.match(navrh.text, /zastaviť podľa § 17 ods\. 2 zákona č\. 121\/2022 Z\. z\./);
+  const vyzvaHttp = (spis: number, telo: object) => fetch(`${base}/api/podatelna/spisy/${spis}/vyzva`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(telo) });
+  assert.equal((await vyzvaHttp(b, { lehota: 4 })).status, 400);
+  assert.equal((await vyzvaHttp(bezExcelu, {})).status, 400, 'Spis bez posudku nemá z čoho zostaviť výzvu.');
+  assert.equal((await api(`spisy/${b}`)).spis.stav, 'posudena', 'Návrh výzvy nesmie meniť stav spisu.');
+  console.log('Návrh výzvy: PPP 7 (príloha 6) a PPP 13 (príloha 8 raz za P08 aj P08b); lehota pod 5 dní a spis bez posudku sa odmietnu.');
   await api(`spisy/${b}/rozhodnutie`, { rozhodnutie: 'doplnenie', poznamka: 'Doplňte certifikát a dokumentáciu k rozpočtu.' });
   await api(`spisy/${b}/subory`, { subory: [zip('03-doplnenie.zip')] });
   const po = await posud(b);

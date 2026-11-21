@@ -121,6 +121,18 @@ s riešením v osobitnom priečinku, nájdete v [demo/nova-ziadost/README.md](de
   nedostatkoch v `data/zdroje/CKO-vseobecna-informacia-ZoNFP/`). V ostrej prevádzke treba prepínač zapnúť,
   podpisy potom posúdi človek zo skenu. Kvalifikovaný elektronický podpis formulára pri doručení softvér
   nekontroluje ani so zapnutým prepínačom; patrí k podmienkam doručenia riadne a včas (MD č. 21, kap. 2.3).
+- **Návrh výzvy na doplnenie.** Box pod nálezmi zostaví text výzvy z posledného posudku
+  (`src/podatelna/vyzva.ts`, `POST /api/podatelna/spisy/:id/vyzva`) podľa MD č. 21, kap. 2.4. Pri každom
+  bode uvedie PPP, zistenie, požiadavku a miesto podmienky vo výzve. Pridá lehotu najmenej 5 pracovných dní
+  od doručenia, spôsob doplnenia cez ITMS21+ a poučenie o možnosti zastaviť konanie podľa § 17 ods. 2
+  zákona č. 121/2022 Z. z. Bez poučenia by konanie pre nedoplnenie zastaviť nešlo. Predvolene sú zaradené
+  nesplnené body a chýbajúce podklady, body na preverenie si kontrolór zaradí sám. Bod, ktorý čaká na tú istú
+  chýbajúcu prílohu (P08b pri P08), je v jednej položke. Doručenie (V01, F01), body inventára a registre do
+  návrhu nejdú. Návrh ich vymenuje v upozornení, takže žiadny otvorený nález nezmizne potichu
+  (`npm run test:vyzva`). Pri nesplnenom bode návrh upozorní, že výzva sa nevyžaduje, ak sa nedostatok nedá
+  napraviť (ods. 16). Text sa dá upraviť, skopírovať a stiahnuť. Nič sa neukladá ani neodosiela. Poznámka
+  k rozhodnutiu „Výzva na doplnenie“ sa predvyplní zaradenými bodmi. Pri voľbe „Nesplnila podmienky“ v spise
+  bez výzvy aplikácia pripomenie, že metodika vyžaduje aspoň jednu výzvu (ods. 12), a vyžaduje poznámku.
 - **Výsledky sa ukladajú.** Každý posudok ide do auditnej tabuľky `posudky` s väzbou na spis. Rozhodnutie
   kontrolóra (splnila / výzva na doplnenie / nesplnila) sa ukladá s poznámkou. Rozhodnutie proti návrhu
   softvéru vyžaduje poznámku a v prehľade výzvy sa počíta zvlášť. Čísla spisov `POD-RRRR-NNNN` sa po

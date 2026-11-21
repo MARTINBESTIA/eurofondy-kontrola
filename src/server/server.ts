@@ -16,6 +16,7 @@ import { zop } from '../moduly/zop/modul.ts';
 import { ukazovatele } from '../moduly/ukazovatele/modul.ts';
 import * as pod from '../podatelna/podatelna.ts';
 import { dolozPosudok, precitajPosudok } from '../podatelna/doklady.ts';
+import { navrhVyzvy } from '../podatelna/vyzva.ts';
 import { MAX_VEK_KONTROLY_DNI, nacitajKontroluZmien, nacitajZakladZmien, skontrolujZmeny, vekUdajovDni } from '../core/zmeny.ts';
 
 const KOREN = path.join(import.meta.dirname, '..', '..');
@@ -116,6 +117,17 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
       const r = vlozSpisovy.run(p.cas, zonfp.id, p.ziadostKod, p.balik, p.verziaBalika, p.model, p.navrh, 0, p.trvanieMs, JSON.stringify(naAudit(zonfp, p)), id);
       pod.ulozPosudok(db, id, Number(r.lastInsertRowid), p.navrh);
       return json(res, 200, { posudok: p });
+    }
+    // Návrh výzvy na doplnenie z posledného posudku: len text pre kontrolóra, nič sa neukladá ani neodosiela.
+    if (c[2] === 'vyzva') {
+      const d = pod.detailSpisu(db, id)!;
+      if (!d.posledny) return json(res, 400, { chyba: 'Žiadosť ešte nebola posúdená.' });
+      const verzie = verzieVyzvy(s.vyzva);
+      const balik = verzie.find((x) => x.id === d.posledny.balik && x.verzia === d.posledny.verziaBalika) ?? verzie.at(-1)!;
+      try {
+        return json(res, 200, navrhVyzvy({ posudok: d.posledny, balik, spis: d.spis, sloty: SLOTY },
+          { vyber: Array.isArray(b.vyber) ? b.vyber.map(String) : undefined, lehota: b.lehota == null ? undefined : Number(b.lehota) }));
+      } catch (e) { return json(res, 400, { chyba: (e as Error).message }); }
     }
     if (c[2] === 'rozhodnutie') { pod.rozhodni(db, id, b.rozhodnutie, String(b.poznamka ?? '')); return json(res, 200, { ok: true }); }
     if (c[2] === 'vymaz') { pod.vymazSpis(db, id); return json(res, 200, { ok: true }); }

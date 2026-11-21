@@ -167,6 +167,7 @@ async function kresliSpis(id) {
   } }, 'Posúdiť žiadosť');
   const poslednaZmena = subory.reduce((m, f) => (f.nahrate > m ? f.nahrate : m), '');
   const zastaraly = posledny && poslednaZmena > posledny.cas;
+  const vyzva = posledny ? boxVyzva(id, s, zastaraly) : null;
 
   detail().replaceChildren(el('div', { class: 'sirka-detail' },
     el('div', { class: 'titul' },
@@ -179,7 +180,8 @@ async function kresliSpis(id) {
     s.maFormular ? null : el('div', { class: 'pozn' }, 'Spis nemá údaje formulára žiadosti. Doplňte formulár (.json) alebo založte podanie s kódom žiadosti z ITMS21+. Bez formulára sa žiadosť nedá posúdiť.'),
     el('div', { class: 'mriezka spis' }, boxPodklady(id, subory, sloty), boxPrilohy(prilohyStav, sloty)),
     el('div', { id: 'pod-vysledok' }, posledny ? vysledok(posledny, d.skutocnost, zastaraly) : el('p', { class: 'tlmene prazdne-vysledok' }, 'Žiadosť ešte nebola posúdená. Skontrolujte zaradenie súborov a stlačte „Posúdiť žiadosť“.')),
-    boxRozhodnutie(id, s, posledny),
+    vyzva?.prvok ?? null,
+    boxRozhodnutie(id, s, posledny, subory, vyzva),
     boxHistoria(id, s, posudky)));
 }
 
@@ -249,24 +251,87 @@ function vysledok(p, skutocnost, zastaraly, nazov = 'Posledný posudok') {
     n);
 }
 
-function boxRozhodnutie(id, s, posledny) {
+// ---------- návrh výzvy na doplnenie (MD č. 21, kap. 2.4): softvér zostaví text, kontrolór ho upraví a odošle sám
+function boxVyzva(id, s, zastaraly) {
+  const st = { vyber: null, lehota: 5, upravene: false, navrh: null };
+  const zoznam = el('ul', { class: 'polozky-vyzvy' });
+  const upozornenia = el('ul', { class: 'upozornenia-vyzvy tlmene male' });
+  const pocet = el('span', { class: 'tlmene male' });
+  const stav = el('span', { class: 'tlmene male', role: 'status' });
+  const text = el('textarea', { rows: 18, class: 'text-vyzvy', spellcheck: 'false', 'aria-label': 'Text návrhu výzvy na doplnenie', oninput: () => { st.upravene = true; } });
+  const lehota = el('input', { type: 'number', min: '5', step: '1', value: '5', onchange: () => {
+    const n = Number(lehota.value);
+    if (!Number.isInteger(n) || n < 5) { stav.textContent = 'Lehota musí byť celý počet pracovných dní, najmenej 5.'; return; }
+    st.lehota = n; nacitaj();
+  } });
+  const zaskrtavacie = new Map();
+  const kresliPolozky = (polozky) => zoznam.replaceChildren(...polozky.map((x) => {
+    const cb = el('input', { type: 'checkbox', onchange: () => { st.vyber = polozky.filter((p) => zaskrtavacie.get(p.id).checked).map((p) => p.id); nacitaj(); } });
+    zaskrtavacie.set(x.id, cb);
+    return el('li', {}, el('label', { class: 'polozka-vyzvy' }, cb, el('div', {},
+      el('span', { class: `stitok s-${x.stav}` }, STAVY[x.stav]), ' ', el('b', {}, x.podmienka),
+      el('div', {}, el('span', { class: 'tlmene' }, 'Zistenie: '), x.zistenie),
+      el('div', {}, el('span', { class: 'tlmene' }, 'Požadujeme: '), x.poziadavka),
+      el('div', { class: 'tlmene male' }, `Bod ${x.pravidla.join(', ')} · ${x.nazov}`),
+      x.upozornenie ? el('div', { class: 'varovanie' }, x.upozornenie) : null)));
+  }));
+  const nacitaj = async (prepisat = false) => {
+    try {
+      const j = await api(`/api/podatelna/spisy/${id}/vyzva`, { vyber: st.vyber ?? undefined, lehota: st.lehota });
+      if (!st.navrh) {
+        if (!j.polozky.length) return; // posudok nemá čo doplniť: box ostane skrytý
+        kresliPolozky(j.polozky);
+        upozornenia.replaceChildren(...j.upozornenia.map((u) => el('li', {}, u)));
+        box.hidden = false; box.open = j.vybrane.length > 0;
+      }
+      st.navrh = j; st.vyber = j.vybrane;
+      for (const [k, cb] of zaskrtavacie) cb.checked = j.vybrane.includes(k);
+      pocet.textContent = ` · zaradené ${j.vybrane.length} z ${j.polozky.length}`;
+      if (!st.upravene || prepisat) { text.value = j.text || 'Vyberte aspoň jeden bod.'; st.upravene = false; stav.textContent = ''; }
+      else stav.textContent = 'Text ste upravili ručne, preto ho zmena výberu neprepísala. Tlačidlo „Zostaviť znova“ ho prepíše.';
+    } catch (e) { stav.textContent = `Návrh sa nepodarilo zostaviť: ${e.message}`; }
+  };
+  const stiahni = () => {
+    const a = el('a', { href: URL.createObjectURL(new Blob(['﻿' + text.value.replace(/\r?\n/g, '\r\n')], { type: 'text/plain;charset=utf-8' })), download: `Vyzva_na_doplnenie_${s.cislo}.txt` });
+    a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  };
+  const box = el('details', { class: 'box vyzva-navrh', hidden: '' },
+    el('summary', {}, 'Návrh výzvy na doplnenie', pocet),
+    el('p', { class: 'tlmene male' }, 'Softvér zostaví návrh z nálezov posledného posudku podľa metodického usmernenia MIRRI č. 21, kap. 2.4: pri každom bode uvedie PPP, zistenie a požiadavku, pridá lehotu a poučenie o možnosti zastaviť konanie. Body vyberte, text skontrolujte a upravte. Nič sa neodosiela.'),
+    zastaraly ? el('div', { class: 'pozn' }, 'Po poslednom posudku pribudli do spisu nové podklady. Posúďte žiadosť znova, inak návrh nezodpovedá spisu.') : null,
+    zoznam, upozornenia,
+    el('label', { class: 'lehota-vyzvy' }, 'Lehota na doplnenie v pracovných dňoch od doručenia výzvy (najmenej 5)', lehota),
+    text,
+    el('div', { class: 'akcie' },
+      el('button', { class: 'vedlajsie', onclick: async (e) => { try { await navigator.clipboard.writeText(text.value); e.target.textContent = 'Skopírované'; } catch { e.target.textContent = 'Nedá sa kopírovať'; } } }, 'Kopírovať'),
+      el('button', { class: 'vedlajsie', onclick: stiahni }, 'Stiahnuť ako .txt'),
+      el('button', { class: 'vedlajsie', onclick: () => nacitaj(true) }, 'Zostaviť znova'), stav),
+    el('p', { class: 'tlmene male' }, 'Výzvu odošlite do elektronickej schránky žiadateľa do vlastných rúk a informáciu o nej aj na jeho e-mail alebo cez modul Komunikácia v ITMS21+. Potom v rozhodnutí vyberte „Výzva na doplnenie“: poznámka sa predvyplní zoznamom zaradených bodov.'));
+  nacitaj();
+  return { prvok: box, poznamka: () => st.navrh?.poznamka || null };
+}
+
+function boxRozhodnutie(id, s, posledny, subory, vyzva) {
   let volba = s.rozhodnutie ?? null; let auto = '';
   const pozn = el('textarea', { rows: 4, placeholder: 'Odôvodnenie alebo text výzvy na doplnenie', 'aria-label': 'Poznámka k rozhodnutiu' });
   pozn.value = s.rozhodnutiePozn ?? '';
   const varovanie = el('p', { class: 'varovanie', role: 'status' });
+  // Pred neschválením má žiadateľ dostať aspoň jednu výzvu na doplnenie (MD č. 21, kap. 2.4 ods. 12), okrem neodstrániteľného nedostatku (ods. 16).
+  const vyzvaUz = s.rozhodnutie === 'doplnenie' || subory.some((f) => f.davka > 1);
   const proti = (r) => !posledny ? 'Žiadosť ešte nebola posúdená softvérom.'
     : r === 'splnila' && ['nesplnene_podmienky', 'vyzva_na_doplnenie'].includes(posledny.navrh) ? 'Rozhodnutie je proti návrhu softvéru (zistené porušenie alebo chýbajúce podklady). Uveďte dôvod do poznámky.'
       : r === 'nesplnila' && ['bez_zisteni', 'ciastocne_overene'].includes(posledny.navrh) ? 'Softvér nenašiel porušenie. Uveďte, ktorú podmienku žiadosť nespĺňa.'
-        : r === 'splnila' && posledny.navrh === 'na_preverenie' ? 'Softvér označil body na preverenie. Rozhodnite až po ich posúdení.' : '';
-  const povinnaPoznamka = (r) => !!posledny && ((r === 'splnila' && ['nesplnene_podmienky', 'vyzva_na_doplnenie'].includes(posledny.navrh)) || (r === 'nesplnila' && ['bez_zisteni', 'ciastocne_overene'].includes(posledny.navrh)) || r === 'doplnenie');
+        : r === 'splnila' && posledny.navrh === 'na_preverenie' ? 'Softvér označil body na preverenie. Rozhodnite až po ich posúdení.'
+          : r === 'nesplnila' && !vyzvaUz ? 'V spise nie je výzva na doplnenie. Metodika ju pred neschválením vyžaduje aspoň raz (MD č. 21, kap. 2.4 ods. 12). Bez nej len vtedy, ak sa nedostatok nedá napraviť; dôvod uveďte do poznámky (ods. 16).' : '';
+  const povinnaPoznamka = (r) => !!posledny && ((r === 'splnila' && ['nesplnene_podmienky', 'vyzva_na_doplnenie'].includes(posledny.navrh)) || (r === 'nesplnila' && ['bez_zisteni', 'ciastocne_overene'].includes(posledny.navrh)) || (r === 'nesplnila' && !vyzvaUz) || r === 'doplnenie');
   const tlacidla = Object.entries(ROZHODNUTIA).map(([k, n]) => el('button', { type: 'button', class: `volba v-${FARBA_ROZH[k]}`, 'aria-pressed': String(volba === k), onclick: () => vyber(k) }, n));
   const vyber = (k) => {
     volba = k; tlacidla.forEach((t, i) => t.setAttribute('aria-pressed', String(Object.keys(ROZHODNUTIA)[i] === k)));
     varovanie.textContent = proti(k);
-    // Pri výzve na doplnenie predvyplníme zoznam chýbajúcich podkladov z posudku; kontrolór ho upraví.
+    // Pri výzve na doplnenie predvyplníme body zaradené v návrhu výzvy (bez návrhu chýbajúce podklady); kontrolór ich upraví.
     if (k === 'doplnenie' && (!pozn.value.trim() || pozn.value === auto)) {
       const chyby = posledny?.nalezy.filter((n) => n.stav === 'chyba_podklad') ?? [];
-      auto = chyby.length ? `Výzva na doplnenie. Chýbajúce alebo neúplné podklady:\n${chyby.map((n, i) => `${i + 1}. ${n.nazov}: ${n.zdovodnenie}`).join('\n')}` : '';
+      auto = vyzva?.poznamka() ?? (chyby.length ? `Výzva na doplnenie. Chýbajúce alebo neúplné podklady:\n${chyby.map((n, i) => `${i + 1}. ${n.nazov}: ${n.zdovodnenie}`).join('\n')}` : '');
       pozn.value = auto;
     }
   };
