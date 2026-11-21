@@ -5,7 +5,7 @@ import { textBunky } from '../../ingest/dokument.ts';
 
 type Subor = NonNullable<Priloha['subory']>[number] & { suborId: number };
 type CitatPrilohy = Doklad & { suborId: number };
-const cislaPriloh: Record<string, string> = { P03: '3', P05: '5', P06: '6', P07: '7', P08: '8', P08b: '8', L01: '1', L05: '5' };
+const cislaPriloh: Record<string, string> = { P03: '3', P05: '5', P06: '6', P07: '7', P08: '8', P08b: '8', P09: '9', L01: '1', L05: '5' };
 
 // Čísla sa vzťahujú na nemenný text extrahovaný pri príjme. Staršie PDF v úložisku
 // môžu mať po trim() odstránené úvodné prázdne strany, preto neodhadujeme čísla fyzických strán.
@@ -16,12 +16,14 @@ const nadpisPrilohy: Record<string, RegExp> = {
   '5': /energetick.{0,3} audit/i,
   '6': /energetick.{0,3} certifikát/i,
   '7': /technická správa|projektová dokumentácia|výkres/i,
+  '9': /horizontáln.{0,4} princíp|bezbariér/i,
 };
 const dalsieRiadkyPrilohy: Record<string, RegExp[]> = {
   '3': [/schválil.{0,60}program|program.{0,60}schválil/i, /územn.{0,4} plán.{0,80}schválil|schválil.{0,80}územn.{0,4} plán/i],
   '5': [/energetick.{0,4} audítor|odborne spôsobil/i],
   '6': [/^(?:posudzovaná\s+)?(?:budova|objekt|adresa)\s*[ :–-]+\S/i],
   '7': [/technick.{0,3} správa|výkresov.{0,3} časť/i],
+  '9': [/bezbariérov.{0,4} prístupnos/i],
 };
 
 function referenciaNaText(s: Subor, citat: string, riadokOd: number, riadokDo = riadokOd): CitatPrilohy {

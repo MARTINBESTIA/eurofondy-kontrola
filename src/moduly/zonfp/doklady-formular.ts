@@ -90,6 +90,18 @@ export function pripravDokladyFormulara(text: string, z: Ziadost): (n: Nalez) =>
       if (ajVychodisko) pridaj([...cesta, formaItms ? 'vychodiskovaHodnotaSpolu' : 'vychodisko']);
       pridaj([...cesta, formaItms ? 'cielovaHodnotaSpolu' : 'ciel']);
     }
+    /** Neuvedený ukazovateľ pravidlo ráta ako 0. Doloží ho úplný zoznam kódov formulára, ak kód v ňom naozaj nie je
+     * a kontrolór zoznam nezmenil (doplnená hodnota by nemala miesto v zdroji). Rovnako D13 dokladá chýbajúcu aktivitu OZE. */
+    function bezUkazovatela(kod: string) {
+      const kody = (zoznam?: { kod: string }[]) => zoznam?.map(u => u.kod);
+      if (povodne.ukazovatele?.some(u => u.kod === kod) || !isDeepStrictEqual(kody(povodne.ukazovatele), kody(z.ukazovatele))) { uplne = false; return; }
+      for (const pole of formaItms ? ['ukazovatelZiadanyVystupu', 'ukazovatelZiadanyVysledku'] : ['ukazovatele']) {
+        const zoznam = data[pole];
+        if (!Array.isArray(zoznam)) { uplne = false; return; }
+        if (!zoznam.length) pridaj([pole]);
+        zoznam.forEach((_, i) => pridaj([pole, i, ...(formaItms ? ['ukazovatelProjektovySC', 'ukazovatelProjektovy', 'kod'] : ['kod'])]));
+      }
+    }
     function aktivita(i: number) {
       const a = z.aktivity[i], p = povodne.aktivity?.[i];
       if (!p || p.hlavna !== a.hlavna || p.opatrenie !== a.opatrenie || !a.opatrenie ||
@@ -172,8 +184,11 @@ export function pripravDokladyFormulara(text: string, z: Ziadost): (n: Nalez) =>
         vydavky('2.1.2');
         break;
       case 'D07d':
-        ukazovatel('PSKPRCO22a', false);
-        ukazovatel('PSKPRCO22b', false);
+        // V ITMS21+ uvádza 41 zo 618 žiadostí s hlavnou aktivitou 2.2.2 len jeden z ukazovateľov (údaje z 2026-11).
+        for (const kod of ['PSKPRCO22a', 'PSKPRCO22b']) {
+          if (z.ukazovatele.some(u => u.kod === kod)) ukazovatel(kod, false);
+          else bezUkazovatela(kod);
+        }
         vydavky('2.2.2');
         break;
       case 'D09':

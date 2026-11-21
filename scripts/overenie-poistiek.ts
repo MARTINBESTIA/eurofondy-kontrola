@@ -100,7 +100,14 @@ for (const [nazov, r, ocak] of vyhodnotenia) {
 const zPrilohou = { ...({} as Ziadost), prilohy: { '1': { nazov: 'P1.pdf', text: vzor1a, zaradenie: 'potvrdene' as const, subory: [{ suborId: 7, nazov: 'P1.pdf', text: vzor1a, citatelny: true }] } } };
 const l01 = (stav: Nalez['stav'], dokaz: string, najdene: number): Nalez => ({ pravidlo: 'L01', ppp: 1, nazov: '', druh: 'llm', stav, zdovodnenie: '', dokaz, hodnoty: { najdene }, citacia: { dokument: '', cast: '', znenie: '' } });
 const riadokSplnomocnenca = vzor1a.split('\n').findIndex((r) => r.includes('Mgr. Eva Ukážková')) + 1;
+// P09 (akt. 2): prítomnosť kontrolného zoznamu dokladá nadpis a vyhlásenie o bezbariérovosti, ale len v potvrdenom slote.
+const zoznam9 = 'Príloha č. 9a ŽoNFP – Dokument súladu projektu s horizontálnymi princípmi\nIdentifikácia výzvy\nPrehlasujem, že požiadavky na bezbariérovú prístupnosť sú realizované v súlade so stavebnou legislatívou.';
+const sPrilohou9 = (zaradenie: 'potvrdene' | 'odhad') => ({ ...({} as Ziadost), prilohy: { '9': { nazov: 'Zoznam.pdf', text: zoznam9, zaradenie, subory: [{ suborId: 9, nazov: 'Zoznam.pdf', text: zoznam9, citatelny: true }] } } });
+const p09: Nalez = { pravidlo: 'P09', ppp: 8, nazov: '', druh: 'priloha', stav: 'splnene', zdovodnenie: '', citacia: { dokument: '', cast: '', znenie: '' } };
 const dokladove: [string, Doklad[], (d: Doklad[]) => boolean][] = [
+  ['P09 potvrdený kontrolný zoznam dostane nadpis a vyhlásenie', dokladyPriloh(sPrilohou9('potvrdene'), p09),
+    (d) => d.length === 2 && d.every((x) => x.suborId === 9) && d.map((x) => x.riadokOd).join() === '1,3'],
+  ['P09 odhadnutý slot nedostane doklad', dokladyPriloh(sPrilohou9('odhad'), p09), (d) => d.length === 0],
   ['L01 skutočný úryvok dostane súbor a riadok', dokladyPriloh(zPrilohou, l01('na_preverenie', 'označenie splnomocnenej osoby: „Splnomocnenec    : Mgr. Eva Ukážková“', 1)),
     (d) => d.length === 1 && d[0].suborId === 7 && d[0].riadokOd === riadokSplnomocnenca],
   ['L01 vymyslený úryvok nedostane doklad', dokladyPriloh(zPrilohou, l01('na_preverenie', 'podpis štatutárneho orgánu: „podpísal starosta Ing. Ján Vymyslený“', 1)), (d) => d.length === 0],

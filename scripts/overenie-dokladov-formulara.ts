@@ -39,6 +39,24 @@ assert.deepEqual(pripravDokladyFormulara('{"kodItms":"NFP401201G856"}', z)(nalez
 const bezPoli = { ...z, datumPredlozenia: null, rozpocet: [], ukazovatele: z.ukazovatele.filter(u => u.kod !== 'PSKPRCO22b') };
 const neuplny = pripravDokladyFormulara(JSON.stringify(bezPoli), bezPoli);
 for (const id of ['D07c', 'D07d', 'D14', 'P08b']) assert.deepEqual(neuplny(nalez(id)), [], id);
+
+// D07d pri jednom druhu OZE: neuvedený ukazovateľ (ráta sa 0 MW) doloží úplný zoznam kódov, v ktorom naozaj nie je.
+const kodB = (u: any) => u.ukazovatelProjektovySC?.ukazovatelProjektovy?.kod;
+const bezB = { ...data, ukazovatelZiadanyVystupu: data.ukazovatelZiadanyVystupu.filter((u: any) => kodB(u) !== 'PSKPRCO22b') };
+const zBezB = normalizujItms21(bezB);
+const interny = { ...z, ukazovatele: z.ukazovatele.filter(u => u.kod !== 'PSKPRCO22b') };
+for (const [text, zz] of [[JSON.stringify(bezB, null, 2), zBezB], [JSON.stringify(interny, null, 2), interny]] as const) {
+  const refs = pripravDokladyFormulara(text, zz)(nalez('D07d'));
+  const riadky = text.split('\n');
+  assert(refs.length, 'D07d s jedným ukazovateľom OZE');
+  assert.equal(refs.filter(r => /\.kod ·/.test(r.miesto) && /ukazovatel/.test(r.miesto)).length, zz.ukazovatele.length);
+  assert(!refs.some(r => r.citat.includes('PSKPRCO22b')));
+  for (const r of refs) assert(riadky.slice(r.riadokOd - 1, r.riadokDo).join('\n').includes(r.citat), r.miesto);
+}
+// Hodnotu, ktorú doplnil kontrolór, ani ukazovateľ, ktorý z podania odstránil, zoznam formulára nedoloží.
+const doplneny = { ...zBezB, ukazovatele: [...zBezB.ukazovatele, { kod: 'PSKPRCO22b', nazov: '', typ: 'vystup' as const, jednotka: 'MW', vychodisko: null, ciel: 0.02 }] };
+assert.deepEqual(pripravDokladyFormulara(JSON.stringify(bezB), doplneny)(nalez('D07d')), []);
+assert.deepEqual(pripravDokladyFormulara(surovina, { ...z, ukazovatele: z.ukazovatele.filter(u => u.kod !== 'PSKPRCO22b') })(nalez('D07d')), []);
 const popis = { ...data, popis: '<p title="Úryvok iba z HTML atribútu">Energetická obnova <b>obecného úradu</b>.</p>' };
 const sHtml = pripravDokladyFormulara(JSON.stringify(popis), normalizujItms21(popis));
 assert.deepEqual(sHtml(nalez('L07', 'Úryvok iba z HTML atribútu')), []);
