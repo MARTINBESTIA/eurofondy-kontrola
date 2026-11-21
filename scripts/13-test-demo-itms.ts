@@ -66,7 +66,14 @@ try {
   // Po krátení na 95 % (PPP 13) sa oprávnené výdavky zošita rovnajú sume žiadanej vo formulári ŽoNFP.
   assert.equal(naCenty(String(Number(rozpocet.M210) + Number(rozpocet.M270))), 25082577,
     'Oprávnené výdavky zošita sa musia rovnať žiadanej sume formulára.');
-  assert.deepEqual([ukazovatele.F47, ukazovatele.F48], ['A1', 'A0'], 'Triedy podľa škály pre administratívne budovy.');
+  // Energetické hodnotenie preberá demo od žiadateľa (účel projektu v ŽoNFP), nie z vlastného prepočtu.
+  assert.deepEqual([ukazovatele.F47, ukazovatele.F48], ['B', 'A1'], 'Triedy podľa energetického hodnotenia žiadateľa.');
+  assert.deepEqual(['F49', 'F50', 'F51', 'F52'].map(k => Number(Number(ukazovatele[k]).toFixed(2))), [115.4, 1031.41, 51.76, 1059.55],
+    'Merné hodnoty žiadateľa; plocha pred obnovou je podiel 119,0248 MWh a 115,4 kWh/m², po obnove ukazovateľ PSKPRCO19.');
+  const formular = JSON.parse(fs.readFileSync(path.join(demo, 'subory', 'Formular_NFP401201G856.json'), 'utf8'));
+  assert.equal(formular.ucel.split('\n').length, 3, 'Formulár má celý účel projektu vrátane energetického hodnotenia.');
+  assert(formular.ucel.includes('115,4') && formular.ucel.includes('[anonymizované]')
+    && !/\b(?:Ing|Mgr|Bc|PhDr|RNDr|JUDr)\.\s*\p{Lu}/u.test(formular.ucel), 'Meno autora hodnotenia je v účele anonymizované.');
   const indikatory = ['M51', 'N51', 'H77', 'I77', 'H78', 'I78'];
   assert.deepEqual(indikatory.map(k => Number(Number(ukazovatele[k]).toFixed(4))),
     [19.6398, 4.1322, 0, 3.337, 0, 32.25]);

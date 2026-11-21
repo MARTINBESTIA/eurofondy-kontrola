@@ -11,6 +11,7 @@ from zipfile import ZipFile, ZIP_DEFLATED
 import gzip
 import json
 import os
+import re
 import shutil
 import subprocess
 
@@ -48,6 +49,16 @@ def write_json(path, value):
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+# Mená fyzických osôb z verejných textov (napr. autora energetického hodnotenia v poli ucel) demo nepreberá.
+VELKE, MALE = "A-ZÁÄČĎÉÍĹĽŇÓÔŔŠŤÚÝŽ", "a-záäčďéíĺľňóôŕšťúýž"
+TITUL_MENO = re.compile(rf"\b(?:Ing|Mgr|Bc|PhDr|RNDr|JUDr|PaedDr|MUDr|doc|prof)\.(?:\s*arch\.)?\s*"
+                        rf"[{VELKE}][{MALE}]+(?:\s+[{VELKE}][{MALE}]+)?")
+
+
+def anonymizuj(text):
+    return TITUL_MENO.sub("[anonymizované]", text)
+
+
 def vyber(obj, fields):
     """Kopírujeme len explicitne vybrané polia, aj vo vnorených zoznamoch."""
     if isinstance(obj, list):
@@ -80,10 +91,12 @@ def formular(z):
             definicia = vyber(p, "kod nazovSk") | vyber(p, {"mernaJednotka": "nazovSk"})
             zaklad[key].append(vyber(uk, "vychodiskovaHodnotaSpolu cielovaHodnotaSpolu") |
                                {"ukazovatelProjektovySC": {"ukazovatelProjektovy": definicia}})
-    zaklad["popis"] = z["popis"]
-    zaklad["ucel"] = z["ucel"].split("\n")[0] if z["id"] == 206978 else z["ucel"]
+    zaklad["popis"] = anonymizuj(z["popis"])
+    # Celý účel projektu: pri G856 nesú druhý a tretí odsek energetické hodnotenie žiadateľa, z ktorého vychádzajú prílohy 6 až 8.
+    zaklad["ucel"] = anonymizuj(z["ucel"])
     zaklad["_zdroj"] = f"https://api.itms21.sk/public/v1/zonfp/id/{z['id']}"
-    zaklad["_poznamka"] = "Výber verejných údajov na skúšku príjmu. Historické rozhodnutie je mimo vstupu hodnotiteľa."
+    zaklad["_poznamka"] = ("Výber verejných údajov na skúšku príjmu. Historické rozhodnutie je mimo vstupu hodnotiteľa. "
+                           "Mená fyzických osôb sú anonymizované.")
     return zaklad
 
 
@@ -161,14 +174,41 @@ DRUHE_POLOZKY = {
 DPH = Fraction(123, 100)
 
 # Škála energetických tried globálneho ukazovateľa primárnej energie pre administratívne budovy v kWh/(m².a):
-# vyhláška č. 364/2012 Z. z. v znení vyhlášky č. 35/2020 Z. z., príloha č. 3, tabuľka F.
-# Pred zatriedením sa hodnota zaokrúhli na celé číslo.
+# vyhláška č. 364/2012 Z. z. v znení vyhlášky č. 35/2020 Z. z., príloha č. 3, tabuľka F (Zbierka, s. 13).
+# Pred zatriedením sa hodnota zaokrúhli na celé číslo. Demo triedy nepočíta, len ich porovná s údajom žiadateľa.
 TRIEDY_ADMINISTRATIVNE = [(61, "A0"), (122, "A1"), (244, "B"), (366, "C"), (488, "D"), (610, "E"), (732, "F")]
 
 
 def trieda(gu_pe):
     g = floor(gu_pe + 0.5)
     return next((t for hranica, t in TRIEDY_ADMINISTRATIVNE if g <= hranica), "G")
+
+
+def hodnotenie_ziadatela(ucel):
+    """Energetické hodnotenie budovy, ako ho žiadateľ uvádza v poli ucel ŽoNFP.
+
+    Prílohy 6 až 8 preberajú merné hodnoty a triedy odtiaľto. Chýbajúci údaj generátor zastaví."""
+    def najdi(vzor):
+        m = re.search(vzor, ucel)
+        if not m:
+            raise ValueError(f"Pole ucel neobsahuje očakávaný údaj ({vzor}).")
+        return m.group(1)
+    T, C = r"(A0|A1|[B-G])", r"(\d+(?:,\d+)?)"
+    dodana = r"dodaná\s+energia\s+v\s+objekte\s+dosahuje\s+energetickú\s+triedu\s+"
+    globalny = r"globálny\s+ukazovateľ\s+dosahuje\s+energetickú\s+triedu\s+"
+    cislo = lambda vzor: float(najdi(vzor).replace(",", "."))
+    return dict(
+        datum=re.sub(r"(\d+)\.(\d+)\.(\d{4})", r"\1. \2. \3", najdi(r"z\s+dňa\s+(\d{1,2}\.\d{1,2}\.\d{4})")),
+        vykurovanie=najdi(rf"vykurovanie\s+dosahuje\s+energetickú\s+triedu\s+{T}"),
+        teplaVoda=najdi(rf"teplej\s+vody\s+energetickú\s+triedu\s+{T}"),
+        dodanaTrieda=najdi(dodana + T),
+        dodana=cislo(dodana + rf"\S+\s+–\s+{C}"),
+        triedaPred=najdi(globalny + T),
+        guPred=cislo(globalny + rf"\S+\s+–\s+{C}"),
+        triedaPo=najdi(rf"zaradený\s+do\s+energetickej\s+triedy\s+s\s+hodnotou\s+{T}"),
+        guPo=cislo(rf"globálny\s+ukazovateľ\s+by\s+mal\s+dosiahnuť\s+{C}"),
+        uspora=najdi(rf"vypočítaná\s+s\s+kombináciou\s+plôch\)\s+predstavuje\s+{C}\s*%"),
+    )
 
 
 def koef_pasma(uspora):
@@ -226,12 +266,19 @@ def podklady(dir, z):
     pe = uk["PSKPRCR26b"]
     pred, po = pe["vychodisko"], pe["ciel"]
     emisie = uk["PSKPRCR29"]
-    plocha = uk["PSKPRCO19"]["ciel"]
-    # Celková podlahová plocha (PSKPRCO19, Príloha 5 výzvy) je aj vzťažná plocha certifikátu, preto
-    # merný globálny ukazovateľ = ročná primárna energia / plocha. Plocha sa obnovou nemení.
-    gu_pred, gu_po = pred * 1000 / plocha, po * 1000 / plocha
-    trieda_pred, trieda_po = trieda(gu_pred), trieda(gu_po)
+    h = hodnotenie_ziadatela(z["ucel"])
+    gu_pred, gu_po = h["guPred"], h["guPo"]
+    trieda_pred, trieda_po = h["triedaPred"], h["triedaPo"]
+    # Plocha po obnove je ukazovateľ PSKPRCO19 (Príloha 5 výzvy: celková podlahová plocha podľa certifikátu po
+    # realizácii). Plochu pred obnovou žiadateľ neuvádza; z jeho ročnej a mernej primárnej energie vychádza
+    # 119,0248 MWh / 115,4 kWh/m² = 1 031,41 m². Úsporu preto počíta „s kombináciou plôch“ (demo/itms/VERNOST.md).
+    plocha_po = uk["PSKPRCO19"]["ciel"]
+    plocha_pred = pred * 1000 / gu_pred
     uspora = 100 * (pred - po) / pred
+    if abs(uspora - float(h["uspora"].replace(",", "."))) > 0.0001:
+        raise ValueError(f"Úspora z ukazovateľov {uspora:.4f} % nesedí s úsporou žiadateľa {h['uspora']} %.")
+    if abs(gu_po * plocha_po / 1000 - po) > 0.001:
+        raise ValueError("Merná primárna energia žiadateľa po obnove nesedí s ukazovateľmi PSKPRCR26b a PSKPRCO19.")
     koef = koef_pasma(uspora)
     pdf(dir / FORM_PDF, "Program Slovensko  /  Tlačový výpis ŽoNFP", [
         odst("Žiadosť o poskytnutie nenávratného finančného príspevku", 20, True),
@@ -277,30 +324,36 @@ def podklady(dir, z):
                  ["Umiestnenie", "Nám. Josipa Andriča 3672/17, Chorvátsky Grob, parcela 247/1"],
                  ["Využitie", "Sídlo obecného úradu, budova skolaudovaná v roku 1942"]], [45, 120]),
         odst("Energetická hospodárnosť vo východiskovom stave", 13, True),
-        tabulka([["Ukazovateľ", "Hodnota", "Jednotka"],
-                 ["Celková podlahová plocha", cis(plocha), "m²"],
-                 ["Primárna energia za rok", cis(pred, 4), "MWh/rok"],
-                 ["Globálny ukazovateľ primárnej energie", cis(gu_pred, 1), "kWh/(m².rok)"],
-                 ["Energetická trieda podľa primárnej energie", trieda_pred, "trieda"],
-                 ["Odhad emisií skleníkových plynov", cis(emisie["vychodisko"], 4), "t CO₂ ekv./rok"]], [88, 36, 41]),
+        tabulka([["Ukazovateľ", "Hodnota", "Jednotka", "Trieda"],
+                 ["Potreba energie na vykurovanie", "neuvedené", "kWh/(m².rok)", h["vykurovanie"]],
+                 ["Potreba energie na prípravu teplej vody", "neuvedené", "kWh/(m².rok)", h["teplaVoda"]],
+                 ["Celková dodaná energia", cis(h["dodana"], 1), "kWh/(m².rok)", h["dodanaTrieda"]],
+                 ["Globálny ukazovateľ primárnej energie", cis(gu_pred, 1), "kWh/(m².rok)", trieda_pred],
+                 ["Primárna energia za rok", cis(pred, 4), "MWh/rok", ""],
+                 ["Vzťažná podlahová plocha", cis(plocha_pred), "m²", ""],
+                 ["Odhad emisií skleníkových plynov", cis(emisie["vychodisko"], 4), "t CO₂ ekv./rok", ""]], [70, 30, 37, 28]),
         odst("Pôvod údajov", 13, True),
-        odst("Ročná primárna energia, emisie a celková podlahová plocha sú ukazovatele ŽoNFP (PSKPRCR26b, PSKPRCR29, PSKPRCO19). "
-             "Globálny ukazovateľ je ich podiel a trieda z neho vyplýva podľa škály pre administratívne budovy "
-             "(vyhláška č. 364/2012 Z. z., príloha č. 3, tabuľka F). Číslo vzorky je modelové. Registráciu certifikátu "
-             "a oprávnenie vydavateľa možno potvrdiť len z originálu.")
+        odst(f"Triedy a merné hodnoty uvádza žiadateľ v ŽoNFP (účel projektu) podľa projektového hodnotenia z {h['datum']}. "
+             "Hodnoty potreby energie na vykurovanie a prípravu teplej vody tam nie sú, len ich triedy. Ročná primárna "
+             "energia a emisie sú ukazovatele ŽoNFP (PSKPRCR26b, PSKPRCR29). Vzťažná plocha je podiel ročnej primárnej "
+             "energie a globálneho ukazovateľa. Podľa škály pre administratívne budovy (vyhláška č. 364/2012 Z. z. v znení vyhlášky č. 35/2020 Z. z., "
+             f"príloha č. 3, tabuľka F) patrí {cis(gu_pred, 1)} kWh/(m².rok) do triedy {trieda(gu_pred)}. Zatriedenie, "
+             "registráciu certifikátu a oprávnenie vydavateľa možno potvrdiť len z originálu. Číslo vzorky je modelové.")
     ])
     pdf(dir / PLAN, "Projektová dokumentácia  /  SO 01", [
         odst("Technická správa k obnove obecného úradu", 20, True),
         odst(z["nazov"]), odst("Predmet a navrhované opatrenia", 13, True),
         odst("Administratívna budova na parcele 247/1 slúži na výkon obecnej správy. Obnova zahŕňa zateplenie plášťa, úpravy vykurovania, vetrania a osvetlenia. Nové zdroje elektriny a tepla majú kryť časť vlastnej spotreby budovy."),
         odst("Projektové energetické hodnotenie", 13, True),
+        odst(f"Hodnoty a triedy podľa projektového hodnotenia z {h['datum']}, ako ich uvádza ŽoNFP. Vzťažná plocha pred obnovou je dopočet."),
         tabulka([["Ukazovateľ", "Pred obnovou", "Plán po obnove"],
+                 ["Vzťažná podlahová plocha (m²)", cis(plocha_pred), cis(plocha_po)],
                  ["Primárna energia (MWh/rok)", cis(pred, 4), cis(po, 4)],
-                 ["Globálny ukazovateľ PE (kWh/(m².rok))", cis(gu_pred, 1), cis(gu_po, 1)],
+                 ["Globálny ukazovateľ PE (kWh/(m².rok))", cis(gu_pred, 1), cis(gu_po, 2)],
                  ["Emisie (t CO₂ ekv./rok)", cis(emisie["vychodisko"], 4), cis(emisie["ciel"], 4)],
                  ["Globálna energetická trieda", trieda_pred, trieda_po]], [75, 45, 45]),
-        odst(f"Pokles ročnej primárnej energie vychádza na {cis(pred-po, 4)} MWh, čo zodpovedá úspore {cis(uspora, 2)} %. "
-             f"Celková podlahová plocha z vykazovaného ukazovateľa je {cis(plocha)} m² a obnovou sa nemení."),
+        odst(f"Pokles ročnej primárnej energie vychádza na {cis(pred-po, 4)} MWh, čo zodpovedá úspore {h['uspora']} %. "
+             f"Žiadateľ ju počíta s kombináciou plôch: plocha po obnove {cis(plocha_po)} m² je cieľový ukazovateľ PSKPRCO19."),
         odst("Stavebná a statická časť", 13, True),
         odst("Pri zaťažení strechy panelmi sa preveruje únosnosť nosnej konštrukcie, kotvenie a lokálne účinky vetra. Doloženie statického výpočtu a overenie povoľovacím orgánom vyžadujú originálnu dokumentáciu."),
         PageBreak(), odst("Výkresová časť a ukazovatele OZE", 18, True),
@@ -371,8 +424,8 @@ def podklady(dir, z):
                 opatrenia="Budovy a OZE", schvalenyRadou=False, sekcie=sekcie,
                 budova=dict(katastralneUzemie="Chorvátsky Grob", lv="DEMO", supisneCislo="3672",
                             pravnyVztah="výlučné vlastníctvo budovy žiadateľom", kategoria="administratívna budova",
-                            triedaPred=trieda_pred, triedaPo=trieda_po, guPePredKwhM2=gu_pred, plochaPredM2=plocha,
-                            guPePoKwhM2=gu_po, plochaPoM2=plocha,
+                            triedaPred=trieda_pred, triedaPo=trieda_po, guPePredKwhM2=gu_pred, plochaPredM2=plocha_pred,
+                            guPePoKwhM2=gu_po, plochaPoM2=plocha_po,
                             prevadzka=dict(hodinDenne=8, dniTyzdenne=5, tyzdnovRocne=50),
                             ozeElMW=uk["PSKPRCO22a"]["ciel"], ozeTepMW=uk["PSKPRCO22b"]["ciel"],
                             emisieCO2T=dict(vych=emisie["vychodisko"], plan=emisie["ciel"]),
