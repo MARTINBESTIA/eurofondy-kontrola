@@ -45,8 +45,9 @@ function polozkyRozpoctu(h: Record<string, string>, p: NonNullable<ZavaznyFormul
     .filter((x) => x.suma > 0 && Number.isFinite(cislo(`${p.pocet}${x.riadok}`)) && Number.isFinite(cislo(`${p.cena}${x.riadok}`)));
 }
 type PrilozenySubor = NonNullable<NonNullable<Ziadost['prilohy']>[string]['subory']>[number];
+/** priZhode dostane zošit, z ktorého je výsledok, jeho riadky položiek a všetky vyplnené zošity prílohy (pri viacerých majú rovnaký rozpočet). */
 export function zavaznyFormular(z: Ziadost, c: string, pr: NonNullable<Ziadost['prilohy']>[string], zf: ZavaznyFormular,
-  priZhode?: (subor: PrilozenySubor, riadky: number[]) => void): VysledokKontroly {
+  priZhode?: (subor: PrilozenySubor, riadky: number[], zosity: PrilozenySubor[]) => void): VysledokKontroly {
   if (!pr.subory) return pr.text.trim().length > 40
     ? { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c} je priložená (${pr.nazov}), ale z podkladov sa nedá overiť, či ide o ${zf.popis}.` }
     : { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c} sa vyžaduje a chýba (súbor je prázdny alebo nečitateľný).` };
@@ -82,12 +83,56 @@ export function zavaznyFormular(z: Ziadost, c: string, pr: NonNullable<Ziadost['
   ].filter((x): x is string => !!x);
   const cudzie = vyplnene.filter((u) => nesedi(u).length);
   if (cudzie.length) return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: v zošite ${cudzie[0].nazov} je uvedený ${nesedi(cudzie[0]).join(' a ')}. Treba overiť, či zošit patrí k tejto žiadosti.${aj}` };
+  // Viac vyplnených zošitov s iným rozpočtom (napr. pôvodný a opravený z doplnenia, ktoré podateľňa spojí do jednej
+  // prílohy): výsledok nesmie závisieť od poradia súborov. Ktorý zošit je záväzný, určí kontrolór.
+  const odtlacok = (x: (typeof udaje)[number]) => JSON.stringify(x.polozky.map((p) => [p.riadok, centy(p.suma)]));
+  if (new Set(vyplnene.map(odtlacok)).size > 1) return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: priložené sú viaceré vyplnené zošity s rozdielnym rozpočtom: ${vyplnene.map((v) => `${v.nazov} (položky s kladnou sumou: ${v.polozky.length}, spolu ${eur2(v.polozky.reduce((s, p) => s + p.suma, 0))})`).join('; ')}. Treba určiť, ktorý zošit je záväzný (napr. opravený z doplnenia), a ostatné vyradiť zo zaradenia prílohy.${aj}` };
   const u = vyplnene[0];
   const suma = u.polozky.reduce((s, p) => s + p.suma, 0);
   // Dôkaz sa viaže na ten istý zošit a riadky, z ktorých pochádza počet a súčet vo výsledku.
-  priZhode?.(u.subor, u.polozky.map(p => p.riadok));
+  priZhode?.(u.subor, u.polozky.map(p => p.riadok), vyplnene.map((v) => v.subor));
   return { stav: 'splnene', hodnoty: zf.polozka ? { polozky: u.polozky.length, sumaPoloziek: Math.round(suma * 100) / 100 } : undefined,
     zdovodnenie: `Príloha č. ${c} je priložená ako ${zf.popis}: ${vyplnene.map((v) => v.nazov).join(', ')}${u.ziadatel ? ` (žiadateľ: ${u.ziadatel}${u.projekt ? `, projekt: ${u.projekt}` : ''})` : ''}.${zf.polozka ? ` Položky s kladnou sumou: ${u.polozky.length}, spolu ${eur(suma)} (${zf.polozka.nazovSumy}).` : ''} Overená je len prítomnosť vyplneného vzoru, nie vecná správnosť rozpočtu.${aj}` };
+}
+
+/**
+ * Znaky druhu dokumentu pri prílohe, ktorú pravidlo overuje len prítomnosťou (balík pravidiel, parametre.obsah). Číslo
+ * prílohy v názve súboru je len označenie žiadateľa: súbor „Priloha_6_…“ s cestovným plánom nesmie dostať „splnené“.
+ * Súbor zodpovedá prílohe, ak je nadpis v jeho prvých MAX_RIADKOV_NADPISU neprázdnych riadkoch a aspoň jeden znak
+ * v inom riadku. V inom preto, aby nestačil zoznam príloh (sprievodný či krycí list), kde je názov aj opis prílohy v jednom
+ * riadku. Vzory sú regulárne výrazy bez rozlíšenia veľkosti písmen a testujú sa po riadkoch. Je to rozpoznanie druhu
+ * dokumentu, nie jeho vecné posúdenie: certifikát inej budovy ani neúplnú projektovú dokumentáciu neodhalí.
+ */
+export interface ObsahPrilohy { popis: string; nadpis: string; znaky: string[]; citovat?: string[] }
+export const koniecRiadka = /\r\n|[\n\r\f]/;
+const MAX_RIADKOV_NADPISU = 15;
+/**
+ * Riadky (indexy od 0 po rozdelení koniecRiadka), ktoré dokladajú druh dokumentu: nadpis, prvý znak v poradí balíka
+ * a riadky na citovanie (citovat, napr. budova v certifikáte). Prázdne pole = súbor prílohe nezodpovedá.
+ */
+export function riadkyObsahu(text: string, o: ObsahPrilohy): { index: number; vzor: RegExp }[] {
+  const riadky = text.split(koniecRiadka).map((r) => r.trim());
+  const nadpis = new RegExp(o.nadpis, 'iu');
+  let iN = -1;
+  for (let i = 0, neprazdne = 0; i < riadky.length && neprazdne < MAX_RIADKOV_NADPISU; i++) {
+    if (!riadky[i]) continue;
+    neprazdne++;
+    if (nadpis.test(riadky[i])) { iN = i; break; }
+  }
+  if (iN < 0) return [];
+  for (const znak of o.znaky) {
+    const vzor = new RegExp(znak, 'iu');
+    const i = riadky.findIndex((r, j) => j !== iN && vzor.test(r));
+    if (i < 0) continue;
+    const vysledok = [{ index: iN, vzor: nadpis }, { index: i, vzor }];
+    for (const c of o.citovat ?? []) {
+      const re = new RegExp(c, 'iu');
+      const k = riadky.findIndex((r) => re.test(r));
+      if (k >= 0 && !vysledok.some((x) => x.index === k)) vysledok.push({ index: k, vzor: re });
+    }
+    return vysledok;
+  }
+  return [];
 }
 
 /**
@@ -119,20 +164,41 @@ export function suladPrilohy8(z: Ziadost, p: Pravidlo, priPorovnani?: (subor: Pr
   const pr = z.prilohy[c];
   if (!pr || pr.text.trim().length <= 40) return { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c} chýba, preto sa oprávnené výdavky z nej nedajú porovnať s rozpočtom formulára.` };
   if (pr.zaradenie === 'odhad') return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: ${pr.nazov} je zaradená len odhadom podľa kľúčových slov. Najprv treba potvrdiť, že ide o túto prílohu.` };
-  let zosit: PrilozenySubor | undefined;
-  const f = zavaznyFormular(z, c, pr, zf, (sub) => { zosit = sub; });
-  if (f.stav !== 'splnene' || !zosit?.bunky?.[zf.harok]) return { stav: f.stav === 'splnene' ? 'na_preverenie' : f.stav, zdovodnenie: `Súlad s rozpočtom formulára sa nedá overiť, kým nie je v poriadku samotný zošit (bod P08): ${f.zdovodnenie}` };
-  const sub = zosit, bunky = sub.bunky!, h = bunky[zf.harok];
+  let zosity: PrilozenySubor[] = [];
+  const f = zavaznyFormular(z, c, pr, zf, (_sub, _riadky, vsetky) => { zosity = vsetky; });
+  if (f.stav !== 'splnene' || !zosity.length || zosity.some((x) => !x.bunky?.[zf.harok])) return { stav: f.stav === 'splnene' ? 'na_preverenie' : f.stav, zdovodnenie: `Súlad s rozpočtom formulára sa nedá overiť, kým nie je v poriadku samotný zošit (bod P08): ${f.zdovodnenie}` };
+  // Každý vyplnený zošit sa porovná zvlášť. Pôvodný a opravený zošit môžu mať rovnaké položky, ale inú sumu po krátení
+  // (iné údaje v hárku MU Budova). Rovnaký výsledok sa vráti; rozdielny nesmie závisieť od poradia súborov, ide kontrolórovi.
+  const vysledky = zosity.map((sub) => porovnajZositSFormularom(z, s, zf, sub, Number(f.hodnoty?.polozky ?? 0)));
+  const kluc = (i: number) => { const v = vysledky[i].vysledok; return JSON.stringify([v.stav, v.hodnoty, v.zdovodnenie.split(zosity[i].nazov).join('')]); };
+  if (vysledky.every((_, i) => kluc(i) === kluc(0))) {
+    if (vysledky[0].citovane) priPorovnani?.(zosity[0], vysledky[0].citovane);
+    return vysledky[0].vysledok;
+  }
+  for (const [i, v] of vysledky.entries()) if (v.citovane) priPorovnani?.(zosity[i], v.citovane);
+  const sumaFormulara = (o: string) => z.rozpocet.filter((r) => r.opatrenie === o).reduce((x, r) => x + r.suma, 0);
+  const stavSk: Record<string, string> = { splnene: 'zhoduje sa s formulárom', na_preverenie: 'na preverenie', chyba_podklad: 'chýba podklad' };
+  const popis = (i: number) => {
+    const v = vysledky[i].vysledok, hd = v.hodnoty;
+    const sumy = hd ? `${s.opatrenieBudova} ${eur2(Number(hd.budovaZosit))}, ${s.opatrenieOze} ${eur2(Number(hd.ozeZosit))}` : 'sumy sa nedali porovnať';
+    return `${zosity[i].nazov}: ${sumy} (${stavSk[v.stav] ?? v.stav})`;
+  };
+  return { stav: 'na_preverenie', zdovodnenie: `V Prílohe č. ${c} sú viaceré vyplnené zošity a porovnanie s rozpočtom formulára vychádza v každom inak: ${vysledky.map((_, i) => popis(i)).join('; ')}. Formulár: ${s.opatrenieBudova} ${eur2(sumaFormulara(s.opatrenieBudova))}, ${s.opatrenieOze} ${eur2(sumaFormulara(s.opatrenieOze))}. Treba určiť, ktorý zošit je záväzný (napr. opravený z doplnenia), a ostatné vyradiť zo zaradenia prílohy.` };
+}
+
+/** Porovnanie jedného vyplneného zošita s rozpočtom formulára. citovane = bunky, z ktorých je zdôvodnenie (len pri porovnaní súm). */
+function porovnajZositSFormularom(z: Ziadost, s: SuladPrilohy8, zf: ZavaznyFormular, sub: PrilozenySubor, riadkyZositu: number): { vysledok: VysledokKontroly; citovane?: BunkaZositu[] } {
+  const bunky = sub.bunky!, h = bunky[zf.harok];
   const num = (harok: Record<string, string> | undefined, a: string) => { const v = harok?.[a]?.trim(); return v ? (Number.isFinite(Number(v)) ? Number(v) : NaN) : undefined; };
   const citovane: BunkaZositu[] = [];
   const bunka = (harok: string, adresa: string) => { citovane.push({ harok, adresa }); return `„${harok}“!${adresa}`; };
 
   const wB1 = num(h, s.budova), wO = num(h, s.oze);
   const chyba = [[s.budova, wB1], [s.oze, wO]].filter(([, v]) => v === undefined || Number.isNaN(v)).map(([a]) => a);
-  if (chyba.length) return { stav: 'na_preverenie', zdovodnenie: `V zošite ${sub.nazov} chýba vypočítaná suma v bunke ${chyba.join(', ')} (hárok „${zf.harok}“). Vzorce zošita zrejme nemajú uložené výsledky (súbor nebol uložený v MS Excel) alebo bol vzor zmenený. Zošit treba otvoriť v MS Excel a sumy porovnať s rozpočtom formulára ručne.` };
+  if (chyba.length) return { vysledok: { stav: 'na_preverenie', zdovodnenie: `V zošite ${sub.nazov} chýba vypočítaná suma v bunke ${chyba.join(', ')} (hárok „${zf.harok}“). Vzorce zošita zrejme nemajú uložené výsledky (súbor nebol uložený v MS Excel) alebo bol vzor zmenený. Zošit treba otvoriť v MS Excel a sumy porovnať s rozpočtom formulára ručne.` } };
   const pocet = num(h, s.pocetBudov);
   const n = pocet !== undefined && Number.isInteger(pocet) && pocet > 1 ? pocet : 1;
-  if (n > s.dalsieBudovy.maxBudov) return { stav: 'na_preverenie', zdovodnenie: `Zošit ${sub.nazov} uvádza ${n} budov (bunka ${s.pocetBudov}), vzor má hárky len pre ${s.dalsieBudovy.maxBudov}. Súlad treba overiť ručne.` };
+  if (n > s.dalsieBudovy.maxBudov) return { vysledok: { stav: 'na_preverenie', zdovodnenie: `Zošit ${sub.nazov} uvádza ${n} budov (bunka ${s.pocetBudov}), vzor má hárky len pre ${s.dalsieBudovy.maxBudov}. Súlad treba overiť ručne.` } };
   // Ďalšie budovy: povinné do počtu z B13; hárok so sumou nad tento počet je rozpor v zošite, nie dôvod ho ignorovať.
   const dalsie: { harok: string; suma: number }[] = [], neprecitane: string[] = [], navyse: string[] = [], hlasky: string[] = [];
   for (let i = 2; i <= s.dalsieBudovy.maxBudov; i++) {
@@ -144,7 +210,7 @@ export function suladPrilohy8(z: Ziadost, p: Pravidlo, priPorovnani?: (subor: Pr
     const t = bunky[harok]?.[s.dalsieBudovy.hlaska]?.trim();
     if (t) hlasky.push(`„${t}“ (${bunka(harok, s.dalsieBudovy.hlaska)})`);
   }
-  if (neprecitane.length) return { stav: 'na_preverenie', zdovodnenie: `Zošit ${sub.nazov} uvádza ${n} budov (bunka ${s.pocetBudov}), ale z hárkov ${neprecitane.map((x) => `„${x}“`).join(', ')} sa nedala prečítať vypočítaná suma (bunka ${s.dalsieBudovy.bunka}). Skryté hárky sa nenačítavajú. Súlad treba overiť ručne.` };
+  if (neprecitane.length) return { vysledok: { stav: 'na_preverenie', zdovodnenie: `Zošit ${sub.nazov} uvádza ${n} budov (bunka ${s.pocetBudov}), ale z hárkov ${neprecitane.map((x) => `„${x}“`).join(', ')} sa nedala prečítať vypočítaná suma (bunka ${s.dalsieBudovy.bunka}). Skryté hárky sa nenačítavajú. Súlad treba overiť ručne.` } };
   for (const a of s.hlasky) { const t = h[a]?.trim(); if (t) hlasky.push(`„${t}“ (${bunka(zf.harok, a)})`); }
   if (s.hlaskyBudov) for (let i = 1; i <= n; i++) {
     const harok = s.hlaskyBudov.harok.replace('{n}', String(i));
@@ -154,16 +220,15 @@ export function suladPrilohy8(z: Ziadost, p: Pravidlo, priPorovnani?: (subor: Pr
   const wB = (wB1 as number) + dalsie.reduce((x, d) => x + d.suma, 0), wOze = wO as number;
   const rB = z.rozpocet.filter((r) => r.opatrenie === s.opatrenieBudova), rO = z.rozpocet.filter((r) => r.opatrenie === s.opatrenieOze);
   const ine = z.rozpocet.filter((r) => r.opatrenie !== s.opatrenieBudova && r.opatrenie !== s.opatrenieOze && r.suma !== 0);
-  if (!z.rozpocet.length) return { stav: 'chyba_podklad', zdovodnenie: `Vo formulári chýba rozpočet projektu (tabuľka č. 11), s ktorým by sa dali porovnať oprávnené výdavky zo zošita ${sub.nazov}.` };
+  if (!z.rozpocet.length) return { vysledok: { stav: 'chyba_podklad', zdovodnenie: `Vo formulári chýba rozpočet projektu (tabuľka č. 11), s ktorým by sa dali porovnať oprávnené výdavky zo zošita ${sub.nazov}.` } };
   const fB = rB.reduce((x, r) => x + r.suma, 0), fO = rO.reduce((x, r) => x + r.suma, 0);
-  const riadkyZositu = Number(f.hodnoty?.polozky ?? 0);
   // Formulár zaokrúhľuje každú položku na centy, zošit počíta presne: pol centa na každú položku, nič viac.
   const tolB = 0.005 * (rB.length + riadkyZositu) + 0.005, tolO = 0.005 * (rO.length + riadkyZositu) + 0.005;
   const hodnoty = { budovaZosit: centy(wB), budovaFormular: centy(fB), ozeZosit: centy(wOze), ozeFormular: centy(fO) };
   const zdrojB = [bunka(zf.harok, s.budova), ...dalsie.map((d) => bunka(d.harok, s.dalsieBudovy.bunka))].join(' + ');
   const zdrojO = bunka(zf.harok, s.oze);
   const opis = `opatrenie ${s.opatrenieBudova}: zošit ${eur2(wB)} (${zdrojB}), formulár ${eur2(fB)}; opatrenie ${s.opatrenieOze}: zošit ${eur2(wOze)} (${zdrojO}), formulár ${eur2(fO)}`;
-  const vysledok = (stav: VysledokKontroly['stav'], zdovodnenie: string): VysledokKontroly => { priPorovnani?.(sub, citovane); return { stav, zdovodnenie, hodnoty }; };
+  const vysledok = (stav: VysledokKontroly['stav'], zdovodnenie: string) => ({ vysledok: { stav, zdovodnenie, hodnoty } as VysledokKontroly, citovane });
 
   const okB = Math.abs(fB - wB) <= tolB, okO = Math.abs(fO - wOze) <= tolO;
   const sumaRozpoctu = z.rozpocet.reduce((x, r) => x + r.suma, 0);
@@ -217,11 +282,22 @@ function trojpasmo(hodnota: number, max: number, rezerva: number, jednotka: stri
 
 const dmr = (d: string) => d.split('-').reverse().join('.');
 
-/** Kategórie regiónov projektu z formulára; odvodene = podľa kraja miesta realizácie (null, ak niektorý kraj chýba). */
-export function kategorieRegionu(z: Ziadost, krajeVRR: string[]): { kategorie: string[]; zdroj: 'formular' | 'kraj' | null; odvodene: string[] | null } {
-  const odvodene = z.miesta.length && z.miesta.every((m) => m.kraj) ? [...new Set(z.miesta.map((m) => (krajeVRR.includes(m.kraj) ? 'VRR' : 'MRR')))].sort() : null;
-  if (z.kategoriaRegionov.length) return { kategorie: [...new Set(z.kategoriaRegionov)].sort(), zdroj: 'formular', odvodene };
-  return { kategorie: odvodene ?? [], zdroj: odvodene ? 'kraj' : null, odvodene };
+/** Kraj na porovnanie bez rozdielu v medzerách a veľkosti písmen („Bratislavský kraj “ je „Bratislavský kraj“). */
+const normKraj = (s: string) => s.replace(/\s+/g, ' ').trim().toLocaleLowerCase('sk');
+/**
+ * Kategórie regiónov projektu z formulára; odvodene = podľa kraja miesta realizácie (kraje = kategória → kraje, z balíka).
+ * odvodene je null, ak niektorý kraj chýba alebo ho balík nepozná. Neznámy kraj sa nepovažuje za MRR (pri chybe v údajoch
+ * by dal nesprávne porušenie) a neznámy kód kategórie nie je „iná kategória“ (dal by nesprávne „splnené“): obe idú človeku.
+ */
+export function kategorieRegionu(z: Ziadost, kraje: Record<string, string[]>): { kategorie: string[]; zdroj: 'formular' | 'kraj' | null; odvodene: string[] | null; neznameKraje: string[]; neznameKategorie: string[] } {
+  const kategoriaKraja = (kraj: string) => Object.keys(kraje).find((k) => kraje[k].some((x) => normKraj(x) === normKraj(kraj)));
+  const neznameKraje = [...new Set(z.miesta.map((m) => m.kraj ?? '').filter((k) => k.trim() && !kategoriaKraja(k)))];
+  const odvodene = z.miesta.length && z.miesta.every((m) => m.kraj?.trim() && kategoriaKraja(m.kraj))
+    ? [...new Set(z.miesta.map((m) => kategoriaKraja(m.kraj)!))].sort() : null;
+  const formular = [...new Set(z.kategoriaRegionov.map((k) => String(k).trim().toUpperCase()).filter(Boolean))].sort();
+  const neznameKategorie = formular.filter((k) => !Object.hasOwn(kraje, k));
+  if (formular.length) return { kategorie: formular, zdroj: 'formular', odvodene, neznameKraje, neznameKategorie };
+  return { kategorie: odvodene ?? [], zdroj: odvodene ? 'kraj' : null, odvodene, neznameKraje, neznameKategorie };
 }
 
 /**
@@ -231,16 +307,18 @@ export function kategorieRegionu(z: Ziadost, krajeVRR: string[]): { kategorie: s
  * 2 žiadosti z 799 a obe skončili zastavením konania.
  */
 function predlozenieVcas(z: Ziadost, p: Pravidlo): VysledokKontroly {
-  const { vyhlasenie, uzavretie, uzavretieKategorie = {}, krajeVRR = [] } = p.parametre as
-    { vyhlasenie: string; uzavretie?: string; uzavretieKategorie?: Record<string, string>; krajeVRR?: string[] };
+  const { vyhlasenie, uzavretie, uzavretieKategorie = {}, kraje = {} } = p.parametre as
+    { vyhlasenie: string; uzavretie?: string; uzavretieKategorie?: Record<string, string>; kraje?: Record<string, string[]> };
   const d = z.datumPredlozenia?.slice(0, 10);
   if (!d) return { stav: 'na_preverenie', zdovodnenie: 'Vo formulári chýba dátum predloženia. Kontrolór ho overí v ITMS21+ alebo podľa doručenia do e-schránky poskytovateľa.' };
-  const k = kategorieRegionu(z, krajeVRR);
-  const hodnoty = { datumPredlozenia: d, kategoria: k.kategorie.join('+') || null, kategoriaZ: k.zdroj, kraj: k.odvodene ? 'pouzity' : null };
+  const k = kategorieRegionu(z, kraje);
+  const hodnoty = { datumPredlozenia: d, kategoria: k.kategorie.join('+') || null, kategoriaZ: k.zdroj, kraj: k.odvodene || k.neznameKraje.length ? 'pouzity' : null };
   const kat = k.kategorie.join(', ');
   if (d < vyhlasenie) return { stav: 'na_preverenie', zdovodnenie: `Dátum predloženia ${dmr(d)} je pred vyhlásením výzvy (${dmr(vyhlasenie)}). Údaj je pravdepodobne chybný, treba ho overiť.`, hodnoty };
   if (uzavretie && d > uzavretie) return { stav: 'nesplnene', zdovodnenie: `Žiadosť je predložená ${dmr(d)}, po uzavretí výzvy ${dmr(uzavretie)}. Po uzavretí výzvy nie je možné predkladať žiadosti.`, hodnoty };
   if (uzavretie && d === uzavretie) return { stav: 'na_preverenie', zdovodnenie: `Žiadosť je predložená v deň uzavretia výzvy (${dmr(uzavretie)}). Rozhoduje čas doručenia, treba ho overiť.`, hodnoty };
+  if (k.neznameKategorie.length) return { stav: 'na_preverenie', zdovodnenie: `Kategória regiónu vo formulári (${k.neznameKategorie.join(', ')}) nie je kategória výzvy (${Object.keys(kraje).join(', ')}). Od kategórie závisí alokácia aj uzavretie výzvy, treba ju overiť.`, hodnoty };
+  if (k.neznameKraje.length) return { stav: 'na_preverenie', zdovodnenie: `Kraj miesta realizácie (${k.neznameKraje.map((x) => `„${x}“`).join(', ')}) nie je medzi krajmi v pravidlách výzvy, preto sa kategória regiónu nedá overiť podľa miesta realizácie. Od kategórie závisí alokácia aj uzavretie výzvy, treba ju overiť.`, hodnoty };
   if (k.zdroj === 'formular' && k.odvodene && k.odvodene.join() !== k.kategorie.join())
     return { stav: 'na_preverenie', zdovodnenie: `Kategória regiónu vo formulári (${kat}) nezodpovedá miestu realizácie (${[...new Set(z.miesta.map((m) => m.kraj))].join(', ')}, teda ${k.odvodene.join(', ')}). Od kategórie závisí alokácia aj uzavretie výzvy, treba to preveriť.`, hodnoty };
   for (const [kategoria, od] of Object.entries(uzavretieKategorie)) {
@@ -367,7 +445,14 @@ export const KONTROLY: Record<string, Kontrola> = {
     if (pr && pr.text.trim().length > 40 && pr.zaradenie === 'odhad') return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: ${pr.nazov}. Súbor označený „odhad“ softvér zaradil podľa kľúčových slov, nie podľa čísla prílohy. Treba potvrdiť, že ide naozaj o túto prílohu, alebo ho vyradiť.` };
     const zf = p.parametre!.zavaznyFormular as ZavaznyFormular | undefined;
     if (pr && zf) return zavaznyFormular(z, c, pr, zf);
-    if (pr && pr.text.trim().length > 40) return { stav: 'splnene', zdovodnenie: `Príloha č. ${c} je priložená: ${pr.nazov}.` };
+    if (pr && pr.text.trim().length > 40) {
+      // Text v slote nestačí: „splnené“ len pri súbore, ktorý má nadpis a znak dokumentu tejto prílohy (ObsahPrilohy).
+      const o = p.parametre!.obsah as ObsahPrilohy | undefined;
+      if (!o) return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c} je priložená (${pr.nazov}), ale pravidlo nemá v balíku znaky obsahu prílohy, preto sa nedá overiť, či ide o túto prílohu.` };
+      const subory = pr.subory ? pr.subory.filter((s) => s.citatelny && s.text.trim()) : [{ text: pr.text }];
+      if (subory.some((s) => riadkyObsahu(s.text, o).length)) return { stav: 'splnene', zdovodnenie: `Príloha č. ${c} je priložená: ${pr.nazov}.` };
+      return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c}: ${pr.nazov}. V texte sa nenašli znaky dokumentu „${o.popis}“ (na začiatku nadpis, v ďalšom riadku aspoň jeden typický údaj). Číslo prílohy v názve súboru je len označenie žiadateľa. Treba overiť, či ide naozaj o túto prílohu.` };
+    }
     if (nahrada && /https?:\/\/|www\./i.test(z.popis)) return { stav: 'na_preverenie', zdovodnenie: `Príloha č. ${c} chýba. Výzva pripúšťa náhradu: ${nahrada}. V popise projektu je webový odkaz, treba overiť, či vedie na uznesenie.` };
     return { stav: 'chyba_podklad', zdovodnenie: `Príloha č. ${c} sa vyžaduje a chýba${pr ? ' (súbor je prázdny alebo nečitateľný)' : ''}.${nahrada ? ` Náhrada: ${nahrada}.` : ''}` };
   },

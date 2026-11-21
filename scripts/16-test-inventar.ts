@@ -157,6 +157,10 @@ await zasad('MRR predložená v deň uzavretia pre MRR', 'F01', 'na_preverenie',
 await zasad('MRR po uzavretí, kategória chýba a odvodí sa z kraja', 'F01', 'nesplnene', mrr.map((z) => kopia(z, (x) => { x.datumPredlozenia = '2025-03-14'; x.kategoriaRegionov = []; })));
 await zasad('po uzavretí pre MRR, chýba kategória aj kraj', 'F01', 'na_preverenie', mrr.map((z) => kopia(z, (x) => { x.datumPredlozenia = '2025-03-14'; x.kategoriaRegionov = []; x.miesta = x.miesta.map((m) => ({ ...m, kraj: '' })); })));
 await zasad('kategória VRR, ale miesto v MRR', 'F01', 'na_preverenie', mrr.map((z) => kopia(z, (x) => { x.kategoriaRegionov = ['VRR']; })));
+// Audit astry: neznámy kód kategórie nie je „iná kategória“ (dal „splnené“) a neznámy kraj nie je MRR.
+await zasad('MRR po uzavretí, neznámy kód kategórie „B“ a chýba kraj', 'F01', 'na_preverenie', mrr.map((z) => kopia(z, (x) => { x.datumPredlozenia = '2025-03-14'; x.kategoriaRegionov = ['B']; x.miesta = x.miesta.map((m) => ({ ...m, kraj: '' })); })));
+await zasad('MRR po uzavretí, kraj s preklepom a bez kategórie', 'F01', 'na_preverenie', mrr.map((z) => kopia(z, (x) => { x.datumPredlozenia = '2025-03-14'; x.kategoriaRegionov = []; x.miesta = x.miesta.map((m) => ({ ...m, kraj: m.kraj.replace(' kraj', '') })); })));
+await zasad('kategória VRR a kraj s preklepom (miesto v MRR)', 'F01', 'na_preverenie', mrr.map((z) => kopia(z, (x) => { x.datumPredlozenia = '2025-03-14'; x.kategoriaRegionov = ['VRR']; x.miesta = x.miesta.map((m) => ({ ...m, kraj: m.kraj.replace(' kraj', '') })); })));
 await zasad('chýba dátum predloženia', 'F01', 'na_preverenie', vsetky.map((z) => kopia(z, (x) => { x.datumPredlozenia = null; })));
 await zasad('hlavná aktivita z opatrenia mimo výzvy (2.5.1)', 'D07a', 'nesplnene', sHlavnou.map((z) => kopia(z, (x) => { prvaHlavna(x).opatrenie = '2.5.1'; })));
 await zasad('hlavná aktivita bez opatrenia', 'D07a', 'na_preverenie', sHlavnou.map((z) => kopia(z, (x) => { prvaHlavna(x).opatrenie = null; })));
@@ -166,6 +170,10 @@ await zasad('občianske združenie (doplnkové podmienky PPP č. 1)', 'D01', 'na
 let vrrOk = 0;
 for (const z of vrr) { const { posudok: p } = await posudPodlaKola(kopia(z, (x) => { x.datumPredlozenia = '2025-06-06'; }), VYZVA, zonfp, { llm: false, iba: ['F01'] }); if (p.nalezy[0].stav === 'splnene') vrrOk++; }
 over(vrr.length > 0 && vrrOk === vrr.length, `[F01] VRR predložená po uzavretí pre MRR je včas: ${vrrOk}/${vrr.length} splnené`);
+// Audit astry: „Bratislavský kraj “ s medzerou na konci bol MRR a dal porušenie; po normalizácii je to VRR, teda včas.
+let medzeraOk = 0;
+for (const z of vrr) { const { posudok: p } = await posudPodlaKola(kopia(z, (x) => { x.datumPredlozenia = '2025-06-06'; x.kategoriaRegionov = []; x.miesta = x.miesta.map((m) => ({ ...m, kraj: `${m.kraj} ` })); }), VYZVA, zonfp, { llm: false, iba: ['F01'] }); if (p.nalezy[0].stav === 'splnene') medzeraOk++; }
+over(vrr.length > 0 && medzeraOk === vrr.length, `[F01] VRR bez kategórie a s medzerou na konci kraja je po uzavretí pre MRR včas: ${medzeraOk}/${vrr.length} splnené`);
 const zamietnute: string[] = [];
 for (const z of vsetky.filter((x) => x.vysledok === 'schvalena')) {
   const { posudok: p } = await posudPodlaKola(z, VYZVA, zonfp, { llm: false, iba: ['V01', 'F01', 'D01', 'D07a', 'G05', 'P09'] });
@@ -214,9 +222,14 @@ for (const [nazov, kolo, datum, verzia, ocak] of pripady) {
     `${nazov}: znenie ${r.vyber!.verziaId}, body ${ids(r) || '–'} · ${r.vyber!.zdovodnenie}`);
 }
 // Rozdiely znení v posudku: archívne znenie žiada Prílohu č. 9 (súlad s HP) a nemá PPP č. 15 (EDES); platné naopak.
+// Text príloh musí mať nadpis a znak dokumentu (parametre.obsah v balíku), inak ide príloha na preverenie.
+const TEXT_PRILOHY: Record<string, string> = {
+  '7': 'Projektová dokumentácia stavby\nStavba: Obnova budovy obecného úradu\nA. Technická správa',
+  '9': 'Príloha č. 9a ŽoNFP – Dokument súladu projektu s horizontálnymi princípmi\nIdentifikácia výzvy\nPrehlasujem, že požiadavky na bezbariérovú prístupnosť sú realizované v súlade so stavebnou legislatívou.',
+};
 const sPrilohami = (kolo: number, cisla: string[]) => kopia(vzor, (x) => {
   x.kolo = kolo;
-  x.prilohy = Object.fromEntries(cisla.map((c) => [c, { nazov: `Príloha č. ${c}`, text: `Príloha č. ${c} `.repeat(10), zaradenie: 'potvrdene' }])) as Ziadost['prilohy'];
+  x.prilohy = Object.fromEntries(cisla.map((c) => [c, { nazov: `Príloha č. ${c}`, text: TEXT_PRILOHY[c] ?? `Príloha č. ${c} `.repeat(10), zaradenie: 'potvrdene' }])) as Ziadost['prilohy'];
 });
 const p2 = (await posudPodlaKola(sPrilohami(12, ['7', '8']), VYZVA, zonfp, { llm: false })).posudok;
 const p2s9 = (await posudPodlaKola(sPrilohami(12, ['7', '8', '9']), VYZVA, zonfp, { llm: false })).posudok;
@@ -224,6 +237,9 @@ const p3 = (await posudPodlaKola(sPrilohami(83, ['7', '8']), VYZVA, zonfp, { llm
 const stavP = (p: Posudok, id: string) => p.nalezy.find((n) => n.pravidlo === id)?.stav ?? 'chýba';
 over(stavP(p2, 'P09') === 'chyba_podklad' && stavP(p2s9, 'P09') === 'splnene' && stavP(p2, 'G15') === 'chýba' && stavP(p2, 'PPP15') === 'chýba',
   `kolo 12 (akt. 2): bez Prílohy č. 9 ${stavP(p2, 'P09')}, s ňou ${stavP(p2s9, 'P09')}, PPP č. 15 ${stavP(p2, 'G15')}`);
+// Slot 9 s textom, ktorý nie je kontrolný zoznam (len opakované „Príloha č. 9“), nie je splnený.
+const p2cudzi9 = (await posudPodlaKola(kopia(sPrilohami(12, ['7', '8', '9']), (x) => { x.prilohy!['9'].text = 'Príloha č. 9 '.repeat(10); }), VYZVA, zonfp, { llm: false, iba: ['P09'] })).posudok;
+over(stavP(p2cudzi9, 'P09') === 'na_preverenie', `kolo 12 (akt. 2): slot 9 bez znakov kontrolného zoznamu je ${stavP(p2cudzi9, 'P09')}, nie splnený`);
 over(stavP(p3, 'P09') === 'chýba' && stavP(p3, 'G15') !== 'chýba' && p3.vyberVerzie?.verziaId === 'zmena3',
   `kolo 83 (zmena č. 3): Príloha č. 9 ${stavP(p3, 'P09')}, PPP č. 15 ${stavP(p3, 'G15')}`);
 over(p2.vyberVerzie?.verziaId === 'akt2' && p2.verziaBalika === verzie[0].verzia && !okVyrok(p2) && !okVyrok(p2s9),
@@ -286,6 +302,10 @@ const bodyZmien: [string, KontrolaZmien | null, string, string][] = [
   ['kontrola ešte neprebehla', null, '2026-11-21', 'VER-KONTROLA'],
   ['neposúdená zmena', kontrolaZ(zmen((s) => { s.stav.pozastavene = true; })), '2026-11-21', 'VER-ITMS'],
   ['neposúdená zmena a stará kontrola', kontrolaZ(zmen(novaVerzia)), '2026-12-10', 'VER-ITMS,VER-KONTROLA'],
+  // Audit astry: kontrola bez siete dnes nad detailom stiahnutým 1. 10. vyzerala čerstvo (vek sa rátal od behu kontroly).
+  ['dnešná kontrola nad uloženým detailom z 1. 10. (offline)', { ...kontrolaZ([]), zdroj: 'ulozeny', stiahnute: '2026-10-01T00:00:00.000Z' }, '2026-11-21', 'VER-KONTROLA'],
+  ['dnešná kontrola nad uloženým detailom spred 7 dní', { ...kontrolaZ([]), zdroj: 'ulozeny', stiahnute: '2026-11-14T00:00:00.000Z' }, '2026-11-21', ''],
+  ['kontrola bez dátumu stiahnutia', { ...kontrolaZ([]), stiahnute: '' }, '2026-11-21', 'VER-KONTROLA'],
 ];
 for (const [nazov, k, dnes, ocak] of bodyZmien) {
   const n = nalezyZmienVyzvy(k, zaklad.citacia, dnes);

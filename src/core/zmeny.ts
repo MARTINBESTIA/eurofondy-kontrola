@@ -140,20 +140,36 @@ export function nacitajKontroluZmien(vyzva: string): KontrolaZmien | null {
 }
 
 const dnesLokalne = () => new Date().toLocaleDateString('sv-SE');
+/** Miestny dátum (YYYY-MM-DD) z času ISO; neplatný čas = null. */
+const lokalnyDatum = (iso: string | undefined) => { const t = Date.parse(iso ?? ''); return Number.isFinite(t) ? new Date(t).toLocaleDateString('sv-SE') : null; };
+
+/**
+ * Vek údajov výzvy v dňoch: od stiahnutia detailu z ITMS21+, s ktorým kontrola porovnávala, nie od behu kontroly.
+ * Kontrola bez siete (--offline) nad starým uloženým detailom by inak vyzerala čerstvo. Neznámy dátum stiahnutia = null.
+ */
+export function vekUdajovDni(k: KontrolaZmien, dnes: string = dnesLokalne()): number | null {
+  const d = lokalnyDatum(k.stiahnute);
+  const vek = d ? Math.floor((Date.parse(dnes) - Date.parse(d)) / 86_400_000) : NaN;
+  return Number.isFinite(vek) ? vek : null;
+}
 
 /**
  * Body posudku z kontroly zmien (druh verzia, vždy na preverenie, aby zastarané pravidlá nedali čistý výsledok):
- * VER-KONTROLA, keď kontrola chýba alebo je staršia ako MAX_VEK_KONTROLY_DNI; VER-ITMS, keď kontrola našla zmeny,
- * ktoré človek ešte neposúdil (npm run zmeny -- --prevzat).
+ * VER-KONTROLA, keď kontrola chýba alebo údaje výzvy, s ktorými porovnávala, sú staršie ako MAX_VEK_KONTROLY_DNI
+ * (alebo sa ich vek nedá určiť); VER-ITMS, keď kontrola našla zmeny, ktoré človek ešte neposúdil (npm run zmeny -- --prevzat).
  */
 export function nalezyZmienVyzvy(k: KontrolaZmien | null, citacia: Citacia, dnes: string = dnesLokalne()): Nalez[] {
   const bod = (pravidlo: string, nazov: string, zdovodnenie: string): Nalez =>
     ({ pravidlo, ppp: null, nazov, druh: 'verzia', stav: 'na_preverenie', okamih: 'konanie', zdovodnenie, citacia });
-  if (!k) return [bod('VER-KONTROLA', 'Kontrola zmien výzvy v ITMS21+', 'Zmeny výzvy v ITMS21+ sa ešte nekontrolovali, preto nie je isté, že pravidlá zodpovedajú platnému zneniu výzvy. Kontrolu spustí npm run zmeny alebo tlačidlo na stránke Pravidlá a zdroje.')];
+  const spusti = 'Kontrolu spustí npm run zmeny alebo tlačidlo na stránke Pravidlá a zdroje.';
+  if (!k) return [bod('VER-KONTROLA', 'Kontrola zmien výzvy v ITMS21+', `Zmeny výzvy v ITMS21+ sa ešte nekontrolovali, preto nie je isté, že pravidlá zodpovedajú platnému zneniu výzvy. ${spusti}`)];
   const nalezy: Nalez[] = [];
-  const vek = Math.floor((Date.parse(dnes) - Date.parse(k.zistene.slice(0, 10))) / 86_400_000);
-  if (vek > MAX_VEK_KONTROLY_DNI)
-    nalezy.push(bod('VER-KONTROLA', 'Kontrola zmien výzvy v ITMS21+', `Zmeny výzvy v ITMS21+ boli naposledy skontrolované ${datumSk(k.zistene)}, pred ${vek} dňami (najviac ${MAX_VEK_KONTROLY_DNI}). Výzva sa odvtedy mohla zmeniť. Kontrolu spustí npm run zmeny alebo tlačidlo na stránke Pravidlá a zdroje.`));
+  const vek = vekUdajovDni(k, dnes);
+  const offline = k.zdroj === 'ulozeny' ? ` Kontrola z ${datumSk(lokalnyDatum(k.zistene) ?? k.zistene)} nečítala živé ITMS21+, porovnávala uložený detail.` : '';
+  if (vek === null)
+    nalezy.push(bod('VER-KONTROLA', 'Kontrola zmien výzvy v ITMS21+', `Nedá sa určiť, kedy boli z ITMS21+ stiahnuté údaje výzvy, s ktorými kontrola zmien porovnávala, preto nie je isté, že pravidlá zodpovedajú platnému zneniu výzvy.${offline} ${spusti}`));
+  else if (vek > MAX_VEK_KONTROLY_DNI)
+    nalezy.push(bod('VER-KONTROLA', 'Kontrola zmien výzvy v ITMS21+', `Údaje výzvy, s ktorými kontrola zmien porovnávala, boli z ITMS21+ stiahnuté ${datumSk(lokalnyDatum(k.stiahnute)!)}, pred ${vek} dňami (najviac ${MAX_VEK_KONTROLY_DNI}).${offline} Výzva sa odvtedy mohla zmeniť. ${spusti}`));
   if (k.zmeny.length) {
     const zoznam = k.zmeny.slice(0, 4).map((z) => z.popis).join(' ');
     const dalsie = k.zmeny.length > 4 ? ` A ďalšie zmeny (${k.zmeny.length - 4}).` : '';
@@ -162,13 +178,23 @@ export function nalezyZmienVyzvy(k: KontrolaZmien | null, citacia: Citacia, dnes
   return nalezy;
 }
 
-/** Posledný uložený detail výzvy: z kontrol zmien, inak zo stiahnutia žiadostí (scripts/01-stiahni-ziadosti.ts). */
+/**
+ * Posledný uložený detail výzvy: z kontrol zmien, inak zo stiahnutia žiadostí (scripts/01-stiahni-ziadosti.ts).
+ * Kedy bol stiahnutý: z názvu vyzva-YYYY-MM-DD.json.gz (dátum UTC, ktorý zapisuje skontrolujZmeny; berie sa začiatok dňa,
+ * teda skôr, nie neskôr), pri vyzva.json.gz zo stiahnutia žiadostí (meta.json). Čas zmeny súboru sa mení pri kopírovaní,
+ * preto len obmedzuje zhora (berie sa skorší z časov) a sám rozhoduje, len keď iný údaj nie je.
+ */
 function ulozenyDetail(vyzva: string): { detail: any; stiahnute: string } | null {
   const dir = priecinokDetailov(vyzva);
-  const kontroly = fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.endsWith('.json.gz')).sort() : [];
+  const kontroly = fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => /^vyzva-\d{4}-\d{2}-\d{2}\.json\.gz$/.test(f)).sort() : [];
   const subor = kontroly.length ? path.join(dir, kontroly[kontroly.length - 1]) : path.join(KOREN, 'data', 'raw', 'itms21', vyzva, 'vyzva.json.gz');
   if (!fs.existsSync(subor)) return null;
-  return { detail: JSON.parse(zlib.gunzipSync(fs.readFileSync(subor)).toString('utf8')), stiahnute: fs.statSync(subor).mtime.toISOString() };
+  const zNazvu = path.basename(subor).match(/^vyzva-(\d{4}-\d{2}-\d{2})\.json\.gz$/)?.[1];
+  const meta = path.join(path.dirname(subor), 'meta.json');
+  const zMeta = !zNazvu && fs.existsSync(meta) ? JSON.parse(fs.readFileSync(meta, 'utf8')).stiahnute as string | undefined : undefined;
+  const casy = [zNazvu ? `${zNazvu}T00:00:00.000Z` : zMeta, fs.statSync(subor).mtime.toISOString()].filter((x): x is string => !!x && Number.isFinite(Date.parse(x)));
+  const stiahnute = new Date(Math.min(...casy.map((x) => Date.parse(x)))).toISOString();
+  return { detail: JSON.parse(zlib.gunzipSync(fs.readFileSync(subor)).toString('utf8')), stiahnute };
 }
 
 /**

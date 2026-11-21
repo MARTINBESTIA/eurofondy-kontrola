@@ -1,8 +1,9 @@
 // Cielené overenie poistiek na konkrétnych úryvkoch: bez modelu sa skontroluje, či úryvok,
 // ktorý model v teste uviedol namiesto chýbajúcej náležitosti, poistky odmietnu,
 // a či správny úryvok z úplného dokumentu prejde. Spustenie: node scripts/overenie-poistiek.ts
-import { nacitajBalik, overUryvok, overVerdikt, vyhodnotNalezitosti, type Nalezitost } from '../src/core/posud.ts';
+import { nacitajBalik, overUryvok, overVerdikt, verzieBalika, vyhodnotNalezitosti, type Nalezitost } from '../src/core/posud.ts';
 import { dokladyPriloh } from '../src/moduly/zonfp/doklady-priloh.ts';
+import { KONTROLY } from '../src/moduly/zonfp/kontroly.ts';
 import type { Doklad, Nalez, Ziadost } from '../src/core/typy.ts';
 
 const VYZVA = 'PSK-SIEA-002-2023-DV-EFRR';
@@ -104,10 +105,32 @@ const riadokSplnomocnenca = vzor1a.split('\n').findIndex((r) => r.includes('Mgr.
 const zoznam9 = 'Príloha č. 9a ŽoNFP – Dokument súladu projektu s horizontálnymi princípmi\nIdentifikácia výzvy\nPrehlasujem, že požiadavky na bezbariérovú prístupnosť sú realizované v súlade so stavebnou legislatívou.';
 const sPrilohou9 = (zaradenie: 'potvrdene' | 'odhad') => ({ ...({} as Ziadost), prilohy: { '9': { nazov: 'Zoznam.pdf', text: zoznam9, zaradenie, subory: [{ suborId: 9, nazov: 'Zoznam.pdf', text: zoznam9, citatelny: true }] } } });
 const p09: Nalez = { pravidlo: 'P09', ppp: 8, nazov: '', druh: 'priloha', stav: 'splnene', zdovodnenie: '', citacia: { dokument: '', cast: '', znenie: '' } };
+const pravidloP09 = verzieBalika(VYZVA).find((b) => b.pravidla.some((p) => p.id === 'P09'))!.pravidla.find((p) => p.id === 'P09')!;
+// P06 (audit astry): súbor „Priloha_6_…“ s textom, ktorý nie je energetický certifikát, nesmie dostať „splnené“ ani doklad.
+const pravidloP06 = nacitajBalik(VYZVA).pravidla.find((p) => p.id === 'P06')!;
+const certifikat = 'Energetická certifikácia budov\nEnergetický certifikát budovy\nČíslo certifikátu: EC-0001 · stav pred obnovou (predrealizačný)\nIdentifikácia budovy\nBudova                 Základná škola Vzorová\nAdresa                 Školská 4, Vzorová\nGlobálny ukazovateľ – primárna energia (súčasný stav)\nEnergetická trieda     C';
+const cestovnyPlan = 'Cestovný plán\nCesta do Žiliny 12. 11. 2025\nOdchod: 7:30 z Bratislavy, príchod 10:05.\nÚčel cesty: pracovné stretnutie k projektu.\nDoprava: vlak IC 501, spiatočná cesta o 16:10.';
+const sprievodny = 'Vec: Predloženie žiadosti o NFP\nVážení, k žiadosti prikladáme výpis z uznesenia, energetický certifikát budovy, projektovú dokumentáciu a kontrolný zoznam bezbariérovej prístupnosti.\nS pozdravom\nstarosta obce';
+const sPrilohou6 = (...texty: [string, string][]) => ({ ...({} as Ziadost), aktivity: [{ kod: 'A', nazov: 'Zateplenie', hlavna: true, opatrenie: '2.1.2', zaciatok: null, koniec: null }], rozpocet: [],
+  prilohy: { '6': { nazov: texty.map(([n]) => n).join('; '), text: texty.map(([, t]) => t).join('\n\n'), zaradenie: 'potvrdene' as const, subory: texty.map(([nazov, text], i) => ({ suborId: 60 + i, nazov, text, citatelny: true })) } } }) as Ziadost;
+const p06 = (z: Ziadost) => { const r = KONTROLY[pravidloP06.kontrola](z, pravidloP06); return { r, d: dokladyPriloh(z, { ...r, pravidlo: 'P06', ppp: 7, nazov: '', druh: 'priloha', citacia: pravidloP06.citacia } as Nalez, pravidloP06) }; };
+const pripadyP06: [string, Ziadost, string, (d: Doklad[]) => boolean][] = [
+  ['P06 cestovný plán s číslom prílohy 6', sPrilohou6(['Priloha_6_Cestovny_plan.txt', cestovnyPlan]), 'na_preverenie', (d) => d.length === 0],
+  ['P06 sprievodný list, ktorý certifikát len spomína', sPrilohou6(['Priloha_6_list.pdf', sprievodny]), 'na_preverenie', (d) => d.length === 0],
+  ['P06 skutočný certifikát: nadpis, znak a budova', sPrilohou6(['Priloha_6_EC.pdf', certifikat]), 'splnene', (d) => d.map((x) => x.riadokOd).join() === '2,7,5' && d.every((x) => x.suborId === 60)],
+  ['P06 certifikát a cestovný plán v jednom slote: doklad len z certifikátu', sPrilohou6(['Priloha_6_plan.txt', cestovnyPlan], ['Priloha_6_EC.pdf', certifikat]), 'splnene', (d) => d.length === 3 && d.every((x) => x.suborId === 61)],
+];
+for (const [nazov, z, ocak, okDoklad] of pripadyP06) {
+  const { r, d } = p06(z);
+  const ok = r.stav === ocak && okDoklad(d);
+  if (!ok) zle++;
+  console.log(`${ok ? 'OK ' : 'ZLE'} ${nazov}: ${r.stav} (má byť ${ocak}), doklady ${d.map((x) => `${x.suborId}:${x.riadokOd}`).join(' ') || 'žiadne'} – ${r.zdovodnenie.slice(0, 120)}`);
+}
 const dokladove: [string, Doklad[], (d: Doklad[]) => boolean][] = [
-  ['P09 potvrdený kontrolný zoznam dostane nadpis a vyhlásenie', dokladyPriloh(sPrilohou9('potvrdene'), p09),
+  ['P09 potvrdený kontrolný zoznam dostane nadpis a vyhlásenie', dokladyPriloh(sPrilohou9('potvrdene'), p09, pravidloP09),
     (d) => d.length === 2 && d.every((x) => x.suborId === 9) && d.map((x) => x.riadokOd).join() === '1,3'],
-  ['P09 odhadnutý slot nedostane doklad', dokladyPriloh(sPrilohou9('odhad'), p09), (d) => d.length === 0],
+  ['P09 bez pravidla z balíka nedostane doklad (vzor obsahu je len v balíku)', dokladyPriloh(sPrilohou9('potvrdene'), p09), (d) => d.length === 0],
+  ['P09 odhadnutý slot nedostane doklad', dokladyPriloh(sPrilohou9('odhad'), p09, pravidloP09), (d) => d.length === 0],
   ['L01 skutočný úryvok dostane súbor a riadok', dokladyPriloh(zPrilohou, l01('na_preverenie', 'označenie splnomocnenej osoby: „Splnomocnenec    : Mgr. Eva Ukážková“', 1)),
     (d) => d.length === 1 && d[0].suborId === 7 && d[0].riadokOd === riadokSplnomocnenca],
   ['L01 vymyslený úryvok nedostane doklad', dokladyPriloh(zPrilohou, l01('na_preverenie', 'podpis štatutárneho orgánu: „podpísal starosta Ing. Ján Vymyslený“', 1)), (d) => d.length === 0],

@@ -206,11 +206,12 @@ function kresliZmenyVyzvy(z) {
   if (!z) return [];
   const datum = (d) => d.slice(0, 10).split('-').reverse().join('. ');
   const k = z.kontrola;
-  const stara = k && z.vekDni > z.maxVekDni;
+  // Vek sa počíta od stiahnutia údajov z ITMS21+ (pri kontrole nad uloženým detailom môže byť oveľa starší než kontrola).
+  const stara = k && (z.vekDni === null || z.vekDni > z.maxVekDni);
   const stavKontroly = !k ? el('p', {}, el('span', { class: 'stitok s-na_preverenie' }, 'nekontrolované'), ' Kontrola ešte neprebehla, preto má každý posudok bod na preverenie.')
-    : el('p', {}, el('span', { class: `stitok ${k.zmeny.length || stara ? 's-na_preverenie' : 's-splnene'}` }, k.zmeny.length ? `${k.zmeny.length} neposúdených zmien` : stara ? 'stará kontrola' : 'bez zmien'),
-      ` Posledná kontrola ${datum(k.zistene)} (${k.zdroj === 'itms' ? 'živé ITMS21+' : `uložený detail z ${datum(k.stiahnute)}`}), pred ${z.vekDni} d.`,
-      stara ? ` Kontrola je staršia ako ${z.maxVekDni} dní, preto má každý posudok bod na preverenie.` : '');
+    : el('p', {}, el('span', { class: `stitok ${k.zmeny.length || stara ? 's-na_preverenie' : 's-splnene'}` }, k.zmeny.length ? `${k.zmeny.length} neposúdených zmien` : stara ? 'staré údaje' : 'bez zmien'),
+      ` Posledná kontrola ${datum(k.zistene)} (${k.zdroj === 'itms' ? 'živé ITMS21+' : `uložený detail z ${datum(k.stiahnute)}`}), údaje výzvy sú ${z.vekDni === null ? 'neznámeho veku.' : `staré ${z.vekDni} d.`}`,
+      stara ? ` Údaje výzvy z ITMS21+ sú staršie ako ${z.maxVekDni} dní alebo sa ich vek nedá určiť, preto má každý posudok bod na preverenie.` : '');
   const tlacidlo = el('button', { class: 'vedlajsie', onclick: async (e) => {
     e.target.disabled = true; e.target.textContent = 'Kontrolujem…';
     try { await api(`/api/${modul.id}/zmeny-vyzvy`, {}); await nacitajPravidla(); }

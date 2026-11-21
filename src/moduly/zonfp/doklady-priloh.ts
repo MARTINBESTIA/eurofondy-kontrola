@@ -1,52 +1,29 @@
 import { isDeepStrictEqual } from 'node:util';
 import type { Doklad, Nalez, Pravidlo, Priloha, Ziadost } from '../../core/typy.ts';
-import { suladPrilohy8, zavaznyFormular, type ZavaznyFormular } from './kontroly.ts';
+import { koniecRiadka, riadkyObsahu, suladPrilohy8, zavaznyFormular, type ObsahPrilohy, type ZavaznyFormular } from './kontroly.ts';
 import { textBunky } from '../../ingest/dokument.ts';
 
 type Subor = NonNullable<Priloha['subory']>[number] & { suborId: number };
 type CitatPrilohy = Doklad & { suborId: number };
 const cislaPriloh: Record<string, string> = { P03: '3', P05: '5', P06: '6', P07: '7', P08: '8', P08b: '8', P09: '9', L01: '1', L05: '5' };
 
-// Čísla sa vzťahujú na nemenný text extrahovaný pri príjme. Staršie PDF v úložisku
+// Čísla riadkov sa vzťahujú na nemenný text extrahovaný pri príjme (koniecRiadka ako v kontrole). Staršie PDF v úložisku
 // môžu mať po trim() odstránené úvodné prázdne strany, preto neodhadujeme čísla fyzických strán.
-const koniecRiadka = /\r\n|[\n\r\f]/;
 const literalnyVzor = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const nadpisPrilohy: Record<string, RegExp> = {
-  '3': /uznesen|územn.{0,4} plán|schválen.{0,20}program/i,
-  '5': /energetick.{0,3} audit/i,
-  '6': /energetick.{0,3} certifikát/i,
-  '7': /technická správa|projektová dokumentácia|výkres/i,
-  '9': /horizontáln.{0,4} princíp|bezbariér/i,
-};
-const dalsieRiadkyPrilohy: Record<string, RegExp[]> = {
-  '3': [/schválil.{0,60}program|program.{0,60}schválil/i, /územn.{0,4} plán.{0,80}schválil|schválil.{0,80}územn.{0,4} plán/i],
-  '5': [/energetick.{0,4} audítor|odborne spôsobil/i],
-  '6': [/^(?:posudzovaná\s+)?(?:budova|objekt|adresa)\s*[ :–-]+\S/i],
-  '7': [/technick.{0,3} správa|výkresov.{0,3} časť/i],
-  '9': [/bezbariérov.{0,4} prístupnos/i],
-};
 
 function referenciaNaText(s: Subor, citat: string, riadokOd: number, riadokDo = riadokOd): CitatPrilohy {
   const rozsah = riadokOd === riadokDo ? `riadok ${riadokOd}` : `riadky ${riadokOd}–${riadokDo}`;
   return { suborId: s.suborId, nazov: s.nazov, miesto: `${rozsah} extrahovaného textu`, citat, riadokOd, riadokDo };
 }
 
-/** Prítomnosť preukazuje samotný čitateľný obsah súboru v potvrdenom slote.
- * Nadpis pomôže kontrolórovi identifikovať doklad, nevydávame ho za posúdenie vecnej správnosti. */
-function dokladPritomnosti(s: Subor, cislo: string): CitatPrilohy[] {
+/** Prítomnosť prílohy dokladajú riadky, podľa ktorých kontrola rozpoznala druh dokumentu (nadpis, znak, napr. budova),
+ * s tým istým vzorom z balíka ako kontrola. Súbor bez nich doklad nedostane: náhradný prvý riadok by citoval čokoľvek.
+ * Nie je to posúdenie vecnej správnosti dokumentu. */
+function dokladPritomnosti(s: Subor, obsah: ObsahPrilohy): CitatPrilohy[] {
   const riadky = s.text.split(koniecRiadka);
-  const vzor = nadpisPrilohy[cislo];
-  let index = riadky.findIndex(r => vzor?.test(r));
-  if (index < 0) index = riadky.findIndex(r => r.trim().length > 0);
-  if (index < 0) return [];
-  const indexy = new Map<number, RegExp>([[index, vzor]]);
-  for (const doplnok of dalsieRiadkyPrilohy[cislo] ?? []) {
-    const i = riadky.findIndex(r => doplnok.test(r.trim()));
-    if (i >= 0 && !indexy.has(i)) indexy.set(i, doplnok);
-  }
-  return [...indexy].map(([i, hladane]) => {
-    const riadok = riadky[i].trim();
-    return referenciaNaText(s, vyrezRiadka(riadok, Math.max(0, riadok.search(hladane))), i + 1);
+  return riadkyObsahu(s.text, obsah).map(({ index, vzor }) => {
+    const riadok = riadky[index].trim();
+    return referenciaNaText(s, vyrezRiadka(riadok, Math.max(0, riadok.search(vzor))), index + 1);
   });
 }
 
@@ -154,5 +131,6 @@ export function dokladyPriloh(z: Ziadost, n: Nalez, pravidlo?: Pravidlo): CitatP
     const config = pravidlo?.id === n.pravidlo ? pravidlo.parametre?.zavaznyFormular : undefined;
     return config ? dokladRozpoctu(z, n, pr, config) : [];
   }
-  return subory.flatMap(s => dokladPritomnosti(s, c));
+  const obsah = pravidlo?.id === n.pravidlo ? pravidlo.parametre?.obsah as ObsahPrilohy | undefined : undefined;
+  return obsah ? subory.flatMap(s => dokladPritomnosti(s, obsah)) : [];
 }

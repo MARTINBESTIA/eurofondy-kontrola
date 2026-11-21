@@ -94,6 +94,11 @@ podaní podľa oficiálnych vzorov, s očakávaným výsledkom pri každom, je v
   Prílohy č. 2). Nesúlad nikdy nevedie
   k „nesplnené“, rozhoduje človek. Skryté hárky (B2–B7) sa nečítajú, preto viac budov bez čitateľného
   hárku = na preverenie.
+- **Viac vyplnených zošitov Prílohy č. 8.** Doplnenie sa pridáva k pôvodnému podaniu, takže v slote môže byť
+  pôvodný aj opravený zošit. Ak majú vyplnené zošity rozdielny rozpočet (P08) alebo im porovnanie s formulárom
+  vychádza inak (P08b), výsledok je na preverenie a zdôvodnenie vypíše každý zošit. Kontrolór má určiť záväzný
+  zošit a ostatné vyradiť zo zaradenia prílohy. Výsledok tak nezávisí od poradia súborov. Rovnaké zošity
+  (napr. nahraté dvakrát) dajú bežný výsledok.
 - **Zaradenie príloh.** Číslo v názve súboru (`Priloha_3_…`) sa berie ako vyhlásenie žiadateľa, rovnako ako
   slot v ITMS21+. Súbor bez čísla softvér zaradí podľa kľúčových slov, najprv z názvu, potom z obsahu. Je to
   len **odhad**: kým ho kontrolór nepotvrdí, pravidlo prílohy je „na preverenie“. Stačí jeden odhadnutý súbor
@@ -149,7 +154,7 @@ Tri vrstvy, ktoré sa dajú meniť nezávisle:
    číslo PPP, druh, prahy a doslovnú citáciu s názvom dokumentu a časti. Nová verzia výzvy je nový súbor,
    kód sa nemení.
    - Zmena výzvy platí pre kolo, v ktorom vyšla, a pre nasledujúce kolá (§ 14 ods. 4 zákona č. 121/2022 Z. z.). Posudok preto vyberie znenie podľa kola žiadosti, ktoré berie z ITMS21+, inak ho odvodí z dátumu predloženia. Nejasné kolo a znenie, ktoré ešte neschválil človek, dávajú bod na preverenie.
-   - `npm run zmeny` porovná verzie, dokumenty, PPP, termíny a aktuality výzvy v ITMS21+ so stavom, ktorý naposledy posúdil človek. Kým človek zistenú zmenu neposúdi, posudky dostanú bod VER-ITMS. Kontrola staršia ako 7 dní dá bod VER-KONTROLA.
+   - `npm run zmeny` porovná verzie, dokumenty, PPP, termíny a aktuality výzvy v ITMS21+ so stavom, ktorý naposledy posúdil človek. Kým človek zistenú zmenu neposúdi, posudky dostanú bod VER-ITMS. Bod VER-KONTROLA dostane posudok, keď údaje výzvy, s ktorými kontrola porovnávala, boli z ITMS21+ stiahnuté pred viac ako 7 dňami alebo sa ich vek nedá určiť. Vek sa ráta od dátumu stiahnutia, nie od behu kontroly, takže offline beh nad starým uloženým detailom bod nezruší.
    - Človek zistenú zmenu posúdi a podľa potreby upraví balík. Novú verziu výzvy doplní do `itmsVerzie`. Zmenu potom prevezme príkazom `npm run zmeny -- --prevzat --poznamka "…"`.
 2. **Jadro a moduly** (`src/core`, `src/moduly`). Jadro nevie nič o konkrétnej výzve ani o type vstupu.
    Modul implementuje rozhranie `Modul`: zoznam prípadov, načítanie, polia formulára, sloty na dokumenty,
@@ -164,7 +169,7 @@ Tri vrstvy, ktoré sa dajú meniť nezávisle:
 | Druh | Ako sa overuje | Príklad |
 |---|---|---|
 | `data` | výpočet z údajov formulára | NFP 200 000 až 5 000 000 EUR, úspora energie ≥ 30 %, hodnota za peniaze |
-| `priloha` | prítomnosť povinnej prílohy podľa typu žiadateľa a aktivít | energetický certifikát pri opatrení 2.1.2 |
+| `priloha` | prítomnosť povinnej prílohy podľa typu žiadateľa a aktivít a znaky jej obsahu (nadpis typu dokumentu na začiatku, typický údaj v ďalšom riadku) | energetický certifikát pri opatrení 2.1.2 |
 | `llm` | lokálny model hľadá dôkaz v texte | plnomocenstvo má všetky štyri náležitosti |
 | `register` | overuje poskytovateľ v registri, alebo voliteľný online dopyt | exekúcie, EDES, kataster; RPO pri VO |
 
@@ -178,6 +183,13 @@ Ako sa bráni „falošne OK“:
 - chýbajúci údaj alebo dokument je „neoverené“ alebo „chýba podklad“, nikdy „splnené“;
 - pravidlá sú pomenované úzko („Doklady s DPH vystavili platitelia DPH“), aby „splnené“ tvrdilo len to, čo sa overilo;
 - dvojznačné prípady (DPH v zmluve, staršie limity VO, klasifikátor zmien „podľa dopadu“) sú „na preverenie“;
+- pravidlo prítomnosti prílohy (P03, P05, P06, P07, P09) uzná súbor, len ak má v prvých 15 neprázdnych riadkoch
+  nadpis typu dokumentu a v inom riadku aspoň jeden typický údaj (`parametre.obsah` v balíku). Doklad cituje
+  oba riadky. Cestovný plán ani sprievodný list s číslom prílohy v názve preto neprejdú ako energetický
+  certifikát, ale idú na preverenie; pravidlo bez znakov obsahu dá vždy na preverenie;
+- včasnosť (F01) určí kategóriu regiónu z krajov miesta realizácie podľa mapy `kraje` v balíku (bez ohľadu na
+  medzery a veľkosť písmen). Neznámy kraj alebo kategória mimo VRR a MRR dá na preverenie, lebo od kategórie
+  závisí alokácia aj deň uzavretia výzvy;
 - úryvok od modelu musí byť v texte doslovne, zodpovedať vzoru a nesmie zodpovedať zakázanému vzoru
   (napr. dátum splatnosti nesmie prejsť ako dátum vyhotovenia, zostatok nie ako suma platby);
 - pri niektorých náležitostiach sa kontroluje aj celý riadok, z ktorého úryvok pochádza (IBAN z riadku
@@ -387,9 +399,23 @@ Všetkých 15 prešlo (0 rozdielov). Pri tvorbe sada našla päť chýb, všetky
 - P08b nečítal hlásenia hárku MU Budova (B13, I13). Pri úspore pod 30 % (prípad 11) preto vyhlásil vyplnený zošit
   za neúplný („absencia výpočtu“, chýba podklad) a radil ho doplniť; teraz dá na preverenie so skutočnou príčinou.
 
+### Audit 21. 11. 2026
+
+Nezávislý audit astry (Codex) našiel štyri ďalšie cesty k falošnému OK. Všetky sú opravené a pokrývajú ich
+`npm run test:priloha8`, `npm run test:inventar` a `scripts/overenie-poistiek.ts`:
+- pravidlá prítomnosti prílohy uznali akýkoľvek čitateľný text dlhší ako 40 znakov, napr. cestovný plán v slote
+  energetického certifikátu;
+- pri dvoch vyplnených zošitoch Prílohy č. 8 rozhodlo poradie súborov, takže opravený zošit z doplnenia sa mohol
+  prehliadnuť;
+- F01 nepoznal kód kategórie regiónu mimo VRR a MRR a kraj s preklepom alebo medzerou navyše bral ako MRR;
+- vek údajov pre VER-KONTROLA sa rátal od behu kontroly, takže offline porovnanie so starým uloženým detailom
+  vyzeralo čerstvo.
+
 ## Obmedzenia
 
 - Prílohy žiadostí nie sú verejné. Kontrola obsahu príloh je preto overená len na vymyslených textoch.
+  Aj znaky obsahu príloh (`parametre.obsah`) sú nastavené na rekonštrukciách a vzoroch. Reálny dokument
+  s iným nadpisom pôjde na preverenie, nie do „splnené“.
 - Podpis sa z textu overiť nedá. Pravidlo o plnomocenstve preto nikdy neskončí ako „splnené“, najlepší výsledok
   je „na preverenie“.
 - Východisková spotreba energie je vo verejných dátach vyplnená len pri 208 zo 783 žiadostí, takže úspora

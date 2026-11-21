@@ -16,7 +16,7 @@ import { zop } from '../moduly/zop/modul.ts';
 import { ukazovatele } from '../moduly/ukazovatele/modul.ts';
 import * as pod from '../podatelna/podatelna.ts';
 import { dolozPosudok, precitajPosudok } from '../podatelna/doklady.ts';
-import { MAX_VEK_KONTROLY_DNI, nacitajKontroluZmien, nacitajZakladZmien, skontrolujZmeny } from '../core/zmeny.ts';
+import { MAX_VEK_KONTROLY_DNI, nacitajKontroluZmien, nacitajZakladZmien, skontrolujZmeny, vekUdajovDni } from '../core/zmeny.ts';
 
 const KOREN = path.join(import.meta.dirname, '..', '..');
 const PORT = Number(process.env.PORT ?? 5177);
@@ -39,7 +39,8 @@ function stavZmien(vyzva: string) {
   const zaklad = nacitajZakladZmien(vyzva);
   if (!zaklad) return null;
   const kontrola = nacitajKontroluZmien(vyzva);
-  const vekDni = kontrola ? Math.floor((Date.parse(new Date().toLocaleDateString('sv-SE')) - Date.parse(kontrola.zistene.slice(0, 10))) / 86_400_000) : null;
+  // Vek údajov od stiahnutia z ITMS21+ (ako bod VER-KONTROLA), nie od behu kontroly; null = nedá sa určiť.
+  const vekDni = kontrola ? vekUdajovDni(kontrola) : null;
   return { zaklad: { prevzate: zaklad.prevzate, verzie: zaklad.verzie, bezBalika: zaklad.bezBalika }, kontrola, vekDni, maxVekDni: MAX_VEK_KONTROLY_DNI };
 }
 

@@ -71,6 +71,10 @@ const pripady: [string, Ziadost, Subor[], string][] = [
   ['O9 = áno ukáže text v O10, B10 prázdne', zBase, [zosit('P8.xlsm', { B9: ZI, O9: 'áno', O10: 'Uveďte link alebo predložte doklad.', ...pol })], 'chyba_podklad'],
   ['prázdny vzor a vyplnená kópia', zBase, [zosit('vzor.xlsm'), zosit('P8.xlsm', { B9: ZI, B10: PR, ...pol })], 'splnene'],
   ['správny a cudzí vyplnený zošit', zBase, [zosit('P8.xlsm', { B9: ZI, B10: PR, ...pol }), zosit('P8-ms.xlsm', { B9: ZI, B10: 'Obnova MŠ', ...pol })], 'na_preverenie'],
+  // Pôvodný a opravený zošit v jednej prílohe (doplnenie sa pridá k pôvodnému): výsledok nesmie závisieť od poradia.
+  ['dva vyplnené zošity s iným rozpočtom', zBase, [zosit('P8.xlsm', { B9: ZI, B10: PR, ...pol }), zosit('P8-oprava.xlsm', { B9: ZI, B10: PR, ...pol, E24: '2700', F24: '2700' })], 'na_preverenie'],
+  ['dva vyplnené zošity s iným rozpočtom, opačné poradie', zBase, [zosit('P8-oprava.xlsm', { B9: ZI, B10: PR, ...pol, E24: '2700', F24: '2700' }), zosit('P8.xlsm', { B9: ZI, B10: PR, ...pol })], 'na_preverenie'],
+  ['dva vyplnené zošity s rovnakým rozpočtom', zBase, [zosit('P8.xlsm', { B9: ZI, B10: PR, ...pol }), zosit('P8-kopia.xlsm', { B9: ZI, B10: PR, ...pol })], 'splnene'],
   ['bunky sa nedali prečítať (chýba originál)', zBase, [{ nazov: 'P8.xlsm', text: textVzoru, citatelny: true }], 'na_preverenie'],
 ];
 if (fs.existsSync(FIXTURE)) {
@@ -131,6 +135,13 @@ const pripady8b: [string, Ziadost, Priloha | undefined | null, string, RegExp?][
   ['zošit inej žiadosti (P08 na preverenie)', zBase, priloha8([zosit8b(zhoda)]), 'na_preverenie', /bod P08/],
   ['prázdny vzor (P08 chýba podklad)', zG, priloha8([zosit('P8.xlsm')]), 'chyba_podklad', /bod P08/],
   ['zaradenie len odhadom', zG, priloha8([zosit8b(zhoda)], 'odhad'), 'na_preverenie'],
+  // Audit astry: pôvodný a finálny zošit s rovnakými položkami, ale inou sumou po krátení (iné údaje MU Budova).
+  // Skôr rozhodoval prvý súbor: finálny prvý dal splnené, opačné poradie na preverenie.
+  ['pôvodný a opravený zošit s inou sumou po krátení', zG, priloha8([{ ...zosit8b(zhoda), nazov: 'P8-final.xlsm' }, { ...zosit8b({ ...zhoda, M210: '203686.1655' }), nazov: 'P8-vcera.xlsm' }]),
+    'na_preverenie', /viaceré vyplnené zošity[\s\S]*P8-final\.xlsm: 2\.1\.2 214\s406,49 EUR[\s\S]*zhoduje sa s formulárom[\s\S]*P8-vcera\.xlsm: 2\.1\.2 203\s686,17 EUR/],
+  ['pôvodný a opravený zošit, opačné poradie', zG, priloha8([{ ...zosit8b({ ...zhoda, M210: '203686.1655' }), nazov: 'P8-vcera.xlsm' }, { ...zosit8b(zhoda), nazov: 'P8-final.xlsm' }]),
+    'na_preverenie', /viaceré vyplnené zošity/],
+  ['dva rovnaké zošity (nahraté dvakrát)', zG, priloha8([{ ...zosit8b(zhoda), nazov: 'P8.xlsm' }, { ...zosit8b(zhoda), nazov: 'P8 (1).xlsm' }]), 'splnene'],
   ['príloha č. 8 chýba', zG, null, 'chyba_podklad'],
   ['prílohy nie sú v podkladoch (verejné API)', zG, undefined, 'mimo_podkladov'],
 ];
@@ -155,6 +166,17 @@ for (const [nazov, z, pr, ocak, text] of pripady8b) {
   if (!ok) zle++;
   console.log(`${ok ? '✓' : '✗'} doklad P08b cituje bunku hlásenia „MU Budova 1“!I13${ok ? '' : ` – ${r.stav}, ${JSON.stringify(doklady.map((d) => d.miesto))}`}`);
 }
-const vsetky = pripady.length + pripady8b.length + 1;
+// Pri rozdielnych zošitoch sú podkladom bunky oboch, nie len prvého súboru.
+{
+  const a = { ...zosit8b(zhoda), nazov: 'P8-final.xlsm', suborId: 7 }, b = { ...zosit8b({ ...zhoda, M210: '203686.1655' }), nazov: 'P8-vcera.xlsm', suborId: 8 };
+  const z: Ziadost = { ...zG, prilohy: { '8': { ...priloha8([a, b]), zaradenie: 'potvrdene' } } };
+  const r = KONTROLY[p8b.kontrola](z, p8b);
+  const doklady = dokladyPriloh(z, { ...r, pravidlo: 'P08b' } as unknown as Nalez, p8b);
+  const m210 = (id: number) => doklady.some((d) => d.suborId === id && d.miesto === `Hárok „${H}“, bunka M210`);
+  const ok = r.stav === 'na_preverenie' && m210(7) && m210(8);
+  if (!ok) zle++;
+  console.log(`${ok ? '✓' : '✗'} doklad P08b pri dvoch rozdielnych zošitoch cituje M210 oboch${ok ? '' : ` – ${r.stav}, ${JSON.stringify(doklady.map((d) => `${d.suborId} ${d.miesto}`))}`}`);
+}
+const vsetky = pripady.length + pripady8b.length + 2;
 console.log(zle ? `\n${zle} z ${vsetky} prípadov nesedí.` : `\nVšetkých ${vsetky} prípadov sedí.`);
 process.exit(zle ? 1 : 0);

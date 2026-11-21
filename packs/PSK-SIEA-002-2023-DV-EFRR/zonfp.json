@@ -109,9 +109,10 @@
         "uzavretieKategorie": {
           "MRR": "2025-01-09"
         },
-        "krajeVRR": [
-          "Bratislavský kraj"
-        ],
+        "kraje": {
+          "VRR": ["Bratislavský kraj"],
+          "MRR": ["Banskobystrický kraj", "Košický kraj", "Nitriansky kraj", "Prešovský kraj", "Trenčiansky kraj", "Trnavský kraj", "Žilinský kraj"]
+        },
         "zdrojeDatumov": "vyhlásenie 22. 12. 2023: výzva, Dátum vyhlásenia výzvy; uzavretie 09. 01. 2026: Oznámenie o uzavretí výzvy; uzavretie pre MRR 09. 01. 2025: ITMS21+, verzia 5 výzvy (nie je možné vybrať akciu pre menej rozvinutý región)"
       },
       "citacia": {
@@ -297,7 +298,12 @@
       "kontrola": "priloha_povinna",
       "parametre": {
         "cislo": "7",
-        "podmienka": "vzdy"
+        "podmienka": "vzdy",
+        "obsah": {
+          "popis": "projektová dokumentácia stavby",
+          "nadpis": "technick\\S{0,3}\\s+správ|projektov\\S{0,3}\\s+dokumentáci|výkres",
+          "znaky": ["^stavba\\s*:|miesto\\s+stavby|stavebník|\\bstavebn\\S*\\s+povolen", "projektant|autorizovan", "výkresov\\S*\\s+čas|\\bmierk[ay]\\b|\\bM\\s*1\\s*:\\s*\\d", "\\bSTN\\s*\\d"]
+        }
       },
       "citacia": {
         "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
@@ -371,7 +377,13 @@
       "kontrola": "priloha_povinna",
       "parametre": {
         "cislo": "6",
-        "podmienka": "opatrenie_212"
+        "podmienka": "opatrenie_212",
+        "obsah": {
+          "popis": "energetický certifikát budovy",
+          "nadpis": "energetick\\S{0,3}\\s+certifikát",
+          "znaky": ["globáln\\S{0,3}\\s+ukazovate", "energetick\\S{0,3}\\s+tried", "primárn\\S{0,3}\\s+energi", "číslo\\s+(?:energetického\\s+)?certifikátu"],
+          "citovat": ["^(?:posudzovaná\\s+)?(?:budova|objekt|adresa)\\s*[ :–-]+\\S"]
+        }
       },
       "citacia": {
         "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
@@ -387,7 +399,12 @@
       "kontrola": "priloha_povinna",
       "parametre": {
         "cislo": "5",
-        "podmienka": "aktivita_audit"
+        "podmienka": "aktivita_audit",
+        "obsah": {
+          "popis": "energetický audit alebo stanovisko energetického audítora",
+          "nadpis": "energetick\\S{0,3}\\s+aud[ií]t",
+          "znaky": ["aud[ií]tor", "odborne\\s+spôsobil", "321/2014", "úspor\\S*\\s+(?:primárnej\\s+)?energi"]
+        }
       },
       "citacia": {
         "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
@@ -404,7 +421,12 @@
       "parametre": {
         "cislo": "3",
         "podmienka": "obec_vuc",
-        "nahrada": "odkaz na zverejnené uznesenie v tabuľke č. 7.2 formulára ŽoNFP"
+        "nahrada": "odkaz na zverejnené uznesenie v tabuľke č. 7.2 formulára ŽoNFP",
+        "obsah": {
+          "popis": "uznesenie o schválení programu rozvoja a územnoplánovacej dokumentácie",
+          "nadpis": "uznesen",
+          "znaky": ["program\\S*\\s+(?:hospodárskeho|rozvoja|sociálneho)|\\bPH(?:R)?SR\\b", "územn\\S*\\s+plán|územnoplánovac"]
+        }
       },
       "citacia": {
         "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 3)",
