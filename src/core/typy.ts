@@ -87,13 +87,17 @@ export interface Podmienka {
 }
 
 export interface Nalez {
-  /** rucne = podmienka z inventára, ktorú pravidlá nepokrývajú celú; pravidlo je vtedy id podmienky. */
-  pravidlo: string; ppp: number | null; nazov: string; druh: Pravidlo['druh'] | 'rucne'; stav: Stav;
+  /**
+   * rucne = podmienka z inventára, ktorú pravidlá nepokrývajú celú; pravidlo je vtedy id podmienky.
+   * verzia = pochybnosť o tom, ktoré znenie výzvy sa na žiadosť vzťahuje (pravidlo VER-…).
+   */
+  pravidlo: string; ppp: number | null; nazov: string; druh: Pravidlo['druh'] | 'rucne' | 'verzia'; stav: Stav;
   zdovodnenie: string; dokaz?: string; hodnoty?: Record<string, number | string | null>;
   citacia: Citacia; overenieZdroj?: string;
   okamih?: Podmienka['okamih'];
   doklady?: Doklad[];
-  povodDokladov?: 'archiv' | 'rekonstrukcia' | 'nedostupne';
+  /** pravidlo_zmenene = starší posudok, ktorého pravidlo sa odvtedy zmenilo: doklady k nemu sa už nedajú zrekonštruovať. */
+  povodDokladov?: 'archiv' | 'rekonstrukcia' | 'nedostupne' | 'pravidlo_zmenene';
 }
 
 export interface Doklad {
@@ -108,6 +112,39 @@ export interface BalikPravidiel {
   proces: string[]; pravidla: Pravidlo[];
   /** Inventár všetkých podmienok výzvy. Chýba len pri moduloch, ktoré ho nevyžadujú (Modul.inventarPodmienok). */
   podmienky?: Podmienka[];
+  /** Ktoré znenie výzvy balík prepisuje a na ktoré kolá sa vzťahuje. Chýba pri balíkoch bez verzií. */
+  verziaBalika?: VerziaBalika;
+  /** Termíny uzavretia hodnotiacich kôl podľa výzvy (kolo žiadosti z dátumu predloženia). */
+  harmonogramKol?: HarmonogramKol;
+}
+
+/**
+ * Znenie výzvy, ktoré balík prepisuje. Zmena výzvy platí pre aktuálne posudzované obdobie (hodnotiace kolo)
+ * a nasledujúce (§ 14 ods. 4 zákona č. 121/2022 Z. z.), preto sa verzia vyberá podľa kola žiadosti, nie podľa dňa
+ * posúdenia. Platná verzia je packs/<výzva>/<modul>.json, staršie sú v packs/<výzva>/verzie/<id>/<modul>.json.
+ */
+export interface VerziaBalika {
+  id: string;
+  /** Čísla verzií výzvy v ITMS21+, ktoré toto znenie pokrýva (aj verzie bez vplyvu na podmienky, napr. doplnenie údajov). */
+  itmsVerzie: number[];
+  /** Prvé kolo, na ktoré sa znenie vzťahuje; platí po kolo pred odKola nasledujúcej verzie. */
+  odKola: number;
+  /** platna = najnovšie znenie, archivna = staršie znenie pre skoršie kolá. */
+  stav: 'platna' | 'archivna';
+  /** Pravidlá sú výklad práva: nové znenie platí až po schválení človekom. Kým čaká, posudok ide na preverenie. */
+  schvalenie: { stav: 'schvalene' | 'caka'; kto?: string; kedy?: string; poznamka: string };
+  /** Doslovné znenie zmeny výzvy o jej účinnosti a o tom, na ktoré žiadosti sa vzťahuje. */
+  citacia: Citacia;
+}
+
+/** Kolo 1 a kolo 2 sa uzatvárajú v uvedené dni, každé ďalšie o krokDni neskôr. */
+export interface HarmonogramKol { kolo1: string; kolo2: string; krokDni: number; citacia: Citacia }
+
+/** Ktoré znenie výzvy sa na žiadosť použilo a prečo (auditná stopa posudku). */
+export interface VyberVerzie {
+  verziaId: string; verzia: string; odKola: number; doKola: number | null;
+  kolo: number | null; zdrojKola: 'itms' | 'datum' | null; datumPredlozenia: string | null;
+  zdovodnenie: string;
 }
 
 /** Projekt po uzavretí zmluvy (verejné API ITMS21+). Vstup modulov ukazovatele, zmeny a verejné obstarávanie. */
@@ -157,6 +194,8 @@ export interface Modul<V = any> {
   neukladatDokazy?: boolean;
   /** Balík musí vymenovať všetky podmienky výzvy (BalikPravidiel.podmienky). Bez inventára ide celá úplnosť človeku. */
   inventarPodmienok?: boolean;
+  /** Kolo z ITMS21+ a dátum predloženia (RRRR-MM-DD): podľa nich sa vyberá znenie výzvy (verzia balíka). */
+  okamihPodania?(v: V): { kolo: number | null; datum: string | null };
 }
 
 /** bez_zisteni len ak sa overilo všetko, čo pravidlá žiadajú; ak niečo z podkladov overiť nejde, výrok je ciastocne_overene. */
@@ -166,4 +205,6 @@ export interface Posudok {
   ziadostKod: string; balik: string; verziaBalika: string; cas: string; trvanieMs: number; model: string | null;
   nalezy: Nalez[]; navrh: Navrh; zhrnutie: string; pocty: Record<Stav, number>;
   formularItms?: { nazov: string; text: string };
+  /** Znenie výzvy vybrané podľa kola žiadosti (len balíky s verziami). */
+  vyberVerzie?: VyberVerzie;
 }

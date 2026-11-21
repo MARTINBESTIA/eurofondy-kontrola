@@ -1,0 +1,282 @@
+Identifikácia
+synergických a komplementárnych účinkov výzvy
+ Programu Slovensko 2021-2027 (PSK)
+
+Identifikované výzvy fondov EÚ so synergickým účinkom Programu Slovensko 2021 – 2027
+ |
+Kód / názov výzvy:
+ | N/A (Výzva k 1. 12. 2023 ešte nebola vyhlásená.)
+ |
+Priorita:
+ | 8P1 Fond spravodlivej transformácie
+ |
+Špecifický cieľ:
+ | JSO8.1. Umožnenie regiónom a ľuďom riešiť dôsledky v sociálnej, hospodárskej a environmentálnej oblasti, ako aj v oblasti zamestnanosti spôsobené transformáciou smerom k energetickým a klimatickým cieľom Únie na rok 2030 a k dosiahnutiu cieľa klimaticky neutrálneho hospodárstva Únie do roku 2050 na základe Parížskej dohody
+ |
+Opatrenie (ak relevantné)
+ | 2.1B Podpora čistej energie a obehového hospodárstva (relevantné pre región horná Nitra)
+2.1B Podpora čistej energie (relevantné pre Košický a Banskobystrický kraj)
+ |
+Podporené aktivity:
+ | 2.1B_a1 Zvýšenie energetickej efektívnosti verejných budov vrátane podpory inteligentných opatrení a inovatívnych riešení
+ |
+Oprávnení žiadatelia:
+ | subjekty verejnej správy
+ |
+Oprávnené územie:
+ | región Horná Nitra
+ |
+Trvanie výzvy:
+(dátum vyhlásenia / ukončenia)
+ | N/A
+ |
+Deliace línie
+(parameter, na základe ktorého je možné zaradiť aktivitu – jej finančné krytie)
+ | Deliace línie neboli stanovené vzhľadom na vysoký investičný dlh verejných budov, ktorý významne presahuje možnosti podpory právnych nástrojov v programovom období 2021-2027.
+ |
+Link na vyhlásenú výzvu
+ | N/A
+ |
+Synergie / komplementarity neboli identifikované
+ | N/A
+ |
+
+Identifikované výzvy fondov EÚ so synergickým účinkom k  Plánu obnovy a odolnosti
+ |
+Kód / názov výzvy:
+ | 02I02-29-V01
+Výzva podporu obnovy a odolnosti na obnovu verejných historických a pamiatkovo chránených budov
+ |
+Vykonávateľ:
+ | Ministerstvo dopravy Slovenskej republiky
+ |
+Komponent:
+ | 2 – Obnova budov
+ |
+Reforma / investícia:
+ | Investícia 2 – Obnova verejných historických a pamiatkovo chránených budov
+ |
+Podporené aktivity:
+ | Aktivity na:
+pamiatkovo chránenej verejnej budove alebo historickej verejnej budove,
+aktivity realizované na priľahlom pozemku patriacemu k budove a
+aktivity na susednej budove, ak tieto priamo súvisia s hlavnými aktivitami na pamiatkovo chránenej verejnej budove alebo historickej verejnej budove.
+Typy aktivít:
+energetické aktivity,
+iné aktivity (nesúvisiace so zvýšením energetickej hospodárnosti budov napr. osadenie prvkov elektromobility, debarierizácia, zelené opatrenia atď.),
+projektová dokumentácia,
+rezerva na nepredvídané výdavky.
+ |
+Oprávnení žiadatelia:
+ | Typy žiadateľov:
+správca majetku štátu - štátna rozpočtová organizácia, štátna príspevková organizácia, štátny fond alebo PO zriadená osobitným zákonom, ak na základe zákona spravuje majetok štátu,
+obec a ňou zriadená rozpočtová organizácia alebo príspevková organizácia,
+mesto a ním zriadená rozpočtová organizácia alebo príspevková organizácia,
+mestská časť (Bratislava / Košice) a ňou zriadená rozpočtová organizácia ,
+VÚC a ním zriadená rozpočtová organizácia alebo príspevková organizácia,
+verejnoprávna inštitúcia - verejnoprávna inštitúcia, verejnoprávna ustanovizeň alebo verejná vysoká škola,
+správca majetku štátu podľa osobitného predpisu - štátny podnik, Železnice Slovenskej republiky a iné,
+správca lesného majetku vo vlastníctve štátu, resp. ostatného majetku vo vlastníctve štátu,
+Slovenský Červený kríž a územné spolky Slovenského Červeného kríža,
+verejné výskumné inštitúcie.
+ |
+Oprávnené územie:
+ | celé územie SR
+ |
+Trvanie výzvy:
+(dátum vyhlásenia / ukončenia)
+ | 30. 06. 2022 – 31. 07. 2023
+ |
+Deliace línie
+(parameter, na základe ktorého je možné zaradiť aktivitu – jej finančné krytie)
+ | Výzva je zameraná na obnovu pamiatkovo chránených verejných budov alebo historických verejných budov.
+ |
+Link na vyhlásenú výzvu
+ | https://www.mindop.sk/ministerstvo-1/zalezitosti-eu-a-medzinarodnych-vztahov-14/fondy-eu/plan-obnovy/obnova-budov-54280
+ |
+Synergie / komplementarity neboli identifikované
+ | N/A
+ |
+Kód / názov výzvy:
+ | 03I04-26-V01
+Výzva na podporu budovania nabíjacej infraštruktúry pre elektrické vozidlá pre územnú samosprávu a nimi zriadené organizácie
+ |
+Vykonávateľ:
+ | Ministerstvo hospodárstva Slovenskej republiky
+ |
+Komponent:
+ | 3 – Udržateľná doprava
+ |
+Reforma / investícia:
+ | Investícia 4 – Podpora budovania infraštruktúry pre alternatívne pohony
+ |
+Podporené aktivity:
+ | Aktivity zamerané na výstavbu verejne prístupných nabíjacích staníc pre elektrické vozidlá, a to konkrétne:
+budovania nabíjacieho bodu AC 11+ kW;
+budovania nabíjacieho bodu DC 50+ kW;
+budovania nabíjacích bodov v kombinácii písm. a) a b);
+budovanie nabíjacieho parku (nabíjací hub) verejne prístupných staníc.
+ |
+Oprávnení žiadatelia:
+ | Typy žiadateľov:
+obce, mestá nad 7 000 obyvateľov a nimi zriadené organizácie
+okresné mestá a nimi zriadené organizácie
+vyššie územné celky a nimi zriadené organizácie.
+ |
+Oprávnené územie:
+ | celé územie SR
+ |
+Trvanie výzvy:
+(dátum vyhlásenia / ukončenia)
+ | 28. 4. 2023 – do vyčerpania alokácie
+ |
+Deliace línie
+(parameter, na základe ktorého je možné zaradiť aktivitu – jej finančné krytie)
+ | POO: Výzva je zameraná na podporu rozvoja elektromobility v Slovenskej republike formou budovania a rozvoja nabíjacej infraštruktúry.
+ |
+Link na vyhlásenú výzvu
+ | https://www.economy.gov.sk/podpora-investicii/plan-obnovy/harmonogram-vyziev/vyzvy-v-komponente-3-planu-obnovy-a-odolnosti/komponent-3-vyzva-na-predkladanie-ziadosti-o-poskytnutie-prostriedkov-mechanizmu-zamerana-na-podporu-budovania-nabijacej-infrastruktury-pre-elektricke-vozidla-pre-uzemnu-samospravu-a-nimi-zriadene-organizacie-kod-vyzvy-03i04-26-v01?csrt=4058396435580585505
+ |
+Synergie / komplementarity neboli identifikované
+ | N/A
+ |
+Kód / názov výzvy:
+ | 03I04-26-V02
+Výzva na podporu budovania nabíjacej infraštruktúry pre elektrické vozidlá pre právnické osoby a fyzické osoby podnikateľov
+ |
+Vykonávateľ:
+ | Ministerstvo hospodárstva Slovenskej republiky
+ |
+Komponent:
+ | 3 – Udržateľná doprava
+ |
+Reforma / investícia:
+ | Investícia 4 – Podpora budovania infraštruktúry pre alternatívne pohony
+ |
+Podporené aktivity:
+ | Aktivity zamerané na výstavbu verejne prístupných nabíjacích staníc pre elektrické vozidlá, a to konkrétne:
+budovania nabíjacieho bodu AC 11+ kW;
+budovania nabíjacieho bodu DC 50+ kW;
+budovania nabíjacích bodov v kombinácii písm. a) a b);
+budovanie nabíjacieho parku (nabíjací hub) verejne prístupných staníc.
+ |
+Oprávnení žiadatelia:
+ | Fyzická alebo právnická osoba podľa § 2 ods. 2 písm. a) až c) Obchodného zákonníka, zapísaná v Obchodnom registri SR alebo podnikajúca na základe živnostenského oprávnenia alebo na základe iného než živnostenského  oprávnenia podľa osobitných predpisov.
+ |
+Oprávnené územie:
+ | celé územie SR
+ |
+Trvanie výzvy:
+(dátum vyhlásenia / ukončenia)
+ | 28. 8. 2023 – do vyčerpania alokácie
+ |
+Deliace línie
+(parameter, na základe ktorého je možné zaradiť aktivitu – jej finančné krytie)
+ | POO: Výzva je zameraná na podporu rozvoja elektromobility v Slovenskej republike formou budovania a rozvoja nabíjacej infraštruktúry.
+ |
+Link na vyhlásenú výzvu
+ | https://www.economy.gov.sk/podpora-investicii/plan-obnovy/harmonogram-vyziev/vyzvy-v-komponente-3-planu-obnovy-a-odolnosti/komponent-3-vyzva-na-podporu-budovania-nabijacej-infrastruktury-pre-elektricke-vozidla-pre-pravnicke-osoby-a-fyzicke-osoby-podnikatelov-kod-vyzvy-03i04-26-v02?csrt=4058396435580585505
+ |
+Kód / názov výzvy:
+ | N/A (Výzva k 1. 12. 2023 ešte nebola vyhlásená.)
+ |
+Vykonávateľ:
+ | Ministerstvo hospodárstva Slovenskej republiky / SIEA
+ |
+Komponent:
+ | 19 – REPowerEU
+ |
+Reforma / investícia:
+ | Investícia 2 – Zlepšenie energetickej hospodárnosti a efektívnosti štátnych budov
+ |
+Podporené aktivity:
+ | Osadenie termostatických hlavíc/ventilov
+Osadenie termostatov
+Osadenie systémov inteligentného merania energií
+Zavedenie útlmových režimov, ekvitermickej alebo zónovej regulácie v systéme vykurovania
+Hydraulické vyregulovanie vykurovacej sústavy
+Zateplenie podkrovia alebo strechy
+Výmena otvorových konštrukcií
+Modernizácia vnútorného osvetlenia
+Zateplenie rozvodov tepla
+Inštalácia technických zariadení pre zavedenie energetického manažmentu.
+ |
+Oprávnení žiadatelia:
+ | N/A
+ |
+Oprávnené územie:
+ | celé územie SR
+ |
+Trvanie výzvy:
+(dátum vyhlásenia / ukončenia)
+ | N/A
+ |
+Deliace línie
+(parameter, na základe ktorého je možné zaradiť aktivitu – jej finančné krytie)
+ | POO: Obnova zameraná na energetickú efektívnosť alebo opatrenia zamerané na energetickú efektívnosť verejnej infraštruktúry, demonštračné projekty a podporné opatrenia. Opatrenie bude cieliť na realizáciu rýchlych úprav v aspoň 85 budovách.
+ |
+Link na vyhlásenú výzvu
+ | N/A
+ |
+
+Identifikované výzvy EŠIF so synergickým účinkom v rámci PO 2014 – 2020
+ |
+Kód / názov výzvy:
+Link na vyhlásenú výzvu
+ | OPKZP-PO4-SC431-2015-6
+https://www.op-kzp.sk/obsah-vyzvy/6-vyzva-zamerana-na-znizenie-energetickej-narocnosti-verejnych-budov-opkzp-po4-sc431-2015-6-2/
+OPKZP-PO4-SC431-2017-19
+https://www.op-kzp.sk/obsah-vyzvy/19-vyzva-zamerana-na-znizenie-energetickej-narocnosti-verejnych-budov-opkzp-po4-sc431-2017-19/
+OPKZP-PO4-SC431-2018-48
+https://www.op-kzp.sk/obsah-vyzvy/48-vyzva-zamerana-na-znizenie-energetickej-narocnosti-verejnych-budov-opkzp-po4-sc431-2018-48/
+OPKZP-PO4-SC431-2021-68
+https://www.op-kzp.sk/obsah-vyzvy/68-vyzva-zamerana-na-znizenie-energetickej-narocnosti-verejnych-budov-opkzp-po4-sc431-2021-68/
+OPKZP-PO4-SC411-2023-80
+https://www.op-kzp.sk/obsah-vyzvy/80-vyzva-zamerana-na-vystavba-zariadeni-na-vyuzitie-slnecnej-energie-na-vyrobu-elektriny-pre-verejny-sektor-opkzp-po4-sc411-2023-80/
+ |
+Synergie / komplementarity neboli identifikované
+ |
+ |
+V rámci prechodného obdobia je postačujúce identifikovať synergické účinky prostredníctvom kódu a názvu výzvy/vyzvania.
+
+Identifikované výzvy fondov EÚ so synergickým účinkom priamo riadených programov EÚ
+ |
+Kód/názov výzvy:
+ |
+ |
+Link na vyhlásenú výzvu
+ |
+ |
+Synergie / komplementarity neboli identifikované
+ |
+ |
+
+Identifikované výzvy ostatných nástrojov podpory EÚ
+ |
+Nástroj podpory EÚ:
+ |
+ |
+Podporené aktivity:
+ |
+ |
+Oprávnení žiadatelia:
+ |
+ |
+Link na vyhlásenú výzvu
+ |
+ |
+
+Identifikované výzvy programov cezhraničnej spolupráce INTERREG
+ |
+Kód / názov výzvy:
+ |
+ |
+Akcie / aktivity:
+ |
+ |
+Oprávnení žiadatelia:
+ |
+ |
+Trvanie výzvy:
+ |
+ |

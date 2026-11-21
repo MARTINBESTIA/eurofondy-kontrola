@@ -32,7 +32,7 @@ export const zonfp: Modul<Ziadost> = {
     { kluc: 'mwa', nazov: 'Kapacita OZE elektrická (MW)', typ: 'cislo' }, { kluc: 'mwb', nazov: 'Kapacita OZE tepelná (MW)', typ: 'cislo' },
     { kluc: 'popis', nazov: 'Popis projektu', typ: 'dlhy_text' },
   ],
-  prilohy: () => [['1', 'Plnomocenstvo / poverenie'], ['3', 'Uznesenie o programe rozvoja a územnom pláne'], ['5', 'Energetický audit'], ['6', 'Energetický certifikát'], ['7', 'Projektová dokumentácia'], ['8', 'Dokumentácia k oprávnenosti výdavkov']].map(([cislo, nazov]) => ({ cislo, nazov })),
+  prilohy: () => [['1', 'Plnomocenstvo / poverenie'], ['3', 'Uznesenie o programe rozvoja a územnom pláne'], ['5', 'Energetický audit'], ['6', 'Energetický certifikát'], ['7', 'Projektová dokumentácia'], ['8', 'Dokumentácia k oprávnenosti výdavkov'], ['9', 'Dokument súladu s horizontálnymi princípmi (znenie výzvy pred zmenou č. 3)']].map(([cislo, nazov]) => ({ cislo, nazov })),
   doFormulara: (z) => ({ nfp: z.sumaZiadanaNFP, forma: z.ziadatel.pravnaFormaKod, vych: uk(z, 'PSKPRCR26b')?.vychodisko ?? null, ciel: uk(z, 'PSKPRCR26b')?.ciel ?? null, mwa: uk(z, 'PSKPRCO22a')?.ciel ?? null, mwb: uk(z, 'PSKPRCO22b')?.ciel ?? null, popis: z.popis }),
   zFormulara(povodna, f) {
     const z: Ziadost = structuredClone(povodna);
@@ -48,6 +48,8 @@ export const zonfp: Modul<Ziadost> = {
   },
   kontroly: KONTROLY,
   inventarPodmienok: true,
+  // Znenie výzvy sa vyberá podľa kola: z ITMS21+ (posudzované obdobie žiadosti), inak z dátumu predloženia.
+  okamihPodania: (z) => ({ kolo: z.kolo ?? null, datum: z.datumPredlozenia ? z.datumPredlozenia.slice(0, 10) : null }),
   hlavnyText: (z) => [z.popis, z.ucel].filter(Boolean).join('\n'),
   kontext: (z) => `Názov projektu: ${z.nazov}\nŽiadateľ: ${z.ziadatel.nazov} (${z.ziadatel.pravnaForma})`,
   titulok: (z) => ({ kod: z.kod, nazov: z.nazov, podnazov: `${z.ziadatel.nazov} · ${z.ziadatel.pravnaForma} · opatrenia ${z.opatrenia.join(', ') || '–'} · predložená ${z.datumPredlozenia ?? '–'}` }),

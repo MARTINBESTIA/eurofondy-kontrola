@@ -43,7 +43,8 @@ async function overPosudok(p: Posudok, meno: string) {
   let splnene = 0, sDokladom = 0, dokladov = 0;
   for (const n of p.nalezy) {
     const k = `${meno} ${n.pravidlo} [${n.stav}]`;
-    if (n.stav === 'splnene') { splnene++; if (n.doklady?.length) sDokladom++; else zle.push(`${k}: splnený bez dokladu`); }
+    // Starší posudok, ktorého pravidlo sa odvtedy zmenilo, doklad mať nemôže: je to upozornenie, nie chyba dokladov.
+    if (n.stav === 'splnene') { splnene++; if (n.doklady?.length) sDokladom++; else if (n.povodDokladov === 'pravidlo_zmenene') varovania.push(`${k}: bez dokladu, pravidlo sa od posudku zmenilo`); else zle.push(`${k}: splnený bez dokladu`); }
     for (const d of n.doklady ?? []) {
       dokladov++;
       if (!d.citat?.trim()) { zle.push(`${k}: prázdny citát (${d.nazov} · ${d.miesto})`); continue; }

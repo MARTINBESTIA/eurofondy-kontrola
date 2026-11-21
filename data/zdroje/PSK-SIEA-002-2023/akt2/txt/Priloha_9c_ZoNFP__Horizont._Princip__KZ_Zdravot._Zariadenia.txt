@@ -1,0 +1,495 @@
+CHECKLIST  - VYHLÁSENIE O BEZBARIÉROVEJ PRÍSTUPNOSTI -
+REKONŠTRUKCIA ZDRAVOTNÍCKEHO ZARIADENIA
+ |
+Zisťuje sa súlad so stavebnou legislatívou, najmä so stavebným zákonom, vyhláškou MŽP č. 532/2002 Z. z., ktorou sa ustanovujú podrobnosti o všeobecných technických požiadavkách na výstavbu a o všeobecných technických požiadavkách na stavby užívané osobami s obmedzenou schopnosťou pohybu a orientácie a článkom 9 Prístupnosť Dohovoru o právach osôb so zdravotným postihnutím.
+Príloha vyhlásenia: Situácia, pôdorysy všetkých podlaží a rezy v mierke 1:100, všetky pohľady v mierke 1:100, sekcie alebo prvky (potrebné na posúdenie bezbariérovej prístupnosti) v mierke 1:50 a všetky informácie o detailoch riešenia vrátane rozmerov okien, výšok miestností, rozmerov schodiska, rozmerov dverí, vstupov a výstupov.
+4020820330200
+
+1960880342900
+
+left342900
+
+Druh a umiestnenie stavby
+           rekonštrukcia                                    nadstavba, prístavba                           zmena účelu stavby
+Názov stavby:
+ | Druh stavby:
+ |
+Adresa umiestnenia stavby:
+ | Číslo parcely:
+ |
+Číslo stavebného povolenia:
+ |
+Autor návrhu
+Meno:
+ | Priezvisko:
+ | Tituly:
+ |
+Telefón:
+ | E-mail:
+ |
+
+Prehlasujem, že požiadavky na bezbariérovú prístupnosť sú realizované v súlade so stavebnou legislatívou a spĺňa štandardy uvedené v nasledujúcej tabuľke.
+
+					                                       ..........................................................................
+						                       Podpis autora návrhu, dátum
+
+ |
+Sú splnené tieto požiadavky?
+ |
+áno
+ |
+nie
+ |
+1. Parkovanie
+ | 4 % vyhradených miest s rozmermi 3,5 m x 5 m, ktoré sú umiestnené najbližšie ku vstupu do budovy,
+vyhradené parkovacie miesto pre vozidlá záchrannej služby (najmenej 2,5 m x 9 m pri parkovaní pozdĺž chodníka)
+zabezpečený je bezbariérový prístup z parkoviska na chodník,
+ | □
+
+□
+
+□
+ | □
+
+□
+
+□
+ |
+2.
+Chodníky
+ | šírka chodníkov je najmenej 1,5 m (TP 048), odporúča sa 2 m
+chodníky majú rovný povrch bez nerovností a škár,
+je vytvorený orientačný systém pre osoby so zrakovým postihnutím  (napr. signálny/reliéfny pás pri vstupe do budovy),
+ | □
+□
+□
+
+ | □
+□
+□
+
+ |
+3.
+Vstup         do budovy
+
+ | Je bezbariérovo riešený. Ak je vo vstupných priestoroch výškový rozdiel, je bezbariérovo prekonaný jedným z týchto spôsobov:
+- zabudovaná rampa s parametrami podľa bodu 6 a 7,
+- zvislá zdvíhacia plošina alebo osobný výťah,
+- šikmá schodisková plošina (iba ak nie je iná možnosť),
+
+Poznámka: schodolez (prenosné zariadenie) nie je povolený!
+ | □
+
+ | □
+
+ |
+4.
+Vstupné dvere a priestory
+ | pred dverami a v zádverí je manévrovacia plocha 1,5 m x 1,5 m, do ktorej nezasahuje dverné krídlo,
+svetlá šírka dverného krídla je aspoň 0,9 m (optimálne 1,2 m), dvojkrídlové dvere majú aspoň jedno krídlo široké 0,9 m.
+presklené plochy dverí sú označené kontrastne oproti pozadiu vo výške 1,4 – 1,6 m,
+
+Poznámka: Vstupné dvere by mali mať automatické otváranie na fotobunku alebo na impulz (tlačidlo vo výške 1,2 m). Odporúča sa realizovať aj bezbariérovo prístupný infopult s indukčnou slučkou (výška pultu / okienka cca 0,85 m aspoň v jednom úseku).
+ | □
+
+□
+
+□
+
+ | □
+
+□
+
+□
+
+ |
+5.
+Trasy po budove
+ | bezbariérový a plynulý prechod do všetkých prevádzkových častí pre osoby na vozíku alebo pre prevoz osoby na lôžku,
+odporúča sa realizovať bezprahové riešenie dverí (prípustná výška prahu 20 mm je pre mnohých prekážkou),
+realizácia zábradlia/držadlá po obidvoch stranách schodiska,
+
+Poznámka: Odporúča sa realizovať držadlá priebežne po celej  dĺžke schodiska aj na podestách, vhodné sú tiež držadlá na stenách chodieb.
+
+ | □
+
+□
+
+□
+ | □
+
+□
+
+□
+ |
+6.
+Parametre rampy
+ | pozdĺžny sklon rampy spĺňa požadované parametre:
+najviac 1:12 (8,3%),  odporúča sa 1:15 (6,7 %)
+najviac 1:8 (12,5 %) ak je dĺžka menej ako 3 m (tento sklon sa neodporúča),
+svetlá šírka rampy je najmenej 1,3 m, odporúča sa 1,8 m,
+voľná vodorovná manévrovacia plocha na začiatku a konci rampy je 1,5 m x 1,5 m,
+dĺžka jedného ramena rampy je najviac 9 m (avšak pri sklone 1:8 najviac 3 m),
+odpočívadlo medzi ramenami rampy je dlhé najmenej 2 m (pri
+pravouhlom prepojení najmenej 1,5 m x 1,5 m),
+
+Poznámka: Ramená rampy musia byť priame!
+ | □
+
+□
+□
+
+□
+
+□
+
+ | □
+
+□
+□
+
+□
+
+□
+
+ |
+7. Vybavenie rampy
+ | držadlá sú umiestnené po oboch stranách rampy (vo výške 0,9 m, prípadne aj v 0,75 m),
+ochrana vybočenia kolies z rampy je realizovaná pomocou vodiacej tyče po oboch stranách rampy vo výške 0,3 m, alebo bočnou obrubou do výšky 0,1 m, alebo plné zábradlie/stena,
+zdrsnený a nešmykľavý povrch rampy,
+
+Poznámka: Odporúča sa realizovať držadlá po celej dĺžke rampy (aj na podestách).
+ | □
+
+□
+
+□
+ | □
+
+□
+
+□
+ |
+8.
+Riešenie výškových rozdielov  v budove
+ | Výškový rozdiel v komunikačných priestoroch je bezbariérovo prekonaný jedným z týchto spôsobov:
+  - výťah s parametrami podľa bodu 9,
+  - zabudovaná rampa s parametrami podľa bodov 6 a 7,
+  - zvislá zdvíhacia plošina s rozmermi min. 1,1 m x 1,4 m (iba ak nie je
+     možná realizácia rampy alebo výťahu),
+
+Poznámka: Šikmá schodisková plošina sa neodporúča, lebo nie je vhodná na prepravu pacienta na ležadle, pre seniora, rodiča s kočíkom..., a schodolez (prenosné zariadenie) nie je povolený, nie je stavebným riešením!
+
+ | □
+
+ | □
+
+ |
+9.
+Výťah
+ | výťahová kabína má rozmer najmenej 1,1  m x 1,4 m, odporúča sa 1,3 m x 2,4 m na prepravu s lôžkom,
+manévrovacia plocha najmenej Ø 1,5 m pred výťahom,
+šírka dverí do kabíny najmenej 0,9 m, odporúča sa 1,2 m,
+ovládacie prvky výťahu vrátane privolávača výťahu vo výške v rozmedzí 0,9 m -1,2 m,
+ovládacie zariadenia výťahu čitateľné aj hmatom (reliéfne a Braillove písmo), dotykové ovládacie panely sa nesmú používať,
+v kabíne akustická informácia o polohe výťahu (nutné pre ľudí so zrakovým postihnutím),
+sklopné sedadlo,
+
+Poznámka: Dotykové ovládacie panely sa nesmú používať, lebo ich nedokážu používať osoby s poruchami zraku.
+
+ | □
+
+□
+□
+□
+
+□
+
+□
+
+□
+
+ | □
+
+□
+□
+□
+
+□
+
+□
+
+□
+
+ |
+10.
+Orientačný systém
+ | informačný panel vo vstupnom priestore, ak je panel dotykový, musí byť doplnený o alternatívu pre ľudí so zrakovým postihnutím (reliéfny plán a akustická informácia),
+jednoduché navádzanie užívateľov do jednotlivých oddelení pomocou systému vodiacich línií a farebných kontrastov,
+varovné pásy pred vstupom na ramená schodiska / rampy,
+výrazné označenie prvého a posledného schodiskového stupňa v každom ramene schodiska,
+výrazné označenie účelu miestnosti – veľké a kontrastné písmo, odporúča sa aj Braillovo písmo v úrovni dvernej kľučky, vedľa dverí alebo na zárubni,
+farebné kódovanie jednotlivých prevádzkových častí,
+ | □
+
+□
+
+□
+□
+
+□
+
+□
+ | □
+
+□
+
+□
+□
+
+□
+
+□
+ |
+11. Vyšetrovne rehabilitácie,
+čakárne,
+lekárne a iné...
+ | svetlá šírka vstupných dverí min. 0,9 m (optimálne 1,2 m),
+manévrovací priestor Ø 1,5 m pre osobu na vozíku pri infopulte, pri dverách, pri stole,  pri lôžku a pod.,
+širšie uličky medzi nábytkom (min. 0,9 m),
+umývadlo s možnosťou zasunutia vozíka /kolien pod umývadlo,
+ak sú pri vyšetrovni / rehabilitácii / fyzioterapii a pod. prezliekacie kabíny, aspoň jedna z nich v každom bloku musí byť zväčšená s voľnou plochou  Ø 1,5 m pre osobu na vozíku a širokou lavicou.
+
+Poznámky: Odporúča sa realizovať aj bezbariérovo prístupný infopult s indukčnou slučkou (výška pultu / okienka cca 0,85 m aspoň v jednom úseku).
+Kvôli ľahšej preprave je vhodné zväčšenú prezliekaciu kabínu doplniť stropným koľajnicovým zdvíhacím zariadením na prepravu pacienta do vyšetrovne, fyzioterapie a pod.
+
+ | □
+□
+
+□
+□
+□
+ | □
+□
+
+□
+□
+□
+ |
+12. Bezbariér. toalety
+ | rozmery záchodovej kabíny sú najmenej 1,6 m x 1,8 m, odporúča sa 2 m x 2,1 m (rozmer, ktorý povoľuje legislatíva pri rekonštrukcii je nepoužiteľný pre ľudí na elektrickom vozíku),
+dvere sú široké najmenej 0,9 m (odporúča sa 1 m), otvárajú sa smerom von zo záchodovej kabíny,
+vedľa WC misy je voľný priestor najmenej 0,8 m na zasunutie a
+presadnutie z vozíka, optimálne po oboch stranách WC misy,
+sklopné držadlá sú po oboch stranách WC misy,
+umývadlo má podomietkový / úsporný sifón – umožňuje osobe na vozíku zasunutie nôh pod umývadlo,
+zrkadlo je vo vyhovujúcej výške pre všetkých (v rozmedzí 1 m – 2 m od podlahy), alebo sklopné zrkadlo,
+všetky ovládacie prvky a doplnky sú vo výške najviac 1,2 m
+zariadenie núdzového volania dostupné vo výške 0,4 m od podlahy (ovládateľné pri páde, v ležiacej polohe),
+
+ | □
+
+□
+
+□
+
+□
+□
+
+□
+
+□
+□
+ | □
+
+□
+
+□
+
+□
+□
+
+□
+
+□
+□
+ |
+13.
+Šatňa  pre pacientov
+ | svetlá šírka dverí je najmenej 0,9 m (optimálne 1,2 m),
+voľný manévrovací priestor najmenej Ø 1,5 m,
+široká lavica na prezlečenie v ležiacej polohe (napríklad dĺžka 2 m, hĺbka 0,6 m)
+háčiky na zavesenie šiat v rôznych výškach (optimálne vo výškach 1,4 m a 1,2 m )
+zariadenie núdzového volania dostupné vo výške 0,4 m,
+ | □
+□
+□
+
+□
+
+□
+ | □
+□
+□
+
+□
+
+□
+ |
+14.
+Umyváreň pre pacientov
+(s vaňou)
+ | dvere široké najmenej 0,9 m (optimálne 1,2 m), otvárajú sa smerom von z priestoru,
+vedľa záchodovej misy je voľný priestor na zasunutie vozíka (môže to byť aj priestor bezbariérovej sprchy 1,4 m x 1,4 m),
+vaňa prístupná najmenej z troch strán,
+umývadlo s možnosťou zasunutia vozíka pod umývadlo (podomietkový alebo úsporný sifón),
+voľná podlahová plocha najmenej Ø 1,8 m,
+všetky ovládacie prvky sú vo výške najviac 1,2 m,
+zariadenie núdzového volania sú vo výške 0,4 m od podlahy,
+
+Poznámka: Pri rekonštrukcii je vhodné vytvoriť aj samostatnú bezbariérovú hygienickú kabínu s lavicou na prezliekanie, pričom kabína má rozmery najmenej 2,1 m x 2,5 m.
+Odporúča sa umyváreň  doplniť stropným koľajnicovým systémom na prepravu imobilného pacienta do vane a pod.
+
+ | □
+
+□
+
+□
+□
+
+□
+□
+□
+ | □
+
+□
+
+□
+□
+
+□
+□
+□
+
+ |
+
+ |
+Lôžkové oddelenie
+ |
+ |
+ |
+15.
+Izby pre pacientov
+ | bezbariérový prístup z chodby a z výťahu,
+dvere široké 1,2 m, ak sú vyhotovené ako dvojkrídlové, jedno  krídlo musí byť široké najmenej 0,9 m, druhé krídlo 0,3,
+aspoň jedna izba s bezbariérovou kúpeľňou podľa bodu 16 na každom oddelení,
+manévrovací priestor najmenej Ø 1,5 m pred bezbariérovou kúpeľňou, pri posteli a pod.
+
+Poznámka: Odporúča sa stropný koľajnicový systém (napríklad tzv. prehupovací) na prepravu imobilných pacientov medzi miestnosťami.
+ | □
+□
+
+□
+
+□
+ | □
+□
+
+□
+
+□
+ |
+16.
+Bezbariérová kúpeľňa
+ | dvere široké najmenej 0,9 m, otvárajú sa smerom von z priestoru,
+toaleta má aspoň na jednej strane voľný priestor 0,8 m (môže to byť aj priestor zasahujúci do bezbariérovej sprchy),
+toaleta má sklopné držadlá po obidvoch stranách,
+bezbariérová sprcha je realizovaná v úrovni podlahy (rozmer najmenej 1,4 m x 1,4 m), odvodnená do podlahového vpustu alebo odtokového žľabu,
+sprcha má zvislé a vodorovné držadlá a sprchovaciu stoličku
+umývadlo s možnosťou zasunutia vozíka pod umývadlo (podomietkový alebo úsporný sifón),
+všetky ovládacie prvky a doplnky sú výške najviac 1,2 m,
+tlačidlo núdzového volania vo výške 0,4 m od podlahy.
+ | □
+□
+
+□
+□
+
+□
+□
+
+□
+□
+ | □
+□
+
+□
+□
+
+□
+□
+
+□
+□
+ |
+17.
+Umyváreň pre pacientov
+(s vaňou)
+ | dvere široké najmenej 0,9 m (optimálne 1,2 m), otvárajú sa smerom von z priestoru,
+vedľa záchodovej misy je voľný priestor na zasunutie vozíka (môže to byť aj priestor bezbariérovej sprchy 1,4 m x 1,4 m),
+vaňa prístupná najmenej z troch strán,
+umývadlo s možnosťou zasunutia vozíka pod umývadlo (podomietkový alebo úsporný sifón),
+voľná podlahová plocha najmenej Ø 1,8 m,
+všetky ovládacie prvky sú vo výške najviac 1,2 m,
+zariadenie núdzového volania sú vo výške 0,4 m od podlahy,
+
+Poznámka: Pri rekonštrukcii je vhodné vytvoriť aj samostatnú bezbariérovú hygienickú kabínu s lavicou na prezliekanie, pričom kabína má rozmery najmenej 2,1 m x 2,5 m.
+Odporúča sa umyváreň  doplniť stropným koľajnicovým systémom na prepravu imobilného pacienta do vane a pod.
+
+ | □
+
+□
+
+□
+□
+
+□
+□
+□
+ | □
+
+□
+
+□
+□
+
+□
+□
+□
+
+ |
+
+ |
+Exteriér
+ |
+ |
+ |
+18.
+Exteriérové plochy na oddych
+ | spevnené chodníky viď bod 2 (optimálne vytvorená okružná trasa na prechádzky),
+lavice na sedenie spĺňajú tieto parametre:
+lavice majú opierky na chrbát a ruky,
+výška sedacej plochy je najmenej 0,45 m,
+lavica je osadená na spevnenej ploche,
+vedľa lavice je spevnená plocha široká najmenej 1 m na zasunutie vozíka alebo kočíka.
+ |
+
+□
+ |
+
+□
+ |
+Presne tak!!!
+
+Doplňujúce informácie:
+(Uveďte vážne dôvody, prečo nie je niektorá požiadavka splnená)

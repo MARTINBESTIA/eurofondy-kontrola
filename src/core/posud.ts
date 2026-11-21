@@ -1,13 +1,87 @@
 // Jadro: prejde pravidlá balíka, spustí kontroly modulu a zloží posudok. Nevie nič o výzve ani o type vstupu.
 import fs from 'node:fs';
 import path from 'node:path';
-import type { BalikPravidiel, Modul, Nalez, Navrh, Podmienka, Posudok, Pravidlo, Stav, VysledokKontroly } from './typy.ts';
+import type { BalikPravidiel, Citacia, HarmonogramKol, Modul, Nalez, Navrh, Podmienka, Posudok, Pravidlo, Stav, VyberVerzie, VysledokKontroly } from './typy.ts';
 import { posudText, dokazJeVTexte, MODEL } from '../llm/ollama.ts';
 
 const KOREN = path.join(import.meta.dirname, '..', '..');
 
 export function nacitajBalik(vyzvaKod: string, modul = 'zonfp'): BalikPravidiel {
   return JSON.parse(fs.readFileSync(path.join(KOREN, 'packs', vyzvaKod, `${modul}.json`), 'utf8'));
+}
+
+/** Všetky verzie balíka: platná (packs/<výzva>/<modul>.json) a archívne (packs/<výzva>/verzie/<id>/<modul>.json), od najstaršej. */
+export function verzieBalika(vyzvaKod: string, modul = 'zonfp'): BalikPravidiel[] {
+  const archiv = path.join(KOREN, 'packs', vyzvaKod, 'verzie');
+  const starsie = fs.existsSync(archiv) ? fs.readdirSync(archiv, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && fs.existsSync(path.join(archiv, d.name, `${modul}.json`)))
+    .map((d) => JSON.parse(fs.readFileSync(path.join(archiv, d.name, `${modul}.json`), 'utf8')) as BalikPravidiel) : [];
+  return [...starsie, nacitajBalik(vyzvaKod, modul)].sort((a, b) => (a.verziaBalika?.odKola ?? 0) - (b.verziaBalika?.odKola ?? 0));
+}
+
+/** Kolo žiadosti predloženej v daný deň: prvé kolo, ktoré sa uzatvára v ten deň alebo neskôr. */
+export function koloPodlaDatumu(datum: string, h: HarmonogramKol): number {
+  const d = datum.slice(0, 10);
+  if (d <= h.kolo1) return 1;
+  if (d <= h.kolo2) return 2;
+  return 2 + Math.ceil((Date.parse(d) - Date.parse(h.kolo2)) / 86_400_000 / h.krokDni);
+}
+
+const dalsiDen = (d: string) => new Date(Date.parse(d.slice(0, 10)) + 86_400_000).toISOString().slice(0, 10);
+const datumSk = (d: string) => d.slice(0, 10).split('-').reverse().join('. ');
+
+/**
+ * Vyberie znenie výzvy (verziu balíka) podľa posudzovaného obdobia žiadosti. Zmena výzvy platí pre aktuálne posudzované
+ * obdobie a nasledujúce (§ 14 ods. 4 zákona č. 121/2022 Z. z.), preto rozhoduje kolo: z ITMS21+, inak podľa dátumu
+ * predloženia a harmonogramu kôl. Bod pre kontrolóra (druh verzia, na preverenie) vznikne, keď kolo chýba, keď kolo
+ * z ITMS21+ a kolo z dátumu patria pod rôzne znenia, keď žiadosť prišla v deň uzavretia kola na hranici znení, keď bola
+ * predložená pred účinnosťou zmeny, ktorá sa na ňu už vzťahuje (§ 14 ods. 5), a keď znenie ešte neschválil človek.
+ * Modul bez okamihPodania alebo balík bez verzií: platný balík, bez výberu.
+ */
+export function vyberVerziu(vyzvaKod: string, modul: Modul, v: unknown): { balik: BalikPravidiel; vyber: VyberVerzie | null; nalezy: Nalez[] } {
+  const verzie = verzieBalika(vyzvaKod, modul.id);
+  const platna = verzie.find((b) => b.verziaBalika?.stav === 'platna') ?? verzie[verzie.length - 1];
+  if (!platna.verziaBalika || !modul.okamihPodania) return { balik: platna, vyber: null, nalezy: [] };
+  const h = platna.harmonogramKol;
+  const { kolo: koloItms, datum } = modul.okamihPodania(v);
+  const koloDatum = datum && h ? koloPodlaDatumu(datum, h) : null;
+  const kolo = koloItms ?? koloDatum;
+  const pre = (k: number) => [...verzie].reverse().find((b) => (b.verziaBalika?.odKola ?? 1) <= k);
+  const balik = (kolo != null ? pre(kolo) : undefined) ?? platna;
+  const vb = balik.verziaBalika!;
+  const dalsia = verzie.find((b) => (b.verziaBalika?.odKola ?? 0) > vb.odKola);
+  const doKola = dalsia ? dalsia.verziaBalika!.odKola - 1 : null;
+  const rozsah = doKola ? `kolá ${vb.odKola}–${doKola}` : `kolá od ${vb.odKola}`;
+  const nalezy: Nalez[] = [];
+  const bod = (pravidlo: string, nazov: string, zdovodnenie: string, citacia: Citacia) =>
+    nalezy.push({ pravidlo, ppp: null, nazov, druh: 'verzia', stav: 'na_preverenie', okamih: 'konanie', zdovodnenie, citacia });
+  const citKol = h?.citacia ?? vb.citacia;
+  if (kolo == null) bod('VER-KOLO', 'Posudzované obdobie (kolo) žiadosti', `Žiadosť nemá kolo z ITMS21+ ani dátum predloženia, preto sa nedá určiť, ktoré znenie výzvy sa na ňu vzťahuje (§ 14 ods. 4 zákona č. 121/2022 Z. z.). Použité je najnovšie znenie (${platna.verzia}). Kontrolór určí kolo a znenie.`, citKol);
+  else if (!pre(kolo)) bod('VER-KOLO', 'Posudzované obdobie (kolo) žiadosti', `Kolo ${kolo} je skôr než prvé znenie výzvy v softvéri (od kola ${verzie[0].verziaBalika?.odKola}). Použité je znenie ${balik.verzia}. Kontrolór overí, ktoré znenie platí.`, citKol);
+  if (koloItms != null && koloDatum != null && pre(koloItms) !== pre(koloDatum))
+    bod('VER-KOLO', 'Posudzované obdobie (kolo) žiadosti', `Kolo z ITMS21+ (${koloItms}) a kolo podľa dátumu predloženia ${datumSk(datum!)} (${koloDatum}) patria pod rôzne znenia výzvy: ${pre(koloItms)?.verzia ?? '?'} a ${pre(koloDatum)?.verzia ?? '?'}. Použité je znenie podľa kola z ITMS21+. Kontrolór overí zaradenie žiadosti do kola.`, citKol);
+  if (koloItms == null && datum && h && koloDatum != null && pre(koloDatum) !== pre(koloPodlaDatumu(dalsiDen(datum), h)))
+    bod('VER-KOLO', 'Posudzované obdobie (kolo) žiadosti', `Žiadosť je predložená ${datumSk(datum)}, v deň uzavretia kola ${koloDatum}. Ak prišla po termíne uzavretia, patrí do kola ${koloDatum + 1}, na ktoré sa vzťahuje iné znenie výzvy (${pre(koloDatum + 1)?.verzia ?? '?'}). Kontrolór overí čas predloženia.`, citKol);
+  if (datum && kolo != null && datum.slice(0, 10) < balik.platnaOd)
+    bod('VER-ZMENA', 'Žiadosť predložená pred zmenou výzvy', `Žiadosť je predložená ${datumSk(datum)}, pred účinnosťou znenia ${balik.verzia} (${datumSk(balik.platnaOd)}), ale v kole ${kolo}, na ktoré sa toto znenie už vzťahuje. Posudzuje sa podľa neho. Žiadateľ musí dostať možnosť zosúladiť žiadosť so zmenou v lehote najmenej 10 pracovných dní (§ 14 ods. 5 zákona č. 121/2022 Z. z.). Kontrolór overí, že bol vyzvaný, a nedostatky vyplývajúce zo zmeny rieši výzvou na doplnenie, nie neschválením.`, vb.citacia);
+  if (vb.schvalenie.stav !== 'schvalene')
+    bod('VER-SCHVALENIE', 'Pravidlá pre toto znenie výzvy čakajú na schválenie', `Pravidlá pre znenie ${balik.verzia} (${rozsah}) sú návrh, ktorý ešte neschválil človek. ${vb.schvalenie.poznamka} Kým ich neschváli, výsledok je len predbežný.`, vb.citacia);
+  const zdroj = koloItms != null ? `Kolo ${koloItms} z ITMS21+` : koloDatum != null ? `Kolo ${koloDatum} podľa dátumu predloženia ${datumSk(datum!)}` : 'Kolo sa nedá určiť';
+  return { balik, nalezy, vyber: {
+    verziaId: vb.id, verzia: balik.verzia, odKola: vb.odKola, doKola, kolo,
+    zdrojKola: koloItms != null ? 'itms' : koloDatum != null ? 'datum' : null, datumPredlozenia: datum ? datum.slice(0, 10) : null,
+    zdovodnenie: `${zdroj} → znenie výzvy ${balik.verzia} (${rozsah}).`,
+  } };
+}
+
+/** Posudok podľa znenia výzvy pre kolo žiadosti (vyberVerziu). Vráti aj použitý balík, ktorý treba na doklady. */
+export async function posudPodlaKola(v: any, vyzvaKod: string, modul: Modul, m: MoznostiPosudku = {}): Promise<{ balik: BalikPravidiel; posudok: Posudok }> {
+  const { balik, vyber, nalezy } = vyberVerziu(vyzvaKod, modul, v);
+  const posudok = await posud(v, balik, modul, m);
+  if (vyber) posudok.vyberVerzie = vyber;
+  // Ako inventár: čiastková kontrola (iba) body o znení nepridáva.
+  if (!m.iba && nalezy.length) { posudok.nalezy.unshift(...nalezy); Object.assign(posudok, vyrokPosudku(posudok.nalezy)); }
+  return { balik, posudok };
 }
 
 export function zoznamBalikov(): { vyzvaKod: string; modul: string; verzia: string; nazov: string }[] {

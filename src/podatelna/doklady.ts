@@ -41,26 +41,35 @@ export function dolozPosudok(p: Posudok, z: Ziadost, formular: ZdrojFormulara | 
   return p;
 }
 
-/** Zobrazovacia kópia. Archívny JSON, výsledok a čas starého posudku zostávajú v databáze. */
-export async function precitajPosudok(db: DatabaseSync, spisId: number, posudokId: number, balik: BalikPravidiel): Promise<Posudok | undefined> {
+/**
+ * Zobrazovacia kópia. Archívny JSON, výsledok a čas starého posudku zostávajú v databáze.
+ * baliky = všetky verzie balíka výzvy: doklady sa rekonštruujú len s verziou, ktorou posudok vznikol.
+ */
+export async function precitajPosudok(db: DatabaseSync, spisId: number, posudokId: number, baliky: BalikPravidiel[]): Promise<Posudok | undefined> {
   const r = db.prepare('SELECT posudok_json FROM posudky WHERE id = ? AND spis_id = ?').get(posudokId, spisId) as { posudok_json: string } | undefined;
   if (!r) return;
   const p = JSON.parse(r.posudok_json) as Posudok;
   if (p.nalezy.some(n => n.povodDokladov !== undefined)) return p;
   const s = spisRiadok(db, spisId);
   const zaciatok = Date.parse(p.cas) - p.trvanieMs;
-  const podklady = s && Number.isFinite(zaciatok) && p.balik === balik.id && p.verziaBalika === balik.verzia
-    ? historickePodklady(db, s, new Date(zaciatok).toISOString()) : undefined;
+  const balik = baliky.find((b) => b.id === p.balik && b.verzia === p.verziaBalika);
+  for (const n of p.nalezy) n.povodDokladov = 'nedostupne';
+  // Verzia balíka, ktorou posudok vznikol, už neexistuje: splnené body nemajú s čím doložiť.
+  if (!balik) { for (const n of p.nalezy) if (n.stav === 'splnene') n.povodDokladov = 'pravidlo_zmenene'; return p; }
+  const podklady = s && Number.isFinite(zaciatok) ? historickePodklady(db, s, new Date(zaciatok).toISOString()) : undefined;
   const cituj = podklady && podklady.z.kod === p.ziadostKod && citovanie(podklady.z, podklady.formular, balik);
   for (const n of p.nalezy) {
     n.povodDokladov = 'nedostupne';
     const pravidlo = balik.pravidla.find(r => r.id === n.pravidlo && r.druh === n.druh && isDeepStrictEqual(r.citacia, n.citacia));
-    if (!cituj || !podklady || !pravidlo || (n.stav !== 'splnene' && !n.dokaz)) continue;
+    if (!cituj || !podklady || (n.stav !== 'splnene' && !n.dokaz)) continue;
+    // Pravidlo s rovnakým id má dnes inú citáciu alebo druh: doklad by patril inému pravidlu, než podľa ktorého sa rozhodlo.
+    if (!pravidlo) { if (n.stav === 'splnene' && balik.pravidla.some(r => r.id === n.pravidlo)) n.povodDokladov = 'pravidlo_zmenene'; continue; }
     if (n.druh !== 'llm') {
       const kontrola = KONTROLY[pravidlo.kontrola];
       if (!kontrola) continue;
       const dnes = await kontrola(podklady.z, pravidlo);
-      if (dnes.stav !== n.stav || dnes.zdovodnenie !== n.zdovodnenie || !isDeepStrictEqual(dnes.hodnoty, n.hodnoty)) continue;
+      // Podklady sú z času posudku, takže iný výsledok dnes znamená zmenenú logiku pravidla.
+      if (dnes.stav !== n.stav || dnes.zdovodnenie !== n.zdovodnenie || !isDeepStrictEqual(dnes.hodnoty, n.hodnoty)) { n.povodDokladov = 'pravidlo_zmenene'; continue; }
     }
     const doklady = cituj(n);
     if (doklady.length) { n.doklady = doklady; n.povodDokladov = 'rekonstrukcia'; }

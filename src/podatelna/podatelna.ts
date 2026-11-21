@@ -53,6 +53,7 @@ const KLUCOVE: [string, RegExp][] = [
   ['6', /energetick\w* certifik|certifikat|\becb\b/],
   ['7', /projektov\w* dokument|technick\w* sprav|vykres|stavebn\w* povolen|\bpd\b/],
   ['8', /opravnenost\w* vydavkov|rozpoc|hodnot\w* za peniaze/],
+  ['9', /horizontaln\w* princip/],
 ];
 function najskorsia(text: string, sloty: Set<string>): string | null {
   let naj: { cislo: string; idx: number } | null = null;

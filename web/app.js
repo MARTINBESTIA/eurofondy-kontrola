@@ -181,9 +181,30 @@ function kresliTestZonfp(o, t, llm) {
 }
 
 // ---------- pravidlá a zdroje
+/** Verzie znenia výzvy: pre ktoré kolá platia, ktoré pravidlá a podmienky pribudli alebo ubudli a či ich schválil človek. */
+function kresliVerzie(verzie) {
+  if (!verzie.length) return [];
+  const datum = (d) => d.split('-').reverse().join('. ');
+  const rozdiel = (a, b) => [...b.filter((x) => !a.includes(x)).map((x) => `+${x}`), ...a.filter((x) => !b.includes(x)).map((x) => `−${x}`)].join(' ');
+  const riadky = verzie.map((v, i) => {
+    const dalsia = verzie[i + 1];
+    const predch = verzie[i - 1];
+    return el('tr', {}, el('td', {}, v.verzia, v.stav === 'platna' ? el('span', { class: 'tlmene' }, ' (platné)') : null),
+      el('td', { class: 'c' }, datum(v.platnaOd)),
+      el('td', { class: 'c' }, dalsia ? `${v.odKola}–${dalsia.odKola - 1}` : `od ${v.odKola}`),
+      el('td', { class: 'c' }, v.itmsVerzie.join(', ')),
+      el('td', {}, `${v.pravidiel} pravidiel, ${v.podmienok} podmienok${predch ? ` · oproti predchádzajúcemu: ${rozdiel([...predch.pravidlaId, ...predch.podmienkyId], [...v.pravidlaId, ...v.podmienkyId]) || 'bez rozdielu'}` : ''}`),
+      el('td', {}, el('span', { class: `stitok ${v.schvalenie.stav === 'schvalene' ? 's-splnene' : 's-na_preverenie'}` }, v.schvalenie.stav === 'schvalene' ? 'schválené' : 'čaká na schválenie')));
+  });
+  return [el('h3', {}, `Znenia výzvy (${verzie.length})`),
+    el('p', { class: 'tlmene male' }, 'Zmena výzvy platí pre aktuálne posudzované obdobie (hodnotiace kolo) a nasledujúce (§ 14 ods. 4 zákona č. 121/2022 Z. z.). Posudok preto použije znenie podľa kola žiadosti: kolo z ITMS21+, inak kolo podľa dátumu predloženia. Pravidlá znenia, ktoré ešte neschválil človek, dávajú výsledok len na preverenie.'),
+    el('table', {}, el('thead', {}, el('tr', {}, ['Znenie', 'Účinné od', 'Kolá', 'Verzie v ITMS21+', 'Obsah', 'Pravidlá'].map((h, i) => el('th', { class: i && i < 4 ? 'c' : '' }, h)))), el('tbody', {}, riadky))];
+}
+
 async function nacitajPravidla() {
   const b = await api(`/api/${modul.id}/pravidla`); const o = $('#pravidla-obsah');
   o.replaceChildren(el('h2', {}, `${modul.nazov}: ${b.vyzvaNazov}`), el('p', { class: 'tlmene' }, `${b.vyzvaKod} · ${b.poskytovatel} · ${b.verzia}`),
+    ...kresliVerzie(b.verzie ?? []),
     el('h3', {}, 'Proces'), el('ol', {}, b.proces.map((k) => el('li', {}, k))),
     el('h3', {}, `Pravidlá (${b.pravidla.length})`),
     b.pravidla.some(p => p.ppp) ? el('p', { class: 'tlmene male' }, VYSVETLENIE_PPP) : null,

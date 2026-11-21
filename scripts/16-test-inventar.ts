@@ -4,10 +4,12 @@
 // 3. Posudok pridá bod pre kontrolóra ku každej podmienke, ktorú pravidlá nepokrývajú celú.
 // 4. Zasadené chyby na všetkých stiahnutých žiadostiach: iná výzva, neskoré predloženie, MRR po uzavretí,
 //    opatrenie mimo výzvy. Najhorší omyl je „falošne OK“ (pravidlo splnené alebo výrok OK), nesmie nastať ani raz.
+// 5. Verzie: znenie výzvy sa vyberá podľa kola žiadosti (§ 14 ods. 4 zákona č. 121/2022 Z. z.), pochybnosti idú človeku.
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
-import { nacitajBalik, nalezyInventara, posud } from '../src/core/posud.ts';
+import { koloPodlaDatumu, nacitajBalik, nalezyInventara, posud, posudPodlaKola, verzieBalika, vyberVerziu } from '../src/core/posud.ts';
+import { castiCitacie, cestaTextuZdroja, normCitacie } from '../src/core/zdroje.ts';
 import type { BalikPravidiel, Citacia, Posudok, Stav, Ziadost } from '../src/core/typy.ts';
 import { pripravDokladyFormulara } from '../src/moduly/zonfp/doklady-formular.ts';
 import { zonfp } from '../src/moduly/zonfp/modul.ts';
@@ -21,17 +23,23 @@ const over = (ok: boolean, sprava: string) => { if (!ok) chyb++; console.log(`${
 const rovnake = (a: unknown[], b: unknown[]) => a.length === b.length && [...a].sort().join() === [...b].sort().join();
 
 // ---------------------------------------------------------------- 1. úplnosť a súdržnosť inventára
-const baliky: BalikPravidiel[] = fs.readdirSync(path.join(KOREN, 'packs'), { withFileTypes: true })
-  .filter((d) => d.isDirectory() && fs.existsSync(path.join(KOREN, 'packs', d.name, 'zonfp.json'))).map((d) => nacitajBalik(d.name, 'zonfp'));
-over(baliky.length > 0, `balíky žiadosti o NFP: ${baliky.map((b) => b.vyzvaKod).join(', ')}`);
+// Každá verzia balíka (platná aj archívne znenia výzvy) musí byť úplná a doslovná.
+const vyzvy = fs.readdirSync(path.join(KOREN, 'packs'), { withFileTypes: true })
+  .filter((d) => d.isDirectory() && fs.existsSync(path.join(KOREN, 'packs', d.name, 'zonfp.json'))).map((d) => d.name);
+const baliky: BalikPravidiel[] = vyzvy.flatMap((v) => verzieBalika(v, 'zonfp'));
+over(baliky.length > 0, `balíky žiadosti o NFP: ${baliky.map((b) => `${b.vyzvaKod}${b.verziaBalika ? ` (${b.verziaBalika.id})` : ''}`).join(', ')}`);
 for (const b of baliky) {
   const pod = b.podmienky ?? [];
-  console.log(`\n== ${b.vyzvaKod}: ${b.pravidla.length} pravidiel, ${pod.length} podmienok`);
+  console.log(`\n== ${b.vyzvaKod}${b.verziaBalika ? ` · ${b.verzia} (${b.verziaBalika.id}, ${b.verziaBalika.stav})` : ''}: ${b.pravidla.length} pravidiel, ${pod.length} podmienok`);
   over(pod.length > 0, 'balík má inventár podmienok (modul ho vyžaduje)');
   over(new Set(pod.map((p) => p.id)).size === pod.length, 'id podmienok sú jedinečné');
   const surove = path.join(KOREN, 'data/raw/itms21', b.vyzvaKod, 'vyzva.json.gz');
   const pppInv = pod.filter((p) => p.typ === 'ppp').map((p) => p.ppp);
-  if (fs.existsSync(surove)) {
+  if (b.verziaBalika && b.verziaBalika.stav !== 'platna') {
+    // Detail výzvy z ITMS21+ opisuje len najnovšiu verziu; staršie znenie musí mať PPP očíslované 1 až N bez medzier.
+    const cisla = [...pppInv].sort((x, y) => x! - y!);
+    over(cisla.every((n, i) => n === i + 1), `PPP archívneho znenia sú očíslované 1 až ${cisla.length} bez medzier`);
+  } else if (fs.existsSync(surove)) {
     const pppItms = JSON.parse(zlib.gunzipSync(fs.readFileSync(surove)).toString()).podmienkaPoskytnutiaPrispevku.map((p: any) => p.poradoveCislo);
     over(rovnake(pppItms, pppInv), `všetkých ${pppItms.length} PPP z ITMS21+ je v inventári a žiadna navyše`);
   } else console.log(`  (detail výzvy z ITMS21+ nie je stiahnutý, PPP sa porovnajú len s pravidlami)`);
@@ -56,13 +64,11 @@ for (const b of baliky) {
   // ---------------------------------------------------------------- 2. citácie sú doslovne v zdroji
   // Časti oddelené „[...]“ musia byť v texte zdroja každá zvlášť. Poznámky pod čiarou extrakcia textu nezachytí,
   // preto sa preskočia a len spočítajú.
-  const norm = (s: string) => s.replace(/[„“”"]/g, '"').replace(/[–—]/g, '-').replace(/[\s|•]+/g, ' ').trim();
   const texty = new Map<string, string | null>();
   const textDokumentu = (dokument: string) => {
     if (texty.has(dokument)) return texty.get(dokument)!;
-    const z = b.zdroje.find((x) => x.nazov === dokument); const m = z?.subor.match(/^data\/zdroje\/([^/]+)\//);
-    const txt = z && m ? path.join(KOREN, 'data/zdroje', m[1], 'txt', path.basename(z.subor).replace(/\.[a-z]+$/i, '.txt')) : null;
-    const t = txt && fs.existsSync(txt) ? norm(fs.readFileSync(txt, 'utf8')) : null;
+    const z = b.zdroje.find((x) => x.nazov === dokument); const txt = z ? cestaTextuZdroja(z.subor) : null;
+    const t = txt ? normCitacie(fs.readFileSync(txt, 'utf8')) : null;
     texty.set(dokument, t); return t;
   };
   let poznamok = 0; const nedoslovne: string[] = []; const bezTextu: string[] = [];
@@ -71,12 +77,14 @@ for (const b of baliky) {
     if (!t) { bezTextu.push(`${id} (${c.dokument})`); return; }
     poznamok += (c.znenie.match(/\[Pozn\. \d+:\]/g) ?? []).length;
     // Poznámka pod čiarou siaha po ďalšiu poznámku alebo koniec citácie (môže obsahovať aj vlastné „[...]“).
-    const casti = c.znenie.replace(/\[Pozn\. \d+:\](?:(?!\[Pozn\.)[\s\S])*/g, ' [...] ').split(/\[\s*(?:\.{3}|…)\s*\]|…/).map(norm).filter(Boolean);
+    const casti = castiCitacie(c.znenie);
     const chyba = casti.filter((x) => !t.includes(x));
     if (!casti.length || chyba.length) nedoslovne.push(`${id}: „${(chyba[0] ?? '').slice(0, 90)}“`);
   };
   for (const r of b.pravidla) skontroluj(r.id, r.citacia);
   for (const p of pod) skontroluj(p.id, p.citacia);
+  if (b.verziaBalika) skontroluj('verziaBalika', b.verziaBalika.citacia);
+  if (b.harmonogramKol) skontroluj('harmonogramKol', b.harmonogramKol.citacia);
   over(!bezTextu.length, `každá citácia má zdrojový text na overenie${bezTextu.length ? ` (chýba: ${bezTextu.join(', ')})` : ''}`);
   over(!nedoslovne.length, `citácie pravidiel a podmienok sú doslovne v zdroji (preskočené poznámky pod čiarou: ${poznamok})${nedoslovne.length ? `\n    ${nedoslovne.join('\n    ')}` : ''}`);
 }
@@ -121,7 +129,8 @@ const kopia = (z: Ziadost, zmena: (x: Ziadost) => void) => { const x = structure
 async function zasad(nazov: string, pravidlo: string, ocakavane: Stav, vstupy: Ziadost[]) {
   let presne = 0, falosneOk = 0; const stavy: Record<string, number> = {}; let priklad = '';
   for (const v of vstupy) {
-    const p = await posud(v, b, zonfp, { llm: false });
+    // Každá žiadosť podľa znenia výzvy pre jej kolo, ako v podateľni.
+    const { posudok: p } = await posudPodlaKola(v, VYZVA, zonfp, { llm: false });
     const n = p.nalezy.find((x) => x.pravidlo === pravidlo)!;
     stavy[n.stav] = (stavy[n.stav] ?? 0) + 1;
     if (n.stav === ocakavane) presne++; else if (!priklad) priklad = `${v.kod}: ${n.stav}: ${n.zdovodnenie.slice(0, 160)}`;
@@ -153,14 +162,72 @@ await zasad('občianske združenie (doplnkové podmienky PPP č. 1)', 'D01', 'na
 
 // Bez falošného poplachu: VRR po uzavretí pre MRR je včas; nezmenené skutočné žiadosti nové pravidlá nezamietnu.
 let vrrOk = 0;
-for (const z of vrr) { const p = await posud(kopia(z, (x) => { x.datumPredlozenia = '2025-06-06'; }), b, zonfp, { llm: false, iba: ['F01'] }); if (p.nalezy[0].stav === 'splnene') vrrOk++; }
+for (const z of vrr) { const { posudok: p } = await posudPodlaKola(kopia(z, (x) => { x.datumPredlozenia = '2025-06-06'; }), VYZVA, zonfp, { llm: false, iba: ['F01'] }); if (p.nalezy[0].stav === 'splnene') vrrOk++; }
 over(vrr.length > 0 && vrrOk === vrr.length, `[F01] VRR predložená po uzavretí pre MRR je včas: ${vrrOk}/${vrr.length} splnené`);
 const zamietnute: string[] = [];
 for (const z of vsetky.filter((x) => x.vysledok === 'schvalena')) {
-  const p = await posud(z, b, zonfp, { llm: false, iba: ['V01', 'F01', 'D01', 'D07a'] });
+  const { posudok: p } = await posudPodlaKola(z, VYZVA, zonfp, { llm: false, iba: ['V01', 'F01', 'D01', 'D07a', 'G05', 'P09'] });
   for (const n of p.nalezy) if (n.stav === 'nesplnene') zamietnute.push(`${z.kod} ${n.pravidlo}`);
 }
 over(!zamietnute.length, `nové pravidlá neoznačia ako nesplnenú žiadnu schválenú žiadosť${zamietnute.length ? `: ${zamietnute.slice(0, 5).join(', ')}` : ''}`);
 
-console.log(chyb ? `\n${chyb} kontrol zlyhalo.` : '\nVšetky kontroly prešli.');
+// ---------------------------------------------------------------- 5. znenie výzvy podľa kola
+console.log('\n== Znenie výzvy podľa kola (§ 14 ods. 4 a 5 zákona č. 121/2022 Z. z.)');
+const verzie = verzieBalika(VYZVA, 'zonfp');
+const vb = verzie.map((x) => x.verziaBalika!);
+const h = b.harmonogramKol!;
+over(verzie.length >= 2 && vb.every(Boolean) && vb.filter((x) => x.stav === 'platna').length === 1 && vb[vb.length - 1].stav === 'platna',
+  `verzie: ${verzie.map((x) => `${x.verziaBalika?.id} od kola ${x.verziaBalika?.odKola}`).join(', ')}; práve jedna platná a je najnovšia`);
+over(vb[0].odKola === 1 && vb.every((x, i) => i === 0 || x.odKola > vb[i - 1].odKola), 'prvé znenie platí od kola 1 a hranice kôl rastú');
+over(verzie.every((x) => koloPodlaDatumu(x.platnaOd, h) === x.verziaBalika!.odKola),
+  `hranica znenia = kolo, v ktorom zmena nadobudla účinnosť: ${verzie.map((x) => `${x.platnaOd} → kolo ${koloPodlaDatumu(x.platnaOd, h)}`).join(', ')}`);
+over(verzie.every((x) => JSON.stringify({ ...x.harmonogramKol, citacia: 0 }) === JSON.stringify({ ...h, citacia: 0 })), 'harmonogram kôl je vo všetkých zneniach rovnaký');
+over(verzie.every((x) => x.verziaBalika!.schvalenie.poznamka.trim().length > 0), 'každé znenie uvádza stav schválenia s poznámkou');
+const sKolom = vsetky.filter((z) => z.kolo != null && z.datumPredlozenia);
+const zhoda = sKolom.filter((z) => koloPodlaDatumu(z.datumPredlozenia!, h) === z.kolo).length;
+over(zhoda / sKolom.length >= 0.98, `kolo z dátumu sa zhoduje s kolom z ITMS21+ v ${zhoda} z ${sKolom.length} žiadostí`);
+const podlaVerzie: Record<string, number> = {}; const body: Record<string, number> = {};
+for (const z of vsetky) {
+  const r = vyberVerziu(VYZVA, zonfp, z);
+  podlaVerzie[r.vyber!.verziaId] = (podlaVerzie[r.vyber!.verziaId] ?? 0) + 1;
+  for (const n of r.nalezy) body[n.pravidlo] = (body[n.pravidlo] ?? 0) + 1;
+}
+console.log(`  skutočné žiadosti podľa znenia: ${JSON.stringify(podlaVerzie)}; body pre kontrolóra: ${JSON.stringify(body)}`);
+
+const vzor = vsetky.find((z) => z.opatrenia.includes('2.1.2') && z.aktivity.some((a) => a.hlavna))!;
+const sKolomADatumom = (kolo: number | null, datum: string | null) => vyberVerziu(VYZVA, zonfp, kopia(vzor, (x) => { x.kolo = kolo; x.datumPredlozenia = datum; }));
+const ids = (r: ReturnType<typeof vyberVerziu>) => r.nalezy.map((n) => n.pravidlo).sort().join(',');
+const pripady: [string, number | null, string | null, string, string][] = [
+  ['kolo 12 z ITMS21+', 12, '2024-05-20', 'akt2', 'VER-SCHVALENIE'],
+  ['len dátum 19. 9. 2025 (kolo 83)', null, '2025-09-19', 'zmena3', ''],
+  ['len dátum v deň uzavretia kola 78, posledného pred zmenou č. 3', null, '2025-08-15', 'akt2', 'VER-KOLO,VER-SCHVALENIE'],
+  ['len dátum 18. 8. 2025: kolo 79, pred účinnosťou zmeny č. 3 (§ 14 ods. 5)', null, '2025-08-18', 'zmena3', 'VER-ZMENA'],
+  ['len dátum 1. 2. 2024: kolo 1, pred účinnosťou zmeny č. 2 (§ 14 ods. 5)', null, '2024-02-01', 'akt2', 'VER-SCHVALENIE,VER-ZMENA'],
+  ['bez kola aj dátumu', null, null, 'zmena3', 'VER-KOLO'],
+  ['kolo 78 z ITMS21+, ale dátum v kole 79', 78, '2025-08-20', 'akt2', 'VER-KOLO,VER-SCHVALENIE'],
+];
+for (const [nazov, kolo, datum, verzia, ocak] of pripady) {
+  const r = sKolomADatumom(kolo, datum);
+  over(r.vyber!.verziaId === verzia && ids(r) === ocak && r.nalezy.every((n) => n.stav === 'na_preverenie' && n.druh === 'verzia'),
+    `${nazov}: znenie ${r.vyber!.verziaId}, body ${ids(r) || '–'} · ${r.vyber!.zdovodnenie}`);
+}
+// Rozdiely znení v posudku: archívne znenie žiada Prílohu č. 9 (súlad s HP) a nemá PPP č. 15 (EDES); platné naopak.
+const sPrilohami = (kolo: number, cisla: string[]) => kopia(vzor, (x) => {
+  x.kolo = kolo;
+  x.prilohy = Object.fromEntries(cisla.map((c) => [c, { nazov: `Príloha č. ${c}`, text: `Príloha č. ${c} `.repeat(10), zaradenie: 'potvrdene' }])) as Ziadost['prilohy'];
+});
+const p2 = (await posudPodlaKola(sPrilohami(12, ['7', '8']), VYZVA, zonfp, { llm: false })).posudok;
+const p2s9 = (await posudPodlaKola(sPrilohami(12, ['7', '8', '9']), VYZVA, zonfp, { llm: false })).posudok;
+const p3 = (await posudPodlaKola(sPrilohami(83, ['7', '8']), VYZVA, zonfp, { llm: false })).posudok;
+const stavP = (p: Posudok, id: string) => p.nalezy.find((n) => n.pravidlo === id)?.stav ?? 'chýba';
+over(stavP(p2, 'P09') === 'chyba_podklad' && stavP(p2s9, 'P09') === 'splnene' && stavP(p2, 'G15') === 'chýba' && stavP(p2, 'PPP15') === 'chýba',
+  `kolo 12 (akt. 2): bez Prílohy č. 9 ${stavP(p2, 'P09')}, s ňou ${stavP(p2s9, 'P09')}, PPP č. 15 ${stavP(p2, 'G15')}`);
+over(stavP(p3, 'P09') === 'chýba' && stavP(p3, 'G15') !== 'chýba' && p3.vyberVerzie?.verziaId === 'zmena3',
+  `kolo 83 (zmena č. 3): Príloha č. 9 ${stavP(p3, 'P09')}, PPP č. 15 ${stavP(p3, 'G15')}`);
+over(p2.vyberVerzie?.verziaId === 'akt2' && p2.verziaBalika === verzie[0].verzia && !okVyrok(p2) && !okVyrok(p2s9),
+  `posudok zaznamená znenie (${p2.verziaBalika}) a pri neschválenom znení nie je OK (${p2s9.navrh})`);
+over(!(await posudPodlaKola(sPrilohami(12, ['7', '8']), VYZVA, zonfp, { llm: false, iba: ['P09'] })).posudok.nalezy.some((n) => n.druh === 'verzia'),
+  'čiastková kontrola (iba) nepridáva body o znení');
+
+console.log(chyb ?`\n${chyb} kontrol zlyhalo.` : '\nVšetky kontroly prešli.');
 process.exit(chyb ? 1 : 0);

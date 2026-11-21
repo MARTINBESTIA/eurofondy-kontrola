@@ -1,0 +1,857 @@
+{
+  "id": "PSK-SIEA-002-2023-DV-EFRR/zonfp",
+  "modul": "zonfp",
+  "vyzvaKod": "PSK-SIEA-002-2023-DV-EFRR",
+  "vyzvaNazov": "Výzva na podporu energetickej efektívnosti a využívania OZE vo verejných budovách",
+  "poskytovatel": "Slovenská inovačná a energetická agentúra (sprostredkovateľský orgán pre Program Slovensko)",
+  "verzia": "Zmena č. 2 zo dňa 08.02.2024",
+  "platnaOd": "2024-02-08",
+  "zdroje": [
+    {
+      "nazov": "Výzva v znení Zmeny č. 2",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/akt2/Vyzva_akt2_clean/Vyzva_PSK_2P1_clean_SIEA_akt._2.docx",
+      "url": "https://api.itms21.sk/public/v1/dokument/f1c116ad-0768-4e55-a33c-e7f1ac342cb2"
+    },
+    {
+      "nazov": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 1)",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/akt2/Vyzva_akt2_clean/Priloha_2_Zoznam_Priloh_akt._1.docx",
+      "url": "https://api.itms21.sk/public/v1/dokument/f1c116ad-0768-4e55-a33c-e7f1ac342cb2"
+    },
+    {
+      "nazov": "Príloha č. 4 výzvy – Kritériá pre výber projektov",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/akt2/Vyzva_akt2_clean/Priloha_4_Kriteria_vyberu_projektov.docx",
+      "url": "https://api.itms21.sk/public/v1/dokument/f1c116ad-0768-4e55-a33c-e7f1ac342cb2"
+    },
+    {
+      "nazov": "Príloha č. 5 výzvy – Zoznam merateľných ukazovateľov (akt. 2)",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/akt2/Vyzva_akt2_clean/Priloha_5_MU.docx",
+      "url": "https://api.itms21.sk/public/v1/dokument/f1c116ad-0768-4e55-a33c-e7f1ac342cb2"
+    },
+    {
+      "nazov": "Zmena výzvy č. 2",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/ostatne/Zmena_vyzvy_c2.docx",
+      "url": "https://api.itms21.sk/public/v1/dokument/325653ef-4f05-4dc3-a455-727bfa6de573"
+    },
+    {
+      "nazov": "Zoznamy schválených, neschválených a zastavených ŽoNFP po kolách",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/rozhodnutia/",
+      "url": "https://www.siea.sk/strukturalne-fondy-eu/program-slovensko/zoznam-schvalenych-a-neschvalenych-ziadosti-o-nfp/"
+    },
+    {
+      "nazov": "Oznámenie o uzavretí výzvy",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/ostatne/Oznamenie_o_uzavreti.docx",
+      "url": "https://api.itms21.sk/public/v1/dokument/68daab41-c998-4130-b1d3-4dfde0f2d5e6"
+    },
+    {
+      "nazov": "ITMS21+ detail výzvy (verzie výzvy; verzia 5: uzavretie pre menej rozvinuté regióny)",
+      "subor": "data/raw/itms21/PSK-SIEA-002-2023-DV-EFRR/vyzva.json.gz",
+      "url": "https://api.itms21.sk/public/v1/vyzva/id/2928"
+    }
+  ],
+  "proces": [
+    "Administratívne overenie: poskytovateľ overí podmienky doručenia a všetkých 14 podmienok poskytnutia príspevku (PPP).",
+    "Výber (ak alokácia nestačí): poradie podľa Hodnoty za peniaze, potom rozlišovacie kritériá.",
+    "Rozhodnutie: schválenie s podmienkou vo výroku, neschválenie, alebo zastavenie konania.",
+    "Opravné prostriedky (nepovinná časť konania)."
+  ],
+  "pravidla": [
+    {
+      "id": "V01",
+      "ppp": null,
+      "nazov": "Formulár je predložený do tejto výzvy",
+      "druh": "data",
+      "kontrola": "vyzva_formulara",
+      "parametre": {
+        "vyzva": "PSK-SIEA-002-2023-DV-EFRR"
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "Kód výzvy",
+        "znenie": "PSK-SIEA-002-2023-DV-EFRR"
+      }
+    },
+    {
+      "id": "F01",
+      "ppp": null,
+      "nazov": "Žiadosť je predložená, keď bola výzva otvorená (aj pre kategóriu regiónu)",
+      "druh": "data",
+      "kontrola": "predlozenie_vcas",
+      "parametre": {
+        "vyhlasenie": "2023-12-22",
+        "uzavretie": "2026-01-09",
+        "uzavretieKategorie": {
+          "MRR": "2025-01-09"
+        },
+        "krajeVRR": ["Bratislavský kraj"],
+        "zdrojeDatumov": "vyhlásenie 22. 12. 2023: výzva, Dátum vyhlásenia výzvy; uzavretie 09. 01. 2026: Oznámenie o uzavretí výzvy; uzavretie pre MRR 09. 01. 2025: ITMS21+, verzia 5 výzvy (nie je možné vybrať akciu pre menej rozvinutý región)"
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "Informácie k spôsobu predloženia ŽoNFP",
+        "znenie": "Žiadateľ je v zmysle § 16 zákona o príspevkoch z fondov povinný predložiť ŽoNFP riadne a včas. Ak vzniknú pochybnosti o predložení ŽoNFP riadne a včas, SO oznámi tieto pochybnosti žiadateľovi a vyzve ho, aby sa k nim v primeranej lehote vyjadril."
+      }
+    },
+    {
+      "id": "D01",
+      "ppp": 1,
+      "nazov": "Právna forma žiadateľa je oprávnená",
+      "druh": "data",
+      "kontrola": "pravna_forma",
+      "parametre": {
+        "povolene": ["117", "119", "120", "321", "331", "333", "382", "701", "721", "801", "803"],
+        "doplnkovePodmienky": {
+          "formy": ["117", "119", "120", "701", "721"],
+          "text": "oprávnenosť na výkon činností podľa zákonov uvedených v PPP č. 1 (sociálne služby, Slovenské národné stredisko pre ľudské práva, školský zákon, Slovenský Červený kríž), priamu súvislosť predmetu projektu s týmito činnosťami a existenciu subjektu aspoň 7 celých kalendárnych rokov ku dňu vyhlásenia výzvy (22. 12. 2023)."
+        }
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 1 Právna forma",
+        "znenie": "Oprávnenými žiadateľmi sú: subjekty štátnej správy – ústredné orgány štátnej správy, ostatné ústredné orgány štátnej správy, štátne rozpočtové organizácie a štátne príspevkové organizácie; ostatné subjekty verejnej správy [...]; subjekty mimo pravidiel štátnej pomoci, konkrétne: nadácie, občianske združenia, neziskové organizácie, neziskové organizácie poskytujúce všeobecne prospešné služby, cirkevné organizácie."
+      }
+    },
+    {
+      "id": "D07a",
+      "ppp": 7,
+      "nazov": "Projekt obsahuje aspoň jednu hlavnú aktivitu",
+      "druh": "data",
+      "kontrola": "hlavna_aktivita",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 7, Podmienky oprávnenosti aktivít, ods. 2",
+        "znenie": "Projektom sa realizuje aspoň jedna hlavná aktivita z aspoň jedného opatrenia pri dodržaní ostatných podmienok oprávnenosti aktivít."
+      },
+      "parametre": {
+        "opatrenia": ["2.1.2", "2.2.2"]
+      }
+    },
+    {
+      "id": "D07b",
+      "ppp": 7,
+      "nazov": "Plánovaná úspora primárnej energie je aspoň 30 %",
+      "druh": "data",
+      "kontrola": "uspora_min",
+      "parametre": {
+        "minPercent": 30,
+        "ukazovatel": "PSKPRCR26b"
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 7, ods. 3 písm. f) a PPP č. 13, Upozornenie",
+        "znenie": "budova musí dosiahnuť plánovanú úsporu primárnej energie minimálne 30 % [...] Ak pri realizácii hlavnej aktivity opatrenia 2.1.2 plánovaná úspora primárnej energie nedosiahne 30 %, budova nespĺňa podmienky oprávnenosti aktivít a nemôže byť podporená."
+      }
+    },
+    {
+      "id": "D07c",
+      "ppp": 7,
+      "nazov": "Hodnota za peniaze pri energetickej efektívnosti najviac 5 500 EUR/MWh/rok",
+      "druh": "data",
+      "kontrola": "hzp_ee",
+      "parametre": {
+        "max": 5500,
+        "ukazovatel": "PSKPRCR26b",
+        "opatrenie": "2.1.2",
+        "rezervaDph": 1.23
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 7, ods. 3 písm. g) a poznámka pod čiarou č. 40",
+        "znenie": "budova musí spĺňať minimálnu mieru príspevku k cieľu opatrenia, stanovenú aplikáciou princípu Hodnota za Peniaze s definovanou maximálnou hodnotou 5 500 EUR/MWh/rok. [Pozn. 40:] COV vyjadrujú COV vynaložené na všetky hlavné aktivity budovy opatrenia 2.1.2. Úsporu primárnej spotreby energie reprezentuje rozdiel priemernej ročnej spotreby primárnej energie pred realizáciu opatrenia a ročnej spotreby primárnej energie po realizácii opatrenia."
+      }
+    },
+    {
+      "id": "D07d",
+      "ppp": 7,
+      "nazov": "Hodnota za peniaze pri OZE najviac 1,4 mil. EUR/MW",
+      "druh": "data",
+      "kontrola": "hzp_oze",
+      "parametre": {
+        "max": 1400000,
+        "ukazovatele": ["PSKPRCO22a", "PSKPRCO22b"],
+        "opatrenie": "2.2.2",
+        "rezervaDph": 1.23
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 7, ods. 4 písm. d) a poznámka pod čiarou č. 43",
+        "znenie": "projekt musí spĺňať minimálnu mieru príspevku k cieľu opatrenia, stanovenú aplikáciou princípu Hodnota za Peniaze definovanou maximálnou hodnotou 1,4 mil. EUR/MW. [Pozn. 43:] pomer celkových oprávnených výdavkov (COV) voči súčtu cieľových hodnôt MU projektu PO040 (PSKPRCO22a) [...] a PO041 (PSKPRCO22b) [...] (EUR/MW). COV vyjadrujú COV vynaložené na všetky hlavné aktivity opatrenia 2.2.2."
+      }
+    },
+    {
+      "id": "D09",
+      "ppp": 9,
+      "nazov": "Projekt sa realizuje na území Slovenskej republiky",
+      "druh": "data",
+      "kontrola": "miesto_sr",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 9",
+        "znenie": "Žiadateľ je povinný realizovať projekt na oprávnenom území, ktorým je celé územie Slovenskej republiky."
+      }
+    },
+    {
+      "id": "D12",
+      "ppp": 12,
+      "nazov": "Výška NFP je medzi 200 000 a 5 000 000 EUR",
+      "druh": "data",
+      "kontrola": "vyska_nfp",
+      "parametre": {
+        "min": 200000,
+        "max": 5000000
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 12 Výška príspevku",
+        "znenie": "Minimálna výška NFP na projekt žiadateľa je 200 000 EUR. Maximálna výška NFP na projekt žiadateľa nesmie presiahnuť 5 000 000 EUR."
+      }
+    },
+    {
+      "id": "D13",
+      "ppp": 13,
+      "nazov": "Pásmo oprávnených výdavkov podľa úspory energie",
+      "druh": "data",
+      "kontrola": "pasmo_ov",
+      "parametre": {
+        "ukazovatel": "PSKPRCR26b"
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 13 Podmienka oprávnenosti výdavkov projektu",
+        "znenie": "výška oprávnených výdavkov sa neznižuje, ak plánovaná úspora primárnej energie dosiahne viac ako 60 % [...] zníži o 5 percentuálnych bodov, ak [...] viac ako 50 %, ale nepresiahne 60 % [...] zníži o 10 percentuálnych bodov, ak [...] viac ako 40 %, ale nepresiahne 50 % [...] zníži o 15 percentuálnych bodov, ak plánovaná úspora primárnej energie dosiahne minimálne 30 %, ale nepresiahne 40 %"
+      }
+    },
+    {
+      "id": "D14",
+      "ppp": 14,
+      "nazov": "Hlavné aktivity sa stihnú do 24 mesiacov od účinnosti zmluvy",
+      "druh": "data",
+      "kontrola": "harmonogram",
+      "parametre": {
+        "maxMesiacov": 24,
+        "rezervaNaKonanieMesiacov": 9
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 14 Časová oprávnenosť realizácie projektu",
+        "znenie": "Žiadateľ je povinný ukončiť realizáciu všetkých hlavných aktivít projektu do 24 mesiacov od nadobudnutia účinnosti Zmluvy o poskytnutí NFP, pri dodržaní časovej oprávnenosti výdavkov uvedenej v Príručke k OV."
+      }
+    },
+    {
+      "id": "P07",
+      "ppp": 7,
+      "nazov": "Príloha č. 7 ŽoNFP – Projektová dokumentácia je priložená",
+      "druh": "priloha",
+      "kontrola": "priloha_povinna",
+      "parametre": {
+        "cislo": "7",
+        "podmienka": "vzdy"
+      },
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 1)",
+        "cast": "Zoznam povinných príloh ŽoNFP",
+        "znenie": "Zoznam povinných príloh ŽoNFP Výzvy PSK-SIEA-002-2023-DV-EFRR: [...] Projektová dokumentácia [...] Dokumentácia k oprávnenosti výdavkov (záväzný formulár)"
+      }
+    },
+    {
+      "id": "P08",
+      "ppp": 13,
+      "nazov": "Príloha č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov je priložená",
+      "druh": "priloha",
+      "kontrola": "priloha_povinna",
+      "parametre": {
+        "cislo": "8",
+        "podmienka": "vzdy",
+        "zavaznyFormular": {
+          "popis": "záväzný formulár Prílohy č. 8 (zošit MS Excel podľa vzoru výzvy, Priloha_8_ZoNFP_Dokument._k_OV)",
+          "pripona": "\\.xls[xm]$",
+          "harok": "Rozpočet B1 - Value for Money",
+          "ziadatel": "B9",
+          "projekt": "B10",
+          "polozka": {
+            "pocet": "D",
+            "cena": "E",
+            "suma": "F",
+            "nazovSumy": "Cena celkom bez DPH"
+          }
+        }
+      },
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 1)",
+        "cast": "Príloha č. 8 ŽoNFP",
+        "znenie": "Záväzný formulár: Áno [...] Príloha musí byť predložená riadne spolu so ŽoNFP, resp. najneskôr ku dňu doplnenia chýbajúcich náležitostí ŽoNFP v zmysle výzvy na doplnenie chýbajúcich náležitostí ŽoNFP."
+      }
+    },
+    {
+      "id": "P08b",
+      "ppp": 13,
+      "nazov": "Oprávnené výdavky vypočítané v Prílohe č. 8 sa zhodujú s rozpočtom formulára",
+      "druh": "priloha",
+      "kontrola": "priloha8_sulad",
+      "parametre": {
+        "cislo": "8",
+        "zavaznyFormular": {
+          "popis": "záväzný formulár Prílohy č. 8 (zošit MS Excel podľa vzoru výzvy, Priloha_8_ZoNFP_Dokument._k_OV)",
+          "pripona": "\\.xls[xm]$",
+          "harok": "Rozpočet B1 - Value for Money",
+          "ziadatel": "B9",
+          "projekt": "B10",
+          "polozka": {
+            "pocet": "D",
+            "cena": "E",
+            "suma": "F",
+            "nazovSumy": "Cena celkom bez DPH"
+          }
+        },
+        "sulad": {
+          "budova": "M210",
+          "budovaPredKratenim": "M208",
+          "oze": "M270",
+          "pocetBudov": "B13",
+          "dalsieBudovy": {
+            "harok": "Rozpočet B{n}",
+            "bunka": "M207",
+            "hlaska": "D14",
+            "maxBudov": 7
+          },
+          "hlasky": ["D17", "D212", "A17", "A202", "A262"],
+          "opatrenieBudova": "2.1.2",
+          "opatrenieOze": "2.2.2"
+        }
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 13 Podmienka oprávnenosti výdavkov projektu, Forma a spôsob overenia splnenia PPP",
+        "znenie": "Žiadateľ za účelom posúdenia splnenia tejto PPP je povinný predložiť: formulár ŽoNFP, tabuľka č. 11 Rozpočet projektu [...] Prílohu č. 8 ŽoNFP – Dokumentácia k oprávnenosti výdavkov. [...] SO overuje splnenie tejto PPP na základe predložených dokumentov uvedených v časti „Forma preukázania splnenia PPP“."
+      }
+    },
+    {
+      "id": "P09",
+      "ppp": 8,
+      "nazov": "Príloha č. 9 ŽoNFP – Dokument súladu s horizontálnymi princípmi (pri opatrení 2.1.2)",
+      "druh": "priloha",
+      "kontrola": "priloha_povinna",
+      "parametre": {
+        "cislo": "9",
+        "podmienka": "opatrenie_212"
+      },
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 1)",
+        "cast": "Príloha č. 9 ŽoNFP – Dokument súladu projektu s horizontálnymi princípmi",
+        "znenie": "Prílohu predkladá výlučne žiadateľ realizujúci opatrenie 2.1.2. Žiadateľ realizujúci opatrenie 2.1.2 predkladá kontrolný zoznam, ktorý vyberá podľa druhu budovy."
+      }
+    },
+    {
+      "id": "P06",
+      "ppp": 7,
+      "nazov": "Príloha č. 6 ŽoNFP – Energetický certifikát (pri opatrení 2.1.2)",
+      "druh": "priloha",
+      "kontrola": "priloha_povinna",
+      "parametre": {
+        "cislo": "6",
+        "podmienka": "opatrenie_212"
+      },
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 1)",
+        "cast": "Príloha č. 6 ŽoNFP – Energetický certifikát",
+        "znenie": "žiadateľ realizujúci hlavné aktivity opatrenia 2.1.2 predkladá predrealizačný energetický certifikát podľa § 7 zákona č. 555/2005 Z. z. o energetickej hospodárnosti budov"
+      }
+    },
+    {
+      "id": "P05",
+      "ppp": 7,
+      "nazov": "Príloha č. 5 ŽoNFP – Energetický audit (ak je audit hlavnou aktivitou)",
+      "druh": "priloha",
+      "kontrola": "priloha_povinna",
+      "parametre": {
+        "cislo": "5",
+        "podmienka": "aktivita_audit"
+      },
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 1)",
+        "cast": "Príloha č. 5 ŽoNFP – Energetický audit / Stanovisko energetického audítora",
+        "znenie": "Žiadateľ predkladá energetický audit iba ak realizuje hlavnú aktivitu a) opatrenia 2.1.2 PPP č. 7."
+      }
+    },
+    {
+      "id": "P03",
+      "ppp": 6,
+      "nazov": "Príloha č. 3 ŽoNFP – Uznesenie o schválení programu rozvoja a územnoplánovacej dokumentácie (obec, VÚC)",
+      "druh": "priloha",
+      "kontrola": "priloha_povinna",
+      "parametre": {
+        "cislo": "3",
+        "podmienka": "obec_vuc"
+      },
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 1)",
+        "cast": "Príloha č. 3 ŽoNFP",
+        "znenie": "Obec alebo VÚC, predkladá sken uznesenia (výpis z uznesenia) o schválení programu rozvoja obce resp. spoločného programu rozvoja obcí alebo programu rozvoja VÚC a sken uznesenia (výpis z uznesenia) o schválení príslušnej územnoplánovacej dokumentácie."
+      }
+    },
+    {
+      "id": "L07",
+      "ppp": 7,
+      "nazov": "Predmetom projektu je budova oprávnenej kategórie (vlastníctvo overuje G10)",
+      "druh": "llm",
+      "kontrola": "llm_text",
+      "parametre": {
+        "zdroj": "popis",
+        "vzorDokazu": "úrad|administratív|škol|škôlk|nemocnic|hotel|reštaur|telocvič|športov",
+        "vzorPodozrenia": "(?:vo\\s+(?:výlučnom\\s+|podielovom\\s+)?(?:spolu)?vlastníctve|vlastní|vlastník\\p{L}*)(?:[\\s,–-]+(?!obc|obec|mest|kraj|štát|samospráv|vúc|republik)[^\\s.,]+){0,3}?[\\s,–-]+(?:obchodn\\p{L}+\\s+spoločnost\\p{L}*|s\\.\\s?r\\.\\s?o\\.|a\\.\\s?s\\.|fyzick\\p{L}+\\s+osob\\p{L}*|súkromn\\p{L}+|podnikateľ\\p{L}*|vlastník\\p{L}*\\s+bytov|spoločenstv\\p{L}+\\s+vlastník\\p{L}*|spoločnosť|spoločnosti)",
+        "podozrenie": "Popis uvádza súkromného vlastníka budovy, oprávnené sú len verejné budovy: vlastníctvo treba overiť v katastri (G10).",
+        "poznamka": "Bod overuje len kategóriu budovy podľa popisu projektu. Vlastníctvo (verejná budova) sa týmto bodom neoveruje: overuje ho G10 v katastri nehnuteľností."
+      },
+      "otazka": "Urči z popisu projektu iba KATEGÓRIU budovy, ktorá je predmetom projektu. Oprávnené kategórie pri opatrení 2.1.2: administratívne budovy, budovy škôl a školských zariadení, budovy nemocníc, budovy hotelov a reštaurácií, športové haly a iné budovy určené na šport a budovy so zmiešaným účelom užívania z týchto kategórií. Neoprávnené: rodinné domy, bytové domy, budovy pre veľkoobchodné a maloobchodné služby, výrobné a skladové haly. Vlastníctvo budovy NEPOSUDZUJ a nespomínaj: overuje sa z katastra v inom bode. Ak popis výslovne pomenúva budovu oprávnenej kategórie (napr. budova obecného úradu = administratívna budova), stav je splnene a do poľa dokaz skopíruj doslovne slová, ktoré budovu pomenúvajú. Ak pomenúva neoprávnenú kategóriu, stav je nesplnene. Ak sa kategória z popisu určiť nedá, stav je neda_sa_urcit.",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 7, ods. 3 písm. a) a b)",
+        "znenie": "oprávnené sú iba verejné budovy. Verejnou budovou sa rozumie budova vo vlastníctve / podielovom spoluvlastníctve výlučne štátu, subjektov štátnej správy a ostatných subjektov verejnej správy v zmysle PPP č. 1. [...] oprávnené sú iba kategórie budov podľa § 3 ods. 5 písm. c), d), e), f), g), a i) zákona č. 555/2005 Z. z. o energetickej hospodárnosti budov"
+      }
+    },
+    {
+      "id": "L01",
+      "ppp": 1,
+      "nazov": "Plnomocenstvo má povinné náležitosti (ak je priložené)",
+      "druh": "llm",
+      "kontrola": "llm_text",
+      "parametre": {
+        "zdroj": "priloha",
+        "cislo": "1",
+        "akChyba": "neuplatnuje_sa",
+        "nalezitosti": [
+          {
+            "nazov": "označenie štatutárneho orgánu žiadateľa, ktorý plnomocenstvo udeľuje (meno a funkcia)",
+            "vzor": "starost|primátor|riaditeľ|štatutár|predsed|rektor|minister|v zastúpení|splnomocniteľ"
+          },
+          {
+            "nazov": "podpis štatutárneho orgánu žiadateľa (splnomocniteľa)",
+            "vzor": "podpis|(^|\\n)[ \\t_.…]*(splnomocnite[lľ]|starost[ao]|primátor(ka)?|štatutárn\\S* orgán\\S*)[ \\t_.…]*((splnomocnen(ec|kyňa)|poveren(ec|kyňa))[ \\t_.…]*)?(\\n|$)",
+            "nesmie": "podpis\\S* splnomocnen(ca|ej|ého)",
+            "vizualne": true,
+            "vzorOkolie": 1
+          },
+          {
+            "nazov": "označenie splnomocnenej osoby (meno)",
+            "vzor": "splnomocnen|poveren"
+          },
+          {
+            "nazov": "podpis splnomocnenej osoby (splnomocnenca)",
+            "vzor": "podpis\\S* (splnomocnen|poveren)(ca|ej|ého)|prijímam",
+            "vizualne": true,
+            "vzorOkolie": 1
+          },
+          {
+            "nazov": "rozsah plnomocenstva, teda úkony, na ktoré je osoba splnomocnená",
+            "vzor": "splnomocňuj|poveruj|oprávn|úkon|zastupova|v rozsahu"
+          },
+          {
+            "nazov": "dátum udelenia plnomocenstva (deň, keď bolo vystavené; nie dátum narodenia)",
+            "vzor": "[0-9]{1,2}[.] ?[0-9]{1,2}[.] ?[0-9]{4}|[0-9]{1,2}[.] ?(januára|februára|marca|apríla|mája|júna|júla|augusta|septembra|októbra|novembra|decembra) +[0-9]{4}",
+            "nesmie": "naroden"
+          }
+        ]
+      },
+      "otazka": "Dokument je plnomocenstvo alebo poverenie. Musí obsahovať všetky štyri náležitosti: (1) označenie a podpis štatutárneho orgánu žiadateľa, (2) označenie a podpis každej splnomocnenej osoby, (3) rozsah plnomocenstva, teda úkony, na ktoré sú osoby splnomocnené, (4) dátum udelenia. Over, či dokument obsahuje všetky štyri. Ak niektorá chýba, je to nesplnené a uveď ktorá.",
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 1)",
+        "cast": "Príloha č. 1 ŽoNFP – Plnomocenstvo / Poverenie",
+        "znenie": "Plnomocenstvo / poverenie musí obsahovať minimálne: označenie a podpis štatutárneho orgánu žiadateľa, označenie a podpis každej splnomocnenej osoby, rozsah plnomocenstva / poverenia, t. j. identifikácia úkonov, na ktoré sú osoby splnomocnené, dátum udelenia plnomocenstva / poverenia."
+      }
+    },
+    {
+      "id": "L05",
+      "ppp": 7,
+      "nazov": "Energetický audit vypracovala oprávnená osoba a pokrýva predmet projektu (ak je priložený)",
+      "druh": "llm",
+      "kontrola": "llm_text",
+      "parametre": {
+        "zdroj": "priloha",
+        "cislo": "5",
+        "akChyba": "neuplatnuje_sa"
+      },
+      "otazka": "Dokument je energetický audit. Over dve veci: (1) či je v ňom uvedené, že ho vypracovala odborne spôsobilá osoba (energetický audítor) podľa zákona č. 321/2014 Z. z., a (2) či sa audit týka budovy, ktorá je predmetom projektu uvedeného v žiadosti. Ak niektorá z dvoch vecí v dokumente nie je, je to nesplnené.",
+      "citacia": {
+        "dokument": "Príloha č. 2 výzvy – Zoznam príloh ŽoNFP (akt. 1)",
+        "cast": "Príloha č. 5 ŽoNFP – Energetický audit",
+        "znenie": "Energetický audit musí byť vypracovaný: odborne spôsobilou osobou v zmysle § 12 ods. 1 alebo § 13 zákona č. [...] 321/2014 Z. z. [...], minimálne na predmet projektu, obsahovať časti v zmysle § 2 ods. 1 písm. a) až f) Vyhlášky Ministerstva hospodárstva SR č. 179/2015 Z. z. o energetickom audite."
+      }
+    },
+    {
+      "id": "G02",
+      "ppp": 2,
+      "nazov": "Žiadateľ nie je v konkurze, reštrukturalizácii ani likvidácii",
+      "druh": "register",
+      "kontrola": "register",
+      "parametre": {
+        "nevztahujeSaNa": ["801", "803"]
+      },
+      "overenieZdroj": "Register úpadcov (ru.justice.sk), Obchodný vestník, RPO",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 2",
+        "znenie": "Voči žiadateľovi nesmie byť vyhlásený konkurz ani povolená reštrukturalizácia a nesmie byť ani v likvidácii podľa zákona. [...] Podmienka sa nevzťahuje na subjekty štátnej správy a subjekty územnej samosprávy."
+      }
+    },
+    {
+      "id": "G03",
+      "ppp": 3,
+      "nazov": "Voči žiadateľovi sa nevedie výkon rozhodnutia nad 500 EUR",
+      "druh": "register",
+      "kontrola": "register",
+      "overenieZdroj": "Centrálny register exekúcií (www.cre.sk)",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 3",
+        "znenie": "Voči žiadateľovi nie je vykonávaná exekúcia alebo vedený iný výkon rozhodnutia podľa osobitných predpisov, ktorých predmetom je nútený výkon povinnosti zaplatiť peňažnú sumu vo výške vymáhaného nároku za všetky takto vykonávané exekúcie alebo iné výkony rozhodnutia vyššiu ako 500 EUR."
+      }
+    },
+    {
+      "id": "G05",
+      "ppp": 5,
+      "nazov": "Žiadateľ nemá uložený trest zákazu prijímať dotácie alebo pomoc z fondov EÚ",
+      "druh": "register",
+      "kontrola": "register",
+      "overenieZdroj": "Zoznam odsúdených právnických osôb (esluzby.genpro.gov.sk)",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 5",
+        "znenie": "Podmienka sa nevzťahuje na subjekty štátnej správy a subjekty územnej samosprávy. Žiadateľ, ktorým je právnická osoba nemôže mať podľa osobitného zákona právoplatným rozsudkom uložený niektorý z týchto trestov: trest zákazu prijímať dotácie alebo subvencie, trest zrušenia PO, trest zákazu prijímať pomoc a podporu poskytovanú z fondov EÚ [...]"
+      },
+      "parametre": {
+        "nevztahujeSaNa": ["801", "803"]
+      }
+    },
+    {
+      "id": "G10",
+      "ppp": 10,
+      "nazov": "Vysporiadané majetkovo-právne vzťahy k budove",
+      "druh": "register",
+      "kontrola": "register",
+      "overenieZdroj": "Kataster nehnuteľností – list vlastníctva (oversi.gov.sk, katasterportal.sk), Príloha č. 8 ŽoNFP",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 10",
+        "znenie": "Stavba (verejná budova), na ktorej dochádza k realizácii projektu, musí byť vo výlučnom vlastníctve alebo v podielovom spoluvlastníctve výlučne štátu, subjektov štátnej správy a ostatných subjektov verejnej správy v zmysle PPP č. 1. Stavba môže byť v správe alebo v nájme žiadateľa."
+      }
+    },
+    {
+      "id": "G11",
+      "ppp": 11,
+      "nazov": "Projekt nie je štátnou pomocou (hospodárske využitie najviac 20 % kapacity)",
+      "druh": "register",
+      "kontrola": "register",
+      "overenieZdroj": "Príloha č. 8 ŽoNFP (údaje o využití kapacity), prípadne stanovisko advokáta (Príloha č. 4 ŽoNFP)",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 11",
+        "znenie": "Sprievodné hospodárske využitie infraštruktúry [...] možno považovať za vedľajšie, ak kapacita vyčlenená každý rok na túto činnosť neprekračuje 20 percent celkovej ročnej kapacity infraštruktúry."
+      }
+    }
+  ],
+  "podmienky": [
+    {
+      "id": "F1",
+      "typ": "dorucenie",
+      "ppp": null,
+      "nazov": "Predloženie žiadosti riadne a včas",
+      "okamih": "konanie",
+      "pravidla": ["V01", "F01"],
+      "pokrytie": "ciastocne",
+      "neoverene": "doručenie formulára ŽoNFP do e-schránky poskytovateľa s kvalifikovaným elektronickým podpisom a predloženie všetkých príloh cez ITMS21+ (listinné prílohy najneskôr do uzavretia hodnotiaceho kola); prítomnosť povinných príloh overujú pravidlá príloh pri jednotlivých PPP",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "Informácie k spôsobu predloženia ŽoNFP",
+        "znenie": "Žiadateľ je v zmysle § 16 zákona o príspevkoch z fondov povinný predložiť ŽoNFP riadne a včas. Ak vzniknú pochybnosti o predložení ŽoNFP riadne a včas, SO oznámi tieto pochybnosti žiadateľovi a vyzve ho, aby sa k nim v primeranej lehote vyjadril."
+      }
+    },
+    {
+      "id": "PPP1",
+      "typ": "ppp",
+      "ppp": 1,
+      "nazov": "Právna forma",
+      "okamih": "konanie",
+      "pravidla": ["D01", "L01"],
+      "pokrytie": "uplne",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 1 Právna forma",
+        "znenie": "Oprávnenými žiadateľmi sú:"
+      }
+    },
+    {
+      "id": "PPP2",
+      "typ": "ppp",
+      "ppp": 2,
+      "nazov": "Žiadateľ nie je v konkurze, reštrukturalizácii ani v likvidácii",
+      "okamih": "konanie",
+      "pravidla": ["G02"],
+      "pokrytie": "ciastocne",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 2 Podmienka že voči žiadateľovi nie je vyhlásený konkurz ani povolená reštrukturalizácia a nie je v likvidácii, Forma preukázania splnenia PPP",
+        "znenie": "Žiadateľ preukazuje splnenie tejto PPP formou čestného vyhlásenia v tabuľke č. 15 formulára ŽoNFP."
+      },
+      "neoverene": "čestné vyhlásenie žiadateľa v tabuľke č. 15 formulára ŽoNFP, ktorým sa podmienka v tomto znení výzvy preukazuje; register overuje poskytovateľ"
+    },
+    {
+      "id": "PPP3",
+      "typ": "ppp",
+      "ppp": 3,
+      "nazov": "Voči žiadateľovi sa nevedie výkon rozhodnutia",
+      "okamih": "konanie",
+      "pravidla": ["G03"],
+      "pokrytie": "ciastocne",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 3 Podmienka zákazu vedenia výkonu rozhodnutia voči žiadateľovi",
+        "znenie": "Podmienka sa nevzťahuje na štátne rozpočtové organizácie. Voči žiadateľovi nie je vykonávaná exekúcia alebo vedený iný výkon rozhodnutia podľa osobitných predpisov, ktorých predmetom je nútený výkon povinnosti zaplatiť peňažnú sumu vo výške vymáhaného nároku za všetky takto vykonávané exekúcie alebo iné výkony rozhodnutia vyššiu ako 500 EUR. [...] Žiadateľ preukazuje splnenie tejto PPP formou čestného vyhlásenia v tabuľke č. 15 formulára ŽoNFP."
+      },
+      "neoverene": "čestné vyhlásenie žiadateľa v tabuľke č. 15 formulára ŽoNFP, ktorým sa podmienka v tomto znení výzvy preukazuje; register overuje poskytovateľ"
+    },
+    {
+      "id": "PPP4",
+      "typ": "ppp",
+      "ppp": 4,
+      "nazov": "Projekt nie je predmetom skutočností podľa čl. 65 NSU (trvácnosť operácií)",
+      "okamih": "konanie",
+      "pravidla": [],
+      "pokrytie": "ziadne",
+      "neoverene": "že projekt nebude predmetom skutočností podľa čl. 65 NSU (ukončenie alebo presun činnosti mimo regiónu NUTS 2, zmena vlastníctva infraštruktúry, podstatná zmena projektu); poskytovateľ overuje EDES, majetkovo-právne vzťahy (list vlastníctva) a čestné vyhlásenie v tabuľke č. 15 formulára ŽoNFP",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 4 Podmienka, zákazu vedenia výkonu rozhodnutia voči žiadateľovi v súlade s čl. 65 NSU",
+        "znenie": "Projekt nesmie byť predmetom niektorej z týchto skutočností: ukončenie alebo presun činnosti mimo regiónu úrovne NUTS 2; zmena vlastníctva položky infraštruktúry, ktorá poskytuje žiadateľovi/prijímateľovi nenáležité zvýhodnenie; podstatná zmena, ktorá ovplyvňuje jej povahu, ciele alebo podmienky vykonávania, čo by spôsobilo narušenie jej pôvodných cieľov."
+      }
+    },
+    {
+      "id": "PPP5",
+      "typ": "ppp",
+      "ppp": 5,
+      "nazov": "Žiadateľ nemá uložený trest podľa zákona č. 91/2016 Z. z.",
+      "okamih": "konanie",
+      "pravidla": ["G05"],
+      "pokrytie": "ciastocne",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 5 Podmienka bezúhonnosti právnickej osoby za vybrané trestné činy",
+        "znenie": "Podmienka sa nevzťahuje na subjekty štátnej správy a subjekty územnej samosprávy. [...] Žiadateľ preukazuje splnenie tejto PPP formou čestného vyhlásenia prostredníctvom tabuľky č. 15 formulára ŽoNFP."
+      },
+      "neoverene": "čestné vyhlásenie žiadateľa v tabuľke č. 15 formulára ŽoNFP, ktorým sa podmienka v tomto znení výzvy preukazuje; register overuje poskytovateľ"
+    },
+    {
+      "id": "PPP6",
+      "typ": "ppp",
+      "ppp": 6,
+      "nazov": "Schválený program rozvoja a územnoplánovacia dokumentácia",
+      "okamih": "konanie",
+      "pravidla": ["P03"],
+      "pokrytie": "ciastocne",
+      "neoverene": "obsah uznesení (schválený program rozvoja aj územnoplánovacia dokumentácia) a výnimku obce, ktorá nie je povinná mať územný plán (§ 11 stavebného zákona; preukazuje ju čestným vyhlásením v tabuľke č. 15 formulára); pravidlo P03 overuje len prítomnosť Prílohy č. 3",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 6 Podmienka, že žiadateľ má schválený program rozvoja a príslušnú územnoplánovaciu dokumentáciu",
+        "znenie": "Podmienka sa vzťahuje iba na obce a vyššie územné celky. Žiadateľ, ktorým je obec/vyšší územný celok, musí mať schválený program rozvoja obce/spoločný program rozvoja obcí/program rozvoja vyššieho územného celku a príslušnú územnoplánovaciu dokumentáciu v súlade s ustanovením § 7 ods. 6 (v prípade VÚC) alebo § 8 ods. 6 (v prípade obce), resp. § 8a ods. 4 (v prípade spoločného programu rozvoja obcí) zákona o podpore regionálneho rozvoja."
+      }
+    },
+    {
+      "id": "PPP7",
+      "typ": "ppp",
+      "ppp": 7,
+      "nazov": "Oprávnenosť aktivít projektu",
+      "okamih": "konanie",
+      "pravidla": ["D07a", "D07b", "D07c", "D07d", "P05", "P06", "P07", "L05", "L07"],
+      "pokrytie": "ciastocne",
+      "neoverene": "zaradenie hlavných aktivít do zoznamu aktivít výzvy, verejnú budovu vo vlastníctve subjektov verejnej správy, zlepšenie energetickej triedy aspoň o jednu, neodpojenie od účinného CZT, kvalitu vnútorného prostredia v projektovej dokumentácii, umiestnenie fotovoltiky (verejná budova alebo pozemok „zastavaná plocha a nádvorie“ či „ostatná plocha“) a vylúčenie projektov podľa čl. 7 nariadenia o EFRR a KF, súlad s Chartou základných práv EÚ a Dohovorom OSN o právach osôb so zdravotným postihnutím (monitoruje sa počas implementácie) a čestné vyhlásenie v tabuľke č. 15; úsporu, hodnotu za peniaze, kategóriu budovy a prílohy overujú uvedené pravidlá",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 7 Podmienka oprávnenosti aktivít projektu",
+        "znenie": "Výzva podporuje implementáciu opatrenia 2.1.2 a opatrenia 2.2.2 P SK."
+      }
+    },
+    {
+      "id": "PPP8",
+      "typ": "ppp",
+      "ppp": 8,
+      "nazov": "Kritériá pre výber projektov",
+      "okamih": "konanie",
+      "pravidla": ["P09"],
+      "pokrytie": "ciastocne",
+      "neoverene": "vylučujúce kritériá podľa čl. 73 NSU: súlad s horizontálnymi princípmi a Chartou základných práv EÚ (čestné vyhlásenie v tabuľke č. 15 a obsah Prílohy č. 9: kontrolný zoznam podľa druhu budovy a zdôvodnenie neaplikovateľných požiadaviek), finančnú udržateľnosť (tabuľka 7, ak sa posudzuje) a uplatniteľné právo, t. j. projekt nesmie byť fyzicky ukončený pred predložením (harmonogram v tabuľke 9); vecné kritériá (poradie podľa hodnoty za peniaze a rozlišovacie kritériá) sa uplatnia len pri nedostatku alokácie; pravidlo P09 overuje len prítomnosť Prílohy č. 9 pri opatrení 2.1.2",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 8 Podmienky splnenia kritérií pre výber projektov",
+        "znenie": "Kritériá pre výber projektov pozostávajú z vylučujúcich a vecných kritérií. Vylučujúce kritériá vyplývajú z čl. 73 NSU. Vecné kritériá vyplývajú z nastavenia výzvy."
+      }
+    },
+    {
+      "id": "PPP9",
+      "typ": "ppp",
+      "ppp": 9,
+      "nazov": "Projekt sa realizuje na oprávnenom území",
+      "okamih": "konanie",
+      "pravidla": ["D09"],
+      "pokrytie": "uplne",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 9 Oprávnené územie",
+        "znenie": "Žiadateľ je povinný realizovať projekt na oprávnenom území, ktorým je celé územie Slovenskej republiky."
+      }
+    },
+    {
+      "id": "PPP10",
+      "typ": "ppp",
+      "ppp": 10,
+      "nazov": "Vysporiadané majetkovo-právne vzťahy",
+      "okamih": "konanie",
+      "pravidla": ["G10"],
+      "pokrytie": "uplne",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 10 Majetkovo-právne vzťahy",
+        "znenie": "Podmienka vzťahujúca sa na projekty opatrenia 2.1.2 alebo projekty kombinácií opatrenia 2.1.2 s opatrením 2.2.2"
+      }
+    },
+    {
+      "id": "PPP11",
+      "typ": "ppp",
+      "ppp": 11,
+      "nazov": "Podmienky týkajúce sa štátnej pomoci",
+      "okamih": "konanie",
+      "pravidla": ["G11"],
+      "pokrytie": "uplne",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 11 Štátna pomoc",
+        "znenie": "Financovanie projektu sa poskytuje iba v rozsahu v akom sú výstupy projektu (napr. vyrobená/ušetrená energia) využívané na výkon nehospodárskych činností, resp. zmiešaného využitia projektu."
+      }
+    },
+    {
+      "id": "PPP12",
+      "typ": "ppp",
+      "ppp": 12,
+      "nazov": "Výška príspevku",
+      "okamih": "konanie",
+      "pravidla": ["D12"],
+      "pokrytie": "uplne",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 12 Výška príspevku",
+        "znenie": "Minimálna výška NFP na projekt žiadateľa je 200 000 EUR."
+      }
+    },
+    {
+      "id": "PPP13",
+      "typ": "ppp",
+      "ppp": 13,
+      "nazov": "Oprávnenosť výdavkov projektu",
+      "okamih": "konanie",
+      "pravidla": ["D13", "P08", "P08b"],
+      "pokrytie": "ciastocne",
+      "neoverene": "oprávnenosť jednotlivých výdavkov podľa Príručky k oprávnenosti výdavkov a Prílohy č. 5 výzvy a čestné vyhlásenie v tabuľke č. 15; pravidlá overujú pásmo oprávnených výdavkov podľa úspory, vyplnenie záväzného zošita Prílohy č. 8 a jeho súlad s rozpočtom formulára",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 13 Podmienka oprávnenosti výdavkov projektu",
+        "znenie": "Výdavky projektu musia byť preukázateľne oprávnené na financovanie z P SK, čo znamená, že sú v súlade s podmienkami oprávnenosti výdavkov definovanými v Príručke k OV, ako aj podmienkami upravenými v Prílohe č. 5 výzvy - Osobitné podmienky oprávnenosti výdavkov."
+      }
+    },
+    {
+      "id": "PPP14",
+      "typ": "ppp",
+      "ppp": 14,
+      "nazov": "Časová oprávnenosť realizácie projektu",
+      "okamih": "konanie",
+      "pravidla": ["D14"],
+      "pokrytie": "uplne",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "PPP č. 14 Časová oprávnenosť realizácie projektu",
+        "znenie": "Žiadateľ je povinný ukončiť realizáciu všetkých hlavných aktivít projektu do 24 mesiacov od nadobudnutia účinnosti Zmluvy o poskytnutí NFP, pri dodržaní časovej oprávnenosti výdavkov uvedenej v Príručke k OV."
+      }
+    },
+    {
+      "id": "DS1",
+      "typ": "dalsia_skutocnost",
+      "ppp": null,
+      "nazov": "Výlučné vlastníctvo predmetu projektu opatrenia 2.2.2 bez záložného práva",
+      "okamih": "pred_zmluvou",
+      "pravidla": [],
+      "pokrytie": "ziadne",
+      "neoverene": "projekty s opatrením 2.2.2; predmet projektu vo výlučnom vlastníctve žiadateľa bez záložného práva",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "Ďalšie skutočnosti, Podmienka vlastníckeho práva predmetu projektu opatrenia 2.2.2",
+        "znenie": "Predmet projektu musí byť vo výlučnom vlastníctve žiadateľa / prijímateľa. Na takomto majetku nesmie viaznuť záložné právo."
+      }
+    },
+    {
+      "id": "DS2",
+      "typ": "dalsia_skutocnost",
+      "ppp": null,
+      "nazov": "Žiadateľ nie je podnikom v ťažkostiach",
+      "okamih": "realizacia",
+      "pravidla": [],
+      "pokrytie": "ziadne",
+      "neoverene": "žiadateľa, ktorý je podnikom (vykonáva hospodársku činnosť); overuje sa pred schválením prvej žiadosti o platbu",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "Ďalšie skutočnosti, Podmienka, že žiadateľ nie je podnikom v ťažkostiach",
+        "znenie": "Žiadateľ, ktorý je podnikom nesmie byť v ťažkostiach v zmysle čl. 2 bodu 18 Nariadenia Komisie (EÚ) č. 651/2014 v platnom znení."
+      }
+    },
+    {
+      "id": "DS3",
+      "typ": "dalsia_skutocnost",
+      "ppp": null,
+      "nazov": "Princíp „nespôsobovať významnú škodu“ (DNSH)",
+      "okamih": "pred_zmluvou",
+      "pravidla": [],
+      "pokrytie": "ziadne",
+      "neoverene": "podmienky DNSH podľa Prílohy č. 8 výzvy; poskytovateľ ich overuje po schválení žiadosti, pred návrhom zmluvy o NFP a počas jej platnosti",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "Ďalšie skutočnosti, Podmienky vyplývajúce zo zásady DNSH",
+        "znenie": "Projekt musí byť v súlade s princípom „nespôsobovať významnú škodu“ čo značí, že projekt nemôže výrazne narušiť žiaden z environmentálnych cieľov uvedených v čl. 17 nariadenia o taxonómii."
+      }
+    },
+    {
+      "id": "R1",
+      "typ": "podmienka_rozhodnutia",
+      "ppp": null,
+      "nazov": "Bezúhonnosť žiadateľa a osôb konajúcich za neho (podmienka vo výroku rozhodnutia)",
+      "okamih": "pred_zmluvou",
+      "pravidla": [],
+      "pokrytie": "ziadne",
+      "neoverene": "odsúdenie žiadateľa, štatutárneho orgánu, jeho členov a splnomocnených osôb za vybrané trestné činy (výpis z registra trestov)",
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "Podmienka bezúhonnosti FO za vybrané trestné činy",
+        "znenie": "Vo výroku Rozhodnutia o schválení ŽoNFP bude stanovená nasledovná podmienka v zmysle ktorej žiadateľ/prijímateľ, ani jeho štatutárny orgán, ani žiadny člen štatutárneho orgánu, ani osoba splnomocnená zastupovať žiadateľa/prijímateľa, nemôžu byť právoplatne odsúdení za niektorý z nasledujúcich trestných činov:"
+      }
+    }
+  ],
+  "verziaBalika": {
+    "id": "akt2",
+    "itmsVerzie": [3, 4, 5],
+    "odKola": 1,
+    "stav": "archivna",
+    "schvalenie": {
+      "stav": "caka",
+      "poznamka": "Návrh z 2026-11-21 podľa výzvy v znení zmeny č. 2 (ITMS21+, verzie 3 až 5: zmena č. 2, doplnenie údajov po migrácii, uzavretie pre menej rozvinuté regióny)."
+    },
+    "citacia": {
+      "dokument": "Zmena výzvy č. 2",
+      "cast": "Účinnosť zmeny",
+      "znenie": "Zmena výzvy č. 2 je účinná od 8. februára 2024. Vzťahuje sa na všetky ŽoNFP predložené do účinnosti zmeny výzvy č. 2 ako aj všetky ŽoNFP predložené po nadobudnutí účinnosti zmeny výzvy č. 2. Žiadatelia, ktorí predložili ŽoNFP do účinnosti zmeny výzvy č. 2 budú vyzvaní na zosúladenie predkladaných dokumentov s uvedenou zmenou výzvy."
+    }
+  },
+  "harmonogramKol": {
+    "kolo1": "2024-02-23",
+    "kolo2": "2024-03-01",
+    "krokDni": 7,
+    "citacia": {
+      "dokument": "Výzva v znení Zmeny č. 2",
+      "cast": "Predpokladaná lehota na vydanie rozhodnutia v konaní o ŽoNFP, Stanovené hodnotiace kolá",
+      "znenie": "Termín uzavretia hodnotiaceho kola 1 [...] Termín uzavretia hodnotiaceho kola 2 [...] Termín uzavretia hodnotiaceho kola n [...] 23. 02. 2024 [...] 01. 03. 2024 [...] každý nasledujúci kalendárny piatok"
+    }
+  }
+}

@@ -1,0 +1,318 @@
+CHECKLIST  - VYHLÁSENIE O BEZBARIÉROVEJ PRÍSTUPNOSTI -
+ DEBARIÉRIZÁCIA ŠKOLY
+ |
+Zisťuje sa súlad so stavebnou legislatívou, najmä so stavebným zákonom, vyhláškou MŽP č. 532/2002 Z. z., ktorou sa ustanovujú podrobnosti o všeobecných technických požiadavkách na výstavbu a o všeobecných technických požiadavkách na stavby užívané osobami s obmedzenou schopnosťou pohybu a orientácie a článkom 9 Prístupnosť Dohovoru o právach osôb so zdravotným postihnutím.
+Príloha vyhlásenia: Situácia, pôdorysy všetkých podlaží a rezy v mierke 1:100, všetky pohľady v mierke 1:100, sekcie alebo prvky (potrebné na posúdenie bezbariérovej prístupnosti) v mierke 1:50 a všetky informácie o detailoch riešenia vrátane rozmerov okien, výšok miestností, rozmerov schodiska, rozmerov dverí, vstupov a výstupov.
+Časti kontrolného hárku, ktoré sa nevzťahujú na konkrétne aktivity v rámci výzvy, sa vyplnia zaškrtnutím „nie“ a do časti „Doplňujúce informácie (Uveďte vážne dôvody, prečo nie je niektorá požiadavka splnená)“ žiadateľ  uvedie, že nie sú relevantné v rámci predmetnej výzvy
+
+Identifikácia výzvy
+
+Názov výzvy
+ |  |
+Kód výzvy
+ |  |
+Priorita
+ |  |
+Špecifický cieľ
+ |  |
+Opatrenie
+ |  |
+Názov žiadateľa / prijímateľa
+ |  |
+
+4020820330200
+
+1960880342900
+
+left342900
+
+Druh a umiestnenie stavby
+           rekonštrukcia                                    nadstavba, prístavba                           zmena účelu stavby
+Názov stavby:
+ | Druh stavby:
+ |
+Adresa umiestnenia stavby:
+ | Číslo parcely:
+ |
+Číslo stavebného povolenia:
+ |
+Autor návrhu
+Meno:
+ | Priezvisko:
+ | Tituly:
+ |
+Bydlisko (ulica a číslo domu):
+ |
+PSČ:
+ | Mesto/Obec:
+ |
+Telefón:
+ | E-mail:
+ |
+
+Prehlasujem, že požiadavky na bezbariérovú prístupnosť sú realizované v súlade so stavebnou legislatívou a spĺňa štandardy uvedené v nasledujúcej tabuľke.
+
+					..........................................................................
+						Podpis autora návrhu
+
+ | Sú splnené tieto požiadavky?
+ | áno
+ | nie
+ |
+1. Parkovanie
+ | vyhradené bezbariérové parkovacie miesto (3,5 m x 5 m)  je v blízkosti vstupu do budovy,
+zabezpečený je bezbariérový prístup z parkoviska na chodník,
+ | □
+
+□
+ | □
+
+□
+ |
+2.
+Chodníky
+ | šírka chodníkov je najmenej 1,5 m (TP 048),
+chodníky majú rovný povrch bez nerovností a škár,
+je vytvorený orientačný systém pre osoby so zrakovým postihnutím  (napr. signálny/reliéfny pás pri vstupe do budovy),
+ | □
+□
+□
+
+ | □
+□
+□
+
+ |
+3.
+Vstup         do budovy
+
+ | Výškový rozdiel vo vstupných priestoroch je bezbariérovo prekonaný jedným z týchto spôsobov:
+- zabudovaná rampa s parametrami podľa bodu 5 a 6,
+- zvislá zdvíhacia plošina alebo výťah,
+- šikmá schodisková plošina (iba ak nie je iná možnosť),
+Poznámka: schodolez (prenosné zariadenie) nie je povolený!
+ | □
+
+ | □
+
+ |
+4.
+Vstupné dvere a priestory
+ | pred dverami a v zádverí je manévrovacia plocha 1,5 m x 1,5 m, do ktorej nezasahuje dverné krídlo,
+šírka jedného dverného krídla aspoň 0,9 m,
+dvere sú otvárateľné automaticky, na impulz (tlačidlo), alebo pomocou zvukovej signalizácie (zvonček),
+presklené plochy dverí sú označené kontrastne oproti pozadiu vo výške 1,4 – 1,6 m,
+Poznámka: Odporúča sa aj bezbariérovo prístupný infopult/vrátnica (výška cca 0,85 m)
+ | □
+
+□
+□
+
+□
+
+ | □
+
+□
+□
+
+□
+
+ |
+5.
+Parametre rampy
+ | pozdĺžny sklon rampy spĺňa požadované parametre:
+max. 1:12 (8,3%), napr. pri výške 0,45 m (3 schody) je rampa dlhá 5,4 m ,
+max. 1:8 ak je dĺžka menej ako 3 m (najviac 2 schody),
+svetlá šírka rampy je najmenej 1,3 m,
+voľná vodorovná manévrovacia plocha na začiatku a konci rampy je 1,5 m x 1,5 m,
+dĺžka jedného ramena rampy je najviac 9 m (avšak pri sklone 1:8 najviac 3 m),
+odpočívadlo medzi ramenami rampy je dlhé najmenej 2 m (pri
+pravouhlom prepojení najmenej 1,5 m x 1,5 m),
+Poznámka: ramená rampy musia byť priame!
+ | □
+
+□
+□
+
+□
+
+□
+
+ | □
+
+□
+□
+
+□
+
+□
+
+ |
+6. Vybavenie rampy
+ | držadlá sú umiestnené po oboch stranách rampy (vo výške 0,9 m, prípadne aj v 0,75 m),
+vodiace tyče sú po oboch stranách rampy vo výške 0,3 m, alebo obruby proti vybočeniu do výšky 0,1 m (nie sú nutné pri plných zábradliach),
+zdrsnený a nešmykľavý povrch rampy,
+ | □
+
+□
+
+□
+ | □
+
+□
+
+□
+ |
+7.
+Trasy po budove
+ | bezbariérový a plynulý prechod pre osoby na vozíku alebo s kompenzačnými pomôckami,
+výška prahu najviac 20 mm (zaoblený alebo skosený),
+orientačný systém pre osoby so zrakovým postihnutím (umelé vodiace línie, varovné pásy pred schodmi, kontrastné značenie priestorov a prvkov, reliéfne označenie účelu miestnosti a pod.),
+ | □
+
+□
+□
+ | □
+
+□
+□
+ |
+8.
+Riešenie výškových rozdielov  v budove
+ | Výškový rozdiel v komunikačných priestoroch je bezbariérovo prekonaný jedným z týchto spôsobov:
+  - zabudovaná rampa s parametrami podľa bodov 5 a 6,
+  - zvislá zdvíhacia plošina,
+  - výťah s rozmermi min. 1,1 m x 1,4 m, s požadovaným vybavením,
+  - šikmá schodisková plošina (iba ak nie je iná možnosť),
+Poznámka: Schodolez (prenosné zariadenie) nie je povolený!
+ | □
+
+ | □
+
+ |
+9. Bezbariér. toalety
+ | rozmery záchodovej kabíny sú najmenej 1,4 m x 1,8 m (odporúča sa 1,6 m x 1,8 m),
+vedľa WC misy je voľný priestor min. 0,8 m na zasunutie /
+presadnutie z vozíka,
+sklopné držadlá sú po oboch stranách vedľa WC misy,
+dvere sú široké min. 0,8 m (optimálne 0,9 m) otváravé smerom von zo záchodovej kabíny,
+umývadlo má podomietkový / úsporný sifón – umožňuje osobe na vozíku zasunutie nôh pod umývadlo,
+zrkadlo je vo vyhovujúcej výške aj pre osoby sediace na vozíku,
+ | □
+
+□
+
+□
+□
+
+□
+□
+ | □
+
+□
+
+□
+□
+
+□
+□
+ |
+10.
+Učebne, dielne
+ | svetlá šírka vstupných dverí min. 0,9 m (optimálne 1 m),
+manévrovací priestor Ø 1,5 m pre osobu na vozíku pri dverách, pri
+tabuli, skrinkách, pracovnom stole, laboratórnom stole a pod.,
+širšie uličky medzi nábytkom (min. 0,9 m),
+umývadlo s možnosťou zasunutia vozíka pod umývadlo,
+ | □
+□
+
+□
+□
+ | □
+□
+
+□
+□
+ |
+11.
+Šatne a umyvárne
+ | svetlá šírka dverí min. 0,8 m (optimálne 0,9 m),
+manévrovací priestor Ø 1,5 m pri vstupe do šatne a pri skrinkách, vešiakových paneloch, laviciach,
+v priestore je široká lavica na prezlečenie,
+bezbariérová sprcha (voľný priestor 1,4 m x 1,4 m),
+bezbariérové WC v blízkosti šatne,
+Poznámka: Pri rekonštrukcii je možné vytvoriť samostatnú bezbariérovú hygienickú kabínu (bezbariérovú kúpeľňu)
+ | □
+□
+
+□
+□
+□
+ | □
+□
+
+□
+□
+□
+ |
+12. Telocvičňa
+ | bezbariérový prístup zo šatne a umyvárne,
+dvere široké najmenej 1,8 m (dvojkrídlové), alebo aspoň jedno
+krídlo dverí musí byť široké 0,9 m
+ | □
+□
+
+ | □
+□
+
+ |
+13.
+Jedáleň
+ | bezbariérový prístup do jedálne,
+aspoň jedno dverné krídlo má šírku 0,9 m,
+širšie uličky medzi stolmi (min. 0,9 m ) umožňujúce pohyb osoby na vozíku a zasunutie sa pod stôl,
+Poznámka: Odporúča sa realizovať prístupné obslužné okienka/pulty vo výške cca 0,85 m
+ | □
+□
+□
+
+ | □
+□
+□
+
+ |
+14.
+Školský areál
+ | bezbariérový prístup na ihriská a do vonkajších priestorov na výučbu (napr. pestovanie rastlín),
+chodníky majú spevnený povrch a bez škár, do ktorých by mohli zapadnúť kolieska,
+lavičky pri chodníkoch sú umiestnené na spevnenej ploche
+(nezužujú šírku chodníka),
+ | □
+
+□
+
+□
+ | □
+
+□
+
+□
+ |
+15. Ubytovacie zariadenie
+ | bezbariérový prístup do všetkých prevádzkových častí zariadenia,
+izba s bezbariérovou kúpeľňou (so sprchou a nie vaňou)
+šírka dverí najmenej 0,8 m
+manévrovací priestor Ø 1,5 m pri skrinkách, posteli, písacom stole
+ | □
+□
+□
+□
+ | □
+□
+□
+□
+ |
+
+Doplňujúce informácie:
+(Uveďte vážne dôvody, prečo nie je niektorá požiadavka splnená)

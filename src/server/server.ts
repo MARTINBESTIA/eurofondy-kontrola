@@ -4,7 +4,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-import { nacitajBalik, posud } from '../core/posud.ts';
+import { nacitajBalik, posud, posudPodlaKola, verzieBalika, vyberVerziu } from '../core/posud.ts';
 import { dostupny, MODEL } from '../llm/ollama.ts';
 import { dokumentNaText, pdfDostupny } from '../ingest/dokument.ts';
 import type { BalikPravidiel, Modul, Posudok } from '../core/typy.ts';
@@ -43,8 +43,8 @@ pod.pripravDb(db);
 const vlozSpisovy = db.prepare('INSERT INTO posudky (cas, modul, ziadost_kod, balik, verzia, model, navrh, upravena, trvanie_ms, posudok_json, spis_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
 
 // Podateľňa posudzuje žiadosti o NFP pravidlami tej výzvy, do ktorej podanie patrí.
-const balikyZiadosti = new Map<string, BalikPravidiel>();
-const balikVyzvy = (vyzva: string) => { if (!balikyZiadosti.has(vyzva)) balikyZiadosti.set(vyzva, nacitajBalik(vyzva, 'zonfp')); return balikyZiadosti.get(vyzva)!; };
+// Znenie výzvy (verzia balíka) sa vyberá podľa kola žiadosti; staré posudky sa čítajú s verziou, ktorou vznikli.
+const verzieVyzvy = (vyzva: string) => verzieBalika(vyzva, 'zonfp');
 const SLOTY = zonfp.prilohy(undefined as never);
 const zItms = (kod: string) => zonfp.nacitaj(kod);
 const PRAVIDLA_PRILOH = (b: BalikPravidiel) => b.pravidla.filter((p) => p.druh === 'priloha').map((p) => p.id);
@@ -53,8 +53,8 @@ const subory = (b: any): pod.Subor[] => (Array.isArray(b.subory) ? b.subory : []
 /** Ktoré prílohy žiadosť vyžaduje a či sú priložené: pravidlá príloh z balíka, bez modelu (milisekundy). */
 async function stavPriloh(spisId: number, vyzva: string) {
   try {
-    const balik = balikVyzvy(vyzva);
     const z = pod.ziadostSpisu(db, spisId);
+    const { balik } = vyberVerziu(vyzva, zonfp, z);
     const formular = pod.zdrojFormulara(db, pod.spisRiadok(db, spisId)!);
     const p = dolozPosudok(await posud(z, balik, zonfp, { llm: false, iba: PRAVIDLA_PRILOH(balik) }), z, formular, balik);
     return p.nalezy.map(n => ({ cislo: String(balik.pravidla.find(r => r.id === n.pravidlo)?.parametre?.cislo ?? ''),
@@ -85,12 +85,12 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
     if (!c[2]) {
       const d = pod.detailSpisu(db, id)!;
       if (s.posudok_id && !d.posledny?.nalezy?.some((n: { povodDokladov?: string }) => n.povodDokladov))
-        d.posledny = await precitajPosudok(db, id, s.posudok_id, balikVyzvy(s.vyzva));
+        d.posledny = await precitajPosudok(db, id, s.posudok_id, verzieVyzvy(s.vyzva));
       const zIts = d.spis.formularZdroj?.startsWith('ITMS21+') && d.ziadost ? zonfp.skutocnost?.(d.ziadost) ?? null : null;
       return json(res, 200, { ...d, sloty: SLOTY, prilohyStav: await stavPriloh(id, s.vyzva), skutocnost: zIts, titulok: d.ziadost ? zonfp.titulok(d.ziadost) : null, suhrn: d.ziadost ? zonfp.suhrn?.(d.ziadost) ?? '' : '' });
     }
     if (c[2] === 'posudky' && req.method === 'GET') {
-      const p = await precitajPosudok(db, id, Number(c[3]) || 0, balikVyzvy(s.vyzva));
+      const p = await precitajPosudok(db, id, Number(c[3]) || 0, verzieVyzvy(s.vyzva));
       return p ? json(res, 200, { posudok: p }) : json(res, 404, { chyba: 'Posudok sa v tomto spise nenašiel.' });
     }
     if (req.method !== 'POST') return json(res, 405, { chyba: 'Použite POST.' });
@@ -99,8 +99,8 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
     if (c[2] === 'posud') {
       const v = pod.ziadostSpisu(db, id);
       const formular = pod.zdrojFormulara(db, s);
-      const balik = balikVyzvy(s.vyzva);
-      const p = dolozPosudok(await posud(v, balik, zonfp, { llm: b.llm !== false }), v, formular, balik);
+      const { balik, posudok } = await posudPodlaKola(v, s.vyzva, zonfp, { llm: b.llm !== false });
+      const p = dolozPosudok(posudok, v, formular, balik);
       const r = vlozSpisovy.run(p.cas, zonfp.id, p.ziadostKod, p.balik, p.verziaBalika, p.model, p.navrh, 0, p.trvanieMs, JSON.stringify(naAudit(zonfp, p)), id);
       pod.ulozPosudok(db, id, Number(r.lastInsertRowid), p.navrh);
       return json(res, 200, { posudok: p });
@@ -160,7 +160,14 @@ const server = http.createServer(async (req, res) => {
       const m = podlaId.get(cesta[1]);
       if (!m) return json(res, 404, { chyba: `Neznámy modul ${cesta[1]}.` });
       if (cesta[2] === 'pripady') return json(res, 200, m.pripady(url.searchParams.get('q') ?? '', url.searchParams.get('filter') ?? ''));
-      if (cesta[2] === 'pravidla') return json(res, 200, balik(m));
+      if (cesta[2] === 'pravidla') {
+        const b = balik(m);
+        // Verzie znenia výzvy: ktoré kolá pokrývajú a či ich pravidlá schválil človek.
+        const verzie = b.verziaBalika ? verzieBalika(m.balikVyzva ?? VYZVA, m.id).map((x) => ({
+          verzia: x.verzia, platnaOd: x.platnaOd, ...x.verziaBalika!, pravidiel: x.pravidla.length, podmienok: x.podmienky?.length ?? 0,
+          pravidlaId: x.pravidla.map((r) => r.id), podmienkyId: (x.podmienky ?? []).map((p) => p.id) })) : [];
+        return json(res, 200, { ...b, verzie });
+      }
       if (cesta[2] === 'pripad') {
         const v = m.nacitaj(decodeURIComponent(cesta[3] ?? ''));
         if (!v) return json(res, 404, { chyba: 'Prípad sa nenašiel.' });
@@ -175,7 +182,7 @@ const server = http.createServer(async (req, res) => {
         const upravena = !!b.formular;
         if (b.formular) v = m.zFormulara(v, b.formular);
         if (b.prilohy !== undefined) (v as any).prilohy = b.prilohy;
-        const p = await posud(v, balik(m), m, { llm: b.llm !== false });
+        const { posudok: p } = await posudPodlaKola(v, m.balikVyzva ?? VYZVA, m, { llm: b.llm !== false });
         vloz.run(p.cas, m.id, p.ziadostKod, p.balik, p.verziaBalika, p.model, p.navrh, upravena ? 1 : 0, p.trvanieMs, JSON.stringify(naAudit(m, p)));
         return json(res, 200, { posudok: p, titulok: m.titulok(v), suhrn: m.suhrn?.(v) ?? '', prilohy: m.prilohy(v), vystupy: m.vystupy?.(v, p.nalezy) ?? [], skutocnost: upravena ? null : m.skutocnost?.(zaklad) ?? null });
       }

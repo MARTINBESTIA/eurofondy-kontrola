@@ -6,6 +6,33 @@
   "poskytovatel": "Slovenská inovačná a energetická agentúra (sprostredkovateľský orgán pre Program Slovensko)",
   "verzia": "Zmena č. 3 zo dňa 21.08.2025",
   "platnaOd": "2025-08-21",
+  "verziaBalika": {
+    "id": "zmena3",
+    "itmsVerzie": [
+      6
+    ],
+    "odKola": 79,
+    "stav": "platna",
+    "schvalenie": {
+      "stav": "schvalene",
+      "poznamka": "Pôvodný balík, s ktorým softvér pracuje od prvej verzie (2026-11-13); každá zmena prešla testami a commitom na pokyn používateľa."
+    },
+    "citacia": {
+      "dokument": "Zmena výzvy č. 3",
+      "cast": "Účinnosť zmien",
+      "znenie": "Aktualizácia č. 3 výzvy a zmeny z nej vyplývajúce sú účinné od 21.08.2025."
+    }
+  },
+  "harmonogramKol": {
+    "kolo1": "2024-02-23",
+    "kolo2": "2024-03-01",
+    "krokDni": 7,
+    "citacia": {
+      "dokument": "Výzva v znení Zmeny č. 3",
+      "cast": "Predpokladaná lehota na vydanie rozhodnutia v konaní o ŽoNFP, Stanovené hodnotiace kolá",
+      "znenie": "Termín uzavretia hodnotiaceho kola 1 [...] Termín uzavretia hodnotiaceho kola 2 [...] Termín uzavretia hodnotiaceho kola n [...] 23. 02. 2024 [...] 01. 03. 2024 [...] každý nasledujúci kalendárny piatok"
+    }
+  },
   "zdroje": [
     {
       "nazov": "Výzva v znení Zmeny č. 3",
@@ -41,6 +68,11 @@
       "nazov": "ITMS21+ detail výzvy (verzie výzvy; verzia 5: uzavretie pre menej rozvinuté regióny)",
       "subor": "data/raw/itms21/PSK-SIEA-002-2023-DV-EFRR/vyzva.json.gz",
       "url": "https://api.itms21.sk/public/v1/vyzva/id/2928"
+    },
+    {
+      "nazov": "Zmena výzvy č. 3",
+      "subor": "data/zdroje/PSK-SIEA-002-2023/akt3/Zmena_Vyzvy_č.3.docx",
+      "url": "https://api.itms21.sk/public/v1/dokument/e6f34c92-7289-4a61-a28d-8b6eb20e5b0a"
     }
   ],
   "proces": [

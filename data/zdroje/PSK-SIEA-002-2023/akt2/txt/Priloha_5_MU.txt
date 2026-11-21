@@ -1,0 +1,604 @@
+Zoznam merateľných ukazovateľov projektu a iných údajov
+Kód výzvy: PSK-SIEA-002-2023-DV-EFRR
+Názov výzvy: Výzva na podporu energetickej efektívnosti a využívania OZE vo verejných budovách
+
+Žiadateľ priraďuje do ŽoNFP len tie merateľné ukazovatele (ďalej aj „MU“) projektu, ktoré sú relevantné pre ním vybrané oprávnené hlavné aktivity projektu začlenené pod relevantné typy akcií v zmysle tabuľky pod textom.
+Žiadateľ je povinný stanoviť cieľové hodnoty merateľných ukazovateľov projektu pre každú vybranú hlavnú aktivitu projektu, špecifický cieľ a kategóriu regiónu osobitne v závislosti od výberu príkladov oprávnených hlavných aktivít projektu.
+
+Tabuľka 1: Prehľad oprávnených typov akcií a príkladov oprávnených hlavných aktivít projektu
+Kód špecific. cieľa /priority
+ | Kategória
+regiónov
+ | Poradčíslo
+ | Názov oprávneného typu akcie alebo príkladu oprávnenej hlavnej aktivity projektu
+ | Kódy relevantných MU projektu
+ |
+
+ |
+ |
+ |
+ | výstup
+ | výsledok
+ |
+2P1 / RSO2.1
+ | MRR / VRR
+ | 1
+ | Zlepšovanie energetickej hospodárnosti a obnovy verejných budov
+ | -
+ | -
+ |
+2P1 / RSO2.1
+ | MRR / VRR
+ | 1.a
+ | Hlavné aktivity písm. a) až s) opatrenia 2.1.2 PPP č. 7
+ | PO037 / PSKPRCO19
+ | PR022 / PSKPRCR26b
+PR025 / PSKPRCR29
+ |
+
+ |
+ |
+ |
+ |
+ |
+ |
+2P1 / RSO2.2
+ | MRR / VRR
+ | 2
+ | Podpora zariadení využívajúcich OZE vrátane zariadení, ktoré sú súčasťou systému zásobovania energiou verejných budov
+ | -
+ | -
+ |
+2P1 / RSO2.2
+ | MRR / VRR
+ | 2.a
+ | Hlavné aktivity písm. a) až c) opatrenia 2.2.2 PPP č. 7
+ | PO040 / PSKPRCO22a
+PO041 / PSKPRCO22b
+ | PR027 / PSKPRCR31a
+PR028 / PSKPRCR31b
+ |
+
+Merateľné ukazovatele projektu
+Merateľné ukazovatele projektu, ako aj iné údaje sú vykazované prijímateľom v rámci monitorovacích správ projektu.
+Počas obdobia účinnosti Zmluvy o poskytnutí NFP je prijímateľ povinný pravidelne ročne predkladať poskytovateľovi monitorovacie správy projektu, v ktorých prijímateľ monitoruje plnenie merateľných ukazovateľov projektu a vykazuje iné údaje.
+Prijímateľ v monitorovacích správach projektu vykazuje kumulatívne hodnoty aktuálne k dátumu konca monitorovacieho obdobia.
+Cieľová hodnota merateľného ukazovateľa výstupu nesmie klesnúť pod 85 % jeho cieľovej hodnoty uvedenej v schválenej ŽoNFP. Pokles cieľovej hodnoty merateľného ukazovateľa výstupu pod uvedené percento nemožno schváliť v rámci procesu podľa čl. 16 Všeobecných zmluvných podmienok k Zmluve o poskytnutí NFP a považuje sa to za podstatnú zmenu projektu. Projekt, ktorý je zaťažený podstatnou zmenou projektu nie je možné financovať. Cieľová hodnota merateľného ukazovateľa výstupu je záväzná z hľadiska dosiahnutia jej cieľovej hodnoty podľa schválenej žiadosti o NFP. Nedosiahnutie cieľovej hodnoty merateľného ukazovateľa výstupu automaticky spôsobuje zníženie výšky NFP na základe aplikácie sankčného mechanizmu.
+Cieľová hodnota merateľného ukazovateľa výsledku nesmie klesnúť pod 40 % jeho cieľovej hodnoty uvedenej v schválenej ŽoNFP. Pokles cieľovej hodnoty merateľného ukazovateľa výsledku pod uvedené percento nemožno schváliť v rámci procesu definovanom podľa čl. 16 Všeobecných zmluvných podmienok k Zmluve o poskytnutí NFP a považuje sa to za podstatnú zmenu projektu. Projekt, ktorý je zaťažený podstatnou zmenou projektu nie je možné financovať. Poskytovateľ schváli zníženie cieľovej hodnoty merateľného ukazovateľa výsledku bez aplikácie sankčného mechanizmu t. j. vplyvu na zníženie NFP, len ak sú splnené nasledovné podmienky:
+dôvody požadovaného zníženia sú spôsobené v prevažnej miere faktormi, ktoré prijímateľ objektívne nemohol ovplyvniť,
+nová cieľová hodnota ukazovateľa výsledku je primeraná z časového, finančného a vecného hľadiska v porovnaní so stavom a očakávaniami, ktoré vyplývajú zo schválenej žiadosti o NFP.
+Ak nie je splnená čo i len jedna časť z vyššie uvedených podmienok poskytovateľ je oprávnený schváliť zníženie cieľovej hodnoty merateľného ukazovateľa výsledku s tým, že automatickým dôsledkom takéhoto schválenia je zníženie výšky NFP na základe aplikácie sankčného mechanizmu.
+Doba udržateľnosti projektu je 5 rokov.
+
+Tabuľka 2: Prehľad merateľných ukazovateľov projektu
+Typ MU projektu
+ | Kód MU projektu
+ | Názov MU projektu
+ | Merná jednotka
+ | Čas plnenia MU projektu
+ | Typ závislosti MU projektu
+ | Príznak rizika
+ | Relevancia k HP
+ |
+výstup
+ | PO037 / PSKPRCO19
+ | Verejné budovy so zlepšenou energetickou hospodárnosťou
+ | metre štvorcové
+ | ku koncu realizácie hlavných aktivít projektu
+ | súčet
+ | nie
+ | n/a
+ |
+výsledok
+ | PR022 / PSKPRCR26b
+ | Ročná primárna spotreba energie: verejné budovy
+ | MWh / rok
+ | v rámci udržateľnosti projektu
+ | súčet
+ | nie
+ | n/a
+ |
+výsledok
+ | PR025 / PSKPRCR29
+ | Odhadované emisie skleníkových plynov
+ | tony CO2 ekv. / rok
+ | v rámci udržateľnosti projektu
+ | súčet
+ | nie
+ | n/a
+ |
+
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+výstup
+ | PO040 / PSKPRCO22a
+ | Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: elektrická
+ | MW
+ | ku koncu realizácie hlavných aktivít projektu
+ | súčet
+ | nie
+ | n/a
+ |
+výstup
+ | PO041 / PSKPRCO22b
+ | Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: tepelná
+ | MW
+ | ku koncu realizácie hlavných aktivít projektu
+ | súčet
+ | nie
+ | n/a
+ |
+výsledok
+ | PR027 / PSKPRCR31a
+ | Celková vyrobená energia z obnoviteľných zdrojov: elektrická
+ | MWh / rok
+ | v rámci udržateľnosti projektu
+ | súčet
+ | nie
+ | n/a
+ |
+výsledok
+ | PR028 / PSKPRCR31b
+ | Celková vyrobená energia z obnoviteľných zdrojov: tepelná
+ | MWh / rok
+ | v rámci udržateľnosti projektu
+ | súčet
+ | nie
+ | n/a
+ |
+
+Definície merateľných ukazovateľov projektu
+Zlepšovanie energetickej hospodárnosti a obnovy verejných budov
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PO037 / PSKPRCO19
+ |
+2
+ | Názov ukazovateľa
+ | Verejné budovy so zlepšenou energetickou hospodárnosťou
+ |
+3
+ | Merná jednotka
+ | metre štvorcové
+ |
+4
+ | Typ ukazovateľa
+ | výstup
+ |
+5
+ | Východisková hodnota
+ | 0
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.
+ | Celková podlahová plocha verejných budov so zlepšenou energetickou hospodárnosťou.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ po realizácii projektu.
+Ak je predmetom projektu viacero budov hodnota vyjadruje súčet celkovej podlahovej plochy jednotlivých budov so zlepšenou energetickou hospodárnosťou.
+ |
+2.
+ | Verejné budovy sú definované ako budovy vo vlastníctve orgánov verejnej moci a budovy vo vlastníctve neziskovej organizácie. Nezisková organizácia je právnická osoba organizovaná a prevádzkovaná za účelom kolektívneho, verejného alebo sociálneho prospechu, na rozdiel od subjektu, ktorý funguje ako podnikateľská činnosť zameraná na vytváranie zisku pre svojich vlastníkov.  Medzi príklady patria budovy pre verejnú správu, školy, nemocnice atď.
+Ukazovateľ sa nevzťahuje na
+–	sociálne bývanie (ako je uvedené v RCO18),
+–	súkromné školy alebo súkromné nemocnice, ktoré sú vo vlastníctve súkromných investorov.
+ | áno
+ | List vlastníctva
+ |
+3.
+ | Zlepšenou energetickou hospodárnosťou sa rozumie zlepšenie energetickej klasifikácie verejnej budovy najmenej o jednu energetickú triedu a má sa dokumentovať na základe energetického certifikátu (EC).  Stanovená energetická klasifikácia zodpovedá definícii v národnom energetickom certifikáte v súlade so smernicou 2010/31/EÚ.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ pred a po realizácii projektu.
+ |
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PR022 / PSKPRCR26b
+ |
+2
+ | Názov ukazovateľa
+ | Ročná primárna spotreba energie: verejné budovy
+ |
+3
+ | Merná jednotka
+ | MWh / rok
+ |
+4
+ | Typ ukazovateľa
+ | výsledok
+ |
+5
+ | Východisková hodnota
+ | >0
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.
+ | Celková ročná spotreba primárnej energie: verejné budovy (Východisková hodnota)
+Východisková hodnota sa týka ročnej spotreby primárnej energie pred intervenciou.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ pred realizáciou projektu
+Ak je predmetom projektu viacero budov hodnota vyjadruje súčet spotreby primárnej energie jednotlivých budov. Upozorňujeme na rozdielnosť mernej jednotky v EC a MU.
+ |
+2.
+ | Celková ročná spotreba primárnej energie: verejné budovy (Dosiahnutá hodnota)
+Dosiahnutá hodnota sa týka ročnej spotreby primárnej energie za rok po intervencii.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ po realizácii projektu
+Ak je predmetom projektu viacero budov hodnota vyjadruje súčet spotreby primárnej energie jednotlivých budov. Upozorňujeme na rozdielnosť mernej jednotky v EC a MU.
+ |
+3.
+ | Verejné budovy sú definované ako budovy vo vlastníctve verejných orgánov a budovy vo vlastníctve neziskovej organizácie za predpokladu, že tieto orgány sledujú ciele všeobecného záujmu, akými sú vzdelávanie, zdravie, životné prostredie a doprava.  Medzi príklady patria budovy pre verejnú správu, školy, nemocnice atď.
+Pre účely tohto MU je definícia verejných budov zhodná s definíciou verejných budov ustanovenou v definičnej matici v bode 2 MU PO037 / PSKPRCO19.
+ | áno
+ | List vlastníctva
+ |
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PR025 / PSKPRCR29
+ |
+2
+ | Názov ukazovateľa
+ | Odhadované emisie skleníkových plynov
+ |
+3
+ | Merná jednotka
+ | tony CO2 ekv. / rok
+ |
+4
+ | Typ ukazovateľa
+ | výsledok
+ |
+5
+ | Východisková hodnota
+ | >0
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.
+ | Celkové odhadované emisie skleníkových plynov za podporovaný subjekt. (Východisková hodnota)
+Východisková hodnota sa týka úrovne odhadovaných emisií skleníkových plynov počas roka pred začiatkom intervencie.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ pred realizáciou projektu
+Ak je predmetom projektu viacero budov hodnota vyjadruje súčet emisií CO2 jednotlivých budov. Upozorňujeme na rozdielnosť mernej jednotky v EC a MU.
+ |
+2.
+ | Celkové odhadované emisie skleníkových plynov za podporovaný subjekt. (Dosiahnutá hodnota)
+Dosiahnutá hodnota je vypočítaná ako celkové odhadované emisie skleníkových plynov na základe dosiahnutej úrovne energetickej hospodárnosti počas roka po ukončení intervencie.
+ | áno
+ | Energetický certifikát v súlade so smernicou 2010/31/EÚ po realizácii projektu
+Ak je predmetom projektu viacero budov hodnota vyjadruje súčet emisií CO2 jednotlivých budov. Upozorňujeme na rozdielnosť mernej jednotky v EC a MU.
+ |
+
+Podpora zariadení využívajúcich OZE vrátane zariadení, ktoré sú súčasťou systému zásobovania energiou verejných budov
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PO040 / PSKPRCO22a
+ |
+2
+ | Názov ukazovateľa
+ | Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: elektrická
+ |
+3
+ | Merná jednotka
+ | MW
+ |
+4
+ | Typ ukazovateľa
+ | výstup
+ |
+5
+ | Východisková hodnota
+ | 0
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.
+ | Dodatočná výrobná kapacita pre obnoviteľnú energiu: elektrická.
+Vďaka podpore bola vybudovaná alebo rozšírená dodatočná výrobná kapacita pre obnoviteľnú energiu.
+Tento ukazovateľ zastrešuje aj výrobnú kapacitu, ktorá bola vybudovaná alebo rozšírená a ešte nie je pripojená k sieti (ak je k dispozícii) alebo ešte nie je úplne pripravená na výrobu energie.
+Výrobná kapacita sa chápe ako „čistá maximálna elektrická kapacita“, ktorú Eurostat definuje ako „maximálnu aktívnu energiu, ktorú je možné dodávať nepretržite pri všetkých operáciách v mieste výstupu (t. j. po odobratí zdrojov energie pre pomocné zariadenia stanice a zohľadnenie strát v týchto transformátoroch považovaných za neoddeliteľnú súčasť stanice)“.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | Osvedčenie o príslušnej technickej špecifikácii
+ |
+2.
+ | Zariadenie pre výrobu obnoviteľnej energie.
+ | áno
+ | Smernica Európskeho parlamentu a Rady 2018/2001 o podpore využívania energie z obnoviteľných zdrojov
+ |
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PO041 / PSKPRCO22b
+ |
+2
+ | Názov ukazovateľa
+ | Dodatočná výrobná kapacita v oblasti energie z obnoviteľných zdrojov: tepelná
+ |
+3
+ | Merná jednotka
+ | MW
+ |
+4
+ | Typ ukazovateľa
+ | výstup
+ |
+5
+ | Východisková hodnota
+ | 0
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.
+ | Dodatočná výrobná kapacita pre obnoviteľnú energiu: tepelná.
+Vďaka podpore bola vybudovaná alebo rozšírená dodatočná výrobná kapacita pre obnoviteľnú energiu.
+Tento ukazovateľ zastrešuje aj výrobnú kapacitu, ktorá bola vybudovaná alebo rozšírená a ešte nie je pripojená k sieti (ak je k dispozícii) alebo ešte nie je úplne pripravená na výrobu energie.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | Osvedčenie o príslušnej technickej špecifikácii
+ |
+2.
+ | Zariadenie pre výrobu obnoviteľnej energie.
+ | áno
+ | Smernica Európskeho parlamentu a Rady 2018/2001 o podpore využívania energie z obnoviteľných zdrojov
+ |
+
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PR027 / PSKPRCR31a
+ |
+2
+ | Názov ukazovateľa
+ | Celková vyrobená energia z obnoviteľných zdrojov: elektrická
+ |
+3
+ | Merná jednotka
+ | MWh / rok
+ |
+4
+ | Typ ukazovateľa
+ | výsledok
+ |
+5
+ | Východisková hodnota
+ | >=0
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.
+ | Ročná energia vyrobená z obnoviteľných zdrojov: elektrická. (Východisková hodnota)
+Východisková hodnota sa týka ročnej energie vyrobenej v roku pred začiatkom intervencie a môže byť nenulová v prípade rozšírenia výrobnej kapacity.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | IT systém  / Meradlo
+Energetický audit (ak meranie IT systémom / meradlom nie je možné)
+Meradlo - odpis vyrobeného množstva musí byť objektívne overiteľný
+IT systém - softvér bezprostredne súvisiaci s výrobou, meraním a riadením prevádzky zariadenia na výrobu elektriny zo slnečnej energie
+ |
+2.
+ | Ročná energia vyrobená z obnoviteľných zdrojov: elektrická. (Dosiahnutá hodnota)
+Dosiahnutá hodnota je ročná energia vyrobená v roku po ukončení intervencie.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | IT systém / Meradlo
+Energetický audit (ak meranie IT systémom / meradlom nie je možné)
+Meradlo - odpis vyrobeného množstva musí byť objektívne overiteľný
+IT systém - softvér bezprostredne súvisiaci s výrobou, meraním a riadením prevádzky zariadenia na výrobu elektriny zo slnečnej energie
+ |
+
+ |
+ |
+ |
+ |
+Číslo riadka
+ | Oblasť
+ | Metadáta ukazovateľa
+ |
+1
+ | Kód ukazovateľa
+ | PR028 / PSKPRCR31b
+ |
+2
+ | Názov ukazovateľa
+ | Celková vyrobená energia z obnoviteľných zdrojov: tepelná
+ |
+3
+ | Merná jednotka
+ | MWh / rok
+ |
+4
+ | Typ ukazovateľa
+ | výsledok
+ |
+5
+ | Východisková hodnota
+ | >=0
+ |
+6
+ | Vykazovanie hodnôt podľa pohlavia
+ | nie
+ |
+Definičná matica na národnej úrovni
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Zdroj overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.
+ | Ročná energia vyrobená z obnoviteľných zdrojov: tepelná. (Východisková hodnota)
+Východisková hodnota sa týka ročnej energie vyrobenej v roku pred začiatkom intervencie a môže byť nenulová v prípade rozšírenia výrobnej kapacity.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | IT systém / Meradlo
+Energetický audit (ak meranie IT systémom / meradlom nie je možné)
+Meradlo - odpis vyrobeného množstva musí byť objektívne overiteľný
+IT systém - softvér bezprostredne súvisiaci s výrobou, meraním a riadením prevádzky zariadenia na výrobu elektriny zo slnečnej energie
+ |
+2.
+ | Ročná energia vyrobená z obnoviteľných zdrojov: tepelná. (Dosiahnutá hodnota)
+Dosiahnutá hodnota je ročná energia vyrobená v roku po ukončení intervencie.
+Obnoviteľnou energiou sa rozumie „energia z obnoviteľných nefosílnych zdrojov, a to veternej, slnečnej (tepelnej a fotovoltaickej) a geotermálnej energie, okolitej energie, prílivu, vĺn a ďalšej energie z oceánu, vodnej energie, biomasy, skládkového plynu, plynu z čističiek odpadových vôd a bioplynu.“
+ | áno
+ | IT systém / Meradlo
+Energetický audit (ak meranie IT systémom / meradlom nie je možné)
+Meradlo - odpis vyrobeného množstva musí byť objektívne overiteľný
+IT systém - softvér bezprostredne súvisiaci s výrobou, meraním a riadením prevádzky zariadenia na výrobu elektriny zo slnečnej energie
+ |
+
+Iné údaje
+Iné údaje sú údaje, resp. parametre (iné ako merateľné ukazovatele projektu), ktoré prijímateľ povinne a každoročne poskytuje prostredníctvom monitorovacích správ počas implementácie projektu, resp. v rámci udržateľnosti projektu v zmysle Zmluvy o poskytnutí NFP. Žiadateľ neuvádza iné údaje v rámci formuláru Žiadosti o poskytnutie NFP. V zmysle výzvy sa prenášajú do prílohy 2: Predmet podpory NFP Zmluvy o poskytnutí NFP. V priebehu implementácie projektu môže dôjsť doplneniu iných údajov.
+
+Tabuľka 3: Prehľad iných údajov
+Kód iného údaja
+ | Názov iného údaja
+ | Merná jednotka
+ | Čas plnenia iného údaja
+ |
+
+ | Počet nástrojov zabezpečujúcich prístupnosť pre osoby so zdravotným postihnutím
+ |
+ |
+ |
+
+ | Podiel žien pracujúcich na riadiacich pozíciách projektu
+ |
+ |
+ |
+
+ | Vytvorené pracovné miesta v podporovaných subjektoch obsadené ženami
+ |
+ |
+ |
+
+Definície iných údajov
+Číslo riadka
+ | Oblasť
+ | Metadáta iného údaja
+ |
+1
+ | Kód iného údaja
+ |
+ |
+2
+ | Názov iného údaja
+ |
+ |
+3
+ | Merná jednotka
+ |
+ |
+4
+ | Vykazovanie hodnôt rozdelené podľa pohlavia
+ |
+ |
+Definičná matica iného údaja
+ |
+Poradové číslo
+ | Popis znaku, charakteristiky, pravidla
+ | Povinnosť plnenia
+ | Príklad zdroja overenia, na základe ktorého prijímateľ dokladuje plnenie znaku, charakteristiky, pravidla
+ |
+1.
+ |
+ |
+ |
+ |
+2.
+ |
+ |
+ |
+ |
+3.
+ |
+ |
+ |
+ |
