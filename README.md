@@ -391,7 +391,7 @@ oficiálnych vzorov a Príloha č. 8 je vzor výzvy vyplnený a prepočítaný E
 zaradenie súborov, návrh, vybrané znenie výzvy, body o znení (bez VER-ITMS a VER-KONTROLA, ktoré závisia
 od prostredia) a stavy určujúcich pravidiel. Dve podania sa doplnia, v jednom kontrolór potvrdí zaradenie.
 Ten istý test s argumentom priečinka overí aj novú skúšobnú žiadosť (`npm run test:nova`, očakávania
-v `demo/nova-ziadost/riesenie/ocakavane.json`), pri nej aj časť zdôvodnenia P08b a D13.
+v `demo/nova-ziadost/riesenie/ocakavane.json`), pri nej aj vybrané vety zdôvodnenia.
 Mäkší návrh, než sa čaká, test hlási zvlášť ako riziko falošného OK.
 
 Všetkých 15 prešlo (0 rozdielov). Pri tvorbe sada našla päť chýb, všetky sú opravené:
