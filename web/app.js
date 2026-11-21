@@ -1,6 +1,6 @@
 // Rozhranie dema. Bez frameworku; všetok text ide cez textContent, nič z dát sa nevkladá ako HTML.
 // Rozhranie je všeobecné: modul cez API povie, aké má prípady, polia, dokumenty a pravidlá.
-import { $, el, api, cislo, pct, naBase64, STAVY, VERDIKTY, DRUHY, POKRYTIE, OKAMIH, kresliVerdikt, kresliNalezy, VYSVETLENIE_PPP } from './ui.js';
+import { $, el, api, cislo, pct, naBase64, STAVY, VERDIKTY, DRUHY, POKRYTIE, OKAMIH, kresliVerdikt, kresliNalezy, VYSVETLENIE_PPP, TIP_FORMALNE } from './ui.js';
 import { zobrazPodatelnu } from './podatelna.js';
 
 let stav = null, modul = null, vybrane = null, povodny = null, prilohy = {};
@@ -106,7 +106,7 @@ $('#posud').addEventListener('click', async () => {
   const t = $('#posud'); t.disabled = true; t.textContent = $('#llm').checked ? 'Kontrolujem (model číta text)…' : 'Kontrolujem…';
   try {
     const f = formular();
-    const j = await api(`/api/${modul.id}/posud`, { id: vybrane.id, formular: f ?? undefined, llm: $('#llm').checked, prilohy: $('#mamPrilohy').checked ? prilohy : undefined });
+    const j = await api(`/api/${modul.id}/posud`, { id: vybrane.id, formular: f ?? undefined, llm: $('#llm').checked, formalne: $('#formalne').checked, prilohy: $('#mamPrilohy').checked ? prilohy : undefined });
     $('#suhrn').textContent = j.suhrn;
     // Zoznam povinných dokumentov môže závisieť od údajov (napr. typ zmeny, druh výdavku).
     if (JSON.stringify(j.prilohy) !== JSON.stringify(vybrane.prilohy)) { vybrane.prilohy = j.prilohy; kresliPrilohy(j.prilohy); }
@@ -253,6 +253,7 @@ async function nacitajPravidla() {
 stav = await api('/api/stav');
 $('#stav').textContent = `Výzva ${stav.vyzva} · model ${stav.model} ${stav.modelDostupny ? 'beží lokálne' : 'nedostupný'} · ${stav.posudkov} posudkov v auditnej stope · nič sa neodosiela von${stav.pdf === false ? ' · POZOR: PDF sa nedajú čítať (chýba pdftotext)' : ''}`;
 if (!stav.modelDostupny) $('#llm').checked = false;
+$('#formalne').closest('label').title = TIP_FORMALNE;
 $('#moduly').replaceChildren(...stav.moduly.map((m, i) => el('button', { class: 'modul', 'data-modul': m.id, title: m.popis, onclick: () => vyberModul(m.id) },
   el('span', { class: 'krok' }, i + 1), m.nazov, m.balik?.pravidiel ? el('span', { class: 'pocet' }, m.balik.pravidiel) : null)));
 let ulozeny = null; try { ulozeny = localStorage.getItem('modul'); } catch {}

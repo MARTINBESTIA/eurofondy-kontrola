@@ -1,7 +1,7 @@
 // Podateľňa: kontrolór prijme podanie (súbory žiadosti alebo kód z ITMS21+), skontroluje zaradenie príloh,
 // spustí posúdenie a zapíše rozhodnutie. Výsledky sa ukladajú do spisu (SQLite) a sčítavajú za výzvu.
 // Lokálna simulácia importu podania z ITMS21+ používa POST /api/podatelna/spisy.
-import { $, el, api, cislo, pct, datum, naBase64, STAVY, NAVRHY_KRATKO, kresliVerdikt, kresliNalezy, kresliDoklady } from './ui.js';
+import { $, el, api, cislo, pct, datum, naBase64, STAVY, NAVRHY_KRATKO, TIP_FORMALNE, kresliVerdikt, kresliNalezy, kresliDoklady } from './ui.js';
 
 const FORMATY_PODANIA = '.zip,.pdf,.xlsx,.xlsm,.docx,.txt,.json';
 
@@ -158,9 +158,11 @@ async function kresliSpis(id) {
   if (aktualny !== id) return;
   const { spis: s, subory, posudky, posledny, sloty, prilohyStav } = d;
   const llm = el('input', { type: 'checkbox', checked: stavApp?.modelDostupny ? '' : false, disabled: stavApp?.modelDostupny ? false : '' });
+  // Predvolene vypnuté: kontroluje sa obsah podľa požiadaviek výzvy, podpisy nie (výrok potom nebude „bez zistení“).
+  const formalne = el('input', { type: 'checkbox' });
   const posud = el('button', { class: 'hlavne', disabled: s.maFormular ? false : '', onclick: async () => {
     posud.disabled = true; posud.textContent = llm.checked ? 'Posudzujem (model číta prílohy, asi minútu)…' : 'Posudzujem…';
-    try { await api(`/api/podatelna/spisy/${id}/posud`, { llm: llm.checked }); await obnovZoznam(); await kresliSpis(id); $('#pod-vysledok')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    try { await api(`/api/podatelna/spisy/${id}/posud`, { llm: llm.checked, formalne: formalne.checked }); await obnovZoznam(); await kresliSpis(id); $('#pod-vysledok')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     catch (e) { alert(`Posúdenie zlyhalo: ${e.message}`); posud.disabled = false; posud.textContent = 'Posúdiť žiadosť'; }
   } }, 'Posúdiť žiadosť');
   const poslednaZmena = subory.reduce((m, f) => (f.nahrate > m ? f.nahrate : m), '');
@@ -171,7 +173,8 @@ async function kresliSpis(id) {
       el('div', {}, el('p', { class: 'tlmene male' }, `${s.cislo} · výzva ${s.vyzva} · `, el('b', {}, STAV_SPISU[s.stav] ?? s.stav)),
         el('h2', {}, s.nazov ?? 'Bez názvu'),
         el('p', { class: 'tlmene' }, `${s.ziadatel ?? 'žiadateľ neznámy'}${s.ico ? `, IČO ${s.ico}` : ''} · prijaté ${datum(s.prijate)} · ${s.zdroj}${s.formularZdroj ? ` · formulár: ${s.formularZdroj}` : ''}`)),
-      el('div', { class: 'akcie' }, el('label', { class: 'prepinac', title: stavApp?.modelDostupny ? '' : 'Lokálny model nebeží' }, llm, 'Čítať prílohy lokálnym modelom'), posud)),
+      el('div', { class: 'akcie' }, el('label', { class: 'prepinac', title: stavApp?.modelDostupny ? '' : 'Lokálny model nebeží' }, llm, 'Čítať prílohy lokálnym modelom'),
+        el('label', { class: 'prepinac', title: TIP_FORMALNE }, formalne, 'Kontrolovať aj podpisy'), posud)),
     d.suhrn ? el('p', { class: 'suhrn' }, d.suhrn) : null,
     s.maFormular ? null : el('div', { class: 'pozn' }, 'Spis nemá údaje formulára žiadosti. Doplňte formulár (.json) alebo založte podanie s kódom žiadosti z ITMS21+. Bez formulára sa žiadosť nedá posúdiť.'),
     el('div', { class: 'mriezka spis' }, boxPodklady(id, subory, sloty), boxPrilohy(prilohyStav, sloty)),

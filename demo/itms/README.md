@@ -7,7 +7,7 @@ Kontrolór prijme osem súborov jedným nahratím. Na obrazovke vidí, ktorému 
 1. Spustite `npm start` z koreňa projektu s Node.js 24 a dostupným programom `pdftotext`. Otvorte [Novú žiadosť v podateľni](http://127.0.0.1:5177/#p/nova).
 2. Stlačte **Stiahnuť ukážkové podanie (ZIP)** alebo použite [01-komplet.zip](01-komplet.zip). Pretiahnite ZIP do formulára a stlačte **Prijať podanie**. Alternatívne otvorte [priečinok subory](subory/) a vyberte všetkých osem súborov naraz. Pole pre kód ITMS nechajte prázdne.
 3. V novom spise skontrolujte obec, názov projektu a osem súborov. Pri prílohách 3, 6, 7 a 8 má byť zelený výsledok kontroly prítomnosti. Cez **Text** pri rozpočte možno otvoriť prečítaný hárok a porovnať ho s kalkuláciou cien.
-4. Na opakovateľnú skúšku vypnite **Čítať prílohy lokálnym modelom** a stlačte **Posúdiť žiadosť**. Pozrite výpočet úspory z 119,0248 na 54,8423 MWh/rok. Pomocou nálezov vidíte aj body, ktoré vyžadujú kontrolu človekom. Pri podpise treba prezrieť originál a jeho osvedčenie.
+4. Na opakovateľnú skúšku vypnite **Čítať prílohy lokálnym modelom** a stlačte **Posúdiť žiadosť**. Pozrite výpočet úspory z 119,0248 na 54,8423 MWh/rok. Pomocou nálezov vidíte aj body, ktoré vyžadujú kontrolu človekom. Podpisy softvér hodnotí, len keď je zapnutý model aj prepínač **Kontrolovať aj podpisy**. Podpis potom pošle človeku, ktorý prezrie originál a jeho osvedčenie.
 
 Pri samostatnej skúške obsahových pravidiel 20. 11. 2026 model `qwen3.5:9b` rozpoznal administratívnu budovu (L07). Vlastníctvo ostalo na overenie v katastri (G10). Plnomocenstvo (L01) posunul kontrolórovi na preverenie rozsahu a podpisov. Tieto kontroly na skúšobnom počítači trvali 18 sekúnd. Nahratie dokumentov a prvý prehľad ich prítomnosti fungujú aj pri vypnutom modeli.
 

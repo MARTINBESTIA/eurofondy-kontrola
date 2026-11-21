@@ -458,6 +458,7 @@
             "vzor": "podpis|(^|\\n)[ \\t_.…]*(splnomocnite[lľ]|starost[ao]|primátor(ka)?|štatutárn\\S* orgán\\S*)[ \\t_.…]*((splnomocnen(ec|kyňa)|poveren(ec|kyňa))[ \\t_.…]*)?(\\n|$)",
             "nesmie": "podpis\\S* splnomocnen(ca|ej|ého)",
             "vizualne": true,
+            "formalna": true,
             "vzorOkolie": 1
           },
           {
@@ -468,6 +469,7 @@
             "nazov": "podpis splnomocnenej osoby (splnomocnenca)",
             "vzor": "podpis\\S* (splnomocnen|poveren)(ca|ej|ého)|prijímam",
             "vizualne": true,
+            "formalna": true,
             "vzorOkolie": 1
           },
           {

@@ -94,6 +94,8 @@ export interface Nalez {
   pravidlo: string; ppp: number | null; nazov: string; druh: Pravidlo['druh'] | 'rucne' | 'verzia'; stav: Stav;
   zdovodnenie: string; dokaz?: string; hodnoty?: Record<string, number | string | null>;
   citacia: Citacia; overenieZdroj?: string;
+  /** Formálne náležitosti (podpisy), ktoré sa pri vypnutej kontrole formálnych náležitostí nekontrolovali. */
+  vynechaneFormalne?: string[];
   okamih?: Podmienka['okamih'];
   doklady?: Doklad[];
   /** pravidlo_zmenene = starší posudok, ktorého pravidlo sa odvtedy zmenilo: doklady k nemu sa už nedajú zrekonštruovať. */
@@ -168,7 +170,7 @@ export interface Pole {
   moznosti?: { hodnota: string; nazov: string }[]; napoveda?: string;
 }
 export interface Pripad { id: string; nazov: string; podnazov: string; stitok?: string }
-export interface VysledokKontroly { stav: Stav; zdovodnenie: string; hodnoty?: Record<string, number | string | null>; dokaz?: string }
+export interface VysledokKontroly { stav: Stav; zdovodnenie: string; hodnoty?: Record<string, number | string | null>; dokaz?: string; vynechaneFormalne?: string[] }
 
 /** Modul = jeden krok procesu (žiadosť, obstarávanie, platba, ukazovatele, zmena, plánovanie). */
 export interface Modul<V = any> {
@@ -203,6 +205,8 @@ export type Navrh = 'bez_zisteni' | 'ciastocne_overene' | 'vyzva_na_doplnenie' |
 
 export interface Posudok {
   ziadostKod: string; balik: string; verziaBalika: string; cas: string; trvanieMs: number; model: string | null;
+  /** false = formálne náležitosti (podpisy) sa nekontrolovali. Starším posudkom chýba, tie ich kontrolovali vždy. */
+  formalne?: boolean;
   nalezy: Nalez[]; navrh: Navrh; zhrnutie: string; pocty: Record<Stav, number>;
   formularItms?: { nazov: string; text: string };
   /** Znenie výzvy vybrané podľa kola žiadosti (len balíky s verziami). */

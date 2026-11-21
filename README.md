@@ -112,6 +112,15 @@ s riešením v osobitnom priečinku, nájdete v [demo/nova-ziadost/README.md](de
   včasnosť sa posudzuje podľa odoslania do e-schránky poskytovateľa (MD č. 21) a neskorší dátum by vybral
   neskoršie kolo, teda iné znenie výzvy (pri Zmene č. 3 napr. bez povinnej Prílohy č. 9). Včasnosť (F01),
   harmonogram (D14) aj výber znenia (VER-KOLO) vtedy idú na preverenie kontrolórovi.
+- **Formálne náležitosti (podpisy).** Prepínač **Kontrolovať aj podpisy** je predvolene vypnutý. Softvér vtedy
+  kontroluje obsah podľa požiadaviek výzvy, pri plnomocenstve (L01) napr. označenie osôb, rozsah a dátum.
+  Náležitosti s príznakom `formalna` v balíku (podpisy) nehľadá, nález ich vymenuje ako nekontrolované a výrok
+  posudku potom nikdy nie je „bez zistení“, najviac „čiastočne overené“. CKO uvádza, že o žiadosti rozhoduje
+  jej obsah a samotné formálne nedostatky nesmú viesť k neschváleniu. Ak však pre chýbajúci podpis nemožno
+  konštatovať splnenie podmienky, už nejde len o formu (Všeobecná informácia k ŽoNFP, odsek o formálnych
+  nedostatkoch v `data/zdroje/CKO-vseobecna-informacia-ZoNFP/`). V ostrej prevádzke treba prepínač zapnúť,
+  podpisy potom posúdi človek zo skenu. Kvalifikovaný elektronický podpis formulára pri doručení softvér
+  nekontroluje ani so zapnutým prepínačom; patrí k podmienkam doručenia riadne a včas (MD č. 21, kap. 2.3).
 - **Výsledky sa ukladajú.** Každý posudok ide do auditnej tabuľky `posudky` s väzbou na spis. Rozhodnutie
   kontrolóra (splnila / výzva na doplnenie / nesplnila) sa ukladá s poznámkou. Rozhodnutie proti návrhu
   softvéru vyžaduje poznámku a v prehľade výzvy sa počíta zvlášť. Čísla spisov `POD-RRRR-NNNN` sa po

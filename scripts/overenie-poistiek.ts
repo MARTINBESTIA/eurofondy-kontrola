@@ -1,7 +1,7 @@
 // Cielené overenie poistiek na konkrétnych úryvkoch: bez modelu sa skontroluje, či úryvok,
 // ktorý model v teste uviedol namiesto chýbajúcej náležitosti, poistky odmietnu,
 // a či správny úryvok z úplného dokumentu prejde. Spustenie: node scripts/overenie-poistiek.ts
-import { nacitajBalik, overUryvok, overVerdikt, verzieBalika, vyhodnotNalezitosti, type Nalezitost } from '../src/core/posud.ts';
+import { nacitajBalik, nalezitostiNaKontrolu, overUryvok, overVerdikt, verzieBalika, vyhodnotNalezitosti, vyrokPosudku, type Nalezitost } from '../src/core/posud.ts';
 import { dokladyPriloh } from '../src/moduly/zonfp/doklady-priloh.ts';
 import { KONTROLY } from '../src/moduly/zonfp/kontroly.ts';
 import type { Doklad, Nalez, Ziadost } from '../src/core/typy.ts';
@@ -95,6 +95,31 @@ const vyhodnotenia: [string, ReturnType<typeof vyhodnotNalezitosti>, string][] =
 for (const [nazov, r, ocak] of vyhodnotenia) {
   if (r.stav !== ocak) zle++;
   console.log(`${r.stav === ocak ? 'OK ' : 'ZLE'} ${nazov}: ${r.stav} (má byť ${ocak}) – ${r.zdovodnenie.slice(0, 140)}`);
+}
+
+// Prepínač formálnych náležitostí (21. 11. 2026): vypnutý = podpisy L01 sa nehľadajú, obsah áno,
+// chyba obsahu ostáva chybou a výrok posudku nesmie byť „bez zistení“.
+const bezFormalnych = nalezitostiNaKontrolu(L01, false);
+const sFormalnymi = nalezitostiNaKontrolu(L01, true);
+const obsah = bezFormalnych.kontrolovane;
+const iDatum = obsah.findIndex((n) => n.nazov.startsWith('dátum udelenia'));
+const obsahUplny = vyhodnotNalezitosti(obsah, hladanie([], obsah), vzor1a, 'test', 0, bezFormalnych.vynechane);
+const obsahBezDatumu = vyhodnotNalezitosti(obsah, hladanie([iDatum], obsah), bezDatumu, 'test', 0, bezFormalnych.vynechane);
+const splneny = (pravidlo: string, vynechaneFormalne?: string[]): Nalez => ({ pravidlo, ppp: 1, nazov: '', druh: 'llm', stav: 'splnene', zdovodnenie: '', citacia: { dokument: '', cast: '', znenie: '' }, ...(vynechaneFormalne ? { vynechaneFormalne } : {}) });
+const vyrokBezPodpisov = vyrokPosudku([splneny('D01'), splneny('L01', bezFormalnych.vynechane)]);
+const vyrokSPodpismi = vyrokPosudku([splneny('D01'), splneny('L01')]);
+const formalne: [string, boolean, string][] = [
+  ['L01 v balíku: formálne sú práve dva podpisy a oba sú vizuálne', L01.filter((n) => n.formalna).length === 2 && L01.filter((n) => n.formalna).every((n) => n.vizualne), L01.filter((n) => n.formalna).map((n) => n.nazov).join('; ')],
+  ['vypnutý prepínač: kontroluje sa obsah bez podpisov', bezFormalnych.vynechane.length === 2 && obsah.length === L01.length - 2 && obsah.every((n) => !n.formalna), `${obsah.length} kontrolovaných, ${bezFormalnych.vynechane.length} vynechané`],
+  ['zapnutý prepínač: kontrolujú sa všetky náležitosti', sFormalnymi.vynechane.length === 0 && sFormalnymi.kontrolovane.length === L01.length, `${sFormalnymi.kontrolovane.length} kontrolovaných`],
+  ['vypnutý, obsah úplný: splnené, ale podpisy vymenované ako nekontrolované', obsahUplny.stav === 'splnene' && obsahUplny.zdovodnenie.includes('Formálne náležitosti sa nekontrolovali') && obsahUplny.vynechaneFormalne?.length === 2, `${obsahUplny.stav} – ${obsahUplny.zdovodnenie.slice(0, 140)}`],
+  ['vypnutý, chýba dátum: chyba obsahu ostáva nesplnená', obsahBezDatumu.stav === 'nesplnene', `${obsahBezDatumu.stav} – ${obsahBezDatumu.zdovodnenie.slice(0, 100)}`],
+  ['výrok s vynechanými podpismi je najviac čiastočne overené', vyrokBezPodpisov.navrh === 'ciastocne_overene' && vyrokBezPodpisov.zhrnutie.includes('Formálne náležitosti (podpisy) sa nekontrolovali'), `${vyrokBezPodpisov.navrh} – ${vyrokBezPodpisov.zhrnutie.slice(0, 140)}`],
+  ['výrok bez vynechaných podpisov ostáva bez zistení', vyrokSPodpismi.navrh === 'bez_zisteni', vyrokSPodpismi.navrh],
+];
+for (const [nazov, ok, detail] of formalne) {
+  if (!ok) zle++;
+  console.log(`${ok ? 'OK ' : 'ZLE'} ${nazov}: ${detail}`);
 }
 
 // Doklady z prílohy: citát dostane len text, ktorý v súbore naozaj je, s riadkom, na ktorom je.

@@ -110,7 +110,8 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
     if (c[2] === 'posud') {
       const v = pod.ziadostSpisu(db, id);
       const formular = pod.zdrojFormulara(db, s);
-      const { balik, posudok } = await posudPodlaKola(v, s.vyzva, zonfp, { llm: b.llm !== false });
+      // Formálne náležitosti (podpisy) len na výslovnú žiadosť kontrolóra; predvolene sa kontroluje obsah.
+      const { balik, posudok } = await posudPodlaKola(v, s.vyzva, zonfp, { llm: b.llm !== false, formalne: b.formalne === true });
       const p = dolozPosudok(posudok, v, formular, balik);
       const r = vlozSpisovy.run(p.cas, zonfp.id, p.ziadostKod, p.balik, p.verziaBalika, p.model, p.navrh, 0, p.trvanieMs, JSON.stringify(naAudit(zonfp, p)), id);
       pod.ulozPosudok(db, id, Number(r.lastInsertRowid), p.navrh);
@@ -201,7 +202,7 @@ const server = http.createServer(async (req, res) => {
         const upravena = !!b.formular;
         if (b.formular) v = m.zFormulara(v, b.formular);
         if (b.prilohy !== undefined) (v as any).prilohy = b.prilohy;
-        const { posudok: p } = await posudPodlaKola(v, m.balikVyzva ?? VYZVA, m, { llm: b.llm !== false });
+        const { posudok: p } = await posudPodlaKola(v, m.balikVyzva ?? VYZVA, m, { llm: b.llm !== false, formalne: b.formalne === true });
         vloz.run(p.cas, m.id, p.ziadostKod, p.balik, p.verziaBalika, p.model, p.navrh, upravena ? 1 : 0, p.trvanieMs, JSON.stringify(naAudit(m, p)));
         return json(res, 200, { posudok: p, titulok: m.titulok(v), suhrn: m.suhrn?.(v) ?? '', prilohy: m.prilohy(v), vystupy: m.vystupy?.(v, p.nalezy) ?? [], skutocnost: upravena ? null : m.skutocnost?.(zaklad) ?? null });
       }

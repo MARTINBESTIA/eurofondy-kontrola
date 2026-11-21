@@ -108,8 +108,10 @@ export function zoznamBalikov(): { vyzvaKod: string; modul: string; verzia: stri
  * vzorOkolie: ak úryvok vzoru nezodpovedá, vzor aj zákaz sa skúsia na úryvku spolu s toľkými susednými riadkami.
  *   Len pre podpisy: model cituje meno pod čiarou („Ing. X, starosta“), slovo „podpis“ je o riadok vyššie.
  *   Nezapínať pri sumách a údajoch, kde susedný riadok nesie iný údaj (popisok tabuľky by „potvrdil“ zlé číslo).
+ * formalna: formálna náležitosť (podpis, pečiatka), nie údaj z obsahu dokumentu. Kontroluje sa len pri zapnutej
+ *   kontrole formálnych náležitostí; inak sa vynechá a nález aj výrok posudku ju uvedú ako nekontrolovanú.
  */
-export interface Nalezitost { nazov: string; vzor?: string; nesmie?: string; nesmieRiadok?: string; vizualne?: boolean; vzorOkolie?: number }
+export interface Nalezitost { nazov: string; vzor?: string; nesmie?: string; nesmieRiadok?: string; vizualne?: boolean; vzorOkolie?: number; formalna?: boolean }
 
 const normRiadok = (x: string) => x.toLowerCase().replace(/[\s"„“”'’‚‘.,;:()–-]+/g, '');
 /** Indexy riadkov zdrojového textu, z ktorých pochádza úryvok (porovnanie bez medzier a interpunkcie). */
@@ -161,12 +163,22 @@ function riadkyVzoru(n: Nalezitost, text: string): string[] {
   return text.split(/\r?\n/).map((r) => r.trim()).filter((r) => r && vzor.test(r) && !zakaz?.test(r) && !zakazR?.test(r));
 }
 /**
+ * Náležitosti na kontrolu. Bez kontroly formálnych náležitostí sa formálne (podpisy) vynechajú a vrátia sa ich názvy,
+ * aby ich nález aj výrok uviedli ako nekontrolované, nie ako overené.
+ */
+export function nalezitostiNaKontrolu(vsetky: Nalezitost[], formalne: boolean): { kontrolovane: Nalezitost[]; vynechane: string[] } {
+  if (formalne) return { kontrolovane: vsetky, vynechane: [] };
+  return { kontrolovane: vsetky.filter((n) => !n.formalna), vynechane: vsetky.filter((n) => n.formalna).map((n) => n.nazov) };
+}
+
+/**
  * Výsledok kontroly náležitostí z výsledkov hľadania po jednej (bez volania modelu, testovateľné samostatne).
  * „Nesplnené“ len vtedy, keď náležitosť nenašiel model ani vzor v texte. Ostatné prípady idú človeku:
  * - vizuálna náležitosť (podpis): z textu sa nedá overiť, či tam je, ani že chýba (prázdna čiara aj podpis dajú rovnaký text);
  * - model nenašiel, ale text obsahuje riadok zodpovedajúci vzoru: malý model niekedy prehliadne aj dvakrát uvedený dátum.
+ * vynechane: formálne náležitosti vynechané pri vypnutej kontrole; zdôvodnenie ich vymenuje a výsledok ich nesie ďalej.
  */
-export function vyhodnotNalezitosti(nalezitosti: Nalezitost[], vysledky: { najdene: boolean; dokaz: string }[], text: string, zdroj: string, ms = 0): VysledokKontroly {
+export function vyhodnotNalezitosti(nalezitosti: Nalezitost[], vysledky: { najdene: boolean; dokaz: string }[], text: string, zdroj: string, ms = 0, vynechane: string[] = []): VysledokKontroly {
   const najdene: string[] = []; const chybajuce: string[] = []; const vizualne: string[] = []; const sporne: string[] = [];
   nalezitosti.forEach((n, i) => {
     const r = vysledky[i];
@@ -178,13 +190,15 @@ export function vyhodnotNalezitosti(nalezitosti: Nalezitost[], vysledky: { najde
   });
   const hodnoty = { ms, najdene: najdene.length, chybajuce: chybajuce.length, sporne: sporne.length };
   const dokaz = najdene.join('\n') || undefined;
-  const aj = [sporne.length ? ` Sporné: ${sporne.join('; ')}.` : '', vizualne.length ? ` Treba pozrieť sken (podpisy sa z textu overiť nedajú): ${vizualne.join('; ')}.` : ''].join('');
-  if (chybajuce.length) return { stav: 'nesplnene', zdovodnenie: `V dokumente sa nenašlo: ${chybajuce.join('; ')}.${aj} (zdroj: ${zdroj})`, dokaz, hodnoty };
-  if (sporne.length || vizualne.length) return { stav: 'na_preverenie', zdovodnenie: `Nájdené náležitosti: ${najdene.length} z ${nalezitosti.length}.${aj} (zdroj: ${zdroj})`, dokaz, hodnoty };
-  return { stav: 'splnene', zdovodnenie: `Všetkých ${nalezitosti.length} náležitostí sa v dokumente našlo. (zdroj: ${zdroj})`, dokaz, hodnoty };
+  const nekontrolovane = vynechane.length ? ` Formálne náležitosti sa nekontrolovali (kontrola je vypnutá): ${vynechane.join('; ')}.` : '';
+  const aj = [sporne.length ? ` Sporné: ${sporne.join('; ')}.` : '', vizualne.length ? ` Treba pozrieť sken (podpisy sa z textu overiť nedajú): ${vizualne.join('; ')}.` : '', nekontrolovane].join('');
+  const vyn = vynechane.length ? { vynechaneFormalne: vynechane } : {};
+  if (chybajuce.length) return { stav: 'nesplnene', zdovodnenie: `V dokumente sa nenašlo: ${chybajuce.join('; ')}.${aj} (zdroj: ${zdroj})`, dokaz, hodnoty, ...vyn };
+  if (sporne.length || vizualne.length) return { stav: 'na_preverenie', zdovodnenie: `Nájdené náležitosti: ${najdene.length} z ${nalezitosti.length}.${aj} (zdroj: ${zdroj})`, dokaz, hodnoty, ...vyn };
+  return { stav: 'splnene', zdovodnenie: `Všetkých ${nalezitosti.length} ${vynechane.length ? 'obsahových ' : ''}náležitostí sa v dokumente našlo.${nekontrolovane} (zdroj: ${zdroj})`, dokaz, hodnoty, ...vyn };
 }
 
-async function kontrolaLlm(v: any, p: Pravidlo, modul: Modul): Promise<VysledokKontroly> {
+async function kontrolaLlm(v: any, p: Pravidlo, modul: Modul, formalne = true): Promise<VysledokKontroly> {
   const par = p.parametre ?? {};
   let text = ''; let zdroj = 'text vo formulári';
   if (par.zdroj === 'priloha') {
@@ -198,11 +212,14 @@ async function kontrolaLlm(v: any, p: Pravidlo, modul: Modul): Promise<VysledokK
   // Povinné náležitosti sa overujú po jednej: hľadať jednu vec je pre malý model spoľahlivejšie
   // než jednou otázkou zisťovať, čo z viacerých vecí chýba.
   // vizualne = z textu sa dá overiť len to, že dokument s náležitosťou počíta, nie že tam naozaj je (podpis).
-  const nalezitosti = par.nalezitosti as Nalezitost[] | undefined;
-  if (nalezitosti?.length) {
+  // formalna = pri vypnutej kontrole formálnych náležitostí sa vôbec nehľadá, nález ju uvedie ako nekontrolovanú.
+  const vsetky = par.nalezitosti as Nalezitost[] | undefined;
+  if (vsetky?.length) {
+    const { kontrolovane, vynechane } = nalezitostiNaKontrolu(vsetky, formalne);
+    if (!kontrolovane.length) return { stav: 'mimo_podkladov', zdovodnenie: `Pravidlo kontroluje len formálne náležitosti a ich kontrola je vypnutá: ${vynechane.join('; ')}.`, vynechaneFormalne: vynechane };
     const vysledky: { najdene: boolean; dokaz: string }[] = []; let ms = 0;
-    for (const n of nalezitosti) { const r = await najdiVTexte(n, text); ms += r.ms; vysledky.push(r); }
-    return vyhodnotNalezitosti(nalezitosti, vysledky, text, zdroj, ms);
+    for (const n of kontrolovane) { const r = await najdiVTexte(n, text); ms += r.ms; vysledky.push(r); }
+    return vyhodnotNalezitosti(kontrolovane, vysledky, text, zdroj, ms, vynechane);
   }
 
   return overVerdikt(await posudText(p.otazka!, text, modul.kontext(v)), text, par, zdroj);
@@ -230,8 +247,12 @@ export function overVerdikt(o: { stav: string; zdovodnenie: string; dokaz: strin
   return { stav, zdovodnenie: `${o.zdovodnenie}${pozn} (zdroj: ${zdroj})`, dokaz: dolozene ? o.dokaz : undefined, hodnoty };
 }
 
-/** zmenyVyzvy a dnes: pevný výsledok kontroly zmien a dátum namiesto súboru a dnešného dňa (testy). */
-export interface MoznostiPosudku { llm?: boolean; iba?: string[]; zmenyVyzvy?: KontrolaZmien | null; dnes?: string }
+/**
+ * formalne: false = formálne náležitosti (podpisy) sa nekontrolujú, kontroluje sa len obsah; výrok potom nesmie znieť
+ * ako úplné „bez zistení“. Predvolene sa kontrolujú (podateľňa posiela false, kým kontrolór prepínač nezapne).
+ * zmenyVyzvy a dnes: pevný výsledok kontroly zmien a dátum namiesto súboru a dnešného dňa (testy).
+ */
+export interface MoznostiPosudku { llm?: boolean; formalne?: boolean; iba?: string[]; zmenyVyzvy?: KontrolaZmien | null; dnes?: string }
 
 export async function posud(v: any, balik: BalikPravidiel, modul: Modul, m: MoznostiPosudku = {}): Promise<Posudok> {
   const t0 = Date.now();
@@ -240,7 +261,7 @@ export async function posud(v: any, balik: BalikPravidiel, modul: Modul, m: Mozn
     if (m.iba && !m.iba.includes(p.id)) continue;
     let r: VysledokKontroly;
     try {
-      if (p.druh === 'llm' && p.kontrola === 'llm_text') r = m.llm === false ? { stav: 'mimo_podkladov', zdovodnenie: 'Kontrola textu modelom je vypnutá.' } : await kontrolaLlm(v, p, modul);
+      if (p.druh === 'llm' && p.kontrola === 'llm_text') r = m.llm === false ? { stav: 'mimo_podkladov', zdovodnenie: 'Kontrola textu modelom je vypnutá.' } : await kontrolaLlm(v, p, modul, m.formalne !== false);
       else {
         const k = modul.kontroly[p.kontrola];
         // Kontroly druhu llm s vlastnou implementáciou dostanú príznak, či smú volať model.
@@ -251,7 +272,7 @@ export async function posud(v: any, balik: BalikPravidiel, modul: Modul, m: Mozn
   }
   // Výber pravidiel (iba) je čiastková kontrola, napr. len prílohy po nahratí; úplnosť sa posudzuje len pri celom posudku.
   if (!m.iba) nalezy.push(...nalezyInventara(balik, modul));
-  return { ziadostKod: modul.titulok(v).kod, balik: balik.id, verziaBalika: balik.verzia, cas: new Date().toISOString(), trvanieMs: Date.now() - t0, model: m.llm === false ? null : MODEL, nalezy, ...vyrokPosudku(nalezy) };
+  return { ziadostKod: modul.titulok(v).kod, balik: balik.id, verziaBalika: balik.verzia, cas: new Date().toISOString(), trvanieMs: Date.now() - t0, model: m.llm === false ? null : MODEL, formalne: m.formalne !== false, nalezy, ...vyrokPosudku(nalezy) };
 }
 
 const KEDY: Record<Exclude<Podmienka['okamih'], 'konanie'>, string> = {
@@ -289,16 +310,20 @@ export function vyrokPosudku(nalezy: Nalez[]): Pick<Posudok, 'navrh' | 'zhrnutie
   // Poradie závažnosti: nesplnené pravidlo, potom chýbajúci podklad, potom bod pre človeka.
   // Keď sa z podkladov neoverilo nič, výsledok nesmie vyzerať ako „v poriadku“.
   // Ak časť pravidiel z podkladov overiť nejde, výsledok nesmie znieť ako úplné „bez zistení“.
-  const navrh: Navrh = pocty.nesplnene ? 'nesplnene_podmienky' : pocty.chyba_podklad ? 'vyzva_na_doplnenie' : pocty.na_preverenie || !pocty.splnene ? 'na_preverenie' : pocty.mimo_podkladov ? 'ciastocne_overene' : 'bez_zisteni';
+  // To isté platí, keď sa vypnutím kontroly formálnych náležitostí vynechali podpisy: obsah môže byť v poriadku, podpis nie.
+  const mimo = nalezy.filter((n) => n.stav === 'mimo_podkladov').map((n) => n.pravidlo);
+  const bezFormalnych = nalezy.filter((n) => n.vynechaneFormalne?.length).map((n) => n.pravidlo);
+  const navrh: Navrh = pocty.nesplnene ? 'nesplnene_podmienky' : pocty.chyba_podklad ? 'vyzva_na_doplnenie' : pocty.na_preverenie || !pocty.splnene ? 'na_preverenie' : mimo.length || bezFormalnych.length ? 'ciastocne_overene' : 'bez_zisteni';
   const id = (n: Nalez) => (n.ppp ? `PPP č. ${n.ppp} (${n.pravidlo})` : n.pravidlo);
   const vety: Record<Navrh, string> = {
     nesplnene_podmienky: `Nesplnené: ${nalezy.filter((n) => n.stav === 'nesplnene').map(id).join(', ')}.`,
     vyzva_na_doplnenie: `Chýbajú podklady: ${nalezy.filter((n) => n.stav === 'chyba_podklad').map((n) => n.pravidlo).join(', ')}.`,
     na_preverenie: pocty.na_preverenie ? `Bez jasného porušenia, ale ${pocty.na_preverenie} ${pocty.na_preverenie === 1 ? 'bod musí' : pocty.na_preverenie < 5 ? 'body musia' : 'bodov musí'} posúdiť človek.` : 'Z dostupných podkladov sa nedalo overiť žiadne pravidlo, treba doplniť údaje.',
-    ciastocne_overene: `V ${pocty.splnene} overených bodoch bez zistení, ale ${pocty.mimo_podkladov} bodov sa z podkladov overiť nedá (${nalezy.filter((n) => n.stav === 'mimo_podkladov').map((n) => n.pravidlo).join(', ')}). Nie je to súhlas s celým prípadom.`,
+    ciastocne_overene: `V ${pocty.splnene} overených bodoch bez zistení, ale ${mimo.length ? `${mimo.length} bodov sa z podkladov overiť nedá (${mimo.join(', ')})` : 'formálne náležitosti sa nekontrolovali'}. Nie je to súhlas s celým prípadom.`,
     bez_zisteni: 'Všetky pravidlá overené, bez zistení.',
   };
   const rucne = nalezy.filter((n) => n.druh === 'rucne').length;
-  const zhrnutie = `${vety[navrh]} Overené z podkladov: ${pocty.splnene + pocty.nesplnene} pravidiel. Neoverené, lebo to z podkladov nejde: ${pocty.mimo_podkladov}.${rucne ? ` Podmienky výzvy, ktoré softvér nekontroluje vôbec alebo len sčasti: ${rucne}.` : ''}`;
+  const formalne = bezFormalnych.length ? ` Formálne náležitosti (podpisy) sa nekontrolovali, kontrola je vypnutá: ${bezFormalnych.join(', ')}.` : '';
+  const zhrnutie = `${vety[navrh]}${formalne} Overené z podkladov: ${pocty.splnene + pocty.nesplnene} pravidiel. Neoverené, lebo to z podkladov nejde: ${pocty.mimo_podkladov}.${rucne ? ` Podmienky výzvy, ktoré softvér nekontroluje vôbec alebo len sčasti: ${rucne}.` : ''}`;
   return { navrh, zhrnutie, pocty };
 }

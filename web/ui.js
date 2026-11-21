@@ -41,6 +41,7 @@ export const POKRYTIE = { uplne: 'pokrytá pravidlami', ciastocne: 'pokrytá či
 export const OKAMIH = { konanie: 'v konaní o žiadosti', pred_zmluvou: 'pred uzavretím zmluvy', realizacia: 'počas realizácie' };
 
 export const VYSVETLENIE_PPP = 'PPP je podmienka poskytnutia príspevku. Číslo odkazuje na podmienku vo výzve. Jednu podmienku môže overovať viac kontrolných bodov.';
+export const TIP_FORMALNE = 'Vypnuté: softvér kontroluje obsah podľa požiadaviek výzvy a podpisy na prílohách nehodnotí, preto výrok nikdy nie je „bez zistení“. V ostrej prevádzke zapnite: podpisy potom posúdi človek zo skenu, z textu sa overiť nedajú.';
 
 /** Súbor sa uvádza raz. Každá citácia má vlastnú polohu aj pri opakujúcich sa hodnotách. */
 export function kresliDoklady(doklady, formularItms) {
@@ -122,7 +123,7 @@ export function kresliVerdikt(v, p) {
       el('div', { class: 'pruh' }, el('span', { style: `width:${overitelne ? ((p.pocty.splnene + p.pocty.nesplnene) / overitelne) * 100 : 0}%` })),
       el('span', { class: 'male' }, `Overené ${p.pocty.splnene + p.pocty.nesplnene} z ${overitelne} bodov, ktoré sa na prípad vzťahujú`)),
     p.vyberVerzie ? el('div', { class: 'male', title: 'Zmena výzvy platí pre aktuálne posudzované obdobie a nasledujúce (§ 14 ods. 4 zákona č. 121/2022 Z. z.)' }, `Znenie výzvy: ${p.vyberVerzie.zdovodnenie}`) : null,
-    el('div', { class: 'tlmene male' }, `Pravidlá: ${p.verziaBalika} · ${p.model ? `model ${p.model}` : 'bez modelu'} · ${(p.trvanieMs / 1000).toFixed(1)} s · softvér navrhuje, rozhoduje človek`));
+    el('div', { class: 'tlmene male' }, `Pravidlá: ${p.verziaBalika} · ${p.model ? `model ${p.model}` : 'bez modelu'}${p.formalne === false ? ' · podpisy nekontrolované' : ''} · ${(p.trvanieMs / 1000).toFixed(1)} s · softvér navrhuje, rozhoduje človek`));
 }
 
 /** Zistenia zoskupené podľa stavu; nesplnené, chýbajúce a na preverenie sú rozbalené. */
