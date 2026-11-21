@@ -102,6 +102,12 @@ export interface SuladPrilohy8 {
   dalsieBudovy: { harok: string; bunka: string; hlaska: string; maxBudov: number };
   /** Bunky, v ktorých vzor vypíše upozornenie (nesplnená HzP, výška NFP, percentuálny limit). */
   hlasky: string[];
+  /**
+   * Hlásenia hárku budovy (harok s {n}, n = 1 až počet budov): neoprávnená kategória alebo nesplnená podmienka budovy (B13),
+   * úspora primárnej energie pod 30 % alebo nezlepšená trieda (I13). Pri nich vzorec M208 vynuluje výdavky budovy, takže
+   * nulová suma nie je neúplný zošit. Skrytý hárok (MU Budova 2 až 7 vo vzore) sa nečíta, jeho hlásenie potom chýba.
+   */
+  hlaskyBudov?: { harok: string; bunky: string[] };
   opatrenieBudova: string; opatrenieOze: string;
 }
 const eur2 = (n: number) => n.toLocaleString('sk-SK', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' EUR';
@@ -140,6 +146,10 @@ export function suladPrilohy8(z: Ziadost, p: Pravidlo, priPorovnani?: (subor: Pr
   }
   if (neprecitane.length) return { stav: 'na_preverenie', zdovodnenie: `Zošit ${sub.nazov} uvádza ${n} budov (bunka ${s.pocetBudov}), ale z hárkov ${neprecitane.map((x) => `„${x}“`).join(', ')} sa nedala prečítať vypočítaná suma (bunka ${s.dalsieBudovy.bunka}). Skryté hárky sa nenačítavajú. Súlad treba overiť ručne.` };
   for (const a of s.hlasky) { const t = h[a]?.trim(); if (t) hlasky.push(`„${t}“ (${bunka(zf.harok, a)})`); }
+  if (s.hlaskyBudov) for (let i = 1; i <= n; i++) {
+    const harok = s.hlaskyBudov.harok.replace('{n}', String(i));
+    for (const a of s.hlaskyBudov.bunky) { const t = bunky[harok]?.[a]?.trim(); if (t) hlasky.push(`„${t}“ (${bunka(harok, a)})`); }
+  }
 
   const wB = (wB1 as number) + dalsie.reduce((x, d) => x + d.suma, 0), wOze = wO as number;
   const rB = z.rozpocet.filter((r) => r.opatrenie === s.opatrenieBudova), rO = z.rozpocet.filter((r) => r.opatrenie === s.opatrenieOze);

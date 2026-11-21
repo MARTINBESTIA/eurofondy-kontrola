@@ -45,7 +45,7 @@ Návrh „na preverenie“ pri úplnej žiadosti je správny: softvér niektoré
 | 08 | Predložená v deň uzavretia kola na hranici znení | 15. 8. 2025 | Bratislavský kraj (VRR) | zmena č. 2 | **na preverenie** | VER-KOLO, VER-SCHVALENIE |
 | 09 | Predložená tesne pred účinnosťou zmeny č. 3 | 19. 8. 2025 | Bratislavský kraj (VRR) | zmena č. 3 | **na preverenie** | VER-ZMENA |
 | 10 | Žiadaný NFP pod minimom | 12. 11. 2025 | Bratislavský kraj (VRR) | zmena č. 3 | **nesplnené podmienky** | D12 nesplnene |
-| 11 | Úspora primárnej energie pod 30 % | 22. 10. 2025 | Bratislavský kraj (VRR) | zmena č. 3 | **nesplnené podmienky** | D07b nesplnene, D13 nesplnene |
+| 11 | Úspora primárnej energie pod 30 % | 22. 10. 2025 | Bratislavský kraj (VRR) | zmena č. 3 | **nesplnené podmienky** | D07b nesplnene, D13 nesplnene, P08b na preverenie |
 | 12 | Prekročená hodnota za peniaze | 3. 12. 2025 | Bratislavský kraj (VRR) | zmena č. 3 | **nesplnené podmienky** | D07c nesplnene |
 | 13 | Neoprávnený žiadateľ (s.r.o.) | 19. 11. 2025 | Bratislavský kraj (VRR) | zmena č. 3 | **nesplnené podmienky** | D01 nesplnene |
 | 14 | Súbory bez čísla prílohy v názve | 10. 12. 2025 | Bratislavský kraj (VRR) | zmena č. 3 | **na preverenie** | P03 na preverenie, P06 na preverenie, P07 na preverenie, P08 na preverenie, P08b na preverenie |
@@ -145,7 +145,7 @@ Súbory v `10-nizky-nfp.zip`: `Formular_ZoNFP_NFP401201TS10.json`, `Priloha_3_Uz
 
 Obec, VRR, predložená 22. 10. 2025. Len výmena okien a rekonštrukcia vykurovania, úspora primárnej energie 22 %.
 
-**Prečo:** PPP č. 7: úspora primárnej energie musí byť aspoň 30 %. D07b je nesplnené; zošit Prílohy č. 8 pri takej úspore nepočíta oprávnené výdavky.
+**Prečo:** PPP č. 7: úspora primárnej energie musí byť aspoň 30 %. D07b je nesplnené. Zošit Prílohy č. 8 pri takej úspore oprávnené výdavky budovy nepočíta a hlási to (MU Budova 1!I13), preto P08b ide na preverenie.
 
 Súbory v `11-nizka-uspora.zip`: `Formular_ZoNFP_NFP401201TS11.json`, `Priloha_3_Uznesenie_Overovany.pdf`, `Priloha_6_Energeticky_certifikat.pdf`, `Priloha_7_Projektova_dokumentacia.pdf`, `Priloha_8_Dokumentacia_k_OV.xlsm`. Žiadaný NFP 260 514,00 EUR, úspora primárnej energie 22 %.
 

@@ -86,9 +86,12 @@ podaní podľa oficiálnych vzorov, s očakávaným výsledkom pri každom, je v
   úspory (PPP č. 13) a podmienok Hodnoty za peniaze: budova M210 (+ M207 ďalších budov podľa B13), OZE M270.
   P08b ich porovná so súčtom položiek formulára za opatrenie 2.1.2 a 2.2.2. Tolerancia je pol centa na položku
   (formulár zaokrúhľuje položky na centy). Pri zhode = splnené. Rozdiel, hlásenie zošita (D17, D212, A17,
-  A202, A262), neprečítaná budova alebo výdavok mimo oboch opatrení = na preverenie. Pri zhode formulára
-  so sumou pred krátením (M208) to zdôvodnenie povie. Zošit, ktorý nič nevypočítal (nevyplnený hárok
-  MU Budova), = chýba podklad („absencia výpočtu výdavkov“ podľa Prílohy č. 2). Nesúlad nikdy nevedie
+  A202, A262, hárok MU Budova B13 a I13), neprečítaná budova alebo výdavok mimo oboch opatrení = na preverenie.
+  Pri zhode formulára so sumou pred krátením (M208) to zdôvodnenie povie. Hlásenie MU Budova B13 (neoprávnená
+  kategória, nesplnená podmienka budovy) alebo I13 (úspora primárnej energie pod 30 %, nezlepšená trieda)
+  vzorcom M208 vynuluje výdavky budovy. Zošit je vtedy vyplnený, len budova nespĺňa podmienku. Zošit, ktorý nič
+  nevypočítal bez hlásenia (nevyplnený hárok MU Budova), = chýba podklad („absencia výpočtu výdavkov“ podľa
+  Prílohy č. 2). Nesúlad nikdy nevedie
   k „nesplnené“, rozhoduje človek. Skryté hárky (B2–B7) sa nečítajú, preto viac budov bez čitateľného
   hárku = na preverenie.
 - **Zaradenie príloh.** Číslo v názve súboru (`Priloha_3_…`) sa berie ako vyhlásenie žiadateľa, rovnako ako
@@ -373,14 +376,16 @@ zaradenie súborov, návrh, vybrané znenie výzvy, body o znení (bez VER-ITMS 
 od prostredia) a stavy určujúcich pravidiel. Dve podania sa doplnia, v jednom kontrolór potvrdí zaradenie.
 Mäkší návrh, než sa čaká, test hlási zvlášť ako riziko falošného OK.
 
-Všetkých 15 prešlo (0 rozdielov). Pri tvorbe sada našla štyri chyby, všetky sú opravené:
+Všetkých 15 prešlo (0 rozdielov). Pri tvorbe sada našla päť chýb, všetky sú opravené:
 - bez dátumu predloženia podateľňa dopĺňala dátum nahratia, takže žiadosť dostala neskoršie kolo a iné znenie
   výzvy; to je smer k falošnému OK;
 - D07d nevedel doložiť neuvedený ukazovateľ OZE (pravidlo ho ráta ako 0 MW) a dával „na preverenie“; v ITMS21+
   uvádza len jeden z ukazovateľov PSKPRCO22a/b 41 zo 618 žiadostí s hlavnou aktivitou 2.2.2;
 - P09 (Zmena č. 2) nemal doklad prítomnosti prílohy, preto nikdy nemohol byť „splnený“;
 - generátor Prílohy č. 8 nechával prázdnu kapacitu druhého druhu OZE (vzorec H268 potom dá 0 EUR) a pri projekte
-  bez OZE odpovedal „áno“ v L60, takže zošit nekrátil o 5 p. b.
+  bez OZE odpovedal „áno“ v L60, takže zošit nekrátil o 5 p. b.;
+- P08b nečítal hlásenia hárku MU Budova (B13, I13). Pri úspore pod 30 % (prípad 11) preto vyhlásil vyplnený zošit
+  za neúplný („absencia výpočtu“, chýba podklad) a radil ho doplniť; teraz dá na preverenie so skutočnou príčinou.
 
 ## Obmedzenia
 

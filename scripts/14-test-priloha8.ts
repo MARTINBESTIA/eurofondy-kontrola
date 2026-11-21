@@ -7,9 +7,10 @@ import path from 'node:path';
 import { nacitajBalik } from '../src/core/posud.ts';
 import { xlsxNaText, xlsxBunky } from '../src/ingest/dokument.ts';
 import { KONTROLY } from '../src/moduly/zonfp/kontroly.ts';
+import { dokladyPriloh } from '../src/moduly/zonfp/doklady-priloh.ts';
 import { normalizujItms21 } from '../src/moduly/zonfp/normalizuj.ts';
 import { VZOR_PRILOHY_8, vyplnPrilohu8, type Priloha8Spec } from './lib/priloha8.ts';
-import type { Priloha, Ziadost } from '../src/core/typy.ts';
+import type { Nalez, Priloha, Ziadost } from '../src/core/typy.ts';
 
 const KOREN = path.join(import.meta.dirname, '..');
 const FIXTURE = path.join(KOREN, 'demo', 'podania', 'testy', 'Priloha_8_Obec_Vzorova.xlsm');
@@ -111,6 +112,16 @@ const pripady8b: [string, Ziadost, Priloha | undefined | null, string, RegExp?][
   ['zošit nevypočítal nič (nevyplnené MU)', zG, priloha8([zosit8b({ M208: '0', M209: '0', M210: '0', M269: '0', M270: '0' })]), 'chyba_podklad', /absenciu výpočtu/],
   ['hlásenie HzP budovy (D17), budova 0', zG, priloha8([zosit8b({ ...zhoda, M210: '0', D17: 'Budova nespĺňa podmienku Hodnoty za Peniaze.' })]), 'na_preverenie', /Hodnoty za Peniaze/],
   ['hlásenie výšky NFP (A17) pri zhode súm', zG, priloha8([zosit8b({ ...zhoda, A17: 'Projekt nespĺňa podmienku výšky NFP.' })]), 'na_preverenie', /výšky NFP/],
+  // Hlásenie hárku MU Budova (B13, I13) vynuluje M208 až M210: zošit je vyplnený, budova nespĺňa podmienku výzvy.
+  // Rada „doplniť úplne vyplnený zošit“ (absencia výpočtu) by bola nepravdivá.
+  ['úspora PE pod 30 % (MU Budova 1!I13), budova 0', zG, priloha8([zosit8b({ ...zhoda, M208: '0', M209: '0', M210: '0' }, { 'MU Budova 1': { J44: '22', I13: 'Budova nespĺňa podmienku úspory primárnej energie.' } })]),
+    'na_preverenie', /^(?![\s\S]*absenciu výpočtu)[\s\S]*„Budova nespĺňa podmienku úspory primárnej energie\.“ \(„MU Budova 1“!I13\)/],
+  ['neoprávnená kategória budovy (MU Budova 1!B13), budova 0', zG, priloha8([zosit8b({ ...zhoda, M208: '0', M209: '0', M210: '0' }, { 'MU Budova 1': { B13: 'Kategória budovy nie je oprávnená v zmysle výzvy.' } })]),
+    'na_preverenie', /^(?![\s\S]*absenciu výpočtu)[\s\S]*„Kategória budovy nie je oprávnená v zmysle výzvy\.“ \(„MU Budova 1“!B13\)/],
+  ['MU Budova 1 bez hlásení (B13 len medzera) pri zhode súm', zG, priloha8([zosit8b(zhoda, { 'MU Budova 1': { J44: '53.92', B13: ' ' } })]), 'splnene'],
+  ['B13 = 2, sumy sedia, ale MU Budova 2 hlási úsporu (I13)', zG, priloha8([zosit8b({ ...zhoda, B13: '2', M210: '204406.49' }, { 'Rozpočet B2': { M207: '10000' }, 'MU Budova 2': { I13: 'Budova nespĺňa podmienku úspory primárnej energie.' } })]),
+    'na_preverenie', /„MU Budova 2“!I13/],
+  ['B13 = 1, hlásenie nevyužitého hárku MU Budova 2 sa nečíta', zG, priloha8([zosit8b(zhoda, { 'MU Budova 2': { I13: 'Budova nespĺňa podmienku úspory primárnej energie.' } })]), 'splnene'],
   ['B13 = 2, hárok Rozpočet B2 sa nedá prečítať', zG, priloha8([zosit8b({ ...zhoda, B13: '2' })]), 'na_preverenie', /Rozpočet B2/],
   ['B13 = 2, budova B2 dopĺňa sumu 2.1.2', zG, priloha8([zosit8b({ ...zhoda, B13: '2', M210: '204406.49' }, { 'Rozpočet B2': { M207: '10000' } })]), 'splnene'],
   ['B13 = 1, ale hárok B2 má sumu', zG, priloha8([zosit8b({ ...zhoda, M210: '204406.49' }, { 'Rozpočet B2': { M207: '10000' } })]), 'na_preverenie', /sumu majú aj hárky/],
@@ -133,6 +144,17 @@ for (const [nazov, z, pr, ocak, text] of pripady8b) {
   if (!ok) zle++;
   console.log(`${ok ? '✓' : '✗'} ${nazov}: ${r.stav}${ok ? '' : ` (očakáva sa ${ocak}${text ? `, text ${text}` : ''}) – ${r.zdovodnenie}`}`);
 }
-const vsetky = pripady.length + pripady8b.length;
+// Doklad P08b (podateľňa) musí citovať aj bunku hlásenia hárku budovy, z ktorej je zdôvodnenie.
+{
+  const t = 'Budova nespĺňa podmienku úspory primárnej energie.';
+  const s = { ...zosit8b({ ...zhoda, M208: '0', M209: '0', M210: '0' }, { 'MU Budova 1': { I13: t } }), suborId: 7 };
+  const z: Ziadost = { ...zG, prilohy: { '8': { ...priloha8([s]), zaradenie: 'potvrdene' } } };
+  const r = KONTROLY[p8b.kontrola](z, p8b);
+  const doklady = dokladyPriloh(z, { ...r, pravidlo: 'P08b' } as unknown as Nalez, p8b);
+  const ok = r.stav === 'na_preverenie' && doklady.some((d) => d.suborId === 7 && d.miesto === 'Hárok „MU Budova 1“, bunka I13' && d.citat === t);
+  if (!ok) zle++;
+  console.log(`${ok ? '✓' : '✗'} doklad P08b cituje bunku hlásenia „MU Budova 1“!I13${ok ? '' : ` – ${r.stav}, ${JSON.stringify(doklady.map((d) => d.miesto))}`}`);
+}
+const vsetky = pripady.length + pripady8b.length + 1;
 console.log(zle ? `\n${zle} z ${vsetky} prípadov nesedí.` : `\nVšetkých ${vsetky} prípadov sedí.`);
 process.exit(zle ? 1 : 0);

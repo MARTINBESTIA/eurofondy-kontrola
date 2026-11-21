@@ -254,12 +254,12 @@ const P: Pripad[] = [];
   const b = uradBudova('Overovany', { plocha: 900, guPred: 300, guPo: 234 });
   P.push({ cislo: '11', slug: 'nizka-uspora', titul: 'Úspora primárnej energie pod 30 %',
     scenar: 'Obec, VRR, predložená 22. 10. 2025. Len výmena okien a rekonštrukcia vykurovania, úspora primárnej energie 22 %.',
-    preco: 'PPP č. 7: úspora primárnej energie musí byť aspoň 30 %. D07b je nesplnené; zošit Prílohy č. 8 pri takej úspore nepočíta oprávnené výdavky.',
+    preco: 'PPP č. 7: úspora primárnej energie musí byť aspoň 30 %. D07b je nesplnené. Zošit Prílohy č. 8 pri takej úspore oprávnené výdavky budovy nepočíta a hlási to (MU Budova 1!I13), preto P08b ide na preverenie.',
     ziadatel: z, miesto: { kraj: 'Bratislavský kraj', okres: 'Malacky', obec: 'Overovany' }, kategoriaRegionov: 'VRR',
     predlozenie: '2025-10-22', zaciatok: '2026-04-01', koniec: '2027-03-31',
     projekt: { nazov: 'Výmena okien a vykurovania v budove obecného úradu Overovany', popis: 'Predmetom projektu je výmena okien a dverí a rekonštrukcia vykurovacej sústavy administratívnej budovy obecného úradu Overovany vo vlastníctve obce.', ucel: 'Účelom projektu je znížiť náklady na vykurovanie budovy obecného úradu.' },
     budova: b, aktivity: [PD(12000, 250000), okna(240, 395), vykurovanie(85000, 90), osvetlenie(80, 250, 9)],
-    ocakavane: { navrh: 'nesplnene_podmienky', verzia: 'zmena3', ver: [], nalezy: { ...bez(ZAKLAD({ oze: false }), 'P08b', 'D07c'), D07b: 'nesplnene', D13: 'nesplnene' } } });
+    ocakavane: { navrh: 'nesplnene_podmienky', verzia: 'zmena3', ver: [], nalezy: { ...bez(ZAKLAD({ oze: false }), 'D07c'), D07b: 'nesplnene', D13: 'nesplnene', P08b: 'na_preverenie' } } });
 }
 {
   const z = OBEC('Obec Nákladné Testovce', 'Hlavná 30', '900 94', '0099812', 'Ing. Karol Nákladný');

@@ -314,6 +314,7 @@
             "maxBudov": 7
           },
           "hlasky": ["D17", "D212", "A17", "A202", "A262"],
+          "hlaskyBudov": { "harok": "MU Budova {n}", "bunky": ["B13", "I13"] },
           "opatrenieBudova": "2.1.2",
           "opatrenieOze": "2.2.2"
         }

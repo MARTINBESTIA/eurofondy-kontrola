@@ -743,7 +743,7 @@
       "slug": "nizka-uspora",
       "titul": "Úspora primárnej energie pod 30 %",
       "scenar": "Obec, VRR, predložená 22. 10. 2025. Len výmena okien a rekonštrukcia vykurovania, úspora primárnej energie 22 %.",
-      "preco": "PPP č. 7: úspora primárnej energie musí byť aspoň 30 %. D07b je nesplnené; zošit Prílohy č. 8 pri takej úspore nepočíta oprávnené výdavky.",
+      "preco": "PPP č. 7: úspora primárnej energie musí byť aspoň 30 %. D07b je nesplnené. Zošit Prílohy č. 8 pri takej úspore oprávnené výdavky budovy nepočíta a hlási to (MU Budova 1!I13), preto P08b ide na preverenie.",
       "zip": "11-nizka-uspora.zip",
       "subory": [
         {
@@ -796,7 +796,8 @@
           "P05": "neuplatnuje_sa",
           "P06": "splnene",
           "P07": "splnene",
-          "P08": "splnene"
+          "P08": "splnene",
+          "P08b": "na_preverenie"
         }
       }
     },
