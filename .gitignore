@@ -3,3 +3,4 @@ data/raw/
 data/app.db*
 *.log
 data/spisy/
+data/odvodene/*/zmeny-vyzvy.json

@@ -41,6 +41,8 @@ npm run test:llm          # test 2: lokálny model pri žiadostiach (asi 30 min;
 npm run test:moduly       # test 3: všetky moduly na reálnych dátach + zasadené chyby (asi 30 s)
 npm run test:llm-moduly   # test 4: lokálny model na syntetických faktúrach, výpisoch, záznamoch VO, odôvodneniach
 npm run test:podatelna    # test 5: podateľňa na demo podaniach, bez modelu (asi 3 s)
+npm run test:inventar     # inventár podmienok, poistky, verzie podľa kola a zmeny výzvy (bez siete)
+npm run zmeny             # kontrola zmien výzvy v ITMS21+ oproti posúdenému základu (len čítanie verejného API)
 npm run demo:podania      # vymyslené podania žiadostí (PDF, DOCX, JSON, ZIP) do demo/podania
 npm start                 # demo na http://127.0.0.1:5177
 ```
@@ -103,9 +105,12 @@ s ukážkovými podaniami je v [demo/podania/README.md](demo/podania/README.md).
 
 ```
 packs/<výzva>/<modul>.json     balík pravidiel: verzia, zdroje, proces, pravidlá s citáciami a prahmi
+packs/<výzva>/verzie/<id>/     archívne znenia výzvy (napr. akt2 = Zmena č. 2 pre kolá 1–78) s vlastným stavom schválenia
+packs/<výzva>/itms/stav-vyzvy.json  stav výzvy v ITMS21+, ktorý posúdil človek (základ kontroly zmien)
 packs/PSK/vyzvy.json           balík pre plánovanie výziev (celý Program Slovensko)
 src/core/typy.ts               spoločné typy (Modul, Pravidlo, Nalez, Posudok, Pole, Projekt)
-src/core/posud.ts              jadro: prejde pravidlá, spustí kontroly, zloží posudok a výrok
+src/core/posud.ts              jadro: prejde pravidlá, spustí kontroly, zloží posudok a výrok; vyberie znenie podľa kola
+src/core/zmeny.ts              kontrola zmien výzvy v ITMS21+ oproti základu (body VER-ITMS, VER-KONTROLA)
 src/moduly/spolocne.ts         načítanie dát, dátumy, formátovanie
 src/moduly/zonfp/              žiadosť a prílohy (normalizuj.ts, kontroly.ts, modul.ts)
 src/moduly/vyzvy/              plánovanie výziev
@@ -130,6 +135,9 @@ Tri vrstvy, ktoré sa dajú meniť nezávisle:
 1. **Dátová vrstva pravidiel** (`packs/`). Jeden súbor na výzvu, modul a verziu. Pravidlo má identifikátor,
    číslo PPP, druh, prahy a doslovnú citáciu s názvom dokumentu a časti. Nová verzia výzvy je nový súbor,
    kód sa nemení.
+   - Zmena výzvy platí pre kolo, v ktorom vyšla, a pre nasledujúce kolá (§ 14 ods. 4 zákona č. 121/2022 Z. z.). Posudok preto vyberie znenie podľa kola žiadosti, ktoré berie z ITMS21+, inak ho odvodí z dátumu predloženia. Nejasné kolo a znenie, ktoré ešte neschválil človek, dávajú bod na preverenie.
+   - `npm run zmeny` porovná verzie, dokumenty, PPP, termíny a aktuality výzvy v ITMS21+ so stavom, ktorý naposledy posúdil človek. Kým človek zistenú zmenu neposúdi, posudky dostanú bod VER-ITMS. Kontrola staršia ako 7 dní dá bod VER-KONTROLA.
+   - Človek zistenú zmenu posúdi a podľa potreby upraví balík. Novú verziu výzvy doplní do `itmsVerzie`. Zmenu potom prevezme príkazom `npm run zmeny -- --prevzat --poznamka "…"`.
 2. **Jadro a moduly** (`src/core`, `src/moduly`). Jadro nevie nič o konkrétnej výzve ani o type vstupu.
    Modul implementuje rozhranie `Modul`: zoznam prípadov, načítanie, polia formulára, sloty na dokumenty,
    kontroly, súhrn, porovnanie so skutočnosťou a predvyplnené výstupy (napr. návrh OoZ). Server a rozhranie
@@ -357,7 +365,8 @@ zapisovala tam a pri upratovaní zmazala súbory spisov bežiaceho servera s rov
   do limitu × 1,23 na preverenie, nad tým nesplnené.
 - Podmienky „na budovu“ (úspora, hodnota za peniaze) sa počítajú za celý projekt, lebo verejné dáta budovy
   nerozlišujú.
-- Pravidlá sú v znení Zmeny č. 3. Žiadosti z rokov 2024 a 2025 sa posudzovali podľa vtedy platnej verzie.
+- Pravidlá sú v dvoch zneniach: Zmena č. 2 (kolá 1–78, čaká na schválenie človekom) a Zmena č. 3 (od kola 79).
+  Testy 03 a 08 posudzujú všetky žiadosti platným znením (Zmena č. 3), výber znenia podľa kola overuje test 16.
 - Kategórie budov podľa § 3 ods. 5 zákona č. 555/2005 Z. z. sú v otázke pre model prepísané voľne a treba
   ich overiť oproti aktuálnemu zneniu (novela č. 246/2026 Z. z. nebola preverená).
 - Skenované PDF bez textovej vrstvy sa neprečítajú (bez OCR).

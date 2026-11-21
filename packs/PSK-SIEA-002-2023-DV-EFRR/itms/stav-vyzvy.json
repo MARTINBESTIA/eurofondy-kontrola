@@ -1,0 +1,245 @@
+{
+ "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
+ "itmsId": 2928,
+ "verzie": [
+  {
+   "cislo": 1,
+   "id": 5030,
+   "datum": null
+  },
+  {
+   "cislo": 2,
+   "id": 5326,
+   "datum": "2024-02-05"
+  },
+  {
+   "cislo": 3,
+   "id": 5327,
+   "datum": "2024-02-06"
+  },
+  {
+   "cislo": 4,
+   "id": 5744,
+   "datum": "2024-06-13"
+  },
+  {
+   "cislo": 5,
+   "id": 6133,
+   "datum": "2025-01-09"
+  },
+  {
+   "cislo": 6,
+   "id": 6626,
+   "datum": "2025-08-21"
+  }
+ ],
+ "dokumenty": [
+  {
+   "uuid": "325653ef-4f05-4dc3-a455-727bfa6de573",
+   "nazov": "Zmena_Vyzvy_č.2__PSK-SIEA-002.docx"
+  },
+  {
+   "uuid": "68daab41-c998-4130-b1d3-4dfde0f2d5e6",
+   "nazov": "Oznámenie o uzavretí výzvy PSK-SIEA-002-2023-DV-EFRR.docx"
+  },
+  {
+   "uuid": "8984a58b-5509-4638-9f22-caff240fd5ab",
+   "nazov": "Vyzva_PSK_2P1_SIEA_akt._2_SZ__08_02_2024.zip"
+  },
+  {
+   "uuid": "a08f8a79-8034-4dbe-8af6-baa11db2a298",
+   "nazov": "Zmena_Vyzvy_PSK-SIEA-002.docx"
+  },
+  {
+   "uuid": "d9ac4149-28aa-4e6e-9dbe-1e79bb13560b",
+   "nazov": "FAQ_k_PSK-SIEA-002-2023-DV-EFRR (2).docx"
+  },
+  {
+   "uuid": "dc4c93d4-e1a0-4b8c-8453-6d9615821ff5",
+   "nazov": "Vyzva_PSK_SIEA_02__v.22-12-2023 (1).zip"
+  },
+  {
+   "uuid": "e403609b-31cd-4a70-8d51-3851b57f9ba5",
+   "nazov": "Vzor_Zmluva_o_poskytnutí_NFP.zip"
+  },
+  {
+   "uuid": "e6f34c92-7289-4a61-a28d-8b6eb20e5b0a",
+   "nazov": "PSK-SIEA-002-2023-DV-EFRR_akt_3.zip"
+  },
+  {
+   "uuid": "f1c116ad-0768-4e55-a33c-e7f1ac342cb2",
+   "nazov": "Vyzva_PSK_2P1_SIEA_akt._2_Clean__08_02_2024.zip"
+  }
+ ],
+ "ppp": [
+  {
+   "cislo": 1,
+   "nazov": "Časová oprávnenosť realizácie projektu",
+   "odtlacok": "e8a5bc0ede08abd6"
+  },
+  {
+   "cislo": 2,
+   "nazov": "Podmienka mať vysporiadané majetkovo-právne vzťahy",
+   "odtlacok": "ffba9837ceb0f1ea"
+  },
+  {
+   "cislo": 3,
+   "nazov": "Podmienka oprávnenosti aktivít projektu",
+   "odtlacok": "60670c00504ad695"
+  },
+  {
+   "cislo": 4,
+   "nazov": "Podmienka oprávnenosti výdavkov projektu",
+   "odtlacok": "eb60256614a6d326"
+  },
+  {
+   "cislo": 5,
+   "nazov": "Podmienka schválenia programu rozvoja a príslušnej územnoplánovacej dokumentácie podľa § 7 ods. 8 a  § 8 ods. 6/ § 8a ods. 7 zákona č. 539/2008 o podpore regionálneho rozvoja v znení neskorších predpisov",
+   "odtlacok": "a05c5a20240e609c"
+  },
+  {
+   "cislo": 6,
+   "nazov": "Podmienka zákazu vedenia výkonu rozhodnutia voči žiadateľovi",
+   "odtlacok": "e8a5bc0ede08abd6"
+  },
+  {
+   "cislo": 7,
+   "nazov": "Podmienka, zákazu vedenia výkonu rozhodnutia voči žiadateľovi v súlade s čl. 65 NSU",
+   "odtlacok": "e8a5bc0ede08abd6"
+  },
+  {
+   "cislo": 8,
+   "nazov": "Podmienka, že projekt je realizovaný na oprávnenom území",
+   "odtlacok": "e8a5bc0ede08abd6"
+  },
+  {
+   "cislo": 9,
+   "nazov": "Podmienka že voči žiadateľovi nie je vyhlásený konkurz ani povolená reštrukturalizácia a nie je v likvidácii",
+   "odtlacok": "54b579598c1c79c2"
+  },
+  {
+   "cislo": 10,
+   "nazov": "Podmienka, že žiadateľ, ktorým je právnická osoba, nemá právoplatným rozsudkom uložený trest zákazu prijímať dotácie alebo subvencie, trest zrušenia PO, trest zákazu prijímať pomoc a podporu poskytovanú z fondov EÚ, trest zákazu činnosti v súlade",
+   "odtlacok": "0551107a2fb72f9b"
+  },
+  {
+   "cislo": 11,
+   "nazov": "Podmienka, že žiadateľ nie je evidovaný v Systéme včasného odhaľovania rizika a vylúčenia (EDES) ako vylúčená osoba alebo subjekt (v zmysle článku 137 nariadenia č. 2024/2509)",
+   "odtlacok": "0551107a2fb72f9b"
+  },
+  {
+   "cislo": 12,
+   "nazov": "Podmienky splnenia kritérií pre výber projektov",
+   "odtlacok": "88fdb6bcdea19b44"
+  },
+  {
+   "cislo": 13,
+   "nazov": "Podmienky týkajúce sa štátnej pomoci",
+   "odtlacok": "0123f67414a85743"
+  },
+  {
+   "cislo": 14,
+   "nazov": "Právna forma",
+   "odtlacok": "7ffc99bc91f3c4a6"
+  },
+  {
+   "cislo": 15,
+   "nazov": "Výška príspevku",
+   "odtlacok": "ffba9837ceb0f1ea"
+  }
+ ],
+ "stav": {
+  "datumUkoncenia": "2026-01-09",
+  "uzavreta": true,
+  "pozastavene": false,
+  "zrusena": false
+ },
+ "aktuality": [
+  {
+   "datum": "2024-06-13",
+   "nazov": "Zverejnenie verzie výzvy",
+   "odtlacok": "353288c3df8c69f4"
+  },
+  {
+   "datum": "2024-08-01",
+   "nazov": "Informácia o predĺžení lehoty na vydanie rozhodnutia o ŽoNFPP",
+   "odtlacok": "17485074a0fe343c"
+  },
+  {
+   "datum": "2024-08-20",
+   "nazov": "Informácia o predĺžení lehoty na vydanie rozhodnutia o ŽoNFPP",
+   "odtlacok": "75ea4cf322393989"
+  },
+  {
+   "datum": "2024-08-23",
+   "nazov": "Informácia o predĺžení lehoty na vydanie rozhodnutia o ŽoNFP",
+   "odtlacok": "3096c27367e23461"
+  },
+  {
+   "datum": "2024-08-28",
+   "nazov": "Informácia o predĺžení lehoty na vydanie rozhodnutia o ŽoNFP",
+   "odtlacok": "632369e9db932d91"
+  },
+  {
+   "datum": "2024-08-30",
+   "nazov": "Informácia o predĺžení lehoty na vydanie rozhodnutia o ŽoNFP",
+   "odtlacok": "2301967ae47b020b"
+  },
+  {
+   "datum": "2024-09-09",
+   "nazov": "Informácia o predĺžení lehoty na vydanie rozhodnutia o ŽoNFP",
+   "odtlacok": "84aa293fefcf0076"
+  },
+  {
+   "datum": "2024-10-23",
+   "nazov": "Informácia o predĺžení lehoty na vydanie rozhodnutia o ŽoNFP",
+   "odtlacok": "68ed7b12b8e7de3b"
+  },
+  {
+   "datum": "2024-10-23",
+   "nazov": "Informácia o predĺžení lehoty na vydanie rozhodnutia o ŽoNFP",
+   "odtlacok": "b66209808a9d5f9c"
+  },
+  {
+   "datum": "2024-10-23",
+   "nazov": "Informácia o predĺžení lehoty na vydanie rozhodnutia o ŽoNFP",
+   "odtlacok": "f41abbf03fc88905"
+  },
+  {
+   "datum": "2024-10-30",
+   "nazov": "Informácia o predĺžení lehoty na vydanie rozhodnutia o ŽoNFP",
+   "odtlacok": "74851b429abe9c6b"
+  },
+  {
+   "datum": "2025-01-09",
+   "nazov": "Zverejnenie verzie výzvy",
+   "odtlacok": "9c4a666775db3c8a"
+  },
+  {
+   "datum": "2025-08-21",
+   "nazov": "Zverejnenie verzie výzvy",
+   "odtlacok": "0c83255fa79960b8"
+  }
+ ],
+ "prevzate": {
+  "kedy": "2026-11-21",
+  "kto": "Claude pri zavedení kontroly zmien",
+  "poznamka": "Stav ITMS21+ stiahnutý 2026-11-12, z ktorého vznikli balíky pravidiel: zmena3 (verzia 6, schválený) a akt2 (verzie 3 až 5, čaká na schválenie). Verzie 1 a 2 nemajú balík, dôvod je v bezBalika.",
+  "stiahnute": "2026-11-12T23:19:07.204Z"
+ },
+ "bezBalika": [
+  {
+   "cislo": 1,
+   "dovod": "Pôvodné znenie výzvy. Zmena č. 2 (účinná 08.02.2024) nastala pred uzavretím 1. kola (23.02.2024), preto sa podľa § 14 ods. 4 vzťahuje už na 1. kolo a pôvodné znenie neplatí pre žiadne posudzované obdobie. Žiadosť predloženú pred 08.02.2024 rieši bod VER-ZMENA (§ 14 ods. 5)."
+  },
+  {
+   "cislo": 2,
+   "dovod": "Zmena č. 1 zo dňa 05.02.2024, nahradená Zmenou č. 2 (účinná 08.02.2024) ešte pred uzavretím 1. kola; nevzťahuje sa na žiadne posudzované obdobie."
+  }
+ ],
+ "citacia": {
+  "dokument": "Výzva v znení Zmeny č. 3",
+  "cast": "Zmena výzvy",
+  "znenie": "V súlade s § 14 ods. 4 zákona o príspevkoch z fondov je SO oprávnený zmeniť výzvu po jej zverejnení v celom rozsahu [...] Takáto zmena sa vzťahuje aj na všetky nasledujúce hodnotiace kolá. [...] V súlade s § 14 ods. 6 zákona o príspevkoch z fondov je SO je oprávnený vykonať zmeny formálnych náležitostí, ďalších skutočností týkajúcich sa poskytovania príspevku a príloh. Tieto zmeny možno vykonať aj po vydaní prvého rozhodnutia o ŽoNFP. [...] O zmenách / zrušení výzvy informuje SO žiadateľov zverejnením v ITMS"
+ }
+}

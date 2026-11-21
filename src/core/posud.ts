@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { BalikPravidiel, Citacia, HarmonogramKol, Modul, Nalez, Navrh, Podmienka, Posudok, Pravidlo, Stav, VyberVerzie, VysledokKontroly } from './typy.ts';
 import { posudText, dokazJeVTexte, MODEL } from '../llm/ollama.ts';
+import { nacitajKontroluZmien, nacitajZakladZmien, nalezyZmienVyzvy, type KontrolaZmien } from './zmeny.ts';
 
 const KOREN = path.join(import.meta.dirname, '..', '..');
 
@@ -74,11 +75,17 @@ export function vyberVerziu(vyzvaKod: string, modul: Modul, v: unknown): { balik
   } };
 }
 
-/** Posudok podľa znenia výzvy pre kolo žiadosti (vyberVerziu). Vráti aj použitý balík, ktorý treba na doklady. */
+/**
+ * Posudok podľa znenia výzvy pre kolo žiadosti (vyberVerziu). Vráti aj použitý balík, ktorý treba na doklady.
+ * Výzva so základom zmien v ITMS21+ dostane aj body z kontroly zmien (nalezyZmienVyzvy): neposúdená zmena alebo
+ * chýbajúca či stará kontrola znamená, že pravidlá nemusia zodpovedať platnému zneniu výzvy.
+ */
 export async function posudPodlaKola(v: any, vyzvaKod: string, modul: Modul, m: MoznostiPosudku = {}): Promise<{ balik: BalikPravidiel; posudok: Posudok }> {
   const { balik, vyber, nalezy } = vyberVerziu(vyzvaKod, modul, v);
   const posudok = await posud(v, balik, modul, m);
   if (vyber) posudok.vyberVerzie = vyber;
+  const zaklad = vyber ? nacitajZakladZmien(vyzvaKod) : null;
+  if (zaklad) nalezy.push(...nalezyZmienVyzvy(m.zmenyVyzvy !== undefined ? m.zmenyVyzvy : nacitajKontroluZmien(vyzvaKod), zaklad.citacia, m.dnes));
   // Ako inventár: čiastková kontrola (iba) body o znení nepridáva.
   if (!m.iba && nalezy.length) { posudok.nalezy.unshift(...nalezy); Object.assign(posudok, vyrokPosudku(posudok.nalezy)); }
   return { balik, posudok };
@@ -223,7 +230,8 @@ export function overVerdikt(o: { stav: string; zdovodnenie: string; dokaz: strin
   return { stav, zdovodnenie: `${o.zdovodnenie}${pozn} (zdroj: ${zdroj})`, dokaz: dolozene ? o.dokaz : undefined, hodnoty };
 }
 
-export interface MoznostiPosudku { llm?: boolean; iba?: string[] }
+/** zmenyVyzvy a dnes: pevný výsledok kontroly zmien a dátum namiesto súboru a dnešného dňa (testy). */
+export interface MoznostiPosudku { llm?: boolean; iba?: string[]; zmenyVyzvy?: KontrolaZmien | null; dnes?: string }
 
 export async function posud(v: any, balik: BalikPravidiel, modul: Modul, m: MoznostiPosudku = {}): Promise<Posudok> {
   const t0 = Date.now();

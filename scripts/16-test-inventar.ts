@@ -5,12 +5,14 @@
 // 4. Zasadené chyby na všetkých stiahnutých žiadostiach: iná výzva, neskoré predloženie, MRR po uzavretí,
 //    opatrenie mimo výzvy. Najhorší omyl je „falošne OK“ (pravidlo splnené alebo výrok OK), nesmie nastať ani raz.
 // 5. Verzie: znenie výzvy sa vyberá podľa kola žiadosti (§ 14 ods. 4 zákona č. 121/2022 Z. z.), pochybnosti idú človeku.
+// 6. Zmeny výzvy v ITMS21+: každá zmena oproti stavu, ktorý posúdil človek, aj chýbajúca či stará kontrola dajú bod na preverenie.
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
-import { koloPodlaDatumu, nacitajBalik, nalezyInventara, posud, posudPodlaKola, verzieBalika, vyberVerziu } from '../src/core/posud.ts';
+import { koloPodlaDatumu, nacitajBalik, nalezyInventara, posud, posudPodlaKola, verzieBalika, vyberVerziu, vyrokPosudku } from '../src/core/posud.ts';
 import { castiCitacie, cestaTextuZdroja, normCitacie } from '../src/core/zdroje.ts';
-import type { BalikPravidiel, Citacia, Posudok, Stav, Ziadost } from '../src/core/typy.ts';
+import { MAX_VEK_KONTROLY_DNI, nacitajZakladZmien, nalezyZmienVyzvy, nepokryteVerzie, porovnajStav, prevezmiStav, stavZItms, type KontrolaZmien, type StavVyzvyItms, type ZmenaVyzvy } from '../src/core/zmeny.ts';
+import type { BalikPravidiel, Citacia, Nalez, Posudok, Stav, Ziadost } from '../src/core/typy.ts';
 import { pripravDokladyFormulara } from '../src/moduly/zonfp/doklady-formular.ts';
 import { zonfp } from '../src/moduly/zonfp/modul.ts';
 import { normalizujItms21 } from '../src/moduly/zonfp/normalizuj.ts';
@@ -228,6 +230,77 @@ over(p2.vyberVerzie?.verziaId === 'akt2' && p2.verziaBalika === verzie[0].verzia
   `posudok zaznamená znenie (${p2.verziaBalika}) a pri neschválenom znení nie je OK (${p2s9.navrh})`);
 over(!(await posudPodlaKola(sPrilohami(12, ['7', '8']), VYZVA, zonfp, { llm: false, iba: ['P09'] })).posudok.nalezy.some((n) => n.druh === 'verzia'),
   'čiastková kontrola (iba) nepridáva body o znení');
+
+// ---------------------------------------------------------------- 6. zmeny výzvy v ITMS21+
+// Základ (stav výzvy, ktorý posúdil človek) sa porovnáva so živým ITMS21+ (npm run zmeny). Test je bez siete:
+// zmeny sa simulujú na kópii základu a výsledok kontroly sa posudku podá priamo.
+console.log('\n== Zmeny výzvy v ITMS21+');
+const zaklad = nacitajZakladZmien(VYZVA)!;
+over(!!zaklad, `výzva má základ zmien prevzatý ${zaklad?.prevzate.kedy}: ${zaklad?.verzie.length} verzií, ${zaklad?.dokumenty.length} dokumentov, ${zaklad?.ppp.length} PPP, ${zaklad?.aktuality.length} aktualít`);
+{
+  const z = b.zdroje.find((x) => x.nazov === zaklad.citacia.dokument); const txt = z ? cestaTextuZdroja(z.subor) : null;
+  const t = txt ? normCitacie(fs.readFileSync(txt, 'utf8')) : '';
+  const casti = castiCitacie(zaklad.citacia.znenie);
+  over(!!t && casti.length > 0 && casti.every((c) => t.includes(c)), `citácia o zmenách výzvy je doslovne v zdroji (${zaklad.citacia.dokument}, ${zaklad.citacia.cast})`);
+}
+over(!nepokryteVerzie(zaklad, verzie, zaklad.bezBalika).length && zaklad.bezBalika.every((x) => x.dovod.trim().length > 0),
+  `každá verzia výzvy má balík alebo zdôvodnenie, prečo nie: ${zaklad.verzie.map((v) => `${v.cislo}→${verzie.find((x) => x.verziaBalika?.itmsVerzie.includes(v.cislo))?.verziaBalika?.id ?? 'bez balíka'}`).join(', ')}`);
+over(!porovnajStav(zaklad, zaklad, verzie).length, 'nezmenený stav nedáva žiadnu zmenu');
+const ulozenyDetail = path.join(KOREN, 'data', 'raw', 'itms21', VYZVA, 'vyzva.json.gz');
+if (fs.existsSync(ulozenyDetail)) {
+  const zmenyUlozeneho = porovnajStav(zaklad, stavZItms(JSON.parse(zlib.gunzipSync(fs.readFileSync(ulozenyDetail)).toString('utf8'))), verzie);
+  over(!zmenyUlozeneho.length, `uložený detail výzvy z ITMS21+ zodpovedá základu${zmenyUlozeneho.length ? `: ${zmenyUlozeneho.map((x) => x.popis).join(' ')}` : ''}`);
+}
+const zmen = (f: (s: StavVyzvyItms) => void) => { const s = structuredClone(zaklad) as StavVyzvyItms; f(s); return porovnajStav(zaklad, s, verzie); };
+const druhy = (z: ZmenaVyzvy[]) => [...new Set(z.map((x) => x.druh))].sort().join(',');
+const novaVerzia = (s: StavVyzvyItms) => { s.verzie.push({ cislo: 7, id: 99999, datum: '2026-12-04' }); };
+const scenareZmien: [string, (s: StavVyzvyItms) => void, string][] = [
+  ['nová verzia výzvy bez balíka', novaVerzia, 'nepokryta_verzia,verzia'],
+  ['nový dokument výzvy', (s) => { s.dokumenty.push({ uuid: '00000000-0000-0000-0000-000000000000', nazov: 'Usmernenie_c1.docx' }); }, 'dokument'],
+  ['odstránený dokument výzvy', (s) => { s.dokumenty.pop(); }, 'dokument'],
+  ['zmenený popis alebo prílohy PPP', (s) => { s.ppp[s.ppp.length - 1].odtlacok = 'zmenene'; }, 'ppp'],
+  ['posunutý termín ukončenia', (s) => { s.stav.datumUkoncenia = '2026-03-31'; }, 'stav'],
+  ['pozastavené predkladanie', (s) => { s.stav.pozastavene = true; }, 'stav'],
+  ['nová aktualita', (s) => { s.aktuality.push({ datum: '2026-11-20', nazov: 'Usmernenie k výzve', odtlacok: 'nova' }); }, 'aktualita'],
+];
+for (const [nazov, f, ocak] of scenareZmien) { const z = zmen(f); over(druhy(z) === ocak, `${nazov} → ${druhy(z) || 'nič'}: ${z.map((x) => x.popis).join(' ')}`); }
+// ITMS21+ čísluje PPP podľa abecedy: nová podmienka posunie čísla ďalších, zmena však musí byť jedna.
+const novaPpp = zmen((s) => { for (const p of s.ppp) if (p.cislo >= 5) p.cislo++; s.ppp.push({ cislo: 5, nazov: 'Podmienka partnerstva', odtlacok: 'nova' }); });
+over(novaPpp.length === 1 && novaPpp[0].druh === 'ppp', `nová PPP, ktorá posunie číslovanie v ITMS21+, je jedna zmena: ${novaPpp.map((x) => x.popis).join(' ')}`);
+// Prevzatie zmien je krok človeka: bez poznámky alebo s verziou výzvy bez balíka ho softvér odmietne (nič nezapíše).
+const odmietnute = (f: () => unknown) => { try { f(); return false; } catch { return true; } };
+const sNovouVerziou = structuredClone(zaklad) as StavVyzvyItms; novaVerzia(sNovouVerziou);
+over(odmietnute(() => prevezmiStav(VYZVA, zaklad, verzie, '   ', { stiahnute: zaklad.prevzate.stiahnute, zdroj: 'ulozeny' }))
+  && odmietnute(() => prevezmiStav(VYZVA, sNovouVerziou, verzie, 'posúdené', { stiahnute: zaklad.prevzate.stiahnute, zdroj: 'ulozeny' })),
+  'prevzatie zmien odmietne prázdnu poznámku aj verziu výzvy bez balíka');
+const sNeexistujucou = verzie.map((x, i) => (i === 0 ? { ...x, verziaBalika: { ...x.verziaBalika!, itmsVerzie: [...x.verziaBalika!.itmsVerzie, 9] } } : x));
+over(druhy(porovnajStav(zaklad, zaklad, sNeexistujucou)) === 'nepokryta_verzia', 'balík odkazujúci na verziu výzvy, ktorú ITMS21+ nemá, je nezrovnalosť');
+
+const kontrolaZ = (zmeny: ZmenaVyzvy[], zistene = '2026-11-21T10:00:00.000Z'): KontrolaZmien =>
+  ({ vyzva: VYZVA, zistene, zdroj: 'itms', stiahnute: zistene, zakladZ: zaklad.prevzate.kedy, zmeny });
+const idsZ = (n: Nalez[]) => n.map((x) => x.pravidlo).sort().join(',');
+const bodyZmien: [string, KontrolaZmien | null, string, string][] = [
+  ['čerstvá kontrola bez zmien', kontrolaZ([]), '2026-11-21', ''],
+  [`kontrola stará ${MAX_VEK_KONTROLY_DNI} dní`, kontrolaZ([]), '2026-11-28', ''],
+  [`kontrola staršia ako ${MAX_VEK_KONTROLY_DNI} dní`, kontrolaZ([]), '2026-11-29', 'VER-KONTROLA'],
+  ['kontrola ešte neprebehla', null, '2026-11-21', 'VER-KONTROLA'],
+  ['neposúdená zmena', kontrolaZ(zmen((s) => { s.stav.pozastavene = true; })), '2026-11-21', 'VER-ITMS'],
+  ['neposúdená zmena a stará kontrola', kontrolaZ(zmen(novaVerzia)), '2026-12-10', 'VER-ITMS,VER-KONTROLA'],
+];
+for (const [nazov, k, dnes, ocak] of bodyZmien) {
+  const n = nalezyZmienVyzvy(k, zaklad.citacia, dnes);
+  over(idsZ(n) === ocak && n.every((x) => x.stav === 'na_preverenie' && x.druh === 'verzia'), `${nazov} (${dnes}) → ${idsZ(n) || 'bez bodu'}`);
+}
+const bodItms = nalezyZmienVyzvy(kontrolaZ(zmen(novaVerzia)), zaklad.citacia, '2026-11-21')[0];
+const inakCisty: Nalez = { pravidlo: 'X01', ppp: null, nazov: 'inak splnené', druh: 'data', stav: 'splnene', okamih: 'konanie', zdovodnenie: '', citacia: zaklad.citacia };
+over(vyrokPosudku([inakCisty]).navrh === 'bez_zisteni' && vyrokPosudku([inakCisty, bodItms]).navrh === 'na_preverenie',
+  'neposúdená zmena výzvy zmení inak čistý výrok na „na preverenie“');
+const pZmena = (await posudPodlaKola(sPrilohami(83, ['7', '8']), VYZVA, zonfp, { llm: false, zmenyVyzvy: kontrolaZ(zmen(novaVerzia)), dnes: '2026-11-21' })).posudok;
+const pCisto = (await posudPodlaKola(sPrilohami(83, ['7', '8']), VYZVA, zonfp, { llm: false, zmenyVyzvy: kontrolaZ([]), dnes: '2026-11-21' })).posudok;
+over(pZmena.nalezy.some((n) => n.pravidlo === 'VER-ITMS') && !okVyrok(pZmena) && !pCisto.nalezy.some((n) => ['VER-ITMS', 'VER-KONTROLA'].includes(n.pravidlo)),
+  `posudok s neposúdenou zmenou má VER-ITMS (${pZmena.navrh}), po posúdení bez bodu`);
+over(!(await posudPodlaKola(sPrilohami(83, ['7', '8']), VYZVA, zonfp, { llm: false, iba: ['P08'], zmenyVyzvy: null })).posudok.nalezy.some((n) => n.druh === 'verzia'),
+  'čiastková kontrola (iba) nepridáva body o zmenách výzvy');
 
 console.log(chyb ?`\n${chyb} kontrol zlyhalo.` : '\nVšetky kontroly prešli.');
 process.exit(chyb ? 1 : 0);

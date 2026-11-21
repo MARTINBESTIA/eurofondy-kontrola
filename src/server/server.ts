@@ -16,6 +16,7 @@ import { zop } from '../moduly/zop/modul.ts';
 import { ukazovatele } from '../moduly/ukazovatele/modul.ts';
 import * as pod from '../podatelna/podatelna.ts';
 import { dolozPosudok, precitajPosudok } from '../podatelna/doklady.ts';
+import { MAX_VEK_KONTROLY_DNI, nacitajKontroluZmien, nacitajZakladZmien, skontrolujZmeny } from '../core/zmeny.ts';
 
 const KOREN = path.join(import.meta.dirname, '..', '..');
 const PORT = Number(process.env.PORT ?? 5177);
@@ -33,6 +34,15 @@ function balik(m: Modul): BalikPravidiel {
 }
 
 // Auditná stopa: každý posudok sa uloží aj s modulom a verziou pravidiel, ktorou vznikol.
+/** Stav kontroly zmien výzvy v ITMS21+ pre stránku Pravidlá: základ, ktorý posúdil človek, a posledná kontrola. */
+function stavZmien(vyzva: string) {
+  const zaklad = nacitajZakladZmien(vyzva);
+  if (!zaklad) return null;
+  const kontrola = nacitajKontroluZmien(vyzva);
+  const vekDni = kontrola ? Math.floor((Date.parse(new Date().toLocaleDateString('sv-SE')) - Date.parse(kontrola.zistene.slice(0, 10))) / 86_400_000) : null;
+  return { zaklad: { prevzate: zaklad.prevzate, verzie: zaklad.verzie, bezBalika: zaklad.bezBalika }, kontrola, vekDni, maxVekDni: MAX_VEK_KONTROLY_DNI };
+}
+
 const db = new DatabaseSync(process.env.PODATELNA_DB ?? path.join(KOREN, 'data', 'app.db'));
 db.exec(`CREATE TABLE IF NOT EXISTS posudky (
   id INTEGER PRIMARY KEY, cas TEXT NOT NULL, ziadost_kod TEXT NOT NULL, balik TEXT NOT NULL, verzia TEXT NOT NULL,
@@ -155,7 +165,7 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname.startsWith('/api/podatelna/')) return await apiPodatelne(req, res, url);
     if (url.pathname === '/api/eval') return json(res, 200, { pravidla: citajEval('test-pravidla.json'), llm: citajEval('test-llm.json'), moduly: citajEval('test-moduly.json'), llmModuly: citajEval('test-llm-moduly.json') });
 
-    const cesta = url.pathname.match(/^\/api\/([a-z]+)\/(pripady|pripad|posud|pravidla)(?:\/(.+))?$/);
+    const cesta = url.pathname.match(/^\/api\/([a-z]+)\/(pripady|pripad|posud|pravidla|zmeny-vyzvy)(?:\/(.+))?$/);
     if (cesta) {
       const m = podlaId.get(cesta[1]);
       if (!m) return json(res, 404, { chyba: `Neznámy modul ${cesta[1]}.` });
@@ -166,7 +176,15 @@ const server = http.createServer(async (req, res) => {
         const verzie = b.verziaBalika ? verzieBalika(m.balikVyzva ?? VYZVA, m.id).map((x) => ({
           verzia: x.verzia, platnaOd: x.platnaOd, ...x.verziaBalika!, pravidiel: x.pravidla.length, podmienok: x.podmienky?.length ?? 0,
           pravidlaId: x.pravidla.map((r) => r.id), podmienkyId: (x.podmienky ?? []).map((p) => p.id) })) : [];
-        return json(res, 200, { ...b, verzie });
+        return json(res, 200, { ...b, verzie, zmenyVyzvy: b.verziaBalika ? stavZmien(m.balikVyzva ?? VYZVA) : null });
+      }
+      // Kontrola zmien výzvy na pokyn používateľa: len čítanie verejného API ITMS21+, nič sa neodosiela.
+      if (cesta[2] === 'zmeny-vyzvy' && req.method === 'POST') {
+        const vyzva = m.balikVyzva ?? VYZVA;
+        if (!nacitajZakladZmien(vyzva)) return json(res, 404, { chyba: 'Výzva nemá základ zmien v ITMS21+.' });
+        try { await skontrolujZmeny(vyzva, verzieBalika(vyzva, m.id)); }
+        catch (e) { return json(res, 502, { chyba: `Kontrola zmien zlyhala: ${(e as Error).message}` }); }
+        return json(res, 200, stavZmien(vyzva));
       }
       if (cesta[2] === 'pripad') {
         const v = m.nacitaj(decodeURIComponent(cesta[3] ?? ''));

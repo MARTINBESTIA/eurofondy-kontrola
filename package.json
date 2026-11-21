@@ -23,6 +23,7 @@
     "test:priloha8": "node scripts/14-test-priloha8.ts",
     "test:doklady": "node scripts/15-over-doklady.ts",
     "test:inventar": "node scripts/16-test-inventar.ts",
+    "zmeny": "node scripts/17-zmeny-vyzvy.ts",
     "demo:podania": "node scripts/10-demo-podania.ts",
     "podanie": "node scripts/11-prijem-podania.ts",
     "start": "node src/server/server.ts"

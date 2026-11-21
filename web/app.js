@@ -201,10 +201,36 @@ function kresliVerzie(verzie) {
     el('table', {}, el('thead', {}, el('tr', {}, ['Znenie', 'Účinné od', 'Kolá', 'Verzie v ITMS21+', 'Obsah', 'Pravidlá'].map((h, i) => el('th', { class: i && i < 4 ? 'c' : '' }, h)))), el('tbody', {}, riadky))];
 }
 
+/** Kontrola zmien výzvy v ITMS21+: z akého stavu pravidlá vznikli, kedy prebehla kontrola a čo zistila. */
+function kresliZmenyVyzvy(z) {
+  if (!z) return [];
+  const datum = (d) => d.slice(0, 10).split('-').reverse().join('. ');
+  const k = z.kontrola;
+  const stara = k && z.vekDni > z.maxVekDni;
+  const stavKontroly = !k ? el('p', {}, el('span', { class: 'stitok s-na_preverenie' }, 'nekontrolované'), ' Kontrola ešte neprebehla, preto má každý posudok bod na preverenie.')
+    : el('p', {}, el('span', { class: `stitok ${k.zmeny.length || stara ? 's-na_preverenie' : 's-splnene'}` }, k.zmeny.length ? `${k.zmeny.length} neposúdených zmien` : stara ? 'stará kontrola' : 'bez zmien'),
+      ` Posledná kontrola ${datum(k.zistene)} (${k.zdroj === 'itms' ? 'živé ITMS21+' : `uložený detail z ${datum(k.stiahnute)}`}), pred ${z.vekDni} d.`,
+      stara ? ` Kontrola je staršia ako ${z.maxVekDni} dní, preto má každý posudok bod na preverenie.` : '');
+  const tlacidlo = el('button', { class: 'vedlajsie', onclick: async (e) => {
+    e.target.disabled = true; e.target.textContent = 'Kontrolujem…';
+    try { await api(`/api/${modul.id}/zmeny-vyzvy`, {}); await nacitajPravidla(); }
+    catch (err) { e.target.disabled = false; e.target.textContent = `Chyba: ${err.message}`; }
+  } }, 'Skontrolovať zmeny v ITMS21+');
+  return [el('h3', {}, 'Zmeny výzvy v ITMS21+'),
+    el('p', { class: 'tlmene male' }, `Pravidlá vznikli zo stavu výzvy v ITMS21+ (verzie, dokumenty, PPP, termíny, aktuality), ktorý bol prevzatý ${datum(z.zaklad.prevzate.kedy)} (${z.zaklad.prevzate.kto}): ${z.zaklad.prevzate.poznamka} Kontrola ho porovná so živým stavom; kým zmenu neposúdi človek, posudky majú bod na preverenie (VER-ITMS). Tlačidlo iba číta verejné API ITMS21+, nič neodosiela.`),
+    stavKontroly,
+    k?.zmeny.length ? el('ul', {}, k.zmeny.map((x) => el('li', {}, x.popis))) : null,
+    k?.zmeny.length ? el('p', { class: 'tlmene male' }, 'Po posúdení: upravte balík pravidiel (nová verzia výzvy patrí do itmsVerzie niektorej verzie balíka) a spustite npm run zmeny -- --prevzat --poznamka "…".') : null,
+    el('p', {}, tlacidlo),
+    z.zaklad.bezBalika.length ? el('details', {}, el('summary', { class: 'tlmene male' }, `Verzie výzvy bez balíka pravidiel (${z.zaklad.bezBalika.map((x) => x.cislo).join(', ')})`),
+      el('ul', {}, z.zaklad.bezBalika.map((x) => el('li', { class: 'male' }, `Verzia ${x.cislo}: ${x.dovod}`)))) : null];
+}
+
 async function nacitajPravidla() {
   const b = await api(`/api/${modul.id}/pravidla`); const o = $('#pravidla-obsah');
   o.replaceChildren(el('h2', {}, `${modul.nazov}: ${b.vyzvaNazov}`), el('p', { class: 'tlmene' }, `${b.vyzvaKod} · ${b.poskytovatel} · ${b.verzia}`),
     ...kresliVerzie(b.verzie ?? []),
+    ...kresliZmenyVyzvy(b.zmenyVyzvy),
     el('h3', {}, 'Proces'), el('ol', {}, b.proces.map((k) => el('li', {}, k))),
     el('h3', {}, `Pravidlá (${b.pravidla.length})`),
     b.pravidla.some(p => p.ppp) ? el('p', { class: 'tlmene male' }, VYSVETLENIE_PPP) : null,
