@@ -33,7 +33,7 @@ export interface Priloha8Spec {
     emisieCO2T?: { vych: number; plan: number };
     /** Vyrobená energia z OZE MWh/rok (PSKPRCR31a/b): MU!H77, I77 (elektrina), H78, I78 (teplo). Bez nich M269 = 0. */
     ozeVyrobaMWh?: { elVych: number; elPlan: number; tepVych: number; tepPlan: number };
-    /** Odpovede na podmienky oprávnenosti v MU Budova 1; predvolene všetky „áno“. */
+    /** Odpovede na podmienky oprávnenosti v MU Budova 1; predvolene „áno“, L60 len pri projekte s OZE. */
     podmienky?: Partial<Record<'H17' | 'N17' | 'H18' | 'N18' | 'H60' | 'L60', boolean>>;
   };
   /** sekcia = presný nadpis sekcie v stĺpci A hárku Rozpočet B1 (= názov aktivity v ITMS21+); parameter = bunka C(riadok+1). */
@@ -127,15 +127,19 @@ export function vyplnPrilohu8(spec: Priloha8Spec, vystup: string, vzor = VZOR_PR
   z(MU, 'F47', zCiselnika(bu.triedaPred, triedy, 'trieda pred (F47)')); z(MU, 'F48', zCiselnika(bu.triedaPo, triedy, 'trieda po (F48)'));
   z(MU, 'F49', bu.guPePredKwhM2); z(MU, 'F50', bu.plochaPredM2); z(MU, 'F51', bu.guPePoKwhM2); z(MU, 'F52', bu.plochaPoM2);
   z(MU, 'F30', bu.prevadzka.hodinDenne); z(MU, 'G30', bu.prevadzka.dniTyzdenne); z(MU, 'H30', bu.prevadzka.tyzdnovRocne);
-  for (const a of ['H17', 'N17', 'H18', 'N18', 'H60', 'L60'] as const) z(MU, a, anoNie(bu.podmienky?.[a] ?? true));
+  // L60 „Bude energia zásobovať všetky budovy?“ (pri jednej budove áno práve vtedy, keď má projekt OZE): „nie“ zníži
+  // oprávnené výdavky budovy o 5 p. b. (vzorec N60), ako PPP č. 13 pri projekte bez OZE.
+  const predvolene: Partial<Record<string, boolean>> = { L60: /OZE/.test(spec.opatrenia) };
+  for (const a of ['H17', 'N17', 'H18', 'N18', 'H60', 'L60'] as const) z(MU, a, anoNie(bu.podmienky?.[a] ?? predvolene[a] ?? true));
   // Bez hospodárskej činnosti: tabuľky SHČ a HČiaS (riadky 32–34, 36–38) nulami, OZE bez dodávky do siete a bez HČ mimo zmiešaného využitia.
   for (const r of [32, 33, 34, 36, 37, 38]) for (const s of ['G', 'J', 'K', 'L']) z(MU, `${s}${r}`, 0);
   z(MU, 'G64', 0); z(MU, 'G65', NIE);
-  if (bu.ozeElMW != null) z(MU, 'I75', bu.ozeElMW);
-  if (bu.ozeTepMW != null) z(MU, 'I76', bu.ozeTepMW);
+  const oze = /OZE/.test(spec.opatrenia);
+  // Vzorec H268 (výdavky OZE) dá 0, ak je prázdna ktorákoľvek z kapacít I75 a I76: pri jednom druhu OZE patrí do druhej 0.
+  if (bu.ozeElMW != null || oze) z(MU, 'I75', bu.ozeElMW ?? 0);
+  if (bu.ozeTepMW != null || oze) z(MU, 'I76', bu.ozeTepMW ?? 0);
   if (bu.emisieCO2T) { z(MU, 'M51', bu.emisieCO2T.vych); z(MU, 'N51', bu.emisieCO2T.plan); }
   else hlasky.push('Chýba budova.emisieCO2T (MU Budova 1!M51, N51): hárok bez nich nezapočíta výdavky na budovu (M209 = 0).');
-  const oze = /OZE/.test(spec.opatrenia);
   if (bu.ozeVyrobaMWh) { const v = bu.ozeVyrobaMWh; z(MU, 'H77', v.elVych); z(MU, 'I77', v.elPlan); z(MU, 'H78', v.tepVych); z(MU, 'I78', v.tepPlan); }
   else if (oze) hlasky.push('Chýba budova.ozeVyrobaMWh (MU Budova 1!H77, I77, H78, I78): hárok bez nich nezapočíta výdavky na OZE (M269 = 0).');
 

@@ -1,0 +1,1081 @@
+{
+  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
+  "poznamka": "Očakávané výsledky posudku bez modelu (llm: false). Body VER-ITMS a VER-KONTROLA závisia od kontroly zmien výzvy v prostredí a neporovnávajú sa. Porovnávajú sa len uvedené pravidlá.",
+  "pripady": [
+    {
+      "cislo": "01",
+      "slug": "komplet-zmena3",
+      "titul": "Úplná žiadosť (znenie zmeny č. 3)",
+      "scenar": "Obec, Bratislavský kraj (VRR), predložená 15. 10. 2025 (kolo 87). Všetky povinné prílohy vrátane plnomocenstva podľa vzoru 1a, zošit Prílohy č. 8 súhlasí s formulárom.",
+      "preco": "Referenčný „dobrý“ prípad: žiadne nesplnené pravidlo ani chýbajúca príloha. Návrh je aj tak na preverenie, lebo časť podmienok výzvy softvér nekontroluje (poistka úplnosti) a register overuje človek.",
+      "zip": "01-komplet-zmena3.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS01.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_1a_Plnomocenstvo.pdf",
+          "typ": "priloha",
+          "priloha": "1",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Testovany.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "na_preverenie",
+        "verzia": "zmena3",
+        "ver": [],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene",
+          "P08b": "splnene"
+        }
+      }
+    },
+    {
+      "cislo": "02",
+      "slug": "chyba-priloha-8",
+      "titul": "Chýba Príloha č. 8, doplní sa",
+      "scenar": "Obec, VRR, predložená 5. 11. 2025. Záväzný zošit Prílohy č. 8 v podaní chýba, žiadateľ ho doloží až po výzve na doplnenie (02-doplnenie.zip).",
+      "preco": "MD č. 21: chýbajúca príloha je dôvod na výzvu na doplnenie (lehota najmenej 5 pracovných dní), nie na neschválenie. Po doplnení sa P08 a P08b musia zmeniť na splnené.",
+      "zip": "02-chyba-priloha-8.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS02.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Horne_Skusovce.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "vyzva_na_doplnenie",
+        "verzia": "zmena3",
+        "ver": [],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "chyba_podklad",
+          "P08b": "chyba_podklad"
+        }
+      },
+      "doplnenie": {
+        "zip": "02-doplnenie.zip",
+        "subory": [
+          {
+            "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+            "typ": "priloha",
+            "priloha": "8",
+            "istota": "cislo"
+          }
+        ],
+        "ocakavane": {
+          "navrh": "na_preverenie",
+          "verzia": "zmena3",
+          "ver": [],
+          "nalezy": {
+            "V01": "splnene",
+            "F01": "splnene",
+            "D01": "splnene",
+            "D07a": "splnene",
+            "D07b": "splnene",
+            "D07c": "splnene",
+            "D07d": "splnene",
+            "D09": "splnene",
+            "D12": "splnene",
+            "D13": "splnene",
+            "D14": "splnene",
+            "P03": "splnene",
+            "P05": "neuplatnuje_sa",
+            "P06": "splnene",
+            "P07": "splnene",
+            "P08": "splnene",
+            "P08b": "splnene"
+          }
+        }
+      }
+    },
+    {
+      "cislo": "03",
+      "slug": "ina-vyzva",
+      "titul": "Formulár inej výzvy",
+      "scenar": "Mesto, VRR, predložená 24. 9. 2025. Formulár uvádza kód výzvy PSK-SIEA-008-2025-DV-EFRR (iná výzva SIEA), prílohy sú úplné.",
+      "preco": "Pravidlá jednej výzvy sa nesmú použiť na formulár inej výzvy: V01 je nesplnené a ostatné výsledky posudku neplatia.",
+      "zip": "03-ina-vyzva.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS03.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Vzorkovo.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "nesplnene_podmienky",
+        "verzia": "zmena3",
+        "ver": [],
+        "nalezy": {
+          "V01": "nesplnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene",
+          "P08b": "splnene"
+        }
+      }
+    },
+    {
+      "cislo": "04",
+      "slug": "mrr-po-uzavreti",
+      "titul": "Menej rozvinutý región po uzavretí pre MRR",
+      "scenar": "Obec v Trnavskom kraji (MRR), predložená 12. 3. 2025 (kolo 56, znenie zmeny č. 2). Pre MRR bola výzva uzavretá 9. 1. 2025. Prílohy vrátane Prílohy č. 9 (kontrolný zoznam 9a) sú úplné.",
+      "preco": "Včasnosť podľa kategórie regiónu (§ 16 ods. 4 zákona č. 121/2022 Z. z.): po uzavretí pre MRR sa žiadosť z MRR nedá predložiť, F01 je nesplnené.",
+      "zip": "04-mrr-po-uzavreti.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS04.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Dolne_Overovce.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_9_Horizontalne_principy_kontrolny_zoznam.pdf",
+          "typ": "priloha",
+          "priloha": "9",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "nesplnene_podmienky",
+        "verzia": "akt2",
+        "ver": [
+          "VER-SCHVALENIE"
+        ],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "nesplnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene",
+          "P08b": "splnene",
+          "P09": "splnene"
+        }
+      }
+    },
+    {
+      "cislo": "05",
+      "slug": "po-uzavreti-vyzvy",
+      "titul": "Predložená po uzavretí výzvy",
+      "scenar": "Obec, VRR, predložená 21. 1. 2026, teda po uzavretí výzvy 9. 1. 2026. Prílohy sú úplné.",
+      "preco": "Po uzavretí výzvy nie je možné predkladať žiadosti (§ 16 ods. 4 zákona č. 121/2022 Z. z.): F01 je nesplnené.",
+      "zip": "05-po-uzavreti-vyzvy.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS05.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Nova_Vzorka.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "nesplnene_podmienky",
+        "verzia": "zmena3",
+        "ver": [],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "nesplnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene",
+          "P08b": "splnene"
+        }
+      }
+    },
+    {
+      "cislo": "06",
+      "slug": "aktivita-mimo-opatreni",
+      "titul": "Hlavná aktivita z iného opatrenia",
+      "scenar": "Obec, VRR, predložená 1. 10. 2025. Okrem obnovy budovy formulár obsahuje hlavnú aktivitu „Modernizácia verejného osvetlenia“ v opatrení 2.1.1, ktoré výzva nepodporuje (len 2.1.2 a 2.2.2).",
+      "preco": "Oprávnené sú len aktivity opatrení výzvy: D07a je nesplnené. Zošit Prílohy č. 8 túto aktivitu nepozná, preto P08b upozorní na výdavky mimo opatrení.",
+      "zip": "06-aktivita-mimo-opatreni.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS06.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Kontrolany.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "nesplnene_podmienky",
+        "verzia": "zmena3",
+        "ver": [],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "nesplnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene",
+          "P08b": "na_preverenie"
+        }
+      }
+    },
+    {
+      "cislo": "07",
+      "slug": "akt2-bez-prilohy-9",
+      "titul": "Znenie zmeny č. 2 bez Prílohy č. 9, doplní sa",
+      "scenar": "Obec v Nitrianskom kraji (MRR), predložená 19. 6. 2024 (kolo 18, znenie zmeny č. 2). Príloha č. 9 (kontrolný zoznam horizontálnych princípov 9b pre školy) v podaní chýba, žiadateľ ju doloží v 07-doplnenie.zip.",
+      "preco": "Znenie výzvy sa vyberá podľa kola (§ 14 ods. 4 zákona č. 121/2022 Z. z.). V znení zmeny č. 2 sa pri opatrení 2.1.2 vyžaduje Príloha č. 9, v znení zmeny č. 3 už nie. Pravidlá tohto znenia čakajú na schválenie človekom (VER-SCHVALENIE).",
+      "zip": "07-akt2-bez-prilohy-9.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS07.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Male_Priklady.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "vyzva_na_doplnenie",
+        "verzia": "akt2",
+        "ver": [
+          "VER-SCHVALENIE"
+        ],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene",
+          "P08b": "splnene",
+          "P09": "chyba_podklad"
+        }
+      },
+      "doplnenie": {
+        "zip": "07-doplnenie.zip",
+        "subory": [
+          {
+            "nazov": "Priloha_9_Horizontalne_principy_kontrolny_zoznam.pdf",
+            "typ": "priloha",
+            "priloha": "9",
+            "istota": "cislo"
+          }
+        ],
+        "ocakavane": {
+          "navrh": "na_preverenie",
+          "verzia": "akt2",
+          "ver": [
+            "VER-SCHVALENIE"
+          ],
+          "nalezy": {
+            "V01": "splnene",
+            "F01": "splnene",
+            "D01": "splnene",
+            "D07a": "splnene",
+            "D07b": "splnene",
+            "D07c": "splnene",
+            "D07d": "splnene",
+            "D09": "splnene",
+            "D12": "splnene",
+            "D13": "splnene",
+            "D14": "splnene",
+            "P03": "splnene",
+            "P05": "neuplatnuje_sa",
+            "P06": "splnene",
+            "P07": "splnene",
+            "P08": "splnene",
+            "P08b": "splnene",
+            "P09": "splnene"
+          }
+        }
+      }
+    },
+    {
+      "cislo": "08",
+      "slug": "den-uzavretia-kola",
+      "titul": "Predložená v deň uzavretia kola na hranici znení",
+      "scenar": "Obec, VRR, predložená v piatok 15. 8. 2025, v deň uzavretia kola 78. Kolo 78 patrí pod znenie zmeny č. 2, kolo 79 už pod zmenu č. 3. Prílohy vrátane Prílohy č. 9 (9a) sú úplné.",
+      "preco": "Ak žiadosť prišla po termíne uzavretia kola, patrí do ďalšieho kola s iným znením výzvy. Rozhoduje čas predloženia, ktorý formulár nemá: VER-KOLO pre kontrolóra.",
+      "zip": "08-den-uzavretia-kola.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS08.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Hranicne_Testovce.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_9_Horizontalne_principy_kontrolny_zoznam.pdf",
+          "typ": "priloha",
+          "priloha": "9",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "na_preverenie",
+        "verzia": "akt2",
+        "ver": [
+          "VER-KOLO",
+          "VER-SCHVALENIE"
+        ],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene",
+          "P08b": "splnene",
+          "P09": "splnene"
+        }
+      }
+    },
+    {
+      "cislo": "09",
+      "slug": "zmena-vyzvy-pocas-kola",
+      "titul": "Predložená tesne pred účinnosťou zmeny č. 3",
+      "scenar": "Obec, VRR, predložená 19. 8. 2025 (kolo 79). Zmena č. 3 je účinná od 21. 8. 2025 a vzťahuje sa už na kolo 79. Prílohy podľa znenia zmeny č. 3 sú úplné.",
+      "preco": "§ 14 ods. 4 a 5 zákona č. 121/2022 Z. z.: zmena platí aj pre prebiehajúce kolo, žiadateľ však musí dostať možnosť zosúladiť žiadosť (najmenej 10 pracovných dní). VER-ZMENA pre kontrolóra.",
+      "zip": "09-zmena-vyzvy-pocas-kola.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS09.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Prechodne_Vzorovce.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "na_preverenie",
+        "verzia": "zmena3",
+        "ver": [
+          "VER-ZMENA"
+        ],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene",
+          "P08b": "splnene"
+        }
+      }
+    },
+    {
+      "cislo": "10",
+      "slug": "nizky-nfp",
+      "titul": "Žiadaný NFP pod minimom",
+      "scenar": "Obec, VRR, predložená 12. 11. 2025. Malá obnova materskej školy (zateplenie a okná), žiadaný NFP okolo 100 000 EUR.",
+      "preco": "Výzva pripúšťa NFP od 200 000 do 5 000 000 EUR: D12 je nesplnené. Zošit Prílohy č. 8 to hlási tiež (A17), preto P08b ide na preverenie.",
+      "zip": "10-nizky-nfp.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS10.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Mala_Skuska.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "nesplnene_podmienky",
+        "verzia": "zmena3",
+        "ver": [],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "neuplatnuje_sa",
+          "D09": "splnene",
+          "D12": "nesplnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene"
+        }
+      }
+    },
+    {
+      "cislo": "11",
+      "slug": "nizka-uspora",
+      "titul": "Úspora primárnej energie pod 30 %",
+      "scenar": "Obec, VRR, predložená 22. 10. 2025. Len výmena okien a rekonštrukcia vykurovania, úspora primárnej energie 22 %.",
+      "preco": "PPP č. 7: úspora primárnej energie musí byť aspoň 30 %. D07b je nesplnené; zošit Prílohy č. 8 pri takej úspore nepočíta oprávnené výdavky.",
+      "zip": "11-nizka-uspora.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS11.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Overovany.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "nesplnene_podmienky",
+        "verzia": "zmena3",
+        "ver": [],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "nesplnene",
+          "D07d": "neuplatnuje_sa",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "nesplnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene"
+        }
+      }
+    },
+    {
+      "cislo": "12",
+      "slug": "hodnota-za-peniaze",
+      "titul": "Prekročená hodnota za peniaze",
+      "scenar": "Obec, VRR, predložená 3. 12. 2025. Drahá obnova malej školy: úspora 35 % (asi 56 MWh/rok) pri výdavkoch takmer 600 000 EUR.",
+      "preco": "Hodnota za peniaze pri opatrení 2.1.2 je najviac 5 500 EUR na MWh ročnej úspory; tu vychádza asi 10 000 EUR/MWh, nad limitom aj po odrátaní DPH. D07c je nesplnené, zošit hlási D17.",
+      "zip": "12-hodnota-za-peniaze.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS12.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Nakladne_Testovce.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "nesplnene_podmienky",
+        "verzia": "zmena3",
+        "ver": [],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "nesplnene",
+          "D07d": "neuplatnuje_sa",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene"
+        }
+      }
+    },
+    {
+      "cislo": "13",
+      "slug": "neopravneny-ziadatel",
+      "titul": "Neoprávnený žiadateľ (s.r.o.)",
+      "scenar": "Obchodná spoločnosť (právna forma 112), VRR, predložená 19. 11. 2025. Obnova jej administratívnej budovy, prílohy sú úplné okrem Prílohy č. 3, ktorá sa pri s.r.o. nevyžaduje.",
+      "preco": "Výzva je určená verejným subjektom (obce, VÚC, rozpočtové a príspevkové organizácie a ďalšie formy z PPP č. 1). Spoločnosť s ručením obmedzeným medzi nimi nie je: D01 je nesplnené.",
+      "zip": "13-neopravneny-ziadatel.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS13.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "nesplnene_podmienky",
+        "verzia": "zmena3",
+        "ver": [],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "nesplnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "neuplatnuje_sa",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene",
+          "P08b": "splnene"
+        }
+      }
+    },
+    {
+      "cislo": "14",
+      "slug": "prilohy-bez-cisla",
+      "titul": "Súbory bez čísla prílohy v názve",
+      "scenar": "Obec, VRR, predložená 10. 12. 2025. Prílohy sú úplné, ale súbory sa volajú napr. „Uznesenie_obecneho_zastupitelstva.pdf“ alebo „Rozpocet_projektu.xlsm“, bez čísla prílohy.",
+      "preco": "Podateľňa zaradí súbor bez čísla prílohy len odhadom podľa kľúčových slov. Odhad sa nesmie počítať ako splnená príloha (riziko falošného OK): kontrolór musí zaradenie potvrdiť tlačidlom „Potvrdiť“. Po potvrdení sú prílohy splnené.",
+      "zip": "14-prilohy-bez-cisla.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS14.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Uznesenie_obecneho_zastupitelstva.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "nazov"
+        },
+        {
+          "nazov": "Energeticky_certifikat_budovy.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "nazov"
+        },
+        {
+          "nazov": "Technicka_sprava_a_vykresy.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "nazov"
+        },
+        {
+          "nazov": "Rozpocet_projektu.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "nazov"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "na_preverenie",
+        "verzia": "zmena3",
+        "ver": [],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "splnene",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "splnene",
+          "P03": "na_preverenie",
+          "P05": "neuplatnuje_sa",
+          "P06": "na_preverenie",
+          "P07": "na_preverenie",
+          "P08": "na_preverenie",
+          "P08b": "na_preverenie"
+        }
+      },
+      "potvrdenie": {
+        "ocakavane": {
+          "navrh": "na_preverenie",
+          "verzia": "zmena3",
+          "ver": [],
+          "nalezy": {
+            "V01": "splnene",
+            "F01": "splnene",
+            "D01": "splnene",
+            "D07a": "splnene",
+            "D07b": "splnene",
+            "D07c": "splnene",
+            "D07d": "splnene",
+            "D09": "splnene",
+            "D12": "splnene",
+            "D13": "splnene",
+            "D14": "splnene",
+            "P03": "splnene",
+            "P05": "neuplatnuje_sa",
+            "P06": "splnene",
+            "P07": "splnene",
+            "P08": "splnene",
+            "P08b": "splnene"
+          }
+        }
+      }
+    },
+    {
+      "cislo": "15",
+      "slug": "bez-datumu-predlozenia",
+      "titul": "Formulár bez dátumu predloženia",
+      "scenar": "Obec, VRR. Formulár neobsahuje dátum predloženia, prílohy sú úplné podľa znenia zmeny č. 3.",
+      "preco": "Bez dátumu sa nedá určiť kolo ani znenie výzvy a nedá sa overiť včasnosť. Softvér nesmie dosadiť dátum nahratia do podateľne (pri neskorom nahratí by vybral novšie znenie, napr. bez povinnej Prílohy č. 9): F01 a D14 idú na preverenie, VER-KOLO pre kontrolóra. Rozhodujúci je dátum odoslania do e-schránky poskytovateľa (MD č. 21).",
+      "zip": "15-bez-datumu-predlozenia.zip",
+      "subory": [
+        {
+          "nazov": "Formular_ZoNFP_NFP401201TS15.json",
+          "typ": "formular",
+          "priloha": null,
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_3_Uznesenie_Bezdatovce.pdf",
+          "typ": "priloha",
+          "priloha": "3",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_6_Energeticky_certifikat.pdf",
+          "typ": "priloha",
+          "priloha": "6",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_7_Projektova_dokumentacia.pdf",
+          "typ": "priloha",
+          "priloha": "7",
+          "istota": "cislo"
+        },
+        {
+          "nazov": "Priloha_8_Dokumentacia_k_OV.xlsm",
+          "typ": "priloha",
+          "priloha": "8",
+          "istota": "cislo"
+        }
+      ],
+      "ocakavane": {
+        "navrh": "na_preverenie",
+        "verzia": "zmena3",
+        "ver": [
+          "VER-KOLO"
+        ],
+        "nalezy": {
+          "V01": "splnene",
+          "F01": "na_preverenie",
+          "D01": "splnene",
+          "D07a": "splnene",
+          "D07b": "splnene",
+          "D07c": "splnene",
+          "D07d": "splnene",
+          "D09": "splnene",
+          "D12": "splnene",
+          "D13": "splnene",
+          "D14": "na_preverenie",
+          "P03": "splnene",
+          "P05": "neuplatnuje_sa",
+          "P06": "splnene",
+          "P07": "splnene",
+          "P08": "splnene",
+          "P08b": "splnene"
+        }
+      }
+    }
+  ]
+}

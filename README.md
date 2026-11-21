@@ -42,8 +42,10 @@ npm run test:moduly       # test 3: všetky moduly na reálnych dátach + zasade
 npm run test:llm-moduly   # test 4: lokálny model na syntetických faktúrach, výpisoch, záznamoch VO, odôvodneniach
 npm run test:podatelna    # test 5: podateľňa na demo podaniach, bez modelu (asi 3 s)
 npm run test:inventar     # inventár podmienok, poistky, verzie podľa kola a zmeny výzvy (bez siete)
+npm run test:sada         # test 6: 15 nových podaní z demo/testovacia-sada cez API podateľne, bez modelu (asi 6 s)
 npm run zmeny             # kontrola zmien výzvy v ITMS21+ oproti posúdenému základu (len čítanie verejného API)
 npm run demo:podania      # vymyslené podania žiadostí (PDF, DOCX, JSON, ZIP) do demo/podania
+npm run demo:sada         # testovacia sada podľa oficiálnych vzorov do demo/testovacia-sada (Windows, Excel, Edge; asi 3 min)
 npm start                 # demo na http://127.0.0.1:5177
 ```
 
@@ -60,7 +62,9 @@ Karta **Podateľňa** simuluje prácu kontrolóra, ktorý posudzuje žiadosti o 
 (ZIP alebo súbory, prípadne kód historickej žiadosti z ITMS21+), skontroluje zaradenie príloh, spustí
 posúdenie a zapíše rozhodnutie. Spisy sú rozdelené podľa výziev. Pri každej výzve je úspešnosť
 v podateľni (rozhodnutia kontrolóra) a v ITMS21+ (skutočné žiadosti). Postup krok za krokom
-s ukážkovými podaniami je v [demo/podania/README.md](demo/podania/README.md).
+s ukážkovými podaniami je v [demo/podania/README.md](demo/podania/README.md). Testovacia sada 15 úplne nových
+podaní podľa oficiálnych vzorov, s očakávaným výsledkom pri každom, je v
+[demo/testovacia-sada/README.md](demo/testovacia-sada/README.md).
 
 - **Odkiaľ podanie prichádza (lokálna simulácia).** V skutočnosti žiadateľ vypĺňa ŽoNFP v ITMS21+:
   štruktúrovaný formulár a prílohy nahraté k jednotlivým podmienkam, potom žiadosť odošle a formálne podá
@@ -93,6 +97,10 @@ s ukážkovými podaniami je v [demo/podania/README.md](demo/podania/README.md).
   v prílohe a na preverenie ide celá príloha, lebo napr. sprievodný list, ktorý uznesenie len spomína, by
   inak mohol modelu „dodať“ náležitosť uznesenia. Nečitateľný súbor (sken, poškodené PDF) je „priložený,
   ale nečitateľný“, nikdy „splnený“.
+- **Dátum predloženia.** Berie sa z formulára. Ak tam chýba, nedopĺňa sa dátumom nahratia do podateľne:
+  včasnosť sa posudzuje podľa odoslania do e-schránky poskytovateľa (MD č. 21) a neskorší dátum by vybral
+  neskoršie kolo, teda iné znenie výzvy (pri Zmene č. 3 napr. bez povinnej Prílohy č. 9). Včasnosť (F01),
+  harmonogram (D14) aj výber znenia (VER-KOLO) vtedy idú na preverenie kontrolórovi.
 - **Výsledky sa ukladajú.** Každý posudok ide do auditnej tabuľky `posudky` s väzbou na spis. Rozhodnutie
   kontrolóra (splnila / výzva na doplnenie / nesplnila) sa ukladá s poznámkou. Rozhodnutie proti návrhu
   softvéru vyžaduje poznámku a v prehľade výzvy sa počíta zvlášť. Čísla spisov `POD-RRRR-NNNN` sa po
@@ -123,8 +131,10 @@ src/ingest/dokument.ts         DOCX / PDF / TXT / ZIP -> text
 src/podatelna/podatelna.ts     podateľňa: spisy, súbory, zaradenie príloh, rozhodnutia, štatistika výziev
 src/server/server.ts           HTTP API + statické rozhranie (node:http, node:sqlite)
 web/                           rozhranie (HTML + JS bez frameworku; podatelna.js, ui.js = spoločné vykreslenie)
-scripts/                       stiahnutie dát, normalizácia, testy, demo podania (10), lokálny príjem podania (11), Príloha 8 cez Excel (lib/priloha8.ts)
+scripts/                       stiahnutie dát, normalizácia, testy, demo podania (10), lokálny príjem podania (11), testovacia sada (18) a jej test (19)
+scripts/lib/                   Príloha 8 cez Excel (priloha8.ts); ZIP, DOCX a PDF cez Edge pre vymyslené doklady (dokumenty.ts)
 demo/podania/                  ukážkové podania žiadostí a postup pre demo
+demo/testovacia-sada/          15 nových podaní podľa oficiálnych vzorov, očakávané výsledky (ocakavane.json) a postup
 data/zdroje/                   stiahnuté dokumenty výzvy a zoznamy rozhodnutí (zdroj pravdy pre pravidlá)
 data/odvodene/                 normalizované žiadosti s výsledkom a dôvodom
 eval/                          výsledky testov (JSON)
@@ -353,6 +363,24 @@ sú doplnené a overené bez modelu na presných úryvkoch.
 
 Všetkých 15 prešlo. Test zapisuje do dočasného priečinka, nie do `data/spisy`. Prvá verzia testu
 zapisovala tam a pri upratovaní zmazala súbory spisov bežiaceho servera s rovnakým číslom.
+
+### Test 6: testovacia sada nových podaní
+
+`npm run test:sada`, bez modelu. Pätnásť nových podaní z `demo/testovacia-sada` prejde podateľňou cez HTTP ako
+nové spisy (vlastný server, databáza v pamäti). Formulár má tvar detailu z API ITMS21+, prílohy idú podľa
+oficiálnych vzorov a Príloha č. 8 je vzor výzvy vyplnený a prepočítaný Excelom. Pri každom podaní test porovná
+zaradenie súborov, návrh, vybrané znenie výzvy, body o znení (bez VER-ITMS a VER-KONTROLA, ktoré závisia
+od prostredia) a stavy určujúcich pravidiel. Dve podania sa doplnia, v jednom kontrolór potvrdí zaradenie.
+Mäkší návrh, než sa čaká, test hlási zvlášť ako riziko falošného OK.
+
+Všetkých 15 prešlo (0 rozdielov). Pri tvorbe sada našla štyri chyby, všetky sú opravené:
+- bez dátumu predloženia podateľňa dopĺňala dátum nahratia, takže žiadosť dostala neskoršie kolo a iné znenie
+  výzvy; to je smer k falošnému OK;
+- D07d nevedel doložiť neuvedený ukazovateľ OZE (pravidlo ho ráta ako 0 MW) a dával „na preverenie“; v ITMS21+
+  uvádza len jeden z ukazovateľov PSKPRCO22a/b 41 zo 618 žiadostí s hlavnou aktivitou 2.2.2;
+- P09 (Zmena č. 2) nemal doklad prítomnosti prílohy, preto nikdy nemohol byť „splnený“;
+- generátor Prílohy č. 8 nechával prázdnu kapacitu druhého druhu OZE (vzorec H268 potom dá 0 EUR) a pri projekte
+  bez OZE odpovedal „áno“ v L60, takže zošit nekrátil o 5 p. b.
 
 ## Obmedzenia
 
