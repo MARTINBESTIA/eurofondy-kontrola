@@ -1,0 +1,60 @@
+Záznam o výsledku hodnotenia žiadosti o nenávratný finančný príspevok
+
+Názov žiadateľa:
+ |
+ |
+Názov projektu:
+ |
+ |
+Kód ŽoNFP:
+ |
+ |
+Kód výzvy:
+ |
+ |
+Poskytovateľ:
+ |
+ |
+
+Fáza administratívneho overovania:
+Podmienky poskytnutia príspevku			Vyberte položku.
+
+Fáza odborného hodnotenia:
+Hodnotiaci hárok odborného hodnotiteľa
+Vylučujúce hodnotiace kritériá						Vyberte položku.
+Bodované hodnotiace kritériá						počet bodov spolu
+
+Výsledné bodované hodnotenie projektu
+(súčet bodov z administratívneho overovania a bodového hodnotenia z odborného hodnotenia ŽoNFP)
+ | ....
+ |
+
+Minimálna hranica pri bodovaných hodnotiacich kritériách, ktorá predstavuje ... % z maximálneho počtu bodov bodovaných hodnotiacich kritérií splnená?			Vyberte položku.
+
+Všetky podmienky poskytnutia príspevku stanovené vo výzve, ktoré sú predmetom tohto overenia, splnené?									Vyberte položku.
+
+Vyjadrenie:	ŽoNFP je možné schváliť / ŽoNFP nie je možné schváliť
+
+Na základe overených skutočností potvrdzujem, že vo finančnej operácii alebo jej časti možno / nemožno5 pokračovať (v zmysle § 7 ods. 3 zákona o finančnej kontrole).
+ |
+Vyhotovil:
+ |
+ |
+Dátum:
+ |
+ |
+Podpis:
+ |
+ |
+
+Na základe overených skutočností potvrdzujem, že vo finančnej operácii alebo jej časti možno / nemožno5 pokračovať (v zmysle § 7 ods. 3 zákona o finančnej kontrole).
+ |
+Overil:
+ |
+ |
+Dátum:
+ |
+ |
+Podpis:
+ |
+ |

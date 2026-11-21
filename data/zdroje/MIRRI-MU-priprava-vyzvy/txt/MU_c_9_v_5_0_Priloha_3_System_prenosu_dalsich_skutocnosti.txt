@@ -1,0 +1,37 @@
+Systém prenosu ďalších skutočností do zmluvných podmienok zmluvy o poskytnutí NFP, vrátane identifikácie opatrení pri ich neplnení/porušení k výzve (uvedie sa kód výzvy)
+
+P.č.
+ | Názov ďalšej skutočnosti týkajúcej sa poskytovania príspevku
+uvedenej vo výzve
+ | Uplatnenie ďalšej skutočnosti
+ | Postup pri neplnení/porušení zmluvného záväzku v súvislosti s ďalšou skutočnosťou
+(uvedie sa odkaz na čl., ods. zmluvy)
+ |
+
+ |
+ | V predzmluvnom režime
+(v prípade relevancie sa vyznačí x)
+ | Počas trvania zmluvy o poskytnutí NFP
+(uvedie sa odkaz na čl., ods. zmluvy)
+ | Počas obdobia udržateľnosti projektu
+(uvedie sa odkaz na čl., ods. zmluvy)
+ |
+ |
+1
+ |  |
+ |
+ |
+ |
+ |
+2
+ |  |
+ |
+ |
+ |
+ |
+n
+ |  |
+ |
+ |
+ |
+ |

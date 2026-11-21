@@ -1,0 +1,1582 @@
+Metodický dokument riadiaceho orgánu pre Program Slovensko č. 21
+
+METODICKÉ USMERNENIE KU KONANIU O ŽIADOSTI
+
+O POSKYTNUTIE NENÁVRATNÉHO FINANČNÉHO PRÍSPEVKU
+
+Schválil:
+Adriana Červeňová,
+generálna riaditeľka
+sekcia riadenia Programu Slovensko
+
+Verzia: 1.0
+Dátum vydania: 07.05.2026
+Dátum účinnosti: 08.05.2026
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+Obsah
+
+Zoznam použitých skratiek ..................................................................................................................... 3
+Úvod ........................................................................................................................................................ 4
+1 Zoznam vykonaných zmien ................................................................................................................. 5
+2 Konanie o ŽoNFP ............................................................................................................................. 6
+
+  2.1 Základné princípy a pravidlá........................................................................................................ 6
+  2.2 Prierezové skutočnosti týkajúce sa konania o ŽoNFP ........................................................... 6
+  2.3 Začatie konania o ŽoNFP a podmienky doručenia ŽoNFP ..................................................... 9
+  2.4 Administratívne overovanie ................................................................................................. 12
+  2.5 Odborné hodnotenie ŽoNFP................................................................................................. 15
+  2.6 Výber ŽoNFP na základe aplikácie výberových kritérií alebo iného kritéria podľa
+  schválenia monitorovacím výborom................................................................................................ 17
+  2.7 Postup pri vydávaní rozhodnutia a náležitosti rozhodnutia ............................................... 18
+  2.8 Opravné prostriedky............................................................................................................. 21
+
+     2.8.1. Odvolanie (riadny opravný prostriedok) a odvolacie konanie.......................................... 21
+     2.8.2. Preskúmanie rozhodnutia mimo odvolacieho konania (mimoriadny opravný prostriedok)
+      ....................................................................................................................................................... 25
+     2.8.3. Oprava rozhodnutia ............................................................................................................ 26
+  2.9 Splnenie podmienok pre uzatvorenie zmluvy o poskytnutí NFP ........................................ 27
+  2.10 Uzavretie zmluvy o poskytnutí NFP ..................................................................................... 30
+3 Prílohy............................................................................................................................................ 32
+
+                                                                2
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+Zoznam použitých skratiek
+
+Pre lepšiu orientáciu a manipuláciu s dokumentom, plné znenie zavádzanej skratky uvádzame aj
+
+priamo v texte dokumentu pri jej prvom použití, následne používame už len zavedenú skratku.
+
+CKO               Centrálny koordinačný orgán
+
+ďalšie            ďalšie skutočnosti týkajúce sa poskytovania príspevku
+
+skutočnosti
+
+ITMS21+           informačný monitorovací systém podľa zákona č. 121/2022 Z. z. o príspevkoch
+
+                  z fondov Európskej únie a o zmene a doplnení niektorých zákonov v znení
+
+                  neskorších predpisov
+
+IÚI               integrované územné investície
+
+konanie o ŽoNFP konanie o žiadosti o poskytnutie nenávratného finančného príspevku
+
+NFP               nenávratný finančný príspevok
+
+NSU          alebo Nariadenie Európskeho parlamentu a Rady (EÚ) 2021/1060 z 24. júna 2021,
+
+nariadenie (EÚ) ktorým sa stanovujú spoločné ustanovenia o Európskom fonde regionálneho
+
+2021/1060         rozvoja, Európskom sociálnom fonde plus, Kohéznom fonde, Fonde
+
+                  na spravodlivú transformáciu a Európskom námornom, rybolovnom
+
+                  a akvakultúrnom fonde a rozpočtové pravidlá pre uvedené fondy, ako aj pre
+
+                  Fond pre azyl, migráciu a integráciu, Fond pre vnútornú bezpečnosť a Nástroj
+
+                  finančnej podpory na riadenie hraníc a vízovú politiku v platnom znení
+
+OH                odborný hodnotiteľ/odborní hodnotitelia
+
+P SK              Program Slovensko
+
+poskytovateľ      riadiaci orgán pre Program Slovensko alebo sprostredkovateľský orgán, ak ho
+
+                  tým riadiaci orgán poverí
+
+PPP               podmienky poskytnutia príspevku
+
+Správny poriadok zákon č. 71/1967 Zb. o správnom konaní (správny poriadok) v znení neskorších
+
+                  predpisov
+
+Trestný zákon     zákon č. 300/2005 Z. z. Trestný zákon v znení neskorších predpisov
+
+usmernenie        metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+
+                  finančného príspevku
+
+výzva             Výzva na predkladanie ŽoNFP
+
+zákon o e- zákon č. 305/2013 Z. z. o elektronickej podobe výkonu pôsobnosti orgánov
+
+Governmente       verejnej moci a o zmene a doplnení niektorých zákonov (zákon
+
+                  o e-Governmente) v znení neskorších predpisov
+
+zákon          o zákon č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a o zmene
+
+príspevkoch z a doplnení niektorých zákonov v znení neskorších predpisov
+
+fondov
+
+zákon o registri zákon č. 315/2016 Z. z. o registri partnerov verejného sektora a o zmene
+
+partnerov         a doplnení niektorých zákonov v znení neskorších predpisov
+
+verejného
+
+sektora
+
+zákon o slobode zákon č. 211/2000 Z. z. o slobodnom prístupe k informáciám a o zmene
+
+informácií        a doplnení niektorých zákonov (zákon o slobode informácií) v znení neskorších
+
+                  predpisov
+
+zmluva            zmluva o poskytnutí nenávratného finančného príspevku
+
+o poskytnutí NFP
+
+ŽoNFP             žiadosť o poskytnutie nenávratného finančného príspevku
+
+                                             3
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+Úvod
+
+Cieľom metodického usmernenia ku konaniu o žiadosti o poskytnutie nenávratného finančného
+príspevku (ďalej len „usmernenie“) je zabezpečiť jednotný postup poskytovateľov v konaní o žiadosti
+o poskytnutie nenávratného finančného príspevku (ďalej len „konanie o ŽoNFP“) a tým v maximálnej
+možnej miere vytvoriť predpoklady pre efektívnu a plynulú implementáciu Programu Slovensko (ďalej
+len „P SK“). Usmernenie pozostáva z postupu nastaveného podľa zákona č. 121/2022 Z. z.
+o príspevkoch z fondov Európskej únie a o zmene a doplnení niektorých zákonov v znení neskorších
+predpisov (ďalej len „zákon o príspevkoch z fondov“) a praktických príkladov, ktoré vyplynuli
+z implementačnej praxe.
+
+Usmernenie obsahuje informácie o postupoch v rámci konania o žiadosti o poskytnutie nenávratného
+finančného príspevku (ďalej len „ŽoNFP“), o opravných prostriedkoch a o uzatváraní zmluvy
+o poskytnutí nenávratného finančného príspevku (ďalej len „zmluva o poskytnutí NFP“). V prílohe
+1 tohto usmernenia je hodnotiaci hárok odborného hodnotenia žiadosti o nenávratný finančný
+príspevok a v prílohe 2 je záznam o výsledku hodnotenia žiadosti o nenávratný finančný príspevok.
+
+Usmernenie je záväzné pre poskytovateľov v rozsahu v ňom uvedenom, okrem príloh, ktoré si
+poskytovateľ môže upraviť vzhľadom na špecifiká oblasti podpory.
+
+Usmernenie je určené predovšetkým poskytovateľom, zatiaľ čo Metodický dokument riadiaceho
+orgánu pre P SK č. 20 - Príručka pre žiadateľa je určený predovšetkým žiadateľom a predstavuje
+aktualizovanú verziu „Všeobecnej informácie k predkladaniu a schvaľovaniu žiadosti o poskytnutie
+nenávratného finančného príspevku“ a úplne ju nahrádza.
+
+Postupy vzťahujúce sa k ŽoNFP/projektovým zámerom/projektom v rámci Integrovaných územných
+investícií (ďalej len „IÚI“) sú upravené v Metodickom dokumente riadiaceho orgánu pre P SK č. 8
+k podpore integrovaného územného rozvoja zverejnenom na webovom sídle Metodické dokumenty
+pre Program Slovensko (P SK) | Eurofondy. Usmernenie sa preto vzťahuje pre IÚI a udržateľný mestský
+rozvoj v rozsahu konania o ŽoNFP a procesu uzatvárania zmluvy o poskytnutí NFP, v akom sa
+na konanie o projektoch IÚI a udržateľného mestského rozvoja primerane vzťahujú bežné ustanovenia
+§ 14, § 16 až 22 zákona o príspevkoch z fondov, ak nie je ustanovené inak, pri rešpektovaní špecifík
+vyplývajúcich z projektov IÚI a udržateľného mestského rozvoja.
+
+Vo vzťahu k osobitným postupom poskytovania príspevku podľa § 23 a § 25 zákona o príspevkoch
+z fondov a vzhľadom na špecifické postavenie tam upravených projektov, sa usmernenie
+na ne vzťahuje primerane, t. j. v rozsahu, v akom sú pre tieto osobitné postupy poskytovania príspevku
+záväzné všeobecné postupy § 16 až 22 zákona o príspevkoch z fondov, pri rešpektovaní ich špecifík.
+
+Usmernenie nadobúda platnosť dňom jeho vydania a účinnosť nasledujúci pracovný deň po zverejnení
+na webovom sídle www.eurofondy.gov.sk. Riadiaci orgán je oprávnený vykonávať zmeny v usmernení,
+pričom nová verzia dokumentu nadobúda platnosť dňom vydania a účinnosť nasledujúci pracovný deň
+po zverejnení, ak nie je v konkrétnom prípade uvedený iný dátum účinnosti. Na konanie poskytovateľa
+sa vzťahuje usmernenie účinné v čase vykonania daného úkonu.
+
+                                                                4
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+1 Zoznam vykonaných zmien
+
+Zoznam vykonaných zmien poskytuje chronologický vývoj zmien usmernenia zmenou formou
+dodatkov až po aktuálnu verziu dokumentu.
+
+Tabuľka 1: Zoznam zmien vykonaných v usmernení
+
+    Časť   Obsah upravovanej časti              Platnosť Verzia                          Podnet1
+dokumentu
+
+1 Uvedie sa napr. číslo kontroly / auditu, na ktorého základe bola daná zmena vykonaná.
+
+                                                                5
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+2 Konanie o ŽoNFP
+
+2.1 Základné princípy a pravidlá
+
+    1. V procese konania o ŽoNFP sa uplatňujú princípy transparentnosti, rovnakého zaobchádzania
+         a nediskriminácie, ako aj ďalšie princípy a zásady v súlade so všeobecne záväznými právnymi
+         predpismi SR a EÚ. V konaní o ŽoNFP poskytovateľ overuje, či bola ŽoNFP podaná riadne
+         a včas. Po splnení tejto podmienky poskytovateľ následne overuje splnenie podmienok
+         poskytnutia príspevku (ďalej len „PPP“) určených v príslušnej výzve.
+
+    2. Na konanie o ŽoNFP sa podľa § 13 ods. 5 zákona o príspevkoch z fondov nevzťahuje zákon
+         č. 71/1967 Zb. o správnom konaní (správny poriadok) v znení neskorších predpisov (ďalej len
+         ,,Správny poriadok“) okrem ustanovení § 15, § 24 až § 25a, § 27, § 47 ods. 6 a § 52 Správneho
+         poriadku. Podľa judikatúry najvyšších súdnych autorít sa na konanie o ŽoNFP vzťahujú zásady
+         a princípy správneho konania, ktoré sú formálne vyjadrené najmä v § 3 Správneho poriadku.
+         Ide predovšetkým o princíp zákonnosti, princíp materiálnej pravdy (spoľahlivo zistený skutkový
+         stav veci), zásada súčinnosti s účastníkom konania, princíp stability rozhodovacej praxe
+         (princíp legitímneho očakávania), princíp hospodárnosti správneho konania (princíp procesnej
+         ekonómie) a ďalšie.
+
+    3. Na poskytnutie NFP nie je právny nárok. Právny nárok na poskytnutie NFP vzniká žiadateľovi
+         len na základe účinnej zmluvy o poskytnutí NFP (resp. na základe právoplatného rozhodnutia
+         o schválení ŽoNFP, ak je prijímateľ a poskytovateľ tá istá osoba) za predpokladu dodržania
+         všetkých podmienok zadefinovaných vo výzve, v dokumentoch súvisiacich s výzvou
+         a podmienok dohodnutých v zmluve o poskytnutí NFP (resp. rozhodnutí o schválení ŽoNFP,
+         ak je prijímateľ a poskytovateľ tá istá osoba).
+
+    4. Poskytovateľ v schvaľovacom procese zabezpečí nestrannosť, zachovanie dôvernosti
+         informácií a vylúčenie konfliktu záujmov. Zásady predchádzania konfliktu záujmov bližšie
+         upravuje príloha č. 12 Vzoru manuálu procedúr RO/SO a v prípade OH Metodický dokument
+         RO pre P SK č. 3 - Metodické usmernenie k výberu OH.
+
+    5. Ak v konaní o ŽoNFP dôjde k podozreniu nasvedčujúcemu, že bol alebo mohol byť spáchaný
+         trestný čin (napr. subvenčný podvod podľa § 225 Trestného zákona, poškodzovanie finančných
+         záujmov Európskej únie podľa § 261 Trestného zákona, falšovanie a pozmeňovanie verejnej
+         listiny, úradnej pečate, úradnej uzávery, úradného znaku a úradnej značky podľa § 352
+         Trestného zákona), manažér posudzovania žiadosti o NFP takúto skutočnosť bezodkladne
+         oznámi svojmu priamemu nadriadenému, ktorý bezodkladne koná v zmysle interne
+         nastavených procesov za účelom riešenia danej situácie.
+
+2.2 Prierezové skutočnosti týkajúce sa konania o ŽoNFP
+
+    1. Stanovenie PPP pre konkrétnu výzvu je podľa § 14 ods. 3 zákona o príspevkoch z fondov plne
+         v kompetencii poskytovateľa za dodržania pravidiel stanovených v prílohe č. 6 Podmienky
+         poskytnutia príspevku a ďalšie skutočnosti Vzoru manuálu procedúr RO/SO a v plnom rozsahu
+         sa prejavuje v obsahu výzvy. Súčasťou výzvy sú aj kritériá pre výber projektov a spôsob ich
+         vyhodnotenia, ktoré schvaľuje monitorovací výbor.
+                                                                6
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+    2. Podľa čl. 73 ods. 4 NSU je možné uplatniť zjednodušený postup výberu projektov. Tento postup
+         sa vzťahuje na operácie, ktoré získali Známku excelentnosti 2 , alebo operácie, ktoré boli
+         vybrané v rámci programu spolufinancovaného z programu Horizont Európa, za splnenia tam
+         uvedených podmienok3. Právny základ na priame zazmluvnenie je v § 22a ods. 2 zákona
+         o príspevkoch z fondov. Ďalšou situáciou, keď uzavretiu zmluvy nepredchádza konanie
+         o ŽoNFP, sú fázované projekty. V prípade fázovaných projektov (projekty, ktoré boli vybrané
+         na financovanie v programovom období 2014-2020 a spĺňajú podmienky čl. 118a NSU
+         aj v programovom období 2021 – 2027) je právny základ v § 22a ods. 1 zákona o príspevkoch
+         z fondov.
+
+    3. Odborné hodnotenie sa vykonáva, ak stanovené kritériá pre výber projektov vyžadujú odborné
+         posúdenie a poskytovateľ informáciu o realizácii odborného hodnotenia môže uviesť
+         aj v samotnej výzve resp. v jej prílohách. V prípade, že je možné posúdiť kvalitu jednotlivých
+         projektov v rámci administratívneho overovania, v rámci konania o ŽoNFP nie je potrebné
+         pristúpiť k odbornému hodnoteniu, resp. k využitiu odborných hodnotiteľov.
+
+    4. Overenie splnenia PPP sa podľa § 16 ods. 4 zákona o príspevkoch z fondov realizuje priebežne
+         počas konania o žiadosti, preto, ak z obsahu výzvy nevyplýva niečo iné, vo všeobecnosti nie sú
+         vopred určené konkrétne momenty v rámci konania o žiadosti, ku ktorým musia byť PPP
+         splnené.
+
+    5. Všetky dôležité písomnosti (najmä výzva na doplnenie ŽoNFP, rozhodnutie
+         o schválení/neschválení ŽoNFP, rozhodnutie o zastavení konania a pod.) sa doručujú
+         do elektronickej schránky (s elektronickou doručenkou) žiadateľa, resp. splnomocnenej osoby
+         na doručovanie písomností/na celé konanie o ŽoNFP, ktorá je identifikovaná jednoznačným
+         identifikátorom na doručenie do elektronickej schránky, formou doručenia do vlastných rúk
+         s uplatnením fikcie doručenia, čo znamená, že písomnosti sa budú považovať za doručené
+         potvrdením doručenky (dátumom uvedeným na elektronickej doručenke) alebo márnym
+         uplynutím úložnej lehoty (15 kalendárnych dní odo dňa nasledujúceho po dni uloženia
+         elektronickej správy), podľa toho, ktorá skutočnosť nastane skôr, a to aj vtedy, ak sa adresát
+         o tom nedozvedel.4 Obsah písomnosti sa žiadateľovi sprístupní až po potvrdení doručenky.
+         V prípade žiadateľov, ktorí v inom svojom postavení konajú ako orgány verejnej moci a majú
+         zriadenú iba jednu (plne funkčnú) elektronickú schránku, sa doručovanie písomností riadi
+         podľa § 32 ods. 5 písm. a) zákona o e-Governmente. Doručovanie iných ako dôležitých
+         písomností prebieha štandardne cez režim komunikácie ITMS21+; email sa použije ako
+
+2 alebo „pečať suverenity“ uvedená v článku 4 nariadenia Európskeho parlamentu a Rady (EÚ) 2024/795
+
+3 Podľa čl. 5 ods. 11 nariadenia o EFFR a KF môže riadiaci orgán, popri možnostiach stanovených v článku 73 ods. 4 nariadenia (EÚ) 2021/1060,
+rozhodnúť o priamom poskytnutí podpory z EFRR v prípade projektov, ktoré sa priamo podieľajú na dôležitom projekte spoločného
+európskeho záujmu (IPCEI), ktorý Komisia schválila ako zlučiteľný s vnútorným trhom podľa článku 107 ods. 3 písm. b) ZFEÚ, zohľadňujúc
+oznámenie Komisie z 25. novembra 2021 s názvom „Kritériá pre analýzu zlučiteľnosti štátnej pomoci na podporu vykonávania dôležitých
+projektov spoločného európskeho záujmu s vnútorným trhom“, za predpokladu, že takéto operácie spĺňajú požiadavky stanovené v článku 73
+ods. 2 písm. a), b) a g) nariadenia (EÚ) 2021/1060.
+
+4 Ustanovenie § 17 ods. 4 zákon o e-Governmente týmto nie je dotknuté. „Ak z technických dôvodov nie je orgán verejnej moci objektívne
+schopný vykonať právny úkon pri výkone verejnej moci elektronicky a tieto technické dôvody trvajú po takú dobu, že by na strane orgánu
+verejnej moci mohlo dôjsť k porušeniu povinnosti konať v lehotách podľa zákona, je oprávnený vykonať tento úkon aj inak ako elektronicky,
+ak mu to zákon nezakazuje.“
+
+                                                                7
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         posledná možnosť, ak sa poskytovateľ nerozhodne v odôvodnených prípadoch inak. Ak
+         vo výnimočných prípadoch, ktoré sú dané dôvodmi na strane žiadateľa, ktorý nie je orgánom
+         verejnej moci, alebo v dôsledku dočasného technického výpadku elektronických služieb,
+         prebieha komunikácia v písomnej forme v listinnej podobe prostredníctvom doručovania
+         zásielok osobne, poštou, alebo kuriérom, doručuje sa na adresu žiadateľa uvedenú v ŽoNFP.
+         Postupuje sa podľa § 13 ods. 5 zákona o príspevku z fondov v spojení s § 24 až 25a Správneho
+         poriadku.
+    6. Poskytovateľ je povinný skontrolovať, či výstupy z administratívneho overenia/odborného
+         hodnotenia obsahujú všetky potrebné údaje a sú základom pre vydanie zákonného
+         rozhodnutia poskytovateľa. V prípade pochybností alebo identifikovaných nedostatkov
+         obsiahnutých vo výstupe hodnotiteľa, resp. zamestnanca, ktorý vykonal administratívne
+         overenie, ktoré bránia poskytovateľovi vydať zákonné rozhodnutie, poskytovateľ zabezpečí
+         náležité podklady pre rozhodnutie, napr. požadované dopracovanie výstupu
+         z administratívneho overovania, resp. vyzve odborného hodnotiteľa na doplnenie vykonaného
+         odborného hodnotenia. Poskytovateľ vyzve na doplnenie vykonaného odborného hodnotenia
+         najmä vtedy, ak vznikol nesúlad medzi prideleným hodnotením a odôvodnením, napríklad
+         ak v rámci hodnoteného kritéria nebol pridelený plný počet bodov, avšak v odôvodnení nie je
+         uvedené, čo bolo dôvodom zníženia počtu bodov. Uvedené sleduje cieľ, aby odovzdaný výstup
+         z administratívneho overovania/odborného hodnotenia umožňoval poskytovateľovi
+         vypracovať dostatočne jasné a presné odôvodnenie príslušného rozhodnutia, ktoré bude
+         spĺňať požiadavky na preskúmateľnosť rozhodnutia poskytovateľa ako správneho orgánu
+         súdom.
+    7. Kedykoľvek v priebehu konania o ŽoNFP môže byť doručené poskytovateľovi späťvzatie ŽoNFP,
+         najneskôr však pred vydaním rozhodnutia, a to písomným oznámením poskytovateľovi.
+         Poskytovateľ takúto ŽoNFP vyradí z konania o ŽoNFP, v systéme ITMS21+ posunie ŽoNFP
+         do relevantného stavu. V prípade písomného listinného doručenia ŽoNFP poskytovateľ
+         zašle/odovzdá osobne ŽoNFP späť žiadateľovi, ak o to žiadateľ požiada.
+    8. Za späťvzatie ŽoNFP je možné považovať akékoľvek podanie žiadateľa adresované
+         poskytovateľovi v písomnej forme, z ktorého je možné jednoznačne identifikovať vôľu
+         žiadateľa vziať ŽoNFP späť. Oznámenie o späťvzatí ŽoNFP musí byť podpísané štatutárnym
+         orgánom žiadateľa/splnomocnenou osobou/inou osobou oprávnenou konať v mene žiadateľa
+         a doručené poskytovateľovi, a to najneskôr do okamihu vydania rozhodnutia
+         o schválení/neschválení ŽoNFP, resp. vydania rozhodnutia o zastavení konania o ŽoNFP podľa
+         § 17 zákona o príspevkoch z fondov. Ak je oznámenie o späťvzatí ŽoNFP podpísané
+         splnomocnenou osobou, spolu s oznámením o späťvzatí ŽoNFP musí byť predložené
+         plnomocenstvo, ktorým štatutárny orgán žiadateľa oprávňuje splnomocnenú osobu
+         na predmetný úkon, ak už nebolo predložené skôr v konaní. V oznámení o späťvzatí ŽoNFP
+         je potrebné predmetnú ŽoNFP riadne identifikovať. V prípade späťvzatia ŽoNFP zo strany
+         žiadateľa vydá poskytovateľ podľa § 17 ods. 1 písm. a) zákona o príspevkoch z fondov
+         rozhodnutie o zastavení konania, ktoré doručí žiadateľovi spolu s prípadnou písomnou
+         dokumentáciou, ktorá bola v rámci podania ŽoNFP predložená poskytovateľovi, ak o to
+         žiadateľ požiada. Ak nie je úprava predkladania ŽoNFP vrátane opätovného predloženia ŽoNFP
+         alebo predloženia viacerých žiadostí upravená vo výzve, opätovne predložiť ŽoNFP je možné
+
+                                                                8
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         nasledujúci deň po dni doručenia späťvzatia ŽoNFP poskytovateľovi, najneskôr však do termínu
+         na predkladanie ŽoNFP stanoveného výzvou.
+    9. Poskytovateľ zabezpečí vydanie rozhodnutia pre všetky ŽoNFP, ktoré boli predmetom konania
+         o ŽoNFP, v termíne stanovenom poskytovateľom vo výzve. Ak v priebehu konania o ŽoNFP
+         poskytovateľ zašle žiadateľovi výzvu na doplnenie ŽoNFP, lehota na vydanie rozhodnutia
+         o ŽoNFP sa preruší v momente zaslania výzvy na doplnenie ŽoNFP a začína opäť plynúť dňom
+         nasledujúcim po dni doručenia chýbajúcich náležitostí poskytovateľovi. V prípade
+         nepredvídateľných okolností na strane poskytovateľa, prípadne iných okolností ovplyvnených
+         externými faktormi, na základe ktorých nie je možné ukončiť konanie ŽoNFP v predpokladanej
+         lehote na vydanie rozhodnutia o ŽoNFP stanovenej poskytovateľom vo výzve, si poskytovateľ
+         môže predĺžiť lehotu na vydanie rozhodnutia o ŽoNFP. Informáciu o dôvodoch nedodržania
+         termínu ako aj o novom predpokladanom termíne vydania rozhodnutia zverejní poskytovateľ
+         prostredníctvom ITMS21+ na webovom sídle https://portal.itms21.sk/ a zároveň ju zašle
+         individuálne na kontaktnú emailovú adresu žiadateľa uvedenú v ŽoNFP, resp. prostredníctvom
+         modulu Komunikácia v ITMS21+, prípadne prostredníctvom elektronickej schránky. V prípade
+         projektov IÚI a udržateľného mestského rozvoja zašle poskytovateľ informáciu o nedodržaní
+         termínu individuálne prostredníctvom modulu Komunikácia v ITMS21+ alebo na kontaktnú
+         e-mailovú adresu žiadateľa. V prípade, že nie je dodržaný nový predpokladaný termín
+         na vydanie rozhodnutia o ŽoNFP, poskytovateľ opakovane zabezpečí informovanosť žiadateľa
+         za rovnakých podmienok.
+    10. Zoznam schválených ŽoNFP je zverejnený na webovom sídle www.eurofondy.gov.sk v časti
+         Program Slovensko/Zoznamy projektov a platieb aj https://portal.itms21.sk/.
+
+2.3 Začatie konania o ŽoNFP a podmienky doručenia ŽoNFP
+
+    1. Podľa § 16 ods. 2 zákona o príspevkoch z fondov konanie o ŽoNFP sa začína doručením ŽoNFP
+         poskytovateľovi na základe vyhlásenej výzvy. Konanie o ŽoNFP je preto výlučne návrhovým
+         konaním, kedy sa každý môže rozhodnúť či ŽoNFP na základe vyhlásenej výzvy podá alebo nie.
+
+    2. Po doručení ŽoNFP poskytovateľ overí splnenie podmienok doručenia ŽoNFP riadne a včas
+         podľa § 16 ods. 4 zákona o príspevkoch z fondov.
+
+    3. ŽoNFP je doručená včas, ak je odoslaná z verejnej časti ITMS21+ do neverejnej časti ITMS21+
+         do termínu uzavretia výzvy alebo v prípade otvorenej výzvy do uzavretia príslušného
+         hodnotiaceho kola alebo podľa iných pravidiel vyplývajúcich z výzvy a zároveň je predložená
+         v elektronickej podobe do elektronickej schránky poskytovateľa do termínu uzavretia výzvy
+         alebo vo výnimočných prípadoch 5 v listinnej podobe podľa podmienok stanovených
+
+5 Ak preukázateľne došlo k technickému obmedzeniu možnosti predložiť ŽoNFP prostredníctvom elektronickej schránky poskytovateľa a tieto
+technické dôvody majú také trvanie, že by mohlo dôjsť k uplynutiu termínu uzavretia hodnotiaceho kola/výzvy. Pod technickým obmedzením
+sa myslia externé faktory, ktoré žiadateľ nemôže a nevie ovplyvniť alebo v prípade vážnej technickej poruchy, ktorú žiadateľ nevie a nemôže
+ovplyvniť (napr. nefunkčnosť Ústredného portálu verejnej správy). V takom prípade žiadateľ uvedie aj stručné zdôvodnenie nemožnosti
+predloženia ŽoNFP v elektronickej podobe prostredníctvom elektronickej schránky poskytovateľa. Predmetné zdôvodnenie môže byť
+uvedené napr. v sprievodnom liste k predkladanej ŽoNFP, vrátane relevantného dôkazu o nemožnosti predloženia ŽoNFP v elektronickej
+podobe.
+
+                                                                9
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         v príslušnej výzve odovzdaná na prepravu (poštou alebo kuriérskou službou) alebo osobne
+         doručená do podateľne do termínu uzavretia uzavretej výzvy alebo v prípade otvorenej výzvy
+         do uzavretia príslušného hodnotiaceho kola, alebo podľa iných pravidiel vyplývajúcich z výzvy.
+    4. Pre overenie splnenia podmienky doručenia ŽoNFP včas je rozhodujúci dátum odoslania do
+         elektronickej schránky poskytovateľa. Z tohto dôvodu je nevyhnutné požadovať, aby žiadateľ
+         vybral pri predkladaní ŽoNFP typ „podanie/žiadosť“, ktorý umožní poskytovateľovi overiť
+         dátum odoslania do elektronickej schránky poskytovateľa.
+    5. V prípade osobného doručenia je rozhodujúci dátum fyzického doručenia ŽoNFP, pričom
+         v takom prípade je nevyhnutné ŽoNFP doručiť najneskôr do stanoveného času v deň uzavretia
+         výzvy/hodnotiaceho kola. Zamestnanec poskytovateľa na mieste potvrdí prevzatie ŽoNFP.
+         Osobné predloženie ŽoNFP je možné v čase a na mieste stanovenom vo výzve.
+    6. V prípade doručenia poštou alebo kuriérskou službou je rozhodujúci dátum odovzdania
+         listinnej podoby ŽoNFP na prepravu, pričom tento dátum nesmie byť neskorší ako dátum
+         uzavretia výzvy/hodnotiaceho kola.
+    7. ŽoNFP je doručená riadne, ak je ŽoNFP odoslaná do neverejnej časti ITMS21+, resp. s inými
+         podmienkami doručenia určenými výzvou (napr. počet predložených ŽoNFP je limitovaný
+         na jednu ŽoNFP v rámci výzvy) a zároveň je vyplnená v slovenskom alebo českom jazyku,
+         zároveň je riadne podpísaná6 predložená:
+         - v elektronickej podobe do elektronickej schránky poskytovateľa zriadenej v rámci
+
+              Ústredného portálu verejnej správy a riadne podpísaná 7 kvalifikovaným elektronickým
+              podpisom alebo kvalifikovaným elektronickým podpisom s mandátnym certifikátom
+              osoby/osôb oprávnenej/oprávnených konať za žiadateľa do termínu uzavretia
+              výzvy/hodnotiaceho kola
+         alebo
+         - v listinnej podobe podľa podmienok stanovených v príslušnej výzve a je podpísaná 8
+              osobou/osobami oprávnenou/oprávnenými konať v mene žiadateľa.
+    8. Podľa § 16 ods. 2 zákona o príspevkoch z fondov konanie o ŽoNFP sa začína doručením
+         písomnej ŽoNFP poskytovateľovi na základe vyhlásenej výzvy, pričom nie je rozhodujúce,
+         či doručená ŽoNFP obsahuje vady alebo nie9.
+    9. Ak vzniknú pochybnosti o predložení ŽoNFP riadne a včas, poskytovateľ oznámi tieto
+         pochybnosti žiadateľovi a vyzve ho, aby sa k nim v primeranej lehote (nesmie byť kratšia ako
+         päť pracovných dní odo dňa doručenia oznámenia poskytovateľa) vyjadril alebo pochybenia
+         odstránil. Ak žiadateľ v jemu stanovenej lehote tieto pochybenia odstráni, alebo vysvetlí,
+         ŽoNFP bude posúdená ako predložená riadne a včas. Poskytovateľ vyzýva na odstránenie
+         pochybností o riadnom a včasnom predložení ŽoNFP najviac raz v rámci konania o predmetnej
+
+6 Pozri ods. 12 tejto kapitoly.
+
+7 Osobou/osobami oprávnenou/oprávnenými konať v mene žiadateľa v súlade s konaním v mene subjektu stanovenom v rámci príslušného
+registra, resp. v rámci iného relevantného dokumentu (napr. zakladateľská listina, splnomocnenie). ŽoNFP nemôže byť podpísaná
+elektronickou pečaťou, pretože z nej nie je možné overiť, kto ŽoNFP podpísal, a teda overiť, či bola ŽoNFP podpísaná osobou oprávnenou
+konať za žiadateľa.
+8 V súlade s konaním v mene subjektu stanovenom v rámci príslušného registra, resp. v rámci iného relevantného dokumentu (napr.
+zakladateľská listina, splnomocnenie).
+9 Konanie o ŽoNFP sa začína aj v prípade, ak je doručená ŽoNFP nepodpísaná alebo je podpísaná neoprávnenou osobou, alebo podpis
+oprávnenej osoby vykazuje vady (napr. nebol riadne autorizovaný podľa osobitného predpisu).
+
+                                                               10
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         ŽoNFP 10 . V prípade ŽoNFP, ktorá je nepochybne predložená opakovane, poskytovateľ
+         zaregistruje iba najskôr podanú ŽoNFP, o ktorej ďalej koná. Ak má poskytovateľ pochybnosti
+         o identickosti viacnásobne podaných ŽoNFP, alebo sa totožnosť podaných ŽoNFP pri ich podaní
+         nedá zistiť, zaregistruje každú z nich a ďalej o nich koná.
+    10. Splnenie podmienok doručenia ŽoNFP si môže žiadateľ overiť vo verejnej časti ITMS21+. Posun
+         stavu ŽoNFP v ITMS21+ nelimituje poskytovateľa v neskoršom prehodnotení, ak sa počas
+         konania o ŽoNFP zistia pochybnosti alebo sa preukáže nesplnenie podmienok doručenia
+         ŽoNFP.
+    11. Ak žiadateľ nedoručil ŽoNFP riadne a/alebo včas a ani na základe výzvy poskytovateľa
+         neodstránil pochybnosti týkajúce sa splnenia podmienky doručenia ŽoNFP riadne a včas,
+         poskytovateľ zastaví konanie o ŽoNFP podľa § 17 ods. 1 písm. c) zákona o príspevkoch
+         z fondov vydaním rozhodnutia o zastavení konania o ŽoNFP, ktoré doručí žiadateľovi, resp.
+         osobe splnomocnenej na celé konanie o ŽoNFP, alebo splnomocnenej na doručovanie
+         písomností v rámci konania o ŽoNFP. Pre úplnosť sa uvádza, že takéto rozhodnutie o zastavení
+         konania sa nepovažuje za tzv. prvé rozhodnutie podľa § 14 ods. 4 zákona o príspevkoch
+         z fondov, ktorého vydaním by sa limitovala možnosť zmeny výzvy.
+    12. ŽoNFP vrátane všetkých príloh sa predkladá poskytovateľovi v elektronickej podobe
+         prostredníctvom ITMS21+ a to ich vložením do ITMS21+ a odoslaním z verejnej časti ITMS21+
+         do neverejnej časti ITMS21+ a súčasne ŽoNFP (bez príloh):
+         a) v elektronickej podobe prostredníctvom elektronickej schránky poskytovateľa zriadenej
+         v rámci Ústredného portálu verejnej správy, riadne podpísanú11 kvalifikovaným elektronickým
+         podpisom alebo kvalifikovaným elektronickým podpisom s mandátnym certifikátom
+         alebo
+         b) vo výnimočnom prípade, ak preukázateľne došlo k technickému obmedzeniu12 možnosti
+         predložiť ŽoNFP prostredníctvom elektronickej schránky poskytovateľa a tieto technické
+         dôvody majú také trvanie, že by mohlo dôjsť k uplynutiu termínu uzavretia hodnotiaceho
+         kola/výzvy, sa ŽoNFP môže podať v listinnej podobe podľa podmienok stanovených v príslušnej
+         výzve a podpísaná (osobou/osobami oprávnenou/oprávnenými konať v mene žiadateľa13)
+         na adresu poskytovateľa uvedenú vo výzve.
+
+10 Výnimkou z povinnosti zaslať výzvu na doplnenie je situácia, kedy z objektívnych dôvodov nemá akékoľvek doplnenie alebo vysvetlenie
+podanej ŽoNFP zmysel, pretože zistený nedostatok nie je možné nijako napraviť. Uvedená výnimka sa realizuje reštriktívne. Rovnaká výnimka
+je uvedená aj v kapitole 2.4 ods. 16.
+
+11 Osobou/osobami oprávnenou/oprávnenými konať v mene žiadateľa v súlade s konaním v mene subjektu stanoveným v rámci príslušného
+registra, resp. v rámci iného relevantného dokumentu (napr. zakladateľská listina, splnomocnenie). ŽoNFP nemôže byť podpísaná
+elektronickou pečaťou, pretože z nej nie je možné overiť, kto ŽoNFP podpísal, a teda overiť, či bola ŽoNFP podpísaná osobou oprávnenou
+konať za žiadateľa.
+
+12 Pod technickým obmedzením sa myslia externé faktory, ktoré žiadateľ nemôže a nevie ovplyvniť alebo v prípade vážnej technickej poruchy,
+ktorú žiadateľ nevie a nemôže ovplyvniť (napr. nefunkčnosť Ústredného portálu verejnej správy). V takom prípade žiadateľ uvedie aj stručné
+zdôvodnenie nemožnosti predloženia ŽoNFP v elektronickej podobe prostredníctvom elektronickej schránky poskytovateľa. Predmetné
+zdôvodnenie môže byť uvedené napr. v sprievodnom liste k predkladanej ŽoNFP, vrátane relevantného dôkazu o nemožnosti predloženia
+ŽoNFP v elektronickej podobe.
+
+13 V súlade s konaním v mene subjektu stanoveným v rámci príslušného registra, resp. v rámci iného relevantného dokumentu (napr.
+zakladateľská listina, splnomocnenie).
+
+                                                               11
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+    13. Prílohy ŽoNFP, ktoré výlučne z technických alebo prevádzkových príčin nie je možné
+         predložiť v elektronickej podobe prostredníctvom ITMS21+ (napr. veľkosť, rozsah príloh - týka
+         sa to najmä rozsiahlej projektovej dokumentácie, nefunkčnosť systému a pod., podľa
+         podmienok stanovených v príslušnej výzve), sa môžu predložiť poskytovateľovi:
+         a) v elektronickej podobe prostredníctvom elektronickej schránky poskytovateľa zriadenej
+         v rámci Ústredného portálu verejnej správy. V prípade doručenia príloh ŽoNFP do elektronickej
+         schránky poskytovateľa je rozhodujúci dátum ich odoslania do elektronickej schránky
+         poskytovateľa. Z tohto dôvodu je nevyhnutné predložiť prílohy ŽoNFP ako typ
+         „podanie/žiadosť“, ktorý umožní poskytovateľovi overiť dátum ich odoslania do elektronickej
+         schránky poskytovateľa, alebo
+         b) listinne podľa podmienok stanovených v príslušnej výzve na adresu poskytovateľa uvedenú
+         vo výzve. V prípade osobného doručenia je rozhodujúci dátum fyzického doručenia ŽoNFP
+         a v prípade doručenia poštou alebo kuriérskou službou je rozhodujúci dátum odovzdania
+         listinnej podoby príloh ŽoNFP na prepravu.
+
+    14. V prípade predloženia príloh ŽoNFP prostredníctvom ITMS21+ a zároveň aj prostredníctvom
+         elektronickej schránky alebo listinne (vo výnimočných prípadoch), sa za záväzné považujú
+         verzie predložené povinne prostredníctvom ITMS21+.
+
+2.4 Administratívne overovanie
+
+    1. Proces administratívneho overovania ŽoNFP zahŕňa overenie splnenia podmienok doručenia
+         ŽoNFP a overenie splnenia PPP určených vo výzve, okrem PPP, ktoré sa vcelku alebo sčasti
+         overujú v procese odborného hodnotenia , ak relevantné.
+
+    2. Poskytovateľ overuje v rámci administratívneho overenia PPP iba tých ŽoNFP, ktoré splnili
+         podmienky doručenia ŽoNFP. Poskytovateľ overí v rámci administratívneho overovania
+         splnenie každej jednotlivej PPP na základe údajov a informácií uvedených žiadateľom v ŽoNFP,
+         v relevantných prílohách ŽoNFP, prostredníctvom integrácie ITMS21+ alebo podľa údajov
+         z verejných registrov. Poskytovateľ overuje splnenie PPP podľa spôsobu určeného vo výzve
+         alebo právneho dokumentu, na ktorý výzva odkazuje.
+
+    3. Ak pri overovaní splnenia PPP vzniknú pochybnosti o pravdivosti alebo úplnosti ŽoNFP,
+         na základe ktorých nie je možné overiť splnenie alebo určiť nesplnenie niektorej z PPP,
+         poskytovateľ vyzve žiadateľa na doplnenie požadovaných náležitostí, neúplných údajov
+         alebo vysvetlenie nejasností, a to zaslaním výzvy na doplnenie ŽoNFP prostredníctvom
+         elektronickej schránky do vlastných rúk s fikciou doručenia v súlade s podmienkami
+         uvedenými v kapitole 2.2 ods. 5, s uvedením konkrétnej overovanej PPP. Listinne
+         sa komunikuje v prípadoch, ak tak ustanovuje osobitný predpis, alebo je to potrebné alebo
+         vhodné z dôvodov technických alebo prevádzkových obmedzení. Napríklad, ak subjekt nemá
+         zriadenú a aktivovanú elektronickú schránku na doručovanie; v prípade predloženia príloh
+         ŽoNFP, najmä z dôvodu ich rozsiahlosti alebo ak sa jedná o prílohy technického charakteru.
+         Informáciu o zaslaní výzvy na doplnenie ŽoNFP poskytovateľ zároveň zasiela aj na emailovú
+         adresu žiadateľa, resp. kontaktnú emailovú adresu uvedenú pre tento účel v ŽoNFP alebo
+         prostredníctvom modulu Komunikácia v ITMS21+.
+
+                                                               12
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+    4. V prípade, že niektorá z príloh ŽoNFP nie je predložená spolu so ŽoNFP, poskytovateľ vyzve
+         žiadateľa na doplnenie ŽoNFP, avšak v takomto prípade je vhodné upozorniť žiadateľov už
+         vo výzve, že v prvom kroku nemôže dôjsť zo strany poskytovateľa k vecnej kontrole
+         chýbajúcich príloh ŽoNFP, a teda predmetom výzvy na doplnenie ŽoNFP nemôže byť žiadosť
+         o vysvetlenie prípadných nedostatkov v obsahu prílohy, nesúladu s obsahom ŽoNFP a pod.,
+         čo môže mať negatívny dopad na celkovú dĺžku konania o ŽoNFP.
+
+    5. Poskytovateľ určí vo výzve na doplnenie ŽoNFP lehotu na odpoveď žiadateľa, ktorá nesmie byť
+         kratšia ako päť pracovných dní odo dňa doručenia výzvy na doplnenie ŽoNFP žiadateľovi.
+         V tejto lehote má žiadateľ doplniť údaje a informácie, na základe ktorých odstráni pochybnosti
+         o pravdivosti alebo úplnosti ŽoNFP. Prvým dňom lehoty je najbližší pracovný deň nasledujúci
+         po dni doručenia výzvy na doplnenie ŽoNFP. Za deň doručenia doplnených/upravených príloh
+         ŽoNFP sa považuje dátum ich odoslania do neverejnej časti ITMS21+. V prípade doplnenia
+         ŽoNFP do elektronickej schránky poskytovateľa zriadenej v rámci Ústredného portálu verejnej
+         správy (vo výnimočnom prípade) sa za dátum doručenia považuje dátum odoslania
+         doplnených náležitostí do elektronickej schránky poskytovateľa. V prípade predloženia
+         doplnenia ŽoNFP v listinnej podobe (vo výnimočnom prípade) sa za dátum doručenia považuje
+         dátum podania doplnených náležitostí do podateľne poskytovateľa, resp. dátum odovzdania
+         zásielky na poštovú prepravu/prepravu kuriérskou službou (dátum na potvrdení/odtlačku
+         pečiatky poštovej služby/kuriérskej služby).
+
+    6. Povinnosťou poskytovateľa je dbať na to, aby výzva na doplnenie ŽoNFP v rámci
+         administratívneho overovania bola kompletná, vecná, jasne špecifikovaná a obsahovala všetky
+         potrebné požiadavky odstraňujúce zistené pochybnosti o splnení/nesplnení PPP zo strany
+         žiadateľa, t. j. eliminovala potrebu zasielania ďalšej výzvy na doplnenie ŽoNFP žiadateľovi a tým
+         nedochádzalo k predlžovaniu administratívneho overovania (t. j. aby bola dodržaná zásada
+         hospodárnosti správneho konania).
+
+    7. Všetky žiadateľom doplnené náležitosti je potrebné zaslať prostredníctvom ITMS21+
+         (s výnimkou tých, ktoré technicky alebo z prevádzkových príčin nie je možné takto zaslať napr.
+         veľkosť, rozsah prílohy, nefunkčnosť systému a pod., podľa podmienok stanovených
+         v príslušnej výzve). Takto doplnené náležitosti sa stávajú súčasťou predloženej ŽoNFP.
+
+    8. Lehotu na doplnenie chýbajúcich náležitostí ŽoNFP možno predĺžiť na základe odôvodnenej
+         žiadosti predloženej žiadateľom počas trvania lehoty na doplnenie ŽoNFP. Umožnenie
+         predĺženia lehoty na doplnenie chýbajúcich náležitostí ŽoNFP je výlučne na poskytovateľovi,
+         t.j. poskytovateľ môže vo výzve vopred stanoviť, že žiadosti na predĺženie lehoty na doplnenie
+         nebude akceptovať, prípadne stanoviť maximálnu celkovú lehotu akceptovateľného
+         predĺženia. Zmeškanie lehoty na doplnenie chýbajúcich náležitostí ŽoNFP na základe výzvy
+         na doplnenie ŽoNFP nemožno v žiadnom prípade odpustiť14.
+
+    9. Ak žiadateľ v nadväznosti na výzvu na doplnenie chýbajúcich náležitostí ŽoNFP mení, resp.
+         dopĺňa údaje aj v rámci samotnej ŽoNFP (t.j. nie iba v rámci jej príloh), je žiadateľ povinný
+         tieto zmeny/úpravy vykonať v ŽoNFP vo verejnej časti ITMS21+, ktorú žiadateľ elektronicky
+         odoslal pri predkladaní ŽoNFP, resp. v zmysle pokynov uvedených vo výzve na doplnenie
+
+14 Uvedené neplatí pre projekty IÚI, ak z riadiacej dokumentácie špecificky k projektom IÚI výslovne vyplýva iný postup.
+
+                                                               13
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         ŽoNFP. Zároveň je potrebné upravenú ŽoNFP opätovne predložiť prostredníctvom ITMS21+
+         a zároveň do elektronickej schránky alebo listinne. Predloženie doplnenia ŽoNFP musí spĺňať
+         rovnaké náležitosti a podmienky ako je uvedené v kapitole 2.3 ods. 7 tohto dokumentu, ktorý
+         definuje riadne predloženie ŽoNFP. Pri predkladaní doplnenej/upravenej ŽoNFP je tiež
+         potrebné postupovať v zmysle požiadaviek uvedených vo výzve na doplnenie ŽoNFP.
+    10. Ak žiadateľ mení alebo dopĺňa prílohy je potrebné ich opätovne predložiť, pričom je potrebné
+         uviesť názov prílohy s označením „doplnenie“ a predložiť ich v elektronickej podobe
+         prostredníctvom ITMS21+, resp. do elektronickej schránky poskytovateľa alebo v listinnej
+         podobe, ak z dôvodu technických a prevádzkových obmedzení nie je možné prílohy ŽoNFP
+         predložiť elektronicky prostredníctvom ITMS21+. Pri predkladaní doplnených/upravených
+         príloh ŽoNFP je tiež potrebné postupovať v zmysle požiadaviek uvedených vo výzve
+         na doplnenie ŽoNFP.
+    11. Žiadateľ je oprávnený doplniť ŽoNFP aj nad rámec zaslanej výzvy na doplnenie ŽoNFP, pričom
+         poskytovateľ je oprávnený túto možnosť limitovať vo výzve. Doplnenie nad rámec zaslanej
+         výzvy na doplnenie ŽoNFP musí mať jasnú a preukázateľnú súvislosť s požiadavkami
+         uvedenými vo výzve na doplnenie. Doplnenie ŽoNFP žiadateľom nad rámec výzvy
+         na doplnenie ŽoNFP má zmysel osobitne v prípade, že žiadateľ na základe výzvy na doplnenie
+         ŽoNFP identifikuje potrebu zosúladenia viacerých dotknutých častí ŽoNFP, hoci
+         to poskytovateľ vo výzve na doplnenie presne neuviedol (napríklad zmeny v obsahu prílohy
+         ŽoNFP s dopadom na obsah ŽoNFP, prípadne aj s dopadom na rozpočet projektu), čím
+         sa predchádza ďalšej výzve na doplnenie, ktorá by bola zbytočná. V prípade doplnenia ŽoNFP
+         nad rámec výzvy na doplnenie ŽoNFP je žiadateľ povinný upozorniť poskytovateľa v odpovedi
+         na výzvu na doplnenie, aké úpravy nad rámec zaslanej výzvy na doplnenie ŽoNFP vykonal,
+         z akých dôvodov a ktorých častí ŽoNFP sa týkajú (s označením ŽoNFP, resp. konkretizáciou
+         dopĺňanej prílohy), v opačnom prípade poskytovateľ nie je povinný na takéto doplnenie
+         prihliadať. Poskytovateľ je oprávnený posúdiť relevantnosť takéhoto doplnenia.
+    12. Poskytovateľ je povinný realizovať aspoň jednu výzvu na doplnenie (ak relevantné) týkajúcu
+         sa odstránenia pochybností o pravdivosti alebo úplnosti ŽoNFP pri posudzovaní PPP,
+         pri rešpektovaní odseku 6 tejto kapitoly. Počet výziev na doplnenie poskytovateľ realizuje
+         s ohľadom na efektívnosť a plynulosť konania o ŽoNFP, t.j. v súlade so zásadou hospodárnosti
+         konania o ŽoNFP. Poskytovateľ je oprávnený počet výziev na doplnenie limitovať vo výzve
+         alebo iným transparentným spôsobom, a to až na úroveň konkrétneho hodnotiaceho kola
+         otvorenej výzvy. Poskytovateľ pri tomto nastavení zohľadňuje charakter žiadateľov, náročnosť
+         PPP podľa výzvy, svoje implementačné skúsenosti a ďalšie relevantné skutočnosti, berúc
+         do úvahy princíp hospodárnosti konania o ŽoNFP, teda, aby sa konanie zbytočne
+         nepredlžovalo, ale súčasne, aby bol postup poskytovateľa transparentný a nediskriminačný.
+    13. Po doplnení ŽoNFP zo strany žiadateľa v stanovenej lehote, poskytovateľ opätovne vykoná
+         administratívne overovanie splnenia PPP vo vzťahu k tým PPP, ktorých splnenie ešte nebolo
+         overené a tým PPP, na ktoré sa vzťahovala výzva na doplnenie ŽoNFP resp. doplnených častí
+         nad rámec zaslanej výzvy na doplnenie ŽoNFP. Konečným výstupom z administratívneho
+         overovania je kontrolný zoznam administratívneho overovania ŽoNFP (príloha č. 5 Vzoru
+         manuálu procedúr RO/SO).
+
+                                                               14
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+    14. Ak žiadateľ nedoplní žiadne náležitosti, nesplní stanovený termín na doručenie doplnenia
+         ŽoNFP (doručenie po stanovenom termíne), resp. ak aj po doplnení ŽoNFP naďalej pretrvávajú
+         pochybnosti o pravdivosti alebo úplnosti ŽoNFP, na základe čoho nie je možné overiť splnenie
+         niektorej z PPP, hoci bol o možnosti zastavenia konania poučený, a teda nie je možné
+         konštatovať nesplnenie alebo splnenie PPP, poskytovateľ môže vydať rozhodnutie o zastavení
+         konania o ŽoNFP, ktoré zašle žiadateľovi.
+
+    15. Ak po doplnení údajov zo strany žiadateľa poskytovateľ identifikuje nesplnenie niektorej
+         z PPP, poskytovateľ vydá rozhodnutie o neschválení ŽoNFP, ktoré zašle žiadateľovi.
+
+    16. Ak poskytovateľ počas konania o ŽoNFP zistí, že žiadateľovi nebolo umožnené odstránenie
+         pochybností o pravdivosti alebo úplnosti ŽoNFP, alebo bol žiadateľ nesprávne dožiadaný,
+         a teda mu nebolo umožnené odstránenie pochybností o pravdivosti alebo úplnosti ŽoNFP
+         rovnako ako ostatným žiadateľom, bezodkladne vykoná nápravu a zašle žiadateľovi (opätovnú)
+         výzvu na doplnenie ŽoNFP, ktorou zabezpečí rovnaké aplikovanie možnosti nápravy vo vzťahu
+         ku všetkým posudzovaným ŽoNFP. Žiadateľ má na (opätovné) doplnenie lehotu stanovenú
+         poskytovateľom, ktorá je najmenej päť pracovných dní odo dňa doručenia (opätovnej) výzvy
+         na doplnenie ŽoNFP. Výnimkou z povinnosti zaslať výzvu na doplnenie je situácia, kedy
+         z objektívnych dôvodov nemá akékoľvek doplnenie alebo vysvetlenie podanej ŽoNFP zmysel,
+         pretože zistený nedostatok nie je možné napraviť. Ide napríklad o situáciu porušenia
+         konkrétnej povinnosti vyplývajúcej z právneho predpisu alebo právneho aktu EÚ, ktorá mala
+         byť podľa obsahu PPP uvedených vo výzve splnená k určitému dňu v minulosti, preukázateľne
+         splnená nebola a možnosť nápravy objektívne neexistuje. Dôkazné bremeno takéhoto
+         výnimočného postupu znáša poskytovateľ a je povinný ho v príslušnom rozhodnutí riadne
+         odôvodniť.
+
+2.5 Odborné hodnotenie ŽoNFP
+
+    1. Odborné hodnotenie vykonávajú odborní hodnotitelia, ak stanovené hodnotiace kritériá
+         vyžadujú odborné posúdenie. Hodnotiace kritériá a výberové kritériá sú súčasťou kritérií
+         na výber projektov, ktoré predstavujú PPP: Podmienka splnenia kritérií pre výber projektov.
+         Hodnotiace kritériá sú definované ako kombinácia vylučujúcich a bodovaných hodnotiacich
+         kritérií, alebo ako súbor iba bodovaných alebo iba vylučujúcich kritérií. Z dokumentu
+         „Všeobecná metodika a kritériá použité pre výber projektov“ vychádzajú vylučujúce kritériá
+         z čl. 73 NSU. Schválená „Všeobecná metodika a kritériá použité pre výber projektov“ popisuje
+         zabezpečenie posúdenia požiadaviek podľa článku 73 NSU. V prípade relevantnosti pripraví
+         poskytovateľ hodnotiace (alebo sa môže použiť aj vecné hodnotiace) kritériá. „Všeobecnú
+         metodiku a kritériá použité pre výber projektov“, ako aj „hodnotiace (alebo sa môže použiť
+         aj vecné hodnotiace) kritériá“ schvaľuje monitorovací výbor a sú zverejnené na webovom sídle
+         www.eurofondy.gov.sk v rámci dokumentov z jednotlivých zasadnutí Monitorovacieho
+         výboru, na ktorých sú schvaľované konkrétne kritériá pre výber projektov. Konkrétne kritériá
+         pre výber projektov, uplatnené vo výzve sú jej súčasťou.
+
+    2. V prípade využitia odborných hodnotiteľov poskytovateľ zabezpečuje ich výber v zmysle
+         metodického dokumentu riadiaceho orgánu pre Program Slovensko č. 3 - Metodické
+         usmernenie k výberu odborných hodnotiteľov Metodické dokumenty pre Program Slovensko
+
+                                                               15
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         (P SK) | Eurofondy. Definuje minimálny štandard pre výber odborných hodnotiteľov,
+         všeobecné kritériá výberu odborných hodnotiteľov a spôsob ich overenia, ďalšie pravidlá
+         súvisiace s odborným hodnotením.
+    3. Príručku pre odborných hodnotiteľov vypracováva poskytovateľ s cieľom zadefinovania
+         základných pravidiel odborného hodnotenia a poskytnutia jasných a jednoznačných inštrukcií
+         k spôsobu a výkonu odborného hodnotenia. Minimálny štandard príručky pre odborných
+         hodnotiteľov definuje metodický dokument riadiaceho orgánu pre Program Slovensko č. 3 -
+         Metodické usmernenie k výberu odborných hodnotiteľov.
+    4. Konečným výstupom z odborného hodnotenia ŽoNFP je hodnotiaci hárok (príloha 1 tohto
+         usmernenia). Hodnotiaci hárok obsahuje vyhodnotenie hodnotiacich kritérií, popis záverov
+         z odborného hodnotenia a súčet dosiahnutých bodov z odborného hodnotenia. Ku každému
+         hodnotiacemu kritériu je zároveň uvedený slovný komentár odborných hodnotiteľov
+         k vyhodnoteniu príslušného hodnotiaceho kritéria. V prípade bodovaných kritérií musí
+         komentár odborných hodnotiteľov obsahovať jasné a čo najpresnejšie zdôvodnenie
+         prideleného počtu bodov, t. j. na základe čoho bol pridelený maximálny počet bodov, resp.
+         na základe čoho došlo k zníženiu počtu bodov pri bodovaní. V prípade vylučujúcich kritérií musí
+         byť uvedené podrobné zdôvodnenie vyhodnotenia príslušného vylučujúceho kritéria. Postup
+         uvedený v kapitole 2.2 ods. 6 ohľadne prierezových skutočností týkajúcich sa konania o ŽoNFP
+         sa uplatní primerane. Ak ŽoNFP nesplní kritériá odborného hodnotenia (hodnotiace kritériá),
+         vrátane PPP overovanej v rámci fázy odborného hodnotenia, je konanie o ŽoNFP ukončené
+         vydaním rozhodnutia o neschválení ŽoNFP podľa § 16 ods. 7 písm. a) zákona o príspevkoch
+         z fondov. Kritériá odborného hodnotenia sú nesplnené vždy vtedy, ak je nesplnené čo i len
+         jedno vylučujúce kritérium.
+    5. V rámci etapy odborného hodnotenia je možné uplatniť inštitút výzvy na doplnenie ŽoNFP.
+         Inštitút výzvy na doplnenie ŽoNFP sa uplatní najmä15 vtedy, ak v rámci odborného hodnotenia
+         nie je možné vyhodnotiť dané hodnotiace kritérium, napríklad z dôvodu zmätočnosti ŽoNFP
+         (jednotlivé údaje v ŽoNFP potrebné na uplatnenie príslušného kritériá nie sú navzájom
+         súladné, napr. sú v rôznych častiach ŽoNFP uvedené k tej istej overovanej skutočnosti rôzne
+         veličiny alebo čísla). Nad rámec uvedeného sa výzva na doplnenie ŽoNFP v tejto etape
+         neaplikuje 16 na odstránenie nesprávností, alebo nedostatočného plnenia daného kritéria,
+         a preto jej neuplatnenie z tohto dôvodu z metodického hľadiska nepredstavuje relevantný
+         odvolací dôvod17. Ak sa v odbornom hodnotení uplatní inštitút výzvy na doplnenie ŽoNFP, jej
+         súčasťou je aj poučenie žiadateľa o tom, že ak žiadateľ nedoplní žiadne náležitosti, nesplní
+         stanovený termín na doručenie doplnenia ŽoNFP (doručenie po stanovenom termíne, lehota
+
+15 V prípade projektov, na ktoré sa uplatňuje Záväzná metodika riadenia, financovania a hodnotenia podpory výskumu, vývoja a inovácií, sa
+nedostatky a neúplnosť ŽoNFP môžu zohľadniť vo výslednom bodovom hodnotení bez potreby výzvy na doplnenie ŽoNFP.
+
+16 Vo všeobecnosti platí, že výzva na doplnenie ŽoNFP je v OH možná, čiže nie je a priori vylúčená. Potom je upravené, kedy sa môže použiť
+(ak odborný hodnotiteľ nevie niektoré kritérium vyhodnotiť napr. z dôvodu zmätočnosti) a následne situácie, kedy sa neaplikuje (na
+odstraňovanie nedokonalostí ŽoNFP, nie je účelom, aby všetky ŽoNFP dostali 100 % bodov).
+
+17 Uvedené nemá prednostný právny účinok voči právam žiadateľa podľa zákona o príspevkoch z fondov. O relevancii odvolacích dôvodov
+rozhoduje poskytovateľ (autoremedúra) alebo štatutárny orgán (odvolanie) v rámci rozhodovania o odvolaní podľa zákona o príspevkoch z
+fondov.
+
+                                                               16
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         nesmie byť kratšia ako päť pracovných dní odo dňa doručenia oznámenia poskytovateľa), resp.
+         ak aj po doplnení ŽoNFP budú naďalej pretrvávať pochybnosti o pravdivosti alebo úplnosti
+         ŽoNFP alebo je príloh, poskytovateľ môže vydať rozhodnutie o zastavení konania o ŽoNFP
+         podľa § 17 ods. 2 zákona o príspevkoch z fondov.
+    6. Súčasťou výzvy na doplnenie ŽoNFP v rámci etapy odborného hodnotenia môže byť
+         aj vyžiadanie informácií/dokumentov, ktoré boli overované a mali byť dožiadané v rámci
+         administratívneho overovania, ak sa v rámci odborného hodnotenia zistí, že poskytovateľ
+         opomenul v tejto fáze dožiadať kompletné informácie/dokumenty.
+    7. Poskytovateľ môže zastaviť konanie o ŽoNFP, ak sú pochybnosti o pravdivosti alebo úplnosti
+         týkajúce sa splnenia PPP a žiadateľ tieto pochybnosti neodstránil v určenej lehote, hoci bol
+         poučený o možnosti zastavenia konania. Poskytovateľ sa musí riadiť princípmi a zásadami
+         podľa § 2 ods. 2 zákona o príspevkoch z fondov, ako aj podľa zásad správneho konania
+         a postupovať tak, aby v rozhodovaní o skutkovo zhodných alebo podobných prípadoch
+         nevznikali neodôvodnené rozdiely.
+
+2.6 Výber ŽoNFP na základe aplikácie výberových kritérií alebo iného kritéria
+   podľa schválenia monitorovacím výborom
+
+    1. Výberové kritériá sa aplikujú iba v prípade, keď zo zostávajúcej alokácie výzvy nie je možné
+         podporiť všetky ŽoNFP v rámci výzvy, resp. v príslušnom hodnotiacom kole (za predpokladu
+         splnenia PPP), a teda je z nich potrebné vybrať také ŽoNFP, ktoré sú najvhodnejšie z pohľadu
+         napĺňania cieľov výzvy. V prípade, že z alokácie výzvy je možné podporiť všetky ŽoNFP v rámci
+         výzvy, resp. v príslušnom hodnotiacom kole (za predpokladu splnenia PPP), schvaľovanie
+         prebieha bez potreby aplikácie výberových kritérií.
+
+    2. Ak sa v odbornom hodnotení aplikujú bodované hodnotiace kritériá, poskytovateľ môže pre
+         účely výberu ŽoNFP použiť výsledky odborného hodnotenia a zoradiť ŽoNFP zostupne v poradí
+         od najvyššieho počtu získaných bodov. To znamená, že ak je suma finančných prostriedkov
+         určených na vyčerpanie vo výzve, resp. v jej jednotlivom hodnotiacom kole obmedzená,
+         je možné schváliť iba ŽoNFP, ktoré získali dostatočný počet bodov vzhľadom na obmedzené
+         finančné prostriedky určené na vyčerpanie vo výzve, resp. v jej jednotlivom hodnotiacom kole.
+         Ostatným ŽoNFP s nižším poradím až po tie ŽoNFP, ktoré získali aspoň minimálny počet bodov
+         pre splnenie hodnotiacich kritérií, je vydané rozhodnutie o neschválení z dôvodu nedostatku
+         finančných prostriedkov, prípadne rozhodnutie o neschválení z dôvodu uplatnenia režimu
+         flexibility18, podľa § 16 ods. 7 písm. b) alebo c) zákona o príspevkoch z fondov. Ak je výsledkom
+         aplikácie výberových kritérií rovnaké poradie dvoch alebo viacerých ŽoNFP, pričom výška
+         finančných prostriedkov určených vo výzve na vyčerpanie, resp. v jej jednotlivom hodnotiacom
+         kole, nepostačuje na schválenie všetkých takýchto ŽoNFP, uplatnia sa v rámci takto
+         identifikovanej skupiny ŽoNFP rozlišovacie kritériá.
+
+    3. Poradie ŽoNFP na základe výberových kritérií sa určí spôsobom uvedeným v kritériách na výber
+         projektov, ktoré sú prílohou príslušnej výzvy.
+
+18 Flexibilita bola schválením verzie 3.1 Programu Slovensko 14.07.2025 Európskou komisiou definitívne pridelená.
+
+                                                               17
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+2.7 Postup pri vydávaní rozhodnutia a náležitosti rozhodnutia
+
+    1. V rámci konania o ŽoNFP je pre jej posudzovanie rozhodujúci obsah ŽoNFP. Poskytovateľ nie
+         je oprávnený pri posudzovaní ŽoNFP vyvodiť negatívne dôsledky (rozhodnutie o neschválení
+         ŽoNFP, resp. zastavenie konania s výnimkou postupu podľa § 17 ods. 1 písm. c) zákona
+         o príspevkoch z fondov) len z dôvodov formálnych nedostatkov ŽoNFP, ak na možnosť
+         zastavenia konania pre pretrvávajúce formálne nedostatky ŽoNFP žiadateľa výslovne
+         neupozornil vo výzve na doplnenie.
+
+    2. Dôvod, pre ktorý poskytovateľ vydáva rozhodnutie o zastavení konania, rozhodnutie
+         o neschválení, alebo pre ktoré kráti výdavky v príslušnom rozhodnutí, musí byť jasný,
+         relevantný a musí vyplývať z nedodržania podmienok uvedených vo výzve, resp.
+         v dokumentoch, na ktoré sa výzva odvoláva. Poskytovateľ na základe overenia splnenia
+         podmienok doručenia ŽoNFP (riadne a včas) a overenia splnenia PPP v súlade so zákonom
+         o príspevkoch z fondov vydá:
+
+         Rozhodnutie o schválení ŽoNFP, a to vtedy, keď poskytovateľ konštatuje splnenie všetkých
+         PPP stanovených vo výzve a zároveň deklaruje dostatok finančných prostriedkov
+         na financovanie schváleného projektu na základe alokácie určenej vo výzve alebo zároveň
+         disponuje osobitným súhlasom ministra financií SR k nadkontrahovaniu v súlade s § 13 ods. 4
+         zákona o príspevkoch z fondov (ak relevantné). V prípade projektov IÚI, ak sú splnené PPP
+         a poskytovateľ žiadosti v plnom rozsahu vyhovie, rozhodnutie o schválení ŽoNFP nahrádza
+         zápis v spise (§ 24 ods. 7 zákona o príspevkoch z fondov).
+
+         Poskytovateľ môže schváliť ŽoNFP v nižšej výške NFP ako žiadateľ žiada v rámci ŽoNFP, pričom
+         dôvodom zníženia je nedostatok voľnej alokácie vo výzve na pokrytie celej žiadanej výšky NFP.
+         Podmienky:
+
+         a) žiadateľ sám navrhne zníženie NFP a následne súhlasí s realizovaným znížením NFP,
+
+         b) žiadateľ sa zaviaže dofinancovať nepokrytú časť žiadanej výšky NFP z vlastných zdrojov.
+
+         Rozhodnutie o schválení ŽoNFP s podmienkou vo výroku rozhodnutia, a to vtedy, keď
+         poskytovateľ konštatuje splnenie všetkých PPP stanovených vo výzve, zároveň určuje
+         podmienku/podmienky vo výroku rozhodnutia, ktorých splnenie musí žiadateľ preukázať
+         pred uzatvorením zmluvy o poskytnutí NFP (žiadateľ musí byť o tejto skutočnosti informovaný
+         vo výzve), vrátane lehoty, v ktorej tak musí urobiť a zároveň deklaruje dostatok finančných
+         prostriedkov na financovanie schváleného projektu na základe alokácie určenej vo výzve.
+         V súvislosti s podmienkou vo výroku rozhodnutia sa upozorňuje na to, že musí byť stanovená
+         jednoznačne, a to tak, aby z nej jasne vyplýval spôsob jej splnenia. Podmienku stanovenú
+         vo výroku rozhodnutia je nutné splniť presne tak, ako bola stanovená, jej znenie sa nedá
+         dodatočne meniť.
+
+                                                               18
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         Rozhodnutie o neschválení ŽoNFP podľa § 16 ods. 7 písm. a) zákona o príspevkoch z fondov,
+         a to vtedy, keď poskytovateľ konštatuje nesplnenie jednej alebo viacerých PPP stanovených
+         vo výzve.19
+
+         Rozhodnutie o neschválení ŽoNFP podľa § 16 ods. 7 písm. b) alebo c) zákona o príspevkoch
+         z fondov, a to vtedy, keď poskytovateľ konštatuje nedostatok finančných prostriedkov
+         určených na vyčerpanie vo výzve alebo uplatnenie režimu flexibility20. Informácie o zásobníku
+         projektov sú podrobnejšie upravené v odseku 6 tejto kapitoly.
+
+         Rozhodnutie o zastavení konania podľa § 17 ods. 1 zákona o príspevkoch z fondov, ak v konaní
+         o ŽoNFP nastala niektorá z nasledujúcich skutočností:
+
+                a) žiadateľ vzal svoju ŽoNFP späť pred vydaním rozhodnutia,
+                b) žiadateľ zomrel, bol vyhlásený za mŕtveho, alebo zanikol bez právneho nástupcu,
+                 c) ŽoNFP nesplnila podmienky doručenia, t. j. žiadateľ nepredložil ŽoNFP riadne
+
+                        a včas alebo pretrvávajú pochybnosti o splnení podmienok doručenia žiadosti
+                        riadne a včas,
+                d) v iných prípadoch, kedy tak ustanovuje zákon o príspevkoch z fondov. Napr.
+                        konanie o zmene rozhodnutia o neschválení, ak nerozhodne o zmene
+                        právoplatného rozhodnutia o neschválení na rozhodnutie o schválení žiadosti
+                        (§ 18 ods. 5 zákona o príspevkoch z fondov); konanie o preskúmaní rozhodnutia
+                        mimo odvolacieho konania, ak nerozhodne o zmene preskúmavaného
+                        rozhodnutia (§ 21 ods. 5 zákona o príspevkoch z fondov) alebo ak žiadateľ oznámil,
+                        že na preskúmavaní rozhodnutia mimo odvolacieho konania netrvá (§ 21 ods. 11
+                        zákona o príspevkoch z fondov) alebo ak v preskúmavacom konaní vznikol dôvod
+                        podľa § 17 ods. 1 písm. b) (§ 21 ods. 11 zákona o príspevkoch z fondov).
+
+         Môže vydať Rozhodnutie o zastavení konania podľa § 17 ods. 2 zákona o príspevkoch
+         z fondov, ak zistil pochybnosti o pravdivosti alebo úplnosti týkajúce sa splnenia PPP a žiadateľ
+         tieto pochybnosti neodstránil v určenej lehote, hoci bol o možnosti zastavenia konania
+         poučený (neúplnosť podania, resp. nemožnosť posúdenia splnenia/nesplnenia PPP bez
+         priameho výroku o splnení/nesplnení PPP). Rozhodnutie o zastavení konania podľa § 17 ods. 2
+         zákona o príspevkoch z fondov sa vydáva výlučne, ak na základe skutkových a právnych
+         okolností daného prípadu overenia splnenia PPP nie je možné vydať rozhodnutie o neschválení
+         ŽoNFP alebo rozhodnutie o schválení ŽoNFP.
+
+    3. Rozhodnutia musia byť vyhotovené a mať náležitosti uvedené v § 16 ods. 8 až 10 zákona
+         o príspevkoch z fondov. Každé rozhodnutie sa vydáva na základe riadne zisteného skutkového
+         stavu počas konania o ŽoNFP, vychádzajúc z obsahu ŽoNFP, ďalšej dokumentácie predloženej
+
+19 Odôvodnenie rozhodnutia musí obsahovať osobitný výpočet každej jednej nesplnenej PPP. Netýka sa dvojkolových výziev, ak vo výzve na
+predkladanie projektových zámerov ako aj vo výzve na predkladanie ŽoNFP poskytovateľ jednoznačne uvedie, že nezapojenie sa do výzvy na
+predkladanie projektových zámerov bude mať za následok nesplnenie PPP vo výzve na predkladanie ŽoNFP a k ostatným PPP sa v takom
+prípade nebude prihliadať.
+
+20 Flexibilita bola schválením verzie 3.1 Programu Slovensko 14.07.2025 Európskou komisiou definitívne pridelená.
+
+                                                               19
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         žiadateľom v rámci konania o ŽoNFP a skutočností zistených poskytovateľom tak, aby bola
+         v konaní o ŽoNFP dodržaná zásada zákonnosti. Každé rozhodnutie, ktoré môže negatívne
+         ovplyvniť práva a právom chránené záujmy žiadateľa, musí byť riadne odôvodnené, musí
+         obsahovať poučenie o možnosti podať opravný prostriedok a o možnosti jeho preskúmania
+         v správnom súdnictve. Poskytovateľ pri vydávaní rozhodnutia využíva vzory vydané
+         Centrálnym koordinačným orgánom (ďalej len „CKO“) a zverejnené na webovom sídle
+         Metodické dokumenty Centrálneho koordinačného orgánu (CKO) | Eurofondy a plne
+         rešpektuje v nich uvedené inštrukcie (aj vo forme komentárov).
+    4. Rozhodnutie o neschválení ŽoNFP poskytovateľ môže vydať v tej fáze konania o ŽoNFP, kedy
+         je preukázané, že ŽoNFP nespĺňa jednu alebo viaceré PPP resp. na financovanie danej ŽoNFP
+         nie je dostatok finančných prostriedkov na základe alokácie určenej vo výzve21. Je pritom
+         potrebné mať na zreteli, že rozhodnutie o neschválení predstavuje tzv. prvé rozhodnutie,
+         vydaním ktorého sa pre danú uzavretú výzvu, resp. pre dané hodnotiace kolo otvorenej výzvy,
+         končí možnosť zmeny výzvy v časti PPP (§ 14 ods. 4 zákona o príspevkoch z fondov). V závislosti
+         od konkrétnych okolností výzvy a druhu nesplnenej PPP sa odporúča postupovať tak, že hoci
+         bolo identifikované aspoň jedno nesplnenie PPP, dooverujú sa všetky PPP, čím sa predchádza
+         predlžovaniu konania, ak by sa na základe opravných prostriedkov zistilo, že v poradí prvé
+         (príp. ďalšie) identifikované nesplnenie PPP nebolo vykonané korektne.
+    5. Rozhodnutie o zastavení konania poskytovateľ môže vydať v tej fáze konania o ŽoNFP, kedy
+         dôvod na zastavenie konania nastal, pričom najmä pri späťvzatí ŽoNFP je vhodné vydať
+         rozhodnutie o zastavení konania obratom po doručení späťvzatia. Vo vzťahu k rozhodnutiu
+         o zastavení konania pre pretrvávajúce pochybnosti o pravdivosti alebo úplnosti ŽoNFP týkajúce
+         sa splnenia podmienky poskytnutia príspevku (§ 17 ods. 2 zákona o príspevkoch z fondov)
+         takéto rozhodnutie predstavuje tzv. prvé rozhodnutie s rovnakými dôsledkami na zmenu výzvy
+         v časti PPP (§ 14 ods. 4 zákona o príspevkoch z fondov).
+    6. V rámci výzvy je poskytovateľ oprávnený využiť zásobník projektov, t. j. zmeniť rozhodnutie
+         o neschválení ŽoNFP, ktoré bolo vydané výlučne z dôvodu nedostatku finančných prostriedkov
+         vyčlenených na výzvu alebo z dôvodu uplatnenia režimu flexibility22 a rozhodnúť o schválení
+         ŽoNFP, ak sú splnené podmienky uvedené v § 18 zákona o príspevkoch z fondov
+         a za podmienok definovaných vo výzve. Pre uplatnenie zmeny rozhodnutia o neschválení
+         ŽoNFP na rozhodnutie o schválení je potrebné dodržať poradie ŽoNFP určené pri aplikácii
+         výberového kritéria pred vydaním rozhodnutia o neschválení23 (§ 16 ods. 7 písm. b) alebo c)
+         v spojení s § 18 ods. 4 zákona o príspevkoch z fondov). Tento postup sa nevzťahuje na projekty
+         technickej pomoci a národné projekty.
+
+21 Ak ide o projekty IÚI podľa § 24 ods. 8 v spojení s § 16 ods. 7 zákona o príspevkoch z fondov.
+
+22 Flexibilita bola schválením verzie 3.1 Programu Slovensko 14.07.2025 Európskou komisiou definitívne pridelená.
+
+23 bez ohľadu na výšku NFP jednotlivých ŽoNFP v zásobníku projektov.
+
+                                                               20
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+2.8 Opravné prostriedky
+
+    1. Opravné prostriedky umožňujú žiadateľovi v konaní o ŽoNFP domáhať sa nápravy, ak sa
+         domnieva, že v konaní o ŽoNFP boli porušené ustanovenia zákona o príspevkoch z fondov
+         a/alebo boli porušené podmienky vyplývajúce z výzvy. Opravné prostriedky sú zároveň
+         možnosťou, aby na úrovni poskytovateľa, prípadne štatutárneho orgánu poskytovateľa, došlo
+         k náprave vadného rozhodnutia.
+
+    2. Opravné prostriedky sú riadne a mimoriadne. Riadnym opravným prostriedkom podľa zákona
+         o príspevkoch z fondov je odvolanie. Mimoriadnym opravným prostriedkom je preskúmanie
+         rozhodnutia mimo odvolacieho konania.
+
+    3. Rozhodnutie vydané po prejednaní opravných prostriedkov nemožno napadnúť odvolaním,
+         a preto nadobúda právoplatnosť dňom jeho doručenia žiadateľovi. Výnimkou je iba
+         rozhodnutie, ktoré poskytovateľ vydá na svojej úrovni postupom podľa § 20 ods. 1 zákona
+         o príspevkoch z fondov, tzv. autoremedúra, lebo odvolaniu v plnom rozsahu vyhovel. V tomto
+         prípade ide stále o prvostupňové rozhodnutie a voči rozhodnutiu je možné podať odvolanie,
+         ak sú na odvolanie splnené ostatné podmienky. Ak by totiž poskytovateľ v autoremedúre
+         vyhovel odvolaniu žiadateľa tak, že by schválil ŽoNFP, ako bola podaná, odvolanie by nebolo
+         prípustné, keďže voči rozhodnutiu o schválení, ktorým sa plne vyhovelo žiadosti, nie je
+         odvolanie prípustné.
+
+    4. Právoplatné rozhodnutie vydané v konaní o ŽoNFP je preskúmateľné súdom za podmienok
+         stanovených príslušnými právnymi predpismi upravujúcimi súdne preskúmanie rozhodnutí.
+
+    2.8.1. Odvolanie (riadny opravný prostriedok) a odvolacie konanie
+
+    1. Ak sa žiadateľ domnieva, že vydané rozhodnutie je vadné, má možnosť domáhať sa nápravy
+         prostredníctvom riadneho opravného prostriedku, ktorým je odvolanie (§ 19 zákona
+         o príspevkoch z fondov). Odvolanie sa podáva voči neprávoplatným rozhodnutiam 24 , voči
+         ktorým je prípustné, pričom zákon o príspevkoch z fondov v § 19 ods. 7 ustanovuje, v ktorých
+         prípadoch odvolanie nie je prípustné. Odvolanie má odkladný účinok a na konanie o ŽoNFP
+         a odvolacie konanie sa vzťahuje zásada jednotnosti konania.
+
+    2. Odvolanie podáva žiadateľ písomne poskytovateľovi v lehote 10 pracovných dní odo dňa
+         doručenia rozhodnutia, voči ktorému má odvolanie smerovať. Podané odvolanie môže žiadateľ
+         čo do rozsahu a dôvodov podania odvolania doplniť len do uplynutia lehoty na podanie
+         odvolania. Ak dôjde k zastaveniu konania z dôvodov podľa § 17 ods. 1 písm. a) a c) zákona
+         o príspevkoch z fondov a následne k zmene uzavretej výzvy alebo k zmene otvorenej výzvy,
+         ktorá sa týka daného hodnotiaceho kola a súčasne dôvod zastavenia konania súvisí s neskoršou
+         zmenou uzavretej výzvy, resp. so zmenou otvorenej výzvy týkajúcou sa daného hodnotiaceho
+         kola, žiadateľ má právo podať odvolanie v lehote 10 pracovných dní odo dňa zverejnenia
+         zmeny výzvy prostredníctvom ITMS21+. O odvolaní rozhoduje štatutárny orgán poskytovateľa
+         ako odvolací správny orgán na návrh osobitnej komisie, ktorá preskúma napadnuté
+
+24 V zmysle ustanovenia § 52 Správneho poriadku, ktoré sa vzťahuje aj na konanie o ŽoNFP podľa § 13 ods. 5 zákona o príspevkoch z fondov,
+je právoplatné rozhodnutie, proti ktorému sa nemožno odvolať.
+
+                                                               21
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         rozhodnutie, ak poskytovateľ odvolanie neodmietne alebo mu v plnom rozsahu nevyhovie
+         v autoremedúre.
+    3. Odvolanie nie je prípustné voči:
+
+    a) rozhodnutiu o zastavení konania podľa § 17 ods. 1 písm. a), b) a d) zákona o príspevkoch
+         z fondov s výnimkou rozhodnutia o zastavení konania podľa § 17 ods. 1 písm. a) zákona
+         o príspevkoch z fondov, ak dôvod zastavenia konania súvisí s neskoršou zmenou výzvy podľa
+         § 14 ods. 4 prvej vety zákona o príspevkoch z fondov alebo s neskoršou zmenou výzvy podľa
+         § 14 ods. 4 druhej vety zákona o príspevkoch z fondov, ktorá sa vzťahuje na rovnaké
+         hodnotiace kolo výzvy ako späťvzatie žiadosti,
+
+    b) rozhodnutiu o schválení ŽoNFP podľa § 16 ods. 6 zákona o príspevkoch z fondov, ktorým bola
+         ŽoNFP schválená tak, ako bola podaná,
+
+    c) rozhodnutiu o zmene rozhodnutia o neschválení ŽoNFP podľa § 18 ods. 5 zákona o príspevkoch
+         z fondov, ktorým bola ŽoNFP schválená tak, ako bola podaná, alebo ktorým bolo konanie
+         zastavené,
+
+    d) rozhodnutiu o odvolaní,
+    e) rozhodnutiu o preskúmaní rozhodnutia mimo odvolacieho konania podľa § 21 zákona
+
+         o príspevkoch z fondov,
+    f) rozhodnutiu o schválení ŽoNFP podľa § 24 ods. 7 zákona o príspevkoch z fondov v súvislosti
+
+         s projektmi integrovaných územných investícií.
+    4. Po doručení odvolania žiadateľa poskytovateľ preskúma, či nie sú dôvody na zamietnutie
+
+         odvolania (§ 19 ods. 9 zákona o príspevkoch z fondov). Poskytovateľ rozhodnutím odvolanie
+         žiadateľa zamietne v nasledovných prípadoch:
+    a) odvolanie nie je podané oprávnenou osobou – oprávnený na podanie odvolania je výlučne
+         žiadateľ, ktorý musí konať prostredníctvom štatutárneho orgánu alebo riadne splnomocnenej
+         osoby,
+    b) žiadateľ sa vzdal práva na odvolanie – žiadateľ je oprávnený vzdať sa práva na odvolanie
+         písomne u poskytovateľa,
+    c) odvolanie je podané po lehote na podanie odvolania – zákonná lehota na podanie odvolania
+         je 10 pracovných dní odo dňa doručenia rozhodnutia, voči ktorému smeruje, alebo odo dňa
+         zverejnenia zmeny výzvy, ak odvolanie smeruje proti rozhodnutiu o zastavení konania podľa
+         § 17 ods. 1 písm. a) a c) zákona o príspevkoch z fondov a dôvod zastavenia konania súvisí
+         s neskoršou zmenou výzvy. Ak žiadateľ v dôsledku nesprávneho poučenia alebo preto, že nebol
+         poučený vôbec, podal odvolanie po lehote, predpokladá sa, že ho podal včas, ak tak urobil
+         do 3 mesiacov odo dňa doručenia rozhodnutia, voči ktorému odvolanie smeruje,
+    d) odvolanie je podané po predchádzajúcom späťvzatí odvolania – žiadateľ je oprávnený v lehote
+         na odvolanie podané odvolanie vziať písomne späť. Ak po späťvzatí podá v lehote na odvolanie
+         nové odvolanie, poskytovateľ takéto odvolanie zamietne,
+    e) odvolanie nie je podané písomne,
+    f) odvolanie neobsahuje predpísané náležitosti, čiže označenie rozhodnutia, proti ktorému
+         odvolanie smeruje a z obsahu odvolania nie je možné zistiť, proti ktorému rozhodnutiu
+         smeruje,
+
+    g) odvolanie neobsahuje náležitosti, ktorými sú:
+                                                               22
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+           • akej veci sa odvolanie týka a dôvody podania odvolania,
+
+           • čo odvolaním žiadateľ navrhuje,
+
+           • dátum podania a podpis osoby podávajúcej odvolanie,
+
+    h) odvolanie smeruje len proti odôvodneniu rozhodnutia – poskytovateľ zamietne odvolanie,
+         ak smeruje výlučne proti odôvodneniu rozhodnutia bez toho, aby sa v ňom žiadateľ domáhal
+         zmeny vo výroku napadnutého rozhodnutia. Ak sa žiadateľ domáha zmeny rozhodnutia
+         a odôvodňuje svoju žiadosť výlučne napadnutím dôvodov uvedených v odôvodnení
+         rozhodnutia, poskytovateľ nesmie zamietnuť odvolanie podľa tohto písmena,
+
+    i) odvolanie je podané proti rozhodnutiu, proti ktorému nie je odvolanie prípustné.
+    5. Podané odvolanie sa posudzuje podľa jeho obsahu. Dôkazné bremeno naplnenia dôvodov pre
+
+         neprípustnosť odvolania alebo jeho zamietnutie znáša poskytovateľ. V prípade naplnenia
+         niektorého z dôvodov pre zamietnutie odvolania, poskytovateľ o tejto skutočnosti vydá
+         rozhodnutie, ktoré doručuje žiadateľovi, pričom v odôvodnení rozhodnutia identifikuje dôvody
+         na zamietnutie odvolania.
+    6. Ak poskytovateľ neidentifikoval dôvody na zamietnutie odvolania, preskúma odvolanie
+         žiadateľa prostredníctvom zhodnotenia dôkazov predložených žiadateľom v odvolaní.
+    7. Ak sa na základe podaného odvolania a zhodnotenia predložených dôkazov jednoznačne
+         preukáže, že pôvodné rozhodnutie malo vady vytýkané žiadateľom, poskytovateľ vykoná
+         nápravu na svojej úrovni a vydá rozhodnutie podľa § 20 ods. 1 zákona o príspevkoch z fondov
+         (autoremedúra). Poskytovateľ je oprávnený zmeniť pôvodné rozhodnutie iba v prípade,
+         ak odvolaniu vyhovie v plnom rozsahu, čo znamená, že nedôjde ku kráteniu žiadanej výšky NFP
+         a zmena rozhodnutia plne zodpovedá požiadavke žiadateľa identifikovanej v odvolaní.
+         Poskytovateľ rozhodne o odvolaní vydaním nového rozhodnutia, na ktorého náležitosti
+         sa primerane vzťahujú ustanovenia o náležitostiach rozhodnutia o ŽoNFP.
+    8. Ak poskytovateľ nemôže rozhodnúť o odvolaní na svojej úrovni (autoremedúra), pretože
+         nevyhovie odvolaniu žiadateľa v plnom rozsahu 25 , postúpi odvolanie na rozhodnutie
+         štatutárnemu orgánu poskytovateľa do 30 pracovných dní od doručenia odvolania.
+         V odôvodnených prípadoch najneskôr do 60 pracovných dní od doručenia odvolania.
+    9. Štatutárny orgán poskytovateľa rozhoduje o odvolaní ako druhostupňový správny orgán na
+         základe návrhu osobitnej komisie zriadenej za účelom posúdenia odvolania (kreovaná ako
+         poradný orgán štatutárneho orgánu poskytovateľa). V nadväznosti na zásady správneho
+         konania a zásadu jednotnosti konania druhostupňový správny orgán preskúma odvolaním
+         napadnuté rozhodnutie v celosti, teda vychádza z administratívneho spisu ako celku 26 .
+         Druhostupňový správny orgán nie je pri preskúmavaní odvolania viazaný návrhom žiadateľa
+         uvedenom v odvolaní, čo znamená, že môže rozhodnúť inak, ako navrhuje žiadateľ, napr.
+         žiadateľ navrhuje rozhodnutie o neschválení zmeniť na rozhodnutie o schválení, ale
+         druhostupňový správny orgán môže rozhodnutie zrušiť a vec vrátiť poskytovateľovi na nové
+
+25 Tým sa rozumie aj prípad, kedy by pri zmene rozhodnutia z neschválenia na schválenie ŽoNFP malo na základe výsledkov preskúmania
+odvolania dôjsť ku kráteniu žiadanej výšky NFP, ktorej sa žiadateľ domáhal v odvolaní.
+
+26 T.j. nie je obmedzený rozsahom odvolania (žiadateľom uplatnených odvolacích dôvodov).
+
+                                                               23
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         konanie a rozhodnutie, pretože to považuje za vhodnejšie z dôvodu rýchlosti a hospodárnosti
+         konania (napr. je potrebné doplniť a ustáliť skutkový stav, z ktorého vychádza posúdenie
+         ŽoNFP).
+    10. Na základe preskúmaného odvolania štatutárny orgán poskytovateľa môže:
+    a) napadnuté rozhodnutie zmeniť – zmena rozhodnutia sa vykoná rozhodnutím štatutárneho
+         orgánu poskytovateľa, ak sa na základe preskúmania odvolania preukázalo, že sú dané dôvody
+         na zmenu rozhodnutia a takýmto postupom nedochádza k ukráteniu práv žiadateľa podľa
+         ustálenej judikatúry najvyšších súdnych autorít; v tejto súvislosti sa poukazuje na to, že zmena
+         rozhodnutia vždy musí zahŕňať zmenu výroku napadnutého rozhodnutia, a teda za zmenu
+         rozhodnutia sa nepovažuje, keď odvolací orgán zmení iba text odôvodnenia rozhodnutia
+         poskytovateľa27; v praxi sa využíva ojedinele, pretože ho možno efektívne využiť iba na prípady,
+         kedy je náprava porušenia striktne ohraničená, bez dopadu na iné skutočnosti týkajúce sa
+         poskytnutia príspevku,
+    b) napadnuté rozhodnutie potvrdiť – ak odvolací orgán nezistí žiadne pochybenia s vplyvom
+         na správnosť a zákonnosť výroku odvolaním napadnutého rozhodnutia, pričom v takomto
+         prípade je možné v potvrdzujúcom rozhodnutí vhodne doplniť odôvodnenie uvedené
+         v rozhodnutí poskytovateľa, napr. v reakcii na odvolacie dôvody uplatnené žiadateľom. Dané
+         rozhodnutie môže štatutárny orgán vydať aj v prípade, ak síce by vyhovel odvolacím dôvodom,
+         ale zistený skutkový a právny stav v odvolacom konaní neodôvodňuje zmenu výroku
+         preskúmavaného rozhodnutia,
+    c) napadnuté rozhodnutie zrušiť a vec vrátiť poskytovateľovi na nové konanie a nové rozhodnutie
+         – ak zistenie skutkového stavu poskytovateľom bolo nedostačujúce na riadne posúdenie veci
+         alebo ak je to vhodnejšie najmä z dôvodu rýchlosti a hospodárnosti konania. Poskytovateľ je
+         v novom konaní viazaný právnym názorom štatutárneho orgánu poskytovateľa. Podľa
+         ustálenej judikatúry nedochádza k zrušeniu rozhodnutia poskytovateľa za také nedostatky,
+         ktorých odstránenie v novom konaní by nemalo žiaden vplyv na výrok napadnutého
+         rozhodnutia, a teda by zrušením rozhodnutia poskytovateľa a novým konaním o ŽoNFP došlo
+         iba k zbytočnému predĺženiu konania o ŽoNFP s rovnakým výsledkom, v takom prípade
+         dochádza k potvrdeniu napadnutého rozhodnutia s tým, že s identifikovanou vadou je nutné
+         sa riadne vysporiadať v odôvodnení potvrdzovacieho rozhodnutia.
+
+    11. Rozhodnutie o odvolaní musí byť vydané do 30 pracovných dní od predloženia odvolania
+         štatutárnemu orgánu poskytovateľa, vo zvlášť zložitých prípadoch najneskôr do 60 pracovných
+         dní, pričom v takomto prípade štatutárny orgán poskytovateľa písomne informuje žiadateľa
+         o predĺžení a dôvodoch predĺženia.
+
+    12. Žiadateľ je oprávnený podané odvolanie vziať späť, a to až do dňa vydania rozhodnutia
+         o odvolaní. V takom prípade rozhodnutie, proti ktorému odvolanie smeruje, nadobudne
+         právoplatnosť dňom doručenia späťvzatia odvolania poskytovateľovi. Rozhodnutie o zastavení
+         konania sa v tomto prípade nevydáva. Po späťvzatí odvolania nie je žiadateľ oprávnený podať
+
+27 pozri napr. rozsudok Najvyššieho súdu Slovenskej republiky, Rozsudok Najvyššieho súdu SR, sp.zn. 4 Sž 139/2002, publikované pod
+č. 86/2003 ZSP.
+
+                                                               24
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         znova v tej istej veci nové odvolanie. Oznámenie o späťvzatí odvolania musí byť podané
+         poskytovateľovi písomne. Za deň späťvzatia odvolania sa považuje deň doručenia oznámenia
+         o späťvzatí poskytovateľovi.
+    13. Poskytovateľ alebo štatutárny orgán poskytovateľa rozhodne o zastavení odvolacieho konania
+         v prípade, ak bude možné primerane aplikovať § 17 zákona o príspevkoch z fondov.
+
+    2.8.2. Preskúmanie rozhodnutia mimo odvolacieho konania (mimoriadny opravný
+    prostriedok)
+
+    1. Týmto spôsobom možno preskúmať všetky právoplatné rozhodnutia vydané podľa zákona
+         o príspevkoch z fondov, vrátane rozhodnutí o zastavení konania, okrem rozhodnutia
+         štatutárneho orgánu poskytovateľa o odvolaní podľa § 20 ods. 2 alebo 3 zákona o príspevkoch
+         z fondov. V nadväznosti na § 19 ods. 7 písm. d) zákona o príspevkoch z fondov to znamená, že
+         rozhodnutie poskytovateľa môže byť napadnuté buď riadnym alebo mimoriadnym opravným
+         prostriedkom, ich kombinácia je vylúčená.
+
+    2. Štatutárny orgán poskytovateľa môže z vlastného podnetu alebo z podnetu žiadateľa
+         preskúmať právoplatné rozhodnutie poskytovateľa podľa § 21 zákona o príspevkoch z fondov.
+
+    3. Štatutárny orgán poskytovateľa môže rozhodnutie o schválení ŽoNFP, okrem rozhodnutia
+         o schválení žiadosti podľa § 13 ods. 2 zákona o príspevkoch z fondov, preskúmať do zaslania
+         návrhu na uzavretie zmluvy o poskytnutí NFP. Štatutárny orgán poskytovateľa môže začať
+         preskúmavať mimo odvolacieho konania rozhodnutie o neschválení, rozhodnutie o zastavení
+         konania a rozhodnutie o schválení žiadosti podľa § 13 ods. 2 zákona o príspevkoch z fondov
+         najneskôr do dvoch rokov od nadobudnutia právoplatnosti rozhodnutia.
+
+    4. Konanie o preskúmaní rozhodnutia mimo odvolacieho konania sa začína doručením
+         oznámenia štatutárneho orgánu poskytovateľa o začatí konania o preskúmaní rozhodnutia
+         mimo odvolacieho konania žiadateľovi. Opodstatnenosť podnetu žiadateľa sa neoznamuje.
+
+    5. V rámci preskúmavania rozhodnutia mimo odvolacieho konania štatutárny orgán
+         poskytovateľa môže dospieť k nasledovným záverom:
+
+    a) preskúmavané rozhodnutie zmení – ak štatutárny orgán poskytovateľa zistí, že rozhodnutie
+         bolo vydané v rozpore so zákonom o príspevkoch z fondov, alebo v rozpore s iným osobitným
+         predpisom, môže preskúmavané rozhodnutie zmeniť vydaním nového rozhodnutia,
+         na ktorého náležitosti sa primerane aplikujú ustanovenia o náležitostiach rozhodnutia
+         o schválení/neschválení ŽoNFP, pričom aj v tomto prípade zmenového rozhodnutia platí, čo
+         bolo uvedené pri zmenovom rozhodnutí v rámci odvolania podľa kapitoly 2.8.1 ods. 10 písm.
+         a) tohto usmernenia;
+
+    b) konanie o preskúmaní rozhodnutia zastaví – ak:
+         - štatutárny orgán poskytovateľa zistí, že rozhodnutie nebolo vydané v rozpore so zákonom
+             o príspevkoch z fondov, alebo iným osobitným predpisom,
+
+         - žiadateľ písomne oznámi štatutárnemu orgánu poskytovateľa, že na preskúmaní netrvá,
+
+         - ak žiadateľ zomrel, bol vyhlásený za mŕtveho alebo zanikol bez právneho nástupcu,
+
+                                                               25
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         konanie sa zastaví vydaním rozhodnutia o zastavení konania o preskúmaní rozhodnutia mimo
+         odvolacieho konania. Zastavením konania o preskúmaní rozhodnutia zostáva preskúmavané
+         rozhodnutie poskytovateľa nedotknuté a ďalej sa postupuje podľa tohto právoplatného
+         rozhodnutia poskytovateľa,
+
+    c) preskúmavané rozhodnutie zruší a vec vráti poskytovateľovi, ktorý ho vydal, na nové konanie
+         a rozhodnutie – ak štatutárny orgán poskytovateľa zistil, že rozhodnutie bolo vydané v rozpore
+         so zákonom o príspevkoch z fondov alebo v rozpore s iným osobitným predpisom a súčasne
+         zistenie skutkového stavu poskytovateľom bolo nedostačujúce na riadne posúdenie veci, alebo
+         ak je to vhodnejšie najmä z dôvodu rýchlosti a hospodárnosti konania. Poskytovateľ je v novom
+         konaní viazaný právnym názorom štatutárneho orgánu poskytovateľa. Konanie o preskúmaní
+         rozhodnutia mimo odvolacieho konania netvorí s konaním o ŽoNFP jeden celok (neplatí tu
+         jednotnosť konania ako pri odvolacom konaní), preto po vrátení veci poskytovateľovi na nové
+         konanie a rozhodnutie je tomu potrebné prispôsobiť postupy poskytovateľa. To znamená, že
+         po vrátení veci sa o ŽoNFP koná v rozsahu uvedenom v rozhodnutí štatutárneho orgánu,
+         pričom ak toto zahŕňa aj potrebu zopakovania odborného hodnotenia, je potrebné opätovne
+         vybrať odborných hodnotiteľov, keďže ide o nové (nie to isté) konanie. Preto opäť existuje
+         právo na odvolanie vo vzťahu k novému rozhodnutiu, ktoré nadväzuje na zrušenie pôvodného
+         rozhodnutia a vrátenie veci na ďalšie konanie (§ 19 ods. 7 písm. d) a písm. e) zákona
+         o príspevkoch z fondov sa na toto nové rozhodnutie nevzťahuje).
+
+    6. Štatutárny orgán poskytovateľa je povinný rozhodnúť mimo odvolacieho konania do 60
+         pracovných dní od začatia konania o preskúmaní rozhodnutia mimo odvolacieho konania.
+         Vo zvlášť zložitých prípadoch rozhodne do 90 pracovných dní, pričom v takomto prípade
+         je žiadateľ informovaný o predĺžení a dôvodoch predĺženia.
+
+    7. Štatutárny orgán poskytovateľa vychádza pri preskúmaní rozhodnutia z právneho stavu
+         a skutkových okolností platných v čase vydania preskúmavaného rozhodnutia. Rozhodnutie
+         nie je možné zmeniť na základe okolností, ktoré nastali po vydaní preskúmavaného
+         rozhodnutia a ani v prípade, ak sa po jeho vydaní dodatočne zmenili rozhodujúce skutkové
+         okolnosti, z ktorých pôvodné rozhodnutie vychádzalo. Štatutárny orgán poskytovateľa
+         rozhoduje na návrh osobitnej komisie, ktorá preskúma napadnuté rozhodnutie.
+
+    2.8.3. Oprava rozhodnutia
+
+    1. V súlade s § 47 ods. 6 Správneho poriadku v spojení s § 13 ods. 5 zákona o príspevkoch z fondov
+         poskytovateľ vykoná v prípade identifikovaných chýb v písaní, počítaní a iných zrejmých
+         nesprávností v písomnom vyhotovení rozhodnutia opravu rozhodnutia kedykoľvek,
+         aj bez návrhu žiadateľa/prijímateľa.
+
+    2. Oprava rozhodnutia sa vykoná písomne, pričom rozhodnutie a časť, ktorá sa opravuje musia
+         byť presne označené. Oprava rozhodnutia tvorí neoddeliteľnú súčasť rozhodnutia, ktoré
+         sa opravuje. Dôvody na opravu rozhodnutia je potrebné vykladať reštriktívne. Opravou
+         rozhodnutia v žiadnom prípade nemožno nahrádzať realizáciu opravných prostriedkov.
+
+    3. Opravu rozhodnutia možno vykonať vo vzťahu ku všetkým typom rozhodnutí podľa zákona
+         o príspevkoch z fondov, pričom možnosť opravy rozhodnutia nie je časovo obmedzená.
+
+                                                               26
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+    4. Opravu rozhodnutia vykoná poskytovateľ alebo štatutárny orgán poskytovateľa v závislosti
+         od toho, kto rozhodnutie vydal a o oprave informuje žiadateľa, pričom poskytovateľ
+         jednoznačným spôsobom identifikuje menené náležitosti rozhodnutia. Poskytovateľ uchováva
+         oznámenie spolu s rozhodnutím, ktorého sa oprava týka.
+
+2.9 Splnenie podmienok pre uzatvorenie zmluvy o poskytnutí NFP
+
+    1. Poskytovateľ vypracuje a zašle návrh zmluvy o poskytnutí NFP žiadateľovi až po kumulatívnom
+         splnení nasledovných podmienok:
+         a) nadobudnutí právoplatnosti rozhodnutia o schválení ŽoNFP (netýka sa projektov IÚI
+              v zmysle § 24 ods. 7 zákona o príspevkoch z fondov, kedy sa nevydáva rozhodnutie
+              o schválení ŽoNFP, ale rozhoduje sa formou zápisu v spise) a
+         b) splnení podmienok vo výroku rozhodnutia podľa § 16 ods. 9 zákona o príspevkoch z fondov
+              (ak relevantné) a
+
+         c) poskytnutí súčinnosti pre vypracovanie návrhu zmluvy o poskytnutí NFP a
+
+         d) splnení zákonných podmienok pre uzavretie zmluvy o poskytnutí NFP podľa § 22 ods. 4
+              písm. d) zákona o príspevkoch z fondov.
+
+         Poskytovateľ nezašle písomný návrh na uzavretie zmluvy o poskytnutí NFP žiadateľovi, ak nie
+         sú splnené podmienky vyplývajúce z osobitných predpisov. Ide o podmienky týkajúce sa štátnej
+         pomoci / minimálnej pomoci, zápisu do registra partnerov verejného sektora, ak sa vzťahujú
+         na daného žiadateľa a podmienku bezúhonnosti pre definované trestné činy.
+
+         Podmienka splnenia ďalších skutočností je bližšie uvedená v odseku 11 a nasl. tejto kapitoly.
+
+    2. Poskytovateľ môže požiadať žiadateľa o poskytnutie súčinnosti podľa § 22 ods. 3 zákona
+         o príspevkoch z fondov a v takom prípade je žiadateľ povinný poskytnúť súčinnosť v rozsahu
+         potrebnom na uzavretie zmluvy o poskytnutí NFP. Poskytovateľ stanoví lehotu na jej
+         poskytnutie a určí údaje, resp. rozsah potrebnej súčinnosti zo strany žiadateľa potrebnej pre
+         vypracovanie návrhu zmluvy o poskytnutí NFP. Poskytovateľ môže s cieľom zrýchliť proces
+         uzatvorenia zmluvy o poskytnutí NFP vyzvať žiadateľa na poskytnutie súčinnosti aj súčasne
+         so zaslaním rozhodnutia o schválení ŽoNFP.
+
+    3. Ak o to žiadateľ požiada, možno lehotu na poskytnutie súčinnosti predĺžiť, a to aj opakovane.
+         Pri predlžovaní lehoty je potrebné dodržať princípy podľa § 2 ods. 2 zákona o príspevkoch
+         z fondov. Lehotu nemožno predĺžiť, ak by do konca obdobia oprávnenosti výdavkov zostávalo
+         menej času, než na aký čas je rozvrhnutá doba realizácia aktivít daného projektu podľa obsahu
+         schválenej ŽoNFP, prípadne podľa následnej korekcie tejto doby podľa odborného posúdenia
+         (ďalej ako „časový limit týkajúci sa uzavretia zmluvy o poskytnutí NFP“). V takom prípade
+         poskytovateľ písomne oznámi žiadateľovi, že s ním zmluvu neuzavrie. V písomnej informácii
+         pre žiadateľa poskytovateľ jasne identifikuje dôvod, pre ktorý zmluvu nemožno uzavrieť (napr.
+         sa uvedie, v akom rozsahu žiadateľ požadovanú súčinnosť neposkytol, resp. ktorá podmienka
+         vo výroku rozhodnutia nebola splnená). Postup uvedený v tomto odseku sa súborne označuje
+         ako „všeobecný režim poskytovania súčinnosti pre uzavretie zmluvy“. Osobitné ustanovenia
+
+                                                               27
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         výzvy alebo Právneho dokumentu poskytovateľa pre uzavretie zmluvy o poskytnutí NFP majú
+         vždy prednosť pred všeobecným režimom poskytovania súčinnosti pre uzavretie zmluvy.
+    4. Poskytovateľ overí splnenie podmienky, resp. podmienok, ktoré stanovil vo výroku
+         rozhodnutia o schválení ŽoNFP (ak relevantné), pričom podmienka/podmienky možno
+         považovať za splnené len vtedy, ak je/sú splnené presne tak, ako boli stanovené. To znamená,
+         že alternatívne plnenie na základe rovnakého cieľa alebo účelu nie je plnením
+         podmienky/podmienok z výroku rozhodnutia o schválení. Ak z obsahu podmienky vo výroku
+         rozhodnutia vyplýva, že je potrebné ju splniť do určitého termínu, žiadateľ je povinný
+         preukázať poskytovateľovi, že podmienku z výroku rozhodnutia splnil do tohto termínu.
+         Lehotu možno predĺžiť, a to aj opakovane, ak z obsahu podmienky vyplýva, že má iba
+         poriadkový charakter – iba v takomto prípade sa primerane uplatnia postupy z všeobecného
+         režimu poskytovania súčinnosti pre uzavretie zmluvy. Ak z obsahu podmienky vo výroku
+         rozhodnutia nevyplýva, že je potrebné ju splniť do určitého termínu, žiadateľ preukazuje
+         splnenie podmienky poskytovateľovi na základe výzvy poskytovateľa vo všeobecnom režime
+         poskytovania súčinnosti pre uzavretie zmluvy.
+    5. V rámci súčinnosti žiadateľ (aj za partnera) predkladá aj čestné vyhlásenie k uplatňovaniu
+         medzinárodných sankcií podľa prílohy 2 Príručky pre žiadateľa (poskytovateľ ho k tomu vyzve
+         v písomnej podobe pred podpisom zmluvy o poskytnutí NFP), že realizácia plnenia podľa
+         zmluvy o poskytnutí NFP nie je v rozpore so zákonom č. 289/2016 Z. z. o vykonávaní
+         medzinárodných sankcií a o doplnení zákona č. 566/2001 Z. z. o cenných papieroch
+         a investičných službách a o zmene a doplnení niektorých zákonov v znení neskorších predpisov
+         (ďalej len „zákon o vykonávaní medzinárodných sankcií“) a teda žiadateľ/prijímateľ
+         nenávratného finančného príspevku neporušuje obmedzenie, príkaz alebo zákaz vyplývajúci
+         z medzinárodnej sankcie upravenej v akomkoľvek predpise o medzinárodnej sankcii podľa § 2
+         písm. b) zákona o vykonávaní medzinárodných sankcií.28 Čestné vyhlásenie k uplatňovaniu
+         medzinárodných sankcií môže žiadateľ predložiť aj ako súčasť formulára k poskytnutiu
+         súčinnosti, pri zachovaní minimálnych obsahových náležitostí podľa prílohy 2 Príručky pre
+         žiadateľa.
+         V prípade, ak počas realizácie plnenia podľa zmluvy o poskytnutí NFP dôjde na strane
+         prijímateľa/partnera, resp. dodávateľov/subdodávateľov, ktorí sa podieľajú na plnení zmluvy
+         o poskytnutí NFP, k zmene skutočností/fyzických osôb/právnických osôb, v dôsledku ktorých
+         by plnenie podľa zmluvy o poskytnutí NFP bolo v rozpore s obmedzením, príkazom alebo
+         zákazom vyplývajúcim z medzinárodnej sankcie upravenej v akomkoľvek predpise
+         o medzinárodných sankciách podľa § 2 písm. b) zákona č. 289/2016 Z. z. o vykonávaní
+         medzinárodných sankcií, prijímateľ je povinný túto skutočnosť bezodkladne oznámiť
+         poskytovateľovi.
+         Ak poskytovateľ nemá nastavený iný systém overovania medzinárodných sankcií, v rámci
+         procesu kontroly verejného obstarávania a v rámci výkonu finančnej kontroly žiadosti o platbu
+         a finančnej kontroly na mieste, poskytovateľ požaduje čestné vyhlásenie k vlastníckej
+         a riadiacej štruktúre subjektu podľa vzoru tvoriaceho prílohu 3 Príručky pre žiadateľa. V týchto
+
+28 Napr. sankčná mapa EÚ EU Sanctions Map
+
+                                                               28
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         fázach poskytovateľ overuje predmetnú skutočnosť vo vzťahu k prijímateľovi, partnerovi,
+         užívateľovi a dodávateľovi/subdodávateľovi. Poskytovateľ postupuje pri overovaní
+         medzinárodných sankcií podľa kapitoly III bodu 5 Prílohy č. 6 Vzoru manuálu procedúr RO/SO.
+    6. Zákonnou podmienkou pre uzavretie zmluvy o poskytnutí NFP je zápis žiadateľa29 v registri
+         partnerov verejného sektora podľa zákona o registri partnerov verejného sektora, ak
+         relevantné. Poskytovateľ túto skutočnosť overí na webovom sídle rpvs.gov.sk/rpvs/. V tejto
+         súvislosti sa upozorňuje na to, že podľa § 22 ods. 12 zákona o príspevkoch z fondov sa na účely
+         zákona o registri partnerov verejného sektora zmluva o poskytnutí NFP považuje za zmluvu
+         s viacerými čiastkovými plneniami.
+    7. Podmienka zápisu do registra partnerov verejného sektora sa nevzťahuje na tie fyzické osoby
+         a právnické osoby, ktoré by ani po nadobudnutí účinnosti zmluvy o poskytnutí NFP neboli
+         partnerom verejného sektora podľa § 2 zákona o registri partnerov verejného sektora.
+    8. Ak poskytovateľ identifikuje, že žiadateľ v projekte nie je zapísaný v registri partnerov
+         verejného sektora (napriek skutočnosti, že sa na neho uvedená povinnosť vzťahuje), v rámci
+         výzvy na poskytnutie súčinnosti vyzve žiadateľa na zápis do registra partnerov verejného
+         sektora, ak relevantné a určí mu primeranú lehotu. V prípade, že žiadateľ v primeranej lehote
+         nesplní zákonné podmienky na uzavretie zmluvy o poskytnutí NFP, uplatní sa všeobecný režim
+         poskytovania súčinnosti pre uzavretie zmluvy, vrátane uplatnenia časového limitu týkajúceho
+         sa uzavretia zmluvy o poskytnutí NFP. Kvôli zachovaniu oprávnenosti financovania projektu,
+         na ktorého realizácii sa bude podieľať aj partner, poskytovateľ môže upozorniť žiadateľa, že
+         partner alebo partneri projektu, na ktorého alebo ktorých sa vzťahuje povinnosť zápisu
+         v registri partnerov verejného sektora, v ňom nie je/sú zapísaný/í. Táto skutočnosť nie je
+         prekážkou pre uzavretie zmluvy o poskytnutie NFP, avšak bráni poskytnutiu financovania
+         partnerovi na základe zmluvy o partnerstve medzi prijímateľom a daným partnerom.
+    9. Zákonnou podmienkou pre uzavretie zmluvy o poskytnutí NFP je aj overenie splnenia
+         podmienok pre poskytnutie štátnej pomoci alebo minimálnej pomoci vyplývajúcich
+         z osobitného predpisu (zákon č. 358/2015 Z. z. o úprave niektorých vzťahov v oblasti štátnej
+         pomoci a minimálnej pomoci a o zmene a doplnení niektorých zákonov (zákon o štátnej
+         pomoci) v znení neskorších predpisov. Uvedené podmienky sa uplatnia, ak je poskytovaný
+         príspevok štátnou pomocou alebo minimálnou pomocou. Postup, ako sa tieto podmienky
+         uplatnia, vyplýva z metodických dokumentov RO pre P SK (konkrétne metodické usmernenie
+         RO pre P SK č. 12, č. 17 a č. 18).
+    10. Ďalšou zákonnou podmienkou, ktorá musí byť splnená na to, aby poskytovateľ zaslal písomný
+         návrh na uzavretie zmluvy o poskytnutí NFP žiadateľovi, spočíva v tom, že nebol žiadateľ, ani
+         člen štatutárneho alebo dozorného orgánu žiadateľa (vzťahuje sa aj na partnerov v projekte,
+         ak relevantné) právoplatne odsúdený za trestný čin subvenčného podvodu, trestný čin
+         poškodzovania finančných záujmov Európskej únie, trestný čin machinácií pri verejnom
+         obstarávaní a verejnej dražbe, trestný čin prijímania úplatku, trestný čin podplácania, trestný
+
+29 Vzhľadom na to, že podľa zákona o príspevkoch z fondov nemôže byť jej účastníkom partner, avšak tento dostáva na základe zmluvy o
+partnerstve uzavretej s prijímateľom časť NFP, je potrebné mať nastavené kontrolné mechanizmy na to, aby pred uzavretím takejto zmluvy
+bol partner zapísaný v registri partnerov verejného sektora, ak je to vzhľadom na okolnosti prípadu relevantné, pričom splnenie uvedenej
+povinnosti overuje predovšetkým prijímateľ, ktorý postupuje obdobne k postupu poskytovateľa podľa bodu 6 tejto kapitoly.
+
+                                                               29
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         čin nepriamej korupcie alebo trestný čin prijatia a poskytnutia nenáležitej výhody. Postup
+         preukázania bezúhonnosti je uvedený v metodickom dokumente CKO (Usmernenie
+         k jednotnému postupu preukázania bezúhonnosti), ktorý je zverejnený na webovom sídle
+         Metodické dokumenty Centrálneho koordinačného orgánu (CKO) | Eurofondy.
+    11. Vo výzve môže byť stanovený súbor podmienok označených ako ďalšie skutočnosti (§ 14 ods.
+         3 zákona o príspevkoch z fondov). Ďalšie skutočnosti sa vždy uplatnia až po skončení konania
+         o ŽoNFP v predzmluvnom režime a/alebo počas trvania zmluvy o poskytnutí NFP, a to podľa
+         obsahu výzvy alebo Právneho dokumentu poskytovateľa. Zväčša sú vo výzve vyjadrené
+         tematicky, t. j. ich prenesenie do zmluvy o poskytnutí NFP môže zahŕňať viacero už
+         konkrétnych ustanovení, zmluvných podmienok alebo záväzkov, vrátane s tým súvisiaceho
+         režimu stanovenia následkov ich porušenia (napríklad žiadateľ/partner nesmie byť podnikom
+         v ťažkostiach – pri nesplnení sa uplatní rozväzovacia podmienka resp. dôjde k odstúpeniu
+         od zmluvy o poskytnutí NFP, musia byť vysporiadané majetkovoprávne vzťahy
+         k nehnuteľnostiam súvisiacich s projektom – pri nesplnení nedôjde k uzavretiu zmluvy
+         o poskytnutí NFP, musí existovať relevantný právoplatný právny titul na realizovanie hlavnej
+         aktivity projektu (napr. stavebných prác) – pri nesplnení v dohodnutom čase nedôjde
+         k vyplateniu žiadnej časti NFP až do splnenia danej povinnosti a ďalšie). Pokiaľ výzva obsahuje
+         ďalšiu skutočnosť týkajúcu sa preukázania a overenia oprávnenosti výdavkov pred podpisom
+         zmluvy, môže dôjsť ku kráteniu výdavkov v predzmluvnom režime, t. j. zazmluvnená výška NFP
+         môže byť nižšia ako je výška NFP uvedená v Rozhodnutí o schválení ŽoNFP, ktoré týmto nie je
+         dotknuté.
+    12. Spôsob overenia ďalších skutočností v predzmluvnom režime poskytovateľ vhodným
+         spôsobom zverejní. Môže tak urobiť prostredníctvom výzvy, ale vhodnejším nástrojom
+         je využitie tzv. Právneho dokumentu, čím sa zabezpečí dostatočná flexibilita v spôsoboch
+         splnenia ďalších skutočností so zameraním na cieľ a účel stanovenej podmienky (ďalšej
+         skutočnosti).
+    13. Spôsob plnenia ďalších skutočností, k plneniu ktorých má dôjsť počas účinnosti zmluvy
+         o poskytnutí NFP, musí vyplývať zo záväzkov, prípadne z povinností, vyplývajúcich zo zmluvy
+         o poskytnutí NFP. Premietnutie ďalších skutočností do záväzkov, prípadne povinností, musí byť
+         poskytovateľom realizované už v štádiu rámci vzoru návrhu zmluvy o poskytnutí NFP pri
+         vyhlásení výzvy (pozri kap. 2.9 ods. 11), a teda takáto úprava musí korelovať s tematicky
+         vyjadrenými ďalšími skutočnosťami podľa výzvy.
+
+2.10 Uzavretie zmluvy o poskytnutí NFP
+
+    1. Podľa § 22 ods. 1 zákona o príspevkoch z fondov sa príspevok poskytuje prijímateľovi
+         na základe a v súlade so zmluvou o poskytnutí NFP uzavretou podľa § 269 ods. 2 Obchodného
+         zákonníka. Vzor zmluvy o poskytnutí NFP vydáva CKO a je zverejnený na webovom sídle
+         Metodické dokumenty Centrálneho koordinačného orgánu (CKO) | Eurofondy. Ak je prijímateľ
+         a poskytovateľ tá istá osoba, príspevok sa poskytuje na základe rozhodnutia o schválení, ktoré
+         vydáva poskytovateľ. V tomto prípade sa zmluva o poskytnutí NFP neuzatvára a práva
+         a povinnosti sú upravené v prílohe tohto rozhodnutia. Vzor rozhodnutia o schválení NFP,
+
+                                                               30
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         ak prijímateľ a poskytovateľ je tá istá osoba, vydáva CKO a je zverejnený na webovom sídle
+         Metodické dokumenty Centrálneho koordinačného orgánu (CKO) | Eurofondy.
+    2. Poskytovateľ zašle žiadateľovi návrh na uzavretie zmluvy o poskytnutí NFP v lehote spravidla
+         10 pracovných dní od kumulatívneho splnenia podmienok pre jej uzavretie.
+    3. Zmluva o poskytnutí NFP sa uzatvára (podpisuje) prioritne elektronicky. V prípade, ak to nie je
+         možné (najmä ak nie je z technických príčin možné uzatvoriť zmluvu o poskytnutí NFP
+         elektronicky), tak sa zmluva o poskytnutí NFP môže uzatvoriť v listinnej podobe.
+    4. Spolu so zaslaným návrhom na uzavretie zmluvy o poskytnutí NFP, ktorý je podpísaný zo strany
+         poskytovateľa, určí poskytovateľ žiadateľovi lehotu na prijatie návrhu zmluvy o poskytnutí NFP
+         v trvaní najmenej 5 pracovných dní odo dňa doručenia návrhu zmluvy o poskytnutí NFP
+         žiadateľovi. Žiadateľ môže požiadať poskytovateľa o predĺženie lehoty na prijatie návrhu
+         zmluvy o poskytnutí NFP. Žiadateľ je oprávnený návrh na uzavretie zmluvy o poskytnutí NFP
+         prijať, resp. písomne odmietnuť kedykoľvek v rámci lehoty. Návrh na uzavretie zmluvy
+         o poskytnutí NFP zaniká dňom márneho uplynutia lehoty, ktorá bola v návrhu na uzavretie
+         zmluvy o poskytnutí NFP určená na jeho prijatie, alebo doručením písomného prejavu
+         žiadateľa o odmietnutí návrhu na uzavretie zmluvy o poskytnutí NFP poskytovateľovi.
+         Poskytovateľ môže akceptovať aj prijatie návrhu žiadateľom po uplynutí lehoty vyplývajúcej
+         z návrhu na uzavretie zmluvy o poskytnutí NFP, ak o tom bezodkladne informuje žiadateľa
+         (§43c ods. 3 Občianskeho zákonníka). Zánik návrhu na uzavretie zmluvy o poskytnutí NFP
+         nezakladá dôvod na zmenu rozhodnutia o schválení ŽoNFP a nepredstavuje automaticky
+         prekážku pre zaslanie nového návrhu na uzavretie zmluvy o poskytnutí NFP. Po uplynutí lehoty
+         na prijatie návrhu na uzavretie zmluvy o poskytnutí NFP nevzniká prijímateľovi nárok
+         na zaslanie nového návrhu zmluvy o poskytnutí NFP.
+    5. Žiadateľ po podpise zmluvy o poskytnutí NFP zasiela späť poskytovateľovi elektronicky
+         podpísaný rovnopis zmluvy o poskytnutí NFP. V prípade, že zmluva o poskytnutí NFP
+         sa uzatvára v listinnej podobe, žiadateľ po podpise zmluvy o poskytnutí NFP zasiela späť
+         poskytovateľovi dva podpísané rovnopisy (ak sa zmluvné strany nedohodnú inak) a ostatné si
+         ponechá.
+    6. Zmluva o poskytnutí NFP je uzavretá (nadobúda platnosť) dňom neskoršieho podpisu
+         zmluvných strán a účinnosť v súlade s § 47a ods. 1 Občianskeho zákonníka nadobúda dňom
+         nasledujúcim po dni jej zverejnenia poskytovateľom v Centrálnom registri zmlúv na webovom
+         sídle www.crz.gov.sk. Uvedené neplatí, pokiaľ si zmluvné strany dohodnú neskorší deň
+         nadobudnutia účinnosti, napr. po splnení konkrétnych podmienok zo strany žiadateľa, čo musí
+         byť explicitne uvedené v texte zmluvy o poskytnutí NFP.
+    7. Ak je prijímateľ aj poskytovateľ povinnou osobou podľa zákona o slobode informácií prvé
+         zverejnenie zmluvy o poskytnutí NFP zabezpečí poskytovateľ a o dátume zverejnenia zmluvy
+         o poskytnutí NFP informuje prijímateľa.
+    8. Napriek skutočnosti, že prvé zverejnenie zmluvy o poskytnutí NFP zabezpečí poskytovateľ, je
+         prijímateľ povinný zmluvu o poskytnutí NFP tiež zverejniť, ak je tzv. povinnou osobou podľa
+         zákona o slobode informácií.
+    9. Ak návrh na uzavretie zmluvy o poskytnutí NFP zaslaný poskytovateľom žiadateľovi zanikne,
+         v dôsledku čoho sa hľadí na návrh na uzavretie zmluvy o poskytnutí NFP ako keby neexistoval,
+         obnoví sa možnosť preskúmania rozhodnutia o schválení mimo odvolacieho konania podľa
+
+                                                               31
+Program Slovensko
+
+Metodické usmernenie ku konaniu o žiadosti o poskytnutie nenávratného
+finančného príspevku, verzia 1.0
+
+         § 21 ods. 3 zákona o príspevkoch z fondov. Poskytovateľ dbá o to, aby do implementácie
+         vstupovali projekty nezaťažené akoukoľvek vadou založenou v schvaľovacom procese, pričom
+         za týmto účelom v maximálnej miere využije inštitút preskúmania rozhodnutia mimo
+         odvolacieho konania.
+
+   3 Prílohy
+
+Príloha 1 Hodnotiaci hárok odborného hodnotenia žiadosti o nenávratný finančný príspevok
+Príloha 2 Záznam o výsledku hodnotenia žiadosti o nenávratný finančný príspevok
+
+                                                               32

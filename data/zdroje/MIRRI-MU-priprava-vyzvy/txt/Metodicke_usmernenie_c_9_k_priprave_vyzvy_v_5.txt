@@ -1,0 +1,1268 @@
+Metodický dokument Riadiaceho orgánu pre Program Slovensko č. 9
+
+METODICKÉ USMERNENIE K PRÍPRAVE VÝZVY
+
+Schválil:
+Adriana Červeňová,
+generálna riaditeľka
+sekcia riadenia programu Slovensko
+
+Verzia: 5.0
+Dátum vydania: 07.05.2026
+Dátum účinnosti: 11.05.2026
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+Metodické usmernenie k príprave výzvy
+
+Obsah
+
+Zoznam skratiek a pojmov ............................................................................................................................. 3
+Úvod ................................................................................................................................................................ 5
+1. Zoznam vykonaných zmien .................................................................................................................... 6
+2. Harmonogram plánovaných výziev a príprava výzvy ............................................................................ 9
+
+   2.1. Harmonogram plánovaných výziev ............................................................................................... 9
+   2.2. Príprava výzvy – spoločné ustanovenia ...................................................................................... 10
+   2.3. Participatívna tvorba výzvy ......................................................................................................... 11
+
+      2.3.1 Gestori participatívnej tvorby výzvy............................................................................................. 12
+      2.3.2 Iné náležitosti participatívnej tvorby výzvy .................................................................................. 16
+   2.4. Ďalšie procesy súvisiace s prípravou výzvy ................................................................................. 17
+3. Predloženie výzvy riadiacemu orgánu pre Program Slovensko a posúdenie výzvy ........................... 18
+   3.1. Osobitné postupy poskytovania príspevku................................................................................. 21
+4. Zmena a zrušenie výzvy ........................................................................................................................ 22
+   4.1. Príprava zmeny výzvy zo strany poskytovateľa .......................................................................... 22
+   4.2. Posudzovanie zmeny výzvy riadiacim orgánom pre P SK ........................................................... 23
+   4.3. Technická zmena výzvy – úprava alokácie výzvy ........................................................................ 24
+   4.4. Zverejnenie zmeny výzvy............................................................................................................. 25
+   4.5. Zrušenie výzvy.............................................................................................................................. 25
+5. Prílohy ................................................................................................................................................... 25
+
+                                                                2
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+Zoznam skratiek a pojmov
+
+CKO                Centrálny koordinačný orgán
+DNSH               zásada „nespôsobovať významnú škodu“
+ESF+               Európsky sociálny fond plus
+EŠIF               európske štrukturálne a investičné fondy
+EÚ                 Európska únia
+GHP                gestor horizontálnych princípov
+GPŠ                gestor politiky štátu
+HP                 horizontálne princípy
+IÚI                integrované územné investície
+ISPO               informačný systém plánu obnovy
+ITMS21+            informačný monitorovací systém podľa zákona č. 121/2022 Z. z. o
+                   príspevkoch z fondov Európskej únie a o zmene a doplnení niektorých
+komisia pri MV     zákonov v znení neskorších predpisov
+MPSVR SR           komisia pri monitorovacom výbore
+MRK                Ministerstvo práce, sociálnych vecí a rodiny SR
+MŠVVM SR           marginalizované rómske komunity
+MV                 Ministerstvo školstva, výskumu, vývoja a mládeže SR
+MZ SR              Monitorovací výbor pre Program Slovensko 2021 - 2027
+nariadenie         Ministerstvo zdravotníctva SR
+o spoločných       Nariadenie Európskeho parlamentu a Rady (EÚ) 2021/1060 z 24. júna 2021,
+ustanoveniach/NSU  ktorým sa stanovujú spoločné ustanovenia o Európskom fonde regionálneho
+                   rozvoja, Európskom sociálnom fonde plus, Kohéznom fonde, Fonde na
+NFP                spravodlivú transformáciu a Európskom námornom, rybolovnom a
+OSN                akvakultúrnom fonde a rozpočtové pravidlá pre uvedené fondy, ako aj pre
+POO                Fond pre azyl, migráciu a integráciu, Fond pre vnútornú bezpečnosť a Nástroj
+poskytovateľ       finančnej podpory na riadenie hraníc a vízovú politiku v platnom znení
+                   nenávratný finančný príspevok
+princípy 3D        Organizácia spojených národov
+P SK               Plán obnovy a odolnosti
+Riadiaca           riadiaci orgán alebo sprostredkovateľský orgán, ak ho tým riadiaci orgán
+dokumentácia P SK  poverí
+                   princípy desegregácie, degetoizácie a destigmatizácie
+riadiaci výbor     Program Slovensko
+                   dokumenty vydané orgánmi zapojenými do riadenia, koordinácie, auditu a
+RIS3               kontroly fondov EÚ vrátane finančného riadenia definujúce procesy, pravidlá,
+                   limity, zodpovednosti, termíny a vzájomné vzťahy subjektov zodpovedných
+                   za implementáciu fondov EÚ, a to najmä Rámec implementácie fondov pre
+                   programové obdobie 2021 – 2027, Príručka k finančnému riadeniu fondov EÚ
+                   na programové obdobie 2021 – 2027, jednotlivé metodické príručky a
+                   manuál procedúr RO a SO
+                   riadiaci výbor pre koordináciu a zabezpečenie synergických účinkov medzi
+                   fondmi Európskej únie, európskymi štrukturálnymi a investičnými fondmi,
+                   Mechanizmom na podporu obnovy a odolnosti a ostatnými nástrojmi
+                   podpory EÚ a SR
+                   Stratégia výskumu a inovácií pre inteligentnú špecializáciu Slovenskej
+                   republiky na obdobie 2021 – 2027 (SK RIS3 2021+)
+
+                                                    3
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+RC                 regionálne centrá
+RO                 riadiaci orgán pre Program Slovensko
+RVVTI              Rada vlády Slovenskej republiky pre vedu, techniku a inovácie
+
+sekretariát RV     Sekretariát riadiaceho výboru pre koordináciu a zabezpečenie synergických
+                   účinkov medzi fondmi EÚ, EŠIF, Mechanizmom na podporu obnovy a
+SO                 odolnosti a ostatnými nástrojmi podpory EÚ a SR
+SR                 sprostredkovateľský orgán
+UNCRPD             Slovenská republika
+UMR                Dohovor OSN o právach osôb so zdravotným postihnutím
+usmernenie         integrované územné investície udržateľného mestského rozvoja
+ÚSVRK              Metodické usmernenie k príprave výzvy
+                   Úrad splnomocnenca vlády Slovenskej republiky pre rómske komunity, odbor
+VAIA               programovej jednotky
+VVaI               Výskumná a inovačná autorita
+Zákon č. 121/2022  výskum, vývoj a inovácie
+Z. z.              zákon č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a o zmene a
+ZVV                doplnení niektorých zákonov v znení neskorších predpisov
+ŽoNFP              zjednodušené vykazovanie výdavkov
+                   žiadosť o poskytnutie nenávratného finančného príspevku
+
+                                                   4
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+   Úvod
+
+Cieľom metodického usmernenia k príprave výzvy (ďalej len „usmernenie“) je prehľadne
+zosumarizovať povinnosti, ktoré je poskytovateľ povinný zabezpečiť, alebo ktoré sa odporúčajú
+zabezpečiť pri príprave výzvy na predkladanie žiadostí o nenávratný finančný príspevok a procesy
+uplatňované pri posudzovaní výzvy zo strany riadiaceho orgánu pre Program Slovensko (ďalej len
+„RO“).
+V prípade, ak je postup pri príprave výzvy upravený osobitnými pravidlami, v usmernení sa uvádza
+odkaz na tieto pravidlá, bez ich kopírovania.
+Usmernenie je záväzné pre subjekty zapojené do implementácie Programu Slovensko (ďalej aj „P SK“)
+v rozsahu v ňom uvedenom. V kapitolách 2.3.1.2, 2.3.1.3, 2.3.1.4, 2.3.1.5 a 2.3.1.6 sú uvedené základné
+informácie, vychádzajúce z dokumentov, vydaných gestorom procesu.
+Usmernenie sa v plnom rozsahu vzťahuje aj na výzvu na prípravu a predloženie projektu integrovanej
+územnej investície/projektu integrovanej územnej investície udržateľného mestského rozvoja, vrátane
+participatívnej tvorby výzvy. Zároveň sa príprava takejto výzvy riadi Metodickým dokumentom
+riadiaceho orgánu pre Program Slovensko č. 8 - metodické usmernenie k podpore integrovaného
+územného rozvoja v platnom znení. Proces pripomienkového konania vo vzťahu k výzve pre projekty
+IÚI/UMR predstavuje formu participatívneho zapojenia územných partnerov do definovania potrieb a
+parametrov výzvy a zároveň plní informačnú funkciu pre územných partnerov, ktorí na základe týchto
+informácií môžu pripravovať projektové zámery IÚI/UMR.
+Usmernenie sa nevzťahuje na výzvy na predkladanie projektových zámerov, výzvy „technického
+charakteru“ pre projekty podľa čl. 58, čl. 73 ods. 4 a čl. 118a nariadenia Európskeho parlamentu a Rady
+(EÚ) 2021/1060 z 24. júna 2021, ktorým sa stanovujú spoločné ustanovenia o Európskom fonde
+regionálneho rozvoja, Európskom sociálnom fonde plus, Kohéznom fonde, Fonde na spravodlivú
+transformáciu a Európskom námornom, rybolovnom a akvakultúrnom fonde a rozpočtové pravidlá
+pre uvedené fondy, ako aj pre Fond pre azyl, migráciu a integráciu, Fond pre vnútornú bezpečnosť a
+Nástroj finančnej podpory na riadenie hraníc a vízovú politiku v platnom znení (ďalej len „nariadenie
+o spoločných ustanoveniach“), ak pri jednotlivých procesoch, resp. v prílohe č. 2 tohto usmernenia nie
+je uvedené inak.
+
+                                                                5
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+1. Zoznam vykonaných zmien
+
+Zoznam vykonaných zmien poskytuje chronologický vývoj zmien usmernenia zmenou formou
+dodatkov až po aktuálnu verziu dokumentu.
+
+Tabuľka 1: Zoznam zmien vykonaných v usmernení
+
+      Časť                 Obsah upravovanej časti               Platnosť                Verzia     Podnet1
+ dokumentu                                                      15.12.2023                 2.0        n/a
+                Spresnenie a sprecizovanie textu, odstránenie   31.01.2024                 2.1        n/a
+      Celý                                                      31.01.2024                 2.1        n/a
+  dokument      zjavných chýb a nedostatkov. Doplnenie          01.03.2024                 2.2        n/a
+                                                                01.03.2024                 2.2        n/a
+     Úvod       postupov   gestorov,               odstránenie
+ Sumarizačná                                                    01.03.2024                 2.2        n/a
+                nejednoznačnosti a eliminovanie rôzneho
+    tabuľka                                                     01.3.2024                  2.2        n/a
+  Kapitola 2,   výkladu                                         01.03.2024                 2.2        n/a
+                                                                23.09.2024                 3.0        n/a
+     bod 2      Spresnenie textácie                             23.09.2024                 3.0   VLA č.23-077
+  Kapitola 3,
+                Doplnenie participatívneho princípu             23.09.2024                 3.0        n/a
+     bod 6
+                Doplnenie poznámky pod čiarou (poradové         23.09.2024                 3.0        n/a
+    Prílohy     číslo 3)
+                Doplnenie vety „Všetky zmeny vo výzve a jej
+   Príloha 1    prílohách je poskytovateľ povinný vykonať
+                formou sledovania zmien“
+      Celý      Doplnenie príloh, Príloha 1 – sumarizačná
+  dokument      tabuľka – presun pôvodného textu
+                z metodického usmernenia
+  Kapitola 3,   Príloha 2 – obsahujúca štruktúru kódovania
+    bod 16      výziev
+   Príloha 1    Skrátenie lehoty na participatívny prístup,
+       2.1      z pôvodných 16 pracovných dní na 12
+                pracovných dní, zmena emailovej adresy
+Harmonogram     V dôsledku pridania nových kapitol (pridanie
+ plánovaných    zoznamu vykonaných zmien, očíslovanie
+                kapitoly skratky a pojmy, pridanie kapitoly
+     výziev     prílohy), prečíslovanie kapitol a podkapitol
+       2.1
+                Doplnenie postupov súvisiacich s vytvorením
+Harmonogram     Mapy partnerstva
+ plánovaných
+                Nastavenie procesu vyhodnotenia plnenia
+     výziev     harmonogramu plánovaných výziev
+  Kapitola 2,
+                Úprava povinností poskytovateľa v súvislosti
+     ods. 1     s harmonogramom plánovaných výziev
+  Doplnenie
+ kapitoly 2.11  Doplnenie  postupu                 k dočasnému
+
+                nadkontrahovaniu k flexibilite
+
+1 Uvedie sa napr. číslo kontroly / auditu, na ktorého základe bola daná zmena vykonaná.
+
+                                                                6
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+Kapitola 3,
+
+ods. 1
+
+                Doplnenie povinnosti postupovať v súlade s
+
+2.5             metodickým výkladom CKO k implementácii
+
+Horizontálne a uplatňovaniu Dohovoru OSN o právach osôb 23.09.2024 3.0          n/a
+
+princípy so zdravotným postihnutím (UNCRPD)
+
+                v súlade s rozhodnutím Rady 2010/48/ES
+
+   Celý         Úpravy súvisiace    s  novelizáciou    zákona  23.09.2024  3.0  n/a
+dokument        č. 121/2022 Z. z.
+
+   Celý         Úprava a vyprecizovanie textu za účelom
+dokument
+                zosúladenia        s ostatnou        riadiacou 23.09.2024  3.0  n/a
+
+                dokumentáciou P SK
+
+ Kapitola 2.2   Doplnenie poznámky pod čiarou za účelom        7.11.2024   3.1  n/a
+Príprava výzvy  spresnenia textu a odstránenia akýchkoľvek
+                pochybností
+
+Kapitola 2.3
+
+Zásada
+
+nespôsobovať Technická zmena: zapracovanie povinnosti
+významnú zabezpečiť pri výbere operácií odolnosť
+   škodu a
+zabezpečenie    investícií s dobou životnosti dlhšou ako 5
+
+odolnosti rokov proti zmene klímy (podľa článku 73             7.11.2024 3.1    n/a
+
+infraštruktúry bodu 2 písmena j) NSU a metodického
+
+proti zmene dokumentu RO pre P SK č. 15)
+
+    klímy
+Kapitola 4.1
+
+ods. 4
+
+  Kapitola 3
+Posudzovanie Technická zmena: zapracovanie povinnosti
+
+  výzvy         prenosu ďalších skutočností do zmluvy          20.2.2025 3.2    n/a
+riadiacim       o poskytnutí NFP, ak relevantné.
+
+orgánom pre
+
+P SK, ods. 1
+
+Príloha 3
+ Systém
+prenosu
+
+    ďalších
+skutočností do
+
+zmluvných       Technická zmena: zapracovanie povinnosti       20.2.2025 3.2    n/a
+podmienok       prenosu ďalších skutočností do zmluvy
+ zmluvy o
+poskytnutí o poskytnutí NFP, ak relevantné.
+
+NFP, vrátane
+
+identifikácie
+opatrení pri
+
+ich neplnení/
+ porušení k
+
+výzve
+
+                Určenie gestorov participatívnej tvorby výzvy
+
+                a iných náležitostí participatívnej tvorby
+Kapitola 2 výzvy. Vypustenie kapitol 2.6.2 až 2.6.3            1.8.2025    4.0  n/a
+
+                z dôvodu prípravy vydania Metodického
+
+                                                   7
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+                usmernenia k identifikácii synergických a
+                komplementárnych účinkov.
+
+                Doplnenie procesu súvisiaceho so špecificky    1.8.2025
+
+   Pridanie vyčlenenou alokáciou pre marginalizované                      4.0        n/a
+kapitoly 2.4.3 rómske komunity.                                                      n/a
+                                                                               VLA č. 24-061
+   Pridanie     Doplnenie procesu súvisiaceho s technickou     1.8.2025        VLA č. 24-061
+ kapitoly 4.3   zmenou výzvy po vydaní rozhodnutí na                                 n/a
+a prečíslovani                                                            4.0        n/a
+e nasledujúcej základe implementačnej praxe.
+
+kapitoly
+
+                Doplnenie procesu technickej zmeny výzvy –
+
+kapitola 4.3 úprava alokácie výzvy                             11.5.2026 5.0
+
+  Pridanie      Doplnenie pravidla pre sledovanie verzií       11.5.2026 5.0
+kapitoly 4.4    dokumentov a zmien výziev v ITMS21+
+Zverejnenie
+
+zmeny výzvy
+
+                Z dôvodu definitívneho pridelenia flexibility
+
+Kapitola 2.2 schválením zmeny programu v rámci
+
+ods. 1,         strednodobého preskúmania programu, sú         11.5.2026 5.0
+
+kapitola 2.4.2 ustanovenia o „flexibilite“ už nerelevantné.
+
+                Úprava termínu na vydanie stanoviska
+
+Kapitola        gestora HP v procese prípravy výzvy z 5 na 7   11.5.2026  5.0
+2.3.1.2         pracovných dní na základe žiadosti gestora
+
+                HP.
+
+                                                   8
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+2. Harmonogram plánovaných výziev a príprava výzvy
+
+   2.1. Harmonogram plánovaných výziev
+
+1. RO zverejňuje harmonogram plánovaných výziev na nasledujúci kalendárny rok do 30.11.
+     aktuálneho roku v ITMS21+ a na webovom sídle www.eurofondy.gov.sk. Harmonogram
+     plánovaných výziev sa aktualizuje minimálne 3 x ročne 2 tak, aby údaje v harmonograme
+     plánovaných výziev reflektovali stav plánu poskytovateľov k 31.3., 30.6. a 30.93, prípadne stav ich
+     plánu aj v iných termínoch podľa rozhodnutia RO.
+
+2. Poskytovateľ bezodkladne po zverejnení harmonogramu plánovaných výziev zosúladí plánované
+     výzvy v ITMS21+ s aktuálnym harmonogramom plánovaných výziev.
+
+3. Harmonogram plánovaných výziev a jeho zmeny s identifikáciou výziev, ktoré sa budú pripravovať
+     participatívnym spôsobom môže RO v prípade potreby alebo požiadavky člena MV, resp. člena
+     komisie pri MV predložiť na prerokovanie MV, resp. komisie pri MV.
+
+4. Poskytovateľ vyhlasuje výzvu v súlade s harmonogramom plánovaných výziev4 (tzn., že výzva musí
+     byť pred jej vyhlásením uvedená v harmonograme plánovaných výziev).
+
+5. Poskytovateľ je oprávnený zmeniť plánovaný termín vyhlásenia výzvy iba v prípadoch, kedy
+     z objektívnych dôvodov nie je možné pristúpiť k jej vyhláseniu v pôvodnom termíne a po schválení
+     zo strany RO5.
+
+6. Sprostredkovateľský orgán (ďalej len „SO“), resp. riadiaci orgán v roli poskytovateľa je povinný
+     vždy do 15. dňa nasledujúceho mesiaca po skončení kalendárneho štvrťroka vyhodnocovať
+     aktuálne platný harmonogram plánovaných výziev v rámci svojej pôsobnosti a vyhodnotenie
+     predložiť emailom na adresu: [e-mail vynechaný], a to vrátane zdôvodnenia neplnenia
+     harmonogramu a jeho dopadu na plnenie plánu kontrahovania k 31.12.2024 a 31.12.2026 daného
+     SO (ak relevantné), ktorý je uvedený v Investičnom pláne, ktorý tvorí prílohu Zmluvy o poverení
+     na vykonávanie časti úloh riadiaceho orgánu sprostredkovateľským orgánom
+     a o zodpovednostiach súvisiacich s týmto poverením6.
+
+7. RO vypracuje do 15. dňa mesiaca nasledujúceho po termíne stanovenom v ods. 6 na základe
+     informácií od poskytovateľov informáciu k vyhodnoteniu platného harmonogramu plánovaných
+     výziev a jeho dopad na plán kontrahovania a identifikáciu rizík vyplývajúcich z neplnenia
+     harmonogramu plánovaných výziev.
+
+8. RO koordinuje poskytovateľov pri príprave a aktualizácii harmonogramu plánovaných výziev
+     prostredníctvom emailovej komunikácie.
+
+2 Článok 49 ods. 2 nariadenia o spoločných ustanoveniach.
+3 Harmonogram plánovaných výziev sa zverejňuje bezodkladne po spracovaní všetkých doručených podkladov.
+4 Zmluva o poverení na vykonávanie časti úloh riadiaceho orgánu sprostredkovateľským orgánom a o zodpovednostiach súvisiacich s týmto
+poverením.
+5 Informácia o stave implementácie európskych štrukturálnych a investičných fondov 2014-2020 a Programu Slovensko 2021-2027 schválená
+uznesením vlády SR č. 105 z 21. februára 2024.
+6 V zmysle uznesenia vlády SR č. 307 z 23. mája 2024.
+
+                                                                9
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+   2.2. Príprava výzvy – spoločné ustanovenia
+
+1. Návrh výzvy7 vypracuje poskytovateľ v súlade:
+     a) so schváleným Programom Slovensko,
+     b) s harmonogramom plánovaných výziev, resp. s jeho pripravovanou aktualizáciou
+           predloženou RO,
+     c) s riadiacou dokumentáciou P SK, vrátane tohto usmernenia a jeho príloh, ako aj v súlade
+           s ustanovením § 13 ods. 4 zákona č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a
+           o zmene a doplnení niektorých zákonov v znení neskorších predpisov a v zmysle Príručky
+           k finančnému riadeniu fondov EÚ na programové obdobie 2021 - 2027 8 t. j.
+           vyhlásenie/zmena výzvy nad 100 % alokácie pridelenej danému poskytovateľovi v rámci
+           príslušného fondu/kategórie regiónu a priority pred jej predložením riadiacemu orgánu na
+           posúdenie podlieha predchádzajúcemu súhlasu ministra financií v súlade s § 13 ods. 4 zákona
+           č. 121/2022 Z. z., a to z dôvodu zamedzenia dodatočných vplyvov na štátny rozpočet nad
+           rámec schválených limitov výdavkov podľa zákona o štátnom rozpočte.
+
+2. Poskytovateľ je zodpovedný za odstránenie rozporov s gestormi procesov uvedených nižšie, ktoré
+     vzniknú pri príprave výzvy podľa tejto kapitoly.
+
+3. Výzvu9 vrátane príloh zasiela poskytovateľ následne na posúdenie na RO podľa kapitoly 3 tohto
+     usmernenia.
+
+4. V prípade, ak:
+     a) pretrvávajú rozpory medzi poskytovateľom a gestorom podľa ods. 2,
+     b) gestor podľa ods. 2 nedodal stanovisko/vyjadrenie v uvedenej lehote napriek urgencii
+           poskytovateľa (prostredníctvom emailovej komunikácie),
+     c) výzva nie je pripravená participatívne napriek identifikácii participatívnej prípravy
+           v harmonograme plánovaných výziev alebo odporučeniu komisie pri monitorovacom výbore
+           (ďalej len „komisia pri MV“),
+     poskytovateľ zasiela na RO spolu s výzvou aj zdôvodnenie tohto rozporu/nesúladu ako súčasť
+     textácie emailu. V takomto prípade RO stanoví ďalší záväzný postup, v súlade s riadiacou
+     dokumentáciou upravujúcou implementáciu fondov EÚ10.
+
+5. Vo fáze prípravy výzvy poskytovateľ v spolupráci s gestormi procesov uvedených v kapitole 2.3
+     nižšie nastavuje postup pre správnu aplikáciu pravidiel v súlade s dokumentmi vydanými gestormi
+     procesov.
+
+7 Netýka sa výziev technického charakteru na fázované projekty podľa čl. 118a NSU, výziev na finančné nástroje, výziev na projekty ktoré
+získali Známku excelentnosti, alebo ktoré boli vybrané v rámci programu spolufinancovaného z programu Horizont Európa a výziev na
+predkladanie projektových zámerov.
+8 https://www.mfsr.sk/sk/financne-vztahy-eu/povstupove-fondy-eu/programove-obdobie-2021-2027/prirucka-k-financnemu-riadeniu-
+fondov-eu-programove-obdobie-2021-2027/.
+9 Poskytovateľ pridelí výzve kód v súlade s prílohou 2 tohto usmernenia.
+10 RO si vyhradzuje právo v prípade rozporu medzi poskytovateľom a gestorom podľa kapitoly 2.2 tohto usmernenia rozhodnúť o rozpore
+na základe argumentov zúčastnených strán. Toto rozhodnutie je záväzné pre obe strany.
+
+                                                               10
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+   2.3. Participatívna tvorba výzvy
+
+1. Pri poskytovaní nenávratného finančného príspevku (ďalej len „NFP“) sa uplatňuje princíp
+     partnerstva a viacúrovňového riadenia. 11 Ak je to vhodné, poskytovateľ pripravuje výzvu
+     participatívne 12 (rozhodnutie je v kompetencii poskytovateľa, pričom zohľadňuje prípadné
+     odporučenie komisie pri MV na zriadenie pracovnej platformy zabezpečujúcej participatívnu
+     prípravu výzvy). Identifikácia výziev, ktoré sa pripravia participatívne je uvedená v harmonograme
+     plánovaných výziev.
+
+2. Pri plánovaní participatívnej prípravy výzvy odporúčame riadiť sa metodickými podkladmi Úradu
+     splnomocnenca vlády SR pre rozvoj občianskej spoločnosti13. Poskytovatelia môžu svoj postup
+     konzultovať s Úradom splnomocnenca vlády SR pre rozvoj občianskej spoločnosti. Kontaktná
+     adresa: [e-mail vynechaný].
+
+3. Poskytovatelia, ktorí podporujú rovnaké alebo podobné investície z programu vzájomne
+     konzultujú v rámci participatívneho prístupu nastavenie výzvy a vecné kritériá pre výber
+     projektov14.
+
+4. Poskytovatelia zohľadňujú stanoviská a pripomienky gestorov procesov podľa tohto usmernenia
+     pri príprave výzvy. Zúčastnené strany vyvíjajú maximálne úsilie o odstránenie prípadných
+     rozporov v súlade s princípom partnerstva (dohodou).
+
+5. Na participatívnej tvorbe výzvy sa podieľajú nasledovní gestori:
+      • gestor politiky štátu (ďalej len „GPŠ“) podľa kapitoly 2.3.1.1, ak relevantné,
+      • gestor horizontálnych princípov (ďalej len „GHP“) podľa kapitoly 2.3.1.2,
+      • sekretariát Riadiaceho výboru pre koordináciu a zabezpečenie synergických účinkov medzi
+           fondmi EÚ, európskymi štrukturálnymi a investičnými fondmi, Mechanizmom na podporu
+           obnovy a odolnosti a ostatnými nástrojmi podpory EÚ a SR (ďalej len „sekretariát RV“) podľa
+           kapitoly 2.3.1.3,
+      • Výskumná a inovačná autorita (ďalej len „VAIA“) podľa kapitoly 2.3.1.4, ak relevantné,
+      • gestor princípu 3D podľa kapitoly 2.3.1.5, ak relevantné,
+      • gestor DNSH pre P SK podľa kapitoly 2.3.1.6.
+
+6. Poskytovateľ je povinný stanoviská/vyjadrenia gestorov podieľajúcich sa na participatívnej tvorbe
+     výzvy nahrávať do príslušného spisu výzvy v ITMS21+, okrem výstupu z overenia doručeného
+     gestorom DNHS pre P SK. Posúdenie súladu návrhu výzvy s uplatnením zásady „nespôsobovať
+     významnú škodu“ a zabezpečenia odolnosti infraštruktúry proti zmene klímy zo strany gestora
+     DNSH v rámci posudzovania výzvy riadiacim orgánom pre P SK je súčasťou Vyjadrenia k výzve
+     vydaného riadiacim orgánom podľa kapitoly 3.
+
+11 § 2 ods. 2 zákona č. 121/2022 Z. z.
+12 § 45 ods. 6 zákona č. 121/2022 Z. z. tak, aby nebol narušený alebo ohrozený nestranný a objektívny výkon činnosti.
+13 https://www.minv.sk/swift_data/source/rozvoj_obcianskej_spolocnosti/partnerstvo/vystupy/2019/Metodicke%20podklady%20pre%20
+participativnu%20implementaciu%20ESIF%20pre%20metodicku%20pracu%20CKO.pdf.
+14 Kapitola 1.1. všeobecnej metodiky a kritérií použitých pre výber projektov.
+
+                                                               11
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+2.3.1 Gestori participatívnej tvorby výzvy
+
+2.3.1.1 Gestor politiky štátu
+
+1. Poskytovateľ je povinný zabezpečiť spoluúčasť GPŠ15 na príprave výzvy (od začiatku jej prípravy)
+     v prípadoch, kedy sa predmet výzvy vyhlasovanej zo strany poskytovateľa týka pôsobnosti GPŠ16.
+
+2. GPŠ môže aktívne kontrolovať harmonogram plánovaných výziev. V prípade, ak sa
+     v harmonograme plánovaných výziev nachádza výzva, ktorej predmet je v pôsobnosti GPŠ, GPŠ
+     informuje o tejto skutočnosti poskytovateľa v dostatočnom predstihu pred plánovaným
+     vyhlásením výzvy.
+
+3. Poskytovateľ, ktorý pripravuje výzvu, je následne povinný počas jej prípravy komunikovať s GPŠ
+     v súlade s princípom partnerstva.
+
+4. V odôvodnených prípadoch je GPŠ oprávnený požiadať RO o vytvorenie spoločných tímov
+     odborníkov, ktorí budú spolupracovať na príprave výzvy, ktorá sa týka pôsobnosti GPŠ.
+
+2.3.1.2 Horizontálne princípy
+
+1. Poskytovateľ spolupracuje s GHP pri príprave výzvy za účelom definovania podmienok
+     poskytnutia príspevku tak, aby boli projekty implementované z fondov EÚ v súlade s Chartou
+     základných práv EÚ a Dohovorom OSN o právach osôb so zdravotným postihnutím17 a s čl. 9 ods.
+     1 – 3 nariadenia o spoločných ustanoveniach.
+
+2. Pri príprave výzvy postupuje poskytovateľ podľa aktuálne platného Metodického výkladu
+     k implementácii a uplatňovaniu dohovoru OSN o právach osôb so zdravotným postihnutím
+     (UNCRPD) v súlade s rozhodnutím Rady 2010/48/ES.18
+
+3. V rámci prípravy výzvy bude GHP definovaná požiadavka na deklarovanie spôsobu zabezpečenia
+     dodržiavania Charty základných práv EÚ a Dohovoru OSN o právach osôb so zdravotným
+     postihnutím. Konkrétne požiadavky budú po vzájomnej dohode GHP a poskytovateľa formulované
+     vo forme záväzného súhlasného stanoviska GHP bez pripomienok/záväzného nesúhlasného
+     stanoviska s pripomienkami 19 podľa zamerania výzvy, očakávaných výsledkov a výstupov
+     realizovaných projektov, oprávnených aktivít a cieľových skupín. Lehota na vydanie záväzného
+     stanoviska gestorom HP je 7 pracovných dní. Pri výzvach investičného charakteru, kde je potrebné
+     zo strany GHP kontrolovať/nastaviť prístupnosť pre osoby so zdravotným postihnutím je
+     povinnosť dodržať časový priestor na spripomienkovanie projektovej dokumentácie externými
+     odbornými posudzovateľmi v rozsahu 21 pracovných dní20 od doručenia návrhu výzvy v súlade
+     so Systémom implementácie horizontálnych princípov pre programové obdobie 2021-2027
+
+15 Podľa zákona č. 575/2001 Z. z. o organizácii činnosti vlády a organizácii ústrednej štátnej správy.
+16 Článok 4 ods. 2 písm. s) zmlúv o poverení na vykonávanie časti úloh riadiaceho orgánu sprostredkovateľským orgánom
+a o zodpovednostiach súvisiacich s týmto poverením v platnom znení.
+17 Uznesenie vlády SR č. 668 z 26. októbra 2022.
+18 https://eurofondy.gov.sk/dokumenty-a-publikacie/metodicke-dokumenty/metodicke-dokumenty-cko/
+19 V prípade záväzného nesúhlasného stanoviska s pripomienkami zo strany gestora horizontálnych princípov je poskytovateľ povinný
+pripomienky zapracovať a zaslať gestorovi horizontálnych princípov na opätovnú kontrolu zapracovania pripomienok.
+20 „Lehota 21 pracovných dní“ je určená iba pre prípady aplikovania systému preventívneho odborného posudzovania. Vymedzenie
+infraštruktúrneho projektu pre aplikovanie systému preventívneho odborného posudzovania – procesom preventívneho odborného
+posudzovania podliehajú nasledovné typy projektov: tunely, mosty, diaľničné obchvaty, cesty I. triedy, železničné priecestia, autobusové
+a vlakové stanice, verejná doprava a pod. Ide o infraštruktúrne projekty primárne dopravného charakteru, s cieľom zefektívniť, popularizovať
+verejnú osobnú dopravu, cestnú, koľajovú a vodnú dopravu, zvýšiť kvalitu a bezpečnosť na cestných komunikáciách SR. Pri ostatných typoch
+stavieb bude stanovená povinnosť doloženia check listu k bezbariérovej prístupnosti stavieb. Na ostatné výzvy investičného charakteru sa
+vzťahuje lehota „do 5 pracovných dní“. Pri ostatných výzvach investičného charakteru GHP vydáva stanovisko do 5 pracovných dní.
+
+                                                               12
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+     v platnom znení. Následne je lehota na vydanie stanoviska gestora HP taktiež 7 pracovných dní.
+     Kontaktná emailová adresa GHP je [e-mail vynechaný]. V prípade, že výzva nebude zaslaná
+     na uvedenú zbernú adresu gestora HP, výzva nebude posudzovaná.
+4. Kontrolu zapracovania požiadaviek vykonáva GHP v súlade s kapitolou 3 tohto usmernenia.
+5. V prípade, ak poskytovateľ po vydaní záväzného súhlasného stanoviska GHP vykoná vo výzve
+     úpravy/zmeny (s výnimkou zmien, zadefinovaných v Systéme implementácie horizontálnych
+     princípov pre programové obdobie 2021-2027) pred jej vyhlásením/po jej vyhlásení, je povinný
+     zaslať upravenú výzvu opätovne na posúdenie GHP. Lehota na opätovné posúdenie zmien
+     vo výzve a vydanie stanoviska je 5 pracovných dní od doručenia upravenej výzvy.
+6. Konkrétnejšie informácie sú uvedené na webovom sídle GHP www.horizontalneprincipy.gov.sk/
+     v dokumente Systém implementácie horizontálnych princípov pre programové obdobie 2021 -
+     2027.
+
+2.3.1.3 Synergie
+
+1. Procesy a postupy pri posudzovaní výziev vrátane IÚI/UMR, výziev na predkladanie projektových
+     zámerov a finančných nástrojov z hľadiska synergií, komplementarít a deliacich línií budú detailne
+     popísané v Metodickom usmernení k identifikácii synergických a komplementárnych účinkov21 a
+     v aktuálne platnej verzii Systému implementácie synergií a komplementarít medzi Partnerskou
+     dohodou SR pre roky 2021 - 2027, Programom Slovensko, Plánom obnovy a odolnosti SR a
+     ostatnými nástrojmi podpory Európskej únie.
+
+2. Povinnou a neoddeliteľnou súčasťou návrhu výzvy podľa ods. 1 je príloha Identifikácia
+     synergických a komplementárnych účinkov. Pri vypracovaní prílohy poskytovateľ vychádza zo
+     Synergickej tabuľky, ktorá definuje jednotlivé synergie a deliace línie až na úroveň opatrení a
+     aktivít a z aktuálnej verzie Harmonogramu plánovaných výziev. Zároveň má poskytovateľ
+     v priebehu prípravy výzvy možnosť neformálne konzultovať vyplnenie prílohy so sekretariátom
+     RV. Posudzovanie synergických a komplementárnych účinkov sa nevzťahuje na výzvy na prípravu
+     a predloženie projektov technickej pomoci.
+
+3. RO informuje sekretariát RV o aktualizáciách harmonogramu plánovaných výziev (vo forme emailu
+     na adresu [e-mail vynechaný]) minimálne 3 x ročne z dôvodu potreby posúdenia
+     synergických a komplementárnych účinkov výziev z časového hľadiska (v zmysle kapitoly 2.2, ods.
+     1 tohto usmernenia).
+
+4. Definované sú 3 posudzované kategórie:
+     a) Posúdenie návrhu výzvy na predkladanie projektových zámerov.
+     b) Posúdenie návrhu výzvy, vrátane výziev pre IÚI/UMR.
+     c) Posúdenie finančných nástrojov.
+
+5. Výzvu nie je možné zverejniť bez stanoviska sekretariátu RV, vrátane určenia rizikovosti príznaku
+     výzvy ITMS21+ a akceptácie odpočtu poskytovateľa sekretariátom RV.
+
+21 Dokument bude vydaný v priebehu septembra 2025.
+
+                                                               13
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+2.3.1.4 Výskum, vývoj a inovácie
+
+1. Stratégia výskumu a inovácií pre inteligentnú špecializáciu Slovenskej republiky 2021-2027 (SK
+     RIS3 2021+)22 (ďalej len „RIS3“) je súčasťou reformy riadenia politiky výskumu, vývoja a inovácií
+     (ďalej len „VVaI“) v SR spolu s prijatou novelou zákona č. 172/2005 Z. z. o organizácii štátnej
+     podpory výskumu a vývoja a o doplnení zákona č. 575/2001 Z. z. o organizácii činnosti vlády a
+     organizácii ústrednej štátnej správy v znení neskorších predpisov s účinnosťou od 1.6.2022 a
+     aktualizáciou štatútu Rady vlády Slovenskej republiky pre vedu, techniku a inovácie (ďalej len
+     „RVVTI“) a jej transformáciou. Prijatím uvedených dokumentov došlo k prechodu kompetencií
+     vo vzťahu k RVVTI z Ministerstva investícií, regionálneho rozvoja a informatizácie SR na Úrad vlády
+     SR. Súčasťou VAIA je sekretariát RVVTI, ktorý predstavuje odborný útvar s hlavnou koordinačnou,
+     analytickou, metodickou a komunikačnou kompetenciou pre tvorbu politík VVaI a je novým
+     kontaktným bodom pre RIS3. Aktualizáciou sa posilnili kompetencie RVVTI ako centrálneho
+     koordinačného a poradného orgánu vlády SR pre jednotnú tvorbu politiky v oblasti VVaI bez
+     ohľadu na zdroj financovania a zodpovedného za riadenie stratégie RIS3. Pri príprave výzvy je
+     potrebné skontrolovať jej súlad s RIS3, Národnou stratégiou VVaI a Záväznou metodikou riadenia,
+     financovania a hodnotenia podpory výskumu, vývoja a inovácií (ďalej len „Záväzná metodika“).
+     Súlad s uvedenými dokumentmi kontroluje VAIA pri všetkých pripravovaných výzvach (s výnimkou
+     výziev zameraných na realizáciou národných projektov, kde sa súlad so Záväznou metodikou
+     neposudzuje) obsahujúcich podporu výskumu, vývoja a inovácií ako aj pri výzvach zameraných
+     na digitalizáciu s presahom na výskum, vývoj a inovácie vzhľadom na skutočnosť, že VAIA
+     zodpovedá za posúdenie súladu výzvy s RIS3, Národnou stratégiou VVaI a Záväznou metodikou.
+
+2. Poskytovateľ je povinný zaslať výzvu vrátane všetkých jej príloh a dokumentov na kontrolu VAIA
+     podľa predchádzajúceho odseku na emailovú adresu [e-mail vynechaný]. VAIA vydá
+     stanovisko k návrhu výzvy do 7 pracovných dní od prijatia kompletnej dokumentácie. Ak VAIA
+     v stanovenom termíne nezašle poskytovateľovi žiadne stanovisko, považuje sa to za súhlas VAIA
+     s návrhom výzvy, resp., že VAIA k výzve nevznáša žiadne pripomienky.
+
+3. Výzvu, vrátane všetkých jej príloh a dokumentov upravenú v kontexte stanoviska VAIA podľa
+     ods. 2 poskytovateľ zasiela VAIA na opätovné posúdenie podľa kapitolou č. 3 ods. 1 tohto
+     usmernenia. Súčasťou zasielanej dokumentácie je aj odôvodnenie nezapracovania zásadných
+     pripomienok (v prípade nezapracovania všetkých zásadných pripomienok VAIA k návrhu výzvy),
+     ak relevantné. VAIA vydá stanovisko k upravenému návrhu výzvy do 3 pracovných dní od prijatia
+     kompletnej dokumentácie.
+
+4. Pripomienky VAIA sú pre poskytovateľa záväzné. Pripomienky VAIA k výzve sa v spolupráci
+     s poskytovateľom odstránia v súlade s princípom partnerstva (dohodou). Pod zásadnými
+     pripomienkami sa myslia také pripomienky, ktoré v prípade, ak nebudú zapracované, môžu
+     spôsobiť nesúlad s RIS3, alebo / a s národnou stratégiou.
+
+5. V prípade zmeny výzvy, predmetom ktorej je zmena:
+     a) podmienok oprávnenosti žiadateľa a / alebo partnerov vo vzťahu k rozsahu, ako bol
+           zadefinovaný v predbežnom pláne financovania alebo,
+     b) podmienok oprávnenosti aktivít projektu alebo,
+
+22 Kapitola 2. 6 Záväznej metodiky riadenia, financovania a hodnotenia podpory výskumu, vývoja a inovácií.
+
+                                                               14
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+     c) alokácie výzvy,
+     zasiela poskytovateľ návrh zmeny výzvy (pred zaslaním na posúdenie RO) na kontrolu VAIA
+     v rozsahu podľa odseku 2 na emailovú adresu [e-mail vynechaný]. VAIA je povinná vydať
+     stanovisko k návrhu zmeny výzvy do 7 pracovných dní od prijatia kompletnej dokumentácie.
+
+2.3.1.5 Princípy desegregácie, degetoizácie a destigmatizácie
+
+1. Poskytovateľ pri vypracovaní výzvy23 spolupracuje s Úradom splnomocnenca vlády SR pre rómske
+     komunity (ďalej len „ÚSVRK“) na zabezpečení jej súladu s princípmi desegregácie, degetoizácie
+     a destigmatizácie (ďalej len „princípy 3D“), ak je to vzhľadom na charakter výzvy relevantné.
+
+2. Podrobnosti uplatnenia princípu 3D a relevantné typy výziev sú uvedené v Metodickom výklade
+     pre efektívne uplatňovanie princípov desegregácie, degetoizácie a destigmatizácie vo výzvach
+     Programu Slovensko 2021 – 2027 v platnom znení, zverejnenom na webovom sídle ÚSVRK.
+     Uvedený dokument môže byť v priebehu programového obdobia aktualizovaný a dopĺňaný,
+     pričom sa poskytovateľ a ÚSVRK vždy riadia verziou platnou ku dňu doručenia výzvy na posúdenie.
+
+3. ÚSVRK je oprávnený identifikovať potrebu svojej spoluúčasti pri príprave výzvy podľa kapitoly
+     2.3.1.1 ako GPŠ pre koordináciu uskutočňovania inklúzie marginalizovaných rómskych komunít
+     a navrhnúť poskytovateľovi vhodnú formu zapracovania podmienky súladu výzvy s princípmi 3D.
+
+4. Poskytovateľ zašle návrh výzvy a relevantných príloh na emailovú adresu
+     [e-mail vynechaný].
+
+5. ÚSVRK vypracuje stanovisko a navrhne poskytovateľovi vhodnú formu zapracovania podmienky
+     súladu výzvy s princípmi 3D v súlade s Metodickým výkladom do 10 pracovných dní odo dňa
+     doručenia návrhu. ÚSVRK môže od poskytovateľa požadovať ďalšie informácie týkajúce sa výzvy
+     potrebné pre lepšie posúdenie vhodnosti nastavenia výzvy. Čas potrebný na predloženie
+     vyžadovaných dokumentov alebo informácií sa do lehoty 10 pracovných dní na vydanie stanoviska
+     nezapočítava. Ak poskytovateľ zapracuje zaslaný návrh do výzvy bez výhrad, proces posudzovania
+     súladu výzvy s princípmi 3D sa končí odoslaním návrhu ÚSVRK prijímateľovi. Ak má poskytovateľ
+     k zaslanému návrhu výhrady, môže s ÚSVRK konzultovať znenie návrhu aj po uplynutí lehoty
+     10 pracovných dní.
+
+2.3.1.6 Zásada „nespôsobovať významnú škodu“ a zabezpečenie odolnosti
+infraštruktúry proti zmene klímy
+
+1. Pri fondoch EÚ sa zohľadňuje zásada „nespôsobovať významnú škodu“ 24 . Podrobnosti
+     uplatňovania tejto zásady stanovuje Metodický dokument riadiaceho orgánu pre Program
+     Slovensko č. 7 - Metodické usmernenie k uplatňovaniu zásady "nespôsobovať významnú škodu"
+     v aktuálnom znení, vydaný RO. Prílohou metodického dokumentu je Príručka pre poskytovateľa
+     príspevku k uplatňovaniu DNSH – Zoznam investičných potrieb, na základe ktorej poskytovateľ
+     určuje aktivity, u ktorých sa vyžaduje splnenie podmienok pre uplatňovanie zásady
+     „nespôsobovať významnú škodu“ zo strany žiadateľa, ako aj spôsob ich overenia. Okrem
+
+23 Súlad s princípmi 3D je v prípade výziev na prípravu a predloženie národných projektov zabezpečovaný v rámci schvaľovania zámerov
+národných projektov komisiou pri MV, ktorej členom je zástupca ÚSVRK. Súlad s princípmi 3D sa neposudzuje ani pri výzvach na prípravu
+a predloženie projektov technickej pomoci. Pri výzvach na prípravu a predloženie projektu integrovanej územnej investície alebo projektu
+integrovanej územnej investície udržateľného mestského rozvoja sú princípy 3D prioritne zapracované ako podmienka poskytnutia príspevku.
+V takom prípade sa princípy 3D pri výzvach zo strany ÚSVRK tiež neposudzujú.
+24 Článok 9 ods. 4 nariadenia o spoločných ustanoveniach.
+
+                                                               15
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+     uplatňovania zásady „nespôsobovať významnú škodu“ je zároveň pri výbere operácií potrebné
+     zabezpečiť, aby investície do infraštruktúry s dobou životnosti dlhšou ako 5 rokov vybrané na
+     podporu boli odolné proti zmene klímy. Podrobnosti pre zabezpečenie odolnosti infraštruktúry
+     proti zmene klímy stanovuje Metodický dokument riadiaceho orgánu pre Program Slovensko č.
+     15 - Metodické usmernenie k preverovaniu odolnosti infraštruktúry proti zmene klímy.
+2. Poskytovateľ zasiela za účelom overenia správnosti nastavenia zásady „nespôsobovať významnú
+     škodu“ a za účelom preverenia, či je v rámci výzvy potrebné stanoviť podmienky vyplývajúce
+     z posudzovania odolnosti infraštruktúry proti zmene klímy pripravovanú výzvu25 na emailovú
+     adresu [e-mail vynechaný] na RO, ktorý je povinný najneskôr v lehote do 15 pracovných dní
+     od doručenia výzvy zaslať poskytovateľovi výstup overenia.
+3. Výstupom overenia je záväzný rozsah podmienok pre uplatňovanie zásady „nespôsobovať
+     významnú škodu“, ako aj spôsob a čas ich overenia a podmienky potrebné na zabezpečenie
+     odolnosti infraštruktúry proti zmene klímy.
+4. Zmenu výzvy zasiela poskytovateľ za účelom overenia správnosti nastavenia zásady
+     „nespôsobovať významnú škodu“ a za účelom preverenia, či je v rámci výzvy potrebné stanoviť
+     podmienky vyplývajúce z posudzovania odolnosti infraštruktúry proti zmene klímy na RO na
+     emailovú adresu [e-mail vynechaný] v prípade zmeny oprávnených aktivít identifikovaných vo
+     výzve, zmeny oprávnených skupín výdavkov, prípadne zmeny kódu intervencie, z ktorého je
+     pridelená alokácia pre danú výzvu. RO je povinný najneskôr v lehote do 5 pracovných dní od
+     doručenia zmeny výzvy zaslať poskytovateľovi výstup overenia.
+5. V prípade, že pri overovaní záväzného rozsahu podmienok pre uplatňovanie zásady
+     „nespôsobovať významnú škodu“ je konštatované, že pre oprávnené aktivity definované vo výzve
+     nie je potrebné stanoviť žiadne podmienky vyplývajúce zo zásady „nespôsobovať významnú
+     škodu“, poskytovateľ podmienku poskytnutia príspevku a ani ďalšie skutočnosti vyplývajúce
+     z tejto zásady vo výzve neuvádza. Uvedené platí aj pre podmienky vyplývajúce z posudzovania
+     odolnosti infraštruktúry proti zmene klímy.
+
+2.3.2 Iné náležitosti participatívnej tvorby výzvy
+
+2.3.2.1 Základné podmienky
+
+1. Základné podmienky predstavujú súbor legislatívnych, strategických a koncepčných
+     podmieneností, ktoré majú byť zabezpečené a uplatňované počas celého programového obdobia
+     2021 – 202726. Gestori plnenia základných podmienok na národnej úrovni sú určení v materiáli
+     „Návrh koordinácie plnenia základných podmienok politiky súdržnosti Európskej únie a ich
+     uplatňovania počas programového obdobia 2021 – 2027 na národnej úrovni“27.
+
+2. Súlad oprávnených aktivít výzvy s príslušnými stratégiami a dokumentmi stanovenými na plnenie
+     základnej podmienky poskytovateľ identifikuje v Kontrolnom zozname k plneniu požiadaviek
+     článku 73 nariadenia o spoločných ustanoveniach (príloha č. 1 Všeobecnej metodiky a kritérií
+     použitých pre výber projektov28).
+
+25 Pripravovaná výzva, u ktorej je možné jednoznačne identifikovať oprávnené aktivity podporené vo výzve a navrhované podmienky
+vyplývajúce zo zásady „nespôsobovať významnú škodu“ pre dané oprávnené aktivity.
+26 Podrobné informácie k základným podmienkam sú uvedené na webovom sídle https://eurofondy.gov.sk/fondy-eu/zakladne-podmienky/.
+27 Schválený uznesením vlády SR č. 257 z 24. mája 2023.
+28 https://private.itms21.sk/file-download?uuid=706e475f-9b60-45bd-92e6-baed4598d8f9.
+
+                                                               16
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+3. Poskytovateľ je oprávnený požiadať gestora plnenia základnej podmienky o overenie a potvrdenie
+     súladu opatrení a aktivít výzvy s príslušnou základnou podmienkou.
+
+   2.4. Ďalšie procesy súvisiace s prípravou výzvy
+
+2.4.1 Zjednodušené vykazovanie výdavkov
+
+1. Použitie zjednodušeného vykazovania výdavkov (ďalej len „ZVV“) nie je povinné, okrem prípadov
+     stanovených v čl. 53 ods. 2 nariadenia o spoločných ustanoveniach. Poskytovateľ je povinný
+     pri príprave každej výzvy posúdiť súlad s článkom 53 ods. 2 nariadenia o spoločných
+     ustanoveniach a použiť vo výzve primerané nastavenie – buď nastaviť minimálnu výšku celkových
+     oprávnených výdavkov alebo nastaviť aj výdavky vo forme ZVV pre projekty, ktoré by mohli byť
+     povinne vo forme ZVV.
+
+2. V prípade použitia ZVV vo výzve je poskytovateľ povinný zabezpečiť správnu aplikáciu pravidiel,
+     ktoré sú stanovené v čl. 53 nariadenia o spoločných ustanoveniach (prípadne v článkoch 54 - 56
+     nariadenia o spoločných ustanoveniach ak použije metódu stanovenia podľa čl. 53 ods. 3 písm. e)
+     nariadenia o spoločných ustanoveniach).
+
+3. Poskytovateľ v dostatočnom časovom predstihu vypracuje metodiku použitia ZVV v súlade
+     s postupmi uvedenými v článku 53 ods. 3 nariadenia o spoločných ustanoveniach a primerane
+     s pravidlami stanovenými v Usmerneniach týkajúcich sa zjednodušeného vykazovania nákladov
+     v rámci fondov, na ktoré sa vzťahuje nariadenie o spoločných ustanoveniach — C/2024/7467.
+
+4. Počas vypracovania metodiky (najmä ak sa nepoužíva výlučne metóda stanovenia podľa čl. 53
+     ods. 3 písm. e) nariadenia o spoločných ustanoveniach) môže poskytovateľ priebežne konzultovať
+     svoje postupy s metodikou RO alebo môže po jej finalizácii požiadať o pripomienkovanie návrhu
+     metodiky RO. Rovnako môže poskytovateľ požiadať orgán auditu o predbežné posúdenie.
+
+5. Ak poskytovateľ nevyužil možnosť konzultovať návrh metodiky 29 počas jej prípravy alebo
+     pripomienkovania finálneho návrhu pred plánovaným zaslaním výzvy, tak v dostatočnom
+     predstihu, najneskôr však 15 pracovných dní pred plánovaným zaslaním výzvy na posúdenie RO
+     zašle metodiku ZVV metodike RO na posúdenie na emailovú adresu [e-mail vynechaný].
+     Odporúčame poskytovateľovi zaslať na RO aj celú podpornú dokumentáciu30 (aj dokumenty, ktoré
+     sa nebudú zverejňovať ako napr. zdroje dát, podklady pre výpočet a pre metódy úprav súm atď.)
+     spolu s finálnym, resp. aktuálnym návrhom výzvy umožňujúcim objektívne posúdenie, prípadne
+     so schváleným zámerom národného projektu umožňujúcim objektívne posúdenie. Podklady
+     sa nezasielajú, ak sa v plnej miere preklápa ZVV podľa čl. 94 nariadenia o spoločných
+     ustanoveniach, ktoré tvorí prílohu P SK. V takom prípade poskytovateľ uvedie odkaz na jeho
+     konkrétnu časť.
+
+6. RO do 15 pracovných dní od doručenia návrhu metodiky ZVV uvedený návrh posúdi a zašle
+     poskytovateľovi svoje prípadné pripomienky, ktoré je poskytovateľ povinný zapracovať. Metodiku
+     ZVV (so zapracovanými pripomienkami) zasiela poskytovateľ spolu s výzvou na posúdenie RO
+     podľa kapitoly 3 ods. 2.
+
+29 S výnimkou ak využíva výlučne metódu stanovenia podľa čl. 53 ods. 3 písm. e) nariadenia o spoločných ustanoveniach a bez povinnosti
+vykonať výpočet na určenie uplatniteľnej sadzby/sumy.
+30 S výnimkou ak využíva výlučne metódu stanovenia podľa čl. 53 ods. 3 písm. e) nariadenia o spoločných ustanoveniach a bez povinnosti
+vykonať výpočet na určenie uplatniteľnej sadzby/sumy.
+
+                                                               17
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+7. Poskytovateľ zabezpečí, aby metóda stanovenia bola overiteľná aj v prípade následných kontrol
+     a auditov – všetky podklady musia mať overiteľnú a archivovateľnú formu (napr. nestačí odkaz
+     na webové stránky ale je potrebný printscreen a pod.).
+
+2.4.2 Vyhlásenie/zmena výzvy nad 100 % alokácie
+
+1. V prípade plánovaného vyhlásenia/zmeny výzvy nad 100 % alokácie pridelenej danému
+     poskytovateľovi v rámci príslušného fondu/kategórie regiónu a priority, poskytovateľ listinne
+     požiada ministra financií o súhlas podľa § 13 ods. 4 zákona č. 121/2022 Z. z. a Príručky k
+     finančnému riadeniu fondov EÚ na programové obdobie 2021 – 2027. Poskytovateľ zároveň
+     informuje RO o tejto žiadosti zaslaním jej kópie na emailovú adresu [e-mail vynechaný].
+
+2.4.3 Špecificky vyčlenená alokácia pre marginalizované rómske komunity
+
+1. Poskytovateľ pri predložení výzvy na posúdenie RO podľa kapitoly 3 informuje RO o použití
+     špecificky vyčlenenej alokácie pre marginalizované rómske komunity (ďalej len „MRK“)
+     prostredníctvom prílohy č. 4 v zmysle kapitoly 3, ods. 2.
+
+2. Poskytovateľ pri vypracovaní výzvy v rámci evidencie „Výzva – základné údaje“ v ITMS21+ v poli
+     s názvom „Projekt so špecifickým určením pre MRK“ povinne vyberie zo zoznamu jednu
+     z možností:
+     • "áno" – ak, výzva bude financovaná výhradne z alokácie so špecifickým určením pre MRK
+           uvedenej v P SK,
+     • "nie" – ak, výzva nebude v žiadnej miere financovaná z alokácie so špecifickým určením pre
+           MRK uvedenej v P SK,
+     • "čiastočne" – ak, výzva bude z časti financovaná z alokácie so špecifickým určením pre MRK
+           uvedenej v P SK.
+     Poskytovateľ zároveň vo výzve usmerní žiadateľov o pravidlách výberu možnosti
+     („áno“/“nie“/“čiastočne“) v etape predkladania ŽoNFP.
+
+3. V prípade nejasností poskytovateľ kontaktuje RO na emailovej adrese
+     [e-mail vynechaný].
+
+3. Predloženie výzvy riadiacemu orgánu pre Program Slovensko a
+    posúdenie výzvy
+
+1. Po príprave výzvy podľa kapitoly 2 poskytovateľ zašle výzvu na posúdenie na emailové adresy:
+     a) [e-mail vynechaný],
+     b) gestorovi horizontálnych princípov na emailovú adresu [e-mail vynechaný],
+     c) VAIA na emailovú adresu [e-mail vynechaný] (ak relevantné),
+     d) sekretariátu RV na emailovú adresu [e-mail vynechaný].
+
+     Poskytovateľ zasiela výzvu vrátane všetkých jej príloh a dokumentov, na ktoré sa výzva odvoláva
+     a ktoré nie sú verejne dostupné. V prípade, že prílohy a dokumenty, na ktoré sa výzva odvoláva,
+     sú verejne dostupné, poskytovateľ spolu s výzvou zašle len hypertextové odkazy na miesto
+
+                                                               18
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+     zverejnenia týchto príloh a dokumentov. Predložená výzva musí byť finálna,31 t. j. s prideleným
+     kódom podľa prílohy č. 2 a v prípade, ak jej časti či prílohy podliehajú posúdeniu/schváleniu inými
+     orgánmi (podľa osobitných predpisov), musia byť tieto náležitosti už posúdené/schválené.
+2. Poskytovateľ spolu s výzvou predkladá:
+     a) Kontrolný zoznam k plneniu požiadaviek článku 73 nariadenia o spoločných ustanoveniach
+
+           (príloha č. 1 Všeobecnej metodiky a kritérií použitých pre výber projektov),
+     b) Informáciu o identifikácii výzvy v platnom Harmonograme plánovaných výziev zverejnenom
+
+           na: https://eurofondy.gov.sk/vyzvy/harmonogram-planovanych-vyziev (v MS excel súbore) a
+           to aj s číslom riadku, v ktorom sa výzva nachádza v rámci platného harmonogramu a jej
+           názvom uvedeným v harmonograme. Túto informáciu uvedie poskytovateľ v texte emailu,
+           ktorým zasiela výzvu na RO. V prípade národných projektov, ak sa návrh výzvy ešte
+           nenachádza v platnom harmonograme plánovaných výziev, poskytovateľ zašle spolu s výzvou
+           kópiu žiadosti o zaradenie výzvy do harmonogramu plánovaných výziev, ktorá bola zaslaná
+           RO,
+     c) Systém prenosu ďalších skutočností do zmluvných podmienok zmluvy o poskytnutí NFP (ďalej
+           len „systém“) podľa vzoru, ktorý tvorí prílohu č. 3 tohto usmernenia, v prípade ak
+           poskytovateľ zadefinuje vo výzve ďalšie skutočnosti týkajúce sa poskytovania príspevku
+           overované v zmluvnom režime. Poskytovateľ je povinný preniesť ďalšie skutočnosti týkajúce
+           sa poskytovania príspevku do zmluvy o poskytnutí NFP vo forme konkrétnych ustanovení,
+           zmluvných podmienok alebo záväzkov (s výnimkou ďalších skutočností overovaných
+           výhradne v predzmluvnom režime)32. RO berie tento dokument na vedomie. Systém sa
+           s výzvou nezverejňuje ako jej príloha,
+     d) Informáciu o výsledku posúdenia metodiky ZVV v prípade povinnosti vypracovania metodiky
+           ZVV v prípadoch podľa kapitoly 2.4.1 ods. 4 a 5,
+     e) Stanovisko ministra financií SR podľa § 13 ods. 4 zákona č. 121/2022 Z. z. a Príručky
+           k finančnému riadeniu fondov EÚ na programové obdobie 2021 – 2027 v prípade
+           plánovaného vyhlásenia výzvy nad 100 % alokácie pridelenej danému poskytovateľovi v rámci
+           príslušného fondu/kategórie regiónu a priority podľa kapitoly 2.4.2,
+     f) Informáciu o špecificky vyčlenenej alokácii pre marginalizované rómske komunity podľa
+           vzoru, ktorý tvorí prílohu č. 4 tohto usmernenia s rozdelením alokácie podľa priority,
+           špecifického cieľa, kategórie regiónov a alokáciou so špecifických určením pre MRK.
+           Predmetnú prílohu predkladajú len poskytovatelia so špecificky vyčlenenou alokáciou pre
+           MRK (MPSVR SR, MZ SR, MŠVVM SR) pri použití alokácie vyčlenenej v rámci Európskeho
+           sociálneho fondu plus.
+3. RO predloženú výzvu posudzuje z hľadiska:
+     a) formálnych náležitostí výzvy a podmienok poskytnutia príspevku podľa § 14 ods. 2 a 3 zákona
+           č. 121/2022 Z. z.,
+     b) súladu s naplnením ustanovenia § 13 ods. 4 zákona č. 121/2022 Z. z.,
+
+31 Výzva nesmie obsahovať otázky, interné komentáre a nesmie byť predložená so sledovaním zmien oproti predchádzajúcej verzii. Všetky
+otázky si poskytovateľ odkonzultuje s jednotlivými gestormi podľa kapitoly 2 resp. s RO pred predložením výzvy na posúdenie. Prípadné
+doplňujúce informácie pre RO uvádza poskytovateľ v texte emailu.
+32 V prípade ak je poskytovateľ a žiadateľ rovnaká osoba, ďalšie skutočnosti týkajúce sa poskytovania príspevku sa prenášajú do prílohy č. 1
+Rozhodnutia o schválení ŽoNFP a poskytovateľ túto skutočnosť primerane zohľadní v systéme.
+
+                                                               19
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+     c) súladu s P SK a ostatnou riadiacou dokumentáciou P SK,
+     d) súladu so záväznými pravidlami upravujúcimi poskytovanie príspevku z fondov Európskej
+
+           únie,
+     e) súladu s uplatnením zásady „nespôsobovať významnú škodu“ a zabezpečenia odolnosti
+
+           infraštruktúry proti zmene klímy.
+4. Synergie sú posudzované v zmysle Metodického usmernenia k identifikácii synergických a
+
+     komplementárnych účinkov.
+5. Gestor horizontálnych princípov skontroluje súlad nastavenia výzvy s požiadavkami, ktoré vzniesol
+
+     poskytovateľovi pri príprave výzvy. V prípade identifikovaného nesúladu gestor horizontálnych
+     princípov komunikuje priamo s poskytovateľom.
+6. RO vydá Vyjadrenie k výzve (ďalej len „Vyjadrenie“) do 10 pracovných dní od predloženia
+     výzvy33. Nad rámec výhrad uvedených vo Vyjadrení RO môže predložiť aj odporúčania na úpravu
+     výzvy, ktoré nemajú záväzný charakter a poskytovateľ nie je povinný ich prijať. Vyjadrenie k výzve
+     RO zasiela poskytovateľovi emailom, ktorého súčasťou budú v prípade relevancie aj prípadné
+     odporúčania uvedené v texte emailu.
+7. RO je oprávnený v prípade vzniku pochybností o úplnosti výzvy a pochybností o súlade výzvy
+     s dokumentmi uvedenými v ods. 3 vyžiadať doplnenie k výzve formou výhrad uvedených v emaile.
+     Všetky zmeny vo výzve a jej prílohách je poskytovateľ povinný vykonať formou sledovania zmien.
+     V tomto procese poskytovateľ v partnerskej spolupráci spolu s RO odstránia výhrady. V prípade
+     ak poskytovateľ vykoná zmeny nad rámec výhrad uvedených v emaile, RO je povinný o nich RO
+     informovať jednoznačnou identifikáciou, o aké zmeny ide spolu so zdôvodnením a so sledovaním
+     zmien vykonaných v relevantnom dokumente. V opačnom prípade RO nenesie zodpovednosť za
+     vykonané zmeny a nebudú považované za zmeny odsúhlasené RO, t. j. nebudú súčasťou
+     podkladov pre vydanie Vyjadrenia k výzve. Čas potrebný na predloženie vyžadovaných
+     dokumentov alebo informácií sa do lehoty 10 pracovných dní na vydanie Vyjadrenia nezapočítava.
+     V prípade, ak po doplnení k výzve pretrvávajú výhrady k výzve, RO ich uvedie vo Vyjadrení k výzve.
+8. Ak počas plynutia lehoty podľa ods. 6 tejto kapitoly RO za účelom posúdenia predloženej výzvy
+     vyžaduje od poskytovateľa doplnenie ďalších dokumentov alebo informácií, ktoré sú nevyhnutné
+     na posúdenie výzvy a poskytovateľ tieto nedoplní v lehote do 20 pracovných dní, resp. doplnenie
+     nie je kompletné, RO je oprávnený zastaviť posudzovanie výzvy.
+9. Ak budú počas plynutia lehoty na vydanie Vyjadrenia vykonané vo výzve alebo v jej prílohách
+     a dokumentoch, na ktoré sa výzva odvoláva, akékoľvek úpravy bez vyžiadania RO (s výnimkou
+     zmien týkajúcich sa opravy chýb v písaní, počítaní alebo iných zrejmých nesprávností vo výzve
+     a zmien spôsobených posunom v plánovanom termíne vyhlásenia výzvy), je SO povinný zaslať
+     upravenú výzvu opätovne na posúdenie, pričom RO začne plynúť nová lehota na posúdenie, t. j.
+     10 pracovných dní od doručenia výzvy na opätovné posúdenie.
+10. RO vydá Vyjadrenie k výzve:
+
+       a) bez výhrad, alebo
+       b) s výhradami.
+
+33 Deň predloženia výzvy na RO sa nezapočítava do lehoty na vydanie Vyjadrenia k výzve. Za vydanie Vyjadrenia sa považuje zaslanie skenu
+podpísaného Vyjadrenia emailom poskytovateľovi.
+
+                                                               20
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+11. Vyjadrenie s výhradami musí obsahovať jasné identifikácie zistených nedostatkov brániacich jej
+     vyhláseniu a návrh nápravných opatrení na ich odstránenie. Za závažné nedostatky brániace
+     vyhláseniu výzvy sa považuje rozpor výzvy s dokumentmi uvedenými v ods. 3.
+
+12. Výhrady RO k výzve sa v spolupráci s poskytovateľom odstránia v súlade s princípom partnerstva
+     (dohodou)34. Poskytovateľ je povinný zaslať odpočet k výhradám (nie k odporúčaniam, ak ich RO
+     uviedol v texte mailu) pred vyhlásením výzvy do 5 pracovných dní odo dňa doručenia Vyjadrenia35.
+
+13. V prípade, že Vyjadrenie obsahovalo výhrady, RO posúdi odpočet zapracovania výhrad a v prípade
+     pretrvávajúcich výhrad RO potvrdí platnosť vydaného Vyjadrenia s výhradami v plnom rozsahu
+     resp. v rozsahu pretrvávajúcich výhrad. V prípade akceptácie odpočtu, t. j. ak RO súhlasí
+     so spôsobom zapracovania výhrad, resp. akceptuje dôvody nezapracovania, oznámi to
+     poskytovateľovi.
+     RO oznámi poskytovateľovi vyššie uvedené skutočnosti formou emailu do 6 pracovných dní
+     od zaslania odpočtu.
+
+14. V prípade, ak Vyjadrenie obsahovalo výhrady, Poskytovateľ je oprávnený vyhlásiť výzvu až
+     po akceptácii odpočtu zo strany RO.
+
+15. V prípade, ak po vydaní Vyjadrenia RO, resp. po zaslaní odpočtu zapracovania výhrad RO a súhlase
+     RO s odpočtom, vykoná poskytovateľ vo výzve zmeny pred jej vyhlásením (s výnimkou zmien
+     týkajúcich sa opravy chýb v písaní, počítaní alebo iných zrejmých nesprávností vo výzve, zmien
+     spôsobených posunom v plánovanom termíne vyhlásenia výzvy, zmien vyplývajúcich zo zmien
+     príslušných právnych predpisov a záväzných metodických dokumentov), je poskytovateľ povinný
+     opätovne zaslať RO výzvu na posúdenie vykonaných zmien. RO zmeny posúdi do 3 pracovných dní
+     odo dňa doručenia výzvy a emailom informuje poskytovateľa. RO nenesie zodpovednosť za
+     vykonané zmeny výzvy pred jej vyhlásením, o ktorých poskytovateľ neinformoval RO podľa tohto
+     odseku.
+
+16. Výzvu vyhlási poskytovateľ prostredníctvom ITMS21+ a RO na webovom sídle
+     https://eurofondy.gov.sk/ zabezpečí uvedenie odkazu na webové sídlo ITMS21+. Za záväzné
+     znenie výzvy sa považuje to, ktoré je vyhlásené prostredníctvom ITMS21+.
+
+17. Poskytovateľ je povinný súčasne s vyhlásením / zmenou / zrušením / uzavretím výzvy 36
+     v ITMS21+ nahlásiť údaje na adresu [e-mail vynechaný] pre účely publikovania informácií
+     o aktuálnych výzvach v Mape partnerstva37.
+
+18. RO zabezpečí, aby výzvy, ktoré už boli ukončené, boli dostupné v ITMS21+ v časti Výzvy – Zoznam
+     a na webovom sídle www.eurofondy.gov.sk v súlade s čl. 82 nariadenia o spoločných
+     ustanoveniach.
+
+   3.1. Osobitné postupy poskytovania príspevku
+
+1. Pri výzve na prípravu a predloženie národného projektu je posudzovaný aj súlad výzvy
+     so schváleným zámerom národného projektu v rozsahu, v akom nemôže byť podľa platnej verzie
+
+34 Článok 3 bod 1 písm. c) zmluvy o poverení na vykonávanie časti úloh riadiaceho orgánu sprostredkovateľským orgánom
+a o zodpovednostiach súvisiacich s týmto poverením.
+35 Lehota začína plynúť od nasledujúceho pracovného dňa po doručení Vyjadrenia RO.
+36 Netýka sa výzvy na prípravu a predloženie projektu technickej pomoci.
+37 Mapa partnerstva - súhrn informácií o aktuálnych výzvach Programu Slovensko, Plánu obnovy a odolnosti a ďalších nástrojov finančnej
+podpory https://mapapartnerstva.gov.sk/.
+
+                                                               21
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+     Metodického dokumentu riadiaceho orgánu pre Program Slovensko č. 2 Formulár zámeru
+     národného projektu menený (rozsah hlavných aktivít národného projektu a zvýšenie celkových
+     oprávnených výdavkov o viac ako 15 %). Poskytovateľ zasiela na emailovú adresu
+     [e-mail vynechaný] schválený zámer národného projektu (so zapracovanými prípadnými
+     pripomienkami komisie pri MV) najneskôr 5 pracovných dní pred zaslaním výzvy na posudzovanie
+     na RO. RO schválený zámer národného projektu zverejní na webovom sídle
+     www.eurofondy.gov.sk.
+2. V prípade, ak je podľa nastavenia výzvy na prípravu a predloženie projektu technickej pomoci
+     možné využiť služby tretích osôb kumulatívne v sume vyššej ako 10 % z celkovej alokácie
+     technickej pomoci pre tento subjekt, posudzuje sa aj zabezpečenie povinnosti prerokovať
+     plánované využitie týchto služieb v Komisii pri MV pre opatrenia zamerané na budovanie
+     a podporu administratívnych kapacít38.
+3. Postupy uvedené v kapitole 3 tohto usmernenia sa v plnej miere vzťahujú aj na výzvy na prípravu
+     a predloženie národného projektu a projektu technickej pomoci.
+
+4. Zmena a zrušenie výzvy
+
+   4.1. Príprava zmeny výzvy zo strany poskytovateľa
+
+1. Pri zmene výzvy uplatňuje poskytovateľ postup podľa ustanovenia § 13 ods. 4 a § 14 ods. 4 až 6
+     zákona č. 121/2022 Z. z, ako aj podľa Príručky k finančnému riadeniu fondov EÚ na programové
+     obdobie 2021-2027 (v zmysle ustanovenia § 13 ods. 4 zákona č. 121/2022 Z. z. vyhlásenie výzvy
+     nad 100 % alokácie pridelenej danému poskytovateľovi v rámci príslušného fondu/kategórie
+     regiónu a priority pred jej predložením riadiacemu orgánu na posúdenie podlieha
+     predchádzajúcemu súhlasu ministra financií, a to z dôvodu zamedzenia dodatočných vplyvov na
+     štátny rozpočet nad rámec schválených limitov výdavkov podľa zákona o štátnom rozpočte).
+
+2. Poskytovateľ je oprávnený po zverejnení výzvy zmeniť:
+     a) výzvu v celom jej rozsahu39 do vydania prvého rozhodnutia40 (pri výzve s určeným dátumom
+           uzavretia), resp. do vydania prvého rozhodnutia od aktuálne posudzovaného časového
+           obdobia výzvy s účinnosťou na všetky nasledujúce časové obdobia (pri výzve so stanovenou
+           inou skutočnosťou, na základe ktorej sa výzva uzavrie),
+     b) formálne náležitosti výzvy, ďalšie skutočnosti týkajúce sa poskytovania príspevku, ktoré
+           nemajú charakter podmienky poskytnutia príspevku a prílohy 41 aj po vydaní prvého
+           rozhodnutia.
+
+3. V prípade výziev v rámci integrovaných územných investícií a integrovaných územných investícií
+     udržateľného mestského rozvoja sa pri ich zmene uplatňuje postup podľa § 24 ods. 3 zákona
+     č. 121/2022 Z. z.
+
+38 Čl. 2 ods. 2 písm. h) Štatútu komisie pri MV pre P SK pre opatrenia zamerané na budovanie a podporu administratívnych kapacít.
+39 § 14 ods. 4 zákona č. 121/2022 Z. z.
+40 Za prvé rozhodnutie sa nepovažuje rozhodnutie o zastavení konania podľa § 17 ods. 1 zákona č. 121/2022 Z. z.
+41 § 14 ods. 6 zákona č. 121/2022 Z. z.
+
+                                                               22
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+4. Ak je to relevantné, poskytovateľ konzultuje zmenu výzvy s gestormi podľa kapitoly 2.3 42
+     a následne zašle návrh na zmenu výzvy na posúdenie na RO v zmysle kapitoly 4.2. ods. 1, resp.
+     postupuje podľa kapitoly 4.2. ods. 3 tohto usmernenia.
+
+   4.2. Posudzovanie zmeny výzvy riadiacim orgánom pre P SK
+
+1. Poskytovateľ je povinný zaslať zmeny podmienok poskytnutia príspevku uvedených vo výzve,
+     resp. v prílohách výzvy, podmienok vyplývajúcich zo zásady „nespôsobovať významnú škodu“,
+     podmienok týkajúcich sa zabezpečenia odolnosti infraštruktúry proti zmene klímy,
+     merateľných ukazovateľov, zmeny kategorizácie za špecifické ciele43, intenzity pomoci a výšky
+     finančných prostriedkov určených na vyčerpanie vo výzve44 podľa kapitoly 4.1. ods. 2 písm. a)
+     a b) 45 najneskôr 10 pracovných dní pred plánovanou zmenou na RO 46 (na emailovú adresu
+     [e-mail vynechaný]). V prípade zmeny výšky finančných prostriedkov určených na vyčerpanie vo
+     výzve, poskytovateľ pre informáciu predkladá aj prílohu 4 tohto usmernenia so zohľadnením
+     navrhovanej zmeny výšky finančných prostriedkov, ak mu povinnosť predloženia tejto prílohy
+     vyplýva z kapitoly 3 ods. 2. RO posúdi návrh na zmenu výzvy do 10 pracovných dní od doručenia
+     návrhu na zmenu výzvy.
+
+2. Poskytovateľ je zároveň pri zmene výzvy povinný postupovať aj podľa Systému implementácie
+     horizontálnych princípov pre programové obdobie 2021 - 2027 (ktorý určuje povinnosť zaslať
+     zmenu výzvy GHP okrem výnimiek, ktoré stanovuje predmetný dokument) a Metodického
+     usmernenia k identifikácii synergických a komplementárnych účinkov47.
+
+3. Mimo náležitostí uvedených v ods. 1 je poskytovateľ oprávnený zmeniť ostatné náležitosti výzvy
+     podľa kapitoly 4.1. ods. 2 písm. a) a b)48 bez predchádzajúceho zaslania návrhu týchto zmien na
+     RO.
+
+4. Poskytovateľ zasiela žiadosť o posúdenie zmeny výzvy s jednoznačnou identifikáciou, o aké zmeny
+     ide (napr. Usmernenie k aktualizácii výzvy) spolu so zdôvodnením, s informáciou, na ktoré ŽoNFP
+     sa predmetné zmeny vzťahujú a so sledovaním zmien vykonaných vo formulári výzvy, resp.
+     v jednotlivých dotknutých prílohách, resp. dokumentoch, na ktoré sa výzva odvoláva a informáciu
+     s vyčíslením úspor v rámci jednotlivých výziev poskytovateľa podľa kapitoly 4.3. ods. 6. V prípade
+     ak poskytovateľ vykoná zmeny nad rámec identifikovaných zmien (uvedených napr. v Usmernení
+     k aktualizácii výzvy), RO nenesie zodpovednosť za vykonané zmeny a nebudú považované za
+     zmeny odsúhlasené RO, t. j. nebudú súčasťou podkladov pre vydanie Vyjadrenia k zmene výzvy.
+
+42 Podľa postupov definovaných v rámci jednotlivých častí kapitoly 2.3. Nad rámec definovaných postupov môže poskytovateľ konzultovať
+prípravu zmeny výzvy podľa potreby.
+43 Akákoľvek zmena týkajúca sa jednej alebo viacerých z nasledujúcich kategorizácií: oblasť intervencie, forma podpory, územný
+mechanizmus realizácie a územné zameranie, sekundárny tematický okruh ESF+, rodová rovnosť, makroregionálne stratégie.
+44 V nadväznosti na kapitolu 3.1. odsek 1 je poskytovateľ povinný pred zaslaním návrhu zmeny výzvy na predloženie národného projektu
+spočívajúcej v navýšení indikatívnej alokácie o viac ako 15 % zabezpečiť opätovné schválenie zámeru národného projektu.
+45 Spolu so zmenou indikatívnej alokácie poskytovateľ predkladá na RO aj špecificky vyčlenenú alokáciu pre marginalizované rómske komunity
+podľa vzoru, ktorý tvorí prílohu č. 4 tohto usmernenia zohľadňujúcu zmenu indikatívnej alokácie.
+46 Článok 3 ods. 1 písm. c) zmlúv o poverení na vykonávanie časti úloh riadiaceho orgánu sprostredkovateľským orgánom
+a o zodpovednostiach súvisiacich s týmto poverením.
+47 Do vydania Metodického usmernenia k identifikácii synergických a komplementárnych účinkov poskytovateľ predkladá sekretariátu RV
+zmeny podmienok poskytnutia príspevku - oprávnenosti žiadateľa, partnera, aktivít, cieľových skupín a užívateľa a to minimálne 10
+pracovných dní pred plánovanou zmenou výzvy.
+48 V prípade, že predmetom prílohy výzvy je špecifikácia podmienky poskytnutia príspevku, takúto prílohu nie je možné po vydaní prvého
+rozhodnutia meniť.
+
+                                                               23
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+5. RO zašle vyjadrenie k návrhu na zmenu výzvy poskytovateľovi emailom. RO nenesie zodpovednosť
+     za vykonané zmeny výzvy, o ktorých poskytovateľ neinformoval RO podľa odseku 4 vyššie.
+
+6. Poskytovateľ zohľadní prípadné výhrady RO k návrhu na zmenu výzvy a zašle RO odpočet
+     zapracovania ním vznesených výhrad. Poskytovateľ schváli zmenu výzvy po akceptácii odpočtu zo
+     strany RO. Rovnako zváži zapracovanie prípadných odporúčaní RO. Následne poskytovateľ
+     zabezpečí zverejnenie zmeny výzvy spolu s informáciami podľa ods. 4, pričom primerane
+     použije postup podľa kapitoly 3 ods. 16 a informovanie žiadateľov (len v prípade zmeny výzvy,
+     ktorou môže byť skôr podaná žiadosť dotknutá).
+
+   4.3. Technická zmena výzvy – úprava alokácie výzvy
+
+1. Poskytovateľ je povinný po vydaní všetkých rozhodnutí o ŽoNFP v rámci výzvy vykonať technickú
+     zmenu výzvy49 a znížiť výšku finančných prostriedkov určených na vyčerpanie vo výzve na výšku
+     príspevku súhrnne za všetky vydané rozhodnutia o schválení ŽoNFP v rámci výzvy, ak finančné
+     prostriedky neboli vyčerpané v plnej výške.
+
+2. Poskytovateľ vykoná technickú zmenu výzvy podľa ods. 1 na základe údajov z ITMS21+ (priradené
+     intenzity na ŽoNFP, rozdelenie finančných prostriedkov po zdrojoch). V prípade, ak nie je možné
+     využiť dáta z ITMS21+ (poskytovateľ v rámci ITMS21+ nevyužíva možnosť priradenia intenzít na
+     ŽoNFP, tzn. nemá v rámci ŽoNFP evidované rozdelenie finančných prostriedkov po zdrojoch),
+     vykoná technickú zmenu výzvy až na základe dostupnosti týchto údajov, tzn. na základe údajov
+     z projektov, po uzatvorení zmlúv o poskytnutí NFP alebo na základe inej skutočnosti,
+     preukazujúcej zmenu výšky finančných prostriedkov, určených na vyčerpanie vo výzve.
+
+3. Technickú zmenu výzvy poskytovateľ tiež vykoná v prípade, ak dôjde k iným skutočnostiam, ktoré
+     majú vplyv na zníženie finančných prostriedkov, určených na vyčerpanie vo výzve, napr. pri
+     mimoriadne ukončených projektoch, úsporách na projektoch a pod., a to v primeraných časových
+     intervaloch, najmä so zreteľom na účel, pre ktorý sú technické zmeny výziev realizované, a to bez
+     ohľadu na skutočnosť, či v rámci výzvy už boli vydané všetky rozhodnutia o ŽoNFP. Na technickú
+     zmenu výzvy podľa ods. 1 až 3 sa nevzťahuje postup podľa kapitoly č. 4.2. ak v tejto kapitole nie
+     je uvedené inak.
+
+4. Pri úprave výšky finančných prostriedkov určených na vyčerpanie vo výzve podľa ods. 1 a 3
+     poskytovateľ zohľadní aj stav konania o ŽoNFP, stav prípadných opravných prostriedkov alebo
+     preskúmaní a iné skutočnosti, ktoré môžu mať vplyv na konečnú výšku finančných prostriedkov
+     viazaných vo výzve.
+
+5. Poskytovateľ je povinný následne bezodkladne informovať RO o vykonaní technickej zmeny na
+     adresu [e-mail vynechaný].
+
+6. Ustanovenia kapitoly 4.3. nie sú pre výzvy IÚI/UMR povinné.
+7. V odôvodnených prípadoch, pokiaľ nie je zo strany poskytovateľa možné vykonať technickú
+
+     zmenu výzvy, poskytovateľ pri predložení nového návrhu výzvy na posúdenie RO podľa kapitoly
+     3, resp. návrhu zmeny výzvy na posúdenie RO, ktorého predmetom je aj zvýšenie výšky finančných
+     prostriedkov určených na vyčerpanie vo výzve podľa kapitoly 4.2, predloží RO aj informáciu
+
+49 Technickou zmenou výzvy sa rozumie vytvorenie aktualizácie výzvy v ITMS21+, tzn. vytvorenie novej verzie výzvy. Do poľa „Dôvod vzniku
+verzie“ poskytovateľ uvedie informáciu, že ide o technickú zmenu výzvy za účelom zníženia výšky finančných prostriedkov určených na
+vyčerpanie vo výzve z dôvodu úspor na výzve.
+
+                                                               24
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 4.0
+
+     s vyčíslením úspor v rámci jednotlivých výziev poskytovateľa (pri ktorých nebolo možné vykonať
+     technickú zmenu), ktoré majú vplyv na disponibilitu finančných prostriedkov pre práve
+     posudzovanú výzvu/zmenu výzvy, a to samostatne za každú prioritu, v členení za špecifický cieľ
+     a opatrenia (ak relevantné), fond a kategóriu regiónu (ak relevantné).
+8. Uvedené slúži na lepšie riadenie úspor na výzvach, a to aj z dôvodu znižovania sumy dočasného
+     nadkontrahovania v prípade jeho povolenia ako aj z dôvodu predchádzania potreby predkladania
+     písomných žiadostí o súhlas ministra financií Slovenskej republiky podľa § 13 ods. 4 zákona
+     č. 121/2022 Z. z.
+
+   4.4. Zverejnenie zmeny výzvy
+
+1. S ohľadom na jednoznačné informovanie žiadateľov, poskytovateľ zverejňuje zmenu výzvy
+    v systéme ITMS21+ tak, aby v časti „Doplňujúce informácie a dokumenty“ bola zverejnená výzva
+    a všetky jej prílohy50 pod názvom „Výzva v znení zmeny č. xy“ s vyznačením všetkých vykonaných
+    zmien oproti pôvodne vyhlásenej výzve s prílohami, resp. oproti predchádzajúcej zmene výzvy a jej
+    príloh (ak ide o druhú a ďalšiu zmenu výzvy). Zároveň poskytovateľ v tejto časti zverejní aj
+    zdôvodnenie vykonania zmien spolu s informáciou, na ktoré ŽoNFP sa predmetná zmena
+    vzťahuje.51
+
+2. Pri technickej zmene výzvy z dôvodu zníženia alokácie na výzvu podľa kapitoly 4.3. sa postup podľa
+    ods. 1 tejto kapitoly neuplatňuje.
+
+   4.5. Zrušenie výzvy
+
+1. Poskytovateľ je oprávnený výzvu zrušiť52, informáciu o jej zrušení spolu s odôvodnením zasiela
+   pre informáciu na RO na adresu [e-mail vynechaný], sekretariátu RV (na emailovú adresu
+   [e-mail vynechaný]) a VAIA (na emailovú adresu [e-mail vynechaný] (ak relevantné)
+   minimálne 10 pracovných dní pred jej plánovaným zrušením.
+
+5. Prílohy
+
+Príloha 1 Sumarizačná tabuľka
+Príloha 2 Štruktúra kódovania výzev
+Príloha 3 Systém prenosu ďalších skutočností do zmluvných podmienok zmluvy o poskytnutí NFP,
+
+           vrátane identifikácie opatrení pri ich neplnení/porušení k výzve
+Príloha 4 Špecificky vyčlenená alokácia pre marginalizované rómske komunity
+
+50 Poskytovateľ pri každej zmene vždy zverejňuje dokument výzvy spolu so všetkými jej prílohami, t. j. aj v prípade, keď sa zmena týka len
+textácie výzvy, alebo len prílohy, poskytovateľ vždy zverejní výzvu a všetky prílohy.
+51 V prípade zmien, ktoré podliehajú posúdeniu zo strany RO, podľa kapitoly 4.2 ods. 1 a 3 poskytovateľ zverejňuje zdôvodnenie vykonania
+zmien spolu s informáciou, na ktoré ŽoNFP sa predmetná zmena vzťahuje tak, ako boli posúdené RO.
+52 V súlade s § 14 ods. 7 zákona č. 121/2022 Z. z.
+
+                                                               25

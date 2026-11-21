@@ -1,0 +1,43 @@
+Program Slovensko
+
+Metodické usmernenie k príprave výzvy, verzia 5.0
+
+Príloha 2: Štruktúra kódovania výziev
+
+Štruktúra kódovania výziev
+
+1. Poskytovateľ pridelí výzve kód podľa nasledovných pravidiel: skratka programu-skratka
+     poskytovateľa (bez SR)-poradové číslo výzvy-rok vyhlásenia-typ výzvy-fond EÚ. Príklad kódu výzvy
+     podľa pravidiel uvedených vyššie:
+
+                                             PSK-MPSVR-048-2025-NP-ESF+
+
+2. Pre úplnosť uvádzame vymedzenia používaných skratiek:
+     a) skratka programu je pri všetkých výzvach financovaných z Programu Slovensko jasná
+          a nemenná (PSK),
+     b) skratka poskytovateľa sa uvádza bez „SR“,
+     c) poradové číslo výzvy má 3 miesta bez medzier a znakov, prvá výzva je označená poradovým
+          číslom 001,
+     d) rok vyhlásenia sa uvádza bez medzier,
+     e) skratka typu výzvy sa uvádza podľa relevantnosti:
+          1. NP – výzva na prípravu a predloženie národného projektu,
+          2. IUI – výzva na prípravu a predloženie projektu integrovanej územnej investície (pre VÚC),
+          3. UMR – výzva na prípravu a predloženie projektu integrovanej územnej investície
+               udržateľného mestského rozvoja (pre mestá UMR),
+          4. ITI – výzva na prípravu a predloženie kombinovaných projektov IUI a UMR,
+          5. TP – výzva na prípravu a predloženie projektu technickej pomoci,
+          6. DV – výzva, pri ktorej dochádza k súťaži medzi jednotlivými žiadateľmi (tzv. dopytová
+               výzva),
+          7. FA – výzva na prípravu a predloženie fázovaných projektov,
+          8. FAA – technická výzva pre fázované projekty podľa čl. 118a NSU,
+          9. FN – technická výzva na finančné nástroje,
+          10. HE – technická výzva pre projekty ktoré získali Známku excelentnosti, alebo ktoré boli
+               vybrané v rámci programu spolufinancovaného z programu Horizont Európa podľa čl. 73
+               ods. 4 NSU. Skratka sa použije aj pre výzvy podľa čl. 5 ods. 11 Nariadenia Európskeho
+               parlamentu a Rady (EÚ) 2021/1058 z 24. júna 2021 o Európskom fonde regionálneho
+               rozvoja a Kohéznom fonde.
+          11. PZ – výzva na predkladanie projektových zámerov podľa § 15 zákona č. 121/2022 Z. z.
+     f) fond EÚ.
+
+3. Výzvy technického charakteru „FAA“, „FN“ a „HE“ a výzvy na predkladanie projektových zámerov
+     eviduje poskytovateľ v rámci samostatného poradia.
