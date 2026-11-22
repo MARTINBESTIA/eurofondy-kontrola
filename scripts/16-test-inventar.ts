@@ -10,7 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import { koloPodlaDatumu, nacitajBalik, nalezyInventara, posud, posudPodlaKola, verzieBalika, vyberVerziu, vyrokPosudku } from '../src/core/posud.ts';
-import { castiCitacie, cestaTextuZdroja, normCitacie } from '../src/core/zdroje.ts';
+import { castiCitacie, cestaTextuZdroja, normCitacie, zdrojCitacie } from '../src/core/zdroje.ts';
 import { MAX_VEK_KONTROLY_DNI, nacitajZakladZmien, nalezyZmienVyzvy, nepokryteVerzie, porovnajStav, prevezmiStav, stavZItms, type KontrolaZmien, type StavVyzvyItms, type ZmenaVyzvy } from '../src/core/zmeny.ts';
 import type { BalikPravidiel, Citacia, Nalez, Posudok, Stav, Ziadost } from '../src/core/typy.ts';
 import { pripravDokladyFormulara } from '../src/moduly/zonfp/doklady-formular.ts';
@@ -69,7 +69,7 @@ for (const b of baliky) {
   const texty = new Map<string, string | null>();
   const textDokumentu = (dokument: string) => {
     if (texty.has(dokument)) return texty.get(dokument)!;
-    const z = b.zdroje.find((x) => x.nazov === dokument); const txt = z ? cestaTextuZdroja(z.subor) : null;
+    const z = zdrojCitacie(b.zdroje, dokument); const txt = z ? cestaTextuZdroja(z.subor) : null;
     const t = txt ? normCitacie(fs.readFileSync(txt, 'utf8')) : null;
     texty.set(dokument, t); return t;
   };

@@ -8,12 +8,12 @@
  "platnaOd": "2026-06-01",
  "zdroje": [
   {
-   "nazov": "Vzor zmluvy o NFP, príloha č. 1 VZP, verzia 2.2",
+   "nazov": "Vzor zmluvy o NFP, príloha č. 1 VZP, verzia 2.2", "skratka": "VZP verzia 2.2",
    "subor": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
    "url": ""
   },
   {
-   "nazov": "Príručka pre prijímateľa DOP, verzia 3.2, kap. 4.6 a 4.7",
+   "nazov": "Príručka pre prijímateľa DOP, verzia 3.2, kap. 4.6 a 4.7", "skratka": "Príručka pre prijímateľa DOP 3.2",
    "subor": "data/zdroje/SIEA-prirucka-DOP-3.2/prirucka-DOP-3.2.pdf",
    "url": ""
   },

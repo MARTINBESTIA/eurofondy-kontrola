@@ -27,3 +27,7 @@ export const normCitacie = (s: string) => s.replace(/[„“”"]/g, '"').replac
  */
 export const castiCitacie = (znenie: string) => znenie.replace(/\[Pozn\. \d+:\](?:(?!\[Pozn\.)[\s\S])*/g, ' [...] ')
   .split(/\[\s*(?:\.{3}|…)\s*\]|…/).map(normCitacie).filter(Boolean);
+
+/** Zdroj citácie podľa celého názvu alebo skratky (balíky modulov citujú skrátene, napr. „VZP verzia 2.2“). */
+export const zdrojCitacie = <Z extends { nazov: string; skratka?: string }>(zdroje: Z[], dokument: string): Z | undefined =>
+  zdroje.find((z) => z.nazov === dokument || z.skratka === dokument);

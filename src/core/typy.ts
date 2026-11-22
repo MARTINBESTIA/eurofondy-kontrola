@@ -110,7 +110,8 @@ export interface Doklad {
 export interface BalikPravidiel {
   id: string; modul: string; vyzvaKod: string; vyzvaNazov: string; poskytovatel: string;
   verzia: string; platnaOd: string;
-  zdroje: { nazov: string; subor: string; url: string; sha256?: string }[];
+  /** skratka = kratší názov, ktorým citácie pravidiel odkazujú na zdroj (napr. „VZP verzia 2.2“). */
+  zdroje: { nazov: string; skratka?: string; subor: string; url: string; sha256?: string }[];
   proces: string[]; pravidla: Pravidlo[];
   /** Inventár všetkých podmienok výzvy. Chýba len pri moduloch, ktoré ho nevyžadujú (Modul.inventarPodmienok). */
   podmienky?: Podmienka[];
