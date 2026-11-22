@@ -44,6 +44,8 @@ npm run test:podatelna    # test 5: podateľňa na demo podaniach, bez modelu (a
 npm run test:inventar     # inventár podmienok, poistky, verzie podľa kola a zmeny výzvy (bez siete)
 npm run test:sada         # test 6: 15 nových podaní z demo/testovacia-sada cez API podateľne, bez modelu (asi 6 s)
 npm run test:nova         # test 6 na novej skúšobnej žiadosti z demo/nova-ziadost (asi 3 s)
+npm run test:vyzva        # návrh výzvy na doplnenie z nálezov posudku (pod 1 s)
+npm run test:lehoty       # lehota na doplnenie: kalendár, koniec lehoty, 4000 náhodných prípadov (asi 5 s)
 npm run zmeny             # kontrola zmien výzvy v ITMS21+ oproti posúdenému základu (len čítanie verejného API)
 npm run demo:podania      # vymyslené podania žiadostí (PDF, DOCX, JSON, ZIP) do demo/podania
 npm run demo:sada         # testovacia sada podľa oficiálnych vzorov do demo/testovacia-sada (Windows, Excel, Edge; asi 3 min)
@@ -130,9 +132,24 @@ s riešením v osobitnom priečinku, nájdete v [demo/nova-ziadost/README.md](de
   chýbajúcu prílohu (P08b pri P08), je v jednej položke. Doručenie (V01, F01), body inventára a registre do
   návrhu nejdú. Návrh ich vymenuje v upozornení, takže žiadny otvorený nález nezmizne potichu
   (`npm run test:vyzva`). Pri nesplnenom bode návrh upozorní, že výzva sa nevyžaduje, ak sa nedostatok nedá
-  napraviť (ods. 16). Text sa dá upraviť, skopírovať a stiahnuť. Nič sa neukladá ani neodosiela. Poznámka
-  k rozhodnutiu „Výzva na doplnenie“ sa predvyplní zaradenými bodmi. Pri voľbe „Nesplnila podmienky“ v spise
-  bez výzvy aplikácia pripomenie, že metodika vyžaduje aspoň jednu výzvu (ods. 12), a vyžaduje poznámku.
+  napraviť (ods. 16). Text sa dá upraviť, skopírovať a stiahnuť. Návrh sám nič neukladá ani neodosiela; text
+  a body sa uložia až s rozhodnutím „Výzva na doplnenie“, ktorého poznámka sa predvyplní zaradenými bodmi.
+  Pri voľbe „Nesplnila podmienky“ v spise bez výzvy aplikácia pripomenie, že metodika vyžaduje aspoň jednu
+  výzvu (ods. 12), a vyžaduje poznámku.
+- **Sledovanie lehoty na doplnenie.** Pri rozhodnutí „Výzva na doplnenie“ kontrolór zadá deň odoslania výzvy.
+  Spis uloží výzvu s lehotou, bodmi a textom (tabuľka `vyzvy_doplnenie`). Box **Lehota na doplnenie** hore
+  v spise počíta posledný deň lehoty podľa MD č. 21, kap. 2.4 ods. 5 (`src/podatelna/lehoty.ts`): prvým dňom
+  je najbližší pracovný deň po doručení a za deň doplnenia sa považuje deň odoslania do ITMS21+. Kontrolór
+  dopĺňa deň doručenia z elektronickej doručenky a predĺženie s dôvodom (ods. 8). Pri nahratí doplnenia zadá
+  deň jeho odoslania do ITMS21+; predvolený je dnešok, takže zabudnutý dátum doplnenie len oneskorí. Bez
+  doručenky softvér počíta s rozpätím od dňa odoslania po fikciu doručenia, teda uplynutie 15-dňovej úložnej
+  lehoty (kap. 2.2 ods. 5). „Včas“ povie len vtedy, keď by doplnenie bolo včas pri každom možnom dni doručenia.
+  „Po lehote“ povie len pri známom dni doručenia, ostatné je na preverenie. Pri uplynutej lehote bez doplnenia
+  pripomenie, že treba overiť ITMS21+, lebo spis pozná len nahraté podklady. Kalendár dní pracovného pokoja
+  podľa zákona č. 241/1993 Z. z. je overený pre roky 2024 až 2027 podľa znenia k 29. 10. 2026 (overené
+  22. 11. 2026). V roku 2026 nie sú dňami pracovného pokoja 8. 5. a 15. 9. (§ 4b), 1. 9. a 17. 11. nie sú
+  nimi vôbec (§ 2 ods. 3). Mimo overených rokov sú tieto dni neisté a koniec lehoty je rozpätie. Stav lehoty
+  je aj v zozname spisov.
 - **Výsledky sa ukladajú.** Každý posudok ide do auditnej tabuľky `posudky` s väzbou na spis. Rozhodnutie
   kontrolóra (splnila / výzva na doplnenie / nesplnila) sa ukladá s poznámkou. Rozhodnutie proti návrhu
   softvéru vyžaduje poznámku a v prehľade výzvy sa počíta zvlášť. Čísla spisov `POD-RRRR-NNNN` sa po
@@ -425,6 +442,21 @@ Všetkých 15 prešlo (0 rozdielov). Pri tvorbe sada našla päť chýb, všetky
   bez OZE odpovedal „áno“ v L60, takže zošit nekrátil o 5 p. b.;
 - P08b nečítal hlásenia hárku MU Budova (B13, I13). Pri úspore pod 30 % (prípad 11) preto vyhlásil vyplnený zošit
   za neúplný („absencia výpočtu“, chýba podklad) a radil ho doplniť; teraz dá na preverenie so skutočnou príčinou.
+
+### Lehota na doplnenie
+
+`npm run test:lehoty`, bez siete, 71 kontrol (`scripts/22-test-lehoty.ts`):
+- kalendár: Veľká noc 2000 až 2028, 8. 5. a 15. 9. 2026 ako pracovné dni, 1. 9. 2025 a 17. 11. 2025 ako pracovné
+  dni, sviatok v nedeľu sa nenahrádza, dni mimo overených rokov sú neisté;
+- koniec lehoty cez víkend, Vianoce a Veľkú noc a pri doručení v sobotu;
+- stav: včas, po lehote, bez doručenky, predĺženie aj so sobotou na konci, doručenie po úložnej lehote,
+  doplnenie bez dátumu, neistý sviatok v roku 2028;
+- 4000 náhodných prípadov z rokov 2023 až 2028 porovná s nezávislým výpočtom pri každom možnom dni doručenia,
+  oboch krajných výkladoch neistých dní a oboch výkladoch predĺženia. Žiadne falošné „včas“ ani „po lehote“;
+  pri istom konci lehoty je výsledok vždy rozhodný.
+
+Celý tok cez HTTP (uloženie výzvy, doručenka, odmietnutie chybných dátumov a lehoty pod 5 dní, doplnenie
+včas) overuje `npm run test:demo-itms`.
 
 ### Audit 21. 11. 2026
 

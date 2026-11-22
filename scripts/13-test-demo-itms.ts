@@ -7,6 +7,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createInterface } from 'node:readline';
 import { rozbalZip, xlsxBunky } from '../src/ingest/dokument.ts';
+import { dnesSk, koniecLehoty, pridajDni } from '../src/podatelna/lehoty.ts';
 
 const root = path.join(import.meta.dirname, '..');
 const demo = path.join(root, 'demo', 'itms');
@@ -121,13 +122,45 @@ try {
   assert.match(navrh.text, /\n2\. PPP č\. 13 – [^\n]+\n[^\n]+\n {3}Požadujeme: Predložte Prílohu č\. 8 ŽoNFP/);
   assert.match(navrh.text, /do 5 pracovných dní odo dňa doručenia/);
   assert.match(navrh.text, /zastaviť podľa § 17 ods\. 2 zákona č\. 121\/2022 Z\. z\./);
-  const vyzvaHttp = (spis: number, telo: object) => fetch(`${base}/api/podatelna/spisy/${spis}/vyzva`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(telo) });
-  assert.equal((await vyzvaHttp(b, { lehota: 4 })).status, 400);
-  assert.equal((await vyzvaHttp(bezExcelu, {})).status, 400, 'Spis bez posudku nemá z čoho zostaviť výzvu.');
+  const post = (cesta: string, telo: object) => fetch(`${base}/api/podatelna/${cesta}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(telo) });
+  assert.equal((await post(`spisy/${b}/vyzva`, { lehota: 4 })).status, 400);
+  assert.equal((await post(`spisy/${bezExcelu}/vyzva`, {})).status, 400, 'Spis bez posudku nemá z čoho zostaviť výzvu.');
   assert.equal((await api(`spisy/${b}`)).spis.stav, 'posudena', 'Návrh výzvy nesmie meniť stav spisu.');
   console.log('Návrh výzvy: PPP 7 (príloha 6) a PPP 13 (príloha 8 raz za P08 aj P08b); lehota pod 5 dní a spis bez posudku sa odmietnu.');
-  await api(`spisy/${b}/rozhodnutie`, { rozhodnutie: 'doplnenie', poznamka: 'Doplňte certifikát a dokumentáciu k rozpočtu.' });
-  await api(`spisy/${b}/subory`, { subory: [zip('03-doplnenie.zip')] });
+
+  // Odoslaná výzva: rozhodnutie „doplnenie“ zapíše deň odoslania, lehotu, body a text; od doručenia plynie lehota.
+  const dnes = dnesSk();
+  const rozhodnutie = { rozhodnutie: 'doplnenie', poznamka: navrh.poznamka, vyzva: { odoslana: dnes, lehota: 5, polozky: navrh.vybrane, text: navrh.text } };
+  assert.equal((await post(`spisy/${b}/rozhodnutie`, { ...rozhodnutie, vyzva: { ...rozhodnutie.vyzva, lehota: 4 } })).status, 400, 'Lehota pod 5 pracovných dní sa odmietne.');
+  assert.equal((await post(`spisy/${b}/rozhodnutie`, { ...rozhodnutie, vyzva: { ...rozhodnutie.vyzva, odoslana: pridajDni(dnes, 1) } })).status, 400, 'Výzva nemôže byť odoslaná zajtra.');
+  assert.equal((await api(`spisy/${b}`)).vyzvy.length, 0, 'Odmietnuté rozhodnutie nesmie zapísať výzvu.');
+  await api(`spisy/${b}/rozhodnutie`, rozhodnutie);
+  let spis = await api(`spisy/${b}`);
+  assert.equal(spis.spis.stav, 'caka_na_doplnenie');
+  assert.equal(spis.vyzvy.length, 1);
+  const [vyzva] = spis.vyzvy;
+  assert.deepEqual([vyzva.odoslana, vyzva.dorucena, vyzva.lehotaDni, vyzva.davkaOd, vyzva.polozky, vyzva.text], [dnes, null, 5, 2, navrh.vybrane, navrh.text]);
+  assert.equal(vyzva.stav.kod, 'plynie', 'Lehota práve odoslanej výzvy plynie.');
+  assert.equal(vyzva.stav.koniec, null, 'Bez doručenky nie je koniec lehoty istý.');
+  assert.equal((await api('spisy')).find((s: any) => s.id === b).lehota.kod, 'plynie', 'Zoznam spisov ukazuje stav lehoty.');
+  for (const [telo, dovod] of [
+    [{ dorucena: pridajDni(dnes, -1) }, 'doručenie pred odoslaním'], [{ dorucena: pridajDni(dnes, 1) }, 'doručenie v budúcnosti'],
+    [{ dorucena: '2026-02-30' }, 'neplatný dátum'], [{ predlzeneDo: pridajDni(dnes, 20) }, 'predĺženie bez dôvodu'],
+  ] as const) assert.equal((await post(`spisy/${b}/lehota`, { vyzva: vyzva.id, ...telo })).status, 400, `Odmietne sa ${dovod}.`);
+  assert.equal((await post(`spisy/${bezExcelu}/lehota`, { vyzva: vyzva.id, dorucena: dnes })).status, 400, 'Výzvu iného spisu nemožno meniť.');
+  const poDoruceni = (await api(`spisy/${b}/lehota`, { vyzva: vyzva.id, dorucena: dnes })).vyzvy[0];
+  assert.deepEqual([poDoruceni.stav.kod, poDoruceni.stav.koniec, poDoruceni.stav.zostava], ['plynie', koniecLehoty(dnes, 5), 5]);
+  await api(`spisy/${b}/rozhodnutie`, rozhodnutie); // opätovné uloženie k tomu istému posudku výzvu len opraví
+  spis = await api(`spisy/${b}`);
+  assert.deepEqual([spis.vyzvy.length, spis.vyzvy[0].dorucena], [1, dnes], 'Opätovné uloženie nevytvorí druhú výzvu a doručenku zachová.');
+  console.log(`Lehota: výzva odoslaná ${dnes}, po doručení plynie do ${poDoruceni.stav.koniec}; chybné dátumy a lehota pod 5 dní sa odmietnu.`);
+
+  assert.equal((await post(`spisy/${bezExcelu}/subory`, { subory: [], odoslane: pridajDni(dnes, 1) })).status, 400, 'Doplnenie nemôže byť odoslané zajtra.');
+  await api(`spisy/${b}/subory`, { subory: [zip('03-doplnenie.zip')], odoslane: dnes });
+  spis = await api(`spisy/${b}`);
+  assert.deepEqual(spis.vyzvy[0].stav.doplnenia, [{ davka: 2, odoslane: dnes, vysledok: 'vcas' }]);
+  assert.equal(spis.vyzvy[0].stav.kod, 'doplnene_vcas');
+  assert(spis.subory.filter((s: any) => s.davka === 2).every((s: any) => s.odoslane === dnes));
   const po = await posud(b);
   assert.equal(po.navrh, 'na_preverenie');
   for (const k of ['P06', 'P08', 'P08b']) assert.equal(stav(po.nalezy, k), 'splnene');
@@ -135,7 +168,8 @@ try {
   assert.equal(doplnene.posudky.length, 2);
   assert.equal(doplnene.subory.length, subory.length);
   assert.equal(doplnene.subory.filter((s: any) => s.davka === 2).length, 3);
-  console.log('Doplnenie: prílohy 6 a 8 sa doplnili v druhom kole, oba posudky sú v tom istom spise.');
+  assert.equal(doplnene.vyzvy[0].stav.kod, 'doplnene_vcas', 'Nový posudok stav lehoty nemení.');
+  console.log('Doplnenie: prílohy 6 a 8 sa doplnili včas v druhom kole, oba posudky sú v tom istom spise.');
 
   const sken = await prijmi([zip('04-sken.zip')]);
   const d = await api(`spisy/${sken}`);

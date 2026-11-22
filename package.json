@@ -26,6 +26,7 @@
     "test:sada": "node scripts/19-test-testovacia-sada.ts",
     "test:nova": "node scripts/19-test-testovacia-sada.ts demo/nova-ziadost",
     "test:vyzva": "node scripts/21-test-vyzva.ts",
+    "test:lehoty": "node scripts/22-test-lehoty.ts",
     "zmeny": "node scripts/17-zmeny-vyzvy.ts",
     "demo:podania": "node scripts/10-demo-podania.ts",
     "demo:sada": "node scripts/18-testovacia-sada.ts",

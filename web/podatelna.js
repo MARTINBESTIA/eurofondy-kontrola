@@ -11,6 +11,12 @@ const ISTOTA = { cislo: 'číslo prílohy v názve súboru', rucne: 'potvrdil ko
 /** Farba štítku návrhu a rozhodnutia: rovnaké farby ako stavy pravidiel. */
 const FARBA_NAVRHU = { nesplnene_podmienky: 'nesplnene', vyzva_na_doplnenie: 'chyba_podklad', na_preverenie: 'na_preverenie', ciastocne_overene: 'mimo_podkladov', bez_zisteni: 'splnene' };
 const FARBA_ROZH = { splnila: 'splnene', doplnenie: 'chyba_podklad', nesplnila: 'nesplnene' };
+/** Lehota na doplnenie: úroveň stavu (src/podatelna/lehoty.ts) a výsledok doplnenia na farby štítkov. */
+const FARBA_LEHOTY = { ok: 'splnene', info: 'mimo_podkladov', pozor: 'na_preverenie', chyba: 'nesplnene' };
+const DOPLNENIE = { vcas: ['včas', 'splnene'], neiste: ['nedá sa isto určiť', 'na_preverenie'], po_lehote: ['po lehote', 'nesplnene'] };
+/** Dnešný deň v SR (RRRR-MM-DD) a deň v slovenskom zápise. */
+const dnesSk = () => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Bratislava' }).format(new Date());
+const skDen = (d) => (d ? `${Number(d.slice(8, 10))}. ${Number(d.slice(5, 7))}. ${d.slice(0, 4)}` : '–');
 
 let stavApp = null, vyzvy = [], spisy = [], aktualny = null, inicializovane = false;
 const detail = () => $('#podatelna-detail');
@@ -58,7 +64,8 @@ function kresliZoznam() {
       st ? el('span', { class: 'tlmene' }, `${st.spolu} · úspešnosť ${pct(st.splnila, st.splnila + st.nesplnila)}`) : null));
     for (const s of zoz) ul.append(el('li', { class: `spis ${aktualny === s.id ? 'vybrana' : ''}`, onclick: () => nav(`#p/spis/${s.id}`) },
       el('span', { class: 'n' }, s.ziadatel ?? 'neznámy žiadateľ'), el('span', { class: 'p' }, s.nazov ?? ''),
-      el('span', { class: 'm' }, el('span', {}, `${s.cislo} · ${s.suborov} súb.`), stitokSpisu(s))));
+      el('span', { class: 'm' }, el('span', {}, `${s.cislo} · ${s.suborov} súb.`), stitokSpisu(s)),
+      s.lehota ? el('span', { class: `lehota-riadok l-${s.lehota.uroven}`, title: s.lehota.sprava }, s.lehota.kratko) : null));
   }
 }
 
@@ -157,6 +164,9 @@ async function kresliSpis(id) {
   const d = await api(`/api/podatelna/spisy/${id}`);
   if (aktualny !== id) return;
   const { spis: s, subory, posudky, posledny, sloty, prilohyStav } = d;
+  const vyzvy = d.vyzvy ?? [], dnes = d.dnes ?? dnesSk();
+  // Výzva uložená k poslednému posudku: návrh výzvy ukáže jej text a opätovné uloženie rozhodnutia ju opraví.
+  const ulozena = vyzvy[0] && vyzvy[0].posudokId === posudky[0]?.id ? vyzvy[0] : null;
   const llm = el('input', { type: 'checkbox', checked: stavApp?.modelDostupny ? '' : false, disabled: stavApp?.modelDostupny ? false : '' });
   // Predvolene vypnuté: kontroluje sa obsah podľa požiadaviek výzvy, podpisy nie (výrok potom nebude „bez zistení“).
   const formalne = el('input', { type: 'checkbox' });
@@ -167,7 +177,7 @@ async function kresliSpis(id) {
   } }, 'Posúdiť žiadosť');
   const poslednaZmena = subory.reduce((m, f) => (f.nahrate > m ? f.nahrate : m), '');
   const zastaraly = posledny && poslednaZmena > posledny.cas;
-  const vyzva = posledny ? boxVyzva(id, s, zastaraly) : null;
+  const vyzva = posledny ? boxVyzva(id, s, zastaraly, ulozena) : null;
 
   detail().replaceChildren(el('div', { class: 'sirka-detail' },
     el('div', { class: 'titul' },
@@ -178,14 +188,61 @@ async function kresliSpis(id) {
         el('label', { class: 'prepinac', title: TIP_FORMALNE }, formalne, 'Kontrolovať aj podpisy'), posud)),
     d.suhrn ? el('p', { class: 'suhrn' }, d.suhrn) : null,
     s.maFormular ? null : el('div', { class: 'pozn' }, 'Spis nemá údaje formulára žiadosti. Doplňte formulár (.json) alebo založte podanie s kódom žiadosti z ITMS21+. Bez formulára sa žiadosť nedá posúdiť.'),
-    el('div', { class: 'mriezka spis' }, boxPodklady(id, subory, sloty), boxPrilohy(prilohyStav, sloty)),
+    boxLehota(id, s, vyzvy, dnes),
+    el('div', { class: 'mriezka spis' }, boxPodklady(id, subory, sloty, dnes), boxPrilohy(prilohyStav, sloty)),
     el('div', { id: 'pod-vysledok' }, posledny ? vysledok(posledny, d.skutocnost, zastaraly) : el('p', { class: 'tlmene prazdne-vysledok' }, 'Žiadosť ešte nebola posúdená. Skontrolujte zaradenie súborov a stlačte „Posúdiť žiadosť“.')),
     vyzva?.prvok ?? null,
-    boxRozhodnutie(id, s, posledny, subory, vyzva),
+    boxRozhodnutie(id, s, posledny, subory, vyzva, { vyzvy, ulozena, dnes }),
     boxHistoria(id, s, posudky)));
 }
 
-function boxPodklady(id, subory, sloty) {
+// ---------- lehota na doplnenie (MD č. 21, kap. 2.4 ods. 5 a 8): stav počíta server, kontrolór dopĺňa dátumy
+function boxLehota(id, s, vyzvy, dnes) {
+  if (!vyzvy.length) {
+    return s.rozhodnutie === 'doplnenie' ? el('div', { class: 'pozn' }, 'Výzva na doplnenie v tomto spise bola uložená skôr, ako aplikácia sledovala lehoty. Ak chcete lehotu sledovať, uložte rozhodnutie „Výzva na doplnenie“ znova a zadajte deň odoslania výzvy.') : null;
+  }
+  const [v, ...starsie] = vyzvy;
+  const st = v.stav;
+  const pole = (hodnota, attrs = {}) => el('input', { type: 'date', value: hodnota ?? '', ...attrs });
+  const odoslana = pole(v.odoslana, { max: dnes, required: '' });
+  const dorucena = pole(v.dorucena, { min: v.odoslana, max: dnes });
+  const predlzene = pole(v.predlzeneDo, { min: v.odoslana });
+  const dovod = el('input', { type: 'text', value: v.predlzeniePozn ?? '', maxlength: '500', placeholder: 'napr. žiadosť zo 12. 11. 2026' });
+  const stav = el('span', { class: 'tlmene male', role: 'status' });
+  const uloz = el('button', { class: 'vedlajsie', type: 'submit' }, 'Uložiť údaje o lehote');
+  const form = el('form', { class: 'lehota-udaje', onsubmit: async (e) => {
+    e.preventDefault();
+    uloz.disabled = true; stav.textContent = 'Ukladám…';
+    try {
+      await api(`/api/podatelna/spisy/${id}/lehota`, { vyzva: v.id, odoslana: odoslana.value, dorucena: dorucena.value || null, predlzeneDo: predlzene.value || null, predlzeniePozn: dovod.value.trim() || null });
+      await obnovZoznam(); await kresliSpis(id);
+    } catch (err) { stav.textContent = `Neuložené: ${err.message}`; uloz.disabled = false; }
+  } },
+  el('label', {}, 'Výzva odoslaná (uložená do e-schránky) dňa', odoslana),
+  el('label', {}, 'Doručená dňa (podľa elektronickej doručenky)', dorucena),
+  el('label', {}, 'Lehota predĺžená do', predlzene),
+  el('label', {}, 'Na základe čoho bola predĺžená', dovod),
+  el('div', { class: 'akcie' }, uloz, stav));
+  const koniec = st.koniec ? skDen(st.koniec) : `najskôr ${skDen(st.koniecNajskor)}, najneskôr ${skDen(st.koniecNajneskor)}`;
+  const stitok = (x) => el('span', { class: `stitok s-${FARBA_LEHOTY[x.uroven]}` }, x.kratko);
+  return el('details', { class: 'box lehota', open: s.rozhodnutie === 'doplnenie' ? '' : false },
+    el('summary', {}, el('span', {}, vyzvy.length > 1 ? `Lehota na doplnenie (výzva č. ${v.poradie})` : 'Lehota na doplnenie'), stitok(st)),
+    el('p', { class: `sprava-lehoty l-${st.uroven}`, role: 'status' }, st.sprava),
+    el('ul', { class: 'fakty-lehoty tlmene male' },
+      el('li', {}, `Lehota ${v.lehotaDni} pracovných dní od doručenia výzvy odoslanej ${skDen(v.odoslana)}. Posledný deň lehoty: ${koniec}.`),
+      v.dorucena ? null : el('li', {}, `Ak žiadateľ výzvu neprevezme, považuje sa za doručenú uplynutím úložnej lehoty dňa ${skDen(st.fikcia)}.`),
+      v.predlzeneDo ? el('li', {}, `Predĺžená do ${skDen(v.predlzeneDo)}${v.predlzeniePozn ? `: ${v.predlzeniePozn}` : ''}.`) : null,
+      st.doplnenia.map((x) => el('li', {}, `Doplnenie č. ${x.davka - 1} odoslané do ITMS21+ ${x.odoslane ? skDen(x.odoslane) : '(deň nezadaný)'}: `,
+        el('span', { class: `stitok s-${DOPLNENIE[x.vysledok][1]}` }, DOPLNENIE[x.vysledok][0])))),
+    st.upozornenia.length ? el('ul', { class: 'upozornenia-vyzvy tlmene male' }, st.upozornenia.map((u) => el('li', {}, u))) : null,
+    form,
+    v.text ? el('details', { class: 'odoslany-text' }, el('summary', {}, 'Text odoslanej výzvy'), el('pre', { class: 'vystup' }, v.text)) : null,
+    starsie.length ? el('details', { class: 'starsie-vyzvy' }, el('summary', {}, `Predchádzajúce výzvy (${starsie.length})`),
+      el('ul', { class: 'tlmene male' }, starsie.map((x) => el('li', {}, `Výzva č. ${x.poradie} odoslaná ${skDen(x.odoslana)}: `, stitok(x.stav), ` ${x.stav.sprava}`)))) : null,
+    el('p', { class: 'tlmene male' }, 'Prvým dňom lehoty je najbližší pracovný deň po doručení a za deň doplnenia sa považuje deň odoslania do neverejnej časti ITMS21+ (MD č. 21, kap. 2.4 ods. 5). Zmeškanie lehoty nemožno odpustiť (ods. 8). Výzva je doručená potvrdením doručenky alebo uplynutím 15-dňovej úložnej lehoty (kap. 2.2 ods. 5). Dni pracovného pokoja podľa zákona č. 241/1993 Z. z. „Včas“ softvér uvedie len vtedy, keď je to isté pri každom možnom dni doručenia.'));
+}
+
+function boxPodklady(id, subory, sloty, dnes) {
   const moznosti = [['', 'Nezaradený (nehodnotí sa)'], ['formular', 'Formulár žiadosti (JSON)'], ...sloty.map((x) => [x.cislo, `Príloha č. ${x.cislo} – ${x.nazov}`])];
   const zarad = async (sid, ciel) => { try { await api(`/api/podatelna/subory/${sid}/zaradenie`, { ciel }); await obnovZoznam(); await kresliSpis(id); } catch (e) { alert(e.message); } };
   const tbody = el('tbody');
@@ -195,7 +252,7 @@ function boxPodklady(id, subory, sloty) {
     const nahlad = el('tr', { class: 'nahlad', hidden: '' }, el('td', { colspan: '3' }, el('pre', { class: 'vystup' }, 'Načítavam…')));
     tbody.append(el('tr', {},
       el('td', {}, el('a', { href: `/api/podatelna/subory/${f.id}/stiahni`, title: 'Stiahnuť pôvodný súbor' }, f.nazov), el('br'),
-        el('span', { class: 'tlmene male' }, `${f.davka === 1 ? 'podanie' : `doplnenie ${f.davka - 1}`} · ${cislo(f.velkost / 1024, 0)} kB · ${cislo(f.znakov, 0)} znakov textu`),
+        el('span', { class: 'tlmene male' }, `${f.davka === 1 ? 'podanie' : `doplnenie ${f.davka - 1}${f.odoslane ? ` odoslané ${skDen(f.odoslane)}` : ''}`} · ${cislo(f.velkost / 1024, 0)} kB · ${cislo(f.znakov, 0)} znakov textu`),
         f.chyba ? el('div', { class: 'chyba' }, f.chyba) : null),
       el('td', {}, el('select', { 'aria-label': `Zaradenie súboru ${f.nazov}`, onchange: (e) => zarad(f.id, e.target.value) },
         moznosti.map(([h, n]) => el('option', { value: h, selected: h === ciel ? '' : false }, n))),
@@ -211,16 +268,19 @@ function boxPodklady(id, subory, sloty) {
         } }, 'Text'))), nahlad);
   }
   const vstup = el('input', { type: 'file', multiple: '', accept: FORMATY_PODANIA, 'aria-label': 'Súbory doplnenia' });
+  // Predvolene dnes: zabudnutý dátum tak môže doplnenie len oneskoriť (falošný poplach), nikdy ho neurobí včasným.
+  const odoslane = el('input', { type: 'date', value: dnes, max: dnes, 'aria-label': 'Deň odoslania doplnenia do ITMS21+' });
   const stav = el('span', { class: 'tlmene male', role: 'status' });
   return el('div', { class: 'box' },
     el('h3', {}, `Podklady v spise (${subory.length})`),
     el('p', { class: 'tlmene male' }, 'Zaradenie môžete zmeniť. Súbor zaradený len odhadom (podľa názvu alebo obsahu) treba potvrdiť, inak pravidlo prílohy ostane „na preverenie“.'),
     el('table', { class: 'subory' }, el('thead', {}, el('tr', {}, el('th', {}, 'Súbor'), el('th', {}, 'Zaradenie'), el('th', {}, ''))), tbody),
     el('div', { class: 'doplnenie' }, el('span', { class: 'popis' }, 'Doplniť podklady (napr. po výzve na doplnenie):'), vstup,
+      el('label', { class: 'odoslane-doplnenie', title: 'Za deň doplnenia sa považuje deň odoslania do neverejnej časti ITMS21+ (MD č. 21, kap. 2.4 ods. 5).' }, 'odoslané do ITMS21+ dňa', odoslane),
       el('button', { class: 'vedlajsie', onclick: async () => {
         if (!vstup.files.length) { stav.textContent = 'Vyberte súbory.'; return; }
         stav.textContent = 'Nahrávam…';
-        try { await api(`/api/podatelna/spisy/${id}/subory`, { subory: await Promise.all([...vstup.files].map(async (f) => ({ nazov: f.name, base64: await naBase64(f) }))) }); await obnovZoznam(); await kresliSpis(id); }
+        try { await api(`/api/podatelna/spisy/${id}/subory`, { odoslane: odoslane.value || null, subory: await Promise.all([...vstup.files].map(async (f) => ({ nazov: f.name, base64: await naBase64(f) }))) }); await obnovZoznam(); await kresliSpis(id); }
         catch (e) { stav.textContent = `Chyba: ${e.message}`; }
       } }, 'Nahrať doplnenie'), stav));
 }
@@ -252,14 +312,16 @@ function vysledok(p, skutocnost, zastaraly, nazov = 'Posledný posudok') {
 }
 
 // ---------- návrh výzvy na doplnenie (MD č. 21, kap. 2.4): softvér zostaví text, kontrolór ho upraví a odošle sám
-function boxVyzva(id, s, zastaraly) {
-  const st = { vyber: null, lehota: 5, upravene: false, navrh: null };
+// `ulozena` = výzva už uložená k tomuto posudku: box ukáže jej body, lehotu a text, aby opätovné uloženie nič neprepísalo.
+function boxVyzva(id, s, zastaraly, ulozena) {
+  const st = { vyber: ulozena?.polozky ?? null, lehota: ulozena?.lehotaDni ?? 5, upravene: false, navrh: null };
+  const zmeny = []; // poslucháči zmeny návrhu (rozhodnutie preberá lehotu, body a text)
   const zoznam = el('ul', { class: 'polozky-vyzvy' });
   const upozornenia = el('ul', { class: 'upozornenia-vyzvy tlmene male' });
   const pocet = el('span', { class: 'tlmene male' });
   const stav = el('span', { class: 'tlmene male', role: 'status' });
   const text = el('textarea', { rows: 18, class: 'text-vyzvy', spellcheck: 'false', 'aria-label': 'Text návrhu výzvy na doplnenie', oninput: () => { st.upravene = true; } });
-  const lehota = el('input', { type: 'number', min: '5', step: '1', value: '5', onchange: () => {
+  const lehota = el('input', { type: 'number', min: '5', step: '1', value: String(st.lehota), onchange: () => {
     const n = Number(lehota.value);
     if (!Number.isInteger(n) || n < 5) { stav.textContent = 'Lehota musí byť celý počet pracovných dní, najmenej 5.'; return; }
     st.lehota = n; nacitaj();
@@ -278,7 +340,8 @@ function boxVyzva(id, s, zastaraly) {
   const nacitaj = async (prepisat = false) => {
     try {
       const j = await api(`/api/podatelna/spisy/${id}/vyzva`, { vyber: st.vyber ?? undefined, lehota: st.lehota });
-      if (!st.navrh) {
+      const prvy = !st.navrh;
+      if (prvy) {
         if (!j.polozky.length) return; // posudok nemá čo doplniť: box ostane skrytý
         kresliPolozky(j.polozky);
         upozornenia.replaceChildren(...j.upozornenia.map((u) => el('li', {}, u)));
@@ -287,8 +350,10 @@ function boxVyzva(id, s, zastaraly) {
       st.navrh = j; st.vyber = j.vybrane;
       for (const [k, cb] of zaskrtavacie) cb.checked = j.vybrane.includes(k);
       pocet.textContent = ` · zaradené ${j.vybrane.length} z ${j.polozky.length}`;
-      if (!st.upravene || prepisat) { text.value = j.text || 'Vyberte aspoň jeden bod.'; st.upravene = false; stav.textContent = ''; }
+      if (prvy && ulozena?.text) { text.value = ulozena.text; st.upravene = true; stav.textContent = 'Zobrazený je text výzvy uloženej pri rozhodnutí. Tlačidlo „Zostaviť znova“ ho nahradí novým návrhom z nálezov.'; }
+      else if (!st.upravene || prepisat) { text.value = j.text || 'Vyberte aspoň jeden bod.'; st.upravene = false; stav.textContent = ''; }
       else stav.textContent = 'Text ste upravili ručne, preto ho zmena výberu neprepísala. Tlačidlo „Zostaviť znova“ ho prepíše.';
+      zmeny.forEach((f) => f());
     } catch (e) { stav.textContent = `Návrh sa nepodarilo zostaviť: ${e.message}`; }
   };
   const stiahni = () => {
@@ -306,18 +371,51 @@ function boxVyzva(id, s, zastaraly) {
       el('button', { class: 'vedlajsie', onclick: async (e) => { try { await navigator.clipboard.writeText(text.value); e.target.textContent = 'Skopírované'; } catch { e.target.textContent = 'Nedá sa kopírovať'; } } }, 'Kopírovať'),
       el('button', { class: 'vedlajsie', onclick: stiahni }, 'Stiahnuť ako .txt'),
       el('button', { class: 'vedlajsie', onclick: () => nacitaj(true) }, 'Zostaviť znova'), stav),
-    el('p', { class: 'tlmene male' }, 'Výzvu odošlite do elektronickej schránky žiadateľa do vlastných rúk a informáciu o nej aj na jeho e-mail alebo cez modul Komunikácia v ITMS21+. Potom v rozhodnutí vyberte „Výzva na doplnenie“: poznámka sa predvyplní zoznamom zaradených bodov.'));
+    el('p', { class: 'tlmene male' }, 'Výzvu odošlite do elektronickej schránky žiadateľa do vlastných rúk a informáciu o nej aj na jeho e-mail alebo cez modul Komunikácia v ITMS21+. Potom v rozhodnutí vyberte „Výzva na doplnenie“ a zadajte deň odoslania. Poznámka sa predvyplní zoznamom zaradených bodov a aplikácia začne sledovať lehotu.'));
   nacitaj();
-  return { prvok: box, poznamka: () => st.navrh?.poznamka || null };
+  return {
+    prvok: box,
+    poznamka: () => st.navrh?.poznamka || null,
+    maNavrh: () => !!st.navrh?.polozky.length,
+    lehota: () => st.lehota,
+    vybrane: () => st.navrh?.vybrane ?? [],
+    // Bez vybraného bodu a bez ručnej úpravy je v poli len pokyn „Vyberte aspoň jeden bod“, nie text výzvy.
+    text: () => (st.navrh?.vybrane.length || st.upravene ? text.value : null),
+    priZmene: (f) => zmeny.push(f),
+  };
 }
 
-function boxRozhodnutie(id, s, posledny, subory, vyzva) {
+function boxRozhodnutie(id, s, posledny, subory, vyzva, { vyzvy, ulozena, dnes }) {
   let volba = s.rozhodnutie ?? null; let auto = '';
   const pozn = el('textarea', { rows: 4, placeholder: 'Odôvodnenie alebo text výzvy na doplnenie', 'aria-label': 'Poznámka k rozhodnutiu' });
   pozn.value = s.rozhodnutiePozn ?? '';
   const varovanie = el('p', { class: 'varovanie', role: 'status' });
   // Pred neschválením má žiadateľ dostať aspoň jednu výzvu na doplnenie (MD č. 21, kap. 2.4 ods. 12), okrem neodstrániteľného nedostatku (ods. 16).
-  const vyzvaUz = s.rozhodnutie === 'doplnenie' || subory.some((f) => f.davka > 1);
+  const vyzvaUz = vyzvy.length > 0 || s.rozhodnutie === 'doplnenie' || subory.some((f) => f.davka > 1);
+  // Odoslanie výzvy: deň odoslania a lehota, od ktorých aplikácia sleduje lehotu na doplnenie.
+  // Lehotu preberá z návrhu výzvy (tam je aj v texte), vlastné pole je len pri spise bez návrhu.
+  const odoslana = el('input', { type: 'date', value: ulozena?.odoslana ?? dnes, max: dnes, 'aria-label': 'Deň odoslania výzvy' });
+  const lehotaVlastna = el('input', { type: 'number', min: '5', step: '1', value: String(ulozena?.lehotaDni ?? 5), 'aria-label': 'Lehota na doplnenie v pracovných dňoch' });
+  const lehotaPole = el('label', {}, 'Lehota v pracovných dňoch od doručenia (najmenej 5)', lehotaVlastna);
+  const lehotaZNavrhu = el('p', { class: 'tlmene male', hidden: '' });
+  const zNavrhu = () => !!vyzva?.maNavrh();
+  const obnovLehotu = () => {
+    lehotaPole.hidden = zNavrhu(); lehotaZNavrhu.hidden = !zNavrhu();
+    if (zNavrhu()) lehotaZNavrhu.textContent = `Lehota ${vyzva.lehota()} pracovných dní od doručenia, ako v návrhu výzvy vyššie.`;
+  };
+  // Pri výzve na doplnenie predvyplníme body zaradené v návrhu výzvy (bez návrhu chýbajúce podklady). Kým kontrolór
+  // poznámku neupraví, sleduje návrh: zmena bodov alebo lehoty v návrhu ju prepíše.
+  const obnovPoznamku = () => {
+    if (volba !== 'doplnenie' || (pozn.value.trim() && pozn.value !== auto)) return;
+    const chyby = posledny?.nalezy.filter((n) => n.stav === 'chyba_podklad') ?? [];
+    auto = vyzva?.poznamka() ?? (chyby.length ? `Výzva na doplnenie. Chýbajúce alebo neúplné podklady:\n${chyby.map((n, i) => `${i + 1}. ${n.nazov}: ${n.zdovodnenie}`).join('\n')}` : '');
+    pozn.value = auto;
+  };
+  vyzva?.priZmene(() => { obnovLehotu(); obnovPoznamku(); });
+  const odoslanie = el('div', { class: 'odoslanie-vyzvy', hidden: volba === 'doplnenie' ? false : '' },
+    el('label', {}, 'Výzva odoslaná do elektronickej schránky žiadateľa dňa', odoslana), lehotaPole, lehotaZNavrhu,
+    el('p', { class: 'tlmene male' }, 'Po uložení aplikácia sleduje lehotu. Deň doručenia z elektronickej doručenky doplníte v boxe „Lehota na doplnenie“ hore v spise.'));
+  obnovLehotu();
   const proti = (r) => !posledny ? 'Žiadosť ešte nebola posúdená softvérom.'
     : r === 'splnila' && ['nesplnene_podmienky', 'vyzva_na_doplnenie'].includes(posledny.navrh) ? 'Rozhodnutie je proti návrhu softvéru (zistené porušenie alebo chýbajúce podklady). Uveďte dôvod do poznámky.'
       : r === 'nesplnila' && ['bez_zisteni', 'ciastocne_overene'].includes(posledny.navrh) ? 'Softvér nenašiel porušenie. Uveďte, ktorú podmienku žiadosť nespĺňa.'
@@ -328,12 +426,7 @@ function boxRozhodnutie(id, s, posledny, subory, vyzva) {
   const vyber = (k) => {
     volba = k; tlacidla.forEach((t, i) => t.setAttribute('aria-pressed', String(Object.keys(ROZHODNUTIA)[i] === k)));
     varovanie.textContent = proti(k);
-    // Pri výzve na doplnenie predvyplníme body zaradené v návrhu výzvy (bez návrhu chýbajúce podklady); kontrolór ich upraví.
-    if (k === 'doplnenie' && (!pozn.value.trim() || pozn.value === auto)) {
-      const chyby = posledny?.nalezy.filter((n) => n.stav === 'chyba_podklad') ?? [];
-      auto = vyzva?.poznamka() ?? (chyby.length ? `Výzva na doplnenie. Chýbajúce alebo neúplné podklady:\n${chyby.map((n, i) => `${i + 1}. ${n.nazov}: ${n.zdovodnenie}`).join('\n')}` : '');
-      pozn.value = auto;
-    }
+    odoslanie.hidden = k !== 'doplnenie'; obnovLehotu(); obnovPoznamku();
   };
   const stav = el('span', { class: 'tlmene male', role: 'status' });
   return el('div', { class: 'box rozhodnutie' },
@@ -341,11 +434,18 @@ function boxRozhodnutie(id, s, posledny, subory, vyzva) {
     el('p', { class: 'tlmene male' }, 'Softvér len navrhuje, rozhoduje kontrolór. Rozhodnutie sa uloží do spisu a započíta do úspešnosti výzvy. Nič sa žiadateľovi automaticky neposiela.'),
     s.rozhodnutie ? el('p', {}, 'Uložené: ', el('span', { class: `stitok s-${FARBA_ROZH[s.rozhodnutie]}` }, ROZHODNUTIA[s.rozhodnutie]), el('span', { class: 'tlmene male' }, ` ${datum(s.rozhodnutieCas)}`)) : null,
     el('div', { class: 'volby', role: 'group', 'aria-label': 'Rozhodnutie' }, tlacidla),
-    varovanie, pozn,
+    varovanie, odoslanie, pozn,
     el('div', { class: 'akcie' }, el('button', { class: 'hlavne', onclick: async () => {
       if (!volba) { stav.textContent = 'Vyberte rozhodnutie.'; return; }
       if (povinnaPoznamka(volba) && !pozn.value.trim()) { stav.textContent = 'Pri tomto rozhodnutí je poznámka povinná.'; pozn.focus(); return; }
-      try { await api(`/api/podatelna/spisy/${id}/rozhodnutie`, { rozhodnutie: volba, poznamka: pozn.value }); await obnovZoznam(); await kresliSpis(id); }
+      const telo = { rozhodnutie: volba, poznamka: pozn.value };
+      if (volba === 'doplnenie') {
+        const lehota = zNavrhu() ? vyzva.lehota() : Number(lehotaVlastna.value);
+        if (!odoslana.value) { stav.textContent = 'Zadajte deň odoslania výzvy.'; odoslana.focus(); return; }
+        if (!Number.isInteger(lehota) || lehota < 5) { stav.textContent = 'Lehota musí byť celý počet pracovných dní, najmenej 5.'; return; }
+        telo.vyzva = { odoslana: odoslana.value, lehota, polozky: zNavrhu() ? vyzva.vybrane() : null, text: zNavrhu() ? vyzva.text() : null };
+      }
+      try { await api(`/api/podatelna/spisy/${id}/rozhodnutie`, telo); await obnovZoznam(); await kresliSpis(id); }
       catch (e) { stav.textContent = `Chyba: ${e.message}`; }
     } }, 'Uložiť rozhodnutie'), stav));
 }

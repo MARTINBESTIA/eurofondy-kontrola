@@ -10,6 +10,7 @@ import type { DatabaseSync } from 'node:sqlite';
 import { dokumentNaText, rozbalZip, xlsxBunky } from '../ingest/dokument.ts';
 import { normalizujItms21 } from '../moduly/zonfp/normalizuj.ts';
 import type { Navrh, Priloha, Ziadost } from '../core/typy.ts';
+import { jeDen, skDen, stavLehoty, type Den, type StavLehoty } from './lehoty.ts';
 
 const KOREN = path.join(import.meta.dirname, '..', '..');
 /** Úložisko súborov spisov. SPISY_DIR prepíše cestu (test nesmie zapisovať do priečinkov spisov bežiaceho servera). */
@@ -28,6 +29,11 @@ const TABULKY: Record<string, string> = {
     rozhodnutie TEXT, rozhodnutie_pozn TEXT, rozhodnutie_cas TEXT, formular_json TEXT, formular_zdroj TEXT`,
   subory: `id INTEGER PRIMARY KEY AUTOINCREMENT, spis_id INTEGER NOT NULL, davka INTEGER NOT NULL, nazov TEXT NOT NULL, velkost INTEGER NOT NULL,
     sha256 TEXT NOT NULL, typ TEXT NOT NULL, priloha TEXT, istota TEXT NOT NULL, text TEXT, chyba TEXT, cesta TEXT NOT NULL, nahrate TEXT NOT NULL`,
+  // Odoslaná výzva na doplnenie a údaje o jej lehote. Odpoveďou na výzvu sú dávky podkladov od davka_od
+  // (po davka_od ďalšej výzvy). Text a body výzvy sa ukladajú v podobe, v akej ich kontrolór odoslal.
+  vyzvy_doplnenie: `id INTEGER PRIMARY KEY AUTOINCREMENT, spis_id INTEGER NOT NULL, posudok_id INTEGER, davka_od INTEGER NOT NULL,
+    vytvorena TEXT NOT NULL, odoslana TEXT NOT NULL, dorucena TEXT, lehota_dni INTEGER NOT NULL, predlzene_do TEXT, predlzenie_pozn TEXT,
+    polozky TEXT, text TEXT`,
 };
 export function pripravDb(db: DatabaseSync) {
   for (const [t, stlpce] of Object.entries(TABULKY)) {
@@ -39,6 +45,8 @@ export function pripravDb(db: DatabaseSync) {
   }
   if (!(db.prepare('PRAGMA table_info(posudky)').all() as { name: string }[]).some((c) => c.name === 'spis_id')) db.exec('ALTER TABLE posudky ADD COLUMN spis_id INTEGER');
   if (!db.prepare("SELECT 1 FROM pragma_table_info('spisy') WHERE name = 'formular_subor_id'").get()) db.exec('ALTER TABLE spisy ADD COLUMN formular_subor_id INTEGER');
+  // Deň odoslania dávky do ITMS21+ (za deň doplnenia sa považuje deň odoslania, MD č. 21, kap. 2.4 ods. 5).
+  if (!db.prepare("SELECT 1 FROM pragma_table_info('subory') WHERE name = 'odoslane'").get()) db.exec('ALTER TABLE subory ADD COLUMN odoslane TEXT');
 }
 
 export const cisloSpisu = (id: number, prijate: string) => `POD-${prijate.slice(0, 4)}-${String(id).padStart(4, '0')}`;
@@ -112,10 +120,10 @@ export function formularZJson(text: string, vyzva: string, zItms: (kod: string) 
 
 // ---------- príjem podania a doplnenia
 const bezpecneMeno = (s: string) => s.replace(/[^\p{L}\p{N}._ -]+/gu, '_').slice(0, 120);
-function ulozSubory(db: DatabaseSync, spisId: number, davka: number, subory: Subor[], sloty: Slot[]): number[] {
+function ulozSubory(db: DatabaseSync, spisId: number, davka: number, subory: Subor[], sloty: Slot[], odoslane: Den | null = null): number[] {
   const dir = path.join(ULOZISKO, String(spisId));
   fs.mkdirSync(dir, { recursive: true });
-  const vloz = db.prepare('INSERT INTO subory (spis_id, davka, nazov, velkost, sha256, typ, priloha, istota, text, chyba, cesta, nahrate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)');
+  const vloz = db.prepare('INSERT INTO subory (spis_id, davka, nazov, velkost, sha256, typ, priloha, istota, text, chyba, cesta, nahrate, odoslane) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)');
   const ids: number[] = [];
   for (const s of subory) {
     let text = ''; let chyba: string | null = null;
@@ -125,7 +133,7 @@ function ulozSubory(db: DatabaseSync, spisId: number, davka: number, subory: Sub
     const sha = crypto.createHash('sha256').update(s.data).digest('hex');
     const cesta = path.join(String(spisId), `${davka}-${sha.slice(0, 8)}-${bezpecneMeno(s.nazov)}`);
     fs.writeFileSync(path.join(ULOZISKO, cesta), s.data);
-    ids.push(Number(vloz.run(spisId, davka, s.nazov, s.data.length, sha, z.typ, z.priloha, z.istota, text, chyba, cesta, new Date().toISOString()).lastInsertRowid));
+    ids.push(Number(vloz.run(spisId, davka, s.nazov, s.data.length, sha, z.typ, z.priloha, z.istota, text, chyba, cesta, new Date().toISOString(), odoslane).lastInsertRowid));
   }
   return ids;
 }
@@ -159,11 +167,13 @@ export function prijmiPodanie(db: DatabaseSync, o: { vyzva: string; zdroj: strin
   return id;
 }
 
-export function doplnPodklady(db: DatabaseSync, spisId: number, subory: Subor[], sloty: Slot[], zItms: (kod: string) => Ziadost | undefined) {
+const poslednaDavka = (db: DatabaseSync, spisId: number) => (db.prepare('SELECT MAX(davka) AS d FROM subory WHERE spis_id = ?').get(spisId) as { d: number | null }).d ?? 0;
+
+/** Doplnenie podkladov do spisu ako nová dávka. `odoslane` = deň odoslania doplnenia do ITMS21+, ak ho kontrolór pozná. */
+export function doplnPodklady(db: DatabaseSync, spisId: number, subory: Subor[], sloty: Slot[], zItms: (kod: string) => Ziadost | undefined, odoslane: Den | null = null) {
   const spis = db.prepare('SELECT vyzva, formular_json FROM spisy WHERE id = ?').get(spisId) as { vyzva: string; formular_json: string | null } | undefined;
   if (!spis) throw new Error('Spis neexistuje.');
-  const davka = ((db.prepare('SELECT MAX(davka) AS d FROM subory WHERE spis_id = ?').get(spisId) as { d: number | null }).d ?? 0) + 1;
-  ulozSubory(db, spisId, davka, rozbal(subory), sloty);
+  ulozSubory(db, spisId, poslednaDavka(db, spisId) + 1, rozbal(subory), sloty, odoslane);
   if (!spis.formular_json) obnovFormular(db, spisId, spis.vyzva, zItms);
   db.prepare("UPDATE spisy SET stav = 'doplnena' WHERE id = ?").run(spisId);
 }
@@ -188,10 +198,14 @@ const zakladSpisu = (s: SpisRiadok) => ({
   stav: s.stav, navrh: s.navrh, rozhodnutie: s.rozhodnutie, rozhodnutiePozn: s.rozhodnutie_pozn, rozhodnutieCas: s.rozhodnutie_cas, maFormular: !!s.formular_json, formularZdroj: s.formular_zdroj,
 });
 
-export function zoznamSpisov(db: DatabaseSync, vyzva?: string) {
+/** Zoznam spisov. S dňom `dnes` pridá pri spisoch s rozhodnutím „Výzva na doplnenie“ stav lehoty poslednej výzvy. */
+export function zoznamSpisov(db: DatabaseSync, vyzva?: string, dnes?: Den) {
   const riadky = (vyzva ? db.prepare('SELECT * FROM spisy WHERE vyzva = ? ORDER BY id DESC').all(vyzva) : db.prepare('SELECT * FROM spisy ORDER BY id DESC').all()) as unknown as SpisRiadok[];
   const pocty = new Map((db.prepare('SELECT spis_id, COUNT(*) AS n FROM subory GROUP BY spis_id').all() as { spis_id: number; n: number }[]).map((r) => [r.spis_id, r.n]));
-  return riadky.map((s) => ({ ...zakladSpisu(s), suborov: pocty.get(s.id) ?? 0 }));
+  return riadky.map((s) => {
+    const st = dnes && s.rozhodnutie === 'doplnenie' ? lehotySpisu(db, s.id, dnes)[0]?.stav : undefined;
+    return { ...zakladSpisu(s), suborov: pocty.get(s.id) ?? 0, lehota: st ? { kod: st.kod, uroven: st.uroven, kratko: st.kratko, sprava: st.sprava } : null };
+  });
 }
 
 export function spisRiadok(db: DatabaseSync, id: number) { return db.prepare('SELECT * FROM spisy WHERE id = ?').get(id) as unknown as SpisRiadok | undefined; }
@@ -199,7 +213,7 @@ export function spisRiadok(db: DatabaseSync, id: number) { return db.prepare('SE
 export function detailSpisu(db: DatabaseSync, id: number) {
   const s = spisRiadok(db, id);
   if (!s) return undefined;
-  const subory = (db.prepare('SELECT id, davka, nazov, velkost, typ, priloha, istota, chyba, nahrate, length(text) AS znakov FROM subory WHERE spis_id = ? ORDER BY davka, id').all(id) as any[]);
+  const subory = (db.prepare('SELECT id, davka, nazov, velkost, typ, priloha, istota, chyba, nahrate, odoslane, length(text) AS znakov FROM subory WHERE spis_id = ? ORDER BY davka, id').all(id) as any[]);
   const posudky = db.prepare('SELECT id, cas, navrh, model, trvanie_ms AS trvanieMs FROM posudky WHERE spis_id = ? ORDER BY id DESC').all(id);
   const posledny = s.posudok_id ? JSON.parse((db.prepare('SELECT posudok_json FROM posudky WHERE id = ?').get(s.posudok_id) as { posudok_json: string }).posudok_json) : null;
   const z = s.formular_json ? (JSON.parse(s.formular_json) as Ziadost) : null;
@@ -293,13 +307,91 @@ export function ulozPosudok(db: DatabaseSync, spisId: number, posudokId: number,
   db.prepare("UPDATE spisy SET posudok_id = ?, navrh = ?, stav = CASE WHEN rozhodnutie IS NULL OR rozhodnutie = 'doplnenie' THEN 'posudena' ELSE stav END WHERE id = ?").run(posudokId, navrh, spisId);
 }
 
-export function rozhodni(db: DatabaseSync, spisId: number, r: Rozhodnutie, poznamka: string) {
+/** Údaje odoslanej výzvy na doplnenie, ktoré kontrolór zadá pri rozhodnutí „Výzva na doplnenie“. */
+export interface OdoslanaVyzva { odoslana: Den; lehotaDni: number; polozky: string[] | null; text: string | null }
+
+/** Rozhodnutie kontrolóra. Pri výzve na doplnenie sa v tej istej transakcii zapíše aj výzva, od ktorej plynie lehota. */
+export function rozhodni(db: DatabaseSync, spisId: number, r: Rozhodnutie, poznamka: string, vyzva?: OdoslanaVyzva) {
   if (!ROZHODNUTIA[r]) throw new Error('Neznáme rozhodnutie.');
-  db.prepare('UPDATE spisy SET rozhodnutie = ?, rozhodnutie_pozn = ?, rozhodnutie_cas = ?, stav = ? WHERE id = ?')
-    .run(r, poznamka.slice(0, 2000), new Date().toISOString(), r === 'doplnenie' ? 'caka_na_doplnenie' : 'rozhodnuta', spisId);
+  db.exec('BEGIN');
+  try {
+    db.prepare('UPDATE spisy SET rozhodnutie = ?, rozhodnutie_pozn = ?, rozhodnutie_cas = ?, stav = ? WHERE id = ?')
+      .run(r, poznamka.slice(0, 2000), new Date().toISOString(), r === 'doplnenie' ? 'caka_na_doplnenie' : 'rozhodnuta', spisId);
+    if (r === 'doplnenie' && vyzva) ulozVyzvu(db, spisId, vyzva);
+    db.exec('COMMIT');
+  } catch (e) { db.exec('ROLLBACK'); throw e; }
+}
+
+// ---------- výzvy na doplnenie a ich lehoty
+interface VyzvaRiadok {
+  id: number; spis_id: number; posudok_id: number | null; davka_od: number; vytvorena: string; odoslana: Den; dorucena: Den | null;
+  lehota_dni: number; predlzene_do: Den | null; predlzenie_pozn: string | null; polozky: string | null; text: string | null;
+}
+
+/**
+ * Zapíše odoslanú výzvu. Opätovné uloženie rozhodnutia k tomu istému posudku výzvu len opraví (deň odoslania,
+ * lehota, text), doručenka a predĺženie ostanú. Nový posudok (po doplnení) znamená novú, ďalšiu výzvu.
+ */
+function ulozVyzvu(db: DatabaseSync, spisId: number, v: OdoslanaVyzva) {
+  const posudok = (db.prepare('SELECT posudok_id FROM spisy WHERE id = ?').get(spisId) as { posudok_id: number | null }).posudok_id;
+  const posledna = db.prepare('SELECT * FROM vyzvy_doplnenie WHERE spis_id = ? ORDER BY id DESC LIMIT 1').get(spisId) as unknown as VyzvaRiadok | undefined;
+  const polozky = v.polozky ? JSON.stringify(v.polozky) : null;
+  if (posledna && posledna.posudok_id === posudok) {
+    db.prepare('UPDATE vyzvy_doplnenie SET odoslana = ?, lehota_dni = ?, polozky = COALESCE(?, polozky), text = COALESCE(?, text) WHERE id = ?')
+      .run(v.odoslana, v.lehotaDni, polozky, v.text, posledna.id);
+    return;
+  }
+  db.prepare('INSERT INTO vyzvy_doplnenie (spis_id, posudok_id, davka_od, vytvorena, odoslana, lehota_dni, polozky, text) VALUES (?,?,?,?,?,?,?,?)')
+    .run(spisId, posudok, poslednaDavka(db, spisId) + 1, new Date().toISOString(), v.odoslana, v.lehotaDni, polozky, v.text);
+}
+
+/**
+ * Údaje o lehote, ktoré kontrolór dopĺňa postupne: deň odoslania, deň doručenia z elektronickej doručenky
+ * a predĺženie lehoty (MD č. 21, kap. 2.4 ods. 8). `undefined` = nemeniť, `null` = vymazať.
+ * Nezmyselné dátumy odmietne: v lehote by posunuli koniec a mohli ukázať „včas“ tam, kde nie je.
+ */
+export function upravLehotu(db: DatabaseSync, spisId: number, vyzvaId: number, zmena: { odoslana?: Den; dorucena?: Den | null; predlzeneDo?: Den | null; predlzeniePozn?: string | null }, dnes: Den) {
+  const v = db.prepare('SELECT * FROM vyzvy_doplnenie WHERE id = ? AND spis_id = ?').get(vyzvaId, spisId) as unknown as VyzvaRiadok | undefined;
+  if (!v) throw new Error('Táto výzva v spise nie je.');
+  const n = {
+    odoslana: zmena.odoslana ?? v.odoslana,
+    dorucena: zmena.dorucena === undefined ? v.dorucena : zmena.dorucena,
+    predlzeneDo: zmena.predlzeneDo === undefined ? v.predlzene_do : zmena.predlzeneDo,
+    predlzeniePozn: (zmena.predlzeniePozn === undefined ? v.predlzenie_pozn : zmena.predlzeniePozn)?.trim().slice(0, 500) || null,
+  };
+  for (const [pole, d] of [['odoslania', n.odoslana], ['doručenia', n.dorucena], ['konca predĺženia', n.predlzeneDo]] as const)
+    if (d !== null && !jeDen(d)) throw new Error(`Dátum ${pole} nie je platný deň (RRRR-MM-DD).`);
+  if (n.odoslana > dnes) throw new Error('Výzva nemôže byť odoslaná v budúcnosti.');
+  if (n.dorucena && n.dorucena < n.odoslana) throw new Error(`Výzva nemohla byť doručená skôr, ako bola odoslaná (${skDen(n.odoslana)}).`);
+  if (n.dorucena && n.dorucena > dnes) throw new Error('Deň doručenia nemôže byť v budúcnosti.');
+  if (n.predlzeneDo && n.predlzeneDo < n.odoslana) throw new Error('Predĺžená lehota nemôže skončiť pred odoslaním výzvy.');
+  if (n.predlzeneDo && !n.predlzeniePozn) throw new Error('Pri predĺžení uveďte, na základe čoho ho poskytovateľ povolil (napr. žiadosť žiadateľa a jej dátum).');
+  db.prepare('UPDATE vyzvy_doplnenie SET odoslana = ?, dorucena = ?, predlzene_do = ?, predlzenie_pozn = ? WHERE id = ?')
+    .run(n.odoslana, n.dorucena, n.predlzeneDo, n.predlzeniePozn, vyzvaId);
+}
+
+export interface LehotaVyzvy {
+  id: number; poradie: number; posudokId: number | null; davkaOd: number; vytvorena: string; odoslana: Den; dorucena: Den | null;
+  lehotaDni: number; predlzeneDo: Den | null; predlzeniePozn: string | null; polozky: string[] | null; text: string | null; stav: StavLehoty;
+}
+/** Výzvy na doplnenie v spise so stavom lehoty k dňu `dnes`, najnovšia prvá. */
+export function lehotySpisu(db: DatabaseSync, spisId: number, dnes: Den): LehotaVyzvy[] {
+  const vyzvy = db.prepare('SELECT * FROM vyzvy_doplnenie WHERE spis_id = ? ORDER BY id').all(spisId) as unknown as VyzvaRiadok[];
+  if (!vyzvy.length) return [];
+  const davky = db.prepare('SELECT davka, MAX(odoslane) AS odoslane FROM subory WHERE spis_id = ? GROUP BY davka ORDER BY davka').all(spisId) as { davka: number; odoslane: Den | null }[];
+  return vyzvy.map((v, i) => {
+    const doDavky = vyzvy[i + 1]?.davka_od ?? Infinity;
+    const odpovede = davky.filter((d) => d.davka >= v.davka_od && d.davka < doDavky);
+    return {
+      id: v.id, poradie: i + 1, posudokId: v.posudok_id, davkaOd: v.davka_od, vytvorena: v.vytvorena, odoslana: v.odoslana, dorucena: v.dorucena,
+      lehotaDni: v.lehota_dni, predlzeneDo: v.predlzene_do, predlzeniePozn: v.predlzenie_pozn, polozky: v.polozky ? JSON.parse(v.polozky) : null, text: v.text,
+      stav: stavLehoty({ odoslana: v.odoslana, dorucena: v.dorucena, lehotaDni: v.lehota_dni, predlzeneDo: v.predlzene_do }, odpovede, dnes),
+    };
+  }).reverse();
 }
 
 export function vymazSpis(db: DatabaseSync, spisId: number) {
+  db.prepare('DELETE FROM vyzvy_doplnenie WHERE spis_id = ?').run(spisId);
   db.prepare('DELETE FROM subory WHERE spis_id = ?').run(spisId);
   db.prepare('UPDATE posudky SET spis_id = NULL WHERE spis_id = ?').run(spisId);
   db.prepare('DELETE FROM spisy WHERE id = ?').run(spisId);

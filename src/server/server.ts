@@ -16,7 +16,8 @@ import { zop } from '../moduly/zop/modul.ts';
 import { ukazovatele } from '../moduly/ukazovatele/modul.ts';
 import * as pod from '../podatelna/podatelna.ts';
 import { dolozPosudok, precitajPosudok } from '../podatelna/doklady.ts';
-import { navrhVyzvy } from '../podatelna/vyzva.ts';
+import { MIN_LEHOTA, navrhVyzvy } from '../podatelna/vyzva.ts';
+import { dnesSk, jeDen } from '../podatelna/lehoty.ts';
 import { MAX_VEK_KONTROLY_DNI, nacitajKontroluZmien, nacitajZakladZmien, skontrolujZmeny, vekUdajovDni } from '../core/zmeny.ts';
 
 const KOREN = path.join(import.meta.dirname, '..', '..');
@@ -89,7 +90,7 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
       const nove = pod.prijmiPodanie(db, { vyzva, zdroj: String(b.zdroj ?? 'nahraté v rozhraní'), kodItms: b.kodItms ? String(b.kodItms) : undefined, subory: subory(b), sloty: SLOTY, zItms });
       return json(res, 200, { id: nove });
     }
-    return json(res, 200, pod.zoznamSpisov(db, url.searchParams.get('vyzva') ?? undefined));
+    return json(res, 200, pod.zoznamSpisov(db, url.searchParams.get('vyzva') ?? undefined, dnesSk()));
   }
   if (c[0] === 'spisy' && id) {
     const s = pod.spisRiadok(db, id);
@@ -99,7 +100,8 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
       if (s.posudok_id && !d.posledny?.nalezy?.some((n: { povodDokladov?: string }) => n.povodDokladov))
         d.posledny = await precitajPosudok(db, id, s.posudok_id, verzieVyzvy(s.vyzva));
       const zIts = d.spis.formularZdroj?.startsWith('ITMS21+') && d.ziadost ? zonfp.skutocnost?.(d.ziadost) ?? null : null;
-      return json(res, 200, { ...d, sloty: SLOTY, prilohyStav: await stavPriloh(id, s.vyzva), skutocnost: zIts, titulok: d.ziadost ? zonfp.titulok(d.ziadost) : null, suhrn: d.ziadost ? zonfp.suhrn?.(d.ziadost) ?? '' : '' });
+      return json(res, 200, { ...d, sloty: SLOTY, prilohyStav: await stavPriloh(id, s.vyzva), skutocnost: zIts, titulok: d.ziadost ? zonfp.titulok(d.ziadost) : null, suhrn: d.ziadost ? zonfp.suhrn?.(d.ziadost) ?? '' : '',
+        vyzvy: pod.lehotySpisu(db, id, dnesSk()), dnes: dnesSk() });
     }
     if (c[2] === 'posudky' && req.method === 'GET') {
       const p = await precitajPosudok(db, id, Number(c[3]) || 0, verzieVyzvy(s.vyzva));
@@ -107,7 +109,13 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
     }
     if (req.method !== 'POST') return json(res, 405, { chyba: 'Použite POST.' });
     const b = await telo(req, 120 << 20);
-    if (c[2] === 'subory') { pod.doplnPodklady(db, id, subory(b), SLOTY, zItms); return json(res, 200, { ok: true }); }
+    // Doplnenie: za deň doplnenia sa považuje deň odoslania do neverejnej časti ITMS21+ (MD č. 21, kap. 2.4 ods. 5).
+    if (c[2] === 'subory') {
+      const odoslane = b.odoslane ? String(b.odoslane) : null;
+      if (odoslane && (!jeDen(odoslane) || odoslane > dnesSk())) return json(res, 400, { chyba: 'Deň odoslania doplnenia do ITMS21+ musí byť platný dátum, nie v budúcnosti.' });
+      pod.doplnPodklady(db, id, subory(b), SLOTY, zItms, odoslane);
+      return json(res, 200, { ok: true });
+    }
     if (c[2] === 'posud') {
       const v = pod.ziadostSpisu(db, id);
       const formular = pod.zdrojFormulara(db, s);
@@ -129,7 +137,29 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
           { vyber: Array.isArray(b.vyber) ? b.vyber.map(String) : undefined, lehota: b.lehota == null ? undefined : Number(b.lehota) }));
       } catch (e) { return json(res, 400, { chyba: (e as Error).message }); }
     }
-    if (c[2] === 'rozhodnutie') { pod.rozhodni(db, id, b.rozhodnutie, String(b.poznamka ?? '')); return json(res, 200, { ok: true }); }
+    if (c[2] === 'rozhodnutie') {
+      // Výzva na doplnenie: zapíše sa aj deň odoslania a lehota, od ktorých aplikácia sleduje lehotu na doplnenie.
+      let vyzva: pod.OdoslanaVyzva | undefined;
+      if (b.rozhodnutie === 'doplnenie') {
+        const v = b.vyzva ?? {};
+        const odoslana = v.odoslana ? String(v.odoslana) : dnesSk();
+        const lehota = v.lehota == null ? MIN_LEHOTA : Number(v.lehota);
+        if (!jeDen(odoslana) || odoslana > dnesSk()) return json(res, 400, { chyba: 'Deň odoslania výzvy musí byť platný dátum, nie v budúcnosti.' });
+        if (!Number.isInteger(lehota) || lehota < MIN_LEHOTA) return json(res, 400, { chyba: `Lehota na doplnenie musí byť celý počet pracovných dní, najmenej ${MIN_LEHOTA} (MD č. 21, kap. 2.4 ods. 5).` });
+        vyzva = { odoslana, lehotaDni: lehota, polozky: Array.isArray(v.polozky) ? v.polozky.map(String) : null, text: typeof v.text === 'string' && v.text.trim() ? v.text.slice(0, 50_000) : null };
+      }
+      pod.rozhodni(db, id, b.rozhodnutie, String(b.poznamka ?? ''), vyzva);
+      return json(res, 200, { ok: true });
+    }
+    // Údaje o lehote výzvy: deň odoslania, doručenia (elektronická doručenka) a predĺženie.
+    if (c[2] === 'lehota') {
+      const den = (x: unknown) => (x === undefined ? undefined : x === null || x === '' ? null : String(x));
+      try {
+        pod.upravLehotu(db, id, Number(b.vyzva), { odoslana: den(b.odoslana) ?? undefined, dorucena: den(b.dorucena), predlzeneDo: den(b.predlzeneDo),
+          predlzeniePozn: b.predlzeniePozn === undefined ? undefined : b.predlzeniePozn === null ? null : String(b.predlzeniePozn) }, dnesSk());
+      } catch (e) { return json(res, 400, { chyba: (e as Error).message }); }
+      return json(res, 200, { vyzvy: pod.lehotySpisu(db, id, dnesSk()) });
+    }
     if (c[2] === 'vymaz') { pod.vymazSpis(db, id); return json(res, 200, { ok: true }); }
   }
   if (c[0] === 'subory' && id) {
