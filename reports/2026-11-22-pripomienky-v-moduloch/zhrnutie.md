@@ -8,7 +8,7 @@ Skratky: ŽoP = žiadosť o platbu, OoZ = oznámenie o zmene, ŽoZZ = žiadosť 
 
 - Z prepisov rozhovorov som vybral pripomienky z 13. až 21. 11. 2026 a commity, ktoré z nich vznikli v module ŽoNFP.
 - Prečítal som kód piatich ďalších modulov (`src/moduly/vo`, `zop`, `zmeny`, `ukazovatele`, `vyzvy`), ich balíky v `packs/` a spoločné jadro (`src/core/posud.ts`, `src/server/server.ts`).
-- Podozrivé cesty som overil spustením kontrol modulov bez modelu (skript mimo repozitára, nič sa neuložilo). Výskyt v dátach som spočítal zo snímok v `data/odvodene`, stiahnutých 13. až 21. 11. 2026.
+- Štyri podozrivé cesty (N2, N4, N6, N17) som overil spustením kontrol modulov bez modelu (skript mimo repozitára, nič sa neuložilo). N1 som overil z kódu a výpočtom lehoty cez `src/podatelna/lehoty.ts`. Výskyt v dátach som spočítal zo snímok v `data/odvodene`, stiahnutých 13. až 21. 11. 2026.
 - Lehoty a postupy som overil v textoch vzoru zmluvy o NFP 2.2, VZP 2.2 a Príručky pre prijímateľa DOP 3.2 v `data/zdroje`.
 
 Veľkosť kódu ukazuje, kam išla práca. Modul ŽoNFP má asi 990 riadkov kódu a balík s 959 riadkami, k tomu archívnu verziu balíka s 889 riadkami a podateľňu. VO má 166 riadkov kódu a 170 riadkov balíka, ŽoP 266 a 264, zmeny 226 a 162, ukazovatele 231 a 38, výzvy 126 a 30.
@@ -38,7 +38,7 @@ Patria sem aj nálezy z auditu astry (`39b7aa0`) a z testovacej sady:
 
 | Princíp | VO | ŽoP | Zmeny | Ukazovatele | Výzvy |
 |---|---|---|---|---|---|
-| Chýbajúci údaj nedá „splnené“ (P1) | porušené (N2, N19) | porušené (N6, N17 až N19) | čiastočne (N4) | v poriadku, okrem N15 | porušené (N7, N21) |
+| Chýbajúci údaj nedá „splnené“ (P1) | porušené (N2, N19) | porušené (N6, N17 až N19) | čiastočne (N4) | v poriadku, okrem N15 a N20 | porušené (N7, N21) |
 | Doklad pri „splnené“ (P4) | chýba (N9) | chýba (N9) | chýba (N9) | chýba (N9) | chýba (N9) |
 | Inventár podmienok (P5) | chýba (N8) | chýba (N8) | chýba (N8) | chýba (N8) | netreba, ide o plánovanie |
 | Pravidlá podľa rozhodného dňa (P5) | zlý rozhodný dátum (N3) | jedno znenie (N10) | jedno znenie (N10) | jedno znenie (N10) | netýka sa |
@@ -185,14 +185,14 @@ Patria sem aj nálezy z auditu astry (`39b7aa0`) a z testovacej sady:
 
 ## Návrh poradia
 
-1. **Rýchle opravy falošných OK:** N1, N2, N6, N7 a N17 až N21. Sú to malé zmeny v moduloch a testoch.
+1. **Rýchle opravy falošných OK:** N1, N2, N6, N7 a N17 až N21. Pri N3, N4 a N5 zatiaľ stav „na preverenie“, kým ich riadne neopravia balíky 3 a 4. Sú to malé zmeny v moduloch a testoch.
 2. **Jadro pre všetky moduly:** doklady a pravidlo „splnené bez dokladu ide človeku“ (N9), inventár podmienok pre VO, ŽoP, zmeny a ukazovatele (N8), formálne položky (N12).
 3. **Rozhodný deň a čerstvosť dát:** N3, N10, N11.
 4. **Obsah a súlad dokumentov:** N4, N5, N13.
 5. **Postup kontrolóra pre ŽoP, VO, zmeny a monitorovacie správy:** spis, výzva na doplnenie alebo zmenu, lehoty (N14).
 6. **Sady z oficiálnych vzorov SIEA a cvičné prípady:** N16.
 
-Body 1 a 2 odstránia všetky dnes overené falošné „splnené“. Bod 5 je najväčší, lebo vyžaduje podateľňu aj pre ďalšie procesy.
+Balík 1 odstráni všetky konkrétne falošné OK z častí A a C. Cenou je viac bodov pre kontrolóra. Balík 2 zabráni výroku „bez zistení“ v moduloch, ktoré časť podmienok nekontrolujú. Balík 5 je najväčší, lebo vyžaduje podateľňu aj pre ďalšie procesy.
 
 ## Obmedzenia
 
