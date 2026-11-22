@@ -103,11 +103,14 @@ const zop = [...zopDet.values()].map((z) => ({
 })).sort((a, b) => a.kod.localeCompare(b.kod));
 
 const doklady: Record<number, any> = {};
+// Dodávateľ dokladu je v ITMS21+ buď v dodavatelDodavatelObstaravatel, alebo v dodavatelSubjekt (k 22. 11. 2026
+// 1 154 a 154 z 1 308 dokladov výzvy, nikdy oba). Bez druhého poľa by doklad vyzeral ako doklad bez dodávateľa.
+const dodavatelDokladu = (d: any) => d.dodavatelDodavatelObstaravatel ?? d.dodavatelSubjekt ?? null;
 for (const [id, d] of dokDet) doklady[id] = {
   id, cislo: d.cisloDokladu ?? '', nazov: d.nazov ?? '', typ: d.typ ?? '', celkom: cislo(d.celkovaVyskaDokladu),
   datumVyhotovenia: datum(d.datumVyhotovenia), datumUhrady: datum(d.datumUhrady),
   vlastnik: { nazov: d.vlastnikDokladu?.nazov ?? '', ico: d.vlastnikDokladu?.ico ?? '', platitelDph: d.vlastnikDokladu?.platitelDph ?? null },
-  dodavatel: d.dodavatelDodavatelObstaravatel ? { nazov: d.dodavatelDodavatelObstaravatel.nazov ?? '', ico: d.dodavatelDodavatelObstaravatel.ico ?? null, platitelDph: d.dodavatelDodavatelObstaravatel.platitelDph ?? null } : null,
+  dodavatel: dodavatelDokladu(d) ? { nazov: dodavatelDokladu(d).nazov ?? '', ico: dodavatelDokladu(d).ico ?? null, platitelDph: dodavatelDokladu(d).platitelDph ?? null } : null,
   polozky: (d.polozkyDokladu ?? []).map((p: any) => ({ id: p.id, nazov: p.nazov ?? '', jednotkova: cislo(p.jednotkovaCena), mnozstvo: cislo(p.mnozstvo), bezDph: cislo(p.sumaBezDph), dph: cislo(p.dph), sadzba: cislo(p.sadzbaDph), spolu: cislo(p.sumaSpolu), opravnena: cislo(p.sumaOpravnena), ziadana: cislo(p.sumaZiadana) })),
 };
 

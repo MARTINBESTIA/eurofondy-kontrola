@@ -26,8 +26,11 @@ export const cistiKontakty = (text: string) => text
 /** JSON bez kontaktov. Čistí sa každá textová hodnota zvlášť, nie surový JSON (tam by regex zjedol „n“ z „\n“). */
 export const bezKontaktov = (data: unknown) => JSON.stringify(data, (_k, v) => (typeof v === 'string' ? cistiKontakty(v) : v));
 
-/** Dnešný dátum; v testoch sa dá prepísať premennou KONTROLA_DNES (YYYY-MM-DD). */
-export const dnes = () => process.env.KONTROLA_DNES ?? new Date().toISOString().slice(0, 10);
+/**
+ * Dnešný dátum v SR (časové pásmo Europe/Bratislava; podľa UTC by po polnoci ešte platil včerajšok).
+ * V testoch sa dá prepísať premennou KONTROLA_DNES (YYYY-MM-DD).
+ */
+export const dnes = (cas = new Date()) => process.env.KONTROLA_DNES ?? new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Bratislava' }).format(cas);
 export function pridajMesiace(datum: string, mesiace: number): string {
   const d = new Date(`${datum}T12:00:00Z`); const den = d.getUTCDate();
   d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() + mesiace);

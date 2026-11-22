@@ -1,15 +1,14 @@
 {
- "cas": "2026-11-21T03:52:18.161Z",
- "dnes": "2026-11-21",
+ "cas": "2026-11-22T20:39:31.667Z",
+ "dnes": "2026-11-22",
  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
  "moduly": {
   "vyzvy": {
    "pripadov": 186,
-   "trvanieMs": 19,
+   "trvanieMs": 245,
    "navrhy": {
-    "ciastocne_overene": 65,
+    "na_preverenie": 152,
     "nesplnene_podmienky": 33,
-    "na_preverenie": 87,
     "bez_zisteni": 1
    },
    "pravidla": [
@@ -17,7 +16,7 @@
      "id": "C01",
      "nazov": "Výzva je k dátumu predloženia otvorená",
      "pocty": {
-      "splnene": 164,
+      "mimo_podkladov": 164,
       "nesplnene": 18,
       "neuplatnuje_sa": 4
      }
@@ -26,7 +25,7 @@
      "id": "C02",
      "nazov": "Po dátume predloženia existuje uzávierka",
      "pocty": {
-      "splnene": 65,
+      "mimo_podkladov": 65,
       "nesplnene": 33,
       "na_preverenie": 84,
       "neuplatnuje_sa": 4
@@ -123,17 +122,69 @@
       "na_preverenie": 4
      },
      "priklady": []
+    },
+    {
+     "nazov": "Otvorená výzva, plánovaný dátum predloženia nezadaný",
+     "pravidlo": "C01",
+     "ocakavane": "mimo_podkladov",
+     "n": 65,
+     "zachytene": 0,
+     "presne": 65,
+     "falosneOk": 0,
+     "stavy": {
+      "mimo_podkladov": 65
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Plánovaná výzva bez dvoch snímok plánu",
+     "pravidlo": "C05",
+     "ocakavane": "mimo_podkladov",
+     "n": 4,
+     "zachytene": 0,
+     "presne": 4,
+     "falosneOk": 0,
+     "stavy": {
+      "mimo_podkladov": 4
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Údaje výzvy z ITMS21+ staršie ako 7 dní",
+     "pravidlo": "C01",
+     "ocakavane": "na_preverenie",
+     "n": 65,
+     "zachytene": 65,
+     "presne": 65,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 65
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Neznámy dátum stiahnutia údajov výzvy",
+     "pravidlo": "C04",
+     "ocakavane": "na_preverenie",
+     "n": 91,
+     "zachytene": 91,
+     "presne": 91,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 91
+     },
+     "priklady": []
     }
    ],
    "poznamky": [
     "Z 182 výziev má 91 aspoň dve datované verzie (zmenu po vyhlásení); žiadateľ, ktorý pracuje so starou verziou, je reálne riziko.",
-    "Plánované výzvy: 4, z toho po plánovanom termíne vyhlásenia a nevyhlásené k 2026-11-21: 3 (2026/00027 plán 2026-11-01, 2025/00012 plán 2025-07-01, 2024/00035 plán 2026-03-01).",
+    "Plánované výzvy: 4, z toho po plánovanom termíne vyhlásenia a nevyhlásené k 2026-11-22: 3 (2026/00027 plán 2026-11-01, 2025/00012 plán 2025-07-01, 2024/00035 plán 2026-03-01).",
     "Bez zadaného plánu žiadateľa (dni prípravy, dátum oboznámenia) ostávajú pravidlá C03 a C04 neoverené, preto väčšina reálnych výrokov je „čiastočne overené“."
    ]
   },
   "zonfp": {
    "pripadov": 799,
-   "trvanieMs": 182,
+   "trvanieMs": 191,
    "navrhy": {
     "na_preverenie": 735,
     "nesplnene_podmienky": 58,
@@ -430,10 +481,10 @@
   },
   "vo": {
    "pripadov": 659,
-   "trvanieMs": 110,
+   "trvanieMs": 140,
    "navrhy": {
-    "na_preverenie": 276,
-    "ciastocne_overene": 382,
+    "na_preverenie": 592,
+    "ciastocne_overene": 66,
     "nesplnene_podmienky": 1
    },
    "pravidla": [
@@ -441,9 +492,8 @@
      "id": "V01",
      "nazov": "PHZ nepresahuje limit zvoleného zjednodušeného postupu",
      "pocty": {
-      "neuplatnuje_sa": 494,
-      "splnene": 158,
-      "na_preverenie": 6,
+      "na_preverenie": 553,
+      "splnene": 105,
       "nesplnene": 1
      }
     },
@@ -515,6 +565,32 @@
      "priklady": []
     },
     {
+     "nazov": "PHZ 10 mil. EUR pri postupe, ktorého limit softvér neoveruje",
+     "pravidlo": "V01",
+     "ocakavane": "na_preverenie",
+     "n": 494,
+     "zachytene": 494,
+     "presne": 494,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 494
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Zákazka malého rozsahu 45 000 EUR so zmluvou z 2023, v ITMS21+ vytvorená 2025",
+     "pravidlo": "V01",
+     "ocakavane": "na_preverenie",
+     "n": 75,
+     "zachytene": 75,
+     "presne": 75,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 75
+     },
+     "priklady": []
+    },
+    {
      "nazov": "Súťaž s jedinou ponukou",
      "pravidlo": "V02",
      "ocakavane": "na_preverenie",
@@ -554,6 +630,41 @@
      "priklady": []
     },
     {
+     "nazov": "Druhá zmluva bez sumy, prvá zodpovedá PHZ",
+     "pravidlo": "V03",
+     "ocakavane": "mimo_podkladov",
+     "n": 659,
+     "zachytene": 5,
+     "presne": 654,
+     "falosneOk": 68,
+     "stavy": {
+      "mimo_podkladov": 654,
+      "na_preverenie": 5
+     },
+     "priklady": [
+      "VO00375091: mimo_podkladov / ciastocne_overene: Zmluvy so známou sumou spolu 284 097,27 EUR zodpovedajú PHZ 284 097,27 EUR. Zmluva T2 nemá v ITMS21+ sumu; súčet je len zo zmlúv so sumou. Celková cena voči PHZ sa preto neoverila.",
+      "VO00910494: mimo_podkladov / ciastocne_overene: Zmluvy so známou sumou spolu 5 282,47 EUR zodpovedajú PHZ 5 282,47 EUR. Zmluva T2 nemá v ITMS21+ sumu; súčet je len zo zmlúv so sumou. Celková cena voči PHZ sa preto neoverila.",
+      "VO01501526: mimo_podkladov / ciastocne_overene: Zmluvy so známou sumou spolu 359 984,85 EUR zodpovedajú PHZ 359 984,85 EUR. Zmluva T2 nemá v ITMS21+ sumu; súčet je len zo zmlúv so sumou. Celková cena voči PHZ sa preto neoverila."
+     ]
+    },
+    {
+     "nazov": "Účtovný doklad bez sumy",
+     "pravidlo": "V04",
+     "ocakavane": "mimo_podkladov",
+     "n": 367,
+     "zachytene": 0,
+     "presne": 367,
+     "falosneOk": 35,
+     "stavy": {
+      "mimo_podkladov": 367
+     },
+     "priklady": [
+      "VO01501526: mimo_podkladov / ciastocne_overene: Doklady so známou sumou spolu 0 EUR neprevyšujú zmluvy 340 697,06 EUR. Doklad T nemá v ITMS21+ sumu, fakturácia spolu sa preto neoverila.",
+      "VO01778212: mimo_podkladov / ciastocne_overene: Doklady so známou sumou spolu 0 EUR neprevyšujú zmluvy 197 994,88 EUR. Doklad T nemá v ITMS21+ sumu, fakturácia spolu sa preto neoverila.",
+      "VO06961964: mimo_podkladov / ciastocne_overene: Doklady so známou sumou spolu 0 EUR neprevyšujú zmluvy 17 693,38 EUR. Doklad T nemá v ITMS21+ sumu, fakturácia spolu sa preto neoverila."
+     ]
+    },
+    {
      "nazov": "Tri zákazky malého rozsahu po 30 000 EUR na rovnaký predmet v jednom roku",
      "pravidlo": "V05",
      "ocakavane": "na_preverenie",
@@ -565,6 +676,24 @@
       "na_preverenie": 74
      },
      "priklady": []
+    },
+    {
+     "nazov": "Zákazka 30 000 EUR a dve ďalšie na rovnaký predmet bez uvedenej PHZ",
+     "pravidlo": "V05",
+     "ocakavane": "mimo_podkladov",
+     "n": 74,
+     "zachytene": 13,
+     "presne": 61,
+     "falosneOk": 37,
+     "stavy": {
+      "mimo_podkladov": 61,
+      "na_preverenie": 13
+     },
+     "priklady": [
+      "VO00910494: mimo_podkladov / ciastocne_overene: Obstarávateľ v roku 2024 zadal aj ďalšie zákazky malého rozsahu so skupinou CPV 451…; so známymi PHZ je súčet 35 282,47 EUR. Bez uvedenej PHZ: VO00910494-T1, VO00910494-T2, VO72666911-T1, VO72666911-T",
+      "VO04995870: mimo_podkladov / ciastocne_overene: Obstarávateľ v roku 2026 zadal aj ďalšie zákazky malého rozsahu so skupinou CPV 452…; so známymi PHZ je súčet 30 000 EUR. Bez uvedenej PHZ: VO04995870-T1, VO04995870-T2. Či spolu nedosahujú 50 000 EUR",
+      "VO06961964: mimo_podkladov / ciastocne_overene: Obstarávateľ v roku 2025 zadal aj ďalšie zákazky malého rozsahu so skupinou CPV 323…; so známymi PHZ je súčet 30 000 EUR. Bez uvedenej PHZ: VO06961964-T1, VO06961964-T2. Či spolu nedosahujú 50 000 EUR"
+     ]
     }
    ],
    "poznamky": [
@@ -575,10 +704,9 @@
   },
   "zmeny": {
    "pripadov": 2336,
-   "trvanieMs": 470,
+   "trvanieMs": 456,
    "navrhy": {
-    "na_preverenie": 1307,
-    "ciastocne_overene": 1029
+    "na_preverenie": 2336
    },
    "pravidla": [
     {
@@ -593,8 +721,7 @@
      "id": "Z02",
      "nazov": "Zmena nemá znaky podstatnej zmeny projektu",
      "pocty": {
-      "splnene": 1439,
-      "na_preverenie": 897
+      "na_preverenie": 2336
      }
     },
     {
@@ -617,7 +744,7 @@
      "id": "Z05",
      "nazov": "Významnejšia zmena podaná včas (ex ante pred zmenou, ex post 30 dní pred ŽoP)",
      "pocty": {
-      "neuplatnuje_sa": 2246,
+      "na_preverenie": 2246,
       "mimo_podkladov": 90
      }
     },
@@ -737,6 +864,84 @@
       "chyba_podklad": 200
      },
      "priklady": []
+    },
+    {
+     "nazov": "Ex post ŽoZZ 35 kalendárnych, ale len 25 pracovných dní pred ŽoP",
+     "pravidlo": "Z05",
+     "ocakavane": "nesplnene",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Ex post ŽoZZ na 30. pracovný deň pred ŽoP (hraničný deň)",
+     "pravidlo": "Z05",
+     "ocakavane": "na_preverenie",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "OoZ: e-mail štatutára a zníženie rozsahu zateplenia na polovicu (zatriedené ako formálna)",
+     "pravidlo": "Z01",
+     "ocakavane": "na_preverenie",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "OoZ: e-mail štatutára a zníženie rozsahu zateplenia na polovicu (zatriedené ako formálna)",
+     "pravidlo": "Z02",
+     "ocakavane": "na_preverenie",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "OoZ: e-mail štatutára a zníženie rozsahu zateplenia na polovicu (zatriedené ako formálna)",
+     "pravidlo": "Z05",
+     "ocakavane": "na_preverenie",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Zmena štatutára: na každom mieste prílohy je len prázdna šablóna",
+     "pravidlo": "Z07",
+     "ocakavane": "na_preverenie",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 200
+     },
+     "priklady": []
     }
    ],
    "overenia": [
@@ -783,7 +988,7 @@
   },
   "zop": {
    "pripadov": 1362,
-   "trvanieMs": 763,
+   "trvanieMs": 6270,
    "navrhy": {
     "ciastocne_overene": 1046,
     "na_preverenie": 315,
@@ -826,9 +1031,9 @@
      "id": "P05",
      "nazov": "Výpočet DPH v položkách dokladov sedí",
      "pocty": {
-      "splnene": 1349,
+      "splnene": 1326,
       "na_preverenie": 7,
-      "mimo_podkladov": 6
+      "mimo_podkladov": 29
      }
     },
     {
@@ -843,16 +1048,16 @@
      "id": "P07",
      "nazov": "Kontrola VO prebehla pred zahrnutím výdavkov do ŽoP",
      "pocty": {
-      "mimo_podkladov": 1174,
-      "neuplatnuje_sa": 188
+      "mimo_podkladov": 1175,
+      "neuplatnuje_sa": 187
      }
     },
     {
      "id": "P08",
      "nazov": "Nárokované výdavky neprevyšujú zmluvu z VO",
      "pocty": {
-      "mimo_podkladov": 280,
-      "splnene": 1002,
+      "mimo_podkladov": 330,
+      "splnene": 952,
       "na_preverenie": 80
      }
     },
@@ -1017,6 +1222,132 @@
      "priklady": []
     },
     {
+     "nazov": "Zadaná len najvyššia hotovostná platba 100 EUR",
+     "pravidlo": "P09",
+     "ocakavane": "mimo_podkladov",
+     "n": 250,
+     "zachytene": 0,
+     "presne": 250,
+     "falosneOk": 205,
+     "stavy": {
+      "mimo_podkladov": 250
+     },
+     "priklady": [
+      "25589349: mimo_podkladov / ciastocne_overene: Zadané údaje o hotovosti sú v limitoch, nie je však zadané: najvyššia suma za mesiac; či sa hotovosťou platil dlhodobý majetok. Limity hotovosti sa preto neoverili celé.",
+      "401201A012300401: mimo_podkladov / ciastocne_overene: Zadané údaje o hotovosti sú v limitoch, nie je však zadané: najvyššia suma za mesiac; či sa hotovosťou platil dlhodobý majetok. Limity hotovosti sa preto neoverili celé.",
+      "401201A012300901: mimo_podkladov / ciastocne_overene: Zadané údaje o hotovosti sú v limitoch, nie je však zadané: najvyššia suma za mesiac; či sa hotovosťou platil dlhodobý majetok. Limity hotovosti sa preto neoverili celé."
+     ]
+    },
+    {
+     "nazov": "Prijímateľ s neznámym statusom platiteľa DPH žiada aj DPH",
+     "pravidlo": "P04",
+     "ocakavane": "na_preverenie",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Doklad s DPH od dodávateľa s neznámym statusom platiteľa DPH",
+     "pravidlo": "P04",
+     "ocakavane": "na_preverenie",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Výdavok viazaný na VO, ktoré v dátach chýba",
+     "pravidlo": "P07",
+     "ocakavane": "mimo_podkladov",
+     "n": 250,
+     "zachytene": 0,
+     "presne": 250,
+     "falosneOk": 206,
+     "stavy": {
+      "mimo_podkladov": 250
+     },
+     "priklady": [
+      "25589349: mimo_podkladov / ciastocne_overene: VO s PHZ od 50 000 EUR: VO81520301 (1 449 763,22 EUR, Podlimitná zákazka so zverejnením podľa § 110 ZVO). Pri týchto postupoch môže byť kontrola po uzavretí zmluvy povinná; jej výsledok verejné dáta n",
+      "401201A012300401: mimo_podkladov / ciastocne_overene: VO s PHZ od 50 000 EUR: VO36862372 (1 280 029,53 EUR, Verejná súťaž podľa zákona č. 343/2015 Z. z.). Pri týchto postupoch môže byť kontrola po uzavretí zmluvy povinná; jej výsledok verejné dáta neobsa",
+      "401201A012300901: mimo_podkladov / ciastocne_overene: VO s PHZ od 50 000 EUR: VO36862372 (1 280 029,53 EUR, Verejná súťaž podľa zákona č. 343/2015 Z. z.). Pri týchto postupoch môže byť kontrola po uzavretí zmluvy povinná; jej výsledok verejné dáta neobsa"
+     ]
+    },
+    {
+     "nazov": "Účtovný doklad výdavku bez sumy",
+     "pravidlo": "P02",
+     "ocakavane": "mimo_podkladov",
+     "n": 250,
+     "zachytene": 0,
+     "presne": 250,
+     "falosneOk": 206,
+     "stavy": {
+      "mimo_podkladov": 250
+     },
+     "priklady": [
+      "25589349: mimo_podkladov / ciastocne_overene: Ostatné žiadané sumy neprevyšujú výšku výdavkov ani sumy dokladov. Neoverené pre chýbajúcu sumu: doklad 20250011 bez sumy v dátach.",
+      "401201A012300401: mimo_podkladov / ciastocne_overene: Ostatné žiadané sumy neprevyšujú výšku výdavkov ani sumy dokladov. Neoverené pre chýbajúcu sumu: doklad 2026011 bez sumy v dátach.",
+      "401201A012300901: mimo_podkladov / ciastocne_overene: Ostatné žiadané sumy neprevyšujú výšku výdavkov ani sumy dokladov. Neoverené pre chýbajúcu sumu: doklad 2026081 bez sumy v dátach."
+     ]
+    },
+    {
+     "nazov": "Položka dokladu bez sadzby a DPH",
+     "pravidlo": "P05",
+     "ocakavane": "mimo_podkladov",
+     "n": 250,
+     "zachytene": 2,
+     "presne": 248,
+     "falosneOk": 192,
+     "stavy": {
+      "mimo_podkladov": 248,
+      "na_preverenie": 2
+     },
+     "priklady": [
+      "25589349: mimo_podkladov / ciastocne_overene: Základ dane × sadzba sedí s DPH v 19 položkách so všetkými údajmi. Neoverené: položky bez základu, sadzby alebo DPH v dokladoch 20250011 (1).",
+      "401201A012300401: mimo_podkladov / ciastocne_overene: Základ dane × sadzba sedí s DPH v 2 položkách so všetkými údajmi. Neoverené: položky bez základu, sadzby alebo DPH v dokladoch 2026011 (1).",
+      "401201A012300901: mimo_podkladov / ciastocne_overene: Základ dane × sadzba sedí s DPH v 2 položkách so všetkými údajmi. Neoverené: položky bez základu, sadzby alebo DPH v dokladoch 2026081 (1)."
+     ]
+    },
+    {
+     "nazov": "Výdavok so zmluvou z VO, ktorá v dátach chýba",
+     "pravidlo": "P08",
+     "ocakavane": "mimo_podkladov",
+     "n": 250,
+     "zachytene": 7,
+     "presne": 243,
+     "falosneOk": 205,
+     "stavy": {
+      "mimo_podkladov": 243,
+      "na_preverenie": 7
+     },
+     "priklady": [
+      "25589349: mimo_podkladov / ciastocne_overene: Výdavky nemajú priradenú zmluvu z VO so sumou. Neoverené pre chýbajúcu sumu zmluvy: zmluva id 60749 (VO chýba v dátach); zmluva id -999999 (VO chýba v dátach).",
+      "401201A012300401: mimo_podkladov / ciastocne_overene: Nárokované výdavky neprevyšujú sumy 1 zmlúv z VO so známou sumou. Neoverené pre chýbajúcu sumu zmluvy: zmluva id -999999 (VO chýba v dátach).",
+      "401201A012300901: mimo_podkladov / ciastocne_overene: Nárokované výdavky neprevyšujú sumy 1 zmlúv z VO so známou sumou. Neoverené pre chýbajúcu sumu zmluvy: zmluva id -999999 (VO chýba v dátach)."
+     ]
+    },
+    {
+     "nazov": "Na každom mieste povinnej prílohy je len prázdna šablóna",
+     "pravidlo": "P10",
+     "ocakavane": "na_preverenie",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 250
+     },
+     "priklady": []
+    },
+    {
      "nazov": "Uhradená ŽoP predložená druhýkrát (rovnaké doklady)",
      "pravidlo": "P03",
      "ocakavane": "nesplnene",
@@ -1026,6 +1357,19 @@
      "falosneOk": 0,
      "stavy": {
       "nesplnene": 200
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Uhradená ŽoP predložená druhýkrát, doklady bez sumy v dátach",
+     "pravidlo": "P03",
+     "ocakavane": "na_preverenie",
+     "n": 200,
+     "zachytene": 200,
+     "presne": 200,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 200
      },
      "priklady": []
     }
@@ -1038,7 +1382,7 @@
   },
   "ukazovatele": {
    "pripadov": 242,
-   "trvanieMs": 6,
+   "trvanieMs": 85,
    "navrhy": {
     "na_preverenie": 242
    },
@@ -1272,6 +1616,11 @@
      "nazov": "Výstup 97/100 (nad 95 %): bez krátenia",
      "vysledok": "E34 0, E35 0",
      "ok": true
+    },
+    {
+     "nazov": "Dnešok v SR: 22. 11. 2026 23:30 UTC je 23. 11., 1. 7. 2026 22:30 UTC je 2. 7. (letný čas)",
+     "vysledok": "2026-11-23, 2026-07-02",
+     "ok": true
     }
    ],
    "poznamky": [
@@ -1283,5 +1632,5 @@
    ]
   }
  },
- "trvanieMs": 5147
+ "trvanieMs": 24055
 }

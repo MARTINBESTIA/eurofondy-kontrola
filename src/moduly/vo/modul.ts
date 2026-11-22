@@ -17,12 +17,21 @@ export interface VstupVo { vo: VoPlny; rpo: '' | 'ano'; prilohy?: Record<string,
 /** Exportované kvôli testu so zasadenými chybami. */
 export const VSETKY = nacitajData<VoPlny[]>('vo.json', []);
 const podlaKodu = new Map(VSETKY.map((v) => [v.kod, v]));
+/** Súčet zmlúv so známou sumou. Zmluvy bez sumy vracia zmluvyBezSumy, pravidlá ich nesmú brať ako nulu. */
 const sumaZmluv = (v: VoPlny) => v.zmluvy.reduce((s, z) => s + (z.suma ?? 0), 0);
 const maZmluvu = (v: VoPlny) => v.zmluvy.some((z) => z.suma != null);
+const zmluvyBezSumy = (v: VoPlny) => v.zmluvy.filter((z) => z.suma == null);
+const nazovZmluvy = (z: VoPlny['zmluvy'][number]) => z.cislo || z.kod || `id ${z.id}`;
+/** Zmluva účinná pred 1. 8. 2024: VO prebehlo pred príručkou VO v2, aj keď je záznam v ITMS21+ vytvorený neskôr. */
+const zmluvaPred2024 = (v: VoPlny) => v.zmluvy.find((z) => z.ucinnost && z.ucinnost < '2024-08-01');
 
-/** Limity zjednodušených postupov overené v príručke VO v2 (1. 8. 2024). */
+/**
+ * Limity zjednodušených postupov overené v príručke VO v2 (1. 8. 2024). Overený je limit len pri VO po 1. 8. 2024:
+ * podľa postupu evidovaného „od 1.8.2024“ alebo dátumu vytvorenia v ITMS21+, ak tomu neodporuje skoršia zmluva.
+ * Dátum vytvorenia záznamu nie je dňom začatia VO; presný rozhodný deň z dokumentácie VO je ďalší krok (balík 3).
+ */
 export function limitPostupu(v: VoPlny): { limit: number; popis: string; overeny: boolean } | null {
-  const p = v.postup; const od2024 = (v.vytvorene ?? '') >= '2024-08-01' || /od 1\.8\.2024/.test(p);
+  const p = v.postup; const od2024 = ((v.vytvorene ?? '') >= '2024-08-01' || /od 1\.8\.2024/.test(p)) && !zmluvaPred2024(v);
   if (/malého rozsahu podľa § 1 ods\. 14/.test(p) && !/učebnic/.test(p)) return { limit: 50_000, popis: 'zákazka malého rozsahu podľa § 1 ods. 14 ZVO: do 50 000 EUR bez DPH', overeny: od2024 };
   if (/§ 108/.test(p)) {
     if (/stavebn/i.test(v.druhZakazky)) return { limit: 360_000, popis: 'podlimitná zákazka s oslovením min. 3 hospodárskych subjektov na stavebné práce: pod 360 000 EUR bez DPH', overeny: od2024 };
@@ -31,14 +40,24 @@ export function limitPostupu(v: VoPlny): { limit: number; popis: string; overeny
   return null;
 }
 
+/** Prečo limit príručky VO v2 nemusí platiť pre toto VO. */
+function preco2024(v: VoPlny): string {
+  const z = zmluvaPred2024(v);
+  if (z) return `Zmluva ${nazovZmluvy(z)} je účinná od ${skDatum(z.ucinnost)}, VO teda prebehlo pred 1. 8. 2024, keď mohli platiť iné limity.`;
+  if (!v.vytvorene) return 'Dátum VO nie je v ITMS21+ uvedený, VO mohlo prebehnúť pred 1. 8. 2024, keď mohli platiť iné limity.';
+  return `VO je v ITMS21+ vytvorené ${skDatum(v.vytvorene)}, mohlo teda prebehnúť pred 1. 8. 2024, keď mohli platiť iné limity.`;
+}
+
 function postup(v: VstupVo): VysledokKontroly {
   const l = limitPostupu(v.vo);
-  if (!l) return { stav: 'neuplatnuje_sa', zdovodnenie: `Pre postup „${v.vo.postup}“ softvér finančný limit neoveruje (overené sú len zákazky malého rozsahu a podlimitné zákazky s oslovením min. 3 subjektov).` };
+  // Neoverený limit nesmie dať „neuplatňuje sa“ ani „splnené“: výrok by bol „bez zistení“, hoci postup nikto neoveril.
+  if (!l) return { stav: 'na_preverenie', zdovodnenie: `Pre postup „${v.vo.postup}“ softvér finančný limit neoveruje (overené sú len zákazky malého rozsahu a podlimitné zákazky s oslovením min. 3 subjektov). Či je postup${v.vo.phz != null ? ` pri PHZ ${eur(v.vo.phz)}` : ''} prípustný, posúdi kontrolór podľa príručky VO.` };
   if (v.vo.phz == null) return { stav: 'mimo_podkladov', zdovodnenie: 'Chýba predpokladaná hodnota zákazky.' };
-  if (v.vo.phz < l.limit) return { stav: 'splnene', zdovodnenie: `PHZ ${eur(v.vo.phz)} je v limite postupu (${l.popis}).`, hodnoty: { phz: v.vo.phz, limit: l.limit } };
-  if (!l.overeny) return { stav: 'na_preverenie', zdovodnenie: `PHZ ${eur(v.vo.phz)} prevyšuje limit podľa príručky VO v2 (${l.popis}), VO však mohlo prebehnúť pred 1. 8. 2024, keď mohli platiť iné limity.`, hodnoty: { phz: v.vo.phz, limit: l.limit } };
+  const hodnoty = { phz: v.vo.phz, limit: l.limit };
+  if (!l.overeny) return { stav: 'na_preverenie', zdovodnenie: `PHZ ${eur(v.vo.phz)} ${v.vo.phz < l.limit ? 'je v limite' : 'prevyšuje limit'} podľa príručky VO v2 (${l.popis}). ${preco2024(v.vo)} Limit platný v čase VO softvér neoveril.`, hodnoty };
+  if (v.vo.phz < l.limit) return { stav: 'splnene', zdovodnenie: `PHZ ${eur(v.vo.phz)} je v limite postupu (${l.popis}).`, hodnoty };
   const pozn = (v.vo.vytvorene ?? '') < '2024-08-01' ? ` VO je v ITMS21+ vytvorené ${skDatum(v.vo.vytvorene)}, postup je však evidovaný v režime od 1. 8. 2024.` : '';
-  return { stav: 'nesplnene', zdovodnenie: `PHZ ${eur(v.vo.phz)} prevyšuje limit zvoleného postupu (${l.popis}).${pozn} Ak ide o chybne zaevidovaný postup v ITMS21+, treba ho opraviť; inak je to porušenie pravidiel VO.`, hodnoty: { phz: v.vo.phz, limit: l.limit } };
+  return { stav: 'nesplnene', zdovodnenie: `PHZ ${eur(v.vo.phz)} prevyšuje limit zvoleného postupu (${l.popis}).${pozn} Ak ide o chybne zaevidovaný postup v ITMS21+, treba ho opraviť; inak je to porušenie pravidiel VO.`, hodnoty };
 }
 
 const BEZ_SUTAZE = /výnimk|in-house|nerelevantné|čiastková zmluva|koncesi/i;
@@ -54,10 +73,13 @@ function ponuky(v: VstupVo): VysledokKontroly {
 function cena(v: VstupVo): VysledokKontroly {
   if (!maZmluvu(v.vo)) return { stav: 'mimo_podkladov', zdovodnenie: 'VO nemá v ITMS21+ zmluvu so sumou.' };
   if (v.vo.phz == null || v.vo.phz <= 0) return { stav: 'mimo_podkladov', zdovodnenie: 'Chýba predpokladaná hodnota zákazky.' };
-  const s = sumaZmluv(v.vo); const l = limitPostupu(v.vo);
+  const s = sumaZmluv(v.vo); const l = limitPostupu(v.vo); const bez = zmluvyBezSumy(v.vo);
+  // Súčet zmlúv so známou sumou je dolná hranica ceny: prekročenie platí aj s ostatnými zmluvami, súlad nie.
+  const pozn = bez.length ? ` Zmluva ${bez.map(nazovZmluvy).join(', ')} nemá v ITMS21+ sumu; súčet je len zo zmlúv so sumou.` : '';
   // PHZ je bez DPH; pri zmluve nevieme, či je suma s DPH, preto tolerancia 23 % DPH + 10 %.
-  if (l && s / 1.23 >= l.limit) return { stav: 'na_preverenie', zdovodnenie: `Zmluvy spolu ${eur(s)}: aj po odpočítaní 23 % DPH (${eur(Math.round(s / 1.23))}) cena dosahuje limit postupu (${l.popis}). PHZ mohla byť určená nesprávne.`, hodnoty: { phz: v.vo.phz, zmluvy: s } };
-  if (s > v.vo.phz * 1.23 * 1.1) return { stav: 'na_preverenie', zdovodnenie: `Zmluvy spolu ${eur(s)} prevyšujú PHZ ${eur(v.vo.phz)} o viac ako 10 % aj pri pripočítaní DPH. Overiť určenie PHZ a prípadné dodatky.`, hodnoty: { phz: v.vo.phz, zmluvy: s } };
+  if (l && s / 1.23 >= l.limit) return { stav: 'na_preverenie', zdovodnenie: `Zmluvy spolu ${eur(s)}: aj po odpočítaní 23 % DPH (${eur(Math.round(s / 1.23))}) cena dosahuje limit postupu (${l.popis}). PHZ mohla byť určená nesprávne.${pozn}`, hodnoty: { phz: v.vo.phz, zmluvy: s } };
+  if (s > v.vo.phz * 1.23 * 1.1) return { stav: 'na_preverenie', zdovodnenie: `Zmluvy spolu ${eur(s)} prevyšujú PHZ ${eur(v.vo.phz)} o viac ako 10 % aj pri pripočítaní DPH. Overiť určenie PHZ a prípadné dodatky.${pozn}`, hodnoty: { phz: v.vo.phz, zmluvy: s } };
+  if (bez.length) return { stav: 'mimo_podkladov', zdovodnenie: `Zmluvy so známou sumou spolu ${eur(s)} zodpovedajú PHZ ${eur(v.vo.phz)}.${pozn} Celková cena voči PHZ sa preto neoverila.`, hodnoty: { phz: v.vo.phz, zmluvy: s, bezSumy: bez.length } };
   return { stav: 'splnene', zdovodnenie: `Zmluvy spolu ${eur(s)} zodpovedajú PHZ ${eur(v.vo.phz)} (bez DPH).`, hodnoty: { phz: v.vo.phz, zmluvy: s } };
 }
 
@@ -65,19 +87,28 @@ function faktury(v: VstupVo): VysledokKontroly {
   if (!maZmluvu(v.vo)) return { stav: 'mimo_podkladov', zdovodnenie: 'VO nemá zmluvu so sumou.' };
   if (!v.vo.doklady.length) return { stav: 'neuplatnuje_sa', zdovodnenie: 'K VO zatiaľ nie sú evidované účtovné doklady.' };
   const s = sumaZmluv(v.vo); const f = v.vo.doklady.reduce((a, d) => a + (d.celkom ?? 0), 0);
-  if (f > s * 1.23 + 1) return { stav: 'na_preverenie', zdovodnenie: `Doklady spolu ${eur(Math.round(f * 100) / 100)} prevyšujú zmluvy ${eur(s)} aj pri pripočítaní DPH. Overiť dodatky (podliehajú kontrole VO).`, hodnoty: { zmluvy: s, doklady: f } };
-  return { stav: 'splnene', zdovodnenie: `Doklady spolu ${eur(Math.round(f * 100) / 100)} neprevyšujú zmluvy ${eur(s)}.`, hodnoty: { zmluvy: s, doklady: f } };
+  const bezZmluvy = zmluvyBezSumy(v.vo); const bezDokladu = v.vo.doklady.filter((d) => d.celkom == null);
+  const hodnoty = { zmluvy: s, doklady: f };
+  // Doklady so známou sumou sú dolná hranica fakturácie, zmluvy so známou sumou dolná hranica zmluvnej ceny.
+  if (f > s * 1.23 + 1) return { stav: 'na_preverenie', zdovodnenie: `Doklady spolu ${eur(Math.round(f * 100) / 100)} prevyšujú zmluvy ${eur(s)} aj pri pripočítaní DPH. Overiť dodatky (podliehajú kontrole VO).${bezZmluvy.length ? ` Zmluva ${bezZmluvy.map(nazovZmluvy).join(', ')} nemá v ITMS21+ sumu, súčet zmlúv môže byť vyšší.` : ''}`, hodnoty };
+  if (bezDokladu.length) return { stav: 'mimo_podkladov', zdovodnenie: `Doklady so známou sumou spolu ${eur(Math.round(f * 100) / 100)} neprevyšujú zmluvy ${eur(s)}. Doklad ${bezDokladu.map((d) => d.cislo || `id ${d.id}`).join(', ')} nemá v ITMS21+ sumu, fakturácia spolu sa preto neoverila.`, hodnoty };
+  return { stav: 'splnene', zdovodnenie: `Doklady spolu ${eur(Math.round(f * 100) / 100)} neprevyšujú zmluvy ${eur(s)}.`, hodnoty };
 }
 
-const jeZmr = (v: VoPlny) => /malého rozsahu|nízkou hodnotou/i.test(v.postup) && (v.phz ?? 0) < 50_000;
+/** Zákazka malého rozsahu pod 50 000 EUR; bez PHZ sa za ňu berie tiež, aby sa nevynechala z delenia zákazky. */
+const jeZmr = (v: VoPlny) => /malého rozsahu|nízkou hodnotou/i.test(v.postup) && (v.phz == null || v.phz < 50_000);
 function delenie(v: VstupVo): VysledokKontroly {
   if (!jeZmr(v.vo)) return { stav: 'neuplatnuje_sa', zdovodnenie: 'Nejde o zákazku malého rozsahu pod 50 000 EUR.' };
+  if (v.vo.phz == null) return { stav: 'mimo_podkladov', zdovodnenie: 'Chýba predpokladaná hodnota zákazky, súčet s podobnými zákazkami sa nedá overiť.' };
   if (!v.vo.cpv || !v.vo.vytvorene) return { stav: 'mimo_podkladov', zdovodnenie: 'Chýba CPV kód alebo dátum VO.' };
   const rok = v.vo.vytvorene.slice(0, 4); const skupina = v.vo.cpv.slice(0, 3);
   const podobne = VSETKY.filter((x) => x.obstaravatel.ico === v.vo.obstaravatel.ico && x.kod !== v.vo.kod && !/stiahnut/i.test(x.stav)
     && x.cpv.slice(0, 3) === skupina && (x.vytvorene ?? '').slice(0, 4) === rok && jeZmr(x));
-  const spolu = (v.vo.phz ?? 0) + podobne.reduce((s, x) => s + (x.phz ?? 0), 0);
-  if (podobne.length && spolu >= 50_000) return { stav: 'na_preverenie', zdovodnenie: `Obstarávateľ v roku ${rok} zadal ďalších ${podobne.length} zákaziek malého rozsahu s rovnakou skupinou CPV ${skupina}…: ${podobne.slice(0, 6).map((x) => `${x.kod} ${eur(x.phz)}`).join('; ')}. Spolu PHZ ${eur(spolu)} ≥ 50 000 EUR; overiť, či nejde o nedovolené rozdelenie predmetu zákazky.`, hodnoty: { podobnych: podobne.length, spolu } };
+  const bezPhz = podobne.filter((x) => x.phz == null);
+  const spolu = v.vo.phz + podobne.reduce((s, x) => s + (x.phz ?? 0), 0);
+  const pozn = bezPhz.length ? ` Bez uvedenej PHZ: ${bezPhz.slice(0, 6).map((x) => x.kod).join(', ')}${bezPhz.length > 6 ? ` a ďalších ${bezPhz.length - 6}` : ''}.` : '';
+  if (podobne.length && spolu >= 50_000) return { stav: 'na_preverenie', zdovodnenie: `Obstarávateľ v roku ${rok} zadal ďalších ${podobne.length} zákaziek malého rozsahu s rovnakou skupinou CPV ${skupina}…: ${podobne.slice(0, 6).map((x) => `${x.kod} ${eur(x.phz)}`).join('; ')}. Spolu PHZ ${eur(spolu)} ≥ 50 000 EUR; overiť, či nejde o nedovolené rozdelenie predmetu zákazky.${pozn}`, hodnoty: { podobnych: podobne.length, spolu } };
+  if (bezPhz.length) return { stav: 'mimo_podkladov', zdovodnenie: `Obstarávateľ v roku ${rok} zadal aj ďalšie zákazky malého rozsahu so skupinou CPV ${skupina}…; so známymi PHZ je súčet ${eur(spolu)}.${pozn} Či spolu nedosahujú 50 000 EUR, sa nedá overiť.`, hodnoty: { podobnych: podobne.length, spolu } };
   return { stav: 'splnene', zdovodnenie: `V roku ${rok} nemá obstarávateľ (v dátach výzvy) iné zákazky malého rozsahu so skupinou CPV ${skupina}…, ktoré by spolu dosiahli 50 000 EUR.` };
 }
 
@@ -158,7 +189,8 @@ export const vo: Modul<VstupVo> = {
   titulok: (v) => ({ kod: v.vo.kod, nazov: v.vo.nazov || v.vo.kod, podnazov: `${v.vo.obstaravatel.nazov} · ${v.vo.druhZakazky} · ${v.vo.postup}` }),
   suhrn: (v) => `PHZ ${eur(v.vo.phz)} · zmluvy ${v.vo.zmluvy.map((z) => `${z.dodavatel?.nazov ?? '?'} ${eur(z.suma)} (${skDatum(z.ucinnost)})`).join('; ') || '–'} · ponuky ${v.vo.ponuky ?? '–'} · CPV ${v.vo.cpv} ${v.vo.cpvNazov} · projekty ${v.vo.projekty.join(', ')}`,
   vystupy(v) {
-    const velke = (v.vo.phz ?? 0) >= 50_000;
+    if (v.vo.phz == null) return [{ nazov: 'Kontrola VO podľa príručky VO v2', text: 'PHZ nie je v ITMS21+ uvedená, druh kontroly podľa tabuľky príručky VO sa preto nedá určiť.' }];
+    const velke = v.vo.phz >= 50_000;
     return [{ nazov: 'Kontrola VO podľa príručky VO v2', text: velke
       ? `PHZ ${eur(v.vo.phz)} je od 50 000 EUR. Podľa tabuľky druhov kontrol ide pri tomto postupe o kontrolu po uzavretí zmluvy (povinnú alebo podľa rizikovej analýzy poskytovateľa), a to pred predložením výdavkov v ŽoP. Dokumentácia sa predkladá cez ITMS21+.`
       : `PHZ ${eur(v.vo.phz)} je pod 50 000 EUR. Kontrola ÚVO sa podľa tabuľky nevyžaduje; postup a hospodárnosť (prieskum trhu) overuje poskytovateľ v rámci finančnej kontroly.` }];

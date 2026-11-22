@@ -2,7 +2,8 @@
 // Zatriedenie zmeny je pravidlové (vzory v texte), nie modelom: je opakovateľné a dá sa skontrolovať.
 // Pri pochybnosti sa vyberá prísnejší druh zmeny, nezaradená zmena ide človeku.
 import type { Modul, Priloha, Projekt, VysledokKontroly } from '../../core/typy.ts';
-import { bezDiakritiky, cislo, dnes, eur, num, pridajDni, pridajMesiace, projekty, skDatum } from '../spolocne.ts';
+import { pracovnyDenPred } from '../../podatelna/lehoty.ts';
+import { bezDiakritiky, cislo, dnes, eur, num, pridajMesiace, projekty, skDatum } from '../spolocne.ts';
 
 export type Kategoria = 'vyznamnejsia_ex_ante' | 'vyznamnejsia_ex_post' | 'menej_alebo_vyznamnejsia' | 'menej_vyznamna' | 'formalna' | 'technicka' | 'nezaradena';
 export const PORADIE: Kategoria[] = ['vyznamnejsia_ex_ante', 'vyznamnejsia_ex_post', 'menej_alebo_vyznamnejsia', 'menej_vyznamna', 'formalna', 'technicka', 'nezaradena'];
@@ -63,6 +64,15 @@ export interface VstupZmena {
 }
 const text = (v: VstupZmena) => `${v.zmena.predmet}\n${v.odovodnenie}`;
 
+/**
+ * Zatriedenie podľa kľúčových slov je len návrh: text „zmena e-mailu štatutára a zníženie rozsahu zateplenia“ vyzerá
+ * ako formálna zmena. Výsledok, ktorý platí len pri správnom zatriedení, preto nie je „splnené“ ani „neuplatňuje sa“,
+ * kým zatriedenie nepotvrdí kontrolór (potvrdenie vo formulári je ďalší krok, balík 4).
+ */
+const ODHAD_ZATRIEDENIA = ' Zatriedenie je odhad podľa kľúčových slov v texte zmeny; druh zmeny potvrdí kontrolór.';
+const lenPriZatriedeni = (r: VysledokKontroly): VysledokKontroly => (r.stav === 'splnene' || r.stav === 'neuplatnuje_sa'
+  ? { ...r, stav: 'na_preverenie', zdovodnenie: `${r.zdovodnenie}${ODHAD_ZATRIEDENIA}` } : r);
+
 function druh(v: VstupZmena): VysledokKontroly {
   const z = zatried(text(v), v);
   const hodnoty = { kategoria: z.kategoria, typy: z.typy.map((x) => x.id).join(',') };
@@ -73,7 +83,9 @@ function druh(v: VstupZmena): VysledokKontroly {
   if (!v.formular) return { stav: z.kategoria === 'menej_alebo_vyznamnejsia' ? 'na_preverenie' : 'mimo_podkladov', zdovodnenie: `${veta} Predložený formulár nie je zadaný.`, hodnoty };
   if (potrebny === 'ZoZZ' && v.formular !== 'ZoZZ') return { stav: 'nesplnene', zdovodnenie: `${veta} Predložené ako OoZ, pre významnejšiu zmenu treba ŽoZZ a dodatok k zmluve.`, hodnoty };
   if (z.kategoria === 'menej_alebo_vyznamnejsia' && v.formular === 'OoZ') return { stav: 'na_preverenie', zdovodnenie: `${veta} Predložené ako OoZ; poskytovateľ môže zmenu preklasifikovať na významnejšiu, ak zásadne ovplyvňuje projekt.`, hodnoty };
-  return { stav: 'splnene', zdovodnenie: `${veta} Predložený formulár (${v.formular === 'ZoZZ' ? 'ŽoZZ' : 'OoZ'}) zodpovedá druhu zmeny.`, hodnoty };
+  const r: VysledokKontroly = { stav: 'splnene', zdovodnenie: `${veta} Predložený formulár (${v.formular === 'ZoZZ' ? 'ŽoZZ' : 'OoZ'}) zodpovedá druhu zmeny.`, hodnoty };
+  // ŽoZZ je prísnejší formulár a obstojí pri každom druhu zmeny; OoZ len pri správnom zatriedení.
+  return v.formular === 'ZoZZ' ? r : lenPriZatriedeni(r);
 }
 
 function podstatna(v: VstupZmena): VysledokKontroly {
@@ -81,7 +93,7 @@ function podstatna(v: VstupZmena): VysledokKontroly {
   if (z.riziko) return { stav: 'na_preverenie', zdovodnenie: `V texte je znak možnej podstatnej zmeny („${z.riziko}“). Podstatnú zmenu nemožno schváliť a zakladá povinnosť vrátiť NFP.` };
   if (z.kategoria === 'vyznamnejsia_ex_ante') return { stav: 'na_preverenie', zdovodnenie: `Zmena typu ${z.typy.filter((x) => x.kategoria === 'vyznamnejsia_ex_ante').map((x) => x.nazov.toLowerCase()).join(', ')} môže byť podstatnou zmenou (povaha, ciele alebo podmienky realizácie); posúdi človek.` };
   if (z.kategoria === 'nezaradena') return { stav: 'na_preverenie', zdovodnenie: 'Nezaradená zmena: riziko podstatnej zmeny musí posúdiť človek.' };
-  return { stav: 'splnene', zdovodnenie: `V texte nie sú znaky podstatnej zmeny a druh zmeny (${NAZOV_KAT[z.kategoria]}) ňou spravidla nie je.` };
+  return lenPriZatriedeni({ stav: 'splnene', zdovodnenie: `V texte nie sú znaky podstatnej zmeny podľa vzorov softvéru a druh zmeny (${NAZOV_KAT[z.kategoria]}) ňou spravidla nie je.` });
 }
 
 function nfp(v: VstupZmena): VysledokKontroly {
@@ -115,9 +127,16 @@ function lehota(v: VstupZmena): VysledokKontroly {
   }
   if (k === 'vyznamnejsia_ex_post') {
     if (!v.datumPodania || !v.datumZop) return { stav: 'mimo_podkladov', zdovodnenie: 'Pre ex post zmenu treba dátum podania ŽoZZ a dátum ŽoP, ktorá ako prvá obsahuje dotknuté výdavky.' };
-    const najneskor = pridajDni(v.datumZop, -30);
-    if (v.datumPodania > najneskor) return { stav: 'nesplnene', zdovodnenie: `ŽoZZ podaná ${skDatum(v.datumPodania)}, ŽoP ${skDatum(v.datumZop)}: treba najneskôr 30 dní pred ŽoP (${skDatum(najneskor)}), inak môže poskytovateľ zamietnuť všetky dotknuté výdavky.` };
-    return { stav: 'splnene', zdovodnenie: `ŽoZZ podaná ${skDatum(v.datumPodania)}, aspoň 30 dní pred ŽoP ${skDatum(v.datumZop)}.` };
+    // „Najneskôr 30 dní pred predložením ŽoP“ (VZP 2.2, čl. 16): zmluva o NFP za dni považuje pracovné dni
+    // (čl. 1 ods. 1.3 písm. h) vzoru zmluvy 2.2). Či sa deň predloženia ŽoP započítava, zmluva výslovne neurčuje:
+    // isto včas je podanie do 31. pracovného dňa pred ŽoP, neskoro až po 30. pracovnom dni; deň medzi nimi ide
+    // kontrolórovi. Neisté sviatky mimo overeného kalendára sa berú v neprospech záveru.
+    const istoVcas = pracovnyDenPred(v.datumZop, 31, 'volny');
+    const najneskor = pracovnyDenPred(v.datumZop, 30, 'pracovny');
+    const hodnoty = { istoVcas, najneskor };
+    if (v.datumPodania > najneskor) return { stav: 'nesplnene', zdovodnenie: `ŽoZZ podaná ${skDatum(v.datumPodania)}, ŽoP ${skDatum(v.datumZop)}: treba najneskôr 30 pracovných dní pred ŽoP (najneskôr ${skDatum(najneskor)}), inak môže poskytovateľ zamietnuť všetky dotknuté výdavky.`, hodnoty };
+    if (v.datumPodania > istoVcas) return { stav: 'na_preverenie', zdovodnenie: `ŽoZZ podaná ${skDatum(v.datumPodania)} je na hranici lehoty 30 pracovných dní pred ŽoP ${skDatum(v.datumZop)}. Isto včas je podanie do ${skDatum(istoVcas)}; či sa deň predloženia ŽoP do lehoty započítava, zmluva výslovne neurčuje.`, hodnoty };
+    return { stav: 'splnene', zdovodnenie: `ŽoZZ podaná ${skDatum(v.datumPodania)}, aspoň 30 pracovných dní pred ŽoP ${skDatum(v.datumZop)} (isto včas pri podaní do ${skDatum(istoVcas)}).`, hodnoty };
   }
   return { stav: 'neuplatnuje_sa', zdovodnenie: `Pre druh „${NAZOV_KAT[k]}“ osobitná lehota pred zmenou neplatí.` };
 }
@@ -161,7 +180,8 @@ function prilohy(v: VstupZmena): VysledokKontroly {
   }
   const chyba = pov.filter((p) => !v.prilohy![p.cislo]?.text?.trim());
   if (chyba.length) return { stav: 'chyba_podklad', zdovodnenie: `Chýba: ${chyba.map((p) => p.nazov).join('; ')}.` };
-  return { stav: 'splnene', zdovodnenie: `Priložených všetkých ${pov.length} požadovaných dokumentov (obsah neoverený).` };
+  // Obsadené miesto ešte nie je správny dokument: obsahové znaky príloh v balíku sú ďalší krok (balík 4).
+  return { stav: 'na_preverenie', zdovodnenie: `Na všetkých ${pov.length} miestach pre požadované dokumenty je priložený súbor s textom. Softvér zatiaľ neoveruje, že ide o požadovaný dokument; obsah overí kontrolór.` };
 }
 
 const zakladny = (p: Projekt, z: ZmenaZaznam): VstupZmena => ({ zmena: z, projekt: p, formular: '', datumPodania: null, datumZmeny: null, datumZop: null, novaNfp: null, novyKoniecHA: null, muKod: '', muNova: null, prahPercent: null, precerpanie: null, odovodnenie: '' });
@@ -205,7 +225,7 @@ export const zmeny: Modul<VstupZmena> = {
     n.precerpanie = num(f.precerpanie); n.novaNfp = num(f.novaNfp); n.muKod = String(f.muKod ?? ''); n.muNova = num(f.muNova); n.prahPercent = num(f.prahPercent);
     return n;
   },
-  kontroly: { zmena_druh: druh, zmena_podstatna: podstatna, zmena_nfp: nfp, zmena_harmonogram: harmonogram, zmena_lehota: lehota, zmena_mu: ukazovatel, zmena_prilohy: prilohy },
+  kontroly: { zmena_druh: druh, zmena_podstatna: podstatna, zmena_nfp: nfp, zmena_harmonogram: harmonogram, zmena_lehota: (v) => lenPriZatriedeni(lehota(v)), zmena_mu: ukazovatel, zmena_prilohy: prilohy },
   hlavnyText: (v) => v.odovodnenie,
   kontext: (v) => `Projekt ${v.projekt.kod}: ${v.projekt.nazov}. Predmet zmeny: ${v.zmena.predmet.slice(0, 300)}`,
   titulok: (v) => ({ kod: `${v.projekt.kod}/zmena-${v.zmena.id}`, nazov: v.zmena.predmet.split('\n')[0].slice(0, 140) || 'Zmena projektu', podnazov: `${v.projekt.kod} · ${v.projekt.prijimatel.nazov} · účinnosť ${skDatum(v.zmena.ucinnost)}${v.zmena.dodatok ? ` · dodatok ${v.zmena.dodatok}` : ''}` }),

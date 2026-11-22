@@ -3,6 +3,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Modul, VysledokKontroly } from '../../core/typy.ts';
+import { MAX_VEK_KONTROLY_DNI } from '../../core/zmeny.ts';
+import { dnesSk } from '../../podatelna/lehoty.ts';
 import { KOREN, dnes, eur, num, rozdielDni, skDatum } from '../spolocne.ts';
 
 export interface Vyzva { kod: string; nazov: string; program: string; vyhlasovatel: string; druh: string; typ: string; zameranie: string; vyhlasena: string | null; ukoncena: string | null; uzavreta: boolean; zrusena: boolean; pozastavena: boolean; sumaEu: number | null; predlozenych: number | null; schvalenych: number | null; neschvalenych: number | null; kola: { cislo: number; uzavierka: string | null }[]; verzie: { cislo: number; datum: string | null; dovod: string }[] }
@@ -17,7 +19,29 @@ function snimky(): { datum: string; planovane: Planovana[] }[] {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort().map((f) => { const j = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')); return { datum: f.slice(0, 10), planovane: Array.isArray(j) ? j : j.planovane ?? [] }; });
 }
+/** Deň, ku ktorému sa výzva posudzuje: plánované predloženie, inak dnešok (vtedy C01 a C02 nedajú „splnené“). */
 const ref = (v: VstupVyzva) => v.datumPredlozenia ?? dnes();
+const BEZ_DATUMU = 'Plánovaný dátum predloženia nie je zadaný';
+
+/** Kedy sa údaje výziev stiahli z ITMS21+ (čas ISO). Exportované kvôli testu so zasadenými chybami. */
+export const STIAHNUTE: { vyzvy: string | null; detaily: string | null } = { vyzvy: DATA.stiahnute ?? null, detaily: DATA.detailyStiahnute ?? null };
+const denStiahnutia = (iso: string | null) => { const t = Date.parse(iso ?? ''); return Number.isFinite(t) ? dnesSk(new Date(t)) : null; };
+/** Deň v SR staršieho z oboch stiahnutí (zoznam výziev a detaily s kolami a verziami); null = nedá sa určiť. */
+export function stiahnuteDna(): string | null {
+  const a = denStiahnutia(STIAHNUTE.vyzvy), b = denStiahnutia(STIAHNUTE.detaily);
+  return a && b ? (a < b ? a : b) : null;
+}
+const predDnami = (n: number) => (n <= 0 ? 'dnes' : n === 1 ? 'včera' : `pred ${n} dňami`);
+/**
+ * Výsledok z údajov ITMS21+ uvádza ich vek. Údaje staršie ako MAX_VEK_KONTROLY_DNI alebo neznámeho veku nedajú
+ * „splnené“: výzva sa medzitým mohla zmeniť, pozastaviť alebo zrušiť (obdoba bodu VER-KONTROLA pri ŽoNFP).
+ */
+function sVekomUdajov(r: VysledokKontroly): VysledokKontroly {
+  const d = stiahnuteDna(); const vek = d ? rozdielDni(d, dnes()) : null;
+  const veta = d && vek != null ? ` Údaje výzvy sú z ITMS21+ stiahnuté ${skDatum(d)} (${predDnami(vek)}).` : ' Kedy sa údaje výzvy stiahli z ITMS21+, sa nedá určiť.';
+  if (r.stav === 'splnene' && (vek == null || vek > MAX_VEK_KONTROLY_DNI)) return { ...r, stav: 'na_preverenie', zdovodnenie: `${r.zdovodnenie}${veta}${vek != null ? ` Sú staršie ako ${MAX_VEK_KONTROLY_DNI} dní.` : ''} Výzva sa medzitým mohla zmeniť; overte ju v ITMS21+ alebo obnovte údaje (npm run data:vyzvy).` };
+  return { ...r, zdovodnenie: `${r.zdovodnenie}${veta}` };
+}
 
 /** Najbližšia uzávierka po dátume: uzávierka kola, inak koniec výzvy. */
 export function uzavierka(vz: Vyzva, od: string): { datum: string; popis: string } | null {
@@ -33,9 +57,12 @@ function stav(v: VstupVyzva): VysledokKontroly {
   if (vz.zrusena) return { stav: 'nesplnene', zdovodnenie: 'Výzva je zrušená.' };
   if (vz.pozastavena) return { stav: 'nesplnene', zdovodnenie: 'Predkladanie žiadostí do výzvy je pozastavené.' };
   if (vz.uzavreta) return { stav: 'nesplnene', zdovodnenie: 'Výzva je uzavretá.' };
-  if (vz.ukoncena && vz.ukoncena < d) return { stav: 'nesplnene', zdovodnenie: `Výzva skončila ${skDatum(vz.ukoncena)}, pred plánovaným predložením ${skDatum(d)}.` };
+  if (vz.ukoncena && vz.ukoncena < d) return { stav: 'nesplnene', zdovodnenie: `Výzva skončila ${skDatum(vz.ukoncena)}, ${v.datumPredlozenia ? `pred plánovaným predložením ${skDatum(d)}` : 'žiadosť do nej už nemožno predložiť'}.` };
   if (vz.vyhlasena && vz.vyhlasena > d) return { stav: 'na_preverenie', zdovodnenie: `Výzva bude vyhlásená až ${skDatum(vz.vyhlasena)}.` };
-  return { stav: 'splnene', zdovodnenie: `Výzva je k ${skDatum(d)} otvorená (vyhlásená ${skDatum(vz.vyhlasena)}${vz.ukoncena ? `, do ${skDatum(vz.ukoncena)}` : ', bez dátumu ukončenia'}).` };
+  const otvorena = `Výzva je ${v.datumPredlozenia ? `k plánovanému predloženiu ${skDatum(d)}` : `dnes (${skDatum(d)})`} otvorená (vyhlásená ${skDatum(vz.vyhlasena)}${vz.ukoncena ? `, do ${skDatum(vz.ukoncena)}` : ', bez dátumu ukončenia'}).`;
+  // Dnešný stav nie je stavom v deň predloženia: bez dátumu nie je „splnené“.
+  if (!v.datumPredlozenia) return { stav: 'mimo_podkladov', zdovodnenie: `${otvorena} ${BEZ_DATUMU}, preto sa neoverilo, či bude výzva otvorená v deň predloženia.` };
+  return { stav: 'splnene', zdovodnenie: otvorena };
 }
 
 function kolo(v: VstupVyzva): VysledokKontroly {
@@ -45,7 +72,9 @@ function kolo(v: VstupVyzva): VysledokKontroly {
     if (!vz.ukoncena && !vz.kola.length) return { stav: 'na_preverenie', zdovodnenie: 'Výzva nemá v ITMS21+ uzávierky kôl ani dátum ukončenia (otvorená výzva); žiadosti sa posudzujú priebežne do vyčerpania alokácie.' };
     return { stav: 'nesplnene', zdovodnenie: `Po ${skDatum(d)} už nie je žiadna uzávierka.` };
   }
-  return { stav: 'splnene', zdovodnenie: `Najbližšia: ${u.popis} ${skDatum(u.datum)}, o ${rozdielDni(dnes(), u.datum)} dní.`, hodnoty: { uzavierka: u.datum, dni: rozdielDni(dnes(), u.datum) } };
+  const hodnoty = { uzavierka: u.datum, dni: rozdielDni(dnes(), u.datum) };
+  if (!v.datumPredlozenia) return { stav: 'mimo_podkladov', zdovodnenie: `Najbližšia je ${u.popis} ${skDatum(u.datum)}, o ${hodnoty.dni} dní. ${BEZ_DATUMU}, preto sa neoverilo, do ktorej uzávierky žiadosť patrí.`, hodnoty };
+  return { stav: 'splnene', zdovodnenie: `Pri predložení ${skDatum(d)} je najbližšia ${u.popis} ${skDatum(u.datum)}, o ${hodnoty.dni} dní.`, hodnoty };
 }
 
 function rezerva(v: VstupVyzva): VysledokKontroly {
@@ -76,7 +105,9 @@ function plan(v: VstupVyzva): VysledokKontroly {
   if (p.zrusena) return { stav: 'nesplnene', zdovodnenie: 'Plánovaná výzva je zrušená.' };
   if (p.planVyhlasenia && p.planVyhlasenia < dnes() && !p.vyhlasena) return { stav: 'na_preverenie', zdovodnenie: `Plánované vyhlásenie ${skDatum(p.planVyhlasenia)} uplynulo a výzva nie je vyhlásená.${posuny.length ? ` Posuny: ${posuny.join('; ')}.` : ''}` };
   if (posuny.length) return { stav: 'na_preverenie', zdovodnenie: `Termín vyhlásenia sa posunul: ${posuny.join('; ')}.` };
-  return { stav: 'splnene', zdovodnenie: `Plánované vyhlásenie ${skDatum(p.planVyhlasenia)}; v ${hist.length} snímkach plánu bez posunu.${hist.length < 2 ? ' (Na zistenie posunov treba aspoň dve snímky.)' : ''}` };
+  // Z jednej snímky posun nevidno: bez porovnania nie je „splnené“.
+  if (hist.length < 2) return { stav: 'mimo_podkladov', zdovodnenie: `Plánované vyhlásenie ${skDatum(p.planVyhlasenia)}. Na zistenie posunu termínu treba aspoň dve snímky plánu, výzva je ${hist.length ? 'len v jednej' : 'v žiadnej'}.`, hodnoty: { snimok: hist.length } };
+  return { stav: 'splnene', zdovodnenie: `Plánované vyhlásenie ${skDatum(p.planVyhlasenia)}; v ${hist.length} snímkach plánu (${skDatum(hist[0].datum)} až ${skDatum(hist[hist.length - 1].datum)}) bez posunu.`, hodnoty: { snimok: hist.length } };
 }
 
 const FILTRE: Record<string, (v: { vyzva?: Vyzva; planovana?: Planovana }) => boolean> = {
@@ -99,7 +130,7 @@ export const vyzvy: Modul<VstupVyzva> = {
     return x ? { ...x, datumPredlozenia: null, dniPripravy: null, rezerva: null, datumOboznamenia: null } : undefined;
   },
   polia: () => [
-    { kluc: 'datumPredlozenia', nazov: 'Plánovaný dátum predloženia žiadosti', typ: 'datum', napoveda: 'Prázdne = dnes.' },
+    { kluc: 'datumPredlozenia', nazov: 'Plánovaný dátum predloženia žiadosti', typ: 'datum', napoveda: 'Bez dátumu softvér ukáže len dnešný stav výzvy a pravidlá C01 a C02 ostanú neoverené.' },
     { kluc: 'dniPripravy', nazov: 'Dni potrebné na prípravu žiadosti a príloh', typ: 'cislo', napoveda: 'Napr. energetický audit, projektová dokumentácia, uznesenie zastupiteľstva.' },
     { kluc: 'rezerva', nazov: 'Rezerva (dni), napr. na kontrolu konzultantom', typ: 'cislo' },
     { kluc: 'datumOboznamenia', nazov: 'Kedy žiadateľ naposledy čítal dokumentáciu výzvy', typ: 'datum' },
@@ -110,7 +141,10 @@ export const vyzvy: Modul<VstupVyzva> = {
     const d = (x: any) => (typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x) ? x : null);
     return { ...v, datumPredlozenia: d(f.datumPredlozenia), dniPripravy: num(f.dniPripravy), rezerva: num(f.rezerva), datumOboznamenia: d(f.datumOboznamenia) };
   },
-  kontroly: { vyzva_stav: stav, vyzva_kolo: kolo, vyzva_rezerva: rezerva, vyzva_verzia: verzia, vyzva_plan: plan },
+  kontroly: {
+    vyzva_stav: (v) => sVekomUdajov(stav(v)), vyzva_kolo: (v) => sVekomUdajov(kolo(v)), vyzva_rezerva: (v) => sVekomUdajov(rezerva(v)),
+    vyzva_verzia: (v) => sVekomUdajov(verzia(v)), vyzva_plan: (v) => sVekomUdajov(plan(v)),
+  },
   hlavnyText: () => '',
   kontext: (v) => (v.vyzva ?? v.planovana)!.nazov,
   titulok: (v) => { const y = (v.vyzva ?? v.planovana)!; return { kod: y.kod, nazov: y.nazov, podnazov: `${y.vyhlasovatel}${v.vyzva ? ` · ${v.vyzva.typ === 'UZAVRETA' ? 'uzavretá výzva (kolá)' : 'otvorená výzva'}` : ' · plánovaná výzva'}` }; },

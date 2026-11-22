@@ -3,7 +3,7 @@
 // výklade neistého sviatku alebo predĺženia prišlo po lehote. „Po lehote“ povie len vtedy, ak je to isté.
 // Spustenie: node scripts/22-test-lehoty.ts
 import { isDeepStrictEqual } from 'node:util';
-import { dnesSk, jeDen, koniecLehoty, pridajDni, stavLehoty, typDna, velkonocnaNedela, ULOZNA_LEHOTA, type Den, type UdajeLehoty } from '../src/podatelna/lehoty.ts';
+import { dnesSk, jeDen, koniecLehoty, pracovnyDenPred, pridajDni, stavLehoty, typDna, velkonocnaNedela, ULOZNA_LEHOTA, type Den, type UdajeLehoty } from '../src/podatelna/lehoty.ts';
 
 let chyb = 0;
 const over = (nazov: string, skutocne: unknown, ocakavane: unknown = true) => {
@@ -55,6 +55,12 @@ const konce: [Den, number, Den, string][] = [
 for (const [dor, n, koniec, popis] of konce) over(`Koniec lehoty: ${popis}`, koniecLehoty(dor, n), koniec);
 over('Neistý 8. máj 2028: skorší koniec, ak je pracovný', koniecLehoty('2028-05-05', 5, 'pracovny'), '2028-05-12');
 over('Neistý 8. máj 2028: neskorší koniec, ak je voľný', koniecLehoty('2028-05-05', 5, 'volny'), '2028-05-15');
+// Lehota späť, napr. ex post zmena „najneskôr 30 dní pred ŽoP“ (modul zmeny, Z05). 17. 11. už nie je voľno (od 2025).
+over('30. pracovný deň pred 15. 12. 2026 je 3. 11. 2026', pracovnyDenPred('2026-12-15', 30), '2026-11-03');
+over('31. pracovný deň pred 15. 12. 2026 je 2. 11. 2026', pracovnyDenPred('2026-12-15', 31), '2026-11-02');
+over('Lehota späť preskočí Veľkú noc: 2. pracovný deň pred 7. 4. 2026 je 1. 4.', pracovnyDenPred('2026-04-07', 2), '2026-04-01');
+over('Neistý 17. 11. 2028 ako pracovný: 1. pracovný deň pred 20. 11. 2028 je 17. 11.', pracovnyDenPred('2028-11-20', 1, 'pracovny'), '2028-11-17');
+over('Neistý 17. 11. 2028 ako voľný: 1. pracovný deň pred 20. 11. 2028 je 16. 11.', pracovnyDenPred('2028-11-20', 1, 'volny'), '2028-11-16');
 
 // ---------- pomocné funkcie
 over('jeDen odmietne neplatné dátumy', [jeDen('2026-02-28'), jeDen('2026-02-30'), jeDen('2026-2-3'), jeDen(20261122), jeDen('')], [true, false, false, false, false]);

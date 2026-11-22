@@ -76,6 +76,16 @@ export function koniecLehoty(dorucenie: Den, dni: number, neisty: Neisty = 'voln
   return d;
 }
 
+/**
+ * N-tý pracovný deň pred dňom d (deň d sa nepočíta), napr. lehota „najneskôr 30 dní pred predložením ŽoP“,
+ * keď zmluva o NFP za dni považuje pracovné dni. Neistý deň sa počíta ako pracovný (neskorší výsledok) alebo voľný.
+ */
+export function pracovnyDenPred(d: Den, dni: number, neisty: Neisty = 'volny'): Den {
+  let x = d;
+  for (let n = 0; n < dni;) { x = pridajDni(x, -1); if (jePracovny(x, neisty)) n++; }
+  return x;
+}
+
 /** Neisté dni v intervale (od, do]. */
 export function neisteDni(od: Den, po: Den): Den[] {
   const out: Den[] = [];

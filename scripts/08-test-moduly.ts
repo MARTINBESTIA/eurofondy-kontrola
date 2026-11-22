@@ -10,10 +10,10 @@ import { nacitajBalik, posud } from '../src/core/posud.ts';
 import type { BalikPravidiel, Modul, Posudok, Stav } from '../src/core/typy.ts';
 import { dnes, pridajDni, pridajMesiace, projekty, rozdielDni } from '../src/moduly/spolocne.ts';
 import { zonfp } from '../src/moduly/zonfp/modul.ts';
-import { vyzvy, uzavierka, type VstupVyzva } from '../src/moduly/vyzvy/modul.ts';
-import { vo, VSETKY as VSETKY_VO, type VstupVo } from '../src/moduly/vo/modul.ts';
-import { zmeny, zatried, limitHA, NAZOV_KAT, type VstupZmena } from '../src/moduly/zmeny/modul.ts';
-import { zop, DOKLADY, VSETKY_ZOP, doklad, type VstupZop } from '../src/moduly/zop/modul.ts';
+import { vyzvy, uzavierka, STIAHNUTE, type VstupVyzva } from '../src/moduly/vyzvy/modul.ts';
+import { vo, VSETKY as VSETKY_VO, limitPostupu, type VstupVo } from '../src/moduly/vo/modul.ts';
+import { zmeny, zatried, limitHA, NAZOV_KAT, povinnePrilohy as prilohyZmeny, type VstupZmena } from '../src/moduly/zmeny/modul.ts';
+import { zop, DOKLADY, VSETKY_ZOP, doklad, povinnePrilohy as prilohyZop, type VstupZop } from '../src/moduly/zop/modul.ts';
 import { ukazovatele, jeZnizujuci, type VstupUkazovatele } from '../src/moduly/ukazovatele/modul.ts';
 import { kalkulacka } from '../src/moduly/ukazovatele/kalkulacka.ts';
 
@@ -74,7 +74,18 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
     await zasad(m, b, 'Príprava trvá dlhšie, ako ostáva do uzávierky', 'C03', 'nesplnene', otvorene.map((v) => ({ ...structuredClone(v), dniPripravy: rozdielDni(dnes(), uzavierka(v.vyzva!, dnes())!.datum) + 30, rezerva: 0 }))),
     await zasad(m, b, 'Žiadateľ čítal starú verziu výzvy', 'C04', 'nesplnene', s_verziami.map((v) => { const d = [...v.vyzva!.verzie].filter((x) => x.datum).sort((a, c) => c.datum!.localeCompare(a.datum!))[0].datum!; return { ...structuredClone(v), datumOboznamenia: pridajDni(d, -1) }; })),
     await zasad(m, b, 'Plánovaná výzva po termíne nevyhlásená', 'C05', 'na_preverenie', planovane.map((v) => { const x = structuredClone(v); x.planovana!.planVyhlasenia = '2026-01-15'; x.planovana!.vyhlasena = false; return x; })),
+    // Bez dátumu predloženia je dnešný stav len informácia, nie „splnené“ (N21).
+    await zasad(m, b, 'Otvorená výzva, plánovaný dátum predloženia nezadaný', 'C01', 'mimo_podkladov', otvorene.map((v) => ({ ...structuredClone(v), datumPredlozenia: null }))),
+    // Plánovaná výzva, ktorá ešte nie je v žiadnej snímke plánu: posun termínu sa nedá zistiť (N7).
+    await zasad(m, b, 'Plánovaná výzva bez dvoch snímok plánu', 'C05', 'mimo_podkladov', planovane.map((v) => { const x = structuredClone(v); x.planovana!.kod = `${x.planovana!.kod}-NOVA`; x.planovana!.planVyhlasenia = pridajDni(dnes(), 60); x.planovana!.vyhlasena = false; x.planovana!.zrusena = false; return x; })),
   ];
+  // Údaje výzvy staršie ako 7 dní nedajú „splnené“ (N7): stiahnutie sa posunie o 10 dní dozadu a potom vráti.
+  const stiahnute = { ...STIAHNUTE };
+  STIAHNUTE.vyzvy = STIAHNUTE.detaily = `${pridajDni(dnes(), -10)}T10:00:00Z`;
+  r.zasadene.push(await zasad(m, b, 'Údaje výzvy z ITMS21+ staršie ako 7 dní', 'C01', 'na_preverenie', otvorene.map((v) => ({ ...structuredClone(v), datumPredlozenia: dnes() }))));
+  STIAHNUTE.vyzvy = STIAHNUTE.detaily = null;
+  r.zasadene.push(await zasad(m, b, 'Neznámy dátum stiahnutia údajov výzvy', 'C04', 'na_preverenie', s_verziami.map((v) => ({ ...structuredClone(v), datumOboznamenia: dnes() }))));
+  Object.assign(STIAHNUTE, stiahnute);
   const meskajuce = planovane.filter((v) => v.planovana!.planVyhlasenia && v.planovana!.planVyhlasenia < dnes());
   r.poznamky = [
     `Z ${vs.filter((v) => v.vyzva).length} výziev má ${s_verziami.length} aspoň dve datované verzie (zmenu po vyhlásení); žiadateľ, ktorý pracuje so starou verziou, je reálne riziko.`,
@@ -101,11 +112,19 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
   const sutaz = vs.filter((v) => !/výnimk|in-house|nerelevantné|čiastková zmluva|koncesi/i.test(v.vo.postup) && !/stiahnut|pripravovan/i.test(v.vo.stav));
   const sPhz = vs.filter((v) => (v.vo.phz ?? 0) > 0);
   const sZmluvou = vs.filter((v) => v.vo.zmluvy.some((z) => z.suma != null) && v.vo.doklady.length);
+  const bezLimitu = vs.filter((v) => !limitPostupu(v.vo));
   r.zasadene = [
-    await zasad(m, b, 'Zákazka malého rozsahu s PHZ 60 000 EUR (po 1. 8. 2024)', 'V01', 'nesplnene', zmr.map((v) => { const x = structuredClone(v); x.vo.phz = 60_000; x.vo.vytvorene = '2025-03-01'; return x; })),
+    await zasad(m, b, 'Zákazka malého rozsahu s PHZ 60 000 EUR (po 1. 8. 2024)', 'V01', 'nesplnene', zmr.map((v) => { const x = structuredClone(v); x.vo.phz = 60_000; x.vo.vytvorene = '2025-03-01'; x.vo.zmluvy = x.vo.zmluvy.map((z) => ({ ...z, ucinnost: '2025-04-01' })); return x; })),
+    // N2: postup, ktorého limit softvér nepozná, nesmie dať „neuplatňuje sa“.
+    await zasad(m, b, 'PHZ 10 mil. EUR pri postupe, ktorého limit softvér neoveruje', 'V01', 'na_preverenie', bezLimitu.map((v) => { const x = structuredClone(v); x.vo.phz = 10_000_000; return x; })),
+    // N3: záznam vytvorený v ITMS21+ po 1. 8. 2024, zmluva však skoršia; limit v čase VO nie je overený.
+    await zasad(m, b, 'Zákazka malého rozsahu 45 000 EUR so zmluvou z 2023, v ITMS21+ vytvorená 2025', 'V01', 'na_preverenie', zmr.map((v) => { const x = structuredClone(v); x.vo.phz = 45_000; x.vo.vytvorene = '2025-02-13'; x.vo.zmluvy = [{ id: -1, kod: 'T', cislo: 'T', ucinnost: '2023-08-17', suma: 50_000, dodavatel: null }]; return x; })),
     await zasad(m, b, 'Súťaž s jedinou ponukou', 'V02', 'na_preverenie', sutaz.map((v) => { const x = structuredClone(v); x.vo.ponuky = 1; x.vo.vylucene = 0; return x; })),
     await zasad(m, b, 'Zmluva o 60 % nad PHZ (s DPH)', 'V03', 'na_preverenie', sPhz.map((v) => { const x = structuredClone(v); x.vo.zmluvy = [{ id: -1, kod: 'T', cislo: 'T', ucinnost: null, suma: Math.round(x.vo.phz! * 1.23 * 1.6), dodavatel: null }]; return x; })),
     await zasad(m, b, 'Faktúry o 50 % nad zmluvy (s DPH)', 'V04', 'na_preverenie', sZmluvou.map((v) => { const x = structuredClone(v); const s = x.vo.zmluvy.reduce((a, z) => a + (z.suma ?? 0), 0); x.vo.doklady = [{ id: -1, cislo: 'T', celkom: s * 1.23 * 1.5, datum: null }]; return x; })),
+    // N19: neznáma suma nie je nula.
+    await zasad(m, b, 'Druhá zmluva bez sumy, prvá zodpovedá PHZ', 'V03', 'mimo_podkladov', sPhz.map((v) => { const x = structuredClone(v); x.vo.zmluvy = [{ id: -1, kod: 'T1', cislo: 'T1', ucinnost: null, suma: x.vo.phz, dodavatel: null }, { id: -2, kod: 'T2', cislo: 'T2', ucinnost: null, suma: null, dodavatel: null }]; return x; })),
+    await zasad(m, b, 'Účtovný doklad bez sumy', 'V04', 'mimo_podkladov', sZmluvou.map((v) => { const x = structuredClone(v); x.vo.doklady = [{ id: -1, cislo: 'T', celkom: null, datum: null }]; return x; })),
   ];
   // Delenie zákazky: k zákazke malého rozsahu sa do dát pridajú dve ďalšie s rovnakým obstarávateľom, CPV a rokom.
   const delit = zmr.filter((v) => v.vo.cpv && v.vo.vytvorene && (v.vo.phz ?? 0) < 50_000).slice(0, 150);
@@ -117,6 +136,9 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
   });
   VSETKY_VO.push(...pridane);
   r.zasadene.push(await zasad(m, b, 'Tri zákazky malého rozsahu po 30 000 EUR na rovnaký predmet v jednom roku', 'V05', 'na_preverenie', vstupyDelenie));
+  // N19: ďalšie dve zákazky bez PHZ sa nesmú započítať ako nula.
+  for (const x of pridane) x.phz = null;
+  r.zasadene.push(await zasad(m, b, 'Zákazka 30 000 EUR a dve ďalšie na rovnaký predmet bez uvedenej PHZ', 'V05', 'mimo_podkladov', vstupyDelenie));
   VSETKY_VO.splice(VSETKY_VO.length - pridane.length, pridane.length);
   r.poznamky = [
     'V06 (štatutári v RPO) je online dopyt a je predvolene vypnutý; test ho nespúšťa, aby sa nič neodosielalo.',
@@ -135,6 +157,7 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
   const sMU = vs.filter((v) => v.projekt.ukazovatele.some((u) => (u.ciel ?? 0) > 0 && !jeZnizujuci(u)));
   const vzorka = (a: VstupZmena[], n = 200) => a.filter((_, i) => i % Math.max(1, Math.floor(a.length / n)) === 0).slice(0, n);
   const s = vzorka(vs);
+  const ciastocnaZhoda = (v: VstupZmena): VstupZmena => ({ ...structuredClone(v), zmena: { ...v.zmena, predmet: 'Zmena e-mailovej adresy štatutára a zníženie rozsahu zateplenia na polovicu plochy.' }, formular: 'OoZ' });
   r.zasadene = [
     await zasad(m, b, 'Zmena miesta realizácie predložená ako OoZ', 'Z01', 'nesplnene', s.map((v) => ({ ...structuredClone(v), zmena: { ...v.zmena, predmet: 'Zmena miesta realizácie projektu: rozšírenie o susednú parcelu.' }, formular: 'OoZ' as const }))),
     await zasad(m, b, 'Nová výška NFP o 5 % vyššia', 'Z03', 'nesplnene', s.map((v) => ({ ...structuredClone(v), novaNfp: Math.round(v.projekt.nfp * 1.05) }))),
@@ -143,6 +166,15 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
     await zasad(m, b, 'Ex post zmena (prečerpanie 20 %) podaná 11 dní pred ŽoP', 'Z05', 'nesplnene', s.map((v) => ({ ...structuredClone(v), zmena: { ...v.zmena, predmet: 'Presun prostriedkov medzi položkami rozpočtu.' }, precerpanie: 20, formular: 'ZoZZ' as const, datumPodania: '2026-06-20', datumZop: '2026-07-01' }))),
     await zasad(m, b, 'MU znížený na 50 % pri hranici 70 %', 'Z06', 'nesplnene', vzorka(sMU).map((v) => { const u = v.projekt.ukazovatele.find((x) => (x.ciel ?? 0) > 0 && !jeZnizujuci(x))!; return { ...structuredClone(v), muKod: u.kod, muNova: u.ciel! * 0.5, prahPercent: 70 }; })),
     await zasad(m, b, 'Zmena štatutára: priložený doklad, chýba formulár OoZ', 'Z07', 'chyba_podklad', s.map((v) => ({ ...structuredClone(v), zmena: { ...v.zmena, predmet: 'Zmena štatutárneho orgánu, nový starosta obce.' }, prilohy: { statutar_1: { nazov: 'osvedcenie.pdf', text: 'Osvedčenie o zvolení za starostu obce.' } } }))),
+    // N1: zmluva počíta 30 pracovných dní. Pri ŽoP 15. 12. 2026 je 30. pracovný deň pred ňou 3. 11. 2026.
+    await zasad(m, b, 'Ex post ŽoZZ 35 kalendárnych, ale len 25 pracovných dní pred ŽoP', 'Z05', 'nesplnene', s.map((v) => ({ ...structuredClone(v), zmena: { ...v.zmena, predmet: 'Presun prostriedkov medzi položkami rozpočtu.' }, precerpanie: 20, formular: 'ZoZZ' as const, datumPodania: '2026-11-10', datumZop: '2026-12-15' }))),
+    await zasad(m, b, 'Ex post ŽoZZ na 30. pracovný deň pred ŽoP (hraničný deň)', 'Z05', 'na_preverenie', s.map((v) => ({ ...structuredClone(v), zmena: { ...v.zmena, predmet: 'Presun prostriedkov medzi položkami rozpočtu.' }, precerpanie: 20, formular: 'ZoZZ' as const, datumPodania: '2026-11-03', datumZop: '2026-12-15' }))),
+    // N4: kľúčové slová zachytia len formálnu časť zmeny, zníženie rozsahu nie.
+    await zasad(m, b, 'OoZ: e-mail štatutára a zníženie rozsahu zateplenia na polovicu (zatriedené ako formálna)', 'Z01', 'na_preverenie', s.map(ciastocnaZhoda)),
+    await zasad(m, b, 'OoZ: e-mail štatutára a zníženie rozsahu zateplenia na polovicu (zatriedené ako formálna)', 'Z02', 'na_preverenie', s.map(ciastocnaZhoda)),
+    await zasad(m, b, 'OoZ: e-mail štatutára a zníženie rozsahu zateplenia na polovicu (zatriedené ako formálna)', 'Z05', 'na_preverenie', s.map(ciastocnaZhoda)),
+    // N5: obsadené miesto prílohy nie je správny dokument.
+    await zasad(m, b, 'Zmena štatutára: na každom mieste prílohy je len prázdna šablóna', 'Z07', 'na_preverenie', s.map((v) => { const x: VstupZmena = { ...structuredClone(v), zmena: { ...v.zmena, predmet: 'Zmena štatutárneho orgánu, nový starosta obce.' } }; x.prilohy = Object.fromEntries(prilohyZmeny(x).map((p) => [p.cislo, { nazov: `${p.cislo}.pdf`, text: 'Šablóna – nevyplnené' }])); return x; })),
   ];
   // Klasifikátor voči skutočnosti: zmena s dodatkom k zmluve mala ísť cez ŽoZZ (alebo bola technická).
   const kat: Record<string, { s: number; bez: number }> = {};
@@ -185,10 +217,28 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
     await zasad(m, b, 'Priložená len faktúra, chýba výpis a ďalšie dokumenty', 'P10', 'chyba_podklad', vz.filter((v) => v.zop.typ !== 'PREDFINANCOVANIE').map((v) => ({ ...structuredClone(v), prilohy: { faktura: { nazov: 'faktura.pdf', text: 'Faktúra č. 2026001' } } }))),
     await zasad(m, b, 'Doklad o úhrade je výstup z internet bankingu', 'P12', 'nesplnene', vz.map((v) => ({ ...structuredClone(v), prilohy: { uhrada: { nazov: 'platba.pdf', text: 'Internet banking – detail transakcie\nSuma: 12 450,00 EUR\nDátum: 14.03.2026\nZ účtu SK31 1200 0000 1987 4263 7541' } } }))),
     await zasad(m, b, 'Výpis z účtu bez čísla účtu (bez modelu)', 'P12', 'nesplnene', vz.map((v) => ({ ...structuredClone(v), prilohy: { uhrada: { nazov: 'vypis.pdf', text: 'Výpis z bankového účtu č. 3/2026\nDátum zaúčtovania 14.03.2026\nOdpísaná suma 12 450,00 EUR\nPríjemca: Stavby s.r.o.' } } }))),
+    // N6: jeden údaj o hotovosti nehovorí nič o ostatných dvoch limitoch.
+    await zasad(m, b, 'Zadaná len najvyššia hotovostná platba 100 EUR', 'P09', 'mimo_podkladov', vz.map((v) => ({ ...structuredClone(v), hotovostMax: 100 }))),
+    // N17: neznámy status platiteľa DPH nie je „nie je platiteľ“.
+    await zasad(m, b, 'Prijímateľ s neznámym statusom platiteľa DPH žiada aj DPH', 'P04', 'na_preverenie', vz.map((v) => { const x = structuredClone(v); x.zop.prijimatel.platitelDph = null; const y = x.zop.vydavky[0]; y.dph = Math.round(y.bezDph! * 23) / 100; y.ziadana = y.bezDph! + y.dph; return x; })),
+    await zasad(m, b, 'Doklad s DPH od dodávateľa s neznámym statusom platiteľa DPH', 'P04', 'na_preverenie', vz.map((v) => sDokladom2(v, (d) => { d.dodavatel = { ...(d.dodavatel ?? { nazov: 'Test s.r.o.', ico: '12345678' }), platitelDph: null }; d.polozky = [{ bezDph: 1000, dph: 230, sadzba: 23, spolu: 1230 }]; }))),
+    // N18: VO, ktoré v dátach chýba, nemá PHZ 0.
+    await zasad(m, b, 'Výdavok viazaný na VO, ktoré v dátach chýba', 'P07', 'mimo_podkladov', vz.map((v) => { const x = structuredClone(v); x.zop.vydavky[0].voIds = [...x.zop.vydavky[0].voIds, -999_999]; return x; })),
+    // N19 a obdobné cesty: neznáma suma nie je nula ani sa ticho nevynechá.
+    await zasad(m, b, 'Účtovný doklad výdavku bez sumy', 'P02', 'mimo_podkladov', vz.map((v) => sDokladom2(v, (d) => { d.celkom = null; }))),
+    await zasad(m, b, 'Položka dokladu bez sadzby a DPH', 'P05', 'mimo_podkladov', vz.map((v) => sDokladom2(v, (d) => { d.polozky = [{ bezDph: 1000, dph: 230, sadzba: 23, spolu: 1230 }, { bezDph: 500, dph: null, sadzba: null, spolu: 500 }]; }))),
+    await zasad(m, b, 'Výdavok so zmluvou z VO, ktorá v dátach chýba', 'P08', 'mimo_podkladov', vz.map((v) => { const x = structuredClone(v); x.zop.vydavky[0].zmluvaVoIds = [...x.zop.vydavky[0].zmluvaVoIds, -999_999]; return x; })),
+    // N5: obsadené miesto prílohy nie je správny dokument.
+    await zasad(m, b, 'Na každom mieste povinnej prílohy je len prázdna šablóna', 'P10', 'na_preverenie', vz.map((v) => { const x = structuredClone(v); x.prilohy = Object.fromEntries(prilohyZop(x).map((p) => [p.cislo, { nazov: `${p.cislo}.pdf`, text: 'Šablóna – nevyplnené' }])); return x; })),
   ];
   // Opätovné predloženie uhradenej ŽoP: tie isté doklady, tá istá rodina nárokov, obe uhradené.
   const uhradene = VSETKY_ZOP.filter((z) => z.neuhradena === false && !z.typ.startsWith('ZUCTOVANIE') && z.vydavky.some((x) => { const d = doklad(x.dokladId); return d?.celkom && (x.ziadana ?? 0) >= d.celkom * 0.5; })).slice(0, 200);
   r.zasadene.push(await zasad(m, b, 'Uhradená ŽoP predložená druhýkrát (rovnaké doklady)', 'P03', 'nesplnene', uhradene.map((z) => { const v = nacitaj<VstupZop>(m, z.kod); v.zop.kod = `${z.kod}-T`; return v; })));
+  // N19: doklady opakovanej ŽoP bez sumy v dátach sa nesmú vynechať. Sumy sa dočasne zmažú a potom vrátia.
+  const sumy = new Map<string, number | null>();
+  for (const z of uhradene) for (const x of z.vydavky) { const k = String(x.dokladId); if (DOKLADY[k] && !sumy.has(k)) { sumy.set(k, DOKLADY[k].celkom); DOKLADY[k].celkom = null; } }
+  r.zasadene.push(await zasad(m, b, 'Uhradená ŽoP predložená druhýkrát, doklady bez sumy v dátach', 'P03', 'na_preverenie', uhradene.map((z) => { const v = nacitaj<VstupZop>(m, z.kod); v.zop.kod = `${z.kod}-T`; return v; })));
+  for (const [k, c] of sumy) DOKLADY[k].celkom = c;
   r.poznamky = [
     'Doklady ŽoP (faktúry, výpisy) nie sú verejné; na reálnych dátach sa overujú len údaje ITMS21+ (sumy, dátumy, DPH, väzba na VO a zmluvy).',
     'Zasadené chyby v dokladoch používajú syntetické kópie reálnych dokladov; reálne dáta sa nemenia.',
@@ -232,6 +282,11 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
   const s3 = vs.filter((v) => v.projekt.terminy.some((t) => t.najneskor && t.najneskor < dnes()));
   r.zasadene.push(await zasad(m, b, 'Uplynul termín monitorovacej správy, žiadna nepredložená', 'U03', 'nesplnene', s3.map((v) => ({ ...structuredClone(v), predlozene: 0 }))));
 
+  // N20: dnešok v SR, nie v UTC. 22. 11. 2026 o 23:30 UTC je v Bratislave už 23. 11.
+  const prepisanyDnes = process.env.KONTROLA_DNES; delete process.env.KONTROLA_DNES;
+  const poPolnoci = dnes(new Date('2026-11-22T23:30:00Z')); const leto = dnes(new Date('2026-07-01T22:30:00Z'));
+  if (prepisanyDnes !== undefined) process.env.KONTROLA_DNES = prepisanyDnes;
+
   // Ručne prepočítané príklady sankčnej kalkulačky (príloha č. 12 príručky).
   const tol = (a: unknown, e: number) => typeof a === 'number' && Math.abs(a - e) < 0.01;
   const k1 = kalkulacka({ A: 1_000_000, C: 70, D: 60, E: 25, F: 25, riadky: [{ kod: 'O1', typ: 'výstup', ciel: 100, skutocnost: 90 }, { kod: 'R1', typ: 'výsledok', ciel: 100, skutocnost: 80 }] });
@@ -245,6 +300,7 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
     { nazov: 'Jeden z dvoch výstupov 60/100 pod C=70: možnosť odstúpiť alebo maximálna sankcia', vysledok: String(k3.E35), ok: /^možnosť odstúpiť/.test(String(k3.E35)) },
     { nazov: 'Výsledok 50/100 pod D=60: možnosť odstúpiť od zmluvy', vysledok: String(k4.F35), ok: /^možnosť odstúpiť/.test(String(k4.F35)) },
     { nazov: 'Výstup 97/100 (nad 95 %): bez krátenia', vysledok: `E34 ${k4.E34}, E35 ${k4.E35}`, ok: k4.E34 === 0 && k4.E35 === 0 },
+    { nazov: 'Dnešok v SR: 22. 11. 2026 23:30 UTC je 23. 11., 1. 7. 2026 22:30 UTC je 2. 7. (letný čas)', vysledok: `${poPolnoci}, ${leto}`, ok: poPolnoci === '2026-11-23' && leto === '2026-07-02' },
   ];
   for (const o of r.overenia) console.log(`  ${o.ok ? '✓' : '✗'} ${o.nazov} → ${o.vysledok}`);
   r.poznamky = [

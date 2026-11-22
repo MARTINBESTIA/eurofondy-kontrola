@@ -57,73 +57,103 @@ function obdobie(v: VstupZop): VysledokKontroly {
 
 function sumy(v: VstupZop): VysledokKontroly {
   const zle: string[] = []; const naDoklad = new Map<number, number>(); let bez = 0;
+  // Neznáma suma sa nepočíta ako nula ani sa ticho nevynechá: taký výdavok alebo doklad ostane neoverený.
+  const neovereny: string[] = [];
   for (const x of v.zop.vydavky) {
-    if (x.ziadana == null) continue;
-    if (x.bezDph != null && x.ziadana > x.bezDph + (x.dph ?? 0) + 0.01) zle.push(`č. ${x.poradie}: žiadané ${eur(x.ziadana)} > výška výdavku ${eur(x.bezDph + (x.dph ?? 0))}`);
+    if (x.ziadana == null) { neovereny.push(`výdavok č. ${x.poradie} bez žiadanej sumy`); continue; }
+    if (x.bezDph == null) neovereny.push(`výdavok č. ${x.poradie} bez výšky výdavku`);
+    else if (x.ziadana > x.bezDph + (x.dph ?? 0) + 0.01) zle.push(`č. ${x.poradie}: žiadané ${eur(x.ziadana)} > výška výdavku ${eur(x.bezDph + (x.dph ?? 0))}`);
     if (x.dokladId != null) naDoklad.set(x.dokladId, (naDoklad.get(x.dokladId) ?? 0) + x.ziadana); else bez++;
   }
-  for (const [id, s] of naDoklad) { const d = doklad(id); if (d?.celkom != null && s > d.celkom + 0.01) zle.push(`doklad ${d.cislo}: v tejto ŽoP žiadané ${eur(r2(s))} > suma dokladu ${eur(d.celkom)}`); }
+  for (const [id, s] of naDoklad) {
+    const d = doklad(id);
+    if (d?.celkom == null) neovereny.push(`doklad ${d?.cislo ?? `id ${id}`} bez sumy v dátach`);
+    else if (s > d.celkom + 0.01) zle.push(`doklad ${d.cislo}: v tejto ŽoP žiadané ${eur(r2(s))} > suma dokladu ${eur(d.celkom)}`);
+  }
   if (zle.length) return { stav: 'nesplnene', zdovodnenie: zle.slice(0, 10).join('; ') };
   if (!v.zop.vydavky.length) return { stav: 'neuplatnuje_sa', zdovodnenie: 'ŽoP nemá výdavky.' };
-  if (bez) return { stav: 'na_preverenie', zdovodnenie: `${bez} výdavkov nemá priradený účtovný doklad.` };
+  if (bez) return { stav: 'na_preverenie', zdovodnenie: `${bez} výdavkov nemá priradený účtovný doklad.${neovereny.length ? ` Neoverené: ${neovereny.slice(0, 8).join('; ')}.` : ''}` };
+  if (neovereny.length) return { stav: 'mimo_podkladov', zdovodnenie: `Ostatné žiadané sumy neprevyšujú výšku výdavkov ani sumy dokladov. Neoverené pre chýbajúcu sumu: ${neovereny.slice(0, 8).join('; ')}${neovereny.length > 8 ? ` a ďalších ${neovereny.length - 8}` : ''}.` };
   return { stav: 'splnene', zdovodnenie: `Žiadané sumy neprevyšujú výšku výdavkov ani sumy ${naDoklad.size} dokladov.` };
 }
 
 function duplicita(v: VstupZop): VysledokKontroly {
   const ostatne = VSETKY_ZOP.filter((z) => z.kod !== v.zop.kod);
-  const zle: string[] = []; const preverit: string[] = [];
+  const zle: string[] = []; const preverit: string[] = []; const bezSumy: string[] = [];
   const mojeDoklady = new Set(v.zop.vydavky.map((x) => x.dokladId).filter((x): x is number => x != null));
   const rod = rodina(v.zop.typ);
   for (const id of mojeDoklady) {
-    const d = doklad(id); if (d?.celkom == null) continue;
+    const d = doklad(id);
     const moje = v.zop.vydavky.filter((x) => x.dokladId === id).reduce((s, x) => s + (x.ziadana ?? 0), 0);
     const ine = ostatne.filter((z) => rodina(z.typ) === rod).flatMap((z) => z.vydavky.filter((x) => x.dokladId === id).map((x) => ({ z, x })));
     if (!ine.length) continue;
     const spolu = moje + ine.reduce((s, a) => s + (a.x.ziadana ?? 0), 0);
+    const kde = [...new Set(ine.map((a) => `${a.z.kod}${a.z.neuhradena === false ? ' (uhradená)' : a.z.neuhradena ? ' (neuhradená)' : ''}`))].join(', ');
+    // Doklad bez sumy sa nevynechá: je nárokovaný aj inde a či spolu neprevyšuje jeho hodnotu, sa nedá overiť.
+    if (d?.celkom == null) { bezSumy.push(`doklad ${d?.cislo ?? `id ${id}`} (suma nie je v dátach): spolu žiadané ${eur(r2(spolu))}, aj v ŽoP ${kde}`); continue; }
     if (spolu <= d.celkom + 0.01) continue;
     const uhradene = (v.zop.neuhradena === false ? moje : 0) + ine.filter((a) => a.z.neuhradena === false).reduce((s, a) => s + (a.x.ziadana ?? 0), 0);
-    const kde = [...new Set(ine.map((a) => `${a.z.kod}${a.z.neuhradena === false ? ' (uhradená)' : a.z.neuhradena ? ' (neuhradená)' : ''}`))].join(', ');
     const veta = `doklad ${d.cislo} (${eur(d.celkom)}): spolu žiadané ${eur(r2(spolu))}, aj v ŽoP ${kde}`;
     if (uhradene > d.celkom + 0.01) zle.push(veta); else preverit.push(veta);
   }
-  const hodnoty = { dokladov: mojeDoklady.size, viacnasobne: zle.length + preverit.length };
+  const hodnoty = { dokladov: mojeDoklady.size, viacnasobne: zle.length + preverit.length + bezSumy.length };
   if (zle.length) return { stav: 'nesplnene', zdovodnenie: `Ten istý doklad je v uhradených ŽoP (${ZNENIE_ROD[rod]}) nárokovaný nad svoju hodnotu: ${zle.slice(0, 6).join('; ')}.`, hodnoty };
-  if (preverit.length) return { stav: 'na_preverenie', zdovodnenie: `Doklad je nárokovaný aj v inej ŽoP (${ZNENIE_ROD[rod]}) a spolu prevyšuje svoju hodnotu: ${preverit.slice(0, 6).join('; ')}. Ak predchádzajúca ŽoP nebola zamietnutá alebo stiahnutá, ide o dvojité nárokovanie.`, hodnoty };
+  if (preverit.length || bezSumy.length) return { stav: 'na_preverenie', zdovodnenie: [
+    preverit.length ? `Doklad je nárokovaný aj v inej ŽoP (${ZNENIE_ROD[rod]}) a spolu prevyšuje svoju hodnotu: ${preverit.slice(0, 6).join('; ')}. Ak predchádzajúca ŽoP nebola zamietnutá alebo stiahnutá, ide o dvojité nárokovanie.` : '',
+    bezSumy.length ? `Doklad bez sumy je nárokovaný aj v inej ŽoP (${ZNENIE_ROD[rod]}), či spolu neprevyšuje svoju hodnotu, sa nedá overiť: ${bezSumy.slice(0, 6).join('; ')}.` : '',
+  ].filter(Boolean).join(' '), hodnoty };
   if (!mojeDoklady.size) return { stav: 'neuplatnuje_sa', zdovodnenie: 'ŽoP nemá účtovné doklady.' };
   return { stav: 'splnene', zdovodnenie: `Žiadny z ${mojeDoklady.size} dokladov nie je spolu s ostatnými ŽoP projektu nárokovaný nad svoju hodnotu.`, hodnoty };
 }
 
 function dph(v: VstupZop): VysledokKontroly {
-  const dodavatel: string[] = []; const prijimatel: string[] = [];
-  const platitel = v.zop.prijimatel.platitelDph === true;
+  const dodavatel: string[] = []; const dodavatelNeznamy: string[] = []; const prijimatel: string[] = []; const bezDokladu: string[] = [];
+  // Status platiteľa DPH: true / false z ITMS21+, null = neznámy. Neznámy status sa neberie ako „nie je platiteľ“.
+  const platitel = v.zop.prijimatel.platitelDph;
+  for (const x of v.zop.vydavky) if (x.dokladId == null || !doklad(x.dokladId)) bezDokladu.push(`č. ${x.poradie}`);
   for (const id of new Set(v.zop.vydavky.map((x) => x.dokladId))) {
     const d = doklad(id); if (!d) continue;
     const dphSpolu = d.polozky.reduce((s, p) => s + (p.dph ?? 0), 0);
-    if (d.dodavatel?.platitelDph === false && dphSpolu > 0.01) dodavatel.push(`${d.cislo} (${d.dodavatel.nazov}, DPH ${eur(r2(dphSpolu))})`);
+    if (dphSpolu <= 0.01) continue;
+    if (d.dodavatel?.platitelDph === false) dodavatel.push(`${d.cislo} (${d.dodavatel.nazov}, DPH ${eur(r2(dphSpolu))})`);
+    else if (d.dodavatel?.platitelDph == null) dodavatelNeznamy.push(`${d.cislo} (${d.dodavatel?.nazov ?? 'dodávateľ neuvedený'}, DPH ${eur(r2(dphSpolu))})`);
   }
-  if (platitel) for (const x of v.zop.vydavky) if (x.ziadana != null && x.bezDph != null && x.ziadana > x.bezDph + 0.01) prijimatel.push(`č. ${x.poradie}`);
+  const zDph = v.zop.vydavky.filter((x) => x.ziadana != null && x.bezDph != null && x.ziadana > x.bezDph + 0.01).map((x) => `č. ${x.poradie}`);
+  if (platitel === true) prijimatel.push(...zDph);
   const casti: string[] = [];
   if (dodavatel.length) casti.push(`Dodávateľ podľa ITMS21+ nie je platiteľ DPH, doklad však DPH obsahuje: ${dodavatel.slice(0, 5).join('; ')}.`);
+  if (dodavatelNeznamy.length) casti.push(`Doklad obsahuje DPH, status platiteľa DPH dodávateľa však ITMS21+ neuvádza: ${dodavatelNeznamy.slice(0, 5).join('; ')}.`);
   if (prijimatel.length) casti.push(`Prijímateľ je platiteľ DPH a žiada aj DPH pri výdavkoch ${prijimatel.slice(0, 10).join(', ')}; DPH je oprávnená len bez nároku na odpočet.`);
+  if (platitel == null && zDph.length) casti.push(`Prijímateľ žiada aj DPH pri výdavkoch ${zDph.slice(0, 10).join(', ')}, jeho status platiteľa DPH však ITMS21+ neuvádza; DPH je oprávnená len bez nároku na odpočet.`);
   if (casti.length) return { stav: 'na_preverenie', zdovodnenie: casti.join(' ') };
   if (!v.zop.vydavky.length) return { stav: 'neuplatnuje_sa', zdovodnenie: 'ŽoP nemá výdavky.' };
-  return { stav: 'splnene', zdovodnenie: platitel ? 'Prijímateľ je platiteľ DPH a žiada len sumy bez DPH; dodávatelia s DPH sú platitelia.' : 'Prijímateľ nie je platiteľ DPH; doklady s DPH vystavili platitelia DPH.' };
+  if (bezDokladu.length) return { stav: 'mimo_podkladov', zdovodnenie: `Výdavky ${bezDokladu.slice(0, 10).join(', ')} nemajú v dátach účtovný doklad, DPH dodávateľa sa pri nich neoverila. Pri ostatných doklady s DPH vystavili platitelia DPH.` };
+  return { stav: 'splnene', zdovodnenie: platitel === true ? 'Prijímateľ je platiteľ DPH a žiada len sumy bez DPH; dodávatelia s DPH sú platitelia.'
+    : platitel === false ? 'Prijímateľ nie je platiteľ DPH; doklady s DPH vystavili platitelia DPH.'
+      : 'Prijímateľ nežiada DPH (status platiteľa DPH ITMS21+ neuvádza); doklady s DPH vystavili platitelia DPH.' };
 }
 
 const SADZBY = new Set([0, 5, 10, 19, 20, 23]);
 function dphVypocet(v: VstupZop): VysledokKontroly {
   const zle: string[] = []; let poloziek = 0;
+  // Položky bez základu, sadzby alebo DPH a doklady, ktoré v dátach chýbajú, ostanú neoverené; nevynechajú sa ticho.
+  const neuplne = new Map<string, number>(); const chybaDoklad: string[] = [];
   for (const id of new Set(v.zop.vydavky.map((x) => x.dokladId))) {
-    const d = doklad(id); if (!d) continue;
+    const d = doklad(id); if (!d) { if (id != null) chybaDoklad.push(`id ${id}`); continue; }
     for (const p of d.polozky) {
-      if (p.bezDph == null || p.dph == null || p.sadzba == null) continue;
+      if (p.bezDph == null || p.dph == null || p.sadzba == null) { neuplne.set(d.cislo, (neuplne.get(d.cislo) ?? 0) + 1); continue; }
       poloziek++;
       if (!SADZBY.has(p.sadzba)) zle.push(`${d.cislo}: neobvyklá sadzba ${cislo(p.sadzba)} %`);
       else if (Math.abs(p.bezDph * p.sadzba / 100 - p.dph) > 0.02 + 0.005 * Math.abs(p.dph)) zle.push(`${d.cislo}: ${eur(p.bezDph)} × ${p.sadzba} % ≠ DPH ${eur(p.dph)}`);
     }
   }
-  if (zle.length) return { stav: 'na_preverenie', zdovodnenie: `Nesedí výpočet DPH v položkách dokladov: ${zle.slice(0, 8).join('; ')}.`, hodnoty: { poloziek, chyb: zle.length } };
+  const neovereneText = [
+    neuplne.size ? `položky bez základu, sadzby alebo DPH v dokladoch ${[...neuplne].slice(0, 6).map(([c, n]) => `${c} (${n})`).join(', ')}` : '',
+    chybaDoklad.length ? `doklady chýbajúce v dátach (${chybaDoklad.slice(0, 6).join(', ')})` : '',
+  ].filter(Boolean).join('; ');
+  if (zle.length) return { stav: 'na_preverenie', zdovodnenie: `Nesedí výpočet DPH v položkách dokladov: ${zle.slice(0, 8).join('; ')}.${neovereneText ? ` Neoverené: ${neovereneText}.` : ''}`, hodnoty: { poloziek, chyb: zle.length } };
   if (!poloziek) return { stav: 'mimo_podkladov', zdovodnenie: 'Doklady nemajú položky so základom, sadzbou a DPH.' };
+  if (neovereneText) return { stav: 'mimo_podkladov', zdovodnenie: `Základ dane × sadzba sedí s DPH v ${poloziek} položkách so všetkými údajmi. Neoverené: ${neovereneText}.`, hodnoty: { poloziek, neuplnych: [...neuplne.values()].reduce((a, b) => a + b, 0) } };
   return { stav: 'splnene', zdovodnenie: `Základ dane × sadzba sedí s DPH vo všetkých ${poloziek} položkách dokladov.`, hodnoty: { poloziek } };
 }
 
@@ -139,26 +169,35 @@ function voVazba(v: VstupZop): VysledokKontroly {
 }
 
 function voKontrola(v: VstupZop): VysledokKontroly {
-  const vos = [...new Set(v.zop.vydavky.flatMap((x) => x.voIds))].map((id) => VO.get(id)).filter((x): x is VoZaznam => !!x);
-  const velke = vos.filter((x) => (x.phz ?? 0) >= 50_000);
+  const ids = [...new Set(v.zop.vydavky.flatMap((x) => x.voIds))];
+  const vos = ids.map((id) => VO.get(id)).filter((x): x is VoZaznam => !!x);
+  // VO, ktoré v dátach chýba, a VO bez PHZ sa nepočítajú ako PHZ 0: pri nich sa nedá určiť, či je kontrola VO potrebná.
+  const chybaVo = ids.filter((id) => !VO.has(id)); const bezPhz = vos.filter((x) => x.phz == null);
+  const velke = vos.filter((x) => x.phz != null && x.phz >= 50_000);
   if (v.voKontrola === 'nie') return { stav: 'nesplnene', zdovodnenie: 'Podľa zadania kontrola VO pred zahrnutím výdavkov do ŽoP neprebehla alebo nebola ukončená.' };
   if (v.voKontrola === 'ano') return { stav: 'splnene', zdovodnenie: 'Podľa zadania bola kontrola VO ukončená pred zahrnutím výdavkov do ŽoP.' };
+  const velkeText = velke.length ? `VO s PHZ od 50 000 EUR: ${velke.map((x) => `${x.kod} (${eur(x.phz)}, ${x.postup.slice(0, 60)})`).join('; ')}. Pri týchto postupoch môže byť kontrola po uzavretí zmluvy povinná; jej výsledok verejné dáta neobsahujú.` : '';
+  if (chybaVo.length || bezPhz.length) return { stav: 'mimo_podkladov', zdovodnenie: [velkeText, `PHZ nie je známa pri ${[...bezPhz.map((x) => x.kod), ...chybaVo.map((id) => `VO id ${id} (chýba v dátach)`)].join(', ')}, preto sa nedá určiť, či bola potrebná kontrola VO po uzavretí zmluvy.`].filter(Boolean).join(' ') };
   if (!velke.length) return { stav: 'neuplatnuje_sa', zdovodnenie: vos.length ? 'Všetky priradené VO majú PHZ pod 50 000 EUR; kontrola po uzavretí zmluvy sa podľa tabuľky príručky VO nevyžaduje.' : 'ŽoP nemá priradené VO.' };
-  return { stav: 'mimo_podkladov', zdovodnenie: `VO s PHZ od 50 000 EUR: ${velke.map((x) => `${x.kod} (${eur(x.phz)}, ${x.postup.slice(0, 60)})`).join('; ')}. Pri týchto postupoch môže byť kontrola po uzavretí zmluvy povinná; jej výsledok verejné dáta neobsahujú.` };
+  return { stav: 'mimo_podkladov', zdovodnenie: velkeText };
 }
 
 function voZmluva(v: VstupZop): VysledokKontroly {
-  const zle: string[] = []; let zmluv = 0;
+  const zle: string[] = []; let zmluv = 0; const neznamych: string[] = [];
   for (const id of new Set(v.zop.vydavky.flatMap((x) => x.zmluvaVoIds))) {
-    const z = ZMLUVY.get(id); if (z?.suma == null) continue; zmluv++;
+    const z = ZMLUVY.get(id);
+    if (z?.suma == null) { neznamych.push(z ? `zmluva k ${z.vo.kod} bez sumy` : `zmluva id ${id} (VO chýba v dátach)`); continue; }
+    zmluv++;
     const ine = VSETKY_ZOP.filter((x) => x.kod !== v.zop.kod && rodina(x.typ) === 'narok').flatMap((x) => x.vydavky).filter((x) => x.zmluvaVoIds.includes(id));
     const moje = rodina(v.zop.typ) === 'narok' ? v.zop.vydavky.filter((x) => x.zmluvaVoIds.includes(id)) : [];
     const spolu = [...ine, ...moje].reduce((s, x) => s + (x.ziadana ?? 0), 0);
     // Suma zmluvy môže byť bez DPH, nárokované sumy s DPH: hlási sa až prekročenie aj pri DPH 23 %.
     if (spolu > z.suma * 1.23 + 1) zle.push(`zmluva k ${z.vo.kod} na ${eur(z.suma)}: nárokované spolu ${eur(r2(spolu))}`);
   }
-  if (zle.length) return { stav: 'na_preverenie', zdovodnenie: `Nárokované výdavky prevyšujú sumu zmluvy z VO aj pri pripočítaní DPH: ${zle.join('; ')}. Overiť dodatky k zmluve.` };
-  if (!zmluv) return { stav: 'mimo_podkladov', zdovodnenie: 'Výdavky nemajú priradenú zmluvu z VO so sumou.' };
+  const neznameText = neznamych.length ? ` Neoverené pre chýbajúcu sumu zmluvy: ${neznamych.slice(0, 6).join('; ')}${neznamych.length > 6 ? ` a ďalších ${neznamych.length - 6}` : ''}.` : '';
+  if (zle.length) return { stav: 'na_preverenie', zdovodnenie: `Nárokované výdavky prevyšujú sumu zmluvy z VO aj pri pripočítaní DPH: ${zle.join('; ')}. Overiť dodatky k zmluve.${neznameText}` };
+  if (!zmluv) return { stav: 'mimo_podkladov', zdovodnenie: `Výdavky nemajú priradenú zmluvu z VO so sumou.${neznameText}` };
+  if (neznamych.length) return { stav: 'mimo_podkladov', zdovodnenie: `Nárokované výdavky neprevyšujú sumy ${zmluv} zmlúv z VO so známou sumou.${neznameText}` };
   return { stav: 'splnene', zdovodnenie: `Nárokované výdavky neprevyšujú sumy ${zmluv} zmlúv z VO.` };
 }
 
@@ -170,6 +209,9 @@ function hotovost(v: VstupZop): VysledokKontroly {
   else if ((v.hotovostMax ?? 0) > 500) zle.push(`jednotlivá platba v hotovosti ${eur(v.hotovostMax)} nad 500 EUR`);
   if ((v.hotovostMesiac ?? 0) > 1500) zle.push(`hotovosť v mesiaci ${eur(v.hotovostMesiac)} nad 1 500 EUR`);
   if (zle.length) return { stav: 'nesplnene', zdovodnenie: `Hotovostné výdavky nie sú oprávnené: ${zle.join('; ')}.` };
+  // „Splnené“ až pri všetkých troch údajoch: jeden zadaný údaj nič nehovorí o ostatných dvoch limitoch.
+  const chyba = [v.hotovostMax == null ? 'najvyššia jednotlivá platba' : '', v.hotovostMesiac == null ? 'najvyššia suma za mesiac' : '', v.hotovostMajetok === '' ? 'či sa hotovosťou platil dlhodobý majetok' : ''].filter(Boolean);
+  if (chyba.length) return { stav: 'mimo_podkladov', zdovodnenie: `Zadané údaje o hotovosti sú v limitoch, nie je však zadané: ${chyba.join('; ')}. Limity hotovosti sa preto neoverili celé.` };
   return { stav: 'splnene', zdovodnenie: 'Hotovostné platby sú v limitoch (jednotlivo do 500 EUR, mesačne do 1 500 EUR, nie za dlhodobý majetok).' };
 }
 
@@ -199,7 +241,9 @@ function prilohy(v: VstupZop): VysledokKontroly {
   if (!v.prilohy) return { stav: 'mimo_podkladov', zdovodnenie: `Dokumenty ŽoP nie sú verejné. Povinné podľa kap. 4.7: ${pov.map((p) => p.nazov).join('; ')}.` };
   const chyba = pov.filter((p) => !v.prilohy![p.cislo]?.text?.trim());
   if (chyba.length) return { stav: 'chyba_podklad', zdovodnenie: `Chýba: ${chyba.map((p) => `${p.nazov} (${p.dovod})`).join('; ')}.` };
-  return { stav: 'splnene', zdovodnenie: `Priložených všetkých ${pov.length} povinných dokumentov (obsah kontrolujú ďalšie pravidlá alebo človek).` };
+  // Obsadené miesto ešte nie je správny dokument (prázdna šablóna súpisu prác stačí na text): kým balík nemá
+  // obsahové znaky každej prílohy, ide výsledok človeku.
+  return { stav: 'na_preverenie', zdovodnenie: `Na všetkých ${pov.length} miestach pre povinné dokumenty je priložený súbor s textom. Softvér zatiaľ neoveruje, že ide o požadovaný dokument (napr. súpis prác s položkami, množstvami a cenami); obsah overí kontrolór.` };
 }
 
 const IB = /internet\s?banking|detail (transakcie|platby|pohybu)|platobn(ý|ého) príkaz|príkaz na úhradu|potvrdenie o (zadaní|prijatí|realizácii) (platby|príkazu)/i;
