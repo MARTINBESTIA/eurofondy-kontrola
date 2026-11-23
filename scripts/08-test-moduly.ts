@@ -144,6 +144,22 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
   for (const x of pridane) x.phz = null;
   r.zasadene.push(await zasad(m, b, 'Zákazka 30 000 EUR a dve ďalšie na rovnaký predmet bez uvedenej PHZ', 'V05', 'mimo_podkladov', vstupyDelenie));
   VSETKY_VO.splice(VSETKY_VO.length - pridane.length, pridane.length);
+  // Audit A07: doklady s DPH nad sumou zmlúv nie sú „neprevyšujú“, aj keď sú pod 123 % zmlúv.
+  r.zasadene.push(await zasad(m, b, 'Faktúry o 10 % nad súčet zmlúv', 'V04', 'na_preverenie', sZmluvou.map((v) => { const x = structuredClone(v); const s = x.vo.zmluvy.reduce((a, z) => a + (z.suma ?? 0), 0); x.vo.doklady = [{ id: -1, cislo: 'T', celkom: s * 1.1, datum: null }]; return x; })));
+  // Audit A06: úprava súčtu zmlúv o 1 EUR nesmie zmeniť režim V01 (účinnosť zmluvy pred 1. 8. 2024).
+  const sumou = vs.filter((v) => v.vo.zmluvy.some((z) => z.suma != null));
+  const v01 = async (x: VstupVo) => (await posud(x, b, m, { llm: false, iba: ['V01'] })).nalezy[0];
+  const zmenene: string[] = [];
+  for (const v of sumou) { const f = m.doFormulara!(v); const [a, c] = [await v01(v), await v01(m.zFormulara!(v, { ...f, zmluva: (f.zmluva as number) + 1 }))]; if (a.stav !== c.stav) zmenene.push(`${v.vo.kod}: ${a.stav} → ${c.stav}`); }
+  const v1851 = nacitaj<VstupVo>(m, 'VO01851095'); const d1851 = await v01(m.zFormulara!(v1851, { ...m.doFormulara!(v1851), zmluva: 19_381 }));
+  const ucinnost = d1851.doklady?.find((d) => d.miesto === 'Účinnosť zmlúv');
+  const f405 = (await posud(nacitaj<VstupVo>(m, 'VO00064405'), b, m, { llm: false, iba: ['V04'] })).nalezy[0];
+  r.overenia = [
+    { nazov: `A06: súčet zmlúv o 1 EUR vyšší nezmení V01 pri žiadnom z ${sumou.length} VO so zmluvou`, vysledok: zmenene.length ? zmenene.slice(0, 5).join('; ') : 'bez zmeny', ok: sumou.length > 0 && !zmenene.length },
+    { nazov: 'A06: VO01851095 so súčtom 19 381 EUR ostane na preverenie a doloží účinnosť 26. 3. 2024 z ITMS21+', vysledok: `${d1851.stav}; ${ucinnost ? `${ucinnost.nazov.split(',')[0]}: ${ucinnost.citat}` : 'bez dokladu účinnosti'}`, ok: d1851.stav === 'na_preverenie' && !!ucinnost?.nazov.startsWith('ITMS21+') && /26\. 3\. 2024/.test(ucinnost.citat) },
+    { nazov: 'A07: VO00064405 (doklady 1 723 377,98 EUR, zmluvy 1 526 945,44 EUR) → V04 na preverenie, prevyšujú aj bez DPH', vysledok: `${f405.stav}: ${f405.zdovodnenie.slice(0, 150)}`, ok: f405.stav === 'na_preverenie' && /aj bez DPH \(1\s641\s312,35 EUR\)/.test(f405.zdovodnenie) && !!f405.doklady?.some((d) => /s DPH/.test(d.miesto)) },
+  ];
+  for (const o of r.overenia) console.log(`  ${o.ok ? '✓' : '✗'} ${o.nazov} → ${o.vysledok}`);
   r.poznamky = [
     'V06 (štatutári v RPO) je online dopyt a je predvolene vypnutý; test ho nespúšťa, aby sa nič neodosielalo.',
     'V07 (záznam zo zadania zákazky) číta lokálny model, testuje ho 09-test-llm-moduly na syntetických záznamoch.',
@@ -243,6 +259,50 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
   for (const z of uhradene) for (const x of z.vydavky) { const k = String(x.dokladId); if (DOKLADY[k] && !sumy.has(k)) { sumy.set(k, DOKLADY[k].celkom); DOKLADY[k].celkom = null; } }
   r.zasadene.push(await zasad(m, b, 'Uhradená ŽoP predložená druhýkrát, doklady bez sumy v dátach', 'P03', 'na_preverenie', uhradene.map((z) => { const v = nacitaj<VstupZop>(m, z.kod); v.zop.kod = `${z.kod}-T`; return v; })));
   for (const [k, c] of sumy) DOKLADY[k].celkom = c;
+  // Audit A05: prázdne pole žiadanej sumy vo formulári nie je nula. Neúplný vstup nesmie odstrániť upozornenie.
+  const vymaz = (v: VstupZop, ids: number[]) => zop.zFormulara(v, { ...zop.doFormulara(v), ...Object.fromEntries(ids.map((id) => [`ziadana_${id}`, ''])) });
+  const doDvanast = uhradene.filter((z) => z.vydavky.length <= 12);
+  // Zmluvy z VO so známou kladnou sumou (pri neznámej sume je P08 neoverené už bez zásahu).
+  const sumaZmluvy = new Map(VSETKY_VO.flatMap((o) => o.zmluvy.map((z) => [z.id, z.suma] as const)));
+  const znamaZmluva = (x: VstupZop['zop']['vydavky'][number]) => x.zmluvaVoIds.length > 0 && x.zmluvaVoIds.every((id) => (sumaZmluvy.get(id) ?? 0) > 0);
+  r.zasadene.push(
+    await zasad(m, b, 'Uhradená ŽoP predložená druhýkrát, žiadané sumy vo formulári vymazané', 'P03', 'na_preverenie', doDvanast.map((z) => { const v = nacitaj<VstupZop>(m, z.kod); v.zop.kod = `${z.kod}-T`; return vymaz(v, v.zop.vydavky.map((x) => x.id)); })),
+    await zasad(m, b, 'Žiadaná suma výdavku vo formulári vymazaná', 'P02', 'na_preverenie', vz.map((v) => vymaz(v, [v.zop.vydavky[0].id]))),
+    await zasad(m, b, 'Platiteľ DPH žiada aj DPH, žiadaná suma vo formulári vymazaná', 'P04', 'na_preverenie', vz.map((v) => { const x = structuredClone(v); x.zop.prijimatel.platitelDph = true; const y = x.zop.vydavky[0]; y.dph = Math.round(y.bezDph! * 23) / 100; y.ziadana = y.bezDph! + y.dph; return vymaz(x, [y.id]); })),
+    // Zúčtovanie predfinancovania nový nárok nevytvára (P08 počíta nároky z refundácie a predfinancovania), preto sa vynechá.
+    await zasad(m, b, 'Žiadaná suma výdavku so zmluvou z VO vo formulári vymazaná', 'P08', 'na_preverenie', vs.filter((v) => !v.zop.typ.startsWith('ZUCTOVANIE') && v.zop.vydavky.some(znamaZmluva) && v.zop.vydavky.every((x) => !x.zmluvaVoIds.length || znamaZmluva(x)) && v.zop.vydavky.slice(0, 12).some(znamaZmluva)).slice(0, 250).map((v) => vymaz(v, v.zop.vydavky.slice(0, 12).filter(znamaZmluva).map((x) => x.id)))),
+    // Audit A07 v P08: nárok s DPH nad sumou zmluvy nie je „neprevyšuje“, aj keď je pod 123 % zmluvy.
+    await zasad(m, b, 'Nárok k zmluve z VO o 10 % vyšší ako suma zmluvy', 'P08', 'na_preverenie', vs.filter((v) => !v.zop.typ.startsWith('ZUCTOVANIE') && v.zop.vydavky.some((x) => x.zmluvaVoIds.length === 1 && znamaZmluva(x))).slice(0, 250).map((v) => {
+      const x = structuredClone(v); const y = x.zop.vydavky.find((q) => q.zmluvaVoIds.length === 1 && znamaZmluva(q))!; const id = y.zmluvaVoIds[0];
+      const ine = VSETKY_ZOP.filter((z) => z.kod !== x.zop.kod && !z.typ.startsWith('ZUCTOVANIE')).flatMap((z) => z.vydavky).filter((q) => q.zmluvaVoIds.includes(id)).reduce((s, q) => s + (q.ziadana ?? 0), 0);
+      const moje = x.zop.vydavky.filter((q) => q !== y && q.zmluvaVoIds.includes(id)).reduce((s, q) => s + (q.ziadana ?? 0), 0);
+      const suma = sumaZmluvy.get(id)!;
+      y.ziadana = Math.max(0, suma * 1.1 - ine - moje); y.bezDph = y.ziadana; y.dph = 0; return x;
+    })),
+    // Audit A12: tolerancia P05 nerastie so sumou.
+    await zasad(m, b, 'DPH položky o 100 EUR vyššia pri základe 100 000 EUR a sadzbe 23 %', 'P05', 'na_preverenie', vz.map((v) => sDokladom2(v, (d) => { d.polozky = [{ bezDph: 100_000, dph: 23_100, sadzba: 23, spolu: 123_100 }]; }))),
+  );
+  // Tri prípady z auditu A05 cez formulár: prázdne pole ide na preverenie, výslovná nula je hodnota.
+  const pripadA05 = async (kod: string, pravidlo: string) => {
+    const v = nacitaj<VstupZop>(m, kod); const id = v.zop.vydavky[0].id;
+    const st = async (x: VstupZop) => (await posud(x, b, m, { llm: false, iba: [pravidlo] })).nalezy[0];
+    return { pred: await st(v), prazdne: await st(vymaz(v, [id])), nula: await st(zop.zFormulara(v, { ...zop.doFormulara(v), [`ziadana_${id}`]: '0' })) };
+  };
+  const a03 = await pripadA05('401201DYI3500401', 'P03'), a04 = await pripadA05('401201A186300101', 'P04'), a08 = await pripadA05('401201FCU3500301', 'P08');
+  const dokladP03 = a03.pred.doklady?.find((d) => d.miesto.startsWith('Doklady nárokované aj v iných ŽoP'))?.citat ?? '';
+  // Audit A12: hranica zaokrúhlenia DPH je 2 centy na položku.
+  const p05 = async (bezDph: number, dph: number) => { const x = sDokladom2(vz[0], (d) => { d.polozky = [{ bezDph, dph, sadzba: 23, spolu: bezDph + dph }]; }); x.zop.vydavky = [x.zop.vydavky[0]]; return (await posud(x, b, m, { llm: false, iba: ['P05'] })).nalezy[0]; };
+  const [h2, h3, h100] = [await p05(100, 23.02), await p05(100, 23.03), await p05(100_000, 23_100)];
+  r.overenia = [
+    { nazov: 'A05: ŽoP 401201DYI3500401, vymazaných 7 175 EUR pri doklade nárokovanom aj v uhradenej ŽoP → P03 na preverenie; výslovná 0 → splnené', vysledok: `${a03.pred.stav} → prázdne ${a03.prazdne.stav}, nula ${a03.nula.stav}`, ok: a03.prazdne.stav === 'na_preverenie' && a03.nula.stav === 'splnene' },
+    { nazov: 'A05: doklad P03 uvádza doklad, oba nároky a kódy oboch ŽoP', vysledok: dokladP03, ok: /doklad 2025047 \(7\s175 EUR\): ŽoP 401201DYI3500401 \(posudzovaná\) 7\s175 EUR; ŽoP 401201DYI3500301 \(uhradená\) 7\s175 EUR/.test(dokladP03) },
+    { nazov: 'A05: ŽoP 401201A186300101 (platiteľ DPH), vymazaná suma výdavku s DPH → P04 na preverenie; výslovná 0 → splnené', vysledok: `${a04.pred.stav} → prázdne ${a04.prazdne.stav}, nula ${a04.nula.stav}`, ok: a04.prazdne.stav === 'na_preverenie' && a04.nula.stav === 'splnene' },
+    { nazov: 'A05: ŽoP 401201FCU3500301, vymazaných 5 965,50 EUR → P08 na preverenie; výslovná 0 → splnené', vysledok: `${a08.pred.stav} → prázdne ${a08.prazdne.stav}, nula ${a08.nula.stav}`, ok: a08.prazdne.stav === 'na_preverenie' && a08.nula.stav === 'splnene' },
+    { nazov: 'A12: 100 EUR × 23 % = 23 EUR, doklad 23,02 EUR (2 centy) je zaokrúhlenie → P05 splnené', vysledok: h2.stav, ok: h2.stav === 'splnene' },
+    { nazov: 'A12: rozdiel 3 centy → P05 na preverenie', vysledok: h3.stav, ok: h3.stav === 'na_preverenie' },
+    { nazov: 'A12: základ 100 000 EUR, 23 %, DPH 23 100 EUR → na preverenie s očakávanou DPH 23 000 EUR', vysledok: `${h100.stav}: ${h100.zdovodnenie.slice(0, 170)}`, ok: h100.stav === 'na_preverenie' && /= 23\s000 EUR, doklad uvádza DPH 23\s100 EUR \(rozdiel 100 EUR\)/.test(h100.zdovodnenie) },
+  ];
+  for (const o of r.overenia) console.log(`  ${o.ok ? '✓' : '✗'} ${o.nazov} → ${o.vysledok}`);
   r.poznamky = [
     'Doklady ŽoP (faktúry, výpisy) nie sú verejné; na reálnych dátach sa overujú len údaje ITMS21+ (sumy, dátumy, DPH, väzba na VO a zmluvy).',
     'Zasadené chyby v dokladoch používajú syntetické kópie reálnych dokladov; reálne dáta sa nemenia.',
@@ -365,3 +425,6 @@ const spolu = Object.values(vystup.moduly).flatMap((x: any) => x.zasadene ?? [])
 console.log(`\nZasadených chýb spolu ${spolu}, falošne OK ${fok}. Hotovo za ${(vystup.trvanieMs / 1000).toFixed(1)} s → eval/test-moduly.json`);
 // Falošné OK (splnené pravidlo alebo OK výrok pri zasadenej chybe) je najhorší omyl. Od inventára podmienok v moduloch nesmie nastať.
 if (fok) { console.log(`✗ falošne OK pri zasadených chybách: ${fok}`); process.exitCode = 1; }
+// Ručne overené príklady modulov (kalkulačka MU, prípady z auditu) musia všetky prejsť.
+const zleOverenia = Object.values(vystup.moduly).flatMap((x: any) => x.overenia ?? []).filter((o: any) => !o.ok);
+if (zleOverenia.length) { console.log(`✗ neprešli overenia: ${zleOverenia.map((o: any) => o.nazov).join(' | ')}`); process.exitCode = 1; }

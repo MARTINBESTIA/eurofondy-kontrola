@@ -1,11 +1,11 @@
 {
- "cas": "2026-11-23T01:12:55.140Z",
+ "cas": "2026-11-23T09:56:04.098Z",
  "dnes": "2026-11-23",
  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
  "moduly": {
   "vyzvy": {
    "pripadov": 186,
-   "trvanieMs": 412,
+   "trvanieMs": 554,
    "navrhy": {
     "na_preverenie": 153,
     "nesplnene_podmienky": 33
@@ -187,7 +187,7 @@
   },
   "zonfp": {
    "pripadov": 799,
-   "trvanieMs": 206,
+   "trvanieMs": 313,
    "navrhy": {
     "na_preverenie": 735,
     "nesplnene_podmienky": 58,
@@ -484,7 +484,7 @@
   },
   "vo": {
    "pripadov": 659,
-   "trvanieMs": 772,
+   "trvanieMs": 2780,
    "navrhy": {
     "na_preverenie": 658,
     "nesplnene_podmienky": 1
@@ -522,10 +522,10 @@
      "id": "V04",
      "nazov": "Fakturácia neprevyšuje zmluvy z VO",
      "pocty": {
-      "splnene": 330,
+      "na_preverenie": 98,
       "neuplatnuje_sa": 98,
-      "mimo_podkladov": 194,
-      "na_preverenie": 37
+      "splnene": 269,
+      "mimo_podkladov": 194
      }
     },
     {
@@ -623,7 +623,7 @@
     }
    ],
    "doklady": {
-    "splnene": 1432,
+    "splnene": 1371,
     "bezDokladu": 0,
     "presunute": 0
    },
@@ -759,6 +759,36 @@
       "na_preverenie": 13
      },
      "priklady": []
+    },
+    {
+     "nazov": "Faktúry o 10 % nad súčet zmlúv",
+     "pravidlo": "V04",
+     "ocakavane": "na_preverenie",
+     "n": 367,
+     "zachytene": 367,
+     "presne": 367,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 367
+     },
+     "priklady": []
+    }
+   ],
+   "overenia": [
+    {
+     "nazov": "A06: súčet zmlúv o 1 EUR vyšší nezmení V01 pri žiadnom z 465 VO so zmluvou",
+     "vysledok": "bez zmeny",
+     "ok": true
+    },
+    {
+     "nazov": "A06: VO01851095 so súčtom 19 381 EUR ostane na preverenie a doloží účinnosť 26. 3. 2024 z ITMS21+",
+     "vysledok": "na_preverenie; ITMS21+: VO01851095001: 26. 3. 2024",
+     "ok": true
+    },
+    {
+     "nazov": "A07: VO00064405 (doklady 1 723 377,98 EUR, zmluvy 1 526 945,44 EUR) → V04 na preverenie, prevyšujú aj bez DPH",
+     "vysledok": "na_preverenie: Doklady spolu 1 723 377,98 EUR s DPH prevyšujú zmluvy 1 526 945,44 EUR, a to aj bez DPH (1 641 312,35 EUR). Overiť dodatky (podliehajú kontrole VO).",
+     "ok": true
     }
    ],
    "poznamky": [
@@ -769,7 +799,7 @@
   },
   "zmeny": {
    "pripadov": 2336,
-   "trvanieMs": 868,
+   "trvanieMs": 3113,
    "navrhy": {
     "na_preverenie": 2336
    },
@@ -1128,7 +1158,7 @@
   },
   "zop": {
    "pripadov": 1362,
-   "trvanieMs": 6541,
+   "trvanieMs": 36225,
    "navrhy": {
     "na_preverenie": 1361,
     "nesplnene_podmienky": 1
@@ -1170,8 +1200,8 @@
      "id": "P05",
      "nazov": "Výpočet DPH v položkách dokladov sedí",
      "pocty": {
-      "splnene": 1326,
-      "na_preverenie": 7,
+      "splnene": 1324,
+      "na_preverenie": 9,
       "mimo_podkladov": 29
      }
     },
@@ -1195,9 +1225,9 @@
      "id": "P08",
      "nazov": "Nárokované výdavky neprevyšujú zmluvu z VO",
      "pocty": {
-      "mimo_podkladov": 330,
-      "splnene": 952,
-      "na_preverenie": 80
+      "mimo_podkladov": 328,
+      "splnene": 824,
+      "na_preverenie": 210
      }
     },
     {
@@ -1342,7 +1372,7 @@
     }
    ],
    "doklady": {
-    "splnene": 8807,
+    "splnene": 8677,
     "bezDokladu": 0,
     "presunute": 0
    },
@@ -1561,12 +1591,12 @@
      "pravidlo": "P08",
      "ocakavane": "mimo_podkladov",
      "n": 250,
-     "zachytene": 7,
-     "presne": 243,
+     "zachytene": 34,
+     "presne": 216,
      "falosneOk": 0,
      "stavy": {
-      "mimo_podkladov": 243,
-      "na_preverenie": 7
+      "mimo_podkladov": 216,
+      "na_preverenie": 34
      },
      "priklady": []
     },
@@ -1608,6 +1638,121 @@
       "na_preverenie": 200
      },
      "priklady": []
+    },
+    {
+     "nazov": "Uhradená ŽoP predložená druhýkrát, žiadané sumy vo formulári vymazané",
+     "pravidlo": "P03",
+     "ocakavane": "na_preverenie",
+     "n": 181,
+     "zachytene": 181,
+     "presne": 181,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 181
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Žiadaná suma výdavku vo formulári vymazaná",
+     "pravidlo": "P02",
+     "ocakavane": "na_preverenie",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Platiteľ DPH žiada aj DPH, žiadaná suma vo formulári vymazaná",
+     "pravidlo": "P04",
+     "ocakavane": "na_preverenie",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Žiadaná suma výdavku so zmluvou z VO vo formulári vymazaná",
+     "pravidlo": "P08",
+     "ocakavane": "na_preverenie",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Nárok k zmluve z VO o 10 % vyšší ako suma zmluvy",
+     "pravidlo": "P08",
+     "ocakavane": "na_preverenie",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 250
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "DPH položky o 100 EUR vyššia pri základe 100 000 EUR a sadzbe 23 %",
+     "pravidlo": "P05",
+     "ocakavane": "na_preverenie",
+     "n": 250,
+     "zachytene": 250,
+     "presne": 250,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 250
+     },
+     "priklady": []
+    }
+   ],
+   "overenia": [
+    {
+     "nazov": "A05: ŽoP 401201DYI3500401, vymazaných 7 175 EUR pri doklade nárokovanom aj v uhradenej ŽoP → P03 na preverenie; výslovná 0 → splnené",
+     "vysledok": "na_preverenie → prázdne na_preverenie, nula splnene",
+     "ok": true
+    },
+    {
+     "nazov": "A05: doklad P03 uvádza doklad, oba nároky a kódy oboch ŽoP",
+     "vysledok": "doklad 2025047 (7 175 EUR): ŽoP 401201DYI3500401 (posudzovaná) 7 175 EUR; ŽoP 401201DYI3500301 (uhradená) 7 175 EUR",
+     "ok": true
+    },
+    {
+     "nazov": "A05: ŽoP 401201A186300101 (platiteľ DPH), vymazaná suma výdavku s DPH → P04 na preverenie; výslovná 0 → splnené",
+     "vysledok": "na_preverenie → prázdne na_preverenie, nula splnene",
+     "ok": true
+    },
+    {
+     "nazov": "A05: ŽoP 401201FCU3500301, vymazaných 5 965,50 EUR → P08 na preverenie; výslovná 0 → splnené",
+     "vysledok": "na_preverenie → prázdne na_preverenie, nula splnene",
+     "ok": true
+    },
+    {
+     "nazov": "A12: 100 EUR × 23 % = 23 EUR, doklad 23,02 EUR (2 centy) je zaokrúhlenie → P05 splnené",
+     "vysledok": "splnene",
+     "ok": true
+    },
+    {
+     "nazov": "A12: rozdiel 3 centy → P05 na preverenie",
+     "vysledok": "na_preverenie",
+     "ok": true
+    },
+    {
+     "nazov": "A12: základ 100 000 EUR, 23 %, DPH 23 100 EUR → na preverenie s očakávanou DPH 23 000 EUR",
+     "vysledok": "na_preverenie: Nesedí výpočet DPH v položkách dokladov: 20250011: 100 000 EUR × 23 % = 23 000 EUR, doklad uvádza DPH 23 100 EUR (rozdiel 100 EUR).",
+     "ok": true
     }
    ],
    "poznamky": [
@@ -1618,7 +1763,7 @@
   },
   "ukazovatele": {
    "pripadov": 242,
-   "trvanieMs": 227,
+   "trvanieMs": 883,
    "navrhy": {
     "na_preverenie": 242
    },
@@ -1911,7 +2056,7 @@
  "doklady": [
   {
    "nazov": "Skutočné dáta (5 moduly): každé „splnené“ má doklad, žiadne nešlo človeku pre chýbajúcu citáciu",
-   "vysledok": "splnených 10239, bez dokladu 0, presunutých 0",
+   "vysledok": "splnených 10048, bez dokladu 0, presunutých 0",
    "ok": true
   },
   {
@@ -1935,5 +2080,5 @@
    "ok": true
   }
  ],
- "trvanieMs": 44652
+ "trvanieMs": 267148
 }

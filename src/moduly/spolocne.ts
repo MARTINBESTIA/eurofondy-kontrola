@@ -11,6 +11,10 @@ export function nacitajData<T>(subor: string, predvolene: T, vyzva = VYZVA): T {
   return fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : predvolene;
 }
 
+let dokladyCache: Record<string, unknown> | null = null;
+/** Účtovné doklady z ITMS21+ (doklady.json) podľa id: jeden objekt pre moduly ŽoP aj VO, načíta sa raz. */
+export function uctovneDoklady<T>(): Record<string, T> { return (dokladyCache ??= nacitajData<Record<string, unknown>>('doklady.json', {})) as Record<string, T>; }
+
 let projektyCache: Projekt[] | null = null;
 export function projekty(): Projekt[] { return (projektyCache ??= nacitajData<Projekt[]>('projekty.json', [])); }
 export function projektPodlaKodu(kod: string): Projekt | undefined { return projekty().find((p) => p.kod === kod); }

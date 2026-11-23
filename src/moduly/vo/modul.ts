@@ -1,7 +1,7 @@
 // Modul: verejné obstarávanie (VO). Vstup: VO z ITMS21+ (postup, PHZ, počet ponúk, zmluvy, doklady).
 // Overenie štatutárov v registri RPO je voliteľné a ide online; mená sa neukladajú (neukladatDokazy).
 import type { Doklad, Modul, Nalez, Pravidlo, Priloha, VysledokKontroly } from '../../core/typy.ts';
-import { bezDiakritiky, dokladyVstupov, eur, nacitajData, skDatum, type VstupDokladu } from '../spolocne.ts';
+import { bezDiakritiky, dokladyVstupov, eur, nacitajData, skDatum, uctovneDoklady, type VstupDokladu } from '../spolocne.ts';
 
 export interface VoPlny {
   id: number; kod: string; nazov: string; stav: string; vytvorene: string | null;
@@ -83,16 +83,40 @@ function cena(v: VstupVo): VysledokKontroly {
   return { stav: 'splnene', zdovodnenie: `Zmluvy spolu ${eur(s)} zodpovedajú PHZ ${eur(v.vo.phz)} (bez DPH).`, hodnoty: { phz: v.vo.phz, zmluvy: s } };
 }
 
+/** Položky účtovného dokladu z ITMS21+ (doklady.json), z ktorých sa dá určiť základ bez DPH. */
+interface UctovnyDoklad { celkom: number | null; polozky: { bezDph: number | null; dph: number | null }[] }
+const UCTOVNE = uctovneDoklady<UctovnyDoklad>();
+/**
+ * Základ dokladu bez DPH z jeho položiek. Známy je len vtedy, keď majú všetky položky sumu bez DPH a položky spolu
+ * s DPH vysvetlia celkovú sumu dokladu (inak môžu položky chýbať). Pri neznámom základe vráti null.
+ */
+export function zakladDokladu(d: VoPlny['doklady'][number]): number | null {
+  const u = UCTOVNE[String(d.id)];
+  if (!u?.polozky.length || d.celkom == null || u.polozky.some((p) => p.bezDph == null)) return null;
+  const bez = u.polozky.reduce((s, p) => s + p.bezDph!, 0); const s = u.polozky.reduce((a, p) => a + p.bezDph! + (p.dph ?? 0), 0);
+  return Math.abs(s - d.celkom) <= 0.05 ? bez : null;
+}
+const r2 = (x: number) => Math.round(x * 100) / 100;
+
 function faktury(v: VstupVo): VysledokKontroly {
   if (!maZmluvu(v.vo)) return { stav: 'mimo_podkladov', zdovodnenie: 'VO nemá zmluvu so sumou.' };
   if (!v.vo.doklady.length) return { stav: 'neuplatnuje_sa', zdovodnenie: 'K VO zatiaľ nie sú evidované účtovné doklady.' };
   const s = sumaZmluv(v.vo); const f = v.vo.doklady.reduce((a, d) => a + (d.celkom ?? 0), 0);
   const bezZmluvy = zmluvyBezSumy(v.vo); const bezDokladu = v.vo.doklady.filter((d) => d.celkom == null);
-  const hodnoty = { zmluvy: s, doklady: f };
-  // Doklady so známou sumou sú dolná hranica fakturácie, zmluvy so známou sumou dolná hranica zmluvnej ceny.
-  if (f > s * 1.23 + 1) return { stav: 'na_preverenie', zdovodnenie: `Doklady spolu ${eur(Math.round(f * 100) / 100)} prevyšujú zmluvy ${eur(s)} aj pri pripočítaní DPH. Overiť dodatky (podliehajú kontrole VO).${bezZmluvy.length ? ` Zmluva ${bezZmluvy.map(nazovZmluvy).join(', ')} nemá v ITMS21+ sumu, súčet zmlúv môže byť vyšší.` : ''}`, hodnoty };
-  if (bezDokladu.length) return { stav: 'mimo_podkladov', zdovodnenie: `Doklady so známou sumou spolu ${eur(Math.round(f * 100) / 100)} neprevyšujú zmluvy ${eur(s)}. Doklad ${bezDokladu.map((d) => d.cislo || `id ${d.id}`).join(', ')} nemá v ITMS21+ sumu, fakturácia spolu sa preto neoverila.`, hodnoty };
-  return { stav: 'splnene', zdovodnenie: `Doklady spolu ${eur(Math.round(f * 100) / 100)} neprevyšujú zmluvy ${eur(s)}.`, hodnoty };
+  // Základ bez DPH z položiek dokladov (všetkých so sumou); null, ak ho niektorý doklad nemá.
+  const zaklady = v.vo.doklady.filter((d) => d.celkom != null).map(zakladDokladu);
+  const zaklad = zaklady.every((x) => x != null) ? zaklady.reduce((a: number, x) => a + x!, 0) : null;
+  const hodnoty = { zmluvy: s, doklady: r2(f), ...(zaklad != null ? { dokladyBezDph: r2(zaklad) } : {}) };
+  const pozn = bezZmluvy.length ? ` Zmluva ${bezZmluvy.map(nazovZmluvy).join(', ')} nemá v ITMS21+ sumu, súčet zmlúv môže byť vyšší.` : '';
+  // ITMS21+ neuvádza, či suma zmluvy zahŕňa DPH, sumy dokladov ju zahŕňajú (ak ju doklad má). „Neprevyšujú“ platí
+  // v oboch prípadoch len vtedy, keď doklady s DPH nie sú vyššie ako zmluvy; inak ide výsledok kontrolórovi (audit A07).
+  if (f > s + 0.01) {
+    const zakladText = zaklad == null ? 'Základ bez DPH sa z položiek dokladov nedá určiť pri všetkých dokladoch' : `Základ dokladov bez DPH (z ich položiek) je ${eur(r2(zaklad))}`;
+    if (zaklad != null && zaklad > s + 0.01) return { stav: 'na_preverenie', zdovodnenie: `Doklady spolu ${eur(r2(f))} s DPH prevyšujú zmluvy ${eur(s)}, a to aj bez DPH (${eur(r2(zaklad))}). Overiť dodatky (podliehajú kontrole VO).${pozn}`, hodnoty };
+    return { stav: 'na_preverenie', zdovodnenie: `Doklady spolu ${eur(r2(f))} (celkové sumy dokladov, s DPH, ak ju doklad má) prevyšujú zmluvy ${eur(s)}. ${zakladText}${zaklad != null ? ', zmluvy neprevyšuje' : ''}. ITMS21+ neuvádza, či suma zmluvy zahŕňa DPH, preto treba overiť zmluvu a dodatky (dodatky podliehajú kontrole VO).${pozn}`, hodnoty };
+  }
+  if (bezDokladu.length) return { stav: 'mimo_podkladov', zdovodnenie: `Doklady so známou sumou spolu ${eur(r2(f))} (s DPH) neprevyšujú zmluvy ${eur(s)}. Doklad ${bezDokladu.map((d) => d.cislo || `id ${d.id}`).join(', ')} nemá v ITMS21+ sumu, fakturácia spolu sa preto neoverila.`, hodnoty };
+  return { stav: 'splnene', zdovodnenie: `Doklady spolu ${eur(r2(f))} (celkové sumy dokladov, s DPH, ak ju doklad má) neprevyšujú zmluvy ${eur(s)}; platí to, aj keby suma zmluvy bola bez DPH.`, hodnoty };
 }
 
 /** Zákazka malého rozsahu pod 50 000 EUR; bez PHZ sa za ňu berie tiež, aby sa nevynechala z delenia zákazky. */
@@ -169,7 +193,10 @@ function dokladyVo(v: VstupVo, n: Nalez, p: Pravidlo): Doklad[] {
     case 'vo_ponuky': return n.stav === 'neuplatnuje_sa' ? dokladyVstupov(n, zdroj, [postup], [u('Stav VO', (x) => x.stav)])
       : dokladyVstupov(n, zdroj, [u('Počet prijatých ponúk', (x) => x.ponuky)], [u('Počet vylúčených ponúk', (x) => x.vylucene), postup]);
     case 'vo_cena': return dokladyVstupov(n, zdroj, [phz, zmluvy], [postup]);
-    case 'vo_faktury': return dokladyVstupov(n, zdroj, [zmluvy, u('Účtovné doklady k VO', (x) => x.doklady.map((d) => `${d.cislo || `id ${d.id}`}: ${eur(d.celkom)}`))]);
+    case 'vo_faktury': return dokladyVstupov(n, zdroj, [
+      u('Zmluvy so sumou (ITMS21+ neuvádza, či suma zahŕňa DPH)', (x) => x.zmluvy.filter((y) => y.suma != null).map((y) => `${nazovZmluvy(y)}: ${eur(y.suma)}`)),
+      u('Účtovné doklady k VO: celková suma (s DPH, ak ju doklad má)', (x) => x.doklady.map((d) => `${d.cislo || `id ${d.id}`}: ${eur(d.celkom)}`))],
+    [u('Účtovné doklady k VO: základ bez DPH z položiek dokladu v ITMS21+', (x) => x.doklady.map((d) => { const b = zakladDokladu(d); return `${d.cislo || `id ${d.id}`}: ${b == null ? 'položky nevysvetlia celkovú sumu, základ neznámy' : eur(r2(b))}`; }))]);
     case 'vo_delenie': {
       if (n.stav === 'neuplatnuje_sa' || !v.vo.cpv || !v.vo.vytvorene) return dokladyVstupov(n, zdroj, [postup], [phz]);
       const pod = podobneZakazky(v.vo).map((x) => `${x.kod}: PHZ ${eur(x.phz)}`);
@@ -216,7 +243,14 @@ export const vo: Modul<VstupVo> = {
     const c = (x: any) => (x == null || x === '' ? null : Number(x));
     n.vo.phz = c(f.phz); n.vo.ponuky = c(f.ponuky); n.vo.vylucene = c(f.vylucene);
     const z = c(f.zmluva);
-    if (z != null && Math.abs(z - sumaZmluv(v.vo)) > 0.005) n.vo.zmluvy = [{ id: -1, kod: 'upravené', cislo: '', ucinnost: null, suma: z, dodavatel: v.vo.zmluvy[0]?.dodavatel ?? null }];
+    // Úprava súčtu nesmie zmazať zmluvy: ich účinnosť rozhoduje o režime limitov V01 (pred 1. 8. 2024) a dodávatelia
+    // o RPO (audit A06). Jedinej zmluve sa zmení suma; pri viacerých pribudne riadok s rozdielom súčtu z formulára.
+    if (z != null && Math.abs(z - sumaZmluv(v.vo)) > 0.005) {
+      const sSumou = n.vo.zmluvy.filter((y) => y.suma != null);
+      const jedina = sSumou.length === 1 ? sSumou[0] : n.vo.zmluvy.length === 1 ? n.vo.zmluvy[0] : null;
+      if (jedina) jedina.suma = z;
+      else n.vo.zmluvy.push({ id: -1, kod: 'úprava súčtu', cislo: 'úprava súčtu zmlúv z formulára', ucinnost: null, suma: r2(z - sumaZmluv(v.vo)), dodavatel: null });
+    }
     n.rpo = f.rpo === 'ano' ? 'ano' : '';
     return n;
   },
