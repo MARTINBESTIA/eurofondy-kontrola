@@ -1,7 +1,7 @@
 // Spoločné pomôcky modulov: načítanie odvodených dát, dátumy, čísla, normalizácia textu.
 import fs from 'node:fs';
 import path from 'node:path';
-import type { Projekt } from '../core/typy.ts';
+import type { Doklad, Nalez, Priloha, Projekt } from '../core/typy.ts';
 
 export const KOREN = path.join(import.meta.dirname, '..', '..');
 export const VYZVA = process.env.VYZVA ?? 'PSK-SIEA-002-2023-DV-EFRR';
@@ -50,3 +50,34 @@ export const num = (x: any): number | null => (x == null || x === '' || Number.i
 
 /** Malé písmená bez diakritiky, na hľadanie vzorov v slovenských textoch. */
 export const bezDiakritiky = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
+/** Hodnota v doklade: dátum po slovensky, číslo so slovenskými oddeľovačmi, áno/nie, zoznam oddelený bodkočiarkou. */
+export function textHodnoty(x: unknown): string {
+  if (typeof x === 'number') return cislo(x, 4);
+  if (typeof x === 'boolean') return x ? 'áno' : 'nie';
+  if (typeof x === 'string') return /^\d{4}-\d{2}-\d{2}$/.test(x) ? skDatum(x) : x;
+  if (Array.isArray(x)) return x.map(textHodnoty).join('; ');
+  return JSON.stringify(x);
+}
+/** Údaj, ktorý v ITMS21+ nie je a zadal ho kontrolór vo formulári modulu. */
+export const ZADANE = Symbol('zadané vo formulári');
+/** Vstup kontroly: názov údaja, hodnota, s ktorou kontrola počítala, a hodnota v zázname z ITMS21+ (alebo ZADANE). */
+export type VstupDokladu = [miesto: string, hodnota: unknown, povodna: unknown];
+/**
+ * Doklady k vstupom kontroly v moduloch. Údaj je z ITMS21+, ak sa zhoduje so záznamom z odvodených dát, inak
+ * z formulára kontrolóra (zmenený alebo zadaný údaj). Pri „splnené“ musí mať doklad každý povinný vstup, inak sa
+ * nevráti nič a posudok bod pošle človeku (dolozNalez); pri inom stave sú doklady informácia, uvedú sa tie, ktoré sú.
+ */
+export function dokladyVstupov(n: Nalez, zdroj: { itms: string; formular: string }, povinne: VstupDokladu[], volitelne: VstupDokladu[] = []): Doklad[] {
+  const prazdne = (x: unknown) => x == null || x === '' || (Array.isArray(x) && !x.length);
+  if (n.stav === 'splnene' && povinne.some(([, h]) => prazdne(h))) return [];
+  return [...povinne, ...volitelne].filter(([, h]) => !prazdne(h)).map(([miesto, h, povodna]) => ({
+    nazov: povodna !== ZADANE && JSON.stringify(h) === JSON.stringify(povodna) ? zdroj.itms : zdroj.formular, miesto, citat: textHodnoty(h) }));
+}
+/** Priložené dokumenty na miestach, ktoré kontrola prešla: názov súboru a začiatok textu (prítomnosť, nie obsah). */
+export function dokladyPriloh(prilohy: Record<string, Priloha> | undefined, miesta: { cislo: string; nazov: string }[]): Doklad[] {
+  return miesta.flatMap((m) => {
+    const pr = prilohy?.[m.cislo]; const t = pr?.text?.trim();
+    return t ? [{ nazov: pr!.nazov, miesto: `miesto „${m.nazov}“, začiatok textu`, citat: t.replace(/\s+/g, ' ').slice(0, 200) }] : [];
+  });
+}

@@ -1,8 +1,8 @@
 // Modul: merateľné ukazovatele projektu (MU) a monitorovacie správy.
 // Vstup: projekt z ITMS21+ (cieľové hodnoty, termíny monitorovania) + skutočné hodnoty, ktoré zadá používateľ
 // (verejné API skutočné hodnoty MU nezverejňuje). Krátenie NFP sa počíta prepisom sankčnej kalkulačky SIEA.
-import type { Modul, Nalez, Pole, Projekt, Ukazovatel, VysledokKontroly } from '../../core/typy.ts';
-import { cislo, dnes, eur, num, projekty, projektPodlaKodu, skDatum } from '../spolocne.ts';
+import type { Doklad, Modul, Nalez, Pole, Pravidlo, Projekt, Ukazovatel, VysledokKontroly } from '../../core/typy.ts';
+import { cislo, dnes, dokladyVstupov, eur, num, projekty, projektPodlaKodu, skDatum, ZADANE } from '../spolocne.ts';
 import { kalkulacka, type RiadokMU } from './kalkulacka.ts';
 
 export interface VstupUkazovatele {
@@ -103,6 +103,22 @@ const FILTRE: Record<string, (p: Projekt) => boolean> = {
   bezi: (p) => !p.ukonceny, ukonceny: (p) => p.ukonceny && /riadne/i.test(p.stav), mimoriadne: (p) => /mimoriadne/i.test(p.stav),
 };
 
+/** Doklady k nálezom MU: cieľové hodnoty a termíny z ITMS21+, dosiahnuté hodnoty a počet správ zo zadania kontrolóra. */
+function dokladyMu(v: VstupUkazovatele, n: Nalez, p: Pravidlo): Doklad[] {
+  const z = projektPodlaKodu(v.projekt.kod);
+  const zdroj = { itms: `ITMS21+, projekt ${v.projekt.kod}`, formular: `Formulár kontrolóra, projekt ${v.projekt.kod} (údaje z monitorovacej správy)` };
+  if (p.kontrola === 'monitorovanie') {
+    const terminy = (pr?: Projekt) => pr?.terminy.map((t) => `${t.typ.toLowerCase()} č. ${t.poradie}: najneskôr ${skDatum(t.najneskor)}`);
+    return dokladyVstupov(n, zdroj, [['Termíny monitorovacích správ', terminy(v.projekt), terminy(z)], ['Počet predložených správ', v.predlozene, ZADANE]], [['Deň kontroly', dnes(), dnes()]]);
+  }
+  const typ = p.kontrola === 'mu_vystup' ? 'vystup' : p.kontrola === 'mu_vysledok' ? 'vysledok' : null;
+  if (!typ) return [];
+  const ciele = (pr?: Projekt) => pr?.ukazovatele.filter((u) => u.typ === typ).map((u) => `${u.kod}: cieľ ${cislo(u.ciel, 4)}${u.vychodisko != null ? `, východisko ${cislo(u.vychodisko, 4)}` : ''} ${u.jednotka}`);
+  const us = v.projekt.ukazovatele.filter((u) => u.typ === typ && !nezazmluvneny(u));
+  const dosiahnute = us.length && us.every((u) => v.skutocne[u.kod] != null) ? us.map((u) => `${u.kod}: ${cislo(v.skutocne[u.kod], 4)} ${u.jednotka}`) : null;
+  return dokladyVstupov(n, zdroj, [['Cieľové hodnoty MU podľa zmluvy', ciele(v.projekt), ciele(z)], ['Dosiahnuté hodnoty MU', dosiahnute, ZADANE]]);
+}
+
 export const ukazovatele: Modul<VstupUkazovatele> = {
   id: 'ukazovatele', nazov: 'Merateľné ukazovatele',
   popis: 'Plnenie merateľných ukazovateľov projektu, krátenie NFP podľa sankčnej kalkulačky SIEA a termíny monitorovacích správ.',
@@ -143,6 +159,7 @@ export const ukazovatele: Modul<VstupUkazovatele> = {
     n.cov = num(f.cov) ?? v.projekt.cov; n.externe = f.externe === 'ano' || f.externe === 'nie' ? f.externe : ''; n.predlozene = num(f.predlozene);
     return n;
   },
+  doklady: dokladyMu,
   kontroly: { mu_vystup: kontrolaVystup, mu_vysledok: kontrolaVysledok, monitorovanie: kontrolaMonitorovanie },
   hlavnyText: (v) => v.projekt.popis,
   kontext: (v) => `Projekt ${v.projekt.kod}: ${v.projekt.nazov}`,

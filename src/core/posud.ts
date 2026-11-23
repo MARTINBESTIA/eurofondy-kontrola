@@ -1,7 +1,7 @@
 // Jadro: prejde pravidlá balíka, spustí kontroly modulu a zloží posudok. Nevie nič o výzve ani o type vstupu.
 import fs from 'node:fs';
 import path from 'node:path';
-import type { BalikPravidiel, Citacia, HarmonogramKol, Modul, Nalez, Navrh, Podmienka, Posudok, Pravidlo, Stav, VyberVerzie, VysledokKontroly } from './typy.ts';
+import type { BalikPravidiel, Citacia, Doklad, HarmonogramKol, Modul, Nalez, Navrh, Podmienka, Posudok, Pravidlo, Stav, VyberVerzie, VysledokKontroly } from './typy.ts';
 import { posudText, dokazJeVTexte, MODEL } from '../llm/ollama.ts';
 import { nacitajKontroluZmien, nacitajZakladZmien, nalezyZmienVyzvy, type KontrolaZmien } from './zmeny.ts';
 
@@ -128,6 +128,44 @@ export function riadkyUryvku(dokaz: string, text: string): string[] {
 export function okoliaUryvku(dokaz: string, text: string, n: number): string[] {
   const riadky = text.split(/\r?\n/);
   return indexyUryvku(dokaz, riadky).map((i) => riadky.slice(Math.max(0, i - n), i + n + 1).join('\n').trim());
+}
+
+/**
+ * Doklady k nálezom modulov (VO, ŽoP, zmeny, ukazovatele, výzvy): vstupy, z ktorých kontrola rozhodla, s miestom
+ * v zdroji. „Splnené“ bez dokladu ide človeku rovnako ako v podateľni (src/podatelna/doklady.ts).
+ */
+export const BEZ_DOKLADU = 'K výsledku sa nepodarilo doložiť všetky vstupy s presným miestom v zdroji. Overte ich v podkladoch. ';
+export function dolozNalez(n: Nalez, doklady: Doklad[]): void {
+  n.povodDokladov = doklady.length ? 'archiv' : 'nedostupne';
+  if (doklady.length) n.doklady = doklady;
+  else if (n.stav === 'splnene') { n.stav = 'na_preverenie'; n.zdovodnenie = BEZ_DOKLADU + n.zdovodnenie; }
+}
+
+/**
+ * Úryvky, ktoré citoval model, ako doklady s číslami riadkov textu. Pri náležitostiach je dôkaz zložený z častí
+ * „názov: „úryvok““ (vyhodnotNalezitosti); nazvy ich oddelia, aby každá náležitosť mala vlastné miesto.
+ * Úryvok, ktorý sa v texte nenájde, doklad nemá.
+ */
+export function dokladyUryvkov(dokaz: string | undefined, text: string, nazov: string, nazvy: string[] = []): Doklad[] {
+  if (!dokaz?.trim() || !text.trim()) return [];
+  const zaciatky = nazvy.map((nz) => ({ nz, i: dokaz.indexOf(`${nz}: „`) })).filter((x) => x.i >= 0).sort((a, b) => a.i - b.i);
+  const casti = zaciatky.length ? zaciatky.map((x, k) => ({ popis: x.nz, uryvok: dokaz.slice(x.i + x.nz.length + 3, k + 1 < zaciatky.length ? zaciatky[k + 1].i : undefined).replace(/“\s*$/, '') }))
+    : [{ popis: '', uryvok: dokaz }];
+  const riadky = text.split(/\r?\n/);
+  return casti.flatMap(({ popis, uryvok }) => {
+    const ix = indexyUryvku(uryvok, riadky); if (!ix.length) return [];
+    const od = Math.min(...ix) + 1, po = Math.max(...ix) + 1;
+    return [{ nazov, miesto: `${popis ? `${popis}: ` : ''}riadok ${od}${po > od ? `–${po}` : ''}`, citat: uryvok.trim(), riadokOd: od, riadokDo: po }];
+  });
+}
+
+/** Doklady k pravidlu llm_text: úryvky modelu v prílohe, poli alebo hlavnom texte, ktorý pravidlo čítalo. */
+export function dokladyTextu(v: any, n: Nalez, p: Pravidlo, modul: Modul): Doklad[] {
+  const par = p.parametre ?? {};
+  const nazvy = ((par.nalezitosti ?? []) as Nalezitost[]).map((x) => x.nazov);
+  if (par.zdroj === 'priloha') { const pr = v.prilohy?.[par.cislo]; return pr ? dokladyUryvkov(n.dokaz, pr.text, pr.nazov, nazvy) : []; }
+  if (par.zdroj === 'pole') return dokladyUryvkov(n.dokaz, String(v[par.pole] ?? ''), par.nazovPola ?? `pole ${par.pole}`, nazvy);
+  return dokladyUryvkov(n.dokaz, modul.hlavnyText(v), 'text na posúdenie', nazvy);
 }
 
 /**
@@ -269,6 +307,12 @@ export async function posud(v: any, balik: BalikPravidiel, modul: Modul, m: Mozn
       }
     } catch (e) { r = { stav: 'na_preverenie', zdovodnenie: `Kontrola zlyhala: ${(e as Error).message}` }; }
     nalezy.push({ pravidlo: p.id, ppp: p.ppp, nazov: p.nazov, druh: p.druh, ...r, citacia: p.citacia, overenieZdroj: p.overenieZdroj });
+  }
+  // Moduly s dokladmi: každý nález cituje svoje vstupy; text čítaný modelom sa cituje po riadkoch, ak modul neuvedie iné.
+  if (modul.doklady) for (const n of nalezy) {
+    const p = balik.pravidla.find((x) => x.id === n.pravidlo)!;
+    const d = modul.doklady(v, n, p);
+    dolozNalez(n, d.length || p.druh !== 'llm' ? d : dokladyTextu(v, n, p, modul));
   }
   // Výber pravidiel (iba) je čiastková kontrola, napr. len prílohy po nahratí; úplnosť sa posudzuje len pri celom posudku.
   if (!m.iba) nalezy.push(...nalezyInventara(balik, modul));

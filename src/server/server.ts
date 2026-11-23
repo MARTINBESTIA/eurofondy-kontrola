@@ -7,7 +7,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { nacitajBalik, posud, posudPodlaKola, verzieBalika, vyberVerziu } from '../core/posud.ts';
 import { dostupny, MODEL } from '../llm/ollama.ts';
 import { dokumentNaText, pdfDostupny } from '../ingest/dokument.ts';
-import type { BalikPravidiel, Modul, Posudok } from '../core/typy.ts';
+import type { BalikPravidiel, Modul, Nalez, Posudok } from '../core/typy.ts';
 import { zonfp } from '../moduly/zonfp/modul.ts';
 import { vyzvy } from '../moduly/vyzvy/modul.ts';
 import { vo } from '../moduly/vo/modul.ts';
@@ -178,7 +178,9 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
 /** Do auditu nejdú osobné údaje z registrov (mená štatutárov) ani úryvky z dokumentov modulov, ktoré to žiadajú. */
 function naAudit(m: Modul, p: Posudok): Posudok {
   if (!m.neukladatDokazy) return p;
-  return { ...p, nalezy: p.nalezy.map(({ dokaz: _d, ...n }) => (n.druh === 'register' ? { ...n, zdovodnenie: `[osobné údaje z registra sa neukladajú] stav: ${n.stav}` } : n)) };
+  // Doklady pravidiel, ktoré číta model, citujú dokument: úryvok môže obsahovať mená, preto sa neukladá ako ani dôkaz.
+  const bezUryvkov = (n: Nalez): Nalez => (n.druh === 'llm' && n.doklady ? { ...n, doklady: n.doklady.map((d) => ({ ...d, citat: '[úryvok z dokumentu sa neukladá]' })) } : n);
+  return { ...p, nalezy: p.nalezy.map(({ dokaz: _d, ...n }) => bezUryvkov(n.druh === 'register' ? { ...n, zdovodnenie: `[osobné údaje z registra sa neukladajú] stav: ${n.stav}` } : n)) };
 }
 
 const MIME: Record<string, string> = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml' };

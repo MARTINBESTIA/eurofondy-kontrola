@@ -1,9 +1,9 @@
 // Modul: zmeny projektu (oznámenie o zmene OoZ / žiadosť o zmenu zmluvy ŽoZZ).
 // Zatriedenie zmeny je pravidlové (vzory v texte), nie modelom: je opakovateľné a dá sa skontrolovať.
 // Pri pochybnosti sa vyberá prísnejší druh zmeny, nezaradená zmena ide človeku.
-import type { Modul, Priloha, Projekt, VysledokKontroly } from '../../core/typy.ts';
+import type { Doklad, Modul, Nalez, Pravidlo, Priloha, Projekt, Ukazovatel, VysledokKontroly } from '../../core/typy.ts';
 import { pracovnyDenPred } from '../../podatelna/lehoty.ts';
-import { bezDiakritiky, cislo, dnes, eur, num, pridajMesiace, projekty, skDatum } from '../spolocne.ts';
+import { bezDiakritiky, cislo, dnes, dokladyPriloh, dokladyVstupov, eur, num, pridajMesiace, projekty, skDatum, ZADANE, type VstupDokladu } from '../spolocne.ts';
 
 export type Kategoria = 'vyznamnejsia_ex_ante' | 'vyznamnejsia_ex_post' | 'menej_alebo_vyznamnejsia' | 'menej_vyznamna' | 'formalna' | 'technicka' | 'nezaradena';
 export const PORADIE: Kategoria[] = ['vyznamnejsia_ex_ante', 'vyznamnejsia_ex_post', 'menej_alebo_vyznamnejsia', 'menej_vyznamna', 'formalna', 'technicka', 'nezaradena'];
@@ -188,6 +188,34 @@ const zakladny = (p: Projekt, z: ZmenaZaznam): VstupZmena => ({ zmena: z, projek
 let index: Map<string, { p: Projekt; z: ZmenaZaznam }> | null = null;
 const vsetky = () => (index ??= new Map(projekty().flatMap((p) => p.zmeny.map((z) => [String(z.id), { p, z }] as const))));
 
+/** Doklady k nálezom zmeny: predmet zmeny a údaje projektu z ITMS21+, údaje z formulára kontrolóra, priložené dokumenty. */
+function dokladyZmeny(v: VstupZmena, n: Nalez, p: Pravidlo): Doklad[] {
+  const z = vsetky().get(String(v.zmena.id));
+  const zdroj = { itms: `ITMS21+, projekt ${v.projekt.kod}, zmena ${v.zmena.id}`, formular: `Formulár kontrolóra, zmena projektu ${v.projekt.kod}` };
+  const predmet: VstupDokladu = ['Predmet zmeny', v.zmena.predmet, z?.z.predmet];
+  const odovodnenie: VstupDokladu = ['Odôvodnenie zmeny', v.odovodnenie, ZADANE];
+  const formular: VstupDokladu = ['Predložený formulár', v.formular === 'ZoZZ' ? 'ŽoZZ (príloha č. 3)' : v.formular === 'OoZ' ? 'OoZ (príloha č. 2)' : null, ZADANE];
+  const zadane = (miesto: string, h: unknown): VstupDokladu => [miesto, h, ZADANE];
+  switch (p.kontrola) {
+    case 'zmena_druh': return dokladyVstupov(n, zdroj, [predmet, formular], [odovodnenie]);
+    case 'zmena_podstatna': return dokladyVstupov(n, zdroj, [predmet], [odovodnenie]);
+    case 'zmena_nfp': return dokladyVstupov(n, zdroj, [['NFP podľa zmluvy', v.projekt.nfp == null ? null : eur(v.projekt.nfp), z?.p.nfp == null ? undefined : eur(z.p.nfp)], zadane('Nová výška NFP', v.novaNfp == null ? null : eur(v.novaNfp))], [predmet]);
+    case 'zmena_harmonogram': return dokladyVstupov(n, zdroj, [['Účinnosť zmluvy o NFP', v.projekt.zmluva.ucinnost, z?.p.zmluva.ucinnost], zadane('Nový koniec hlavných aktivít', v.novyKoniecHA)], [predmet]);
+    case 'zmena_lehota': {
+      const k = zatried(text(v), v).kategoria;
+      const kedy = k === 'vyznamnejsia_ex_ante' ? [zadane('Dátum, keď zmena nastane', v.datumZmeny)] : k === 'vyznamnejsia_ex_post' ? [zadane('Dátum ŽoP s dotknutými výdavkami', v.datumZop)] : [];
+      return dokladyVstupov(n, zdroj, [predmet, zadane('Dátum podania ŽoZZ', v.datumPodania), ...kedy], [formular, zadane('Prečerpanie položky rozpočtu (%)', v.precerpanie)]);
+    }
+    case 'zmena_mu': {
+      const ciel = (x?: Ukazovatel) => (x ? `${x.kod}: cieľ ${cislo(x.ciel, 4)} ${x.jednotka}` : null);
+      return dokladyVstupov(n, zdroj, [['Menený ukazovateľ podľa zmluvy', ciel(v.projekt.ukazovatele.find((x) => x.kod === v.muKod)), z ? ciel(z.p.ukazovatele.find((x) => x.kod === v.muKod)) : undefined], zadane('Nová cieľová hodnota', v.muNova)],
+        [zadane('Hranica z čl. 4.3 zmluvy (%)', v.prahPercent), predmet]);
+    }
+    case 'zmena_prilohy': return dokladyPriloh(v.prilohy, povinnePrilohy(v));
+    default: return [];
+  }
+}
+
 export const zmeny: Modul<VstupZmena> = {
   id: 'zmeny', nazov: 'Zmeny projektu',
   popis: 'Zatriedenie zmeny (formálna, menej významná, významnejšia ex ante / ex post), správny formulár, lehoty, limity NFP a harmonogramu, zníženie MU a povinné prílohy.',
@@ -225,6 +253,7 @@ export const zmeny: Modul<VstupZmena> = {
     n.precerpanie = num(f.precerpanie); n.novaNfp = num(f.novaNfp); n.muKod = String(f.muKod ?? ''); n.muNova = num(f.muNova); n.prahPercent = num(f.prahPercent);
     return n;
   },
+  doklady: dokladyZmeny,
   kontroly: { zmena_druh: druh, zmena_podstatna: podstatna, zmena_nfp: nfp, zmena_harmonogram: harmonogram, zmena_lehota: (v) => lenPriZatriedeni(lehota(v)), zmena_mu: ukazovatel, zmena_prilohy: prilohy },
   hlavnyText: (v) => v.odovodnenie,
   kontext: (v) => `Projekt ${v.projekt.kod}: ${v.projekt.nazov}. Predmet zmeny: ${v.zmena.predmet.slice(0, 300)}`,

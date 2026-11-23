@@ -2,10 +2,10 @@
 // + plán žiadateľa (kedy chce predložiť, koľko dní potrebuje na prípravu, kedy naposledy čítal dokumentáciu).
 import fs from 'node:fs';
 import path from 'node:path';
-import type { Modul, VysledokKontroly } from '../../core/typy.ts';
+import type { Doklad, Modul, Nalez, Pravidlo, VysledokKontroly } from '../../core/typy.ts';
 import { MAX_VEK_KONTROLY_DNI } from '../../core/zmeny.ts';
 import { dnesSk } from '../../podatelna/lehoty.ts';
-import { KOREN, dnes, eur, num, rozdielDni, skDatum } from '../spolocne.ts';
+import { KOREN, dnes, dokladyVstupov, eur, num, rozdielDni, skDatum, ZADANE, type VstupDokladu } from '../spolocne.ts';
 
 export interface Vyzva { kod: string; nazov: string; program: string; vyhlasovatel: string; druh: string; typ: string; zameranie: string; vyhlasena: string | null; ukoncena: string | null; uzavreta: boolean; zrusena: boolean; pozastavena: boolean; sumaEu: number | null; predlozenych: number | null; schvalenych: number | null; neschvalenych: number | null; kola: { cislo: number; uzavierka: string | null }[]; verzie: { cislo: number; datum: string | null; dovod: string }[] }
 export interface Planovana { kod: string; nazov: string; program: string; vyhlasovatel: string; zameranie: string; planVyhlasenia: string | null; sumaEu: number | null; vyhlasena: boolean; zrusena: boolean }
@@ -116,6 +116,32 @@ const FILTRE: Record<string, (v: { vyzva?: Vyzva; planovana?: Planovana }) => bo
 };
 const vsetky = () => [...VYZVY.map((vyzva) => ({ vyzva })), ...PLANOVANE.filter((p) => !p.vyhlasena).map((planovana) => ({ planovana }))] as { vyzva?: Vyzva; planovana?: Planovana }[];
 
+/** Doklady k nálezom výzvy: údaje výzvy z ITMS21+ s dňom stiahnutia a plán žiadateľa z formulára. */
+function dokladyVyzvy(v: VstupVyzva, n: Nalez, p: Pravidlo): Doklad[] {
+  const vz = v.vyzva; const pl = v.planovana; const den = stiahnuteDna();
+  const zdroj = { itms: `ITMS21+ (${den ? `stiahnuté ${skDatum(den)}` : 'deň stiahnutia neznámy'}), výzva ${(vz ?? pl)?.kod ?? ''}`, formular: 'Plán žiadateľa (formulár)' };
+  const itms = (miesto: string, h: unknown): VstupDokladu => [miesto, h, h];
+  const datum: VstupDokladu = ['Plánovaný dátum predloženia', v.datumPredlozenia, ZADANE];
+  const uzavierkaText = (d: string) => { const u = vz && uzavierka(vz, d); return u ? `${u.popis} ${skDatum(u.datum)}` : null; };
+  switch (p.kontrola) {
+    case 'vyzva_stav': return vz ? dokladyVstupov(n, zdroj, [itms('Vyhlásená', vz.vyhlasena), itms('Ukončenie', vz.ukoncena ?? 'bez dátumu ukončenia'),
+      itms('Zrušená, pozastavená alebo uzavretá', [vz.zrusena && 'zrušená', vz.pozastavena && 'pozastavená', vz.uzavreta && 'uzavretá'].filter(Boolean).join(', ') || 'nie'), datum]) : [];
+    case 'vyzva_kolo': return vz ? dokladyVstupov(n, zdroj, [itms('Najbližšia uzávierka podľa ITMS21+', uzavierkaText(ref(v))), datum]) : [];
+    case 'vyzva_rezerva': return vz ? dokladyVstupov(n, zdroj, [itms('Najbližšia uzávierka podľa ITMS21+', uzavierkaText(dnes())), ['Dni na prípravu žiadosti', v.dniPripravy, ZADANE]], [['Rezerva (dni)', v.rezerva, ZADANE], itms('Deň kontroly', dnes())]) : [];
+    case 'vyzva_verzia': {
+      if (!vz) return [];
+      const posledna = [...vz.verzie].filter((x) => x.datum).sort((a, b) => b.datum!.localeCompare(a.datum!))[0];
+      return dokladyVstupov(n, zdroj, [itms('Posledná verzia výzvy', posledna ? `č. ${posledna.cislo} zo ${skDatum(posledna.datum)}` : 'bez zaznamenaných zmien'), ['Kedy žiadateľ naposledy čítal dokumentáciu', v.datumOboznamenia, ZADANE]]);
+    }
+    case 'vyzva_plan': {
+      if (!pl) return [];
+      const hist = snimky().flatMap((s) => { const d = s.planovane.find((x) => x.kod === pl.kod)?.planVyhlasenia; return d ? [`snímka ${skDatum(s.datum)}: vyhlásenie ${skDatum(d)}`] : []; });
+      return dokladyVstupov(n, zdroj, [itms('Plánované vyhlásenie', pl.planVyhlasenia), itms('Snímky plánu výziev', hist)]);
+    }
+    default: return [];
+  }
+}
+
 export const vyzvy: Modul<VstupVyzva> = {
   id: 'vyzvy', nazov: 'Plánovanie výziev', balikVyzva: 'PSK',
   popis: 'Pre žiadateľa a konzultanta: je výzva otvorená, kedy je najbližšia uzávierka, stihne sa príprava, pracuje sa s aktuálnou verziou výzvy, posunul sa termín plánovanej výzvy.',
@@ -141,6 +167,7 @@ export const vyzvy: Modul<VstupVyzva> = {
     const d = (x: any) => (typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x) ? x : null);
     return { ...v, datumPredlozenia: d(f.datumPredlozenia), dniPripravy: num(f.dniPripravy), rezerva: num(f.rezerva), datumOboznamenia: d(f.datumOboznamenia) };
   },
+  doklady: dokladyVyzvy,
   kontroly: {
     vyzva_stav: (v) => sVekomUdajov(stav(v)), vyzva_kolo: (v) => sVekomUdajov(kolo(v)), vyzva_rezerva: (v) => sVekomUdajov(rezerva(v)),
     vyzva_verzia: (v) => sVekomUdajov(verzia(v)), vyzva_plan: (v) => sVekomUdajov(plan(v)),

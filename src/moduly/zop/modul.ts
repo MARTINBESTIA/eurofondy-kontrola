@@ -1,8 +1,8 @@
 // Modul: žiadosť o platbu (ŽoP). Vstup: ŽoP z ITMS21+ s výdavkami a účtovnými dokladmi; prílohy (faktúra,
 // výpis z účtu, súpis prác...) nahrá používateľ, lebo verejné API ich nezverejňuje.
-import type { Modul, Pravidlo, Priloha, Projekt, VysledokKontroly } from '../../core/typy.ts';
-import { najdiVTexte, type Nalezitost } from '../../core/posud.ts';
-import { cislo, eur, nacitajData, num, pridajMesiace, projektPodlaId, skDatum } from '../spolocne.ts';
+import type { Doklad as Podklad, Modul, Nalez, Pravidlo, Priloha, Projekt, VysledokKontroly } from '../../core/typy.ts';
+import { dokladyUryvkov, najdiVTexte, type Nalezitost } from '../../core/posud.ts';
+import { cislo, dokladyPriloh, dokladyVstupov, eur, nacitajData, num, pridajMesiace, projektPodlaId, skDatum, ZADANE, type VstupDokladu } from '../spolocne.ts';
 
 export interface Vydavok { id: number; poradie: number; nazov: string; druh: string; typ: string; datumUhrady: string | null; bezDph: number | null; dph: number | null; ziadana: number | null; neziadana: number; polozkaRozpoctuId: number | null; dokladId: number | null; voIds: number[]; zmluvaVoIds: number[] }
 export interface ZopZaznam { id: number; kod: string; typ: string; zaverecna: boolean; narokovana: number | null; neuhradena: boolean | null; vytvorena: string | null; projektId: number; projektKod: string; prijimatel: { nazov: string; ico: string; platitelDph: boolean | null }; vydavky: Vydavok[] }
@@ -52,7 +52,9 @@ function obdobie(v: VstupZop): VysledokKontroly {
   if (!v.zop.vydavky.length) return { stav: 'neuplatnuje_sa', zdovodnenie: 'ŽoP nemá výdavky (napr. zálohová platba).' };
   if (neznamy) return { stav: 'na_preverenie', zdovodnenie: `${neznamy} výdavkov nemá dátum dokladu, ostatné sú v oprávnenom období.`, hodnoty };
   if (!ha) return { stav: 'mimo_podkladov', zdovodnenie: 'Výdavky sú v období programu (od 1. 1. 2021, úhrada do 31. 12. 2029), projekt však nemá v dátach termíny hlavných aktivít, okno realizácie sa neoverilo.', hodnoty };
-  return { stav: 'splnene', zdovodnenie: `Všetkých ${v.zop.vydavky.length} výdavkov má doklad z obdobia realizácie hlavných aktivít a úhradu do 31. 12. 2029.`, hodnoty };
+  // Dátum úhrady, ktorý v dátach chýba, sa netvrdí: overené je len to, že žiadna známa úhrada nie je po 31. 12. 2029.
+  const bezUhrady = v.zop.vydavky.filter((x) => !datumPlatby(x)).length;
+  return { stav: 'splnene', zdovodnenie: `Všetkých ${v.zop.vydavky.length} výdavkov má doklad z obdobia realizácie hlavných aktivít${bezUhrady ? ` a žiadna známa úhrada nie je po 31. 12. 2029 (dátum úhrady v dátach chýba pri ${bezUhrady} výdavkoch)` : ' a úhradu do 31. 12. 2029'}.`, hodnoty };
 }
 
 function sumy(v: VstupZop): VysledokKontroly {
@@ -264,6 +266,47 @@ async function uhrada(v: VstupZop, p: Pravidlo): Promise<VysledokKontroly> {
   return { stav: 'splnene', zdovodnenie: `Bankový výpis obsahuje všetkých ${nal.length} náležitostí a nevyzerá ako výstup z internet bankingu.`, dokaz: najdene.join('\n') };
 }
 
+/** Doklady k nálezom ŽoP: údaje ŽoP, výdavkov a účtovných dokladov z ITMS21+, údaje z formulára a priložené dokumenty. */
+function dokladyZop(v: VstupZop, n: Nalez, p: Pravidlo): Podklad[] {
+  const z = podlaKodu.get(v.zop.kod);
+  const zdroj = { itms: `ITMS21+, ŽoP ${v.zop.kod}`, formular: `Formulár kontrolóra, ŽoP ${v.zop.kod}` };
+  const u = (miesto: string, f: (x: ZopZaznam) => unknown): VstupDokladu => [miesto, f(v.zop), z ? f(z) : undefined];
+  const uctovne = (x: ZopZaznam) => [...new Set(x.vydavky.map((y) => y.dokladId))].map(doklad).filter((d): d is Doklad => !!d);
+  const sumyDokladov = u('Účtovné doklady: suma', (x) => uctovne(x).map((d) => `${d.cislo}: ${eur(d.celkom)}`));
+  const dphDokladu = (d: Doklad) => r2(d.polozky.reduce((s, q) => s + (q.dph ?? 0), 0));
+  const platitel = (b: boolean | null | undefined) => (b == null ? 'neuvedené' : b ? 'áno' : 'nie');
+  switch (p.kontrola) {
+    case 'zop_obdobie': {
+      const ha = (pr?: Projekt) => (pr?.planZaciatok && pr.planKoniec ? `${skDatum(pr.planZaciatok)} – ${skDatum(pr.planKoniec)}` : null);
+      return dokladyVstupov(n, zdroj, [u('Výdavky: dátum dokladu a úhrady', (x) => x.vydavky.map((y) => `č. ${y.poradie}: doklad z ${skDatum(datumVzniku(y))}, úhrada ${skDatum(datumPlatby(y))}`)),
+        ['Hlavné aktivity projektu (plán)', ha(v.projekt), z ? ha(projektPodlaId(z.projektId)) : undefined]]);
+    }
+    case 'zop_sumy': return dokladyVstupov(n, zdroj, [u('Výdavky: žiadaná suma a výška výdavku', (x) => x.vydavky.map((y) => `č. ${y.poradie}: žiadané ${eur(y.ziadana)}, výdavok ${eur(y.bezDph)} + DPH ${eur(y.dph)}`)), sumyDokladov]);
+    case 'zop_duplicita': { const ine = `${VSETKY_ZOP.length - 1} ďalších ŽoP`; return dokladyVstupov(n, zdroj, [sumyDokladov, ['Porovnané ŽoP v dátach výzvy', ine, ine]]); }
+    case 'zop_dph': return dokladyVstupov(n, zdroj, [
+      u('Prijímateľ: platiteľ DPH', (x) => platitel(x.prijimatel.platitelDph)),
+      u('Doklady s DPH: dodávateľ a jeho status platiteľa DPH', (x) => {
+        const s = uctovne(x).filter((d) => dphDokladu(d) > 0.01).map((d) => `${d.cislo}: DPH ${eur(dphDokladu(d))}, ${d.dodavatel?.nazov ?? 'dodávateľ neuvedený'} (IČO ${d.dodavatel?.ico ?? '–'}), platiteľ DPH: ${platitel(d.dodavatel?.platitelDph)}`);
+        return s.length ? s : 'žiadny doklad ŽoP nemá DPH';
+      }),
+      u('Výdavky: žiadaná suma a suma bez DPH', (x) => x.vydavky.map((y) => `č. ${y.poradie}: žiadané ${eur(y.ziadana)}, bez DPH ${eur(y.bezDph)}`))]);
+    case 'zop_dph_vypocet': return dokladyVstupov(n, zdroj, [u('Položky dokladov: základ × sadzba = DPH', (x) => uctovne(x).flatMap((d) => d.polozky.map((q) => `${d.cislo}: ${eur(q.bezDph)} × ${q.sadzba == null ? '–' : `${cislo(q.sadzba)} %`} = ${eur(q.dph)}`)))]);
+    case 'zop_vo_vazba': return dokladyVstupov(n, zdroj, [u('Výdavky a priradené VO', (x) => x.vydavky.map((y) => `č. ${y.poradie} (${y.typ}): ${y.voIds.length ? y.voIds.map((id) => VO.get(id)?.kod ?? `VO id ${id}`).join(', ') : 'bez VO'}`))]);
+    case 'zop_vo_kontrola': return v.voKontrola
+      ? dokladyVstupov(n, zdroj, [['Kontrola VO ukončená pred predložením ŽoP', v.voKontrola === 'ano' ? 'áno' : 'nie', ZADANE]])
+      : dokladyVstupov(n, zdroj, [u('Priradené VO a ich PHZ', (x) => [...new Set(x.vydavky.flatMap((y) => y.voIds))].map((id) => { const o = VO.get(id); return o ? `${o.kod}: PHZ ${eur(o.phz)}` : `VO id ${id}: chýba v dátach`; }))]);
+    case 'zop_vo_zmluva': return dokladyVstupov(n, zdroj, [u('Zmluvy z VO priradené výdavkom', (x) => [...new Set(x.vydavky.flatMap((y) => y.zmluvaVoIds))].map((id) => { const s = ZMLUVY.get(id); return s ? `zmluva k ${s.vo.kod}: ${eur(s.suma)}` : `zmluva id ${id}: chýba v dátach`; }))],
+      [u('Výdavky so zmluvou z VO: žiadaná suma', (x) => x.vydavky.filter((y) => y.zmluvaVoIds.length).map((y) => `č. ${y.poradie}: ${eur(y.ziadana)}`))]);
+    case 'zop_hotovost': return dokladyVstupov(n, zdroj, [
+      ['Najvyššia jednotlivá platba v hotovosti', v.hotovostMax == null ? null : eur(v.hotovostMax), ZADANE],
+      ['Najvyššia suma hotovostných platieb za mesiac', v.hotovostMesiac == null ? null : eur(v.hotovostMesiac), ZADANE],
+      ['Hotovosťou sa platil dlhodobý majetok', v.hotovostMajetok === 'ano' ? 'áno' : v.hotovostMajetok === 'nie' ? 'nie' : null, ZADANE]]);
+    case 'zop_prilohy': return dokladyPriloh(v.prilohy, povinnePrilohy(v));
+    case 'zop_uhrada': return dokladyUryvkov(n.dokaz, v.prilohy?.uhrada?.text ?? '', v.prilohy?.uhrada?.nazov ?? 'doklad o úhrade', ((p.parametre?.nalezitosti ?? []) as Nalezitost[]).map((x) => x.nazov));
+    default: return [];
+  }
+}
+
 const FILTRE: Record<string, (z: ZopZaznam) => boolean> = {
   refundacia: (z) => z.typ === 'REFUNDACIA', predfinancovanie: (z) => z.typ === 'PREDFINANCOVANIE', zuctovanie: (z) => z.typ.startsWith('ZUCTOVANIE'), zaverecna: (z) => z.zaverecna,
 };
@@ -301,6 +344,7 @@ export const zop: Modul<VstupZop> = {
     n.voKontrola = f.voKontrola === 'ano' || f.voKontrola === 'nie' ? f.voKontrola : '';
     return n;
   },
+  doklady: dokladyZop,
   kontroly: { zop_obdobie: obdobie, zop_sumy: sumy, zop_duplicita: duplicita, zop_dph: dph, zop_dph_vypocet: dphVypocet, zop_vo_vazba: voVazba, zop_vo_kontrola: voKontrola, zop_vo_zmluva: voZmluva, zop_hotovost: hotovost, zop_prilohy: prilohy, zop_uhrada: uhrada },
   hlavnyText: (v) => v.prilohy?.faktura?.text ?? '',
   kontext: (v) => `ŽoP ${v.zop.kod}, prijímateľ ${v.zop.prijimatel.nazov}`,

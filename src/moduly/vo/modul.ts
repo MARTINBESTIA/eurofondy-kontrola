@@ -1,7 +1,7 @@
 // Modul: verejné obstarávanie (VO). Vstup: VO z ITMS21+ (postup, PHZ, počet ponúk, zmluvy, doklady).
 // Overenie štatutárov v registri RPO je voliteľné a ide online; mená sa neukladajú (neukladatDokazy).
-import type { Modul, Priloha, VysledokKontroly } from '../../core/typy.ts';
-import { bezDiakritiky, eur, nacitajData, skDatum } from '../spolocne.ts';
+import type { Doklad, Modul, Nalez, Pravidlo, Priloha, VysledokKontroly } from '../../core/typy.ts';
+import { bezDiakritiky, dokladyVstupov, eur, nacitajData, skDatum, type VstupDokladu } from '../spolocne.ts';
 
 export interface VoPlny {
   id: number; kod: string; nazov: string; stav: string; vytvorene: string | null;
@@ -97,13 +97,15 @@ function faktury(v: VstupVo): VysledokKontroly {
 
 /** Zákazka malého rozsahu pod 50 000 EUR; bez PHZ sa za ňu berie tiež, aby sa nevynechala z delenia zákazky. */
 const jeZmr = (v: VoPlny) => /malého rozsahu|nízkou hodnotou/i.test(v.postup) && (v.phz == null || v.phz < 50_000);
+/** Ďalšie zákazky malého rozsahu obstarávateľa s rovnakou skupinou CPV v tom istom roku (v dátach výzvy). */
+const podobneZakazky = (vo: VoPlny) => VSETKY.filter((x) => x.obstaravatel.ico === vo.obstaravatel.ico && x.kod !== vo.kod && !/stiahnut/i.test(x.stav)
+  && x.cpv.slice(0, 3) === vo.cpv.slice(0, 3) && (x.vytvorene ?? '').slice(0, 4) === (vo.vytvorene ?? '').slice(0, 4) && jeZmr(x));
 function delenie(v: VstupVo): VysledokKontroly {
   if (!jeZmr(v.vo)) return { stav: 'neuplatnuje_sa', zdovodnenie: 'Nejde o zákazku malého rozsahu pod 50 000 EUR.' };
   if (v.vo.phz == null) return { stav: 'mimo_podkladov', zdovodnenie: 'Chýba predpokladaná hodnota zákazky, súčet s podobnými zákazkami sa nedá overiť.' };
   if (!v.vo.cpv || !v.vo.vytvorene) return { stav: 'mimo_podkladov', zdovodnenie: 'Chýba CPV kód alebo dátum VO.' };
   const rok = v.vo.vytvorene.slice(0, 4); const skupina = v.vo.cpv.slice(0, 3);
-  const podobne = VSETKY.filter((x) => x.obstaravatel.ico === v.vo.obstaravatel.ico && x.kod !== v.vo.kod && !/stiahnut/i.test(x.stav)
-    && x.cpv.slice(0, 3) === skupina && (x.vytvorene ?? '').slice(0, 4) === rok && jeZmr(x));
+  const podobne = podobneZakazky(v.vo);
   const bezPhz = podobne.filter((x) => x.phz == null);
   const spolu = v.vo.phz + podobne.reduce((s, x) => s + (x.phz ?? 0), 0);
   const pozn = bezPhz.length ? ` Bez uvedenej PHZ: ${bezPhz.slice(0, 6).map((x) => x.kod).join(', ')}${bezPhz.length > 6 ? ` a ďalších ${bezPhz.length - 6}` : ''}.` : '';
@@ -150,6 +152,41 @@ async function rpo(v: VstupVo): Promise<VysledokKontroly> {
   return { stav: 'splnene', zdovodnenie: `Štatutári obstarávateľa a ${overenych} dodávateľov (RPO, aktuálny stav) sa menom nezhodujú. Príbuzenské a iné vzťahy sa takto overiť nedajú.` };
 }
 
+/**
+ * Doklady k nálezom VO: polia záznamu VO z ITMS21+, alebo z formulára, ak ich kontrolór zmenil. Pri RPO len IČO,
+ * na ktoré sa register pýtal; mená štatutárov sa neukladajú (neukladatDokazy).
+ */
+function dokladyVo(v: VstupVo, n: Nalez, p: Pravidlo): Doklad[] {
+  const z = podlaKodu.get(v.vo.kod);
+  const zdroj = { itms: `ITMS21+, verejné obstarávanie ${v.vo.kod}`, formular: `Formulár kontrolóra, verejné obstarávanie ${v.vo.kod}` };
+  const u = (miesto: string, f: (x: VoPlny) => unknown): VstupDokladu => [miesto, f(v.vo), z ? f(z) : undefined];
+  const postup = u('Postup', (x) => x.postup);
+  const phz = u('PHZ bez DPH', (x) => (x.phz == null ? null : eur(x.phz)));
+  const zmluvy = u('Zmluvy so sumou', (x) => x.zmluvy.filter((y) => y.suma != null).map((y) => `${nazovZmluvy(y)}: ${eur(y.suma)}`));
+  const vytvorene = u('Vytvorené v ITMS21+', (x) => x.vytvorene);
+  switch (p.kontrola) {
+    case 'vo_postup': return dokladyVstupov(n, zdroj, [postup, phz], [vytvorene, u('Účinnosť zmlúv', (x) => x.zmluvy.filter((y) => y.ucinnost).map((y) => `${nazovZmluvy(y)}: ${skDatum(y.ucinnost)}`))]);
+    case 'vo_ponuky': return n.stav === 'neuplatnuje_sa' ? dokladyVstupov(n, zdroj, [postup], [u('Stav VO', (x) => x.stav)])
+      : dokladyVstupov(n, zdroj, [u('Počet prijatých ponúk', (x) => x.ponuky)], [u('Počet vylúčených ponúk', (x) => x.vylucene), postup]);
+    case 'vo_cena': return dokladyVstupov(n, zdroj, [phz, zmluvy], [postup]);
+    case 'vo_faktury': return dokladyVstupov(n, zdroj, [zmluvy, u('Účtovné doklady k VO', (x) => x.doklady.map((d) => `${d.cislo || `id ${d.id}`}: ${eur(d.celkom)}`))]);
+    case 'vo_delenie': {
+      if (n.stav === 'neuplatnuje_sa' || !v.vo.cpv || !v.vo.vytvorene) return dokladyVstupov(n, zdroj, [postup], [phz]);
+      const pod = podobneZakazky(v.vo).map((x) => `${x.kod}: PHZ ${eur(x.phz)}`);
+      const porovnanie = pod.length ? pod : 'v dátach výzvy žiadne ďalšie';
+      return dokladyVstupov(n, zdroj, [postup, phz, u('CPV', (x) => `${x.cpv} ${x.cpvNazov}`.trim()), vytvorene,
+        [`Zákazky malého rozsahu obstarávateľa (IČO ${v.vo.obstaravatel.ico}) so skupinou CPV ${v.vo.cpv.slice(0, 3)}… v roku ${v.vo.vytvorene.slice(0, 4)}`, porovnanie, porovnanie]]);
+    }
+    case 'vo_rpo': {
+      if (v.rpo !== 'ano') return [];
+      const ica = (x: VoPlny) => [...new Set(x.zmluvy.map((y) => y.dodavatel?.ico).filter(Boolean))];
+      const d = dokladyVstupov(n, zdroj, [u('IČO obstarávateľa', (x) => x.obstaravatel.ico), u('IČO dodávateľov zo zmlúv', ica)]);
+      return d.length ? [...d, { nazov: 'Register právnických osôb (RPO), online dopyt', miesto: 'štatutári obstarávateľa a dodávateľov, aktuálny stav', citat: 'Mená sa porovnali a neukladajú sa.' }] : [];
+    }
+    default: return [];
+  }
+}
+
 const FILTRE: Record<string, (v: VoPlny) => boolean> = {
   jedna: (v) => v.ponuky != null && v.ponuky <= 2, zmr: (v) => /malého rozsahu|nízkou hodnotou/i.test(v.postup), podlimit: (v) => /podlimitn/i.test(v.postup), nadlimit: (v) => /nadlimitn|verejná súťaž/i.test(v.postup),
 };
@@ -183,6 +220,7 @@ export const vo: Modul<VstupVo> = {
     n.rpo = f.rpo === 'ano' ? 'ano' : '';
     return n;
   },
+  doklady: dokladyVo,
   kontroly: { vo_postup: postup, vo_ponuky: ponuky, vo_cena: cena, vo_faktury: faktury, vo_delenie: delenie, vo_rpo: rpo },
   hlavnyText: (v) => v.prilohy?.zaznam?.text ?? '',
   kontext: (v) => `Zákazka ${v.vo.kod}: ${v.vo.nazov}; obstarávateľ ${v.vo.obstaravatel.nazov}`,

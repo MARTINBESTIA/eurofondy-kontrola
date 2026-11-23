@@ -193,6 +193,11 @@ export interface Modul<V = any> {
   skutocnost?(v: V): string | null;
   /** Návrhy dokumentov, ktoré modul vie predvyplniť (napr. oznámenie o zmene). */
   vystupy?(v: V, nalezy: Nalez[]): { nazov: string; text: string }[];
+  /**
+   * Doklady k nálezu: vstupy, z ktorých kontrola rozhodla, s miestom v zdroji (pole z ITMS21+, údaj z formulára,
+   * riadok prílohy). Modul s týmto háčikom dostane pri „splnené“ bez dokladu bod na preverenie (posud.ts, dolozNalez).
+   */
+  doklady?(v: V, n: Nalez, p: Pravidlo): Doklad[];
   /** Osobné údaje z registrov sa do auditnej tabuľky neukladajú. */
   neukladatDokazy?: boolean;
   /** Balík musí vymenovať všetky podmienky výzvy (BalikPravidiel.podmienky). Bez inventára ide celá úplnosť človeku. */

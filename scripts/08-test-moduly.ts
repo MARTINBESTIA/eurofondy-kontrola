@@ -6,7 +6,7 @@
 // Výstup: eval/test-moduly.json (zobrazuje ho karta „Test na reálnych dátach“).
 import fs from 'node:fs';
 import path from 'node:path';
-import { nacitajBalik, posud } from '../src/core/posud.ts';
+import { BEZ_DOKLADU, dokladyTextu, nacitajBalik, posud } from '../src/core/posud.ts';
 import type { BalikPravidiel, Modul, Posudok, Stav } from '../src/core/typy.ts';
 import { dnes, pridajDni, pridajMesiace, projekty, rozdielDni } from '../src/moduly/spolocne.ts';
 import { zonfp } from '../src/moduly/zonfp/modul.ts';
@@ -29,6 +29,8 @@ async function realne(m: Modul, b: BalikPravidiel) {
   const t = Date.now();
   const ids = m.pripady('', '', 1e9).pripady.map((p) => p.id);
   const navrhy: Record<string, number> = {}; const pravidla = new Map(b.pravidla.map((p) => [p.id, { id: p.id, nazov: p.nazov, pocty: {} as Record<string, number> }]));
+  // Doklady (N9): každé „splnené“ cituje vstupy; presunuté = „splnené“, ktoré pre chýbajúcu citáciu išlo človeku.
+  const doklady = { splnene: 0, bezDokladu: 0, presunute: 0 };
   for (const id of ids) {
     const p = await posud(m.nacitaj(id), b, m, { llm: false });
     navrhy[p.navrh] = (navrhy[p.navrh] ?? 0) + 1;
@@ -36,9 +38,11 @@ async function realne(m: Modul, b: BalikPravidiel) {
     for (const n of p.nalezy) {
       if (!pravidla.has(n.pravidlo)) pravidla.set(n.pravidlo, { id: n.pravidlo, nazov: n.nazov, pocty: {} });
       const r = pravidla.get(n.pravidlo)!; r.pocty[n.stav] = (r.pocty[n.stav] ?? 0) + 1;
+      if (n.stav === 'splnene') { doklady.splnene++; if (!n.doklady?.length) doklady.bezDokladu++; }
+      if (n.zdovodnenie.startsWith(BEZ_DOKLADU)) doklady.presunute++;
     }
   }
-  return { pripadov: ids.length, trvanieMs: Date.now() - t, navrhy, pravidla: [...pravidla.values()] };
+  return { pripadov: ids.length, trvanieMs: Date.now() - t, navrhy, pravidla: [...pravidla.values()], ...(m.doklady ? { doklady } : {}) };
 }
 
 /** Spustí posudok na prípadoch so zasadenou chybou a vyhodnotí cieľové pravidlo. */
@@ -310,6 +314,47 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
     'Prahy z čl. 4.3 zmluvy (C, D) a maximálne zníženie COV (E, F) v teste sú testovacie hodnoty, nie hodnoty z konkrétnych zmlúv.',
   ];
   vystup.moduly[m.id] = r;
+}
+
+// ---------------------------------------------------------------- doklady k nálezom modulov (N9)
+// „Splnené“ musí citovať vstupy s miestom v zdroji, inak ide človeku; pôvod údaja je ITMS21+ alebo formulár kontrolóra.
+{
+  console.log('\n== Doklady k nálezom modulov');
+  const ov: { nazov: string; vysledok: string; ok: boolean }[] = [];
+  const realneDoklady = Object.values(vystup.moduly).map((x: any) => x.doklady).filter(Boolean);
+  const sucet = (k: string) => realneDoklady.reduce((s: number, d: any) => s + d[k], 0);
+  ov.push({ nazov: `Skutočné dáta (${realneDoklady.length} moduly): každé „splnené“ má doklad, žiadne nešlo človeku pre chýbajúcu citáciu`, vysledok: `splnených ${sucet('splnene')}, bez dokladu ${sucet('bezDokladu')}, presunutých ${sucet('presunute')}`, ok: realneDoklady.length === 5 && sucet('splnene') > 0 && sucet('bezDokladu') === 0 && sucet('presunute') === 0 });
+
+  // Modul, ktorý doklad nevie dať: „splnené“ ide človeku a výrok nie je OK.
+  const bV = balik(vo); const sV02 = [];
+  for (const id of vsetkyId(vo)) { const v = nacitaj(vo, id); if ((await posud(v, bV, vo, { llm: false, iba: ['V02'] })).nalezy[0].stav === 'splnene') sV02.push(v); if (sV02.length >= 20) break; }
+  const bezDokl = { ...vo, doklady: () => [] } as Modul<VstupVo>;
+  let presunute = 0, okVyroky = 0;
+  for (const v of sV02) { const p = await posud(v, bV, bezDokl, { llm: false }); const n = p.nalezy.find((x) => x.pravidlo === 'V02')!; if (n.stav === 'na_preverenie' && n.zdovodnenie.startsWith(BEZ_DOKLADU)) presunute++; if (okVyrok(p)) okVyroky++; }
+  ov.push({ nazov: 'Modul bez dokladu: „splnené“ V02 ide na preverenie a výrok nie je OK', vysledok: `${presunute}/${sV02.length} presunutých, OK výrokov ${okVyroky}`, ok: sV02.length > 0 && presunute === sV02.length && okVyroky === 0 });
+
+  // Pôvod údaja: PHZ zmenená vo formulári je z formulára kontrolóra, postup ostáva z ITMS21+.
+  const v0 = sV02.find((x) => x.vo.phz != null && x.vo.postup)!;
+  const upraveny = vo.zFormulara(v0, { ...vo.doFormulara(v0), phz: v0.vo.phz! + 1 });
+  const d01 = (await posud(upraveny, bV, vo, { llm: false, iba: ['V01'] })).nalezy[0].doklady ?? [];
+  const zdrojPola = (m: string) => d01.find((d) => d.miesto === m)?.nazov ?? '';
+  ov.push({ nazov: 'PHZ zmenená vo formulári má zdroj „Formulár kontrolóra“, postup „ITMS21+“', vysledok: `PHZ: ${zdrojPola('PHZ bez DPH')}; postup: ${zdrojPola('Postup')}`, ok: zdrojPola('PHZ bez DPH').startsWith('Formulár kontrolóra') && zdrojPola('Postup').startsWith('ITMS21+') });
+
+  // Údaje, ktoré ITMS21+ nemá (hotovosť), sú vždy z formulára; pri chýbajúcom povinnom údaji „splnené“ doklad nemá.
+  const bZ = balik(zop); const z0 = nacitaj(zop, vsetkyId(zop)[0]);
+  const hot = (await posud({ ...z0, hotovostMax: 100, hotovostMesiac: 300, hotovostMajetok: 'nie' as const }, bZ, zop, { llm: false, iba: ['P09'] })).nalezy[0];
+  ov.push({ nazov: 'P09 so všetkými údajmi o hotovosti: splnené s tromi dokladmi z formulára kontrolóra', vysledok: `${hot.stav}, doklady ${hot.doklady?.map((d) => d.nazov.split(',')[0]).join('; ')}`, ok: hot.stav === 'splnene' && hot.doklady?.length === 3 && hot.doklady.every((d) => d.nazov.startsWith('Formulár kontrolóra')) });
+
+  // Úryvky modelu: každá náležitosť dostane vlastné miesto s číslom riadku prílohy.
+  const pravidloV07 = bV.pravidla.find((p) => p.id === 'V07')!;
+  const text = 'Záznam zo zadania zákazky\nPredmet zákazky: oprava strechy obecného úradu\nPredpokladaná hodnota zákazky: 41 500,00 EUR bez DPH\nKritérium: najnižšia cena';
+  const nalez = { pravidlo: 'V07', ppp: null, nazov: 'V07', druh: 'llm' as const, stav: 'splnene' as const, zdovodnenie: '', citacia: pravidloV07.citacia,
+    dokaz: 'predmet zákazky: „Predmet zákazky: oprava strechy obecného úradu“\npredpokladaná hodnota zákazky v eurách: „41 500,00 EUR bez DPH“' };
+  const dl = dokladyTextu({ ...v0, prilohy: { zaznam: { nazov: 'zaznam.pdf', text } } }, nalez, pravidloV07, vo);
+  ov.push({ nazov: 'Úryvky modelu z prílohy: dve náležitosti, riadky 2 a 3 súboru zaznam.pdf', vysledok: dl.map((d) => `${d.nazov} › ${d.miesto}`).join(' | '), ok: dl.length === 2 && dl[0].riadokOd === 2 && dl[1].riadokOd === 3 && dl.every((d) => d.nazov === 'zaznam.pdf') });
+
+  for (const o of ov) { console.log(`  ${o.ok ? '✓' : '✗'} ${o.nazov} → ${o.vysledok}`); if (!o.ok) process.exitCode = 1; }
+  vystup.doklady = ov;
 }
 
 vystup.trvanieMs = Date.now() - t0;
