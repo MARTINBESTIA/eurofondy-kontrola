@@ -1,11 +1,11 @@
 {
- "cas": "2026-11-23T09:56:04.098Z",
+ "cas": "2026-11-23T10:45:38.928Z",
  "dnes": "2026-11-23",
  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
  "moduly": {
   "vyzvy": {
    "pripadov": 186,
-   "trvanieMs": 554,
+   "trvanieMs": 417,
    "navrhy": {
     "na_preverenie": 153,
     "nesplnene_podmienky": 33
@@ -187,7 +187,7 @@
   },
   "zonfp": {
    "pripadov": 799,
-   "trvanieMs": 313,
+   "trvanieMs": 293,
    "navrhy": {
     "na_preverenie": 735,
     "nesplnene_podmienky": 58,
@@ -270,6 +270,13 @@
      "pocty": {
       "splnene": 794,
       "nesplnene": 5
+     }
+    },
+    {
+     "id": "D12b",
+     "nazov": "Žiadaný NFP neprevyšuje celkové oprávnené výdavky (príspevok najviac 100 %)",
+     "pocty": {
+      "splnene": 799
      }
     },
     {
@@ -484,7 +491,7 @@
   },
   "vo": {
    "pripadov": 659,
-   "trvanieMs": 2780,
+   "trvanieMs": 938,
    "navrhy": {
     "na_preverenie": 658,
     "nesplnene_podmienky": 1
@@ -799,7 +806,7 @@
   },
   "zmeny": {
    "pripadov": 2336,
-   "trvanieMs": 3113,
+   "trvanieMs": 846,
    "navrhy": {
     "na_preverenie": 2336
    },
@@ -1158,7 +1165,7 @@
   },
   "zop": {
    "pripadov": 1362,
-   "trvanieMs": 36225,
+   "trvanieMs": 8387,
    "navrhy": {
     "na_preverenie": 1361,
     "nesplnene_podmienky": 1
@@ -1763,7 +1770,7 @@
   },
   "ukazovatele": {
    "pripadov": 242,
-   "trvanieMs": 883,
+   "trvanieMs": 206,
    "navrhy": {
     "na_preverenie": 242
    },
@@ -2005,6 +2012,97 @@
       "nesplnene": 221
      },
      "priklady": []
+    },
+    {
+     "nazov": "Počet správ sedí, deň predloženia nezadaný",
+     "pravidlo": "U03",
+     "ocakavane": "na_preverenie",
+     "n": 221,
+     "zachytene": 221,
+     "presne": 221,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 221
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Počet 1,5 správy",
+     "pravidlo": "U03",
+     "ocakavane": "na_preverenie",
+     "n": 221,
+     "zachytene": 221,
+     "presne": 221,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 221
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Záporný počet správ",
+     "pravidlo": "U03",
+     "ocakavane": "na_preverenie",
+     "n": 221,
+     "zachytene": 221,
+     "presne": 221,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 221
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Prvá správa predložená deň po termíne, ostatné v posledný deň",
+     "pravidlo": "U03",
+     "ocakavane": "nesplnene",
+     "n": 221,
+     "zachytene": 221,
+     "presne": 221,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 221
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Deň predloženia 31. 9. 2025 (neexistuje)",
+     "pravidlo": "U03",
+     "ocakavane": "na_preverenie",
+     "n": 221,
+     "zachytene": 221,
+     "presne": 221,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 221
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Deň predloženia po dni posúdenia",
+     "pravidlo": "U03",
+     "ocakavane": "na_preverenie",
+     "n": 221,
+     "zachytene": 221,
+     "presne": 221,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 221
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Pri poslednej uplynulej správe chýba deň predloženia",
+     "pravidlo": "U03",
+     "ocakavane": "na_preverenie",
+     "n": 221,
+     "zachytene": 221,
+     "presne": 221,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 221
+     },
+     "priklady": []
     }
    ],
    "overenia": [
@@ -2041,6 +2139,31 @@
     {
      "nazov": "Dnešok v SR: 22. 11. 2026 23:30 UTC je 23. 11., 1. 7. 2026 22:30 UTC je 2. 7. (letný čas)",
      "vysledok": "2026-11-23, 2026-07-02",
+     "ok": true
+    },
+    {
+     "nazov": "U03: všetky správy predložené v posledný deň termínu sú včas a doklady uvádzajú deň posúdenia ako systémový údaj",
+     "vysledok": "221/221 splnené, 221 s úplnými dokladmi",
+     "ok": true
+    },
+    {
+     "nazov": "A13: 401201A012 k 23. 11. 2026, počet 1 bez dňa predloženia: na preverenie, včasnosť neoverená",
+     "vysledok": "na_preverenie: Počet predložených správ (1) pokrýva uplynuté termíny (1), včasnosť však nie je overená. Chýba deň predloženia pri: výročná správa č. 1 (najneskôr 31.",
+     "ok": true
+    },
+    {
+     "nazov": "A13: počet 1,5 správy sa odmietne",
+     "vysledok": "na_preverenie: Počet predložených správ „1,5“ nie je nezáporné celé číslo, preto sa nepoužil. Opravte ho vo formulári. Uplynu",
+     "ok": true
+    },
+    {
+     "nazov": "A13: výročná správa č. 1 predložená 30. 1. 2026 (najneskôr 31. 1.): splnené, deň posúdenia je systémový údaj, nie ITMS21+",
+     "vysledok": "splnene; doklady: ITMS21+ · Termíny monitorovacích správ = výročná správa č. 1: najneskôr 31. 1. 2026; záverečná správa č. 2: najneskôr 8. 2. 2027 | Formulár kontrolóra · Deň predloženia správ k uplynulým termínom = výročná správa č. 1: predložená 30. 1. 2026 | Formulár kontrolóra · Počet predložených správ = 1 | Systémový údaj aplikácie · Deň posúdenia (hodiny počítača, čas v SR) = 23. 11. 2026",
+     "ok": true
+    },
+    {
+     "nazov": "A13: výročná správa č. 1 predložená 2. 2. 2026: nesplnené (po termíne)",
+     "vysledok": "nesplnene: Po termíne predložené: výročná správa č. 1 2. 2. 2026, najneskôr mala byť 31. 1. 2026.",
      "ok": true
     }
    ],
@@ -2080,5 +2203,5 @@
    "ok": true
   }
  ],
- "trvanieMs": 267148
+ "trvanieMs": 65383
 }

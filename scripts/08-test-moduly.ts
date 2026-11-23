@@ -14,7 +14,7 @@ import { vyzvy, uzavierka, STIAHNUTE, type VstupVyzva } from '../src/moduly/vyzv
 import { vo, VSETKY as VSETKY_VO, limitPostupu, type VstupVo } from '../src/moduly/vo/modul.ts';
 import { zmeny, zatried, limitHA, NAZOV_KAT, povinnePrilohy as prilohyZmeny, type VstupZmena } from '../src/moduly/zmeny/modul.ts';
 import { zop, DOKLADY, VSETKY_ZOP, doklad, povinnePrilohy as prilohyZop, type VstupZop } from '../src/moduly/zop/modul.ts';
-import { ukazovatele, jeZnizujuci, type VstupUkazovatele } from '../src/moduly/ukazovatele/modul.ts';
+import { ukazovatele, jeZnizujuci, klucTerminu, type VstupUkazovatele } from '../src/moduly/ukazovatele/modul.ts';
 import { kalkulacka } from '../src/moduly/ukazovatele/kalkulacka.ts';
 
 const KOREN = path.join(import.meta.dirname, '..');
@@ -345,6 +345,33 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
   }
   const s3 = vs.filter((v) => v.projekt.terminy.some((t) => t.najneskor && t.najneskor < dnes()));
   r.zasadene.push(await zasad(m, b, 'Uplynul termín monitorovacej správy, žiadna nepredložená', 'U03', 'nesplnene', s3.map((v) => ({ ...structuredClone(v), predlozene: 0 }))));
+  // Audit A13: samotný počet včasnosť nepotvrdí, neplatný počet ani deň sa nepoužijú, neskoré predloženie je porušenie.
+  const uplynule = (v: VstupUkazovatele) => v.projekt.terminy.filter((t) => t.najneskor && t.najneskor < dnes());
+  const sDnami = (v: VstupUkazovatele, den: (t: VstupUkazovatele['projekt']['terminy'][number], i: number, n: number) => string | null) =>
+    ({ ...structuredClone(v), predlozeneDni: Object.fromEntries(uplynule(v).map((t, i, a) => [klucTerminu(t), den(t, i, a.length)])) });
+  r.zasadene.push(await zasad(m, b, 'Počet správ sedí, deň predloženia nezadaný', 'U03', 'na_preverenie', s3.map((v) => ({ ...structuredClone(v), predlozene: uplynule(v).length }))));
+  r.zasadene.push(await zasad(m, b, 'Počet 1,5 správy', 'U03', 'na_preverenie', s3.map((v) => ({ ...structuredClone(v), predlozene: 1.5 }))));
+  r.zasadene.push(await zasad(m, b, 'Záporný počet správ', 'U03', 'na_preverenie', s3.map((v) => ({ ...structuredClone(v), predlozene: -1 }))));
+  r.zasadene.push(await zasad(m, b, 'Prvá správa predložená deň po termíne, ostatné v posledný deň', 'U03', 'nesplnene', s3.map((v) => sDnami(v, (t, i) => (i === 0 ? pridajDni(t.najneskor!, 1) : t.najneskor)))));
+  r.zasadene.push(await zasad(m, b, 'Deň predloženia 31. 9. 2025 (neexistuje)', 'U03', 'na_preverenie', s3.map((v) => sDnami(v, (t, i) => (i === 0 ? '2025-09-31' : t.najneskor)))));
+  r.zasadene.push(await zasad(m, b, 'Deň predloženia po dni posúdenia', 'U03', 'na_preverenie', s3.map((v) => sDnami(v, (t, i) => (i === 0 ? pridajDni(dnes(), 3) : t.najneskor)))));
+  r.zasadene.push(await zasad(m, b, 'Pri poslednej uplynulej správe chýba deň predloženia', 'U03', 'na_preverenie', s3.map((v) => sDnami(v, (t, i, n) => (i === n - 1 ? null : t.najneskor)))));
+  // Bez falošného poplachu: všetky správy v posledný deň termínu sú včas; deň posúdenia je v dokladoch systémový údaj.
+  let u3Vcas = 0, u3Doklady = 0;
+  for (const v of s3) {
+    const n = (await posud(sDnami(v, (t) => t.najneskor), b, m, { llm: false })).nalezy.find((x) => x.pravidlo === 'U03')!;
+    if (n.stav === 'splnene') u3Vcas++;
+    const d = n.doklady ?? [];
+    if (d.some((x) => x.nazov === 'Systémový údaj aplikácie') && d.some((x) => x.nazov.startsWith('ITMS21+') && x.miesto === 'Termíny monitorovacích správ')
+      && d.some((x) => x.nazov.startsWith('Formulár kontrolóra') && x.miesto.startsWith('Deň predloženia')) && !d.some((x) => x.nazov.startsWith('ITMS21+') && /deň/i.test(x.miesto))) u3Doklady++;
+  }
+  // Prípad z auditu: projekt 401201A012 k 23. 11. 2026 (jeden uplynulý termín, výročná správa č. 1 najneskôr 31. 1. 2026).
+  const predDnes = process.env.KONTROLA_DNES; process.env.KONTROLA_DNES = '2026-11-23';
+  const a012 = nacitaj<VstupUkazovatele>(m, '401201A012');
+  const u03 = async (x: Partial<VstupUkazovatele>) => (await posud({ ...structuredClone(a012), ...x }, b, m, { llm: false, iba: ['U03'] })).nalezy[0];
+  const a1 = await u03({ predlozene: 1 }), a15 = await u03({ predlozene: 1.5 });
+  const aVcas = await u03({ predlozene: 1, predlozeneDni: { VYROCNE_1: '2026-01-30' } }), aNeskoro = await u03({ predlozeneDni: { VYROCNE_1: '2026-02-02' } });
+  if (predDnes === undefined) delete process.env.KONTROLA_DNES; else process.env.KONTROLA_DNES = predDnes;
 
   // N20: dnešok v SR, nie v UTC. 22. 11. 2026 o 23:30 UTC je v Bratislave už 23. 11.
   const prepisanyDnes = process.env.KONTROLA_DNES; delete process.env.KONTROLA_DNES;
@@ -365,6 +392,12 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
     { nazov: 'Výsledok 50/100 pod D=60: možnosť odstúpiť od zmluvy', vysledok: String(k4.F35), ok: /^možnosť odstúpiť/.test(String(k4.F35)) },
     { nazov: 'Výstup 97/100 (nad 95 %): bez krátenia', vysledok: `E34 ${k4.E34}, E35 ${k4.E35}`, ok: k4.E34 === 0 && k4.E35 === 0 },
     { nazov: 'Dnešok v SR: 22. 11. 2026 23:30 UTC je 23. 11., 1. 7. 2026 22:30 UTC je 2. 7. (letný čas)', vysledok: `${poPolnoci}, ${leto}`, ok: poPolnoci === '2026-11-23' && leto === '2026-07-02' },
+    { nazov: 'U03: všetky správy predložené v posledný deň termínu sú včas a doklady uvádzajú deň posúdenia ako systémový údaj', vysledok: `${u3Vcas}/${s3.length} splnené, ${u3Doklady} s úplnými dokladmi`, ok: s3.length > 0 && u3Vcas === s3.length && u3Doklady === s3.length },
+    { nazov: 'A13: 401201A012 k 23. 11. 2026, počet 1 bez dňa predloženia: na preverenie, včasnosť neoverená', vysledok: `${a1.stav}: ${a1.zdovodnenie.slice(0, 150)}`, ok: a1.stav === 'na_preverenie' && /včasnosť však nie je overená/.test(a1.zdovodnenie) },
+    { nazov: 'A13: počet 1,5 správy sa odmietne', vysledok: `${a15.stav}: ${a15.zdovodnenie.slice(0, 110)}`, ok: a15.stav === 'na_preverenie' && /nie je nezáporné celé číslo/.test(a15.zdovodnenie) },
+    { nazov: 'A13: výročná správa č. 1 predložená 30. 1. 2026 (najneskôr 31. 1.): splnené, deň posúdenia je systémový údaj, nie ITMS21+', vysledok: `${aVcas.stav}; doklady: ${(aVcas.doklady ?? []).map((d) => `${d.nazov.split(',')[0]} · ${d.miesto} = ${d.citat}`).join(' | ')}`,
+      ok: aVcas.stav === 'splnene' && !!aVcas.doklady?.some((d) => d.nazov === 'Systémový údaj aplikácie' && d.citat === '23. 11. 2026') && !aVcas.doklady.some((d) => d.nazov.startsWith('ITMS21+') && /deň/i.test(d.miesto)) },
+    { nazov: 'A13: výročná správa č. 1 predložená 2. 2. 2026: nesplnené (po termíne)', vysledok: `${aNeskoro.stav}: ${aNeskoro.zdovodnenie}`, ok: aNeskoro.stav === 'nesplnene' && /po termíne/i.test(aNeskoro.zdovodnenie) },
   ];
   for (const o of r.overenia) console.log(`  ${o.ok ? '✓' : '✗'} ${o.nazov} → ${o.vysledok}`);
   r.poznamky = [

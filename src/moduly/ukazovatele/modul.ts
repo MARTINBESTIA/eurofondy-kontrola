@@ -1,8 +1,9 @@
 // Modul: merateľné ukazovatele projektu (MU) a monitorovacie správy.
 // Vstup: projekt z ITMS21+ (cieľové hodnoty, termíny monitorovania) + skutočné hodnoty, ktoré zadá používateľ
 // (verejné API skutočné hodnoty MU nezverejňuje). Krátenie NFP sa počíta prepisom sankčnej kalkulačky SIEA.
+import { denZDatumu } from '../../core/datum.ts';
 import type { Doklad, Modul, Nalez, Pole, Pravidlo, Projekt, Ukazovatel, VysledokKontroly } from '../../core/typy.ts';
-import { cislo, dnes, dokladyVstupov, eur, num, projekty, projektPodlaKodu, skDatum, ZADANE } from '../spolocne.ts';
+import { cislo, dnes, dokladDnaPosudenia, dokladyVstupov, eur, num, projekty, projektPodlaKodu, skDatum, ZADANE } from '../spolocne.ts';
 import { kalkulacka, type RiadokMU } from './kalkulacka.ts';
 
 export interface VstupUkazovatele {
@@ -13,7 +14,16 @@ export interface VstupUkazovatele {
   cov: number | null;
   externe: '' | 'ano' | 'nie';
   predlozene: number | null;
+  /** Deň predloženia monitorovacej správy k termínu (kľúč klucTerminu), ako ho zadal kontrolór z ITMS21+ alebo podacej pečiatky. */
+  predlozeneDni: Record<string, string | null>;
 }
+
+type Termin = Projekt['terminy'][number];
+/** Termín je v projekte jednoznačný podľa druhu a poradia (overené na všetkých 242 projektoch, údaje z 2026-11). */
+export const klucTerminu = (t: Termin) => `${t.typ}_${t.poradie}`;
+const DRUH_SPRAVY: Record<string, string> = { VYROCNE: 'výročná', ZAVERECNE: 'záverečná', NASLEDNE: 'následná' };
+const nazovSpravy = (t: Termin) => `${DRUH_SPRAVY[t.typ] ?? t.typ.toLowerCase()} správa č. ${t.poradie}`;
+const uplynuleTerminy = (p: Projekt, d = dnes()) => p.terminy.filter((t) => t.najneskor && t.najneskor < d);
 
 /** Ukazovatele, pri ktorých je cieľom pokles (spotreba energie, emisie). Kalkulačka SIEA ich priamo nevie. */
 const ZNIZUJUCE = new Set(['PSKPRCR26b', 'PSKPRCR29', 'PSKPRCR26a', 'PSKPRCR26']);
@@ -83,20 +93,45 @@ function kontrolaVysledok(v: VstupUkazovatele): VysledokKontroly {
   return { stav: 'na_preverenie', zdovodnenie: `MU výsledku pod 95 %: ${zoznamMU(pod95, v)}. Bez sankcie len vtedy, ak nedosiahnutie spôsobili externé faktory mimo vplyvu prijímateľa; to posúdi človek. Krátenie bez tejto výnimky: ${suma}.${pozn}`, hodnoty };
 }
 
+/**
+ * U03: monitorovacie správy k uplynulým termínom (čl. 4 VZP). Včasnosť sa overí len s dňom predloženia každej správy
+ * k jej termínu (audit A13): samotný počet nepovie, kedy správy prišli, preto pri ňom ide bod kontrolórovi. Počet musí byť
+ * nezáporné celé číslo; neplatný deň alebo deň po dni posúdenia sa nepoužije.
+ */
 function kontrolaMonitorovanie(v: VstupUkazovatele): VysledokKontroly {
   const d = dnes();
-  const uplynule = v.projekt.terminy.filter((t) => t.najneskor && t.najneskor < d);
-  const zoznam = (ts: typeof uplynule) => ts.map((t) => `${t.typ.toLowerCase()} č. ${t.poradie} (najneskôr ${skDatum(t.najneskor)})`).join('; ');
   if (!v.projekt.terminy.length) return { stav: 'mimo_podkladov', zdovodnenie: 'Projekt nemá v ITMS21+ harmonogram monitorovania.' };
+  const uplynule = uplynuleTerminy(v.projekt, d);
+  const zoznam = (ts: Termin[]) => ts.map((t) => `${nazovSpravy(t)} (najneskôr ${skDatum(t.najneskor)})`).join('; ');
   if (!uplynule.length) return { stav: 'neuplatnuje_sa', zdovodnenie: `Zatiaľ neuplynul žiadny termín. Najbližší: ${zoznam(v.projekt.terminy.slice(0, 1))}.` };
-  if (v.predlozene == null) return { stav: 'na_preverenie', zdovodnenie: `Uplynulo ${uplynule.length} termínov: ${zoznam(uplynule)}. Z verejných dát nevidno, či boli správy predložené; zadajte počet predložených správ.`, hodnoty: { uplynulo: uplynule.length } };
-  if (v.predlozene < uplynule.length) return { stav: 'nesplnene', zdovodnenie: `Predložených ${v.predlozene} správ, uplynulo ${uplynule.length} termínov. Chýba: ${zoznam(uplynule.slice(v.predlozene))}.`, hodnoty: { uplynulo: uplynule.length, predlozene: v.predlozene } };
-  return { stav: 'splnene', zdovodnenie: `Predložených ${v.predlozene} správ na ${uplynule.length} uplynulých termínov.`, hodnoty: { uplynulo: uplynule.length, predlozene: v.predlozene } };
+  const pocet = v.predlozene;
+  const hodnoty: Record<string, number> = { uplynulo: uplynule.length, ...(pocet != null ? { predlozene: pocet } : {}) };
+  if (pocet != null && !(Number.isInteger(pocet) && pocet >= 0))
+    return { stav: 'na_preverenie', zdovodnenie: `Počet predložených správ „${cislo(pocet, 4)}“ nie je nezáporné celé číslo, preto sa nepoužil. Opravte ho vo formulári. Uplynuté termíny (${uplynule.length}): ${zoznam(uplynule)}.`, hodnoty };
+  const dni = uplynule.map((t) => ({ t, zadane: v.predlozeneDni?.[klucTerminu(t)] ?? null, den: denZDatumu(v.predlozeneDni?.[klucTerminu(t)]) }));
+  const neplatne = dni.filter((x) => x.zadane != null && !x.den);
+  if (neplatne.length) return { stav: 'na_preverenie', zdovodnenie: `Deň predloženia pri ${neplatne.map((x) => `${nazovSpravy(x.t)} („${x.zadane}“)`).join(', ')} nie je platný kalendárny deň, preto sa nepoužil. Opravte ho vo formulári.`, hodnoty };
+  const buduce = dni.filter((x) => x.den && x.den > d);
+  if (buduce.length) return { stav: 'na_preverenie', zdovodnenie: `Deň predloženia pri ${buduce.map((x) => `${nazovSpravy(x.t)} (${skDatum(x.den)})`).join(', ')} je po dni posúdenia ${skDatum(d)}. Údaj je pravdepodobne chybný, overte ho.`, hodnoty };
+  const neskoro = dni.filter((x) => x.den && x.den > x.t.najneskor!);
+  if (neskoro.length) return { stav: 'nesplnene', zdovodnenie: `Po termíne predložené: ${neskoro.map((x) => `${nazovSpravy(x.t)} ${skDatum(x.den)}, najneskôr mala byť ${skDatum(x.t.najneskor)}`).join('; ')}.`, hodnoty };
+  const sDnom = dni.filter((x) => x.den); const bezDna = dni.filter((x) => !x.den).map((x) => x.t);
+  if (pocet != null && pocet < sDnom.length) return { stav: 'na_preverenie', zdovodnenie: `Počet predložených správ (${pocet}) je menší ako počet zadaných dní predloženia (${sDnom.length}). Údaje si odporujú, overte ich.`, hodnoty };
+  if (pocet != null && pocet < uplynule.length) {
+    const ktore = pocet === sDnom.length ? `Chýba: ${zoznam(bezDna)}.`
+      : `Chýbajúce správy (${uplynule.length - pocet}) sú ${sDnom.length ? `medzi správami bez dňa predloženia: ${zoznam(bezDna)}` : `medzi uplynulými termínmi: ${zoznam(uplynule)}`}.`;
+    return { stav: 'nesplnene', zdovodnenie: `Predložené správy: ${pocet}, uplynuté termíny: ${uplynule.length}. ${ktore}`, hodnoty };
+  }
+  const vcas = sDnom.map((x) => `${nazovSpravy(x.t)} ${skDatum(x.den)} (najneskôr ${skDatum(x.t.najneskor)})`).join('; ');
+  if (!bezDna.length) return { stav: 'splnene', zdovodnenie: `Všetky správy k uplynulým termínom (${uplynule.length}) sú predložené včas: ${vcas}.`, hodnoty };
+  const uvod = pocet != null ? `Počet predložených správ (${pocet}) pokrýva uplynuté termíny (${uplynule.length}), včasnosť však nie je overená.`
+    : `Uplynuté termíny (${uplynule.length}): ${zoznam(uplynule)}. Z verejných dát nevidno, či a kedy boli správy predložené.`;
+  return { stav: 'na_preverenie', zdovodnenie: `${uvod}${sDnom.length ? ` Včas predložené: ${vcas}.` : ''} Chýba deň predloženia pri: ${zoznam(bezDna)}. Zadajte ho podľa ITMS21+ alebo podacej pečiatky.`, hodnoty };
 }
 
 const zakladny = (p: Projekt): VstupUkazovatele => ({
   projekt: p, skutocne: Object.fromEntries(p.ukazovatele.map((u) => [u.kod, null])), podmienenost: {},
-  prahVystup: null, prahVysledok: null, maxVystup: null, maxVysledok: null, cov: p.cov, externe: '', predlozene: null,
+  prahVystup: null, prahVysledok: null, maxVystup: null, maxVysledok: null, cov: p.cov, externe: '', predlozene: null, predlozeneDni: {},
 });
 
 const FILTRE: Record<string, (p: Projekt) => boolean> = {
@@ -108,8 +143,10 @@ function dokladyMu(v: VstupUkazovatele, n: Nalez, p: Pravidlo): Doklad[] {
   const z = projektPodlaKodu(v.projekt.kod);
   const zdroj = { itms: `ITMS21+, projekt ${v.projekt.kod}`, formular: `Formulár kontrolóra, projekt ${v.projekt.kod} (údaje z monitorovacej správy)` };
   if (p.kontrola === 'monitorovanie') {
-    const terminy = (pr?: Projekt) => pr?.terminy.map((t) => `${t.typ.toLowerCase()} č. ${t.poradie}: najneskôr ${skDatum(t.najneskor)}`);
-    return dokladyVstupov(n, zdroj, [['Termíny monitorovacích správ', terminy(v.projekt), terminy(z)], ['Počet predložených správ', v.predlozene, ZADANE]], [['Deň kontroly', dnes(), dnes()]]);
+    const terminy = (pr?: Projekt) => pr?.terminy.map((t) => `${nazovSpravy(t)}: najneskôr ${skDatum(t.najneskor)}`);
+    const dni = uplynuleTerminy(v.projekt).flatMap((t) => { const x = v.predlozeneDni?.[klucTerminu(t)]; return x ? [`${nazovSpravy(t)}: predložená ${skDatum(x)}`] : []; });
+    const vstupy = dokladyVstupov(n, zdroj, [['Termíny monitorovacích správ', terminy(v.projekt), terminy(z)], ['Deň predloženia správ k uplynulým termínom', dni, ZADANE]], [['Počet predložených správ', v.predlozene, ZADANE]]);
+    return vstupy.length ? [...vstupy, dokladDnaPosudenia()] : [];
   }
   const typ = p.kontrola === 'mu_vystup' ? 'vystup' : p.kontrola === 'mu_vysledok' ? 'vysledok' : null;
   if (!typ) return [];
@@ -142,14 +179,16 @@ export const ukazovatele: Modul<VstupUkazovatele> = {
       { kluc: 'maxVysledok', typ: 'cislo', nazov: 'Maximálne % zníženia COV za MU výsledku' },
       { kluc: 'cov', typ: 'cislo', nazov: 'Zazmluvnené COV (EUR)' },
       { kluc: 'externe', typ: 'vyber', nazov: 'Nedosiahnutie MU výsledku spôsobili externé faktory', moznosti: [{ hodnota: '', nazov: 'neposúdené' }, { hodnota: 'ano', nazov: 'áno, preukázané' }, { hodnota: 'nie', nazov: 'nie' }] },
-      { kluc: 'predlozene', typ: 'cislo', nazov: 'Počet predložených monitorovacích správ' },
+      { kluc: 'predlozene', typ: 'cislo', nazov: 'Počet predložených monitorovacích správ', napoveda: 'Celé číslo. Sám počet potvrdí len to, že správy sú; včasnosť overí až deň predloženia pri každom termíne.' },
     );
+    for (const t of uplynuleTerminy(v.projekt)) p.push({ kluc: `predlozena_${klucTerminu(t)}`, typ: 'datum', nazov: `Deň predloženia: ${nazovSpravy(t)}`, napoveda: `Predložiť najneskôr ${skDatum(t.najneskor)}. Deň podľa ITMS21+ alebo podacej pečiatky; bez neho softvér včasnosť neoverí.` });
     return p;
   },
   prilohy: () => [],
   doFormulara(v) {
     const f: Record<string, any> = { prahVystup: v.prahVystup, prahVysledok: v.prahVysledok, maxVystup: v.maxVystup, maxVysledok: v.maxVysledok, cov: v.cov, externe: v.externe, predlozene: v.predlozene };
     for (const u of v.projekt.ukazovatele) { f[`skut_${u.kod}`] = v.skutocne[u.kod] ?? null; if (u.typ === 'vysledok') f[`pod_${u.kod}`] = v.podmienenost[u.kod] ? 'ano' : 'nie'; }
+    for (const t of v.projekt.terminy) f[`predlozena_${klucTerminu(t)}`] = v.predlozeneDni?.[klucTerminu(t)] ?? null;
     return f;
   },
   zFormulara(v, f) {
@@ -157,6 +196,8 @@ export const ukazovatele: Modul<VstupUkazovatele> = {
     for (const u of n.projekt.ukazovatele) { n.skutocne[u.kod] = num(f[`skut_${u.kod}`]); if (u.typ === 'vysledok') n.podmienenost[u.kod] = f[`pod_${u.kod}`] === 'ano'; }
     n.prahVystup = num(f.prahVystup); n.prahVysledok = num(f.prahVysledok); n.maxVystup = num(f.maxVystup); n.maxVysledok = num(f.maxVysledok);
     n.cov = num(f.cov) ?? v.projekt.cov; n.externe = f.externe === 'ano' || f.externe === 'nie' ? f.externe : ''; n.predlozene = num(f.predlozene);
+    // Deň predloženia sa uchová tak, ako prišiel: neplatný údaj neskončí ticho ako nezadaný, kontrola ho vráti kontrolórovi.
+    n.predlozeneDni = Object.fromEntries(n.projekt.terminy.map((t) => { const x = f[`predlozena_${klucTerminu(t)}`]; return [klucTerminu(t), x == null || String(x).trim() === '' ? null : String(x).trim()]; }));
     return n;
   },
   doklady: dokladyMu,
@@ -173,7 +214,7 @@ export const ukazovatele: Modul<VstupUkazovatele> = {
     const d = dnes(); const buduce = v.projekt.terminy.filter((t) => t.najneskor && t.najneskor >= d).slice(0, 3);
     return [
       { nazov: 'Výpočet podľa sankčnej kalkulačky (príloha č. 12)', text: `${riadkyText}\n\nA (COV) ${eur(v.cov ?? v.projekt.cov)} · C ${bunka(v.prahVystup)} % · D ${bunka(v.prahVysledok)} % · E ${bunka(v.maxVystup)} % · F ${bunka(v.maxVysledok)} %\nG percento naplnenia: výstup ${bunka(k.E32, 2)} %, výsledok ${bunka(k.F32, 2)} %\nH zníženie COV na 1 % nedodržania: výstup ${bunka(k.E33, 4)}, výsledok ${bunka(k.F33, 4)}\nI percento zníženia COV: výstup ${bunka(k.E34)}, výsledok ${bunka(k.F34)}\nKrátenie COV: výstup ${typeof k.E35 === 'number' ? eur(k.E35) : bunka(k.E35)}, výsledok ${typeof k.F35 === 'number' ? eur(k.F35) : bunka(k.F35)}` },
-      { nazov: 'Najbližšie termíny monitorovacích správ', text: buduce.length ? buduce.map((t) => `${t.typ.toLowerCase()} č. ${t.poradie}: monitorované obdobie do ${skDatum(t.termin)}, predložiť najneskôr ${skDatum(t.najneskor)}`).join('\n') : 'Žiadny budúci termín v ITMS21+.' },
+      { nazov: 'Najbližšie termíny monitorovacích správ', text: buduce.length ? buduce.map((t) => `${nazovSpravy(t)}: monitorované obdobie do ${skDatum(t.termin)}, predložiť najneskôr ${skDatum(t.najneskor)}`).join('\n') : 'Žiadny budúci termín v ITMS21+.' },
     ];
   },
 };

@@ -15,11 +15,11 @@ efektívnosť a OZE vo verejných budovách):
 | # | Modul | Pre koho | Prípady (verejné dáta ITMS21+) | Pravidlá | Čo kontroluje |
 |---|---|---|---|---|---|
 | 1 | Plánovanie výziev | žiadateľ, konzultant | 182 výziev + 4 plánované | 5 | otvorenosť výzvy, najbližšia uzávierka, stihne sa príprava, práca s poslednou verziou výzvy, posun plánovanej výzvy |
-| 2 | Žiadosť a prílohy | hodnotiteľ, žiadateľ | 799 žiadostí | 23 | PPP výzvy v znení Zmeny č. 3 (21. 8. 2025): údaje formulára, povinné prílohy, obsah príloh |
+| 2 | Žiadosť a prílohy | hodnotiteľ, žiadateľ | 799 žiadostí | 27 | PPP výzvy v znení Zmeny č. 3 (21. 8. 2025): údaje formulára, povinné prílohy, obsah príloh |
 | 3 | Verejné obstarávanie | prijímateľ, ÚVO | 659 VO prijímateľov výzvy | 7 | limit postupu, počet ponúk, cena voči PHZ, faktúry nad zmluvu, delenie zákazky, štatutári (RPO), záznam zo zadania |
 | 4 | Zmeny projektu | prijímateľ, projektový manažér | 2 336 zmien | 8 | druh zmeny a formulár (OoZ/ŽoZZ), podstatná zmena, NFP, 24-mesačný limit, lehoty, zníženie MU, prílohy, odôvodnenie |
 | 5 | Žiadosť o platbu | finančný manažér | 1 362 ŽoP (8 650 výdavkov) | 12 | obdobie oprávnenosti, sumy voči dokladom, dvojité nárokovanie, DPH, väzba na VO, hotovosť, prílohy, faktúra (§ 74 ZDPH), výpis |
-| 6 | Merateľné ukazovatele | prijímateľ, monitorovanie | 242 projektov | 3 | plnenie MU a krátenie NFP podľa sankčnej kalkulačky SIEA, termíny monitorovacích správ |
+| 6 | Merateľné ukazovatele | prijímateľ, monitorovanie | 242 projektov | 3 | plnenie MU a krátenie NFP podľa sankčnej kalkulačky SIEA, včasnosť monitorovacích správ (deň predloženia ku každému termínu) |
 
 Zdroje pravidiel: výzva (Zmena č. 3), VZP verzia 2.2, Príručka pre prijímateľa DOP 3.2 (1. 6. 2026) a jej
 príloha č. 12 (sankčná kalkulačka MU), Príručka k procesu a kontrole VO/O verzia 2 (1. 8. 2024). Pri
@@ -210,7 +210,7 @@ Tri vrstvy, ktoré sa dajú meniť nezávisle:
 
 | Druh | Ako sa overuje | Príklad |
 |---|---|---|
-| `data` | výpočet z údajov formulára | NFP 200 000 až 5 000 000 EUR, úspora energie ≥ 30 %, hodnota za peniaze |
+| `data` | výpočet z údajov formulára | NFP 200 000 až 5 000 000 EUR, NFP najviac do výšky oprávnených výdavkov, úspora energie ≥ 30 %, hodnota za peniaze |
 | `priloha` | prítomnosť povinnej prílohy podľa typu žiadateľa a aktivít a znaky jej obsahu (nadpis typu dokumentu na začiatku, typický údaj v ďalšom riadku) | energetický certifikát pri opatrení 2.1.2 |
 | `llm` | lokálny model hľadá dôkaz v texte | plnomocenstvo má všetky štyri náležitosti |
 | `register` | overuje poskytovateľ v registri, alebo voliteľný online dopyt | exekúcie, EDES, kataster; RPO pri VO |
@@ -332,20 +332,21 @@ výška NFP (2 neschválené, 3 zastavené, 0 vyhovujúcich). Väčšinu zamietn
 
 Do reálnych prípadov z ITMS21+ sa umelo vloží známa chyba (kópia prípadu, reálne dáta sa nemenia) a meria sa,
 či ju softvér zachytí. Falošne OK = chyba je, ale cieľové pravidlo vyšlo „splnené“ alebo celý výrok
-„bez zistení“ či „čiastočne overené“. Beh trvá asi 45 s, bez modelu. Test zlyhá pri akomkoľvek falošnom OK.
+„bez zistení“ či „čiastočne overené“. Beh trvá asi 65 s, bez modelu. Test zlyhá pri akomkoľvek falošnom OK.
 „Presne“ = nález má práve očakávaný stav. Pri chybách s chýbajúcim údajom (zmluva alebo doklad bez sumy, VO chýba
 v dátach) je očakávaný stav „neoverené“, nie „nesplnené“.
 
 | Modul | Zasadené chyby (príklady) | Zasadených | Presne | Falošne OK |
 |---|---|---|---|---|
 | Plánovanie výziev | zrušená výzva, predloženie po skončení, príprava dlhšia ako čas do uzávierky, stará verzia výzvy, plánovaná výzva po termíne | 511 | 511 | 0 |
-| Verejné obstarávanie | ZMR s PHZ 60 000 EUR, jediná ponuka, zmluva nad PHZ, faktúry nad zmluvu, tri ZMR na rovnaký predmet v roku, zmluva alebo doklad bez sumy, ZMR bez uvedenej PHZ | 3 323 | 3 305 | 0 |
+| Verejné obstarávanie | ZMR s PHZ 60 000 EUR, jediná ponuka, zmluva nad PHZ, faktúry o 50 % a o 10 % nad zmluvy, tri ZMR na rovnaký predmet v roku, zmluva alebo doklad bez sumy, ZMR bez uvedenej PHZ | 3 690 | 3 672 | 0 |
 | Zmeny projektu | zmena miesta realizácie ako OoZ, vyššie NFP, koniec HA po 24 mesiacoch, ex ante po zmene, ex post 11 dní pred ŽoP, MU pod hranicou, chýba formulár | 2 600 | 2 600 | 0 |
-| Žiadosť o platbu | suma nad výdavok, doklad dvakrát, doklad pred 2021, úhrada po 2029, DPH od neplatiteľa, zlý výpočet DPH, hotovosť 800 EUR, chýbajú prílohy, internet banking, výpis bez účtu, uhradená ŽoP druhýkrát, doklad bez sumy, položka bez sadzby DPH, VO alebo zmluva chýba v dátach, neúplné údaje o hotovosti | 4 793 | 4 784 | 0 |
-| Merateľné ukazovatele | MU výstupu a výsledku na 94, 80, 50 a 0 % (aj s prahmi zmluvy), nepredložená monitorovacia správa | 3 125 | 3 113 | 0 |
+| Žiadosť o platbu | suma nad výdavok, doklad dvakrát, doklad pred 2021, úhrada po 2029, DPH od neplatiteľa, zlý výpočet DPH (aj o 100 EUR pri základe 100 000 EUR), hotovosť 800 EUR, chýbajú prílohy, internet banking, výpis bez účtu, uhradená ŽoP druhýkrát, doklad bez sumy, položka bez sadzby DPH, VO alebo zmluva chýba v dátach, neúplné údaje o hotovosti, vymazaná žiadaná suma, nárok o 10 % nad zmluvu z VO | 6 224 | 6 188 | 0 |
+| Merateľné ukazovatele | MU výstupu a výsledku na 94, 80, 50 a 0 % (aj s prahmi zmluvy), nepredložená monitorovacia správa, počet správ bez dňa predloženia, počet 1,5 a −1, správa po termíne, neplatný, budúci alebo chýbajúci deň predloženia | 4 672 | 4 660 | 0 |
 
 Počet zasadených chýb závisí od referenčného dátumu (`KONTROLA_DNES`), lebo časť chýb sa viaže na termíny,
-a od sady chýb: 9 062 pri behu 15. 11. 2026, 14 352 pri behu 23. 11. 2026. Falošne OK je 0. Bez inventára
+a od sady chýb: 9 062 pri behu 15. 11. 2026, 14 352 pri behu 23. 11. 2026 a 17 697 po oprave nálezov A05 až A13
+z auditu astry (23. 11. 2026). Falošne OK je 0. Bez inventára
 podmienok v moduloch dali chyby s chýbajúcim údajom 1 154 výrokov „čiastočne overené“ (beh 23. 11. 2026 pred
 jeho doplnením): nález bol správne „neoverené“, výrok však znel ako súhlas s overenou časťou.
 

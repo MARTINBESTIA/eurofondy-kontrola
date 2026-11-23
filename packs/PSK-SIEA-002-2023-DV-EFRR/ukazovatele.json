@@ -31,7 +31,7 @@
   },
   {
    "id": "U03", "ppp": null, "nazov": "Monitorovacie správy predložené do uplynutých termínov", "druh": "data", "kontrola": "monitorovanie",
-   "citacia": { "dokument": "VZP verzia 2.2", "cast": "čl. 4 (monitorovanie)", "znenie": "Prijímateľ je povinný do 30 dní od ukončenia Realizácie aktivít Projektu, najneskôr však spolu so Žiadosťou o platbu (s príznakom „záverečná“), predložiť Poskytovateľovi záverečnú Monitorovaciu správu." },
+   "citacia": { "dokument": "VZP verzia 2.2", "cast": "čl. 4 Povinnosti spojené s monitorovaním projektu", "znenie": "Prijímateľ je povinný počas trvania Zmluvy o poskytnutí NFP pravidelne predkladať Poskytovateľovi Monitorovacie správy prostredníctvom ITMS [...] Prijímateľ je povinný počas Realizácie aktivít projektu predložiť Poskytovateľovi výročnú Monitorovaciu správu za obdobie kalendárneho roka od 1.1. roku n do 31.12. roku n, najneskôr do 31. januára roku n+1. [...] Prijímateľ je povinný do 30 dní od ukončenia Realizácie aktivít Projektu, najneskôr však spolu so Žiadosťou o platbu (s príznakom „záverečná“), predložiť Poskytovateľovi záverečnú Monitorovaciu správu. [...] Prijímateľ predkladá následnú Monitorovaciu správu do 30 kalendárnych dní od uplynutia monitorovaného obdobia." },
    "overenieZdroj": "Termíny: ITMS21+ projekt, pole monitorovacieTerminy (datumPredlozeniaNajneskorsi)."
   }
  ],

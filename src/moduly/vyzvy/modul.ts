@@ -5,7 +5,7 @@ import path from 'node:path';
 import type { Doklad, Modul, Nalez, Pravidlo, VysledokKontroly } from '../../core/typy.ts';
 import { MAX_VEK_KONTROLY_DNI } from '../../core/zmeny.ts';
 import { dnesSk } from '../../podatelna/lehoty.ts';
-import { KOREN, dnes, dokladyVstupov, eur, num, rozdielDni, skDatum, ZADANE, type VstupDokladu } from '../spolocne.ts';
+import { KOREN, dnes, dokladDnaPosudenia, dokladyVstupov, eur, num, rozdielDni, skDatum, ZADANE, type VstupDokladu } from '../spolocne.ts';
 
 export interface Vyzva { kod: string; nazov: string; program: string; vyhlasovatel: string; druh: string; typ: string; zameranie: string; vyhlasena: string | null; ukoncena: string | null; uzavreta: boolean; zrusena: boolean; pozastavena: boolean; sumaEu: number | null; predlozenych: number | null; schvalenych: number | null; neschvalenych: number | null; kola: { cislo: number; uzavierka: string | null }[]; verzie: { cislo: number; datum: string | null; dovod: string }[] }
 export interface Planovana { kod: string; nazov: string; program: string; vyhlasovatel: string; zameranie: string; planVyhlasenia: string | null; sumaEu: number | null; vyhlasena: boolean; zrusena: boolean }
@@ -127,7 +127,12 @@ function dokladyVyzvy(v: VstupVyzva, n: Nalez, p: Pravidlo): Doklad[] {
     case 'vyzva_stav': return vz ? dokladyVstupov(n, zdroj, [itms('Vyhlásená', vz.vyhlasena), itms('Ukončenie', vz.ukoncena ?? 'bez dátumu ukončenia'),
       itms('Zrušená, pozastavená alebo uzavretá', [vz.zrusena && 'zrušená', vz.pozastavena && 'pozastavená', vz.uzavreta && 'uzavretá'].filter(Boolean).join(', ') || 'nie'), datum]) : [];
     case 'vyzva_kolo': return vz ? dokladyVstupov(n, zdroj, [itms('Najbližšia uzávierka podľa ITMS21+', uzavierkaText(ref(v))), datum]) : [];
-    case 'vyzva_rezerva': return vz ? dokladyVstupov(n, zdroj, [itms('Najbližšia uzávierka podľa ITMS21+', uzavierkaText(dnes())), ['Dni na prípravu žiadosti', v.dniPripravy, ZADANE]], [['Rezerva (dni)', v.rezerva, ZADANE], itms('Deň kontroly', dnes())]) : [];
+    case 'vyzva_rezerva': {
+      if (!vz) return [];
+      // Deň kontroly je z hodín počítača, nie z ITMS21+ (rovnaká chyba ako pri U03, audit A13).
+      const d = dokladyVstupov(n, zdroj, [itms('Najbližšia uzávierka podľa ITMS21+', uzavierkaText(dnes())), ['Dni na prípravu žiadosti', v.dniPripravy, ZADANE]], [['Rezerva (dni)', v.rezerva, ZADANE]]);
+      return d.length ? [...d, dokladDnaPosudenia()] : [];
+    }
     case 'vyzva_verzia': {
       if (!vz) return [];
       const posledna = [...vz.verzie].filter((x) => x.datum).sort((a, b) => b.datum!.localeCompare(a.datum!))[0];

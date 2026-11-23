@@ -78,6 +78,11 @@ export function dokladyVstupov(n: Nalez, zdroj: { itms: string; formular: string
   return [...povinne, ...volitelne].filter(([, h]) => !prazdne(h)).map(([miesto, h, povodna]) => ({
     nazov: povodna !== ZADANE && JSON.stringify(h) === JSON.stringify(povodna) ? zdroj.itms : zdroj.formular, miesto, citat: textHodnoty(h) }));
 }
+/**
+ * Deň posúdenia je údaj z hodín počítača, nie z ITMS21+ ani z formulára (audit A13). Uvádza sa len popri ostatných
+ * dokladoch: sám osebe výsledok nedokladá.
+ */
+export const dokladDnaPosudenia = (): Doklad => ({ nazov: 'Systémový údaj aplikácie', miesto: 'Deň posúdenia (hodiny počítača, čas v SR)', citat: skDatum(dnes()) });
 /** Priložené dokumenty na miestach, ktoré kontrola prešla: názov súboru a začiatok textu (prítomnosť, nie obsah). */
 export function dokladyPriloh(prilohy: Record<string, Priloha> | undefined, miesta: { cislo: string; nazov: string }[]): Doklad[] {
   return miesta.flatMap((m) => {
