@@ -209,6 +209,21 @@
       }
     },
     {
+      "id": "D12b",
+      "ppp": 12,
+      "nazov": "Žiadaný NFP neprevyšuje celkové oprávnené výdavky (príspevok najviac 100 %)",
+      "druh": "data",
+      "kontrola": "nfp_vydavky",
+      "parametre": {
+        "mieraPercent": 100
+      },
+      "citacia": {
+        "dokument": "Výzva v znení Zmeny č. 2",
+        "cast": "Financovanie projektu, Miera spolufinancovania (intenzita pomoci)",
+        "znenie": "NFP sa poskytuje zo zdrojov EFRR v súlade s pravidlami stanovenými v platnej Stratégii financovania [...] pričom maximálna miera príspevku nesmie presiahnuť nižšie stanovený strop. Kategorizácia oprávnených žiadateľov výzvy podľa miery príspevku [...] Miera príspevku zo zdrojov P SK v % (NFP) [...] financovania zo zdrojov prijímateľa v % [...] EFRR ŠR [...] všetky kraje okrem Bratislavského 2.1.2 85 15 0 [...] 2.2.2 85 15 0 [...] Bratislavský kraj 2.1.2 40 60 0 [...] 2.2.2 40 60 0"
+      }
+    },
+    {
       "id": "D13",
       "ppp": 13,
       "nazov": "Pásmo oprávnených výdavkov podľa úspory energie",
@@ -763,7 +778,7 @@
       "ppp": 12,
       "nazov": "Výška príspevku",
       "okamih": "konanie",
-      "pravidla": ["D12"],
+      "pravidla": ["D12", "D12b"],
       "pokrytie": "uplne",
       "citacia": {
         "dokument": "Výzva v znení Zmeny č. 2",

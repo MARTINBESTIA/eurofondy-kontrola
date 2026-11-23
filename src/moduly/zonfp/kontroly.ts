@@ -1,6 +1,7 @@
 // Deterministické kontroly modulu "žiadosť o NFP a prílohy".
 // Každá kontrola je čistá funkcia (žiadosť, pravidlo) -> výsledok. Prahy a kódy sú v balíku pravidiel, nie tu.
 import type { Ziadost, Pravidlo, Stav } from '../../core/typy.ts';
+import { denZDatumu } from '../../core/datum.ts';
 
 export interface VysledokKontroly { stav: Stav; zdovodnenie: string; hodnoty?: Record<string, number | string | null>; dokaz?: string }
 type Kontrola = (z: Ziadost, p: Pravidlo) => VysledokKontroly;
@@ -197,7 +198,11 @@ function porovnajZositSFormularom(z: Ziadost, s: SuladPrilohy8, zf: ZavaznyFormu
   const chyba = [[s.budova, wB1], [s.oze, wO]].filter(([, v]) => v === undefined || Number.isNaN(v)).map(([a]) => a);
   if (chyba.length) return { vysledok: { stav: 'na_preverenie', zdovodnenie: `V zošite ${sub.nazov} chýba vypočítaná suma v bunke ${chyba.join(', ')} (hárok „${zf.harok}“). Vzorce zošita zrejme nemajú uložené výsledky (súbor nebol uložený v MS Excel) alebo bol vzor zmenený. Zošit treba otvoriť v MS Excel a sumy porovnať s rozpočtom formulára ručne.` } };
   const pocet = num(h, s.pocetBudov);
-  const n = pocet !== undefined && Number.isInteger(pocet) && pocet > 1 ? pocet : 1;
+  // Počet budov určuje, ktoré hárky budov sa sčítajú. Záporný, desatinný alebo nečíselný údaj sa nenahrádza jednou
+  // budovou (audit A11): súčet by mohol vynechať budovy a dať „splnené“. Prázdna bunka znamená jednu budovu.
+  if (pocet !== undefined && !(Number.isInteger(pocet) && pocet >= 1))
+    return { vysledok: { stav: 'na_preverenie', zdovodnenie: `V zošite ${sub.nazov} je počet budov v bunke ${bunka(zf.harok, s.pocetBudov)} „${h[s.pocetBudov].trim()}“, čo nie je kladné celé číslo. Od počtu budov závisí, ktoré hárky budov sa sčítajú, preto sa súlad s rozpočtom formulára neoveril. Treba opraviť zošit alebo súlad overiť ručne.` }, citovane };
+  const n = pocet ?? 1;
   if (n > s.dalsieBudovy.maxBudov) return { vysledok: { stav: 'na_preverenie', zdovodnenie: `Zošit ${sub.nazov} uvádza ${n} budov (bunka ${s.pocetBudov}), vzor má hárky len pre ${s.dalsieBudovy.maxBudov}. Súlad treba overiť ručne.` } };
   // Ďalšie budovy: povinné do počtu z B13; hárok so sumou nad tento počet je rozpor v zošite, nie dôvod ho ignorovať.
   const dalsie: { harok: string; suma: number }[] = [], neprecitane: string[] = [], navyse: string[] = [], hlasky: string[] = [];
@@ -289,15 +294,24 @@ const normKraj = (s: string) => s.replace(/\s+/g, ' ').trim().toLocaleLowerCase(
  * odvodene je null, ak niektorý kraj chýba alebo ho balík nepozná. Neznámy kraj sa nepovažuje za MRR (pri chybe v údajoch
  * by dal nesprávne porušenie) a neznámy kód kategórie nie je „iná kategória“ (dal by nesprávne „splnené“): obe idú človeku.
  */
-export function kategorieRegionu(z: Ziadost, kraje: Record<string, string[]>): { kategorie: string[]; zdroj: 'formular' | 'kraj' | null; odvodene: string[] | null; neznameKraje: string[]; neznameKategorie: string[] } {
+export function kategorieRegionu(z: Ziadost, kraje: Record<string, string[]>): {
+  kategorie: string[]; zdroj: 'formular' | 'kraj' | null; odvodene: string[] | null; neznameKraje: string[]; neznameKategorie: string[];
+  /** Miesta so známym krajom a jeho kategóriou; bezKraja = miesta bez kraja (obec alebo poradie miesta). */
+  znameMiesta: { kraj: string; kategoria: string }[]; bezKraja: string[];
+} {
   const kategoriaKraja = (kraj: string) => Object.keys(kraje).find((k) => kraje[k].some((x) => normKraj(x) === normKraj(kraj)));
   const neznameKraje = [...new Set(z.miesta.map((m) => m.kraj ?? '').filter((k) => k.trim() && !kategoriaKraja(k)))];
+  const znameMiesta = z.miesta.flatMap((m) => { const kategoria = m.kraj?.trim() ? kategoriaKraja(m.kraj) : undefined; return kategoria ? [{ kraj: m.kraj.trim(), kategoria }] : []; });
+  const bezKraja = z.miesta.flatMap((m, i) => (m.kraj?.trim() ? [] : [`č. ${i + 1}${m.obec ? ` (${m.obec})` : ''}`]));
   const odvodene = z.miesta.length && z.miesta.every((m) => m.kraj?.trim() && kategoriaKraja(m.kraj))
     ? [...new Set(z.miesta.map((m) => kategoriaKraja(m.kraj)!))].sort() : null;
   const formular = [...new Set(z.kategoriaRegionov.map((k) => String(k).trim().toUpperCase()).filter(Boolean))].sort();
   const neznameKategorie = formular.filter((k) => !Object.hasOwn(kraje, k));
-  if (formular.length) return { kategorie: formular, zdroj: 'formular', odvodene, neznameKraje, neznameKategorie };
-  return { kategorie: odvodene ?? [], zdroj: odvodene ? 'kraj' : null, odvodene, neznameKraje, neznameKategorie };
+  const spolu = { odvodene, neznameKraje, neznameKategorie, znameMiesta, bezKraja };
+  if (formular.length) return { kategorie: formular, zdroj: 'formular', ...spolu };
+  // Bez kategórie vo formulári: z krajov, ak sú známe všetky; inak aspoň kategórie známych miest (neúplný kraj ide človeku).
+  const zMiest = [...new Set(znameMiesta.map((m) => m.kategoria))].sort();
+  return { kategorie: odvodene ?? zMiest, zdroj: odvodene || zMiest.length ? 'kraj' : null, ...spolu };
 }
 
 /**
@@ -309,18 +323,24 @@ export function kategorieRegionu(z: Ziadost, kraje: Record<string, string[]>): {
 function predlozenieVcas(z: Ziadost, p: Pravidlo): VysledokKontroly {
   const { vyhlasenie, uzavretie, uzavretieKategorie = {}, kraje = {} } = p.parametre as
     { vyhlasenie: string; uzavretie?: string; uzavretieKategorie?: Record<string, string>; kraje?: Record<string, string[]> };
-  const d = z.datumPredlozenia?.slice(0, 10);
-  if (!d) return { stav: 'na_preverenie', zdovodnenie: 'Vo formulári chýba dátum predloženia. Kontrolór ho overí v ITMS21+ alebo podľa doručenia do e-schránky poskytovateľa.' };
+  if (!z.datumPredlozenia) return { stav: 'na_preverenie', zdovodnenie: 'Vo formulári chýba dátum predloženia. Kontrolór ho overí v ITMS21+ alebo podľa doručenia do e-schránky poskytovateľa.' };
+  const d = denZDatumu(z.datumPredlozenia);
+  if (!d) return { stav: 'na_preverenie', zdovodnenie: `Dátum predloženia vo formulári („${z.datumPredlozenia}“) nie je platný kalendárny deň, preto sa nedá overiť, či bola žiadosť predložená včas. Kontrolór ho overí v ITMS21+ alebo podľa doručenia do e-schránky poskytovateľa.`, hodnoty: { datumPredlozenia: z.datumPredlozenia } };
   const k = kategorieRegionu(z, kraje);
-  const hodnoty = { datumPredlozenia: d, kategoria: k.kategorie.join('+') || null, kategoriaZ: k.zdroj, kraj: k.odvodene || k.neznameKraje.length ? 'pouzity' : null };
+  // Kraj miest realizácie je vstupom vždy, keď formulár nejaké miesta má (aj s neúplným krajom): doklad ho musí citovať.
+  const hodnoty = { datumPredlozenia: d, kategoria: k.kategorie.join('+') || null, kategoriaZ: k.zdroj, kraj: z.miesta.length ? 'pouzity' : null };
   const kat = k.kategorie.join(', ');
   if (d < vyhlasenie) return { stav: 'na_preverenie', zdovodnenie: `Dátum predloženia ${dmr(d)} je pred vyhlásením výzvy (${dmr(vyhlasenie)}). Údaj je pravdepodobne chybný, treba ho overiť.`, hodnoty };
   if (uzavretie && d > uzavretie) return { stav: 'nesplnene', zdovodnenie: `Žiadosť je predložená ${dmr(d)}, po uzavretí výzvy ${dmr(uzavretie)}. Po uzavretí výzvy nie je možné predkladať žiadosti.`, hodnoty };
   if (uzavretie && d === uzavretie) return { stav: 'na_preverenie', zdovodnenie: `Žiadosť je predložená v deň uzavretia výzvy (${dmr(uzavretie)}). Rozhoduje čas doručenia, treba ho overiť.`, hodnoty };
   if (k.neznameKategorie.length) return { stav: 'na_preverenie', zdovodnenie: `Kategória regiónu vo formulári (${k.neznameKategorie.join(', ')}) nie je kategória výzvy (${Object.keys(kraje).join(', ')}). Od kategórie závisí alokácia aj uzavretie výzvy, treba ju overiť.`, hodnoty };
   if (k.neznameKraje.length) return { stav: 'na_preverenie', zdovodnenie: `Kraj miesta realizácie (${k.neznameKraje.map((x) => `„${x}“`).join(', ')}) nie je medzi krajmi v pravidlách výzvy, preto sa kategória regiónu nedá overiť podľa miesta realizácie. Od kategórie závisí alokácia aj uzavretie výzvy, treba ju overiť.`, hodnoty };
-  if (k.zdroj === 'formular' && k.odvodene && k.odvodene.join() !== k.kategorie.join())
-    return { stav: 'na_preverenie', zdovodnenie: `Kategória regiónu vo formulári (${kat}) nezodpovedá miestu realizácie (${[...new Set(z.miesta.map((m) => m.kraj))].join(', ')}, teda ${k.odvodene.join(', ')}). Od kategórie závisí alokácia aj uzavretie výzvy, treba to preveriť.`, hodnoty };
+  // Miesta so známym krajom sa porovnajú vždy, aj keď inému miestu kraj chýba (audit A08): neúplné miesto nesmie
+  // skryť nesúlad známeho miesta s kategóriou formulára.
+  const miestaKat = k.znameMiesta.map((m) => `${m.kraj} (${m.kategoria})`);
+  if (k.zdroj === 'formular' && (k.odvodene ? k.odvodene.join() !== k.kategorie.join() : k.znameMiesta.some((m) => !k.kategorie.includes(m.kategoria))))
+    return { stav: 'na_preverenie', zdovodnenie: `Kategória regiónu vo formulári (${kat}) nezodpovedá miestu realizácie (${[...new Set(miestaKat)].join(', ')}${k.bezKraja.length ? `; pri ďalšom mieste kraj chýba: ${k.bezKraja.join(', ')}` : ''}). Od kategórie závisí alokácia aj uzavretie výzvy, treba to preveriť.`, hodnoty };
+  if (k.bezKraja.length) return { stav: 'na_preverenie', zdovodnenie: `Pri mieste realizácie ${k.bezKraja.join(', ')} chýba kraj, preto sa kategória regiónu nedá overiť pri všetkých miestach${miestaKat.length ? ` (známe miesta: ${[...new Set(miestaKat)].join(', ')})` : ''}. Od kategórie závisí alokácia aj uzavretie výzvy, treba ju overiť.`, hodnoty };
   for (const [kategoria, od] of Object.entries(uzavretieKategorie)) {
     if (d < od) continue;
     if (!k.kategorie.length) return { stav: 'na_preverenie', zdovodnenie: `Od ${dmr(od)} je výzva pre ${kategoria} uzavretá a kategória regiónu sa z formulára nedá určiť (chýba kategória aj kraj miesta realizácie). Treba ju overiť.`, hodnoty };
@@ -412,6 +432,24 @@ export const KONTROLY: Record<string, Kontrola> = {
     return { stav: 'splnene', zdovodnenie: `Žiadaný NFP ${eur(n)} je v povolenom rozmedzí.`, hodnoty };
   },
 
+  // Audit A10: D12 overí len rozsah NFP. Výzva dáva príspevok z P SK (EFRR a ŠR) najviac do výšky oprávnených výdavkov
+  // (spolufinancovanie prijímateľa 0 %), preto NFP nad celkovými oprávnenými výdavkami je samostatný, pomenovaný rozpor.
+  nfp_vydavky(z, p) {
+    const miera = Number(p.parametre?.mieraPercent ?? 100);
+    const nfp = z.sumaZiadanaNFP, cov = z.sumaZiadanaCelkova, vz = z.sumaZiadanaVZ;
+    const r2 = (x: number) => Math.round(x * 100) / 100;
+    if (!Number.isFinite(nfp) || nfp <= 0) return { stav: 'na_preverenie', zdovodnenie: `Žiadaný NFP vo formulári (${nfp}) nie je kladná suma, súlad s oprávnenými výdavkami sa nedá overiť.` };
+    if (!Number.isFinite(cov) || cov <= 0) return { stav: 'na_preverenie', zdovodnenie: `Celkové oprávnené výdavky vo formulári (${cov}) nie sú kladná suma, preto sa nedá overiť, či žiadaný NFP ${eur2(nfp)} neprevyšuje ${miera} % z nich.` };
+    const strop = r2(cov * miera / 100);
+    const hodnoty = { nfp, celkoveOpravneneVydavky: cov, vlastneZdroje: vz, mieraPercent: r2(nfp / cov * 100) };
+    const voci = miera === 100 ? `celkové oprávnené výdavky ${eur2(cov)}` : `${miera} % celkových oprávnených výdavkov ${eur2(cov)} (${eur2(strop)})`;
+    if (nfp > strop + 0.005) return { stav: 'nesplnene', zdovodnenie: `Žiadaný NFP ${eur2(nfp)} prevyšuje ${voci} o ${eur2(r2(nfp - strop))}. Príspevok z P SK (EFRR a štátny rozpočet) môže byť najviac ${miera} % oprávnených výdavkov, spolufinancovanie prijímateľa je 0 %.`, hodnoty };
+    if (!Number.isFinite(vz) || vz < 0) return { stav: 'na_preverenie', zdovodnenie: `Žiadaný NFP ${eur2(nfp)} neprevyšuje ${voci}, ale vlastné zdroje vo formulári (${vz}) nie sú platná suma. Treba overiť zdroje financovania v rozpočte formulára.`, hodnoty };
+    const rozdiel = r2(nfp + vz - cov);
+    if (Math.abs(rozdiel) > 0.005) return { stav: 'na_preverenie', zdovodnenie: `Žiadaný NFP ${eur2(nfp)} a vlastné zdroje ${eur2(vz)} spolu (${eur2(r2(nfp + vz))}) sa nerovnajú celkovým oprávneným výdavkom ${eur2(cov)} (rozdiel ${eur2(Math.abs(rozdiel))}). Treba overiť zdroje financovania v rozpočte formulára.`, hodnoty };
+    return { stav: 'splnene', zdovodnenie: `Žiadaný NFP ${eur2(nfp)} neprevyšuje ${voci} (miera príspevku ${cislo(hodnoty.mieraPercent, 2)} %, najviac ${miera} %)${vz ? `; zvyšok ${eur2(vz)} sú vlastné zdroje žiadateľa` : ''}.`, hodnoty };
+  },
+
   pasmo_ov(z, p) {
     if (!maHlavnu(z, '2.1.2')) return { stav: 'neuplatnuje_sa', zdovodnenie: 'Projekt nerealizuje opatrenie 2.1.2, pásma sa neuplatnia.' };
     const u = uspora(z, p.parametre!.ukazovatel);
@@ -426,8 +464,13 @@ export const KONTROLY: Record<string, Kontrola> = {
   harmonogram(z, p) {
     if (!z.koniecHlavnychAktivit) return { stav: 'chyba_podklad', zdovodnenie: 'Vo formulári chýba harmonogram hlavných aktivít (koniec realizácie).' };
     // Dátum predloženia nie je podklad, ktorý by mal doložiť žiadateľ: kontrolór ho zistí v ITMS21+ alebo v e-schránke.
+    // Neplatný deň sa nepočíta (dal by „NaN mesiaca“ a „splnené“, audit A09): bod ide kontrolórovi s menom poľa.
+    const koniec = denZDatumu(z.koniecHlavnychAktivit);
+    if (!koniec) return { stav: 'na_preverenie', zdovodnenie: `Koniec hlavných aktivít vo formulári („${z.koniecHlavnychAktivit}“) nie je platný kalendárny deň, dĺžka harmonogramu sa preto nedá vypočítať. Treba ho overiť v harmonograme realizácie aktivít formulára.` };
     if (!z.datumPredlozenia) return { stav: 'na_preverenie', zdovodnenie: `Hlavné aktivity končia ${z.koniecHlavnychAktivit}, ale vo formulári chýba dátum predloženia, od ktorého sa dĺžka orientačne počíta. Kontrolór ho overí v ITMS21+ alebo podľa doručenia do e-schránky poskytovateľa.` };
-    const m = mesiace(z.datumPredlozenia, z.koniecHlavnychAktivit); const limit = (p.parametre!.maxMesiacov as number) + (p.parametre!.rezervaNaKonanieMesiacov as number);
+    const predlozenie = denZDatumu(z.datumPredlozenia);
+    if (!predlozenie) return { stav: 'na_preverenie', zdovodnenie: `Hlavné aktivity končia ${z.koniecHlavnychAktivit}, ale dátum predloženia vo formulári („${z.datumPredlozenia}“) nie je platný kalendárny deň, dĺžka harmonogramu sa od neho nedá vypočítať. Kontrolór ho overí v ITMS21+ alebo podľa doručenia do e-schránky poskytovateľa.` };
+    const m = mesiace(predlozenie, koniec); const limit = (p.parametre!.maxMesiacov as number) + (p.parametre!.rezervaNaKonanieMesiacov as number);
     const hodnoty = { koniecHlavnychAktivit: z.koniecHlavnychAktivit, mesiacovOdPredlozenia: +m.toFixed(1) };
     return m > limit ? { stav: 'na_preverenie', zdovodnenie: `Hlavné aktivity končia ${z.koniecHlavnychAktivit}, teda ${cislo(m)} mesiaca po predložení žiadosti. Lehota 24 mesiacov beží až od účinnosti zmluvy, ale harmonogram je dlhý, treba ho preveriť.`, hodnoty }
       : { stav: 'splnene', zdovodnenie: `Hlavné aktivity končia ${z.koniecHlavnychAktivit}, ${cislo(Math.max(m, 0))} mesiaca po predložení žiadosti. Je to orientačná kontrola: lehota beží od účinnosti zmluvy.`, hodnoty };

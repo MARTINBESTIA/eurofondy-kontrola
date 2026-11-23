@@ -161,7 +161,12 @@ export function pripravDokladyFormulara(text: string, z: Ziadost): (n: Nalez) =>
         }
         if (n.hodnoty?.kraj === 'pouzity') {
           if (povodne.miesta?.length !== z.miesta.length || povodne.miesta.some((m, i) => m.kraj !== z.miesta[i].kraj)) return [];
-          z.miesta.forEach((_, i) => pridaj(formaItms ? ['miestoRealizacieFull', i, 'nuts3', 'nazovSk'] : ['miesta', i, 'kraj']));
+          // Miesto bez kraja dá F01 na preverenie (audit A08); dôkaz potom cituje aspoň známe miesta, ktoré sa porovnali.
+          // Pri „splnené“ musí byť citovaný kraj každého miesta.
+          z.miesta.forEach((m, i) => {
+            if (!m.kraj?.trim() && n.stav !== 'splnene') return;
+            pridaj(formaItms ? ['miestoRealizacieFull', i, 'nuts3', 'nazovSk'] : ['miesta', i, 'kraj']);
+          });
         }
         break;
       }
@@ -204,6 +209,19 @@ export function pripravDokladyFormulara(text: string, z: Ziadost): (n: Nalez) =>
         if (Number(povodne.sumaZiadanaNFP) !== z.sumaZiadanaNFP) return [];
         pridaj(['sumaZiadanaNFP']);
         break;
+      case 'D12b': {
+        // NFP a celkové oprávnené výdavky vždy. Vlastné zdroje, keď ich formulár uvádza alebo ich kontrola použila (nenulové):
+        // chýbajúce pole sa číta ako 0 a pri NFP rovnom výdavkom o výsledku nerozhoduje.
+        if (Number(povodne.sumaZiadanaNFP) !== z.sumaZiadanaNFP || Number(povodne.sumaZiadanaCelkova) !== z.sumaZiadanaCelkova) return [];
+        pridaj(['sumaZiadanaNFP']);
+        pridaj(['sumaZiadanaCelkova']);
+        const vz = rozsahy.get(kluc(['sumaZiadanaVZ']));
+        if (z.sumaZiadanaVZ || (vz && text.slice(vz.hodnotaOd, vz.po) !== 'null')) {
+          if (Number(povodne.sumaZiadanaVZ ?? 0) !== z.sumaZiadanaVZ) return [];
+          pridaj(['sumaZiadanaVZ']);
+        }
+        break;
+      }
       case 'D13': {
         ukazovatel('PSKPRCR26b', true);
         hlavnaAktivitaAleboVydavok('2.1.2');

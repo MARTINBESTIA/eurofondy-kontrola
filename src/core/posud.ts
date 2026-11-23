@@ -4,6 +4,7 @@ import path from 'node:path';
 import type { BalikPravidiel, Citacia, Doklad, HarmonogramKol, Modul, Nalez, Navrh, Podmienka, Posudok, Pravidlo, Stav, VyberVerzie, VysledokKontroly } from './typy.ts';
 import { posudText, dokazJeVTexte, MODEL } from '../llm/ollama.ts';
 import { nacitajKontroluZmien, nacitajZakladZmien, nalezyZmienVyzvy, type KontrolaZmien } from './zmeny.ts';
+import { denZDatumu } from './datum.ts';
 
 const KOREN = path.join(import.meta.dirname, '..', '..');
 
@@ -44,7 +45,10 @@ export function vyberVerziu(vyzvaKod: string, modul: Modul, v: unknown): { balik
   const platna = verzie.find((b) => b.verziaBalika?.stav === 'platna') ?? verzie[verzie.length - 1];
   if (!platna.verziaBalika || !modul.okamihPodania) return { balik: platna, vyber: null, nalezy: [] };
   const h = platna.harmonogramKol;
-  const { kolo: koloItms, datum } = modul.okamihPodania(v);
+  const { kolo: koloItms, datum: datumVstup } = modul.okamihPodania(v);
+  // Neplatný deň (napr. 31. 9.) sa nepoužije: kolo by vyšlo z posunutého dátumu alebo by výpočet spadol.
+  const datum = denZDatumu(datumVstup);
+  const neplatny = datumVstup && !datum ? datumVstup : null;
   const koloDatum = datum && h ? koloPodlaDatumu(datum, h) : null;
   const kolo = koloItms ?? koloDatum;
   const pre = (k: number) => [...verzie].reverse().find((b) => (b.verziaBalika?.odKola ?? 1) <= k);
@@ -57,7 +61,8 @@ export function vyberVerziu(vyzvaKod: string, modul: Modul, v: unknown): { balik
   const bod = (pravidlo: string, nazov: string, zdovodnenie: string, citacia: Citacia) =>
     nalezy.push({ pravidlo, ppp: null, nazov, druh: 'verzia', stav: 'na_preverenie', okamih: 'konanie', zdovodnenie, citacia });
   const citKol = h?.citacia ?? vb.citacia;
-  if (kolo == null) bod('VER-KOLO', 'Posudzované obdobie (kolo) žiadosti', `Žiadosť nemá kolo z ITMS21+ ani dátum predloženia, preto sa nedá určiť, ktoré znenie výzvy sa na ňu vzťahuje (§ 14 ods. 4 zákona č. 121/2022 Z. z.). Použité je najnovšie znenie (${platna.verzia}). Kontrolór určí kolo a znenie.`, citKol);
+  if (kolo == null) bod('VER-KOLO', 'Posudzované obdobie (kolo) žiadosti', `Žiadosť nemá kolo z ITMS21+ ${neplatny ? `a dátum predloženia „${neplatny}“ nie je platný kalendárny deň` : 'ani dátum predloženia'}, preto sa nedá určiť, ktoré znenie výzvy sa na ňu vzťahuje (§ 14 ods. 4 zákona č. 121/2022 Z. z.). Použité je najnovšie znenie (${platna.verzia}). Kontrolór ${neplatny ? 'overí dátum predloženia a ' : ''}určí kolo a znenie.`, citKol);
+  else if (neplatny) bod('VER-KOLO', 'Posudzované obdobie (kolo) žiadosti', `Dátum predloženia „${neplatny}“ nie je platný kalendárny deň. Znenie výzvy je určené podľa kola ${kolo} z ITMS21+, jeho súlad s dňom predloženia sa neoveril. Kontrolór overí dátum predloženia.`, citKol);
   else if (!pre(kolo)) bod('VER-KOLO', 'Posudzované obdobie (kolo) žiadosti', `Kolo ${kolo} je skôr než prvé znenie výzvy v softvéri (od kola ${verzie[0].verziaBalika?.odKola}). Použité je znenie ${balik.verzia}. Kontrolór overí, ktoré znenie platí.`, citKol);
   if (koloItms != null && koloDatum != null && pre(koloItms) !== pre(koloDatum))
     bod('VER-KOLO', 'Posudzované obdobie (kolo) žiadosti', `Kolo z ITMS21+ (${koloItms}) a kolo podľa dátumu predloženia ${datumSk(datum!)} (${koloDatum}) patria pod rôzne znenia výzvy: ${pre(koloItms)?.verzia ?? '?'} a ${pre(koloDatum)?.verzia ?? '?'}. Použité je znenie podľa kola z ITMS21+. Kontrolór overí zaradenie žiadosti do kola.`, citKol);

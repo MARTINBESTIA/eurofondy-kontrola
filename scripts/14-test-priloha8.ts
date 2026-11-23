@@ -127,6 +127,9 @@ const pripady8b: [string, Ziadost, Priloha | undefined | null, string, RegExp?][
     'na_preverenie', /„MU Budova 2“!I13/],
   ['B13 = 1, hlásenie nevyužitého hárku MU Budova 2 sa nečíta', zG, priloha8([zosit8b(zhoda, { 'MU Budova 2': { I13: 'Budova nespĺňa podmienku úspory primárnej energie.' } })]), 'splnene'],
   ['B13 = 2, hárok Rozpočet B2 sa nedá prečítať', zG, priloha8([zosit8b({ ...zhoda, B13: '2' })]), 'na_preverenie', /Rozpočet B2/],
+  // Audit A11: neplatný počet budov sa nenahrádza jednou budovou; zdôvodnenie uvedie hárok a bunku B13.
+  ...['-1', '1.5', 'abc', '0'].map((b13) => [`B13 = ${b13} nie je kladné celé číslo`, zG, priloha8([zosit8b({ ...zhoda, B13: b13 })]), 'na_preverenie',
+    new RegExp(`počet budov v bunke „Rozpočet B1 - Value for Money“!B13 „${b13.replace('.', '\\.')}“, čo nie je kladné celé číslo`)] as const),
   ['B13 = 2, budova B2 dopĺňa sumu 2.1.2', zG, priloha8([zosit8b({ ...zhoda, B13: '2', M210: '204406.49' }, { 'Rozpočet B2': { M207: '10000' } })]), 'splnene'],
   ['B13 = 1, ale hárok B2 má sumu', zG, priloha8([zosit8b({ ...zhoda, M210: '204406.49' }, { 'Rozpočet B2': { M207: '10000' } })]), 'na_preverenie', /sumu majú aj hárky/],
   ['výdavok mimo opatrení 2.1.2 a 2.2.2', sPolozkou({ opatrenie: '1.1.1', suma: 300 }, 300), priloha8([zosit8b(zhoda)]), 'na_preverenie', /mimo opatrení/],

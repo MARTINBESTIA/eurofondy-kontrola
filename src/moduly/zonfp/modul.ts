@@ -49,7 +49,7 @@ export const zonfp: Modul<Ziadost> = {
   kontroly: KONTROLY,
   inventarPodmienok: true,
   // Znenie výzvy sa vyberá podľa kola: z ITMS21+ (posudzované obdobie žiadosti), inak z dátumu predloženia.
-  okamihPodania: (z) => ({ kolo: z.kolo ?? null, datum: z.datumPredlozenia ? z.datumPredlozenia.slice(0, 10) : null }),
+  okamihPodania: (z) => ({ kolo: z.kolo ?? null, datum: z.datumPredlozenia ? String(z.datumPredlozenia).slice(0, 10) : null }),
   hlavnyText: (z) => [z.popis, z.ucel].filter(Boolean).join('\n'),
   kontext: (z) => `Názov projektu: ${z.nazov}\nŽiadateľ: ${z.ziadatel.nazov} (${z.ziadatel.pravnaForma})`,
   titulok: (z) => ({ kod: z.kod, nazov: z.nazov, podnazov: `${z.ziadatel.nazov} · ${z.ziadatel.pravnaForma} · opatrenia ${z.opatrenia.join(', ') || '–'} · predložená ${z.datumPredlozenia ?? '–'}` }),

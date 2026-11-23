@@ -162,6 +162,35 @@ const doklady = pripravDokladyFormulara(surovina, g856)(f01).map((d) => d.miesto
 over(f01.stav === 'splnene' && ['$.datumPredlozenia', '$.kategoriaRegionov[0].kodZdroj', '$.miestoRealizacieFull[0].nuts3.nazovSk'].every((m) => doklady.some((d) => d.startsWith(m))),
   `F01 na G856: ${f01.stav}, citácie ${doklady.map((d) => d.split(' ')[0]).join(', ')}`);
 
+// Audit A08: VRR a miesto v Nitrianskom kraji (MRR) s ďalším miestom bez kraja, v oboch poradiach. Rozpor ide na preverenie
+// a zdôvodnenie aj dôkaz uvedú známe sporné miesto (predtým bolo F01 „splnené“ a dôkaz spornú lokalitu neukázal).
+const g856Json = JSON.parse(surovina);
+const nitra = { ...g856Json.miestoRealizacieFull[0], nuts3: { nazovSk: 'Nitriansky kraj' }, nuts4: { nazovSk: 'Nitra' }, nuts5: { nazovSk: 'Nitra' } };
+const miestoBezKraja = { lokalita: 'SLOVENSKA_REPUBLIKA' };
+for (const [nazov, miesta, i] of [['Nitra, potom miesto bez kraja', [nitra, miestoBezKraja], 0], ['miesto bez kraja, potom Nitra', [miestoBezKraja, nitra], 1]] as const) {
+  const text = JSON.stringify({ ...g856Json, miestoRealizacieFull: miesta }, null, 2);
+  const zA = normalizujItms21(JSON.parse(text));
+  const nA = (await posud(zA, b, zonfp, { llm: false, iba: ['F01'] })).nalezy[0];
+  const dA = pripravDokladyFormulara(text, zA)(nA);
+  over(nA.stav === 'na_preverenie' && /Nitriansky kraj \(MRR\)/.test(nA.zdovodnenie) && dA.some((d) => d.miesto.startsWith(`$.miestoRealizacieFull[${i}].nuts3.nazovSk `) && d.citat.includes('Nitriansky kraj')),
+    `[F01] A08 ${nazov}: ${nA.stav}, dôkaz ${dA.map((d) => d.miesto.split(' ')[0]).join(', ')} · ${nA.zdovodnenie.slice(0, 150)}`);
+}
+
+// Audit A10: D12b porovná žiadaný NFP s celkovými oprávnenými výdavkami. G856 je v súlade a dôkaz cituje všetky tri sumy;
+// pri NFP 350 000 EUR, výdavkoch 250 825,77 EUR a nulových vlastných zdrojoch pomenuje rozdiel a cituje obe hodnoty.
+const d12bG = p856.nalezy.find((n) => n.pravidlo === 'D12b')!;
+const dD12bG = pripravDokladyFormulara(surovina, g856)(d12bG).map((d) => d.miesto.split(' ')[0]);
+over(d12bG.stav === 'splnene' && ['$.sumaZiadanaNFP', '$.sumaZiadanaCelkova', '$.sumaZiadanaVZ'].every((m) => dD12bG.includes(m)), `[D12b] G856: ${d12bG.stav}, citácie ${dD12bG.join(', ')} · ${d12bG.zdovodnenie}`);
+const textA10 = surovina.replace('"sumaZiadanaNFP": 250825.77', '"sumaZiadanaNFP": 350000');
+const zA10 = normalizujItms21(JSON.parse(textA10));
+const pA10 = await posud(zA10, b, zonfp, { llm: false, iba: ['D12', 'D12b'] });
+const nA10 = pA10.nalezy.find((n) => n.pravidlo === 'D12b')!;
+const dA10 = pripravDokladyFormulara(textA10, zA10)(nA10);
+over(zA10.sumaZiadanaNFP === 350000 && nA10.stav === 'nesplnene' && /350\s000,00 EUR prevyšuje celkové oprávnené výdavky 250\s825,77 EUR o 99\s174,23 EUR/.test(nA10.zdovodnenie)
+  && dA10.some((d) => d.miesto.startsWith('$.sumaZiadanaNFP ') && d.citat.endsWith(': 350000')) && dA10.some((d) => d.miesto.startsWith('$.sumaZiadanaCelkova ') && d.citat.endsWith(': 250825.77')),
+  `[D12b] A10 G856 s NFP 350 000 EUR: ${nA10.stav} · ${nA10.zdovodnenie} · dôkaz ${dA10.map((d) => `${d.miesto.split(' ')[0]}=${d.citat}`).join(', ')}`);
+over(pA10.nalezy.find((n) => n.pravidlo === 'D12')!.stav === 'splnene', 'D12 si zachová význam: NFP 350 000 EUR je v rozsahu 200 000 až 5 000 000 EUR');
+
 // Štruktúrovaný formulár bez kódu výzvy: kód sa nedoplní zo spisu, aby V01 neprešlo bez dôkazu.
 const strukt = { ziadatel: { nazov: 'Obec Test', pravnaFormaKod: '801' } };
 over(formularZJson(JSON.stringify(strukt), VYZVA, () => undefined).ziadost.vyzvaKod === '', 'formulár bez kódu výzvy ostane bez kódu (nedoplní sa zo spisu)');
@@ -209,6 +238,26 @@ await zasad('chýba dátum predloženia', 'F01', 'na_preverenie', vsetky.map((z)
 await zasad('hlavná aktivita z opatrenia mimo výzvy (2.5.1)', 'D07a', 'nesplnene', sHlavnou.map((z) => kopia(z, (x) => { prvaHlavna(x).opatrenie = '2.5.1'; })));
 await zasad('hlavná aktivita bez opatrenia', 'D07a', 'na_preverenie', sHlavnou.map((z) => kopia(z, (x) => { prvaHlavna(x).opatrenie = null; })));
 await zasad('občianske združenie (doplnkové podmienky PPP č. 1)', 'D01', 'na_preverenie', vsetky.map((z) => kopia(z, (x) => { x.ziadatel = { ...x.ziadatel, pravnaFormaKod: '701', pravnaForma: 'Združenie (zväz, spolok, spoločnosť, klub ai.)' }; })));
+// Audit A08: prázdny kraj ďalšieho miesta nesmie skryť nesúlad známeho miesta s kategóriou, v žiadnom poradí miest.
+const bezKrajaM = (m: Ziadost['miesta'][number]) => ({ ...m, kraj: '', okres: '', obec: '' });
+await zasad('kategória VRR, miesto v MRR a za ním miesto bez kraja', 'F01', 'na_preverenie', mrr.map((z) => kopia(z, (x) => { x.kategoriaRegionov = ['VRR']; x.miesta = [...x.miesta, bezKrajaM(x.miesta[0])]; })));
+await zasad('kategória VRR, miesto bez kraja a za ním miesto v MRR', 'F01', 'na_preverenie', mrr.map((z) => kopia(z, (x) => { x.kategoriaRegionov = ['VRR']; x.miesta = [bezKrajaM(x.miesta[0]), ...x.miesta]; })));
+// Audit A09: neplatný kalendárny deň sa nepočíta (31. 9. dal „splnené“, „xxxx-xx-xx“ bez kola výnimku, koniec „neznámy“ „NaN mesiaca“).
+await zasad('neplatný dátum predloženia 2025-09-31', 'F01', 'na_preverenie', vsetky.map((z) => kopia(z, (x) => { x.datumPredlozenia = '2025-09-31'; })));
+await zasad('dátum predloženia „xxxx-xx-xx“ a žiadne kolo', 'F01', 'na_preverenie', vsetky.map((z) => kopia(z, (x) => { x.datumPredlozenia = 'xxxx-xx-xx'; x.kolo = null; })));
+await zasad('koniec hlavných aktivít „neznámy“', 'D14', 'na_preverenie', vsetky.map((z) => kopia(z, (x) => { x.koniecHlavnychAktivit = 'neznámy'; })));
+await zasad('neplatný dátum predloženia 2025-02-30 pri výpočte harmonogramu', 'D14', 'na_preverenie', vsetky.filter((z) => z.koniecHlavnychAktivit).map((z) => kopia(z, (x) => { x.datumPredlozenia = '2025-02-30'; })));
+// Audit A10: NFP nad celkovými oprávnenými výdavkami je rozpor; NFP a vlastné zdroje, ktoré nedávajú výdavky, idú človeku.
+await zasad('žiadaný NFP o 1 000 EUR nad celkovými oprávnenými výdavkami', 'D12b', 'nesplnene', vsetky.map((z) => kopia(z, (x) => { x.sumaZiadanaNFP = x.sumaZiadanaCelkova + 1000; })));
+await zasad('vlastné zdroje o 5 000 EUR vyššie, než dopĺňajú NFP do výdavkov', 'D12b', 'na_preverenie', vsetky.map((z) => kopia(z, (x) => { x.sumaZiadanaVZ += 5000; })));
+await zasad('celkové oprávnené výdavky chýbajú (0)', 'D12b', 'na_preverenie', vsetky.map((z) => kopia(z, (x) => { x.sumaZiadanaCelkova = 0; })));
+{
+  // Skutočný kalendárny deň sa overí ešte pred určením kola: „xxxx-xx-xx“ bez kola dá bod VER-KOLO, nie výnimku.
+  const r = vyberVerziu(VYZVA, zonfp, kopia(vsetky[0], (x) => { x.kolo = null; x.datumPredlozenia = 'xxxx-xx-xx'; }));
+  over(r.nalezy.some((n) => n.pravidlo === 'VER-KOLO' && /„xxxx-xx-xx“ nie je platný kalendárny deň/.test(n.zdovodnenie)), `[VER-KOLO] dátum „xxxx-xx-xx“ bez kola: ${r.nalezy.map((n) => n.zdovodnenie.slice(0, 120)).join(' | ')}`);
+  const r2 = vyberVerziu(VYZVA, zonfp, kopia(vsetky[0], (x) => { x.kolo = 83; x.datumPredlozenia = '2025-09-31'; }));
+  over(r2.vyber?.kolo === 83 && r2.nalezy.some((n) => n.pravidlo === 'VER-KOLO' && /„2025-09-31“ nie je platný kalendárny deň/.test(n.zdovodnenie)), `[VER-KOLO] dátum 2025-09-31 pri kole 83 z ITMS21+: bod ${r2.nalezy.map((n) => n.pravidlo).join(', ') || '–'}`);
+}
 
 // Bez falošného poplachu: VRR po uzavretí pre MRR je včas; nezmenené skutočné žiadosti nové pravidlá nezamietnu.
 let vrrOk = 0;
@@ -220,10 +269,14 @@ for (const z of vrr) { const { posudok: p } = await posudPodlaKola(kopia(z, (x) 
 over(vrr.length > 0 && medzeraOk === vrr.length, `[F01] VRR bez kategórie a s medzerou na konci kraja je po uzavretí pre MRR včas: ${medzeraOk}/${vrr.length} splnené`);
 const zamietnute: string[] = [];
 for (const z of vsetky.filter((x) => x.vysledok === 'schvalena')) {
-  const { posudok: p } = await posudPodlaKola(z, VYZVA, zonfp, { llm: false, iba: ['V01', 'F01', 'D01', 'D07a', 'G05', 'P09'] });
+  const { posudok: p } = await posudPodlaKola(z, VYZVA, zonfp, { llm: false, iba: ['V01', 'F01', 'D01', 'D07a', 'G05', 'P09', 'D12b'] });
   for (const n of p.nalezy) if (n.stav === 'nesplnene') zamietnute.push(`${z.kod} ${n.pravidlo}`);
 }
 over(!zamietnute.length, `nové pravidlá neoznačia ako nesplnenú žiadnu schválenú žiadosť${zamietnute.length ? `: ${zamietnute.slice(0, 5).join(', ')}` : ''}`);
+// D12b na všetkých skutočných žiadostiach bez zmeny: NFP nad výdavkami ani nesúlad so zdrojmi nemá žiadna (údaje z 2026-11).
+const stavyD12b: Record<string, number> = {};
+for (const z of vsetky) { const n = (await posud(z, b, zonfp, { llm: false, iba: ['D12b'] })).nalezy[0]; stavyD12b[n.stav] = (stavyD12b[n.stav] ?? 0) + 1; }
+over(stavyD12b.splnene === vsetky.length, `[D12b] skutočné žiadosti bez zmeny: ${JSON.stringify(stavyD12b)}`);
 
 // ---------------------------------------------------------------- 5. znenie výzvy podľa kola
 console.log('\n== Znenie výzvy podľa kola (§ 14 ods. 4 a 5 zákona č. 121/2022 Z. z.)');
