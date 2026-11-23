@@ -80,6 +80,9 @@ s riešením v osobitnom priečinku, nájdete v [demo/nova-ziadost/README.md](de
 - **Príjem.** `POST /api/podatelna/spisy` prijme súbory v base64 a ZIP rozbalí. Text vytiahne z PDF, DOCX,
   XLSX/XLSM a TXT a súbory uloží do `data/spisy/<spis>/` (mimo gitu). Formulár žiadosti je JSON: buď
   štruktúrovaný tvar, alebo surový detail z API ITMS21+, alebo `{"kodItms": "NFP…"}`.
+  Poškodený, šifrovaný alebo prázdny ZIP odmietne celé nahratie: HTTP 400 s menom súboru a dôvodom, nič
+  sa neuloží. Obsah každej položky archívu (aj vnútri DOCX a XLSX) sa overí veľkosťou a súčtom CRC-32.
+  Doplnenie bez súborov sa tiež odmietne.
 - **Záväzný zošit Prílohy č. 8.** Príloha č. 8 sa predkladá ako zošit MS Excel podľa vzoru výzvy. P08 preto
   nestačí, že príloha má text, ani PDF či DOCX v tom istom slote. Overuje sa po bunkách originálu
   (hárok „Rozpočet B1 - Value for Money“): žiadateľ B9 a projekt B10 sa musia po normalizácii zhodovať
@@ -421,16 +424,20 @@ sú doplnené a overené bez modelu na presných úryvkoch.
 
 ### Test 5: podateľňa na demo podaniach
 
-`npm run test:podatelna`, bez modelu, 15 kontrol na podaniach z `demo/podania`:
+`npm run test:podatelna`, bez modelu, 49 kontrol na podaniach z `demo/podania`:
 - odhad zaradenia (sprievodný list, certifikát bez čísla) nevedie k „splnené“, kým ho kontrolór nepotvrdí;
 - doplnenie spisu dodá chýbajúce prílohy;
 - výpočtové pravidlá zachytia úsporu 27,4 % a hodnotu za peniaze 7 615 EUR/MWh;
 - historická žiadosť z ITMS21+ zachytí NFP pod minimom;
 - nečitateľné PDF je „chýba podklad“ s dôvodom;
 - nečitateľný súbor s číslom prílohy „nepotvrdí“ text iného súboru zaradeného odhadom;
-- sedí štatistika výzvy.
+- audit A01 až A03: starší posudok neprepíše novší, platí formulár z doplnenia, lehota v liste sa zhoduje s evidenciou;
+- sedí štatistika výzvy;
+- poškodený ZIP (7 druhov: náhodné bajty, orezaný, adresár mimo súboru, poškodené dáta, prázdny, šifrovaný,
+  iná kompresia) sa odmietne s menom súboru a dôvodom a nevznikne spis. Doplnenie s poškodeným ZIP ani bez
+  súborov stav spisu nezmení a poškodený DOCX v platnom archíve dostane chybu formátu.
 
-Všetkých 15 prešlo. Test zapisuje do dočasného priečinka, nie do `data/spisy`. Prvá verzia testu
+Všetkých 49 prešlo (23. 11. 2026). Test zapisuje do dočasného priečinka, nie do `data/spisy`. Prvá verzia testu
 zapisovala tam a pri upratovaní zmazala súbory spisov bežiaceho servera s rovnakým číslom.
 
 ### Test 6: testovacia sada nových podaní

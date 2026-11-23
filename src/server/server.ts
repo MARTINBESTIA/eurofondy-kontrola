@@ -7,6 +7,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { nacitajBalik, posud, posudPodlaKola, verzieBalika, vyberVerziu } from '../core/posud.ts';
 import { dostupny, MODEL } from '../llm/ollama.ts';
 import { dokumentNaText, pdfDostupny } from '../ingest/dokument.ts';
+import { ChybaVstupu } from '../core/chyby.ts';
 import type { BalikPravidiel, Modul, Nalez, Posudok } from '../core/typy.ts';
 import { zonfp } from '../moduly/zonfp/modul.ts';
 import { vyzvy } from '../moduly/vyzvy/modul.ts';
@@ -273,7 +274,8 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(200, { 'content-type': MIME[path.extname(subor)] ?? 'application/octet-stream', 'cache-control': 'no-store' });
     fs.createReadStream(subor).pipe(res);
   } catch (e) {
-    json(res, 500, { chyba: (e as Error).message });
+    // Chybný vstup od používateľa (poškodený súbor, prázdne podanie) je 400 so správou, čo urobiť; ostatné je chyba aplikácie.
+    json(res, e instanceof ChybaVstupu ? 400 : 500, { chyba: (e as Error).message });
   }
 });
 server.listen(PORT, '127.0.0.1', () => {

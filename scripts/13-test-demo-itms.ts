@@ -111,6 +111,22 @@ try {
   assert.deepEqual(['P08', 'P08b'].map(k => stav(bezZositu, k)), ['chyba_podklad', 'chyba_podklad'],
     'Samostatný PDF podklad k oceneniu nesmie nahradiť záväzný zošit.');
 
+  // Poškodený ZIP cez HTTP: 400 so správou, ktorý súbor a prečo (predtým 500), spis nevznikne a doplnenie nič nezmení.
+  const postni = (cesta: string, telo: object) => fetch(base + cesta, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(telo) });
+  const orezany = zabal('poskodene.zip', komplet.subarray(0, Math.floor(komplet.length / 2)));
+  const spisovPred = (await api('spisy')).length;
+  const odmietnute = await postni('/api/podatelna/spisy', { vyzva: 'PSK-SIEA-002-2023-DV-EFRR', subory: [orezany] });
+  assert.equal(odmietnute.status, 400, 'Poškodený ZIP je chyba vstupu, nie chyba servera.');
+  assert.match((await odmietnute.json()).chyba, /^Súbor „poskodene\.zip“ sa nedá rozbaliť: .+ Nič z nahratia sa neuložilo\./);
+  assert.equal((await api('spisy')).length, spisovPred, 'Z poškodeného ZIP nevznikne spis.');
+  const predOdmietnutym = await api(`spisy/${bezExcelu}`);
+  assert.equal((await postni(`/api/podatelna/spisy/${bezExcelu}/subory`, { subory: [orezany] })).status, 400);
+  const poOdmietnutom = await api(`spisy/${bezExcelu}`);
+  assert.deepEqual([poOdmietnutom.spis.stav, poOdmietnutom.subory.length], [predOdmietnutym.spis.stav, predOdmietnutym.subory.length], 'Odmietnuté doplnenie nezmení spis.');
+  const zlyDocx = await postni('/api/text', { nazov: 'priloha.docx', base64: Buffer.from('toto nie je DOCX').toString('base64') });
+  assert.deepEqual([zlyDocx.status, /^Súbor nie je platný DOCX: /.test((await zlyDocx.json()).chyba)], [400, true], 'Nečitateľný dokument je chyba vstupu.');
+  console.log('Poškodený ZIP: podanie aj doplnenie vrátia 400 so správou o súbore, spis nevznikne ani sa nezmení.');
+
   const b = await prijmi([zip('02-pred-doplnenim.zip')]);
   const pred = await posud(b);
   assert.equal(pred.navrh, 'vyzva_na_doplnenie');

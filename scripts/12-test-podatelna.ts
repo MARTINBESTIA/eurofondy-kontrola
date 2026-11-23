@@ -11,6 +11,9 @@ import { nacitajBalik, posud } from '../src/core/posud.ts';
 import type { Posudok, Stav } from '../src/core/typy.ts';
 import { zonfp } from '../src/moduly/zonfp/modul.ts';
 import { navrhVyzvy } from '../src/podatelna/vyzva.ts';
+import { ChybaVstupu } from '../src/core/chyby.ts';
+import { rozbalZip } from '../src/ingest/dokument.ts';
+import { zip } from './lib/dokumenty.ts';
 
 // Statické importy sa vykonajú skôr než kód modulu, preto podateľňu (aj doklady, ktoré ju importujú) načítame až po nastavení úložiska.
 const ULOZISKO = fs.mkdtempSync(path.join(os.tmpdir(), 'test-podatelna-'));
@@ -178,6 +181,59 @@ try {
   pod.ulozPosudok(db, d, 2, 'nesplnene_podmienky'); pod.rozhodni(db, d, 'nesplnila', 'test');
   const st = pod.statistikaSpisov(db).get(VYZVA)!;
   over('Štatistika: splnila 1, nesplnila 1, doplnenie 2 (aj spis A03), proti návrhu 1', [st.splnila, st.nesplnila, st.doplnenie, st.odlisne], [1, 1, 2, 1]);
+
+  // Poškodený ZIP: nahratie sa odmietne chybou vstupu s menom súboru a dôvodom (server vráti 400) a nič sa neuloží.
+  // Predtým orezaný archív hlásil „Podanie neobsahuje žiadne súbory“, adresár mimo súboru dal anglický RangeError (500),
+  // poškodené dáta bez kompresie sa prijali ako platné súbory a doplnenie bez súborov spis označilo ako doplnený.
+  const okZip = fs.readFileSync(path.join(DEMO, 'A-Obec-Vzorova.zip'));
+  const koniecZip = okZip.lastIndexOf(Buffer.from([0x50, 0x4b, 0x05, 0x06])), adresar = okZip.readUInt32LE(koniecZip + 16);
+  const upraveny = (f: (b: Buffer) => void) => { const b = Buffer.from(okZip); f(b); return b; };
+  const poskodeneData = upraveny((b) => { for (let i = 200; i < 260; i++) b[i] ^= 0xff; });
+  const pokazeneZipy: [string, Buffer, RegExp][] = [
+    ['náhodné bajty', Buffer.from('toto nie je ZIP archív '.repeat(20)), /chýba koncový záznam archívu/],
+    ['orezaný na polovicu', okZip.subarray(0, Math.floor(okZip.length / 2)), /chýba koncový záznam archívu|centrálny adresár archívu je poškodený/],
+    ['adresár mimo súboru', Buffer.concat([Buffer.alloc(100, 7), okZip.subarray(koniecZip)]), /centrálny adresár archívu je poškodený/],
+    ['poškodené dáta bez kompresie', poskodeneData, /je poškodená \(nesedí veľkosť alebo kontrolný súčet CRC-32\)/],
+    ['prázdny archív', Buffer.from([0x50, 0x4b, 0x05, 0x06, ...Array(18).fill(0)]), /archív neobsahuje žiadne súbory/],
+    ['šifrovaná položka', upraveny((b) => b.writeUInt16LE(b.readUInt16LE(adresar + 8) | 1, adresar + 8)), /je zašifrovaná/],
+    ['kompresia bzip2', upraveny((b) => b.writeUInt16LE(12, adresar + 10)), /nepodporovanou metódou \(12\)/],
+  ];
+  const vynimka = (f: () => unknown) => { try { f(); return null; } catch (x) { return x as Error; } };
+  const pocetSpisov = () => (db.prepare('SELECT COUNT(*) AS n FROM spisy').get() as { n: number }).n;
+  const spisovPred = pocetSpisov();
+  for (const [druh, data, dovod] of pokazeneZipy) {
+    const x = vynimka(() => prijmi([{ nazov: 'podanie.zip', data }]));
+    over(`Poškodený ZIP (${druh}): chyba vstupu s menom súboru a dôvodom`,
+      [x instanceof ChybaVstupu, /^Súbor „podanie\.zip“ sa nedá rozbaliť: /.test(x?.message ?? ''), dovod.test(x?.message ?? '')], [true, true, true]);
+  }
+  over('Poškodený ZIP: nevznikol žiadny spis', pocetSpisov(), spisovPred);
+  const zp = prijmi([subor('A-Obec-Vzorova.zip')]); spisy.push(zp);
+  const stavZp = () => Object.values(db.prepare('SELECT stav, (SELECT MAX(davka) FROM subory WHERE spis_id = s.id) AS davka, (SELECT COUNT(*) FROM subory WHERE spis_id = s.id) AS suborov FROM spisy s WHERE id = ?').get(zp) as object);
+  const predZp = stavZp();
+  const xD = vynimka(() => pod.doplnPodklady(db, zp, [{ nazov: 'doplnenie.zip', data: poskodeneData }, { nazov: 'list.txt', data: Buffer.from('Sprievodný list k doplneniu podkladov žiadosti o NFP.') }], SLOTY, zItms));
+  over('Doplnenie s poškodeným ZIP sa odmietne celé (ani list sa neuloží) a stav spisu sa nezmení',
+    [xD instanceof ChybaVstupu, /^Súbor „doplnenie\.zip“ sa nedá rozbaliť/.test(xD?.message ?? ''), stavZp()], [true, true, predZp]);
+  const xP = vynimka(() => pod.doplnPodklady(db, zp, [], SLOTY, zItms));
+  over('Doplnenie bez súborov sa odmietne a spis neoznačí ako doplnený', [xP instanceof ChybaVstupu, xP?.message, stavZp()], [true, 'Doplnenie neobsahuje žiadne súbory.', predZp]);
+  // Poškodený DOCX v platnom archíve: súbor sa uloží s chybou formátu, nie s textom z poškodených dát.
+  const pokazPolozku = (buf: Buffer, meno: string) => {
+    const b = Buffer.from(buf), k = b.lastIndexOf(Buffer.from([0x50, 0x4b, 0x05, 0x06]));
+    for (let i = 0, q = b.readUInt32LE(k + 16); i < b.readUInt16LE(k + 10); i++) {
+      const n = b.readUInt16LE(q + 28);
+      if (b.toString('utf8', q + 46, q + 46 + n) === meno) {
+        const lok = b.readUInt32LE(q + 42), od = lok + 30 + b.readUInt16LE(lok + 26) + b.readUInt16LE(lok + 28) + Math.floor(b.readUInt32LE(q + 20) / 2);
+        for (let j = od; j < od + 4; j++) b[j] ^= 0x55;
+        return b;
+      }
+      q += 46 + n + b.readUInt16LE(q + 30) + b.readUInt16LE(q + 32);
+    }
+    throw new Error(`Položka ${meno} v archíve nie je.`);
+  };
+  const vnutro = rozbalZip(okZip), docx = vnutro.find((s) => s.nazov.endsWith('.docx'))!;
+  const zd = prijmi([{ nazov: 'docx-pokazeny.zip', data: zip(vnutro.map((s) => (s === docx ? { nazov: s.nazov, data: pokazPolozku(s.data, 'word/document.xml') } : s))) }]); spisy.push(zd);
+  const chybaDocx = (db.prepare('SELECT chyba FROM subory WHERE spis_id = ? AND nazov = ?').get(zd, docx.nazov) as { chyba: string | null }).chyba ?? '';
+  over('Poškodený DOCX v platnom archíve: súbor má chybu formátu, text sa z neho nečíta',
+    /^Súbor nie je platný DOCX: položka „word\/document\.xml“ (je poškodená|má poškodené komprimované dáta)/.test(chybaDocx), true);
 } finally {
   for (const id of spisy) pod.vymazSpis(db, id);
   fs.rmSync(ULOZISKO, { recursive: true, force: true });

@@ -8,6 +8,7 @@ import crypto from 'node:crypto';
 import { isDeepStrictEqual } from 'node:util';
 import type { DatabaseSync } from 'node:sqlite';
 import { dokumentNaText, rozbalZip, xlsxBunky } from '../ingest/dokument.ts';
+import { ChybaVstupu } from '../core/chyby.ts';
 import { normalizujItms21 } from '../moduly/zonfp/normalizuj.ts';
 import type { Navrh, Priloha, Ziadost } from '../core/typy.ts';
 import { jeDen, skDen, stavLehoty, type Den, type StavLehoty } from './lehoty.ts';
@@ -158,7 +159,17 @@ function ulozSubory(db: DatabaseSync, spisId: number, davka: number, subory: Sub
   }
   return ids;
 }
-const rozbal = (subory: Subor[]) => subory.flatMap((s) => (/\.zip$/i.test(s.nazov) ? rozbalZip(s.data) : [s]));
+/**
+ * Súbory podania s rozbalenými archívmi ZIP. Volá sa pred prvým zápisom do spisu: poškodený alebo prázdny archív
+ * odmietne celé nahratie (ChybaVstupu, server vráti 400), nič z neho sa neuloží ani potichu nevynechá.
+ */
+const rozbal = (subory: Subor[]) => subory.flatMap((s) => {
+  if (!/\.zip$/i.test(s.nazov)) return [s];
+  try { return rozbalZip(s.data); } catch (e) {
+    if (!(e instanceof ChybaVstupu)) throw e;
+    throw new ChybaVstupu(`Súbor „${s.nazov}“ sa nedá rozbaliť: ${e.message}. Nič z nahratia sa neuložilo. Nahrajte archív znova alebo prílohy jednotlivo.`);
+  }
+});
 
 /**
  * Načíta formulár zo súborov spisu a uloží ho ako platný. Bez `ids` skúša formuláre spisu od prvého, s `ids` len
@@ -188,7 +199,7 @@ function obnovFormular(db: DatabaseSync, spisId: number, vyzva: string, zItms: (
 
 export function prijmiPodanie(db: DatabaseSync, o: { vyzva: string; zdroj: string; kodItms?: string; subory: Subor[]; sloty: Slot[]; zItms: (kod: string) => Ziadost | undefined }): number {
   const subory = rozbal(o.subory);
-  if (!subory.length && !o.kodItms) throw new Error('Podanie neobsahuje žiadne súbory ani kód žiadosti z ITMS21+.');
+  if (!subory.length && !o.kodItms) throw new ChybaVstupu('Podanie neobsahuje žiadne súbory ani kód žiadosti z ITMS21+.');
   const prijate = new Date().toISOString();
   const id = Number(db.prepare('INSERT INTO spisy (vyzva, zdroj, prijate, stav) VALUES (?,?,?,?)').run(o.vyzva, o.zdroj, prijate, 'prijata').lastInsertRowid);
   const kodItms = o.kodItms?.trim();
@@ -206,7 +217,10 @@ const poslednaDavka = (db: DatabaseSync, spisId: number) => (db.prepare('SELECT 
 export function doplnPodklady(db: DatabaseSync, spisId: number, subory: Subor[], sloty: Slot[], zItms: (kod: string) => Ziadost | undefined, odoslane: Den | null = null) {
   const spis = db.prepare('SELECT vyzva, kod, formular_json FROM spisy WHERE id = ?').get(spisId) as { vyzva: string; kod: string | null; formular_json: string | null } | undefined;
   if (!spis) throw new Error('Spis neexistuje.');
-  const ids = ulozSubory(db, spisId, poslednaDavka(db, spisId) + 1, rozbal(subory), sloty, odoslane);
+  const nove = rozbal(subory);
+  // Doplnenie bez súborov (aj z nečitateľného archívu) by spis označilo ako doplnený bez jedinej dávky.
+  if (!nove.length) throw new ChybaVstupu('Doplnenie neobsahuje žiadne súbory.');
+  const ids = ulozSubory(db, spisId, poslednaDavka(db, spisId) + 1, nove, sloty, odoslane);
   // Formulár v doplnení je opravená verzia tej istej žiadosti: ak sa dá načítať, platí on. Pôvodný ostáva v spise
   // a posudky, ktoré ho citujú, ho citujú ďalej. Kontrolór môže platný formulár zmeniť (zmenZaradenie na „formular“).
   const noveFormulare = ids.filter((id) => (db.prepare('SELECT typ FROM subory WHERE id = ?').get(id) as { typ: string }).typ === 'formular');
