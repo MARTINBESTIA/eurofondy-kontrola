@@ -12,6 +12,15 @@ import type { BalikPravidiel, Nalez, Posudok, Pravidlo, Stav } from '../core/typ
 
 export const MIN_LEHOTA = 5;
 
+/**
+ * Lehoty, ktoré text výzvy stanovuje vetou „do N pracovných dní“ (aj s číslom slovom v zátvorke, napr. „do 10 (desiatich)
+ * pracovných dní“). Iné spomenuté lehoty, napr. „v lehote najmenej 10 pracovných dní“ pri zmene výzvy, nie sú lehotou
+ * tejto výzvy. Text bez takej vety vráti prázdny zoznam.
+ */
+export function lehotyVTexte(text: string): number[] {
+  return [...new Set([...text.matchAll(/(?<![\p{L}\p{N}])do\s+(\d{1,3})\s*(?:\([^)]{0,40}\)\s*)?pracovn\p{L}*\s+d[nň]/giu)].map((m) => Number(m[1])))];
+}
+
 export interface PolozkaVyzvy {
   /** Kľúč výberu: pravidlá spojené „+“ (napr. P08+P08b, keď oba body čakajú na tú istú prílohu). */
   id: string;

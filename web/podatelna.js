@@ -19,6 +19,8 @@ const dnesSk = () => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Bratis
 const skDen = (d) => (d ? `${Number(d.slice(8, 10))}. ${Number(d.slice(5, 7))}. ${d.slice(0, 4)}` : '–');
 
 let stavApp = null, vyzvy = [], spisy = [], aktualny = null, inicializovane = false;
+/** Oznámenie k spisu po poslednej akcii (napr. posudok dokončený až po zmene podkladov); zobrazí sa raz. */
+let oznamenie = null;
 const detail = () => $('#podatelna-detail');
 const nav = (h) => { if (location.hash === h) podlaHash(); else location.hash = h; };
 const stitokSpisu = (s) => s.rozhodnutie ? el('span', { class: `stitok s-${FARBA_ROZH[s.rozhodnutie]}` }, ROZHODNUTIA[s.rozhodnutie])
@@ -165,18 +167,25 @@ async function kresliSpis(id) {
   if (aktualny !== id) return;
   const { spis: s, subory, posudky, posledny, sloty, prilohyStav } = d;
   const vyzvy = d.vyzvy ?? [], dnes = d.dnes ?? dnesSk();
-  // Výzva uložená k poslednému posudku: návrh výzvy ukáže jej text a opätovné uloženie rozhodnutia ju opraví.
-  const ulozena = vyzvy[0] && vyzvy[0].posudokId === posudky[0]?.id ? vyzvy[0] : null;
+  // Výzva uložená k aktuálnemu posudku: návrh výzvy ukáže jej text a opätovné uloženie rozhodnutia ju opraví.
+  // Aktuálny posudok nemusí byť najnovší v histórii: posudok staršej verzie podkladov dokončený neskôr ním nie je.
+  const ulozena = vyzvy[0] && vyzvy[0].posudokId === s.posudokId ? vyzvy[0] : null;
   const llm = el('input', { type: 'checkbox', checked: stavApp?.modelDostupny ? '' : false, disabled: stavApp?.modelDostupny ? false : '' });
   // Predvolene vypnuté: kontroluje sa obsah podľa požiadaviek výzvy, podpisy nie (výrok potom nebude „bez zistení“).
   const formalne = el('input', { type: 'checkbox' });
   const posud = el('button', { class: 'hlavne', disabled: s.maFormular ? false : '', onclick: async () => {
     posud.disabled = true; posud.textContent = llm.checked ? 'Posudzujem (model číta prílohy, asi minútu)…' : 'Posudzujem…';
-    try { await api(`/api/podatelna/spisy/${id}/posud`, { llm: llm.checked, formalne: formalne.checked }); await obnovZoznam(); await kresliSpis(id); $('#pod-vysledok')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    try {
+      const j = await api(`/api/podatelna/spisy/${id}/posud`, { llm: llm.checked, formalne: formalne.checked });
+      if (j.aktualny === false) oznamenie = { id, text: `Posudok č. ${j.posudokId} sa dokončil až po zmene podkladov spisu (počas posudzovania pribudli súbory alebo sa zmenilo zaradenie či platný formulár). Uložil sa len do histórie ako posudok staršieho stavu podkladov, aktuálnym posudkom a podkladom výzvy sa nestal. Ak chcete posudok súčasných podkladov, posúďte žiadosť znova.` };
+      await obnovZoznam(); await kresliSpis(id); $('#pod-vysledok')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     catch (e) { alert(`Posúdenie zlyhalo: ${e.message}`); posud.disabled = false; posud.textContent = 'Posúdiť žiadosť'; }
   } }, 'Posúdiť žiadosť');
+  // Posudok s verziou podkladov: zastaraný, keď sa podklady odvtedy zmenili. Starý posudok bez verzie: podľa času nahratia.
   const poslednaZmena = subory.reduce((m, f) => (f.nahrate > m ? f.nahrate : m), '');
-  const zastaraly = posledny && poslednaZmena > posledny.cas;
+  const zastaraly = !!posledny && (d.verziaPosledneho ? d.verziaPosledneho !== d.verzia : poslednaZmena > posledny.cas);
+  const oznam = oznamenie?.id === id ? oznamenie.text : null; oznamenie = null;
   const vyzva = posledny ? boxVyzva(id, s, zastaraly, ulozena) : null;
 
   detail().replaceChildren(el('div', { class: 'sirka-detail' },
@@ -189,11 +198,12 @@ async function kresliSpis(id) {
     d.suhrn ? el('p', { class: 'suhrn' }, d.suhrn) : null,
     s.maFormular ? null : el('div', { class: 'pozn' }, 'Spis nemá údaje formulára žiadosti. Doplňte formulár (.json) alebo založte podanie s kódom žiadosti z ITMS21+. Bez formulára sa žiadosť nedá posúdiť.'),
     boxLehota(id, s, vyzvy, dnes),
-    el('div', { class: 'mriezka spis' }, boxPodklady(id, subory, sloty, dnes), boxPrilohy(prilohyStav, sloty)),
-    el('div', { id: 'pod-vysledok' }, posledny ? vysledok(posledny, d.skutocnost, zastaraly) : el('p', { class: 'tlmene prazdne-vysledok' }, 'Žiadosť ešte nebola posúdená. Skontrolujte zaradenie súborov a stlačte „Posúdiť žiadosť“.')),
+    el('div', { class: 'mriezka spis' }, boxPodklady(id, s, subory, sloty, dnes), boxPrilohy(prilohyStav, sloty)),
+    el('div', { id: 'pod-vysledok' }, oznam ? el('div', { class: 'pozn', role: 'alert' }, oznam) : null,
+      posledny ? vysledok(posledny, d.skutocnost, zastaraly) : el('p', { class: 'tlmene prazdne-vysledok' }, 'Žiadosť ešte nebola posúdená. Skontrolujte zaradenie súborov a stlačte „Posúdiť žiadosť“.')),
     vyzva?.prvok ?? null,
     boxRozhodnutie(id, s, posledny, subory, vyzva, { vyzvy, ulozena, dnes }),
-    boxHistoria(id, s, posudky)));
+    boxHistoria(id, s, posudky, d.verzia)));
 }
 
 // ---------- lehota na doplnenie (MD č. 21, kap. 2.4 ods. 5 a 8): stav počíta server, kontrolór dopĺňa dátumy
@@ -232,6 +242,10 @@ function boxLehota(id, s, vyzvy, dnes) {
       el('li', {}, `Lehota ${v.lehotaDni} pracovných dní od doručenia výzvy odoslanej ${skDen(v.odoslana)}. Posledný deň lehoty: ${koniec}.`),
       v.dorucena ? null : el('li', {}, `Ak žiadateľ výzvu neprevezme, považuje sa za doručenú uplynutím úložnej lehoty dňa ${skDen(st.fikcia)}.`),
       v.predlzeneDo ? el('li', {}, `Predĺžená do ${skDen(v.predlzeneDo)}${v.predlzeniePozn ? `: ${v.predlzeniePozn}` : ''}.`) : null,
+      // Opravy záznamu po odoslaní (nie predĺženie): aby sa dalo spätne zistiť, s akou lehotou a textom výzva odišla.
+      (v.opravy ?? []).map((o) => el('li', {}, `Záznam výzvy opravený ${datum(o.cas)}: ${[
+        o.lehotaDni ? `lehota ${o.lehotaDni[0]} → ${o.lehotaDni[1]} pracovných dní` : '', o.odoslana ? `deň odoslania ${skDen(o.odoslana[0])} → ${skDen(o.odoslana[1])}` : '',
+        o.text ? 'text výzvy' : '', o.polozky ? 'body výzvy' : ''].filter(Boolean).join(', ')}.`)),
       st.doplnenia.map((x) => el('li', {}, `Doplnenie č. ${x.davka - 1} odoslané do ITMS21+ ${x.odoslane ? skDen(x.odoslane) : '(deň nezadaný)'}: `,
         el('span', { class: `stitok s-${DOPLNENIE[x.vysledok][1]}` }, DOPLNENIE[x.vysledok][0])))),
     st.upozornenia.length ? el('ul', { class: 'upozornenia-vyzvy tlmene male' }, st.upozornenia.map((u) => el('li', {}, u))) : null,
@@ -242,13 +256,18 @@ function boxLehota(id, s, vyzvy, dnes) {
     el('p', { class: 'tlmene male' }, 'Prvým dňom lehoty je najbližší pracovný deň po doručení a za deň doplnenia sa považuje deň odoslania do neverejnej časti ITMS21+ (MD č. 21, kap. 2.4 ods. 5). Zmeškanie lehoty nemožno odpustiť (ods. 8). Výzva je doručená potvrdením doručenky alebo uplynutím 15-dňovej úložnej lehoty (kap. 2.2 ods. 5). Dni pracovného pokoja podľa zákona č. 241/1993 Z. z. „Včas“ softvér uvedie len vtedy, keď je to isté pri každom možnom dni doručenia.'));
 }
 
-function boxPodklady(id, subory, sloty, dnes) {
+function boxPodklady(id, s, subory, sloty, dnes) {
   const moznosti = [['', 'Nezaradený (nehodnotí sa)'], ['formular', 'Formulár žiadosti (JSON)'], ...sloty.map((x) => [x.cislo, `Príloha č. ${x.cislo} – ${x.nazov}`])];
   const zarad = async (sid, ciel) => { try { await api(`/api/podatelna/subory/${sid}/zaradenie`, { ciel }); await obnovZoznam(); await kresliSpis(id); } catch (e) { alert(e.message); } };
   const tbody = el('tbody');
+  const formularov = subory.filter((f) => f.typ === 'formular').length;
   for (const f of subory) {
     const ciel = f.typ === 'formular' ? 'formular' : f.typ === 'priloha' ? f.priloha : '';
     const odhad = f.typ === 'priloha' && (f.istota === 'nazov' || f.istota === 'obsah');
+    // Pri viacerých formulároch (napr. opravený v doplnení) musí byť jasné, z ktorého sa posudzuje; kontrolór ho môže zmeniť.
+    const platny = f.typ === 'formular' && f.id === s.formularSuborId;
+    const formularStitok = f.typ !== 'formular' || formularov < 2 ? null
+      : el('div', { class: `istota ${platny ? '' : 'odhad'}` }, platny ? 'platný formulár, z neho sa posudzuje' : 'nepoužitý formulár');
     const nahlad = el('tr', { class: 'nahlad', hidden: '' }, el('td', { colspan: '3' }, el('pre', { class: 'vystup' }, 'Načítavam…')));
     tbody.append(el('tr', {},
       el('td', {}, el('a', { href: `/api/podatelna/subory/${f.id}/stiahni`, title: 'Stiahnuť pôvodný súbor' }, f.nazov), el('br'),
@@ -256,9 +275,10 @@ function boxPodklady(id, subory, sloty, dnes) {
         f.chyba ? el('div', { class: 'chyba' }, f.chyba) : null),
       el('td', {}, el('select', { 'aria-label': `Zaradenie súboru ${f.nazov}`, onchange: (e) => zarad(f.id, e.target.value) },
         moznosti.map(([h, n]) => el('option', { value: h, selected: h === ciel ? '' : false }, n))),
-      f.typ === 'priloha' && ISTOTA[f.istota] ? el('div', { class: `istota ${odhad ? 'odhad' : ''}` }, ISTOTA[f.istota]) : null),
+      f.typ === 'priloha' && ISTOTA[f.istota] ? el('div', { class: `istota ${odhad ? 'odhad' : ''}` }, ISTOTA[f.istota]) : null, formularStitok),
       el('td', { class: 'akcie-suboru' },
         odhad ? el('button', { class: 'vedlajsie potvrd', onclick: () => zarad(f.id, ciel), title: 'Potvrdiť, že súbor je naozaj táto príloha' }, 'Potvrdiť') : null,
+        f.typ === 'formular' && !platny ? el('button', { class: 'vedlajsie potvrd', onclick: () => zarad(f.id, 'formular'), title: 'Posudzovať podľa tohto formulára (napr. opraveného v doplnení)' }, 'Použiť ako platný') : null,
         el('button', { class: 'vedlajsie', onclick: async (e) => {
           nahlad.hidden = !nahlad.hidden; e.target.textContent = nahlad.hidden ? 'Text' : 'Skryť';
           if (!nahlad.hidden && !nahlad.dataset.nacitane) {
@@ -305,7 +325,7 @@ function vysledok(p, skutocnost, zastaraly, nazov = 'Posledný posudok') {
   const n = el('div'); kresliNalezy(n, p.nalezy, true, p.formularItms);
   return el('div', {},
     el('div', { class: 'sk-nadpis' }, `${nazov} · ${datum(p.cas)}`),
-    zastaraly ? el('div', { class: 'pozn' }, 'Po tomto posudku pribudli do spisu nové podklady. Posúďte žiadosť znova.') : null,
+    zastaraly ? el('div', { class: 'pozn' }, 'Posudok vychádza zo staršieho stavu podkladov spisu: odvtedy pribudli súbory alebo sa zmenilo zaradenie či platný formulár. Posúďte žiadosť znova.') : null,
     v,
     skutocnost ? el('div', { class: 'skutocnost' }, `Historická žiadosť z ITMS21+, pre porovnanie: ${skutocnost}`) : null,
     n);
@@ -352,9 +372,14 @@ function boxVyzva(id, s, zastaraly, ulozena) {
       pocet.textContent = ` · zaradené ${j.vybrane.length} z ${j.polozky.length}`;
       if (prvy && ulozena?.text) { text.value = ulozena.text; st.upravene = true; stav.textContent = 'Zobrazený je text výzvy uloženej pri rozhodnutí. Tlačidlo „Zostaviť znova“ ho nahradí novým návrhom z nálezov.'; }
       else if (!st.upravene || prepisat) { text.value = j.text || 'Vyberte aspoň jeden bod.'; st.upravene = false; stav.textContent = ''; }
+      // Odoslaná výzva: zmena čísla lehoty nie je predĺženie. Uloženie s textom, ktorý uvádza inú lehotu, server odmietne.
+      else if (ulozena && st.lehota !== ulozena.lehotaDni) stav.textContent = `Výzva odišla s lehotou ${ulozena.lehotaDni} pracovných dní a text vyššie ju stále uvádza. Predĺženie lehoty zapíšte s dôvodom v časti „Lehota na doplnenie“. Číslo tu zmeňte len pri oprave chybného zápisu, spolu s textom podľa skutočne odoslanej výzvy.`;
       else stav.textContent = 'Text ste upravili ručne, preto ho zmena výberu neprepísala. Tlačidlo „Zostaviť znova“ ho prepíše.';
       zmeny.forEach((f) => f());
-    } catch (e) { stav.textContent = `Návrh sa nepodarilo zostaviť: ${e.message}`; }
+    } catch (e) {
+      stav.textContent = `Návrh sa nepodarilo zostaviť: ${e.message}`;
+      if (!st.navrh) { box.hidden = false; box.open = true; } // inak by dôvod (napr. zastaraný posudok) nebolo vidno
+    }
   };
   const stiahni = () => {
     const a = el('a', { href: URL.createObjectURL(new Blob(['﻿' + text.value.replace(/\r?\n/g, '\r\n')], { type: 'text/plain;charset=utf-8' })), download: `Vyzva_na_doplnenie_${s.cislo}.txt` });
@@ -363,7 +388,7 @@ function boxVyzva(id, s, zastaraly, ulozena) {
   const box = el('details', { class: 'box vyzva-navrh', hidden: '' },
     el('summary', {}, 'Návrh výzvy na doplnenie', pocet),
     el('p', { class: 'tlmene male' }, 'Softvér zostaví návrh z nálezov posledného posudku podľa metodického usmernenia MIRRI č. 21, kap. 2.4: pri každom bode uvedie PPP, zistenie a požiadavku, pridá lehotu a poučenie o možnosti zastaviť konanie. Body vyberte, text skontrolujte a upravte. Nič sa neodosiela.'),
-    zastaraly ? el('div', { class: 'pozn' }, 'Po poslednom posudku pribudli do spisu nové podklady. Posúďte žiadosť znova, inak návrh nezodpovedá spisu.') : null,
+    zastaraly ? el('div', { class: 'pozn' }, 'Posledný posudok vychádza zo staršieho stavu podkladov spisu. Posúďte žiadosť znova, inak návrh nezodpovedá spisu.') : null,
     zoznam, upozornenia,
     el('label', { class: 'lehota-vyzvy' }, 'Lehota na doplnenie v pracovných dňoch od doručenia výzvy (najmenej 5)', lehota),
     text,
@@ -450,7 +475,7 @@ function boxRozhodnutie(id, s, posledny, subory, vyzva, { vyzvy, ulozena, dnes }
     } }, 'Uložiť rozhodnutie'), stav));
 }
 
-function boxHistoria(id, s, posudky) {
+function boxHistoria(id, s, posudky, verzia) {
   const ciel = `historia-posudku-${id}`;
   const zaznam = el('div', { id: ciel, class: 'historia-zaznam', hidden: '' });
   let otvoreny = null;
@@ -473,13 +498,17 @@ function boxHistoria(id, s, posudky) {
           if (otvoreny === volba) zaznam.replaceChildren(el('p', { role: 'alert', class: 'chyba' }, `Posudok sa nepodarilo načítať. ${e.message}`));
         }
       } }, datum(p.cas));
+    // Verzia podkladov, z ktorej posudok vychádza (prvých 8 znakov odtlačku), a či je to aktuálny posudok spisu.
+    const podklady = p.verziaSpisu ? `${p.verziaSpisu.slice(0, 8)}${p.verziaSpisu === verzia ? ' (súčasné)' : ' (staršie)'}` : '–';
     return el('tr', { onclick: e => { if (!e.target.closest('button')) volba.click(); } },
-      el('td', {}, volba), el('td', {}, el('span', { class: `stitok s-${FARBA_NAVRHU[p.navrh]}` }, NAVRHY_KRATKO[p.navrh] ?? p.navrh)),
+      el('td', {}, volba, p.id === s.posudokId ? el('span', { class: 'stitok s-mimo_podkladov', title: 'Podklad návrhu výzvy a rozhodnutia' }, 'aktuálny') : null),
+      el('td', {}, el('span', { class: `stitok s-${FARBA_NAVRHU[p.navrh]}` }, NAVRHY_KRATKO[p.navrh] ?? p.navrh)),
+      el('td', { class: 'male', title: 'Verzia podkladov spisu (súbory, zaradenie, platný formulár) pri začatí posudku' }, podklady),
       el('td', {}, p.model ?? 'bez modelu'), el('td', { class: 'c' }, `${(p.trvanieMs / 1000).toFixed(1)} s`));
   };
   return el('div', { class: 'box historia' },
     el('h3', {}, 'História posudkov (auditná stopa)'),
-    posudky.length ? el('table', {}, el('thead', {}, el('tr', {}, ['Čas', 'Návrh softvéru', 'Model', 'Trvanie'].map((h, k) => el('th', { class: k === 3 ? 'c' : '' }, h)))),
+    posudky.length ? el('table', {}, el('thead', {}, el('tr', {}, ['Čas', 'Návrh softvéru', 'Podklady', 'Model', 'Trvanie'].map((h, k) => el('th', { class: k === 4 ? 'c' : '' }, h)))),
       el('tbody', {}, posudky.map(riadok)))
       : el('p', { class: 'tlmene' }, 'Zatiaľ žiadny posudok.'),
     zaznam, el('div', { class: 'akcie' }, el('button', { class: 'vedlajsie nebezpecne', onclick: async () => {

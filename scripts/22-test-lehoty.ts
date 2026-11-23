@@ -131,6 +131,13 @@ over('Doručenie po úložnej lehote: upozornenie a nikdy nie „po lehote“', 
 over('Doručenie po úložnej lehote: „včas“ len do konca lehoty od fikcie', [st(F, ['2026-11-24']).kod, st(F, ['2026-11-25']).kod], ['doplnene_vcas', 'doplnene_neiste']);
 s = st({ ...V, dorucena: '2026-11-01' }, ['2026-11-10']);
 over('Doručenie pred odoslaním sa nepoužije', [s.kod, s.upozornenia.some((u) => /skôr ako odoslanie výzvy/.test(u))], ['doplnene_neiste', true]);
+// Audit A04: výzva odoslaná a doručená 16. 11. 2026, lehota 5 pracovných dní (17. 11. je od roku 2025 pracovný deň).
+const A04: UdajeLehoty = { odoslana: '2026-11-16', dorucena: '2026-11-16', lehotaDni: 5, predlzeneDo: null };
+s = st(A04, ['2026-11-13']);
+over('A04: dávka odoslaná pred výzvou nie je „včas“, ide na preverenie', [s.kod, s.uroven, s.doplnenia[0].vysledok], ['doplnene_neiste', 'pozor', 'neiste']);
+over('A04: upozornenie aj dôvod pomenujú rozpor s výzvou', [s.upozornenia.some((u) => /13\. 11\. 2026 skôr ako výzva \(16\. 11\. 2026\)\. Odpoveďou na túto výzvu byť nemôže/.test(u)), /Dôvod: deň odoslania doplnenia predchádza výzve\./.test(s.sprava)], [true, true]);
+over('A04: riadna dávka v posledný deň lehoty (23. 11.) je včas, o deň neskôr po lehote', [st(A04, ['2026-11-23']).kod, st(A04, ['2026-11-23']).koniec, st(A04, ['2026-11-24']).kod], ['doplnene_vcas', '2026-11-23', 'doplnene_po_lehote']);
+over('A04: dávka pred výzvou a včasná dávka spolu nie sú „včas“', st(A04, ['2026-11-13', '2026-11-20']).kod, 'doplnene_neiste');
 
 // ---------- poistka: náhodné prípady proti nezávislému výpočtu
 // Pravdivý koniec leží medzi koncom pri všetkých neistých dňoch pracovných a koncom pri všetkých voľných

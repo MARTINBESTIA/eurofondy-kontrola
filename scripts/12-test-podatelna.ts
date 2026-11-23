@@ -10,11 +10,13 @@ import { DatabaseSync } from 'node:sqlite';
 import { nacitajBalik, posud } from '../src/core/posud.ts';
 import type { Posudok, Stav } from '../src/core/typy.ts';
 import { zonfp } from '../src/moduly/zonfp/modul.ts';
+import { navrhVyzvy } from '../src/podatelna/vyzva.ts';
 
-// Statické importy sa vykonajú skôr než kód modulu, preto podateľňu načítame až po nastavení úložiska.
+// Statické importy sa vykonajú skôr než kód modulu, preto podateľňu (aj doklady, ktoré ju importujú) načítame až po nastavení úložiska.
 const ULOZISKO = fs.mkdtempSync(path.join(os.tmpdir(), 'test-podatelna-'));
 process.env.SPISY_DIR = ULOZISKO;
 const pod = await import('../src/podatelna/podatelna.ts');
+const { dolozPosudok } = await import('../src/podatelna/doklady.ts');
 
 const KOREN = path.join(import.meta.dirname, '..');
 const DEMO = path.join(KOREN, 'demo', 'podania');
@@ -98,11 +100,84 @@ try {
   p = await posudSpis(e);
   over('Nečitateľný súbor s číslom nepotvrdí text odhadnutého súboru → P07 na preverenie', stav(p, 'P07'), 'na_preverenie');
 
+  // Audit A01: pomalý posudok spustený pred doplnením sa dokončí až po posudku doplneného spisu. Server zapíše posudok
+  // do histórie s verziou podkladov pri začatí a aktuálnym ho urobí len ulozPosudok; poradie dokončenia tu riadi test.
+  const itms = (f: string) => ({ nazov: f, data: fs.readFileSync(path.join(KOREN, 'demo', 'itms', f)) });
+  const doHistorie = (spis: number, p: Posudok, verzia: string, zaciatok: string) => {
+    const id = Number(db.prepare('INSERT INTO posudky (cas, ziadost_kod, balik, verzia, navrh, upravena, trvanie_ms, posudok_json, spis_id, verzia_spisu, zaciatok) VALUES (?,?,?,?,?,?,?,?,?,?,?)')
+      .run(p.cas, p.ziadostKod, p.balik, p.verziaBalika, p.navrh, 0, p.trvanieMs, JSON.stringify(p), spis, verzia, zaciatok).lastInsertRowid);
+    return { id, aktualny: pod.ulozPosudok(db, spis, id, p.navrh, verzia, zaciatok) };
+  };
+  const r = prijmi([itms('02-pred-doplnenim.zip')]); spisy.push(r);
+  const v1 = pod.verziaSpisu(db, r), t1 = new Date(Date.now() - 60_000).toISOString();
+  const stary = await posudSpis(r);
+  pod.doplnPodklady(db, r, [itms('03-doplnenie.zip')], SLOTY, zItms);
+  const v2 = pod.verziaSpisu(db, r);
+  const novy = await posudSpis(r);
+  over('A01: doplnenie zmení verziu podkladov; nový posudok má P06 a P08 splnené', [v1 !== v2, stav(novy, 'P06'), stav(novy, 'P08')], [true, 'splnene', 'splnene']);
+  const n1 = doHistorie(r, novy, v2, new Date().toISOString());
+  const s1 = doHistorie(r, stary, v1, t1);
+  over('A01: nový posudok je aktuálny, starší dokončený neskôr ním nie je', [n1.aktualny, s1.aktualny, pod.spisRiadok(db, r)!.posudok_id], [true, false, n1.id]);
+  const det = pod.detailSpisu(db, r)!;
+  over('A01: starší posudok je v histórii so svojou verziou podkladov', det.posudky.map((p) => [p.id, p.verziaSpisu]), [[s1.id, v1], [n1.id, v2]]);
+  over('A01: aktuálny posudok zodpovedá súčasným podkladom', det.verziaPosledneho, det.verzia);
+  over('A01: návrh výzvy z aktuálneho posudku nežiada prílohy 6 ani 8', navrhVyzvy({ posudok: det.posledny, balik, spis: det.spis, sloty: SLOTY }).polozky.filter((x) => /P0[68]/.test(x.id)).map((x) => x.id), []);
+  const t2 = new Date().toISOString();
+  over('A01: z dvoch posudkov tej istej verzie platí neskôr začatý', [doHistorie(r, novy, v2, t2).aktualny, doHistorie(r, novy, v2, t1).aktualny], [true, false]);
+  pod.zmenZaradenie(db, (db.prepare("SELECT id FROM subory WHERE spis_id = ? AND typ = 'priloha' ORDER BY id LIMIT 1").get(r) as { id: number }).id, '', zItms);
+  over('A01: po zmene zaradenia je aktuálny posudok zastaraný', pod.detailSpisu(db, r)!.verziaPosledneho !== pod.verziaSpisu(db, r), true);
+
+  // Audit A02: opravený formulár v druhej dávke. Platí formulár z doplnenia, kontrolór môže určiť iný.
+  const f0 = JSON.parse(formular.toString('utf8'));
+  const fa = prijmi([{ nazov: 'formular.json', data: Buffer.from(JSON.stringify({ ...f0, sumaZiadanaNFP: 190000 })) }]); spisy.push(fa);
+  over('A02: NFP 190 000 EUR je pod minimom (D12 nesplnené)', stav(await posudSpis(fa), 'D12'), 'nesplnene');
+  const povodny = pod.spisRiadok(db, fa)!.formular_subor_id!;
+  pod.doplnPodklady(db, fa, [{ nazov: 'formular-oprava.json', data: Buffer.from(JSON.stringify({ ...f0, sumaZiadanaNFP: 250825.77 })) }], SLOTY, zItms);
+  const opraveny = pod.spisRiadok(db, fa)!.formular_subor_id!;
+  const posudFa = async () => { const z = pod.ziadostSpisu(db, fa); return dolozPosudok(await posud(z, balik, zonfp, { llm: false }), z, pod.zdrojFormulara(db, pod.spisRiadok(db, fa)!), balik); };
+  let pf = await posudFa();
+  const d12 = () => pf.nalezy.find((n) => n.pravidlo === 'D12')!;
+  over('A02: platí formulár z doplnenia; D12 je splnené a doklad cituje nový súbor', [opraveny !== povodny, d12().stav, d12().doklady?.[0]?.suborId], [true, 'splnene', opraveny]);
+  pod.zmenZaradenie(db, povodny, 'formular', zItms);
+  pf = await posudFa();
+  over('A02: kontrolór vráti pôvodný formulár → D12 znova nesplnené s dokladom z pôvodného súboru', [pod.spisRiadok(db, fa)!.formular_subor_id, d12().stav, d12().doklady?.[0]?.suborId], [povodny, 'nesplnene', povodny]);
+  pod.zmenZaradenie(db, opraveny, 'formular', zItms);
+  pod.zmenZaradenie(db, opraveny, '', zItms);
+  over('A02: vyradený platný formulár nahradí iný formulár spisu', pod.spisRiadok(db, fa)!.formular_subor_id, povodny);
+  pod.zmenZaradenie(db, povodny, '', zItms);
+  over('A02: bez formulára spis formulár nemá (nič sa neposudzuje zo zamietnutého súboru)', pod.spisRiadok(db, fa)!.formular_json, null);
+  pod.zmenZaradenie(db, opraveny, 'formular', zItms);
+  const kodFa = pod.spisRiadok(db, fa)!.kod;
+  pod.doplnPodklady(db, fa, [{ nazov: 'formular-ina.json', data: Buffer.from(JSON.stringify({ ...f0, kod: 'NFP401201X999', sumaZiadanaNFP: 300000 })) }], SLOTY, zItms);
+  const ina = db.prepare("SELECT id, chyba FROM subory WHERE spis_id = ? AND nazov = 'formular-ina.json'").get(fa) as { id: number; chyba: string | null };
+  over('A02: formulár inej žiadosti v doplnení platný formulár nezmení a súbor to uvedie',
+    [pod.spisRiadok(db, fa)!.formular_subor_id, pod.spisRiadok(db, fa)!.kod, /k inej žiadosti \(NFP401201X999\)/.test(ina.chyba ?? '')], [opraveny, kodFa, true]);
+  pod.zmenZaradenie(db, ina.id, '', zItms);
+
+  // Audit A03: výzva odoslaná a doručená 4. 11. 2026 s lehotou 5 pracovných dní; zmena čísla bez textu sa odmietne.
+  const textVyzvy = 'Doplnenie predložte do 5 pracovných dní odo dňa doručenia tejto výzvy.';
+  pod.rozhodni(db, fa, 'doplnenie', 'test', { odoslana: '2026-11-04', lehotaDni: 5, polozky: null, text: textVyzvy });
+  const chyba = (f: () => void) => { try { f(); return ''; } catch (e) { return (e as Error).message; } };
+  over('A03: opätovné uloženie s lehotou 10 a textom s 5 dňami sa odmietne',
+    /Text výzvy uvádza lehotu 5 pracovných dní, zadaná lehota je 10\..*predĺženie s dôvodom/.test(chyba(() => pod.rozhodni(db, fa, 'doplnenie', 'test', { odoslana: '2026-11-04', lehotaDni: 10, polozky: null, text: null }))), true);
+  over('A03: nová výzva s textom inej lehoty sa odmietne', /uvádza lehotu 10 pracovných dní, zadaná lehota je 5/.test(chyba(() => pod.rozhodni(db, e, 'doplnenie', 'test', { odoslana: '2026-11-04', lehotaDni: 5, polozky: null, text: textVyzvy.replace('do 5', 'do 10') }))), true);
+  over('A03: odmietnutá výzva sa nezapísala', pod.lehotySpisu(db, e, '2026-11-30').length, 0);
+  const [vyzvaA03] = pod.lehotySpisu(db, fa, '2026-11-30');
+  pod.upravLehotu(db, fa, vyzvaA03.id, { dorucena: '2026-11-04' }, '2026-11-30');
+  pod.doplnPodklady(db, fa, [{ nazov: 'doplnenie.txt', data: Buffer.from('Doplnenie podkladov k žiadosti, odpoveď na výzvu.') }], SLOTY, zItms, '2026-11-12');
+  let lv = pod.lehotySpisu(db, fa, '2026-11-30')[0];
+  over('A03: bez predĺženia je doplnenie z 12. 11. po lehote, ktorá uplynula 11. 11.', [lv.lehotaDni, lv.stav.koniec, lv.stav.kod], [5, '2026-11-11', 'doplnene_po_lehote']);
+  pod.rozhodni(db, fa, 'doplnenie', 'test', { odoslana: '2026-11-04', lehotaDni: 10, polozky: null, text: textVyzvy.replace('do 5', 'do 10') });
+  lv = pod.lehotySpisu(db, fa, '2026-11-30')[0];
+  over('A03: oprava zápisu (lehota aj text) sa zapíše do histórie opráv výzvy', [lv.lehotaDni, lv.opravy.map((o) => [o.lehotaDni, o.text])], [10, [[[5, 10], true]]]);
+  pod.upravLehotu(db, fa, lv.id, { odoslana: '2026-11-03' }, '2026-11-30');
+  over('A03: oprava dňa odoslania sa tiež zapíše', pod.lehotySpisu(db, fa, '2026-11-30')[0].opravy.map((o) => o.odoslana ?? null), [null, ['2026-11-04', '2026-11-03']]);
+
   // Štatistika výzvy: úspešnosť = splnila / (splnila + nesplnila), rozhodnutie proti návrhu sa počíta zvlášť.
   pod.ulozPosudok(db, c, 1, 'nesplnene_podmienky'); pod.rozhodni(db, c, 'splnila', 'test proti návrhu');
   pod.ulozPosudok(db, d, 2, 'nesplnene_podmienky'); pod.rozhodni(db, d, 'nesplnila', 'test');
   const st = pod.statistikaSpisov(db).get(VYZVA)!;
-  over('Štatistika: splnila 1, nesplnila 1, doplnenie 1, proti návrhu 1', [st.splnila, st.nesplnila, st.doplnenie, st.odlisne], [1, 1, 1, 1]);
+  over('Štatistika: splnila 1, nesplnila 1, doplnenie 2 (aj spis A03), proti návrhu 1', [st.splnila, st.nesplnila, st.doplnenie, st.odlisne], [1, 1, 2, 1]);
 } finally {
   for (const id of spisy) pod.vymazSpis(db, id);
   fs.rmSync(ULOZISKO, { recursive: true, force: true });

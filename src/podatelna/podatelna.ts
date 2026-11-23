@@ -11,6 +11,7 @@ import { dokumentNaText, rozbalZip, xlsxBunky } from '../ingest/dokument.ts';
 import { normalizujItms21 } from '../moduly/zonfp/normalizuj.ts';
 import type { Navrh, Priloha, Ziadost } from '../core/typy.ts';
 import { jeDen, skDen, stavLehoty, type Den, type StavLehoty } from './lehoty.ts';
+import { lehotyVTexte } from './vyzva.ts';
 
 const KOREN = path.join(import.meta.dirname, '..', '..');
 /** Úložisko súborov spisov. SPISY_DIR prepíše cestu (test nesmie zapisovať do priečinkov spisov bežiaceho servera). */
@@ -31,9 +32,14 @@ const TABULKY: Record<string, string> = {
     sha256 TEXT NOT NULL, typ TEXT NOT NULL, priloha TEXT, istota TEXT NOT NULL, text TEXT, chyba TEXT, cesta TEXT NOT NULL, nahrate TEXT NOT NULL`,
   // Odoslaná výzva na doplnenie a údaje o jej lehote. Odpoveďou na výzvu sú dávky podkladov od davka_od
   // (po davka_od ďalšej výzvy). Text a body výzvy sa ukladajú v podobe, v akej ich kontrolór odoslal.
+  // opravy = JSON zoznam opráv záznamu po odoslaní (deň odoslania, lehota, text): oprava sa nesmie stratiť ani
+  // vydávať za predĺženie lehoty, to je samostatný úkon (predlzene_do s dôvodom).
   vyzvy_doplnenie: `id INTEGER PRIMARY KEY AUTOINCREMENT, spis_id INTEGER NOT NULL, posudok_id INTEGER, davka_od INTEGER NOT NULL,
     vytvorena TEXT NOT NULL, odoslana TEXT NOT NULL, dorucena TEXT, lehota_dni INTEGER NOT NULL, predlzene_do TEXT, predlzenie_pozn TEXT,
-    polozky TEXT, text TEXT`,
+    polozky TEXT, text TEXT, opravy TEXT`,
+};
+const pridajStlpec = (db: DatabaseSync, t: string, stlpec: string, typ: string) => {
+  if (!db.prepare(`SELECT 1 FROM pragma_table_info('${t}') WHERE name = ?`).get(stlpec)) db.exec(`ALTER TABLE ${t} ADD COLUMN ${stlpec} ${typ}`);
 };
 export function pripravDb(db: DatabaseSync) {
   for (const [t, stlpce] of Object.entries(TABULKY)) {
@@ -46,7 +52,22 @@ export function pripravDb(db: DatabaseSync) {
   if (!(db.prepare('PRAGMA table_info(posudky)').all() as { name: string }[]).some((c) => c.name === 'spis_id')) db.exec('ALTER TABLE posudky ADD COLUMN spis_id INTEGER');
   if (!db.prepare("SELECT 1 FROM pragma_table_info('spisy') WHERE name = 'formular_subor_id'").get()) db.exec('ALTER TABLE spisy ADD COLUMN formular_subor_id INTEGER');
   // Deň odoslania dávky do ITMS21+ (za deň doplnenia sa považuje deň odoslania, MD č. 21, kap. 2.4 ods. 5).
-  if (!db.prepare("SELECT 1 FROM pragma_table_info('subory') WHERE name = 'odoslane'").get()) db.exec('ALTER TABLE subory ADD COLUMN odoslane TEXT');
+  pridajStlpec(db, 'subory', 'odoslane', 'TEXT');
+  pridajStlpec(db, 'vyzvy_doplnenie', 'opravy', 'TEXT');
+  // Verzia podkladov spisu a čas začatia posudku: starší posudok dokončený neskôr nesmie prepísať novší (verziaSpisu).
+  pridajStlpec(db, 'posudky', 'verzia_spisu', 'TEXT');
+  pridajStlpec(db, 'posudky', 'zaciatok', 'TEXT');
+}
+
+/**
+ * Verzia podkladov spisu: súbory (obsah, dávka), ich zaradenie a platný formulár. Mení ju doplnenie, zmena zaradenia
+ * aj zmena platného formulára. Posudok sa viaže na verziu pri svojom začatí; deň odoslania dávky do nej nepatrí,
+ * lebo posudok nemení (ovplyvňuje len lehotu).
+ */
+export function verziaSpisu(db: DatabaseSync, spisId: number): string {
+  const s = db.prepare('SELECT formular_subor_id AS f, formular_json AS j FROM spisy WHERE id = ?').get(spisId) as { f: number | null; j: string | null } | undefined;
+  const subory = db.prepare('SELECT id, davka, sha256, typ, priloha, istota FROM subory WHERE spis_id = ? ORDER BY id').all(spisId);
+  return crypto.createHash('sha256').update(JSON.stringify([s?.f ?? null, s?.j ?? null, subory])).digest('hex').slice(0, 16);
 }
 
 export const cisloSpisu = (id: number, prijate: string) => `POD-${prijate.slice(0, 4)}-${String(id).padStart(4, '0')}`;
@@ -139,18 +160,30 @@ function ulozSubory(db: DatabaseSync, spisId: number, davka: number, subory: Sub
 }
 const rozbal = (subory: Subor[]) => subory.flatMap((s) => (/\.zip$/i.test(s.nazov) ? rozbalZip(s.data) : [s]));
 
-/** Načíta formulár zo súborov spisu (prvý platný JSON) a uloží ho do spisu. Chyba formulára sa zapíše k súboru. */
-function obnovFormular(db: DatabaseSync, spisId: number, vyzva: string, zItms: (kod: string) => Ziadost | undefined) {
-  const kandidati = db.prepare("SELECT id, text FROM subory WHERE spis_id = ? AND typ = 'formular' ORDER BY id").all(spisId) as { id: number; text: string }[];
+/**
+ * Načíta formulár zo súborov spisu a uloží ho ako platný. Bez `ids` skúša formuláre spisu od prvého, s `ids` len
+ * tieto súbory v danom poradí (formulár z doplnenia, voľba kontrolóra). Chyba formulára sa zapíše k súboru.
+ * Vráti, či sa platný formulár zmenil na niektorý z kandidátov; pri neúspechu ostane doterajší formulár.
+ * S `kodSpisu` sa formulár inej žiadosti nepoužije (doplnenie nesmie potichu zameniť posudzovanú žiadosť).
+ */
+function obnovFormular(db: DatabaseSync, spisId: number, vyzva: string, zItms: (kod: string) => Ziadost | undefined, ids?: number[], kodSpisu?: string | null): boolean {
+  const kandidati = ids
+    ? ids.map((id) => db.prepare('SELECT id, text FROM subory WHERE id = ? AND spis_id = ?').get(id, spisId) as { id: number; text: string } | undefined).filter((k) => !!k)
+    : db.prepare("SELECT id, text FROM subory WHERE spis_id = ? AND typ = 'formular' ORDER BY id").all(spisId) as { id: number; text: string }[];
   for (const k of kandidati) {
     try {
       const { ziadost, zdroj } = formularZJson(k.text, vyzva, zItms);
+      if (kodSpisu && ziadost.kod && ziadost.kod !== kodSpisu) {
+        db.prepare('UPDATE subory SET chyba = ? WHERE id = ?').run(`Formulár je k inej žiadosti (${ziadost.kod}) než spis (${kodSpisu}), preto sa nepoužil. Ak ide o opravu tej istej žiadosti, určte ho ako platný formulár.`, k.id);
+        continue;
+      }
       db.prepare('UPDATE spisy SET formular_json = ?, formular_zdroj = ?, formular_subor_id = ?, kod = ?, nazov = ?, ziadatel = ?, ico = ? WHERE id = ?')
         .run(JSON.stringify(ziadost), zdroj, k.id, ziadost.kod || null, ziadost.nazov || null, ziadost.ziadatel.nazov, ziadost.ziadatel.ico, spisId);
       db.prepare('UPDATE subory SET chyba = NULL WHERE id = ?').run(k.id);
-      return;
+      return true;
     } catch (e) { db.prepare('UPDATE subory SET chyba = ? WHERE id = ?').run(`Formulár sa nedá načítať: ${(e as Error).message}`, k.id); }
   }
+  return false;
 }
 
 export function prijmiPodanie(db: DatabaseSync, o: { vyzva: string; zdroj: string; kodItms?: string; subory: Subor[]; sloty: Slot[]; zItms: (kod: string) => Ziadost | undefined }): number {
@@ -171,19 +204,32 @@ const poslednaDavka = (db: DatabaseSync, spisId: number) => (db.prepare('SELECT 
 
 /** Doplnenie podkladov do spisu ako nová dávka. `odoslane` = deň odoslania doplnenia do ITMS21+, ak ho kontrolór pozná. */
 export function doplnPodklady(db: DatabaseSync, spisId: number, subory: Subor[], sloty: Slot[], zItms: (kod: string) => Ziadost | undefined, odoslane: Den | null = null) {
-  const spis = db.prepare('SELECT vyzva, formular_json FROM spisy WHERE id = ?').get(spisId) as { vyzva: string; formular_json: string | null } | undefined;
+  const spis = db.prepare('SELECT vyzva, kod, formular_json FROM spisy WHERE id = ?').get(spisId) as { vyzva: string; kod: string | null; formular_json: string | null } | undefined;
   if (!spis) throw new Error('Spis neexistuje.');
-  ulozSubory(db, spisId, poslednaDavka(db, spisId) + 1, rozbal(subory), sloty, odoslane);
-  if (!spis.formular_json) obnovFormular(db, spisId, spis.vyzva, zItms);
+  const ids = ulozSubory(db, spisId, poslednaDavka(db, spisId) + 1, rozbal(subory), sloty, odoslane);
+  // Formulár v doplnení je opravená verzia tej istej žiadosti: ak sa dá načítať, platí on. Pôvodný ostáva v spise
+  // a posudky, ktoré ho citujú, ho citujú ďalej. Kontrolór môže platný formulár zmeniť (zmenZaradenie na „formular“).
+  const noveFormulare = ids.filter((id) => (db.prepare('SELECT typ FROM subory WHERE id = ?').get(id) as { typ: string }).typ === 'formular');
+  if (!(noveFormulare.length && obnovFormular(db, spisId, spis.vyzva, zItms, noveFormulare, spis.kod)) && !spis.formular_json) obnovFormular(db, spisId, spis.vyzva, zItms);
   db.prepare("UPDATE spisy SET stav = 'doplnena' WHERE id = ?").run(spisId);
 }
 
+/**
+ * Zaradenie súboru, ktoré určil kontrolór. Súbor označený ako formulár sa stane platným formulárom (ak sa dá načítať).
+ * Keď kontrolór vyradí platný formulár, platí najnovší iný formulár spisu; ak žiadny nie je, spis formulár nemá.
+ */
 export function zmenZaradenie(db: DatabaseSync, suborId: number, ciel: string, zItms: (kod: string) => Ziadost | undefined) {
-  const s = db.prepare('SELECT spis_id FROM subory WHERE id = ?').get(suborId) as { spis_id: number } | undefined;
+  const s = db.prepare('SELECT spis_id, typ FROM subory WHERE id = ?').get(suborId) as { spis_id: number; typ: string } | undefined;
   if (!s) throw new Error('Súbor neexistuje.');
+  const spis = db.prepare('SELECT vyzva, formular_subor_id FROM spisy WHERE id = ?').get(s.spis_id) as { vyzva: string; formular_subor_id: number | null };
   const [typ, priloha] = ciel === 'formular' ? ['formular', null] : ciel === '' ? ['nezaradeny', null] : ['priloha', ciel];
   db.prepare("UPDATE subory SET typ = ?, priloha = ?, istota = 'rucne' WHERE id = ?").run(typ, priloha, suborId);
-  if (typ === 'formular') { const v = db.prepare('SELECT vyzva FROM spisy WHERE id = ?').get(s.spis_id) as { vyzva: string }; obnovFormular(db, s.spis_id, v.vyzva, zItms); }
+  if (typ === 'formular') obnovFormular(db, s.spis_id, spis.vyzva, zItms, [suborId]);
+  else if (s.typ === 'formular' && spis.formular_subor_id === suborId) {
+    const ine = (db.prepare("SELECT id FROM subory WHERE spis_id = ? AND typ = 'formular' ORDER BY davka DESC, id").all(s.spis_id) as { id: number }[]).map((r) => r.id);
+    if (!obnovFormular(db, s.spis_id, spis.vyzva, zItms, ine))
+      db.prepare('UPDATE spisy SET formular_json = NULL, formular_zdroj = NULL, formular_subor_id = NULL WHERE id = ?').run(s.spis_id);
+  }
   return s.spis_id;
 }
 
@@ -196,6 +242,7 @@ interface SpisRiadok {
 const zakladSpisu = (s: SpisRiadok) => ({
   id: s.id, cislo: cisloSpisu(s.id, s.prijate), vyzva: s.vyzva, kod: s.kod, nazov: s.nazov, ziadatel: s.ziadatel, ico: s.ico, zdroj: s.zdroj, prijate: s.prijate,
   stav: s.stav, navrh: s.navrh, rozhodnutie: s.rozhodnutie, rozhodnutiePozn: s.rozhodnutie_pozn, rozhodnutieCas: s.rozhodnutie_cas, maFormular: !!s.formular_json, formularZdroj: s.formular_zdroj,
+  posudokId: s.posudok_id, formularSuborId: s.formular_subor_id,
 });
 
 /** Zoznam spisov. S dňom `dnes` pridá pri spisoch s rozhodnutím „Výzva na doplnenie“ stav lehoty poslednej výzvy. */
@@ -214,10 +261,13 @@ export function detailSpisu(db: DatabaseSync, id: number) {
   const s = spisRiadok(db, id);
   if (!s) return undefined;
   const subory = (db.prepare('SELECT id, davka, nazov, velkost, typ, priloha, istota, chyba, nahrate, odoslane, length(text) AS znakov FROM subory WHERE spis_id = ? ORDER BY davka, id').all(id) as any[]);
-  const posudky = db.prepare('SELECT id, cas, navrh, model, trvanie_ms AS trvanieMs FROM posudky WHERE spis_id = ? ORDER BY id DESC').all(id);
+  const posudky = db.prepare('SELECT id, cas, navrh, model, trvanie_ms AS trvanieMs, verzia_spisu AS verziaSpisu, zaciatok FROM posudky WHERE spis_id = ? ORDER BY id DESC').all(id) as unknown as { id: number; verziaSpisu: string | null }[];
   const posledny = s.posudok_id ? JSON.parse((db.prepare('SELECT posudok_json FROM posudky WHERE id = ?').get(s.posudok_id) as { posudok_json: string }).posudok_json) : null;
   const z = s.formular_json ? (JSON.parse(s.formular_json) as Ziadost) : null;
-  return { spis: zakladSpisu(s), subory, posudky, posledny, ziadost: z };
+  // verzia = súčasná verzia podkladov; posudok s inou verziou vychádza zo staršieho stavu spisu (null = starý posudok bez verzie).
+  const verzia = verziaSpisu(db, id);
+  const verziaPosledneho = posudky.find((p) => p.id === s.posudok_id)?.verziaSpisu ?? null;
+  return { spis: zakladSpisu(s), subory, posudky, posledny, ziadost: z, verzia, verziaPosledneho };
 }
 
 export function textSuboru(db: DatabaseSync, suborId: number) {
@@ -303,8 +353,17 @@ export function historickePodklady(db: DatabaseSync, s: SpisRiadok, pred: string
   return { z, formular: { suborId: f.id, nazov: f.nazov, text: f.text } };
 }
 
-export function ulozPosudok(db: DatabaseSync, spisId: number, posudokId: number, navrh: Navrh) {
+/**
+ * Posudok sa stane aktuálnym posudkom spisu (podkladom výzvy na doplnenie) len vtedy, keď vychádza zo súčasnej verzie
+ * podkladov a nezačal skôr ako aktuálny posudok tej istej verzie. Inak ostane len v histórii a vráti false:
+ * pomalý posudok spustený pred doplnením by inak po dokončení prepísal novší výsledok a výzva by žiadala už doplnené.
+ */
+export function ulozPosudok(db: DatabaseSync, spisId: number, posudokId: number, navrh: Navrh, verzia = verziaSpisu(db, spisId), zaciatok = new Date().toISOString()): boolean {
+  if (verziaSpisu(db, spisId) !== verzia) return false;
+  const aktualny = db.prepare('SELECT p.verzia_spisu AS verzia, p.zaciatok FROM spisy s JOIN posudky p ON p.id = s.posudok_id WHERE s.id = ?').get(spisId) as { verzia: string | null; zaciatok: string | null } | undefined;
+  if (aktualny?.verzia === verzia && aktualny.zaciatok && aktualny.zaciatok > zaciatok) return false;
   db.prepare("UPDATE spisy SET posudok_id = ?, navrh = ?, stav = CASE WHEN rozhodnutie IS NULL OR rozhodnutie = 'doplnenie' THEN 'posudena' ELSE stav END WHERE id = ?").run(posudokId, navrh, spisId);
+  return true;
 }
 
 /** Údaje odoslanej výzvy na doplnenie, ktoré kontrolór zadá pri rozhodnutí „Výzva na doplnenie“. */
@@ -325,20 +384,40 @@ export function rozhodni(db: DatabaseSync, spisId: number, r: Rozhodnutie, pozna
 // ---------- výzvy na doplnenie a ich lehoty
 interface VyzvaRiadok {
   id: number; spis_id: number; posudok_id: number | null; davka_od: number; vytvorena: string; odoslana: Den; dorucena: Den | null;
-  lehota_dni: number; predlzene_do: Den | null; predlzenie_pozn: string | null; polozky: string | null; text: string | null;
+  lehota_dni: number; predlzene_do: Den | null; predlzenie_pozn: string | null; polozky: string | null; text: string | null; opravy: string | null;
 }
+/** Oprava záznamu odoslanej výzvy: čas a pôvodná a nová hodnota zmenených údajov (text a body len či sa zmenili). */
+export interface OpravaVyzvy { cas: string; odoslana?: [Den, Den]; lehotaDni?: [number, number]; text?: true; polozky?: true }
+const pridajOpravu = (r: VyzvaRiadok, o: Omit<OpravaVyzvy, 'cas'>): string | null => {
+  const opravy: OpravaVyzvy[] = [...(r.opravy ? JSON.parse(r.opravy) : []), ...(Object.keys(o).length ? [{ cas: new Date().toISOString(), ...o }] : [])];
+  return opravy.length ? JSON.stringify(opravy) : null;
+};
 
 /**
- * Zapíše odoslanú výzvu. Opätovné uloženie rozhodnutia k tomu istému posudku výzvu len opraví (deň odoslania,
- * lehota, text), doručenka a predĺženie ostanú. Nový posudok (po doplnení) znamená novú, ďalšiu výzvu.
+ * Zapíše odoslanú výzvu. Opätovné uloženie rozhodnutia k tomu istému posudku výzvu opraví (deň odoslania, lehota,
+ * text) a opravu zapíše do jej histórie; doručenka a predĺženie ostanú. Nový posudok (po doplnení) znamená novú výzvu.
+ * Lehota v evidencii sa musí zhodovať s lehotou v texte výzvy, ktorý sa uloží (aj s textom uloženým skôr): inak by
+ * aplikácia sledovala inú lehotu, než dostal žiadateľ. Predĺženie lehoty sa zapisuje osobitne (upravLehotu).
  */
 function ulozVyzvu(db: DatabaseSync, spisId: number, v: OdoslanaVyzva) {
   const posudok = (db.prepare('SELECT posudok_id FROM spisy WHERE id = ?').get(spisId) as { posudok_id: number | null }).posudok_id;
   const posledna = db.prepare('SELECT * FROM vyzvy_doplnenie WHERE spis_id = ? ORDER BY id DESC LIMIT 1').get(spisId) as unknown as VyzvaRiadok | undefined;
   const polozky = v.polozky ? JSON.stringify(v.polozky) : null;
-  if (posledna && posledna.posudok_id === posudok) {
-    db.prepare('UPDATE vyzvy_doplnenie SET odoslana = ?, lehota_dni = ?, polozky = COALESCE(?, polozky), text = COALESCE(?, text) WHERE id = ?')
-      .run(v.odoslana, v.lehotaDni, polozky, v.text, posledna.id);
+  const oprava = !!posledna && posledna.posudok_id === posudok;
+  const text = v.text ?? (oprava ? posledna!.text : null);
+  const ine = text ? lehotyVTexte(text).filter((n) => n !== v.lehotaDni) : [];
+  if (ine.length) throw new Error(`Text výzvy uvádza lehotu ${ine.join(' a ')} pracovných dní, zadaná lehota je ${v.lehotaDni}. Evidencia musí zodpovedať textu, ktorý žiadateľ dostal. `
+    + (oprava ? 'Ak poskytovateľ lehotu predĺžil, zapíšte predĺženie s dôvodom v časti „Lehota na doplnenie“. Ak bol chybný zápis, opravte lehotu aj text podľa skutočne odoslanej výzvy.' : 'Zosúlaďte lehotu s textom výzvy.'));
+  if (oprava) {
+    const p = posledna!;
+    const zmena: Omit<OpravaVyzvy, 'cas'> = {
+      ...(p.odoslana !== v.odoslana ? { odoslana: [p.odoslana, v.odoslana] as [Den, Den] } : {}),
+      ...(p.lehota_dni !== v.lehotaDni ? { lehotaDni: [p.lehota_dni, v.lehotaDni] as [number, number] } : {}),
+      ...(v.text != null && v.text !== p.text ? { text: true as const } : {}),
+      ...(polozky != null && polozky !== p.polozky ? { polozky: true as const } : {}),
+    };
+    db.prepare('UPDATE vyzvy_doplnenie SET odoslana = ?, lehota_dni = ?, polozky = COALESCE(?, polozky), text = COALESCE(?, text), opravy = ? WHERE id = ?')
+      .run(v.odoslana, v.lehotaDni, polozky, v.text, pridajOpravu(p, zmena), p.id);
     return;
   }
   db.prepare('INSERT INTO vyzvy_doplnenie (spis_id, posudok_id, davka_od, vytvorena, odoslana, lehota_dni, polozky, text) VALUES (?,?,?,?,?,?,?,?)')
@@ -366,13 +445,16 @@ export function upravLehotu(db: DatabaseSync, spisId: number, vyzvaId: number, z
   if (n.dorucena && n.dorucena > dnes) throw new Error('Deň doručenia nemôže byť v budúcnosti.');
   if (n.predlzeneDo && n.predlzeneDo < n.odoslana) throw new Error('Predĺžená lehota nemôže skončiť pred odoslaním výzvy.');
   if (n.predlzeneDo && !n.predlzeniePozn) throw new Error('Pri predĺžení uveďte, na základe čoho ho poskytovateľ povolil (napr. žiadosť žiadateľa a jej dátum).');
-  db.prepare('UPDATE vyzvy_doplnenie SET odoslana = ?, dorucena = ?, predlzene_do = ?, predlzenie_pozn = ? WHERE id = ?')
-    .run(n.odoslana, n.dorucena, n.predlzeneDo, n.predlzeniePozn, vyzvaId);
+  // Zmena dňa odoslania je oprava záznamu, nie bežné doplnenie údaja: zapíše sa do histórie opráv výzvy.
+  const opravy = pridajOpravu(v, n.odoslana !== v.odoslana ? { odoslana: [v.odoslana, n.odoslana] } : {});
+  db.prepare('UPDATE vyzvy_doplnenie SET odoslana = ?, dorucena = ?, predlzene_do = ?, predlzenie_pozn = ?, opravy = ? WHERE id = ?')
+    .run(n.odoslana, n.dorucena, n.predlzeneDo, n.predlzeniePozn, opravy, vyzvaId);
 }
 
 export interface LehotaVyzvy {
   id: number; poradie: number; posudokId: number | null; davkaOd: number; vytvorena: string; odoslana: Den; dorucena: Den | null;
-  lehotaDni: number; predlzeneDo: Den | null; predlzeniePozn: string | null; polozky: string[] | null; text: string | null; stav: StavLehoty;
+  lehotaDni: number; predlzeneDo: Den | null; predlzeniePozn: string | null; polozky: string[] | null; text: string | null;
+  opravy: OpravaVyzvy[]; stav: StavLehoty;
 }
 /** Výzvy na doplnenie v spise so stavom lehoty k dňu `dnes`, najnovšia prvá. */
 export function lehotySpisu(db: DatabaseSync, spisId: number, dnes: Den): LehotaVyzvy[] {
@@ -385,6 +467,7 @@ export function lehotySpisu(db: DatabaseSync, spisId: number, dnes: Den): Lehota
     return {
       id: v.id, poradie: i + 1, posudokId: v.posudok_id, davkaOd: v.davka_od, vytvorena: v.vytvorena, odoslana: v.odoslana, dorucena: v.dorucena,
       lehotaDni: v.lehota_dni, predlzeneDo: v.predlzene_do, predlzeniePozn: v.predlzenie_pozn, polozky: v.polozky ? JSON.parse(v.polozky) : null, text: v.text,
+      opravy: v.opravy ? JSON.parse(v.opravy) : [],
       stav: stavLehoty({ odoslana: v.odoslana, dorucena: v.dorucena, lehotaDni: v.lehota_dni, predlzeneDo: v.predlzene_do }, odpovede, dnes),
     };
   }).reverse();

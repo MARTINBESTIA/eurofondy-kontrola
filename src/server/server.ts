@@ -53,7 +53,7 @@ db.exec(`CREATE TABLE IF NOT EXISTS posudky (
 if (!(db.prepare('PRAGMA table_info(posudky)').all() as { name: string }[]).some((c) => c.name === 'modul')) db.exec(`ALTER TABLE posudky ADD COLUMN modul TEXT NOT NULL DEFAULT 'zonfp'`);
 const vloz = db.prepare('INSERT INTO posudky (cas, modul, ziadost_kod, balik, verzia, model, navrh, upravena, trvanie_ms, posudok_json) VALUES (?,?,?,?,?,?,?,?,?,?)');
 pod.pripravDb(db);
-const vlozSpisovy = db.prepare('INSERT INTO posudky (cas, modul, ziadost_kod, balik, verzia, model, navrh, upravena, trvanie_ms, posudok_json, spis_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
+const vlozSpisovy = db.prepare('INSERT INTO posudky (cas, modul, ziadost_kod, balik, verzia, model, navrh, upravena, trvanie_ms, posudok_json, spis_id, verzia_spisu, zaciatok) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)');
 
 // Podateľňa posudzuje žiadosti o NFP pravidlami tej výzvy, do ktorej podanie patrí.
 // Znenie výzvy (verzia balíka) sa vyberá podľa kola žiadosti; staré posudky sa čítajú s verziou, ktorou vznikli.
@@ -117,19 +117,25 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
       return json(res, 200, { ok: true });
     }
     if (c[2] === 'posud') {
+      // Podklady sa čítajú synchrónne pred prvým await, teda v tej verzii, ktorá sa zapíše k posudku. Počas posudzovania
+      // (s modelom aj minútu) môže kontrolór nahrať doplnenie: taký posudok sa uloží do histórie, aktuálnym sa nestane.
+      const verzia = pod.verziaSpisu(db, id), zaciatok = new Date().toISOString();
       const v = pod.ziadostSpisu(db, id);
       const formular = pod.zdrojFormulara(db, s);
       // Formálne náležitosti (podpisy) len na výslovnú žiadosť kontrolóra; predvolene sa kontroluje obsah.
       const { balik, posudok } = await posudPodlaKola(v, s.vyzva, zonfp, { llm: b.llm !== false, formalne: b.formalne === true });
       const p = dolozPosudok(posudok, v, formular, balik);
-      const r = vlozSpisovy.run(p.cas, zonfp.id, p.ziadostKod, p.balik, p.verziaBalika, p.model, p.navrh, 0, p.trvanieMs, JSON.stringify(naAudit(zonfp, p)), id);
-      pod.ulozPosudok(db, id, Number(r.lastInsertRowid), p.navrh);
-      return json(res, 200, { posudok: p });
+      const r = vlozSpisovy.run(p.cas, zonfp.id, p.ziadostKod, p.balik, p.verziaBalika, p.model, p.navrh, 0, p.trvanieMs, JSON.stringify(naAudit(zonfp, p)), id, verzia, zaciatok);
+      const aktualny = pod.ulozPosudok(db, id, Number(r.lastInsertRowid), p.navrh, verzia, zaciatok);
+      return json(res, 200, { posudok: p, posudokId: Number(r.lastInsertRowid), aktualny });
     }
     // Návrh výzvy na doplnenie z posledného posudku: len text pre kontrolóra, nič sa neukladá ani neodosiela.
     if (c[2] === 'vyzva') {
       const d = pod.detailSpisu(db, id)!;
       if (!d.posledny) return json(res, 400, { chyba: 'Žiadosť ešte nebola posúdená.' });
+      // Posudok staršej verzie podkladov by vo výzve žiadal aj to, čo už je v spise (doplnenie, opravené zaradenie).
+      if (d.verziaPosledneho && d.verziaPosledneho !== d.verzia)
+        return json(res, 409, { chyba: 'Posledný posudok vychádza zo staršieho stavu podkladov spisu (odvtedy pribudli súbory alebo sa zmenilo zaradenie či platný formulár). Posúďte žiadosť znova, až potom zostavte výzvu.' });
       const verzie = verzieVyzvy(s.vyzva);
       const balik = verzie.find((x) => x.id === d.posledny.balik && x.verzia === d.posledny.verziaBalika) ?? verzie.at(-1)!;
       try {
@@ -148,7 +154,8 @@ async function apiPodatelne(req: http.IncomingMessage, res: http.ServerResponse,
         if (!Number.isInteger(lehota) || lehota < MIN_LEHOTA) return json(res, 400, { chyba: `Lehota na doplnenie musí byť celý počet pracovných dní, najmenej ${MIN_LEHOTA} (MD č. 21, kap. 2.4 ods. 5).` });
         vyzva = { odoslana, lehotaDni: lehota, polozky: Array.isArray(v.polozky) ? v.polozky.map(String) : null, text: typeof v.text === 'string' && v.text.trim() ? v.text.slice(0, 50_000) : null };
       }
-      pod.rozhodni(db, id, b.rozhodnutie, String(b.poznamka ?? ''), vyzva);
+      try { pod.rozhodni(db, id, b.rozhodnutie, String(b.poznamka ?? ''), vyzva); }
+      catch (e) { return json(res, 400, { chyba: (e as Error).message }); }
       return json(res, 200, { ok: true });
     }
     // Údaje o lehote výzvy: deň odoslania, doručenia (elektronická doručenka) a predĺženie.

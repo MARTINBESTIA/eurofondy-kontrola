@@ -161,7 +161,14 @@ try {
   assert.deepEqual(spis.vyzvy[0].stav.doplnenia, [{ davka: 2, odoslane: dnes, vysledok: 'vcas' }]);
   assert.equal(spis.vyzvy[0].stav.kod, 'doplnene_vcas');
   assert(spis.subory.filter((s: any) => s.davka === 2).every((s: any) => s.odoslane === dnes));
-  const po = await posud(b);
+  // Audit A01: posledný posudok je zo stavu pred doplnením, výzvu z neho server nezostaví.
+  assert.notEqual(spis.verziaPosledneho, spis.verzia);
+  const zastarana = await post(`spisy/${b}/vyzva`, {});
+  assert.equal(zastarana.status, 409, 'Výzva zo zastaraného posudku by žiadala už doplnené prílohy.');
+  assert.match((await zastarana.json()).chyba, /staršieho stavu podkladov/);
+  const poOdpoved = await api(`spisy/${b}/posud`, { llm: false });
+  assert.equal(poOdpoved.aktualny, true, 'Posudok doplneného spisu je aktuálny.');
+  const po = poOdpoved.posudok;
   assert.equal(po.navrh, 'na_preverenie');
   for (const k of ['P06', 'P08', 'P08b']) assert.equal(stav(po.nalezy, k), 'splnene');
   const doplnene = await api(`spisy/${b}`);

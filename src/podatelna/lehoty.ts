@@ -164,16 +164,20 @@ export function stavLehoty(v: UdajeLehoty, doplnenia: Doplnenie[], dnes: Den): S
   const lehotaText = koniec ? `do ${skDen(koniec)}` : `najskôr do ${skDen(najskor)}, najneskôr do ${skDen(najneskor)}`;
   const preco = dovody.length ? ` Dôvod: ${dovody.join('; ')}.` : '';
 
-  const vysledok = (d: Doplnenie): VysledokDoplnenia => !d.odoslane ? 'neiste'
+  // Dávka odoslaná pred výzvou nemôže byť odpoveďou na ňu: rozporné priradenie ide kontrolórovi, nikdy nie „včas“.
+  const predVyzvou = (d: Doplnenie) => !!d.odoslane && d.odoslane < v.odoslana;
+  const vysledok = (d: Doplnenie): VysledokDoplnenia => !d.odoslane || predVyzvou(d) ? 'neiste'
     : d.odoslane <= najskor ? 'vcas' : znameDorucenie && d.odoslane > najneskor ? 'po_lehote' : 'neiste';
   const stavy = doplnenia.map((d) => ({ ...d, vysledok: vysledok(d) }));
   // Dávka 1 je podanie, dávka N je doplnenie č. N − 1 (rovnako ako v zozname podkladov spisu).
   for (const d of stavy) {
     if (!d.odoslane) upozornenia.push(`Pri doplnení č. ${d.davka - 1} chýba deň odoslania do ITMS21+. Bez neho sa nedá určiť, či prišlo včas.`);
-    else if (d.odoslane < v.odoslana) upozornenia.push(`Doplnenie č. ${d.davka - 1} má deň odoslania ${skDen(d.odoslane)} skôr ako výzva. Overte dátum.`);
+    else if (predVyzvou(d)) upozornenia.push(`Doplnenie č. ${d.davka - 1} má deň odoslania ${skDen(d.odoslane)} skôr ako výzva (${skDen(v.odoslana)}). Odpoveďou na túto výzvu byť nemôže, preto sa jeho včasnosť neurčila. Overte deň odoslania alebo zaradenie dávky.`);
   }
+  if (stavy.some(predVyzvou)) dovody.push('deň odoslania doplnenia predchádza výzve');
   const dni = (zoz: typeof stavy) => zoz.map((d) => (d.odoslane ? skDen(d.odoslane) : 'bez dátumu')).join(', ');
   const zaklad = { koniec, koniecNajskor: najskor, koniecNajneskor: najneskor, fikcia, doplnenia: stavy, upozornenia };
+  const preco2 = dovody.length ? ` Dôvod: ${dovody.join('; ')}.` : '';
 
   if (stavy.length) {
     const neskoro = stavy.filter((d) => d.vysledok === 'po_lehote'), vcas = stavy.filter((d) => d.vysledok === 'vcas');
@@ -184,7 +188,7 @@ export function stavLehoty(v: UdajeLehoty, doplnenia: Doplnenie[], dnes: Den): S
         + (vcas.length ? ` Včas prišlo doplnenie odoslané ${dni(vcas)}.` : '')
         + ' Ak bez včas doplnených podkladov nemožno overiť splnenie niektorej PPP, poskytovateľ môže konanie zastaviť (ods. 14).' };
     return { ...zaklad, kod: 'doplnene_neiste', uroven: 'pozor', kratko: 'doplnenie: overte lehotu', zostava: null,
-      sprava: `Nedá sa isto určiť, či doplnenie prišlo včas. Odoslané do ITMS21+ ${dni(stavy)}, lehota trvala ${lehotaText}.${preco}` };
+      sprava: `Nedá sa isto určiť, či doplnenie prišlo včas. Odoslané do ITMS21+ ${dni(stavy)}, lehota trvala ${lehotaText}.${preco2}` };
   }
   if (dnes <= najskor) {
     let zostava: number | null = null;
