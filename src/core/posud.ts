@@ -315,36 +315,41 @@ export async function posud(v: any, balik: BalikPravidiel, modul: Modul, m: Mozn
     dolozNalez(n, d.length || p.druh !== 'llm' ? d : dokladyTextu(v, n, p, modul));
   }
   // Výber pravidiel (iba) je čiastková kontrola, napr. len prílohy po nahratí; úplnosť sa posudzuje len pri celom posudku.
-  if (!m.iba) nalezy.push(...nalezyInventara(balik, modul));
+  if (!m.iba) nalezy.push(...nalezyInventara(balik, modul, m.formalne !== false));
   return { ziadostKod: modul.titulok(v).kod, balik: balik.id, verziaBalika: balik.verzia, cas: new Date().toISOString(), trvanieMs: Date.now() - t0, model: m.llm === false ? null : MODEL, formalne: m.formalne !== false, nalezy, ...vyrokPosudku(nalezy) };
 }
 
 const KEDY: Record<Exclude<Podmienka['okamih'], 'konanie'>, string> = {
   pred_zmluvou: 'po schválení žiadosti, pred uzavretím zmluvy o NFP',
   realizacia: 'počas realizácie projektu podľa zmluvy o NFP',
+  na_mieste: 'pri finančnej kontrole na mieste, ak ju vykoná',
+  udrzatelnost: 'v období udržateľnosti projektu',
 };
 
 /**
- * Poistka úplnosti: podmienka výzvy, ktorú pravidlá nepokrývajú celú, ide kontrolórovi ako samostatný bod (druh rucne).
- * V konaní je to na_preverenie: údaje sú v podaní, softvér ich len nečíta. Podmienka overovaná až po konaní je
- * mimo_podkladov: v tomto podaní sa overiť nedá, ale výsledok preto nesmie znieť ako úplné „bez zistení“.
- * Pokrytie, ktoré balík neuvádza, sa berie ako žiadne.
+ * Poistka úplnosti: podmienka z inventára, ktorú pravidlá nepokrývajú celú, ide kontrolórovi ako samostatný bod (druh rucne).
+ * Pri posúdení podania (konanie) je to na_preverenie: údaje sú v podaní, softvér ich len nečíta. Podmienka overovaná
+ * mimo tohto podania (pred zmluvou, v realizácii, na mieste, v udržateľnosti) je mimo_podkladov: v tomto podaní sa overiť
+ * nedá, ale výsledok preto nesmie znieť ako úplné „bez zistení“. Pokrytie, ktoré balík neuvádza, sa berie ako žiadne.
+ * Formálna podmienka (podpis) sa pri vypnutej kontrole formálnych náležitostí nekontroluje; výrok to uvedie.
  */
-export function nalezyInventara(balik: BalikPravidiel, modul: Pick<Modul, 'inventarPodmienok'>): Nalez[] {
+export function nalezyInventara(balik: BalikPravidiel, modul: Pick<Modul, 'inventarPodmienok'>, formalne = true): Nalez[] {
   if (!balik.podmienky) return modul.inventarPodmienok ? [{
     pravidlo: 'INV', ppp: null, nazov: 'Úplnosť kontroly voči podmienkam výzvy', druh: 'rucne', stav: 'na_preverenie', okamih: 'konanie',
     zdovodnenie: 'Balík pravidiel nevymenúva podmienky výzvy, preto softvér nevie, či jeho kontrola pokrýva všetky. Kontrolór musí prejsť všetky podmienky výzvy sám.',
     citacia: { dokument: balik.vyzvaNazov || balik.vyzvaKod, cast: 'celá výzva', znenie: '' },
   }] : [];
   return balik.podmienky.filter((p) => p.pokrytie !== 'uplne').map((p): Nalez => {
-    const zvysok = p.neoverene?.trim() || 'celú podmienku podľa znenia výzvy';
+    const zvysok = p.neoverene?.trim() || 'celú podmienku podľa jej znenia';
+    const zaklad = { pravidlo: p.id, ppp: p.ppp, nazov: p.nazov, druh: 'rucne' as const, okamih: p.okamih, citacia: p.citacia };
+    if (p.formalna && !formalne) return { ...zaklad, stav: 'mimo_podkladov', vynechaneFormalne: [p.nazov],
+      zdovodnenie: `Formálna náležitosť sa nekontrolovala, kontrola formálnych náležitostí je vypnutá. Týka sa: ${zvysok}.` };
     const zdovodnenie = p.okamih !== 'konanie'
-      ? `V konaní o žiadosti sa neoveruje, poskytovateľ ju overuje ${KEDY[p.okamih]}. Týka sa: ${zvysok}.`
+      ? `Z tohto podania sa neoveruje, poskytovateľ ju overuje ${KEDY[p.okamih]}. Týka sa: ${zvysok}.`
       : p.pravidla.length && p.pokrytie === 'ciastocne'
         ? `Pravidlá ${p.pravidla.join(', ')} overujú len časť podmienky. Kontrolór overí: ${zvysok}.`
         : `Softvér túto podmienku nekontroluje. Kontrolór overí: ${zvysok}.`;
-    return { pravidlo: p.id, ppp: p.ppp, nazov: p.nazov, druh: 'rucne', okamih: p.okamih,
-      stav: p.okamih === 'konanie' ? 'na_preverenie' : 'mimo_podkladov', zdovodnenie, citacia: p.citacia };
+    return { ...zaklad, stav: p.okamih === 'konanie' ? 'na_preverenie' : 'mimo_podkladov', zdovodnenie };
   });
 }
 
@@ -368,6 +373,6 @@ export function vyrokPosudku(nalezy: Nalez[]): Pick<Posudok, 'navrh' | 'zhrnutie
   };
   const rucne = nalezy.filter((n) => n.druh === 'rucne').length;
   const formalne = bezFormalnych.length ? ` Formálne náležitosti (podpisy) sa nekontrolovali, kontrola je vypnutá: ${bezFormalnych.join(', ')}.` : '';
-  const zhrnutie = `${vety[navrh]}${formalne} Overené z podkladov: ${pocty.splnene + pocty.nesplnene} pravidiel. Neoverené, lebo to z podkladov nejde: ${pocty.mimo_podkladov}.${rucne ? ` Podmienky výzvy, ktoré softvér nekontroluje vôbec alebo len sčasti: ${rucne}.` : ''}`;
+  const zhrnutie = `${vety[navrh]}${formalne} Overené z podkladov: ${pocty.splnene + pocty.nesplnene} pravidiel. Neoverené, lebo to z podkladov nejde: ${pocty.mimo_podkladov}.${rucne ? ` Podmienky, ktoré softvér nekontroluje vôbec alebo len sčasti: ${rucne}.` : ''}`;
   return { navrh, zhrnutie, pocty };
 }

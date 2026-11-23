@@ -160,6 +160,7 @@ export const ukazovatele: Modul<VstupUkazovatele> = {
     return n;
   },
   doklady: dokladyMu,
+  inventarPodmienok: true,
   kontroly: { mu_vystup: kontrolaVystup, mu_vysledok: kontrolaVysledok, monitorovanie: kontrolaMonitorovanie },
   hlavnyText: (v) => v.projekt.popis,
   kontext: (v) => `Projekt ${v.projekt.kod}: ${v.projekt.nazov}`,

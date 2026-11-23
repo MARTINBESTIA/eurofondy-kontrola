@@ -236,7 +236,14 @@ Ako sa bráni „falošne OK“:
   (napr. dátum splatnosti nesmie prejsť ako dátum vyhotovenia, zostatok nie ako suma platby);
 - pri niektorých náležitostiach sa kontroluje aj celý riadok, z ktorého úryvok pochádza (IBAN z riadku
   „Protistrana“ nesmie prejsť ako číslo účtu prijímateľa); pozri Test 4;
-- zatriedenie zmeny berie najprísnejší rozpoznaný druh a nerozpoznanú zmenu dáva človeku.
+- zatriedenie zmeny berie najprísnejší rozpoznaný druh a nerozpoznanú zmenu dáva človeku;
+- moduly VO, ŽoP, zmeny a ukazovatele majú inventár podmienok zo zmluvy o NFP (VZP) a príručiek (`podmienky`
+  v balíku, spolu 44 podmienok s doslovnou citáciou). Podmienka, ktorú pravidlá nepokrývajú celú, je v každom
+  posudku bod pre kontrolóra. Výrok modulu preto nie je „bez zistení“ ani „čiastočne overené“, kým ju neposúdi
+  človek. Podpisy (formulár ŽoP, OoZ a ŽoZZ, monitorovacia správa, záznam VO) sú formálne náležitosti a riadia sa
+  prepínačom podpisov;
+- každé „splnené“ v moduloch cituje vstupy, z ktorých kontrola rozhodla: pole z ITMS21+, údaj z formulára
+  kontrolóra alebo riadok prílohy. „Splnené“ bez takého dokladu ide na preverenie.
 
 ### Prečo TypeScript na Node a nie Python
 
@@ -325,18 +332,22 @@ výška NFP (2 neschválené, 3 zastavené, 0 vyhovujúcich). Väčšinu zamietn
 
 Do reálnych prípadov z ITMS21+ sa umelo vloží známa chyba (kópia prípadu, reálne dáta sa nemenia) a meria sa,
 či ju softvér zachytí. Falošne OK = chyba je, ale cieľové pravidlo vyšlo „splnené“ alebo celý výrok
-„bez zistení“ či „čiastočne overené“. Beh trvá asi 27 s, bez modelu.
+„bez zistení“ či „čiastočne overené“. Beh trvá asi 45 s, bez modelu. Test zlyhá pri akomkoľvek falošnom OK.
+„Presne“ = nález má práve očakávaný stav. Pri chybách s chýbajúcim údajom (zmluva alebo doklad bez sumy, VO chýba
+v dátach) je očakávaný stav „neoverené“, nie „nesplnené“.
 
-| Modul | Zasadené chyby (príklady) | Prípadov | Zachytené | Falošne OK |
+| Modul | Zasadené chyby (príklady) | Zasadených | Presne | Falošne OK |
 |---|---|---|---|---|
-| Plánovanie výziev | zrušená výzva, predloženie po skončení, príprava dlhšia ako čas do uzávierky, stará verzia výzvy, plánovaná výzva po termíne | 290 | 290 | 0 |
-| Verejné obstarávanie | ZMR s PHZ 60 000 EUR, jediná ponuka, zmluva nad PHZ, faktúry nad zmluvu, tri ZMR na rovnaký predmet v roku | 1 654 | 1 654 | 0 |
-| Zmeny projektu | zmena miesta realizácie ako OoZ, vyššie NFP, koniec HA po 24 mesiacoch, ex ante po zmene, ex post 11 dní pred ŽoP, MU pod hranicou, chýba formulár | 1 400 | 1 400 | 0 |
-| Žiadosť o platbu | suma nad výdavok, doklad dvakrát, doklad pred 2021, úhrada po 2029, DPH od neplatiteľa, zlý výpočet DPH, hotovosť 800 EUR, chýbajú prílohy, internet banking, výpis bez účtu, uhradená ŽoP druhýkrát | 2 593 | 2 593 | 0 |
+| Plánovanie výziev | zrušená výzva, predloženie po skončení, príprava dlhšia ako čas do uzávierky, stará verzia výzvy, plánovaná výzva po termíne | 511 | 511 | 0 |
+| Verejné obstarávanie | ZMR s PHZ 60 000 EUR, jediná ponuka, zmluva nad PHZ, faktúry nad zmluvu, tri ZMR na rovnaký predmet v roku, zmluva alebo doklad bez sumy, ZMR bez uvedenej PHZ | 3 323 | 3 305 | 0 |
+| Zmeny projektu | zmena miesta realizácie ako OoZ, vyššie NFP, koniec HA po 24 mesiacoch, ex ante po zmene, ex post 11 dní pred ŽoP, MU pod hranicou, chýba formulár | 2 600 | 2 600 | 0 |
+| Žiadosť o platbu | suma nad výdavok, doklad dvakrát, doklad pred 2021, úhrada po 2029, DPH od neplatiteľa, zlý výpočet DPH, hotovosť 800 EUR, chýbajú prílohy, internet banking, výpis bez účtu, uhradená ŽoP druhýkrát, doklad bez sumy, položka bez sadzby DPH, VO alebo zmluva chýba v dátach, neúplné údaje o hotovosti | 4 793 | 4 784 | 0 |
 | Merateľné ukazovatele | MU výstupu a výsledku na 94, 80, 50 a 0 % (aj s prahmi zmluvy), nepredložená monitorovacia správa | 3 125 | 3 113 | 0 |
 
-Počet zasadených chýb závisí od referenčného dátumu (`KONTROLA_DNES`), lebo časť chýb sa viaže na termíny:
-9 062 pri behu 15. 11. 2026, 9 058 pri behu 19. 11. 2026. Falošne OK bolo v oboch behoch 0.
+Počet zasadených chýb závisí od referenčného dátumu (`KONTROLA_DNES`), lebo časť chýb sa viaže na termíny,
+a od sady chýb: 9 062 pri behu 15. 11. 2026, 14 352 pri behu 23. 11. 2026. Falošne OK je 0. Bez inventára
+podmienok v moduloch dali chyby s chýbajúcim údajom 1 154 výrokov „čiastočne overené“ (beh 23. 11. 2026 pred
+jeho doplnením): nález bol správne „neoverené“, výrok však znel ako súhlas s overenou časťou.
 
 12 nezachytených pri ukazovateľoch: projekty, kde jeden MU výsledku nemá v ITMS21+ cieľovú hodnotu; pravidlo je
 „neoverené“, nie „splnené“. Pri naplnení 100 % a 97 % vyšlo pravidlo MU výstupu splnené pri 242 z 242

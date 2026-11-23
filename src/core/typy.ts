@@ -67,22 +67,30 @@ export interface Pravidlo {
 }
 
 /**
- * Podmienka výzvy v inventári balíka. Balík vymenúva VŠETKY podmienky výzvy, nielen tie, ktoré softvér kontroluje:
- * PPP, podmienky doručenia (riadne a včas, § 16 ods. 4 zákona č. 121/2022 Z. z.), ďalšie skutočnosti a podmienku vo výroku rozhodnutia.
+ * Podmienka v inventári balíka. Balík vymenúva VŠETKY podmienky, ktoré poskytovateľ v danom procese overuje, nielen tie,
+ * ktoré softvér kontroluje. Pri ŽoNFP sú to podmienky výzvy: PPP, podmienky doručenia (riadne a včas, § 16 ods. 4 zákona
+ * č. 121/2022 Z. z.), ďalšie skutočnosti a podmienka vo výroku rozhodnutia. Pri VO, ŽoP, zmenách a monitorovaní sú to
+ * podmienky zo zmluvy o NFP (typ zmluva, VZP) a z príručiek poskytovateľa alebo CKO (typ prirucka).
  * pokrytie = či nálezy pravidiel spolu predstavujú CELÚ podmienku: každú jej časť overia alebo výslovne povedia,
  * kde ju overuje poskytovateľ. Pri „ciastocne“ a „ziadne“ (aj keď údaj chýba) pridá posudok bod pre kontrolóra (druh rucne).
  */
 export interface Podmienka {
   id: string;
-  typ: 'ppp' | 'dorucenie' | 'dalsia_skutocnost' | 'podmienka_rozhodnutia';
+  typ: 'ppp' | 'dorucenie' | 'dalsia_skutocnost' | 'podmienka_rozhodnutia' | 'zmluva' | 'prirucka';
   ppp: number | null; nazov: string;
-  /** Kedy ju poskytovateľ overuje: v konaní o ŽoNFP, po schválení pred uzavretím zmluvy, alebo počas realizácie. */
-  okamih: 'konanie' | 'pred_zmluvou' | 'realizacia';
+  /**
+   * Kedy ju poskytovateľ overuje: pri posúdení tohto podania (konanie: ŽoNFP, dokumentácia VO, ŽoP, zmena, monitorovacia
+   * správa), po schválení ŽoNFP pred uzavretím zmluvy, neskôr počas realizácie, pri finančnej kontrole na mieste,
+   * alebo v období udržateľnosti projektu.
+   */
+  okamih: 'konanie' | 'pred_zmluvou' | 'realizacia' | 'na_mieste' | 'udrzatelnost';
   /** Pravidlá balíka, ktoré overujú podmienku alebo jej časť. */
   pravidla: string[];
   pokrytie: 'uplne' | 'ciastocne' | 'ziadne';
   /** Čo z podmienky žiadne pravidlo neoveruje (povinné pri inom pokrytí než „uplne“). */
   neoverene?: string;
+  /** Formálna náležitosť (podpis, predloženie oprávnenou osobou): pri vypnutej kontrole formálnych náležitostí sa nekontroluje a výrok to uvedie. */
+  formalna?: boolean;
   citacia: Citacia;
 }
 

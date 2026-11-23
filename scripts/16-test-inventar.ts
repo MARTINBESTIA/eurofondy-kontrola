@@ -1,5 +1,6 @@
 // Inventár podmienok výzvy a poistky úplnosti. Bez modelu a bez siete.
 // 1. Každý balík žiadosti o NFP vymenúva všetky podmienky výzvy a každé pravidlo patrí k niektorej z nich.
+//    Balíky modulov VO, ŽoP, zmeny a ukazovatele vymenúvajú podmienky zo zmluvy o NFP a príručiek (1b).
 // 2. Citácie podmienok aj pravidiel sú doslovne v zdrojovom texte: zmenené znenie výzvy test zachytí.
 // 3. Posudok pridá bod pre kontrolóra ku každej podmienke, ktorú pravidlá nepokrývajú celú.
 // 4. Zasadené chyby na všetkých stiahnutých žiadostiach: iná výzva, neskoré predloženie, MRR po uzavretí,
@@ -12,7 +13,11 @@ import zlib from 'node:zlib';
 import { koloPodlaDatumu, nacitajBalik, nalezyInventara, posud, posudPodlaKola, verzieBalika, vyberVerziu, vyrokPosudku } from '../src/core/posud.ts';
 import { castiCitacie, cestaTextuZdroja, normCitacie, zdrojCitacie } from '../src/core/zdroje.ts';
 import { MAX_VEK_KONTROLY_DNI, nacitajZakladZmien, nalezyZmienVyzvy, nepokryteVerzie, porovnajStav, prevezmiStav, stavZItms, type KontrolaZmien, type StavVyzvyItms, type ZmenaVyzvy } from '../src/core/zmeny.ts';
-import type { BalikPravidiel, Citacia, Nalez, Posudok, Stav, Ziadost } from '../src/core/typy.ts';
+import type { BalikPravidiel, Citacia, Modul, Nalez, Podmienka, Posudok, Stav, Ziadost } from '../src/core/typy.ts';
+import { ukazovatele } from '../src/moduly/ukazovatele/modul.ts';
+import { vo } from '../src/moduly/vo/modul.ts';
+import { zmeny } from '../src/moduly/zmeny/modul.ts';
+import { zop } from '../src/moduly/zop/modul.ts';
 import { pripravDokladyFormulara } from '../src/moduly/zonfp/doklady-formular.ts';
 import { zonfp } from '../src/moduly/zonfp/modul.ts';
 import { normalizujItms21 } from '../src/moduly/zonfp/normalizuj.ts';
@@ -47,25 +52,64 @@ for (const b of baliky) {
   } else console.log(`  (detail výzvy z ITMS21+ nie je stiahnutý, PPP sa porovnajú len s pravidlami)`);
   const pppPravidiel = [...new Set(b.pravidla.map((r) => r.ppp).filter((n) => n != null))];
   over(pppPravidiel.every((n) => pppInv.includes(n)), 'každá PPP, na ktorú odkazuje pravidlo, je v inventári');
+  const zlaPpp = pod.filter((p) => p.typ === 'ppp').flatMap((p) => p.pravidla.flatMap((id) => {
+    const r = b.pravidla.find((x) => x.id === id); return r && r.ppp !== p.ppp ? [`${id} (PPP ${r.ppp}) pri ${p.id}`] : [];
+  }));
+  over(!zlaPpp.length, `pravidlá pri PPP majú to isté číslo PPP${zlaPpp.length ? `: ${zlaPpp.join('; ')}` : ''}`);
+  vazbyInventara(b, pod);
+  over(pod.every((p) => ['konanie', 'pred_zmluvou', 'realizacia'].includes(p.okamih) && ['ppp', 'dorucenie', 'dalsia_skutocnost', 'podmienka_rozhodnutia'].includes(p.typ)), 'okamih a typ podmienok sú platné');
+  over(pod.some((p) => p.typ === 'dorucenie'), 'inventár obsahuje podmienku predloženia riadne a včas (§ 16 ods. 4 zákona č. 121/2022 Z. z.)');
+  overCitacie(b);
+}
+
+// ---------------------------------------------------------------- 1b. inventár balíkov modulov (VO, ŽoP, zmeny, ukazovatele)
+// Moduly kontrolujú len časť podmienok zo zmluvy o NFP a príručiek. Inventár ich vymenúva všetky, aby výrok modulu nikdy
+// neznel úplnejšie, než kontrola je. Podpisy sú formálne náležitosti a riadia sa prepínačom formálnych náležitostí.
+const TYPY_MODULOV = ['zmluva', 'prirucka'];
+const OKAMIHY = ['konanie', 'pred_zmluvou', 'realizacia', 'na_mieste', 'udrzatelnost'];
+const jeOk = (p: Posudok) => p.navrh === 'bez_zisteni' || p.navrh === 'ciastocne_overene';
+for (const m of [vo, zop, zmeny, ukazovatele] as Modul<any>[]) {
+  const bm = nacitajBalik(VYZVA, m.id); const pod = bm.podmienky ?? [];
+  console.log(`\n== Modul ${m.id}: ${bm.pravidla.length} pravidiel, ${pod.length} podmienok`);
+  over(!!m.inventarPodmienok && pod.length > 0, 'modul vyžaduje inventár podmienok a balík ho má');
+  over(new Set(pod.map((p) => p.id)).size === pod.length && !pod.some((p) => bm.pravidla.some((r) => r.id === p.id)), 'id podmienok sú jedinečné a líšia sa od id pravidiel');
+  vazbyInventara(bm, pod);
+  over(pod.every((p) => OKAMIHY.includes(p.okamih) && TYPY_MODULOV.includes(p.typ) && p.ppp === null), 'okamih a typ podmienok sú platné (zmluva alebo príručka, nie PPP)');
+  overCitacie(bm);
+  const id0 = m.pripady('', '', 1).pripady[0].id; const v0 = m.nacitaj(id0)!;
+  const p0 = await posud(v0, bm, m, { llm: false });
+  const r0 = p0.nalezy.filter((n) => n.druh === 'rucne'); const nep = pod.filter((x) => x.pokrytie !== 'uplne');
+  over(rovnake(r0.map((n) => n.pravidlo), nep.map((x) => x.id)) && r0.every((n) => n.stav === (pod.find((x) => x.id === n.pravidlo)!.okamih === 'konanie' ? 'na_preverenie' : 'mimo_podkladov')),
+    `posudok ${id0}: bod pre kontrolóra ku každej z ${nep.length} podmienok, ktoré pravidlá nepokrývajú celé (pri posúdení podania na preverenie, inak mimo podkladov)`);
+  over(!jeOk(p0) && /softvér nekontroluje vôbec alebo len sčasti: \d+/.test(p0.zhrnutie), `výrok ${id0} nie je OK (${p0.navrh}) a zhrnutie uvádza počet nepokrytých podmienok`);
+  const form = pod.filter((x) => x.formalna);
+  if (form.length) {
+    const pf = await posud(v0, bm, m, { llm: false, formalne: false });
+    const nf = pf.nalezy.filter((n) => form.some((x) => x.id === n.pravidlo));
+    over(nf.length === form.length && nf.every((n) => n.stav === 'mimo_podkladov' && !!n.vynechaneFormalne?.length) && form.every((x) => pf.zhrnutie.includes(x.id))
+      && p0.nalezy.filter((n) => form.some((x) => x.id === n.pravidlo)).every((n) => n.stav === 'na_preverenie'),
+    `podpis ${form.map((x) => x.id).join(', ')}: pri zapnutých formálnych náležitostiach na preverenie, pri vypnutých sa nekontroluje a zhrnutie to uvádza`);
+  }
+}
+
+/** Väzby inventára na pravidlá: každé pravidlo patrí k podmienke, inventár odkazuje len na existujúce pravidlá a pokrytie sedí. */
+function vazbyInventara(b: BalikPravidiel, pod: Podmienka[]) {
   const vInventari = new Set(pod.flatMap((p) => p.pravidla));
   const siroty = b.pravidla.filter((r) => !vInventari.has(r.id)).map((r) => r.id);
   over(!siroty.length, `každé pravidlo patrí k podmienke${siroty.length ? ` (bez podmienky: ${siroty.join(', ')})` : ''}`);
   const nezname = [...vInventari].filter((id) => !b.pravidla.some((r) => r.id === id));
   over(!nezname.length, `inventár odkazuje len na existujúce pravidlá${nezname.length ? ` (neznáme: ${nezname.join(', ')})` : ''}`);
-  const zlaPpp = pod.filter((p) => p.typ === 'ppp').flatMap((p) => p.pravidla.flatMap((id) => {
-    const r = b.pravidla.find((x) => x.id === id); return r && r.ppp !== p.ppp ? [`${id} (PPP ${r.ppp}) pri ${p.id}`] : [];
-  }));
-  over(!zlaPpp.length, `pravidlá pri PPP majú to isté číslo PPP${zlaPpp.length ? `: ${zlaPpp.join('; ')}` : ''}`);
   const zlePokrytie = pod.filter((p) => !(p.pokrytie === 'uplne' ? p.pravidla.length > 0 && !p.neoverene
     : p.pokrytie === 'ciastocne' ? p.pravidla.length > 0 && !!p.neoverene?.trim()
       : p.pokrytie === 'ziadne' ? p.pravidla.length === 0 && !!p.neoverene?.trim() : false)).map((p) => p.id);
   over(!zlePokrytie.length, `pokrytie zodpovedá pravidlám a popisu neovereného${zlePokrytie.length ? ` (zle: ${zlePokrytie.join(', ')})` : ''}`);
-  over(pod.every((p) => ['konanie', 'pred_zmluvou', 'realizacia'].includes(p.okamih) && ['ppp', 'dorucenie', 'dalsia_skutocnost', 'podmienka_rozhodnutia'].includes(p.typ)), 'okamih a typ podmienok sú platné');
-  over(pod.some((p) => p.typ === 'dorucenie'), 'inventár obsahuje podmienku predloženia riadne a včas (§ 16 ods. 4 zákona č. 121/2022 Z. z.)');
+}
 
-  // ---------------------------------------------------------------- 2. citácie sú doslovne v zdroji
-  // Časti oddelené „[...]“ musia byť v texte zdroja každá zvlášť. Poznámky pod čiarou extrakcia textu nezachytí,
-  // preto sa preskočia a len spočítajú.
+// ---------------------------------------------------------------- 2. citácie sú doslovne v zdroji
+// Časti oddelené „[...]“ musia byť v texte zdroja každá zvlášť. Poznámky pod čiarou extrakcia textu nezachytí,
+// preto sa preskočia a len spočítajú.
+function overCitacie(b: BalikPravidiel) {
+  const pod = b.podmienky ?? [];
   const texty = new Map<string, string | null>();
   const textDokumentu = (dokument: string) => {
     if (texty.has(dokument)) return texty.get(dokument)!;

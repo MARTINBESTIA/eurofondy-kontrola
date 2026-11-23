@@ -345,6 +345,7 @@ export const zop: Modul<VstupZop> = {
     return n;
   },
   doklady: dokladyZop,
+  inventarPodmienok: true,
   kontroly: { zop_obdobie: obdobie, zop_sumy: sumy, zop_duplicita: duplicita, zop_dph: dph, zop_dph_vypocet: dphVypocet, zop_vo_vazba: voVazba, zop_vo_kontrola: voKontrola, zop_vo_zmluva: voZmluva, zop_hotovost: hotovost, zop_prilohy: prilohy, zop_uhrada: uhrada },
   hlavnyText: (v) => v.prilohy?.faktura?.text ?? '',
   kontext: (v) => `ŽoP ${v.zop.kod}, prijímateľ ${v.zop.prijimatel.nazov}`,

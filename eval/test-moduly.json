@@ -1,11 +1,11 @@
 {
- "cas": "2026-11-23T00:54:02.462Z",
+ "cas": "2026-11-23T01:12:55.140Z",
  "dnes": "2026-11-23",
  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
  "moduly": {
   "vyzvy": {
    "pripadov": 186,
-   "trvanieMs": 446,
+   "trvanieMs": 412,
    "navrhy": {
     "na_preverenie": 153,
     "nesplnene_podmienky": 33
@@ -187,7 +187,7 @@
   },
   "zonfp": {
    "pripadov": 799,
-   "trvanieMs": 195,
+   "trvanieMs": 206,
    "navrhy": {
     "na_preverenie": 735,
     "nesplnene_podmienky": 58,
@@ -484,10 +484,9 @@
   },
   "vo": {
    "pripadov": 659,
-   "trvanieMs": 741,
+   "trvanieMs": 772,
    "navrhy": {
-    "na_preverenie": 592,
-    "ciastocne_overene": 66,
+    "na_preverenie": 658,
     "nesplnene_podmienky": 1
    },
    "pravidla": [
@@ -548,6 +547,76 @@
     {
      "id": "V07",
      "nazov": "Záznam zo zadania zákazky má minimálne náležitosti",
+     "pocty": {
+      "mimo_podkladov": 659
+     }
+    },
+    {
+     "id": "VK1",
+     "nazov": "Postup VO zodpovedá predpokladanej hodnote zákazky",
+     "pocty": {
+      "na_preverenie": 659
+     }
+    },
+    {
+     "id": "VK2",
+     "nazov": "Spôsob určenia PHZ je písomne zdokumentovaný",
+     "pocty": {
+      "na_preverenie": 659
+     }
+    },
+    {
+     "id": "VK3",
+     "nazov": "Hospodárska súťaž nie je narušená zvýhodnením ani znevýhodnením uchádzačov",
+     "pocty": {
+      "na_preverenie": 659
+     }
+    },
+    {
+     "id": "VK4",
+     "nazov": "Predmet zákazky nie je rozdelený s cieľom znížiť PHZ pod finančné limity",
+     "pocty": {
+      "na_preverenie": 659
+     }
+    },
+    {
+     "id": "VK5",
+     "nazov": "Výnimka zo ZVO nie je uplatnená na obídenie postupov VO",
+     "pocty": {
+      "na_preverenie": 659
+     }
+    },
+    {
+     "id": "VK6",
+     "nazov": "Vo VO nedošlo ku konfliktu záujmov",
+     "pocty": {
+      "na_preverenie": 659
+     }
+    },
+    {
+     "id": "VK7",
+     "nazov": "Úspešný uchádzač spĺňa podmienky účasti a nie je dôvod na jeho vylúčenie",
+     "pocty": {
+      "na_preverenie": 659
+     }
+    },
+    {
+     "id": "VK8",
+     "nazov": "Postup je zdokumentovaný v zázname zo zadania zákazky",
+     "pocty": {
+      "na_preverenie": 659
+     }
+    },
+    {
+     "id": "VK9",
+     "nazov": "Dodatky k zmluvám z VO sú predložené na kontrolu",
+     "pocty": {
+      "na_preverenie": 659
+     }
+    },
+    {
+     "id": "VK10",
+     "nazov": "Dodatky k zmluvám z VO sú v súlade s § 18 ZVO",
      "pocty": {
       "mimo_podkladov": 659
      }
@@ -644,16 +713,12 @@
      "n": 659,
      "zachytene": 5,
      "presne": 654,
-     "falosneOk": 68,
+     "falosneOk": 0,
      "stavy": {
       "mimo_podkladov": 654,
       "na_preverenie": 5
      },
-     "priklady": [
-      "VO00375091: mimo_podkladov / ciastocne_overene: Zmluvy so známou sumou spolu 284 097,27 EUR zodpovedajú PHZ 284 097,27 EUR. Zmluva T2 nemá v ITMS21+ sumu; súčet je len zo zmlúv so sumou. Celková cena voči PHZ sa preto neoverila.",
-      "VO00910494: mimo_podkladov / ciastocne_overene: Zmluvy so známou sumou spolu 5 282,47 EUR zodpovedajú PHZ 5 282,47 EUR. Zmluva T2 nemá v ITMS21+ sumu; súčet je len zo zmlúv so sumou. Celková cena voči PHZ sa preto neoverila.",
-      "VO01501526: mimo_podkladov / ciastocne_overene: Zmluvy so známou sumou spolu 359 984,85 EUR zodpovedajú PHZ 359 984,85 EUR. Zmluva T2 nemá v ITMS21+ sumu; súčet je len zo zmlúv so sumou. Celková cena voči PHZ sa preto neoverila."
-     ]
+     "priklady": []
     },
     {
      "nazov": "Účtovný doklad bez sumy",
@@ -662,15 +727,11 @@
      "n": 367,
      "zachytene": 0,
      "presne": 367,
-     "falosneOk": 35,
+     "falosneOk": 0,
      "stavy": {
       "mimo_podkladov": 367
      },
-     "priklady": [
-      "VO01501526: mimo_podkladov / ciastocne_overene: Doklady so známou sumou spolu 0 EUR neprevyšujú zmluvy 340 697,06 EUR. Doklad T nemá v ITMS21+ sumu, fakturácia spolu sa preto neoverila.",
-      "VO01778212: mimo_podkladov / ciastocne_overene: Doklady so známou sumou spolu 0 EUR neprevyšujú zmluvy 197 994,88 EUR. Doklad T nemá v ITMS21+ sumu, fakturácia spolu sa preto neoverila.",
-      "VO06961964: mimo_podkladov / ciastocne_overene: Doklady so známou sumou spolu 0 EUR neprevyšujú zmluvy 17 693,38 EUR. Doklad T nemá v ITMS21+ sumu, fakturácia spolu sa preto neoverila."
-     ]
+     "priklady": []
     },
     {
      "nazov": "Tri zákazky malého rozsahu po 30 000 EUR na rovnaký predmet v jednom roku",
@@ -692,16 +753,12 @@
      "n": 74,
      "zachytene": 13,
      "presne": 61,
-     "falosneOk": 37,
+     "falosneOk": 0,
      "stavy": {
       "mimo_podkladov": 61,
       "na_preverenie": 13
      },
-     "priklady": [
-      "VO00910494: mimo_podkladov / ciastocne_overene: Obstarávateľ v roku 2024 zadal aj ďalšie zákazky malého rozsahu so skupinou CPV 451…; so známymi PHZ je súčet 35 282,47 EUR. Bez uvedenej PHZ: VO00910494-T1, VO00910494-T2, VO72666911-T1, VO72666911-T",
-      "VO04995870: mimo_podkladov / ciastocne_overene: Obstarávateľ v roku 2026 zadal aj ďalšie zákazky malého rozsahu so skupinou CPV 452…; so známymi PHZ je súčet 30 000 EUR. Bez uvedenej PHZ: VO04995870-T1, VO04995870-T2. Či spolu nedosahujú 50 000 EUR",
-      "VO06961964: mimo_podkladov / ciastocne_overene: Obstarávateľ v roku 2025 zadal aj ďalšie zákazky malého rozsahu so skupinou CPV 323…; so známymi PHZ je súčet 30 000 EUR. Bez uvedenej PHZ: VO06961964-T1, VO06961964-T2. Či spolu nedosahujú 50 000 EUR"
-     ]
+     "priklady": []
     }
    ],
    "poznamky": [
@@ -712,7 +769,7 @@
   },
   "zmeny": {
    "pripadov": 2336,
-   "trvanieMs": 882,
+   "trvanieMs": 868,
    "navrhy": {
     "na_preverenie": 2336
    },
@@ -776,6 +833,76 @@
     {
      "id": "Z08",
      "nazov": "Odôvodnenie obsahuje popis, dôvod a dopad zmeny",
+     "pocty": {
+      "mimo_podkladov": 2336
+     }
+    },
+    {
+     "id": "ZK1",
+     "nazov": "Druh zmeny a formulár zodpovedajú skutočnému rozsahu a dopadu zmeny",
+     "pocty": {
+      "na_preverenie": 2336
+     }
+    },
+    {
+     "id": "ZK2",
+     "nazov": "Zmena nie je podstatnou zmenou projektu",
+     "pocty": {
+      "na_preverenie": 2336
+     }
+    },
+    {
+     "id": "ZK3",
+     "nazov": "Zmena nenavyšuje NFP",
+     "pocty": {
+      "na_preverenie": 2336
+     }
+    },
+    {
+     "id": "ZK4",
+     "nazov": "Predĺženie hlavných aktivít je v limite a ich dokončenie v ňom je reálne",
+     "pocty": {
+      "na_preverenie": 2336
+     }
+    },
+    {
+     "id": "ZK5",
+     "nazov": "Významnejšia zmena je predložená včas",
+     "pocty": {
+      "na_preverenie": 2336
+     }
+    },
+    {
+     "id": "ZK6",
+     "nazov": "Znížená cieľová hodnota MU výsledku neklesne pod hranicu zo zmluvy",
+     "pocty": {
+      "na_preverenie": 2336
+     }
+    },
+    {
+     "id": "ZK7",
+     "nazov": "Žiadosť o zmenu je riadne odôvodnená a obsahuje požadované údaje a prílohy",
+     "pocty": {
+      "na_preverenie": 2336
+     }
+    },
+    {
+     "id": "ZK8",
+     "nazov": "Zmena nepremiestni projekt mimo oprávnené územie",
+     "pocty": {
+      "na_preverenie": 2336
+     }
+    },
+    {
+     "id": "ZK9",
+     "nazov": "Formulár OoZ alebo ŽoZZ predložila a podpísala oprávnená osoba",
+     "pocty": {
+      "na_preverenie": 2336
+     }
+    },
+    {
+     "id": "ZK10",
+     "nazov": "Finančná kontrola na mieste k zmene, ak ju poskytovateľ vykoná",
      "pocty": {
       "mimo_podkladov": 2336
      }
@@ -1001,10 +1128,9 @@
   },
   "zop": {
    "pripadov": 1362,
-   "trvanieMs": 6476,
+   "trvanieMs": 6541,
    "navrhy": {
-    "ciastocne_overene": 1046,
-    "na_preverenie": 315,
+    "na_preverenie": 1361,
     "nesplnene_podmienky": 1
    },
    "pravidla": [
@@ -1098,6 +1224,118 @@
     {
      "id": "P12",
      "nazov": "Doklad o úhrade je bankový výpis, nie výstup z internet bankingu",
+     "pocty": {
+      "mimo_podkladov": 1362
+     }
+    },
+    {
+     "id": "OV1",
+     "nazov": "Výdavok vznikol počas realizácie hlavných aktivít a bol uhradený do 31. 12. 2029",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV2",
+     "nazov": "Výdavok patrí do skupiny výdavkov schváleného rozpočtu a zodpovedá obsahu a cieľom projektu",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV3",
+     "nazov": "Výdavok spĺňa podmienky oprávnenosti podľa výzvy a kontrola VO ho pripustila do financovania",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV4",
+     "nazov": "Výdavok zodpovedá rozsahu skutočne realizovanej aktivity",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV5",
+     "nazov": "Výdavok je zaúčtovaný v účtovníctve prijímateľa",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV6",
+     "nazov": "Výdavok je uhradený a úhrada je doložená pred predložením v ŽoP",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV7",
+     "nazov": "Výdavok je identifikovateľný, preukázateľný a doložený účtovnými dokladmi",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV8",
+     "nazov": "Výdavok je vynaložený v súlade so zmluvou, právnymi predpismi a pravidlami štátnej pomoci",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV9",
+     "nazov": "Výdavok je hospodárny, efektívny, účinný a účelný",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV10",
+     "nazov": "Výdavok sa neprekrýva s inými výdavkami ani s inými verejnými zdrojmi",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV11",
+     "nazov": "Majetok je kúpený od tretích strán za trhových podmienok",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV12",
+     "nazov": "Výdavok vychádza z VO vykonaného v súlade s pravidlami",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "OV13",
+     "nazov": "Majetok je nový a nepoužívaný",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "PK1",
+     "nazov": "Podmienky poskytnutia príspevku a zmluvné podmienky trvajú aj pri ŽoP",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "PK2",
+     "nazov": "ŽoP predložila oprávnená osoba, inak je priložený sken podpísaného formulára ŽoP",
+     "pocty": {
+      "na_preverenie": 1362
+     }
+    },
+    {
+     "id": "PK3",
+     "nazov": "Finančná kontrola na mieste, ak ju poskytovateľ vykoná",
      "pocty": {
       "mimo_podkladov": 1362
      }
@@ -1246,15 +1484,11 @@
      "n": 250,
      "zachytene": 0,
      "presne": 250,
-     "falosneOk": 205,
+     "falosneOk": 0,
      "stavy": {
       "mimo_podkladov": 250
      },
-     "priklady": [
-      "25589349: mimo_podkladov / ciastocne_overene: Zadané údaje o hotovosti sú v limitoch, nie je však zadané: najvyššia suma za mesiac; či sa hotovosťou platil dlhodobý majetok. Limity hotovosti sa preto neoverili celé.",
-      "401201A012300401: mimo_podkladov / ciastocne_overene: Zadané údaje o hotovosti sú v limitoch, nie je však zadané: najvyššia suma za mesiac; či sa hotovosťou platil dlhodobý majetok. Limity hotovosti sa preto neoverili celé.",
-      "401201A012300901: mimo_podkladov / ciastocne_overene: Zadané údaje o hotovosti sú v limitoch, nie je však zadané: najvyššia suma za mesiac; či sa hotovosťou platil dlhodobý majetok. Limity hotovosti sa preto neoverili celé."
-     ]
+     "priklady": []
     },
     {
      "nazov": "Prijímateľ s neznámym statusom platiteľa DPH žiada aj DPH",
@@ -1289,15 +1523,11 @@
      "n": 250,
      "zachytene": 0,
      "presne": 250,
-     "falosneOk": 206,
+     "falosneOk": 0,
      "stavy": {
       "mimo_podkladov": 250
      },
-     "priklady": [
-      "25589349: mimo_podkladov / ciastocne_overene: VO s PHZ od 50 000 EUR: VO81520301 (1 449 763,22 EUR, Podlimitná zákazka so zverejnením podľa § 110 ZVO). Pri týchto postupoch môže byť kontrola po uzavretí zmluvy povinná; jej výsledok verejné dáta n",
-      "401201A012300401: mimo_podkladov / ciastocne_overene: VO s PHZ od 50 000 EUR: VO36862372 (1 280 029,53 EUR, Verejná súťaž podľa zákona č. 343/2015 Z. z.). Pri týchto postupoch môže byť kontrola po uzavretí zmluvy povinná; jej výsledok verejné dáta neobsa",
-      "401201A012300901: mimo_podkladov / ciastocne_overene: VO s PHZ od 50 000 EUR: VO36862372 (1 280 029,53 EUR, Verejná súťaž podľa zákona č. 343/2015 Z. z.). Pri týchto postupoch môže byť kontrola po uzavretí zmluvy povinná; jej výsledok verejné dáta neobsa"
-     ]
+     "priklady": []
     },
     {
      "nazov": "Účtovný doklad výdavku bez sumy",
@@ -1306,15 +1536,11 @@
      "n": 250,
      "zachytene": 0,
      "presne": 250,
-     "falosneOk": 206,
+     "falosneOk": 0,
      "stavy": {
       "mimo_podkladov": 250
      },
-     "priklady": [
-      "25589349: mimo_podkladov / ciastocne_overene: Ostatné žiadané sumy neprevyšujú výšku výdavkov ani sumy dokladov. Neoverené pre chýbajúcu sumu: doklad 20250011 bez sumy v dátach.",
-      "401201A012300401: mimo_podkladov / ciastocne_overene: Ostatné žiadané sumy neprevyšujú výšku výdavkov ani sumy dokladov. Neoverené pre chýbajúcu sumu: doklad 2026011 bez sumy v dátach.",
-      "401201A012300901: mimo_podkladov / ciastocne_overene: Ostatné žiadané sumy neprevyšujú výšku výdavkov ani sumy dokladov. Neoverené pre chýbajúcu sumu: doklad 2026081 bez sumy v dátach."
-     ]
+     "priklady": []
     },
     {
      "nazov": "Položka dokladu bez sadzby a DPH",
@@ -1323,16 +1549,12 @@
      "n": 250,
      "zachytene": 2,
      "presne": 248,
-     "falosneOk": 192,
+     "falosneOk": 0,
      "stavy": {
       "mimo_podkladov": 248,
       "na_preverenie": 2
      },
-     "priklady": [
-      "25589349: mimo_podkladov / ciastocne_overene: Základ dane × sadzba sedí s DPH v 19 položkách so všetkými údajmi. Neoverené: položky bez základu, sadzby alebo DPH v dokladoch 20250011 (1).",
-      "401201A012300401: mimo_podkladov / ciastocne_overene: Základ dane × sadzba sedí s DPH v 2 položkách so všetkými údajmi. Neoverené: položky bez základu, sadzby alebo DPH v dokladoch 2026011 (1).",
-      "401201A012300901: mimo_podkladov / ciastocne_overene: Základ dane × sadzba sedí s DPH v 2 položkách so všetkými údajmi. Neoverené: položky bez základu, sadzby alebo DPH v dokladoch 2026081 (1)."
-     ]
+     "priklady": []
     },
     {
      "nazov": "Výdavok so zmluvou z VO, ktorá v dátach chýba",
@@ -1341,16 +1563,12 @@
      "n": 250,
      "zachytene": 7,
      "presne": 243,
-     "falosneOk": 205,
+     "falosneOk": 0,
      "stavy": {
       "mimo_podkladov": 243,
       "na_preverenie": 7
      },
-     "priklady": [
-      "25589349: mimo_podkladov / ciastocne_overene: Výdavky nemajú priradenú zmluvu z VO so sumou. Neoverené pre chýbajúcu sumu zmluvy: zmluva id 60749 (VO chýba v dátach); zmluva id -999999 (VO chýba v dátach).",
-      "401201A012300401: mimo_podkladov / ciastocne_overene: Nárokované výdavky neprevyšujú sumy 1 zmlúv z VO so známou sumou. Neoverené pre chýbajúcu sumu zmluvy: zmluva id -999999 (VO chýba v dátach).",
-      "401201A012300901: mimo_podkladov / ciastocne_overene: Nárokované výdavky neprevyšujú sumy 1 zmlúv z VO so známou sumou. Neoverené pre chýbajúcu sumu zmluvy: zmluva id -999999 (VO chýba v dátach)."
-     ]
+     "priklady": []
     },
     {
      "nazov": "Na každom mieste povinnej prílohy je len prázdna šablóna",
@@ -1400,7 +1618,7 @@
   },
   "ukazovatele": {
    "pripadov": 242,
-   "trvanieMs": 197,
+   "trvanieMs": 227,
    "navrhy": {
     "na_preverenie": 242
    },
@@ -1426,6 +1644,41 @@
       "na_preverenie": 221,
       "neuplatnuje_sa": 20,
       "mimo_podkladov": 1
+     }
+    },
+    {
+     "id": "UK4",
+     "nazov": "Dosiahnutá hodnota MU je preukázaná spôsobom podľa karty MU",
+     "pocty": {
+      "na_preverenie": 242
+     }
+    },
+    {
+     "id": "UK5",
+     "nazov": "Iné údaje sú vykázané správne a pravdivo",
+     "pocty": {
+      "na_preverenie": 242
+     }
+    },
+    {
+     "id": "UK6",
+     "nazov": "Ciele projektu merané MU sa udržia počas obdobia udržateľnosti",
+     "pocty": {
+      "mimo_podkladov": 242
+     }
+    },
+    {
+     "id": "UK7",
+     "nazov": "Monitorovaciu správu (ZtM) predložila oprávnená osoba",
+     "pocty": {
+      "na_preverenie": 242
+     }
+    },
+    {
+     "id": "UK8",
+     "nazov": "Finančná kontrola na mieste, ak poskytovateľ nezíska primerané uistenie",
+     "pocty": {
+      "mimo_podkladov": 242
      }
     }
    ],
@@ -1682,5 +1935,5 @@
    "ok": true
   }
  ],
- "trvanieMs": 43891
+ "trvanieMs": 44652
 }

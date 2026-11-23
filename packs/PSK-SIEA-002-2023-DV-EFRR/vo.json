@@ -154,9 +154,16 @@
       "vzor": "konflikt|§ ?23|prepojen|nestrann"
      },
      {
-      "nazov": "meno, funkcia, dátum a podpis zodpovednej osoby",
+      "nazov": "meno, funkcia a dátum zodpovednej osoby",
+      "vzor": "[0-9]{1,2}[.] ?[0-9]{1,2}[.] ?[0-9]{4}|[0-9]{1,2}[.] ?(januára|februára|marca|apríla|mája|júna|júla|augusta|septembra|októbra|novembra|decembra) +[0-9]{4}",
+      "vzorOkolie": 1
+     },
+     {
+      "nazov": "podpis zodpovednej osoby",
       "vzor": "podpis|podpísan",
-      "vizualne": true
+      "vizualne": true,
+      "formalna": true,
+      "vzorOkolie": 1
      }
     ]
    },
@@ -164,6 +171,171 @@
     "dokument": "Príručka k procesu a kontrole VO/O v2",
     "cast": "Podlimitné zákazky – všeobecné pravidlá",
     "znenie": "Postup prijímateľa pri zadávaní podlimitnej zákazky bude zdokumentovaný v rámci záznamu zo zadania zákazky (netýka sa zjednodušeného postupu pre zákazky na bežne dostupné tovary a služby)."
+   }
+  }
+ ],
+ "podmienky": [
+  {
+   "id": "VK1",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Postup VO zodpovedá predpokladanej hodnote zákazky",
+   "okamih": "konanie",
+   "pravidla": [
+    "V01",
+    "V03"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "postup pri nadlimitných zákazkách, koncesiách a výnimkách a správnosť určenia PHZ (V03 porovnáva PHZ len s cenou zmlúv)",
+   "citacia": {
+    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "cast": "Určenie PHZ",
+    "znenie": "PHZ sa stanovuje ako cena bez DPH s cieľom ustanovenia postupu VO podľa finančných limitov"
+   }
+  },
+  {
+   "id": "VK2",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Spôsob určenia PHZ je písomne zdokumentovaný",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "dokumentácia k určeniu PHZ (prieskum trhu alebo iný postup, podklady nie staršie ako 6 mesiacov ku dňu vyhlásenia VO)",
+   "citacia": {
+    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "cast": "Určenie PHZ",
+    "znenie": "Informácie a podklady, na základe ktorých bola určená PHZ nesmú byť staršie ako 6 mesiacov ku dňu vyhlásenia VO. [...] Prijímateľ písomne zdokumentuje spôsob určenia PHZ."
+   }
+  },
+  {
+   "id": "VK3",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Hospodárska súťaž nie je narušená zvýhodnením ani znevýhodnením uchádzačov",
+   "okamih": "konanie",
+   "pravidla": [
+    "V02"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "nediskriminačný opis predmetu zákazky, primerané podmienky účasti a kritériá na vyhodnotenie ponúk (V02 je len rizikový indikátor nízkeho počtu ponúk)",
+   "citacia": {
+    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "cast": "Realizácia verejného obstarávania, Všeobecné pravidlá",
+    "znenie": "Príprava a zadávanie zákaziek, koncesií a súťaže návrhov sa nesmú realizovať so zámerom nedovoleného uplatnenia výnimky zo ZVO alebo narušenia hospodárskej súťaže bezdôvodným zvýhodnením alebo znevýhodnením hospodárskych subjektov."
+   }
+  },
+  {
+   "id": "VK4",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Predmet zákazky nie je rozdelený s cieľom znížiť PHZ pod finančné limity",
+   "okamih": "konanie",
+   "pravidla": [
+    "V05"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "zákazky toho istého obstarávateľa mimo tejto výzvy a zákazky bez uvedenej PHZ",
+   "citacia": {
+    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "cast": "Výber postupu, § 6 ods. 16 ZVO",
+    "znenie": "V súlade s § 6 ods. 16 ZVO nemôže prijímateľ zákazku, koncesiu alebo súťaž návrhov rozdeliť ani zvoliť spôsob určenia PHZ, ak by výsledkom tohto postupu bolo zníženie predpokladanej hodnoty pod finančné limity podľa ZVO"
+   }
+  },
+  {
+   "id": "VK5",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Výnimka zo ZVO nie je uplatnená na obídenie postupov VO",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "ak je zákazka zadaná v režime výnimky (§ 1 ods. 2 až 14 ZVO), či výnimku naozaj spĺňa",
+   "citacia": {
+    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "cast": "Zadávanie zákaziek, na ktoré sa zákon o verejnom obstarávaní nevzťahuje",
+    "znenie": "Prijímateľ nesmie zadať zákazku v režime výnimky s cieľom vyhnúť sa použitiu pravidiel a postupov zadávania zákaziek podľa ZVO."
+   }
+  },
+  {
+   "id": "VK6",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Vo VO nedošlo ku konfliktu záujmov",
+   "okamih": "konanie",
+   "pravidla": [
+    "V06"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "prepojenie ďalších zainteresovaných osôb s uchádzačmi (nielen štatutárov) a stav k dátumu zadania zákazky; V06 porovnáva len mená štatutárov v aktuálnom RPO",
+   "citacia": {
+    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "cast": "Konflikt záujmov vo verejnom obstarávaní",
+    "znenie": "Podľa § 23 ods. 1 ZVO je verejný obstarávateľ povinný zabezpečiť, aby vo verejnom obstarávaní nedošlo ku konfliktu záujmov, ktorý by mohol narušiť alebo obmedziť hospodársku súťaž alebo porušiť princíp transparentnosti a princíp rovnakého zaobchádzania"
+   }
+  },
+  {
+   "id": "VK7",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Úspešný uchádzač spĺňa podmienky účasti a nie je dôvod na jeho vylúčenie",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "podmienky účasti osobného postavenia úspešného uchádzača (§ 32 ods. 1 písm. e) a f) ZVO), dôvod na vylúčenie pre konflikt záujmov a zápis v registri partnerov verejného sektora",
+   "citacia": {
+    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "cast": "Podlimitné zákazky s oslovením min. troch hospodárskych subjektov",
+    "znenie": "Prijímateľ nesmie uzavrieť zmluvu s uchádzačom, ktorý nespĺňa podmienky účasti osobného postavenia podľa § 32 ods. 1 písm. e) a f) ZVO alebo ak u neho existuje dôvod na vylúčenie podľa § 40 ods. 6 písm. f) ZVO (konflikt záujmov nemožno odstrániť inými účinnými opatreniami), ustanovenie § 11 ZVO (povinnosť zápisu do RPVS) tým nie je dotknuté."
+   }
+  },
+  {
+   "id": "VK8",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Postup je zdokumentovaný v zázname zo zadania zákazky",
+   "okamih": "konanie",
+   "pravidla": [
+    "V07"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "ostatná dokumentácia VO (výzva na predkladanie ponúk, ponuky, zmluva) a súlad údajov záznamu s údajmi VO v ITMS21+",
+   "citacia": {
+    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "cast": "Podlimitné zákazky – všeobecné pravidlá",
+    "znenie": "Postup prijímateľa pri zadávaní podlimitnej zákazky bude zdokumentovaný v rámci záznamu zo zadania zákazky (netýka sa zjednodušeného postupu pre zákazky na bežne dostupné tovary a služby)."
+   }
+  },
+  {
+   "id": "VK9",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Dodatky k zmluvám z VO sú predložené na kontrolu",
+   "okamih": "konanie",
+   "pravidla": [
+    "V04"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "dodatky, ktoré nemenia cenu (napr. predĺženie lehoty alebo zmena predmetu plnenia); V04 zachytí len fakturáciu nad sumu zmlúv",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.13.5, poznámka 71",
+    "znenie": "Platí, že Prijímateľ je povinný predložiť Poskytovateľovi na kontrolu všetky dodatky súvisiace s výsledkom VO alebo výsledkom obstarávania po ich podpise."
+   }
+  },
+  {
+   "id": "VK10",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Dodatky k zmluvám z VO sú v súlade s § 18 ZVO",
+   "okamih": "realizacia",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "súlad každého dodatku s § 18 ZVO a so schválenou ŽoNFP a zmluvou o NFP",
+   "citacia": {
+    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "cast": "Kontrola zmien zmluvy - dodatkov",
+    "znenie": "Predmetom kontroly dodatkov je posúdenie ich súladu s príslušnými ustanoveniami ZVO, a to najmä ustanovením § 18 ZVO, ak ide o zmenu zmluvy, ktorá sa viaže k zákazke verejného obstarávania."
    }
   }
  ]

@@ -8,7 +8,7 @@
  "platnaOd": "2026-06-01",
  "zdroje": [
   { "nazov": "Vzor zmluvy o NFP, príloha č. 1 Všeobecné zmluvné podmienky, verzia 2.2", "skratka": "VZP verzia 2.2", "subor": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt", "url": "" },
-  { "nazov": "Príručka pre prijímateľa DOP, verzia 3.2", "subor": "data/zdroje/SIEA-prirucka-DOP-3.2/prirucka-DOP-3.2.pdf", "url": "" },
+  { "nazov": "Príručka pre prijímateľa DOP, verzia 3.2", "skratka": "Príručka pre prijímateľa DOP 3.2", "subor": "data/zdroje/SIEA-prirucka-DOP-3.2/prirucka-DOP-3.2.pdf", "url": "" },
   { "nazov": "Príloha č. 12 príručky: Sankčná kalkulačka MU", "subor": "data/zdroje/SIEA-prirucka-DOP-3.2/priloha-12-Sank_n_kalkula_ka_MU.ods", "url": "" },
   { "nazov": "Projekty výzvy: cieľové hodnoty MU a harmonogram monitorovania", "subor": "data/odvodene/PSK-SIEA-002-2023-DV-EFRR/projekty.json", "url": "https://api.itms21.sk/public/v1/projekt" }
  ],
@@ -33,6 +33,132 @@
    "id": "U03", "ppp": null, "nazov": "Monitorovacie správy predložené do uplynutých termínov", "druh": "data", "kontrola": "monitorovanie",
    "citacia": { "dokument": "VZP verzia 2.2", "cast": "čl. 4 (monitorovanie)", "znenie": "Prijímateľ je povinný do 30 dní od ukončenia Realizácie aktivít Projektu, najneskôr však spolu so Žiadosťou o platbu (s príznakom „záverečná“), predložiť Poskytovateľovi záverečnú Monitorovaciu správu." },
    "overenieZdroj": "Termíny: ITMS21+ projekt, pole monitorovacieTerminy (datumPredlozeniaNajneskorsi)."
+  }
+ ],
+ "podmienky": [
+  {
+   "id": "UK1",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Cieľová hodnota MU výstupu je dosiahnutá",
+   "okamih": "konanie",
+   "pravidla": [
+    "U01"
+   ],
+   "pokrytie": "uplne",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 1 ods. 3, definícia Merateľného ukazovateľa výstupu",
+    "znenie": "dosiahnutie jeho cieľovej hodnoty je pre Prijímateľa záväzné. Pri nedosiahnutí cieľovej hodnoty Merateľného ukazovateľa výstupu sa uplatní tzv. sankčný mechanizmus podľa článku 18 ods. 1 písm. h) VZP"
+   }
+  },
+  {
+   "id": "UK2",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Cieľová hodnota MU výsledku je dosiahnutá alebo je preukázaný externý vplyv",
+   "okamih": "konanie",
+   "pravidla": [
+    "U02"
+   ],
+   "pokrytie": "uplne",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 1 ods. 3, definícia Merateľného ukazovateľa výsledku",
+    "znenie": "Nedosiahnutie cieľovej hodnoty Merateľného ukazovateľa výsledku v rámci akceptovateľnej miery odchýlky pri preukázaní externého vplyvu mimo vplyv Prijímateľa nemusí byť spojené s finančnou sankciou vo vzťahu k Prijímateľovi"
+   }
+  },
+  {
+   "id": "UK3",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Monitorovacie správy sú predložené v termínoch",
+   "okamih": "konanie",
+   "pravidla": [
+    "U03"
+   ],
+   "pokrytie": "uplne",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 4 Povinnosti spojené s monitorovaním projektu",
+    "znenie": "Prijímateľ je povinný počas Realizácie aktivít projektu predložiť Poskytovateľovi výročnú Monitorovaciu správu za obdobie kalendárneho roka od 1.1. roku n do 31.12. roku n, najneskôr do 31. januára roku n+1."
+   }
+  },
+  {
+   "id": "UK4",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Dosiahnutá hodnota MU je preukázaná spôsobom podľa karty MU",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "doklady k deklarovanej dosiahnutej hodnote každého MU podľa spôsobu preukázania v karte a definičnej matici MU (príloha výzvy); dosiahnuté hodnoty sa do softvéru zadávajú ručne",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.12.4 Merateľné ukazovatele a iné údaje a preukázanie ich plnenia",
+    "znenie": "Všetky relevantné informácie o MU (karta a definičná matica MU) a o iných údajoch (karta a definičná matica iného údaja), vrátane spôsobu preukázania dosiahnutej hodnoty sú uvedené v prílohe konkrétnej Výzvy s názvom „Zoznam merateľných ukazovateľov projektu a iných údajov“"
+   }
+  },
+  {
+   "id": "UK5",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Iné údaje sú vykázané správne a pravdivo",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "hodnoty iných údajov stanovených v zmluve o NFP, ktoré prijímateľ vykazuje v monitorovacej správe",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.12.4 Merateľné ukazovatele a iné údaje a preukázanie ich plnenia",
+    "znenie": "Prijímateľ je povinný vykazovať iné údaje v zmysle Zmluvy o poskytnutí NFP, a to počas celého obdobia realizácie a udržateľnosti projektu (v závislosti od stanoveného času plnenia iného údaja), pričom je povinný vykazovať správne a pravdivé hodnoty v rámci všetkých iných údajov, ktoré sú pre projekt relevantné."
+   }
+  },
+  {
+   "id": "UK6",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Ciele projektu merané MU sa udržia počas obdobia udržateľnosti",
+   "okamih": "udrzatelnost",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "zachovanie dosiahnutých hodnôt MU a ostatných podmienok podľa čl. 65 nariadenia o spoločných ustanoveniach",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 1 ods. 3, definícia Udržateľnosti Projektu",
+    "znenie": "Udržateľnosť Projektu (alebo Obdobie Udržateľnosti Projektu) - udržanie (zachovanie) cieľov realizovaného Projektu definovaných prostredníctvom Merateľných ukazovateľov Projektu počas stanoveného obdobia (Obdobia Udržateľnosti Projektu), ako aj dodržanie ostatných podmienok vyplývajúcich z čl. 65 nariadenia o spoločných ustanoveniach."
+   }
+  },
+  {
+   "id": "UK7",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Monitorovaciu správu (ZtM) predložila oprávnená osoba",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "kto zmenu typu monitorovanie v ITMS21+ predložil (štatutárny orgán prijímateľa alebo splnomocnená osoba pre projekt)",
+   "formalna": true,
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.12 Monitorovanie projektu",
+    "znenie": "ZtM predkladá [...] štatutárny orgán Prijímateľa alebo splnomocnená osoba pre projekt."
+   }
+  },
+  {
+   "id": "UK8",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Finančná kontrola na mieste, ak poskytovateľ nezíska primerané uistenie",
+   "okamih": "na_mieste",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "realizácia projektu a dosiahnuté hodnoty MU na mieste u prijímateľa",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.12.1 Predkladanie zmien typu monitorovanie počas realizácie projektov",
+    "znenie": "Kontrola ZtM-V môže byť podnetom na výkon FKnM, ak Poskytovateľ na základe údajov a predloženej dokumentácie nezískal primerané uistenie o realizácii projektu."
+   }
   }
  ]
 }

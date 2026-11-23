@@ -158,5 +158,173 @@
     "znenie": "V oznámení uvedie popis a dôvody navrhovanej zmeny, jej dopad najmä na ciele, aktivity, merateľné ukazovatele a rozpočet projektu a predloží podpornú dokumentáciu podľa typu zmeny"
    }
   }
+ ],
+ "podmienky": [
+  {
+   "id": "ZK1",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Druh zmeny a formulár zodpovedajú skutočnému rozsahu a dopadu zmeny",
+   "okamih": "konanie",
+   "pravidla": [
+    "Z01"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "zatriedenie podľa skutočného rozsahu, dopadu a účinkov zmeny, nielen podľa jej textu (poskytovateľ môže zmenu preklasifikovať na významnejšiu)",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 16 Zmena zmluvy",
+    "znenie": "Poskytovateľ je oprávnený preklasifikovať zmenu oznámenú Prijímateľom z režimu menej významnej zmeny na významnejšiu zmenu, ak má za to, že skutočný rozsah zmeny, jej dopad alebo jej účinky na práva alebo povinnosti Zmluvných strán"
+   }
+  },
+  {
+   "id": "ZK2",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Zmena nie je podstatnou zmenou projektu",
+   "okamih": "konanie",
+   "pravidla": [
+    "Z02"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "posúdenie podľa definície podstatnej zmeny v čl. 1 ods. 3 VZP (vplyv na povahu, ciele alebo podmienky realizácie projektu); softvér hľadá len znaky v texte zmeny",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 16 Zmena zmluvy",
+    "znenie": "Zmenu, ktorá má charakter Podstatnej zmeny Projektu, nie je možné schváliť. Projekt, ktorý je zaťažený Podstatnou zmenou Projektu (definovanou v čl. 1 ods. 3 VZP), nie je možné financovať."
+   }
+  },
+  {
+   "id": "ZK3",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Zmena nenavyšuje NFP",
+   "okamih": "konanie",
+   "pravidla": [
+    "Z03"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "výška NFP po zmene, ak nie je zadaná a text zmeny navýšenie nenaznačuje",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.13.5",
+    "znenie": "Výška NFP uvedená v Prílohe č. 2 Zmluvy o poskytnutí NFP nesmie byť prekročená a nie je možné ju zmenou žiadnym spôsobom navyšovať"
+   }
+  },
+  {
+   "id": "ZK4",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Predĺženie hlavných aktivít je v limite a ich dokončenie v ňom je reálne",
+   "okamih": "konanie",
+   "pravidla": [
+    "Z04"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "či zmena mení koniec hlavných aktivít, ak to typ zmeny ani zadané údaje neuvádzajú, a či zostávajúca doba stačí na ich dokončenie",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 16 Zmena zmluvy",
+    "znenie": "Dobu Realizácie hlavných aktivít Projektu nie je možné predĺžiť nad rámec maximálnej doby, ktorá pre realizáciu hlavných aktivít projektov vyplýva z Výzvy [...] Poskytovateľ neakceptuje predĺženie doby Realizácie hlavných aktivít Projektu, ak z existujúcich dokladov, ktorých relevantnosť je nepochybná, vyplýva, že doba od oznámenia zmeny až do uplynutia maximálnej doby, ktorá pre realizáciu projektov vyplýva z Výzvy a ktorá je uvedená pri definícii Realizácie hlavných aktivít Projektu v čl. 1 ods. 3 VZP, je kratšia ako doba nevyhnutná na Ukončenie realizácie hlavných aktivít Projektu."
+   }
+  },
+  {
+   "id": "ZK5",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Významnejšia zmena je predložená včas",
+   "okamih": "konanie",
+   "pravidla": [
+    "Z05"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "lehota pri zmene, ktorú softvér podľa jej textu nezatriedil ako významnejšiu",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 16 Zmena zmluvy",
+    "znenie": "Významnejšia zmena ex ante nadobúda účinnosť, vrátane jej dôsledkov z hľadiska oprávnenosti výdavkov, v kalendárny deň odoslania žiadosti o zmenu zo strany Prijímateľa Poskytovateľovi, ak bola zmena schválená"
+   }
+  },
+  {
+   "id": "ZK6",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Znížená cieľová hodnota MU výsledku neklesne pod hranicu zo zmluvy",
+   "okamih": "konanie",
+   "pravidla": [
+    "Z06"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "zníženie cieľovej hodnoty MU, ak nová hodnota nie je zadaná",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 16 Zmena zmluvy",
+    "znenie": "Poskytovateľ zníženie cieľovej hodnoty Merateľného ukazovateľa výsledku neschváli, ak by v dôsledku zníženia cieľová hodnota Merateľného ukazovateľa výsledku klesla pod hranicu vyjadrenú v čl. 4 ods. 4.3 zmluvy oproti výške cieľovej hodnoty Merateľného ukazovateľa výsledku, ktorá bola uvedená v Schválenej žiadosti o NFP."
+   }
+  },
+  {
+   "id": "ZK7",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Žiadosť o zmenu je riadne odôvodnená a obsahuje požadované údaje a prílohy",
+   "okamih": "konanie",
+   "pravidla": [
+    "Z07",
+    "Z08"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "úplnosť údajov formulára OoZ alebo ŽoZZ (prílohy č. 2 a 3 príručky) a vecná správnosť odôvodnenia",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 16 Zmena zmluvy",
+    "znenie": "Žiadosť o zmenu Zmluvy o poskytnutí NFP týkajúca sa významnejšej zmeny musí byť riadne odôvodnená a musí obsahovať informácie/údaje, ktoré stanovuje Zmluva o poskytnutí NFP a Právny dokument, inak je Poskytovateľ oprávnený ju bez ďalšieho posudzovania neschváliť."
+   }
+  },
+  {
+   "id": "ZK8",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Zmena nepremiestni projekt mimo oprávnené územie",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "ak zmena mení miesto realizácie, či ostáva na oprávnenom území podľa výzvy",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 16 Zmena zmluvy",
+    "znenie": "Zmeny podľa ods. 12 písm. a) a b) tohto článku nie je možné schváliť najmä vtedy, ak by v dôsledku zmeny došlo k premiestneniu mimo oprávnené územie/miesto vymedzené vo Výzve"
+   }
+  },
+  {
+   "id": "ZK9",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Formulár OoZ alebo ŽoZZ predložila a podpísala oprávnená osoba",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "kto formulár predložil a podpísal (štatutárny orgán prijímateľa alebo splnomocnená osoba pre projekt)",
+   "formalna": true,
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.13 Zmeny projektu",
+    "znenie": "Formulár OoZ alebo ŽoZZ predkladá a podpisuje štatutárny orgán Prijímateľa alebo splnomocnená osoba pre projekt."
+   }
+  },
+  {
+   "id": "ZK10",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Finančná kontrola na mieste k zmene, ak ju poskytovateľ vykoná",
+   "okamih": "na_mieste",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "skutočný stav projektu, ktorého sa zmena týka",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.13 Zmeny projektu",
+    "znenie": "Vo vzťahu k predloženému OoZ alebo ŽoZ, Poskytovateľ vykoná kontrolu a v prípade potreby aj finančnú kontrolu na mieste a to podľa postupov definovaných v kapitole 7 tejto Príručky."
+   }
+  }
  ]
 }

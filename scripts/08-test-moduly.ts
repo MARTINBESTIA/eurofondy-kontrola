@@ -363,3 +363,5 @@ fs.writeFileSync(path.join(KOREN, 'eval', 'test-moduly.json'), JSON.stringify(vy
 const fok = Object.values(vystup.moduly).flatMap((x: any) => x.zasadene ?? []).reduce((s: number, z: any) => s + z.falosneOk, 0);
 const spolu = Object.values(vystup.moduly).flatMap((x: any) => x.zasadene ?? []).reduce((s: number, z: any) => s + z.n, 0);
 console.log(`\nZasadených chýb spolu ${spolu}, falošne OK ${fok}. Hotovo za ${(vystup.trvanieMs / 1000).toFixed(1)} s → eval/test-moduly.json`);
+// Falošné OK (splnené pravidlo alebo OK výrok pri zasadenej chybe) je najhorší omyl. Od inventára podmienok v moduloch nesmie nastať.
+if (fok) { console.log(`✗ falošne OK pri zasadených chybách: ${fok}`); process.exitCode = 1; }

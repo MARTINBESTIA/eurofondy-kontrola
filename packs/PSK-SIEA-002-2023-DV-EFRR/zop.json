@@ -260,5 +260,268 @@
     "znenie": "Doklad o úhrade z internet bankingu neakceptujeme."
    }
   }
+ ],
+ "podmienky": [
+  {
+   "id": "OV1",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Výdavok vznikol počas realizácie hlavných aktivít a bol uhradený do 31. 12. 2029",
+   "okamih": "konanie",
+   "pravidla": [
+    "P01"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "priame spojenie výdavku s projektom",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "Oprávnenými výdavkami sú všetky výdavky, ktoré sú nevyhnutné na Realizáciu aktivít Projektu a ktoré spĺňajú všetky nasledujúce podmienky: [...] vznikli počas Realizácie hlavných aktivít Projektu (od Začatia realizácie hlavných aktivít Projektu do Ukončenia realizácie hlavných aktivít Projektu) na realizáciu Projektu (nutná existencia priameho spojenia s Projektom) v rámci oprávneného časového obdobia stanoveného vo Výzve, najskôr 1. januárom 2021 a boli uhradené najneskôr 31. decembra 2029;"
+   }
+  },
+  {
+   "id": "OV2",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Výdavok patrí do skupiny výdavkov schváleného rozpočtu a zodpovedá obsahu a cieľom projektu",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "zaradenie výdavku do skupiny výdavkov a položky schváleného rozpočtu projektu a jeho súlad s obsahom a cieľmi projektu",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "patria do Skupiny výdavkov odsúhlaseného rozpočtu Projektu pri rešpektovaní postupov pri zmenách Projektu vyplývajúcich zo Zmluvy o poskytnutí NFP, sú v súlade s obsahovou stránkou Projektu a prispievajú k dosiahnutiu plánovaných cieľov Projektu a sú s nimi v súlade;"
+   }
+  },
+  {
+   "id": "OV3",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Výdavok spĺňa podmienky oprávnenosti podľa výzvy a kontrola VO ho pripustila do financovania",
+   "okamih": "konanie",
+   "pravidla": [
+    "P07"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "podmienky oprávnenosti výdavkov podľa výzvy a záver kontroly VO, že výdavky možno pripustiť do financovania (P07 overuje len to, že kontrola VO prebehla pred zahrnutím výdavkov do ŽoP)",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "spĺňajú podmienky oprávnenosti výdavkov v zmysle príslušnej Výzvy alebo iného Právneho dokumentu Poskytovateľa, ktorým sa určujú podmienky oprávnenosti výdavkov a v záveroch z kontroly Verejného obstarávania bolo skonštatované, že je možné výdavky pripustiť do financovania, ak relevantné;"
+   }
+  },
+  {
+   "id": "OV4",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Výdavok zodpovedá rozsahu skutočne realizovanej aktivity",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "rozsah skutočne vykonaných prác, dodávok a služieb voči výdavku (napr. súpis vykonaných prác voči faktúre a rozpočtu)",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "viažu sa na Aktivitu Projektu v rozsahu, v akom bola Aktivita Projektu skutočne realizovaná (napr. v nadväznosti na rozpočet Projektu);"
+   }
+  },
+  {
+   "id": "OV5",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Výdavok je zaúčtovaný v účtovníctve prijímateľa",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "zaúčtovanie výdavku v účtovníctve prijímateľa podľa právnych predpisov SR a zmluvy o NFP",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "boli premietnuté do účtovníctva Prijímateľa v zmysle príslušných právnych predpisov SR a podmienok stanovených v Zmluve o poskytnutí NFP, bez ohľadu na charakter Oprávneného výdavku;"
+   }
+  },
+  {
+   "id": "OV6",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Výdavok je uhradený a úhrada je doložená pred predložením v ŽoP",
+   "okamih": "konanie",
+   "pravidla": [
+    "P01",
+    "P12"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "úhrada každého výdavku dokladom o úhrade (suma, dátum a účet dodávateľa voči účtovnému dokladu) a výnimky z podmienky úhrady podľa systému financovania",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "boli Prijímateľom uhradené (napr. Dodávateľovi, zamestnancom Prijímateľa, v súvislosti s nimi), pričom ich uhradenie musí byť doložené najneskôr pred ich predložením v Žiadosti o platbu, najneskôr však do 31.12.2029;"
+   }
+  },
+  {
+   "id": "OV7",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Výdavok je identifikovateľný, preukázateľný a doložený účtovnými dokladmi",
+   "okamih": "konanie",
+   "pravidla": [
+    "P02",
+    "P05",
+    "P10",
+    "P11"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "súlad údajov účtovného dokladu (číslo, suma, dodávateľ, odberateľ) s výdavkom v ITMS21+ a riadna evidencia dokladov u prijímateľa",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "sú identifikovateľné, preukázateľné a sú doložené Účtovnými dokladmi, ktoré sú riadne evidované u Prijímateľa v súlade s Právnymi predpismi SR;"
+   }
+  },
+  {
+   "id": "OV8",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Výdavok je vynaložený v súlade so zmluvou, právnymi predpismi a pravidlami štátnej pomoci",
+   "okamih": "konanie",
+   "pravidla": [
+    "P04",
+    "P09"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "súlad s ostatnými podmienkami zmluvy o NFP, právnymi predpismi SR a EÚ a pravidlami štátnej pomoci (pravidlá overujú len DPH a hotovostné platby)",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "boli vynaložené v súlade so Zmluvou o poskytnutí NFP, právnymi predpismi SR a Právnymi aktmi EÚ, vrátane Pravidiel štátnej pomoci;"
+   }
+  },
+  {
+   "id": "OV9",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Výdavok je hospodárny, efektívny, účinný a účelný",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "hospodárnosť, efektívnosť, účinnosť a účelnosť výdavku (napr. porovnanie s cenami obvyklými v mieste a čase)",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "sú v súlade s princípmi hospodárnosti, efektívnosti, účinnosti a účelnosti;"
+   }
+  },
+  {
+   "id": "OV10",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Výdavok sa neprekrýva s inými výdavkami ani s inými verejnými zdrojmi",
+   "okamih": "konanie",
+   "pravidla": [
+    "P03"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "prekrytie s výdavkami iných projektov a výziev a s inými verejnými zdrojmi a pravidlá krížového financovania (P03 porovnáva len ŽoP tejto výzvy zo snímky údajov)",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "navzájom sa časovo a vecne neprekrývajú a neprekrývajú sa ani s inými prostriedkami z verejných zdrojov; sú dodržané pravidlá krížového financovania;"
+   }
+  },
+  {
+   "id": "OV11",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Majetok je kúpený od tretích strán za trhových podmienok",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "kúpa od tretích strán za trhových podmienok bez vzťahu kontroly medzi prijímateľom a predávajúcim",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "Majetok nadobudnutý z NFP, na obstaranie ktorého boli výdavky vynaložené, musí byť zakúpený od tretích strán za trhových podmienok na základe výsledkov Verejného obstarávania bez toho, aby nadobúdateľ vykonával kontrolu nad predávajúcim"
+   }
+  },
+  {
+   "id": "OV12",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Výdavok vychádza z VO vykonaného v súlade s pravidlami",
+   "okamih": "konanie",
+   "pravidla": [
+    "P06",
+    "P08"
+   ],
+   "pokrytie": "ciastocne",
+   "neoverene": "súlad samotného VO s pravidlami (modul VO, kontrola VO poskytovateľom) a cena, ktorá spĺňa kritérium hospodárnosti",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "ak Prijímateľovi vzniká povinnosť v súvislosti s Projektom vykonať Verejné obstarávanie podľa právneho predpisu SR alebo Právneho aktu EÚ alebo podľa tejto Zmluvy o poskytnutí NFP alebo Právneho dokumentu, výdavok je oprávnený iba vtedy, ak bolo Verejné obstarávanie vykonané v súlade s ustanoveniami Zmluvy o poskytnutí NFP"
+   }
+  },
+  {
+   "id": "OV13",
+   "typ": "zmluva",
+   "ppp": null,
+   "nazov": "Majetok je nový a nepoužívaný",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "či je obstaraný majetok nový, dosiaľ nepoužívaný a prijímateľ s ním predtým nedisponoval, ak výzva neurčuje iný režim",
+   "citacia": {
+    "dokument": "VZP verzia 2.2",
+    "cast": "čl. 15 Oprávnené výdavky, ods. 1",
+    "znenie": "sú vynakladané na majetok, ktorý je nový, nebol dosiaľ používaný a Prijímateľ s ním v minulosti žiadnym spôsobom nedisponoval, ak z obsahu Výzvy alebo Právneho dokumentu nevyplýva iný režim."
+   }
+  },
+  {
+   "id": "PK1",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Podmienky poskytnutia príspevku a zmluvné podmienky trvajú aj pri ŽoP",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "trvanie podmienok poskytnutia príspevku (napr. prijímateľ nie je v konkurze ani v likvidácii) a plnenie zmluvných podmienok k predloženiu ŽoP",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.6 Žiadosť o platbu",
+    "znenie": "Po predložení ŽoP dôjde zo strany Poskytovateľa okrem iného aj ku kontrole plnenia podmienok poskytnutia príspevku a zmluvných podmienok, a to podľa kapitoly 5 tejto príručky."
+   }
+  },
+  {
+   "id": "PK2",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "ŽoP predložila oprávnená osoba, inak je priložený sken podpísaného formulára ŽoP",
+   "okamih": "konanie",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "kto ŽoP v ITMS21+ odoslal; ak to nebol štatutár, splnomocnená ani poverená osoba, sken formulára ŽoP podpísaného oprávnenou osobou",
+   "formalna": true,
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.6 Žiadosť o platbu",
+    "znenie": "V prípade, ak je ŽoP predložená zo strany určenej osoby prijímateľa, ktorá nie je oprávnenou osobou (štatutár, splnomocnená osoba, poverená osoba), je potrebné predložiť sken podpísaného formulára ŽoP v rámci príloh v evidencii Komunikácia v ITMS21+."
+   }
+  },
+  {
+   "id": "PK3",
+   "typ": "prirucka",
+   "ppp": null,
+   "nazov": "Finančná kontrola na mieste, ak ju poskytovateľ vykoná",
+   "okamih": "na_mieste",
+   "pravidla": [],
+   "pokrytie": "ziadne",
+   "neoverene": "fyzická realizácia aktivít, existencia obstaraného majetku a originály dokladov u prijímateľa",
+   "citacia": {
+    "dokument": "Príručka pre prijímateľa DOP 3.2",
+    "cast": "kap. 4.6 Žiadosť o platbu",
+    "znenie": "Po prijatí ŽoP vykoná poskytovateľ vo vzťahu k predloženej ŽoP finančnú kontrolu a v prípade potreby aj finančnú kontrolu na mieste podľa postupov definovaných v kap. 7.4 tohto materiálu."
+   }
+  }
  ]
 }

@@ -36,9 +36,9 @@ export const NAVRHY_KRATKO = {
   nesplnene_podmienky: 'porušenie', vyzva_na_doplnenie: 'chýbajú podklady', na_preverenie: 'na preverenie', ciastocne_overene: 'čiastočne overené', bez_zisteni: 'bez zistení',
 };
 export const DRUHY = { data: 'výpočet z údajov', priloha: 'prítomnosť dokumentu', llm: 'text číta lokálny model', register: 'register (voliteľný online dopyt alebo overuje poskytovateľ)', rucne: 'overí kontrolór (softvér podmienku nekontroluje celú)', verzia: 'znenie výzvy podľa kola žiadosti' };
-/** Pokrytie podmienky výzvy pravidlami (inventár balíka). */
+/** Pokrytie podmienky z inventára balíka pravidlami. */
 export const POKRYTIE = { uplne: 'pokrytá pravidlami', ciastocne: 'pokrytá čiastočne, zvyšok overí kontrolór', ziadne: 'nepokrytá, overí kontrolór' };
-export const OKAMIH = { konanie: 'v konaní o žiadosti', pred_zmluvou: 'pred uzavretím zmluvy', realizacia: 'počas realizácie' };
+export const OKAMIH = { konanie: 'pri posúdení podania', pred_zmluvou: 'pred uzavretím zmluvy', realizacia: 'počas realizácie', na_mieste: 'pri kontrole na mieste', udrzatelnost: 'v období udržateľnosti' };
 
 export const VYSVETLENIE_PPP = 'PPP je podmienka poskytnutia príspevku. Číslo odkazuje na podmienku vo výzve. Jednu podmienku môže overovať viac kontrolných bodov.';
 export const TIP_FORMALNE = 'Vypnuté: softvér kontroluje obsah podľa požiadaviek výzvy a podpisy na prílohách nehodnotí, preto výrok nikdy nie je „bez zistení“. V ostrej prevádzke zapnite: podpisy potom posúdi človek zo skenu, z textu sa overiť nedajú.';
@@ -118,12 +118,13 @@ function nahladRiadkov(d, nacitajText) {
 export function kresliVerdikt(v, p) {
   v.className = `verdikt ${p.navrh}`;
   const overitelne = p.nalezy.length - p.pocty.neuplatnuje_sa;
-  v.replaceChildren(el('strong', {}, VERDIKTY[p.navrh]), el('span', {}, p.zhrnutie),
+  // replaceChildren vloží null ako text „null“: moduly bez výberu znenia výzvy (vyberVerzie) ho preto nesmú odovzdať.
+  v.replaceChildren(...[el('strong', {}, VERDIKTY[p.navrh]), el('span', {}, p.zhrnutie),
     el('div', { class: 'pokrytie', title: 'Podiel pravidiel, ktoré softvér z podkladov naozaj overil' },
       el('div', { class: 'pruh' }, el('span', { style: `width:${overitelne ? ((p.pocty.splnene + p.pocty.nesplnene) / overitelne) * 100 : 0}%` })),
       el('span', { class: 'male' }, `Overené ${p.pocty.splnene + p.pocty.nesplnene} z ${overitelne} bodov, ktoré sa na prípad vzťahujú`)),
     p.vyberVerzie ? el('div', { class: 'male', title: 'Zmena výzvy platí pre aktuálne posudzované obdobie a nasledujúce (§ 14 ods. 4 zákona č. 121/2022 Z. z.)' }, `Znenie výzvy: ${p.vyberVerzie.zdovodnenie}`) : null,
-    el('div', { class: 'tlmene male' }, `Pravidlá: ${p.verziaBalika} · ${p.model ? `model ${p.model}` : 'bez modelu'}${p.formalne === false ? ' · podpisy nekontrolované' : ''} · ${(p.trvanieMs / 1000).toFixed(1)} s · softvér navrhuje, rozhoduje človek`));
+    el('div', { class: 'tlmene male' }, `Pravidlá: ${p.verziaBalika} · ${p.model ? `model ${p.model}` : 'bez modelu'}${p.formalne === false ? ' · podpisy nekontrolované' : ''} · ${(p.trvanieMs / 1000).toFixed(1)} s · softvér navrhuje, rozhoduje človek`)].filter(Boolean));
 }
 
 /** Zistenia zoskupené podľa stavu; nesplnené, chýbajúce a na preverenie sú rozbalené. */
@@ -150,7 +151,7 @@ export function kresliNalezy(k, nalezy, zoSpisu = false, formularItms) {
         zoSpisu && n.stav === 'splnene' && !n.doklady?.length ? el('p', { class: 'tlmene male' }, n.povodDokladov === 'pravidlo_zmenene'
           ? 'Starší posudok: pravidlo sa odvtedy zmenilo, preto sa citácia z podkladu nedá dohľadať. Pre aktuálny výsledok posúďte žiadosť znova.'
           : 'K tomuto výsledku chýba overiteľná citácia z podkladu.') : null,
-        n.druh === 'rucne' ? el('p', { class: 'tlmene male' }, `Podmienka výzvy z inventára balíka, overuje sa ${OKAMIH[n.okamih] ?? 'podľa výzvy'}. Softvér ju nekontroluje celú, preto je v zozname: posudok nesmie vyzerať úplnejší, než je.`) : null,
+        n.druh === 'rucne' ? el('p', { class: 'tlmene male' }, `Podmienka z inventára balíka, overuje sa ${OKAMIH[n.okamih] ?? 'podľa jej znenia'}. Softvér ju nekontroluje celú, preto je v zozname: posudok nesmie vyzerať úplnejší, než je.`) : null,
         n.dokaz && !n.doklady?.length ? el('div', {}, el('strong', {}, 'Text zaznamenaný pri posúdení'),
           el('p', { class: 'tlmene male' }, 'Posudok pri ňom neuvádza presné miesto v podklade.'), el('blockquote', {}, n.dokaz)) : null,
         el('h4', {}, 'Znenie pravidla'), el('span', { class: 'tlmene' }, `${n.pravidlo} · ${n.citacia.dokument}, ${n.citacia.cast}`), el('blockquote', {}, n.citacia.znenie),

@@ -254,6 +254,7 @@ export const zmeny: Modul<VstupZmena> = {
     return n;
   },
   doklady: dokladyZmeny,
+  inventarPodmienok: true,
   kontroly: { zmena_druh: druh, zmena_podstatna: podstatna, zmena_nfp: nfp, zmena_harmonogram: harmonogram, zmena_lehota: (v) => lenPriZatriedeni(lehota(v)), zmena_mu: ukazovatel, zmena_prilohy: prilohy },
   hlavnyText: (v) => v.odovodnenie,
   kontext: (v) => `Projekt ${v.projekt.kod}: ${v.projekt.nazov}. Predmet zmeny: ${v.zmena.predmet.slice(0, 300)}`,

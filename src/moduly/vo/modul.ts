@@ -221,6 +221,7 @@ export const vo: Modul<VstupVo> = {
     return n;
   },
   doklady: dokladyVo,
+  inventarPodmienok: true,
   kontroly: { vo_postup: postup, vo_ponuky: ponuky, vo_cena: cena, vo_faktury: faktury, vo_delenie: delenie, vo_rpo: rpo },
   hlavnyText: (v) => v.prilohy?.zaznam?.text ?? '',
   kontext: (v) => `Zákazka ${v.vo.kod}: ${v.vo.nazov}; obstarávateľ ${v.vo.obstaravatel.nazov}`,
