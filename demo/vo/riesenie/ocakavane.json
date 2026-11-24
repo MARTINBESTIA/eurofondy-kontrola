@@ -1,0 +1,70 @@
+{
+  "pravidlo": "V07",
+  "zaznamy": [
+    {
+      "subor": "Zaznam_1_stavebne_prace.docx",
+      "chyba": null,
+      "pritomne": [
+        "Názov a predmet zákazky: Obnova budovy o",
+        "Predpokladaná hodnota zákazky bola určen",
+        "Kritérium na vyhodnotenie ponúk: najnižš",
+        "Výzva na predkladanie ponúk bola dňa 02.",
+        "Ponuky v lehote do 23.02.2026 predložili",
+        "Úspešný uchádzač: TERMOSTAV Záhorie, s.r",
+        "Zmluva o dielo bola uzavretá 16.03.2026.",
+        "Všetky zainteresované osoby podľa § 23 Z",
+        "Vypracoval: Ing. Ivan Súťažný, osoba zod",
+        "Podpis: ................................"
+      ],
+      "chybajuci": "Podlimitná zákazka podľa § 108 zákona č."
+    },
+    {
+      "subor": "Zaznam_2_stavebny_dozor.docx",
+      "chyba": "zoznam oslovených hospodárskych subjektov a dátum ich oslovenia",
+      "pritomne": [
+        "Predmet zákazky: výkon stavebného dozoru",
+        "Predpokladaná hodnota zákazky: 9 600,00 ",
+        "Ponuky sa vyhodnotili podľa najnižšej ce",
+        "Cenové ponuky doručené do 20.02.2026: DO",
+        "Ako najvýhodnejšia bola vybraná ponuka s",
+        "Mandátna zmluva bola uzavretá 02.03.2026",
+        "Starostka obce a členovia komisie vyhlás",
+        "Za obstarávateľa: Ing. Ivan Súťažný, oso",
+        "podpis ...................."
+      ],
+      "chybajuci": "Výzva na predloženie cenovej ponuky bola"
+    },
+    {
+      "subor": "Zaznam_3_fotovoltika.docx",
+      "chyba": "skutočnosti o prepojení zainteresovanej osoby a uchádzača podľa § 23 ZVO (konflikt záujmov)",
+      "pritomne": [
+        "Názov zákazky: Dodávka a montáž fotovolt",
+        "Predpokladaná hodnota zákazky: 38 900,00",
+        "Kritériom bola najnižšia cena celkom bez",
+        "Dňa 05.03.2026 bola výzva na predloženie",
+        "Do 19.03.2026 predložili ponuky: SOLARPO",
+        "Úspešným uchádzačom je SOLARPOS s.r.o., ",
+        "Kúpna zmluva s montážou bola podpísaná 0",
+        "Zapísal: Ing. Ivan Súťažný, osoba zodpov",
+        ".............................. (podpis)"
+      ],
+      "chybajuci": "Členovia komisie podpísali čestné vyhlás"
+    },
+    {
+      "subor": "Zaznam_4_energeticky_certifikat.docx",
+      "chyba": "predpokladaná hodnota zákazky v eurách",
+      "pritomne": [
+        "Predmet: vypracovanie energetického cert",
+        "Kritérium vyhodnotenia: najnižšia cena s",
+        "Oslovení dodávatelia (výzva odoslaná 10.",
+        "Ponuky predložili: ENERGO-CERT s.r.o. (1",
+        "Víťaz: ENERGO-CERT s.r.o., IČO 52673413.",
+        "Objednávka č. 41/2026 zo dňa 24.06.2026 ",
+        "Konflikt záujmov podľa § 23 ZVO nebol zi",
+        "Vypracoval: Ing. Ivan Súťažný, osoba zod",
+        "podpis: ................"
+      ],
+      "chybajuci": "Predpokladaná hodnota zákazky: 1 300,00 "
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
+  "nosic": "VO06961964",
+  "poznamka": "Scenáre na reálnych VO z ITMS21+. Úpravy polí platia len pre jedno posúdenie, reálne dáta sa nemenia. Overuje ich npm run test:demo-vo (bez modelu).",
+  "scenare": [
+    { "id": "S0", "kod": "VO06961964", "titul": "Bez úprav: zákazka malého rozsahu, 3 ponuky, zmluva a faktúra v poriadku",
+      "ocakavane": { "navrh": "na_preverenie", "nalezy": { "V01": "splnene", "V02": "splnene", "V03": "splnene", "V04": "splnene", "V05": "splnene", "V06": "mimo_podkladov", "V07": "mimo_podkladov" } } },
+    { "id": "S1", "kod": "VO06961964", "titul": "PHZ 60 000 EUR pri zákazke malého rozsahu (limit 50 000 EUR)", "formular": { "phz": 60000 },
+      "ocakavane": { "navrh": "nesplnene_podmienky", "nalezy": { "V01": "nesplnene" } } },
+    { "id": "S2", "kod": "VO06961964", "titul": "Jediná prijatá ponuka", "formular": { "ponuky": 1 },
+      "ocakavane": { "navrh": "na_preverenie", "nalezy": { "V02": "na_preverenie" } } },
+    { "id": "S3", "kod": "VO06961964", "titul": "3 ponuky, z toho 2 vylúčené (platná zostala jedna)", "formular": { "ponuky": 3, "vylucene": 2 },
+      "ocakavane": { "navrh": "na_preverenie", "nalezy": { "V02": "na_preverenie" } } },
+    { "id": "S4", "kod": "VO06961964", "titul": "Zmluva na 30 000 EUR pri PHZ 14 889,53 EUR", "formular": { "zmluva": 30000 },
+      "ocakavane": { "navrh": "na_preverenie", "nalezy": { "V03": "na_preverenie", "V04": "splnene" } } },
+    { "id": "S5", "kod": "VO06961964", "titul": "Zmluva znížená na 10 000 EUR, faktúra zostala 17 693,38 EUR", "formular": { "zmluva": 10000 },
+      "ocakavane": { "navrh": "na_preverenie", "nalezy": { "V04": "na_preverenie" } } },
+    { "id": "S6", "kod": "VO06961964", "titul": "Vymazaná PHZ (chýbajúci údaj)", "formular": { "phz": null },
+      "ocakavane": { "navrh": "na_preverenie", "nalezy": { "V01": "mimo_podkladov", "V03": "mimo_podkladov" } } },
+    { "id": "S7", "kod": "VO01501526", "titul": "Bez úprav: podlimitné stavebné práce, PHZ 359 984,85 EUR tesne pod limitom 360 000 EUR",
+      "ocakavane": { "navrh": "na_preverenie", "nalezy": { "V01": "splnene", "V02": "splnene", "V03": "splnene", "V04": "splnene" } } },
+    { "id": "S8", "kod": "VO01501526", "titul": "Tá istá zákazka s PHZ 365 000 EUR (nad limitom)", "formular": { "phz": 365000 },
+      "ocakavane": { "navrh": "nesplnene_podmienky", "nalezy": { "V01": "nesplnene" } } },
+    { "id": "R1", "kod": "VO02211653", "titul": "Reálne VO s jedinou ponukou (rizikový indikátor)",
+      "ocakavane": { "navrh": "na_preverenie", "nalezy": { "V02": "na_preverenie" } } },
+    { "id": "R2", "kod": "VO61189849", "titul": "Reálne VO: zákazka malého rozsahu s PHZ 270 193,23 EUR (jediné VO výzvy s nesplnenou podmienkou)",
+      "ocakavane": { "navrh": "nesplnene_podmienky", "nalezy": { "V01": "nesplnene" } } }
+  ]
+}

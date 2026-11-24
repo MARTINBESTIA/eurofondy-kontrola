@@ -21,6 +21,8 @@ efektívnosť a OZE vo verejných budovách):
 | 5 | Žiadosť o platbu | finančný manažér | 1 362 ŽoP (8 650 výdavkov) | 12 | obdobie oprávnenosti, sumy voči dokladom, dvojité nárokovanie, DPH, väzba na VO, hotovosť, prílohy, faktúra (§ 74 ZDPH), výpis |
 | 6 | Merateľné ukazovatele | prijímateľ, monitorovanie | 242 projektov | 3 | plnenie MU a krátenie NFP podľa sankčnej kalkulačky SIEA, včasnosť monitorovacích správ (deň predloženia ku každému termínu) |
 
+Otvorené úlohy (napr. dohľadanie údajov z verejných registrov, spresnenie poistiek) sú v `TODO.md`.
+
 Zdroje pravidiel: výzva (Zmena č. 3), VZP verzia 2.2, Príručka pre prijímateľa DOP 3.2 (1. 6. 2026) a jej
 príloha č. 12 (sankčná kalkulačka MU), Príručka k procesu a kontrole VO/O verzia 2 (1. 8. 2024). Pri
 plánovaní výziev sú pravidlami údaje ITMS21+, nie právny text, a citácie to tak aj uvádzajú.
@@ -44,12 +46,14 @@ npm run test:podatelna    # test 5: podateľňa na demo podaniach, bez modelu (a
 npm run test:inventar     # inventár podmienok, poistky, verzie podľa kola a zmeny výzvy (bez siete)
 npm run test:sada         # test 6: 15 nových podaní z demo/testovacia-sada cez API podateľne, bez modelu (asi 6 s)
 npm run test:nova         # test 6 na novej skúšobnej žiadosti z demo/nova-ziadost (asi 3 s)
+npm run test:demo-vo      # test 7: cvičná sada VO z demo/vo cez HTTP, bez modelu (--model posúdi aj záznamy V07)
 npm run test:vyzva        # návrh výzvy na doplnenie z nálezov posudku (pod 1 s)
 npm run test:lehoty       # lehota na doplnenie: kalendár, koniec lehoty, 4000 náhodných prípadov (asi 5 s)
 npm run zmeny             # kontrola zmien výzvy v ITMS21+ oproti posúdenému základu (len čítanie verejného API)
 npm run demo:podania      # vymyslené podania žiadostí (PDF, DOCX, JSON, ZIP) do demo/podania
 npm run demo:sada         # testovacia sada podľa oficiálnych vzorov do demo/testovacia-sada (Windows, Excel, Edge; asi 3 min)
 npm run demo:nova         # nová skúšobná žiadosť pre kontrolóra do demo/nova-ziadost (Windows, Excel, Edge; asi 15 s)
+npm run demo:vo           # cvičná sada VO: záznamy zo zadania zákazky do demo/vo/zaznamy, riešenie do demo/vo/riesenie
 npm start                 # demo na http://127.0.0.1:5177
 ```
 
@@ -461,6 +465,27 @@ Všetkých 15 prešlo (0 rozdielov). Pri tvorbe sada našla päť chýb, všetky
   bez OZE odpovedal „áno“ v L60, takže zošit nekrátil o 5 p. b.;
 - P08b nečítal hlásenia hárku MU Budova (B13, I13). Pri úspore pod 30 % (prípad 11) preto vyhlásil vyplnený zošit
   za neúplný („absencia výpočtu“, chýba podklad) a radil ho doplniť; teraz dá na preverenie so skutočnou príčinou.
+
+### Test 7: cvičná sada VO
+
+`npm run test:demo-vo`, bez modelu, cez HTTP rozhranie karty Kontrola (vlastný server, databáza v pamäti).
+Sada je v `demo/vo` a návod pre kontrolóra v jej README.
+
+- **Scenáre:** jedenásť scenárov na reálnych VO z ITMS21+ (`demo/vo/scenare.json`). Deväť upraví polia ako
+  kontrolór: PHZ nad limitom, jedna ponuka, vylúčené ponuky, zmluva nad PHZ, faktúry nad zmluvou, chýbajúca PHZ.
+  Dva sú reálne prípady bez úprav: jediná ponuka a jediné VO výzvy s nesplnenou podmienkou.
+- **Záznamy:** štyri nové záznamy zo zadania zákazky fiktívnej obce. V troch chýba po jednej náležitosti V07;
+  ktorá, je v `demo/vo/riesenie`. Test overí, že text z DOCX má práve uvedené náležitosti a že bez modelu
+  zostane V07 neoverené.
+- **S modelom:** `-- --model` posúdi záznamy aj lokálnym modelom a zlyhá pri falošnom OK.
+
+Všetkých 11 scenárov a 4 záznamy prešli (24. 11. 2026). Beh s modelom (qwen3.5:9b, dva behy s rovnakým
+výsledkom) nemal falošné OK. Ukázal však dve slabiny poistiek V07, ktoré sú zapísané v `TODO.md` (T3):
+- náhradný vzor zmäkčí správne zamietnutie na „na preverenie“;
+- úplný záznam dostal falošný poplach.
+
+Pri tvorbe sady sa ukázalo, že faktúry nad zmluvou dávajú zámerne „na preverenie“, nie „nesplnené“: rozdiel
+môžu vysvetliť dodatky, ktoré podliehajú kontrole VO. Rovnako to čaká test 3.
 
 ### Lehota na doplnenie
 
