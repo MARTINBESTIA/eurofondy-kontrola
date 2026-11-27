@@ -320,13 +320,19 @@
       "type": "backend",
       "icon": "failure",
       "label": "Vráti NFP",
-      "sublabel": "do 90 dní od ŽoV, či započítanie",
+      "sublabel": "do 90 pd od ŽoV, či započítanie",
       "sources": [
         {
           "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
           "line": 578,
           "end_line": 579,
-          "label": "ŽoV, 90 dní"
+          "label": "ŽoV, 90 Dní"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 35,
+          "end_line": 35,
+          "label": "Deň je pracovný deň"
         },
         {
           "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
@@ -709,7 +715,7 @@
         "predfinancovanie zúčtovať do 10 dní, nezúčtovaný rozdiel vrátiť do 10 dní",
         "zálohu zúčtovať na 100 % do 12 mesiacov",
         "námietky k návrhu správy aspoň 5 dní; výročná MS do 31. 1.; záverečná do 30 dní",
-        "vrátenie NFP do 90 dní od doručenia ŽoV; povinnosti trvajú 5 rokov od 31. 12. roka finančného ukončenia"
+        "vrátenie NFP do 90 pd od doručenia ŽoV (Deň je podľa VZP pracovný); povinnosti trvajú 5 rokov od 31. 12. roka finančného ukončenia"
       ]
     },
     {
