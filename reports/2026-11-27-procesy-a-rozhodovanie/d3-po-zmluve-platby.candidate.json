@@ -1,0 +1,725 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Po zmluve II: zmeny, platby, monitorovanie a udržateľnosť",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-27-procesy-a-rozhodovanie/d3-po-zmluve-platby.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "c0e7a16db98c8efde6b991a18ef50c931a35cc89"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: návrh"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "prij",
+      "label": "Prijímateľ"
+    },
+    {
+      "id": "so",
+      "label": "SO SIEA: poskytovateľ"
+    },
+    {
+      "id": "audit",
+      "label": "Kontrolné a auditné orgány",
+      "variant": "exception"
+    },
+    {
+      "id": "sw",
+      "label": "eurofondy-kontrola"
+    }
+  ],
+  "phases": [
+    {
+      "id": "r_real",
+      "label": "Realizácia",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "r_zmeny",
+      "label": "Zmeny",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "r_zop",
+      "label": "ŽoP a kontrola",
+      "fromCol": 2,
+      "toCol": 2,
+      "variant": "emphasis"
+    },
+    {
+      "id": "r_uhrada",
+      "label": "Úhrada",
+      "fromCol": 3,
+      "toCol": 3
+    },
+    {
+      "id": "r_mon",
+      "label": "Monitorovanie",
+      "fromCol": 4,
+      "toCol": 4
+    },
+    {
+      "id": "r_udrz",
+      "label": "Udržateľnosť, vrátenie",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "p_real",
+    "p_zmena",
+    "p_zop",
+    "s_fk",
+    "s_sprava",
+    "p_zuctuje",
+    "p_ms",
+    "s_ms",
+    "p_udrz"
+  ],
+  "nodes": [
+    {
+      "id": "p_real",
+      "lane": "prij",
+      "col": 0,
+      "type": "backend",
+      "icon": "start",
+      "label": "Realizuje aktivity",
+      "sublabel": "výdavky, dodávky z VO"
+    },
+    {
+      "id": "p_zmena",
+      "lane": "prij",
+      "col": 1,
+      "type": "security",
+      "icon": "decision",
+      "label": "Mení sa projekt?",
+      "sublabel": "formálna, menej či viac významná",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 428,
+          "end_line": 430,
+          "label": "tri druhy zmeny"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 2336,
+          "end_line": 2336,
+          "label": "4.13 zmeny projektu"
+        }
+      ]
+    },
+    {
+      "id": "p_zop",
+      "lane": "prij",
+      "col": 2,
+      "type": "security",
+      "icon": "decision",
+      "label": "Aký systém platby?",
+      "sublabel": "refundácia, predfinancovanie, záloha",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 1413,
+          "end_line": 1416,
+          "label": "spôsoby financovania"
+        }
+      ]
+    },
+    {
+      "id": "p_zuctuje",
+      "lane": "prij",
+      "col": 3,
+      "type": "messagebus",
+      "icon": "clock",
+      "label": "Zúčtuje predfinancovanie",
+      "sublabel": "do 10 dní; zálohu do 12 mesiacov",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 1513,
+          "end_line": 1514,
+          "label": "predfinancovanie 10 dní"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 1535,
+          "end_line": 1537,
+          "label": "vrátenie rozdielu"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 1615,
+          "end_line": 1616,
+          "label": "záloha 12 mesiacov"
+        }
+      ]
+    },
+    {
+      "id": "p_ms",
+      "lane": "prij",
+      "col": 4,
+      "type": "backend",
+      "label": "Monitorovacie správy",
+      "sublabel": "výročná 31. 1., záverečná 30 dní",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 186,
+          "end_line": 186,
+          "label": "výročná MS"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 188,
+          "end_line": 188,
+          "label": "záverečná MS"
+        }
+      ]
+    },
+    {
+      "id": "p_udrz",
+      "lane": "prij",
+      "col": 5,
+      "yOffset": -42,
+      "type": "backend",
+      "icon": "success",
+      "label": "Udrží výsledky",
+      "sublabel": "obdobie zo zmluvy, následné MS",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_verzia_2.2.txt",
+          "line": 146,
+          "end_line": 146,
+          "label": "obdobie udržateľnosti"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 189,
+          "end_line": 189,
+          "label": "následné MS"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4483,
+          "end_line": 4486,
+          "label": "7.9 udržateľnosť"
+        }
+      ]
+    },
+    {
+      "id": "p_vrati",
+      "lane": "prij",
+      "col": 5,
+      "yOffset": 42,
+      "type": "backend",
+      "icon": "failure",
+      "label": "Vráti NFP",
+      "sublabel": "do 90 dní od ŽoV, či započítanie",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 578,
+          "end_line": 579,
+          "label": "ŽoV, 90 dní"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 581,
+          "end_line": 581,
+          "label": "započítanie"
+        }
+      ]
+    },
+    {
+      "id": "s_zmena",
+      "lane": "so",
+      "col": 1,
+      "type": "security",
+      "icon": "decision",
+      "label": "Schváli zmenu?",
+      "sublabel": "preklasifikuje, schváli, dodatok",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 452,
+          "end_line": 452,
+          "label": "preklasifikácia"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 456,
+          "end_line": 458,
+          "label": "schválenie významnejšej"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 505,
+          "end_line": 506,
+          "label": "ex post nad 15 %"
+        }
+      ]
+    },
+    {
+      "id": "s_fk",
+      "lane": "so",
+      "col": 2,
+      "type": "security",
+      "icon": "decision",
+      "label": "Rozsah FK ŽoP?",
+      "sublabel": "analýza rizík; aj FK na mieste",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4119,
+          "end_line": 4123,
+          "label": "formálna či úplná"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4131,
+          "end_line": 4134,
+          "label": "začiatok FK"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4141,
+          "end_line": 4145,
+          "label": "FK na mieste"
+        }
+      ]
+    },
+    {
+      "id": "s_sprava",
+      "lane": "so",
+      "col": 3,
+      "type": "security",
+      "icon": "decision",
+      "label": "Výdavky oprávnené?",
+      "sublabel": "návrh správy, námietky ≥ 5 dní",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4136,
+          "end_line": 4138,
+          "label": "pozastavenie FK"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 3991,
+          "end_line": 3994,
+          "label": "námietky"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 296,
+          "end_line": 296,
+          "label": "chýbajúce podklady"
+        }
+      ]
+    },
+    {
+      "id": "s_ms",
+      "lane": "so",
+      "col": 4,
+      "type": "security",
+      "icon": "decision",
+      "label": "Schváli MS?",
+      "sublabel": "pri nezrovnalosti poslednú nie",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 183,
+          "end_line": 183,
+          "label": "MS cez ITMS"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 190,
+          "end_line": 193,
+          "label": "neschválenie poslednej"
+        }
+      ]
+    },
+    {
+      "id": "s_nezr",
+      "lane": "so",
+      "col": 5,
+      "type": "security",
+      "icon": "decision",
+      "label": "Nezrovnalosť?",
+      "sublabel": "suma vrátenia v ŽoV",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 1844,
+          "end_line": 1844,
+          "label": "4.11 nezrovnalosti"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 578,
+          "end_line": 578,
+          "label": "ŽoV stanoví poskytovateľ"
+        }
+      ]
+    },
+    {
+      "id": "a_audit",
+      "lane": "audit",
+      "col": 5,
+      "type": "external",
+      "label": "Audit a kontroly",
+      "sublabel": "OA, NKÚ, EK, EDA, OLAF; ARACHNE",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 336,
+          "end_line": 344,
+          "label": "oprávnené osoby"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 350,
+          "end_line": 350,
+          "label": "ARACHNE"
+        }
+      ]
+    },
+    {
+      "id": "w_zmeny",
+      "lane": "sw",
+      "col": 1,
+      "type": "frontend",
+      "label": "Zmeny Z01 až Z08",
+      "sublabel": "druh, formulár, NFP, lehoty",
+      "sources": [
+        {
+          "path": "README.md",
+          "line": 20,
+          "end_line": 20,
+          "label": "modul 4"
+        },
+        {
+          "path": "packs/PSK-SIEA-002-2023-DV-EFRR/zmeny.json",
+          "line": 37,
+          "end_line": 161,
+          "label": "pravidlá Z01 až Z08"
+        },
+        {
+          "path": "src/moduly/zmeny/modul.ts",
+          "line": 51,
+          "end_line": 75,
+          "label": "zatriedenie zmeny"
+        }
+      ]
+    },
+    {
+      "id": "w_zop",
+      "lane": "sw",
+      "col": 2,
+      "type": "frontend",
+      "label": "ŽoP P01 až P12",
+      "sublabel": "obdobie, sumy, DPH, duplicity, VO",
+      "sources": [
+        {
+          "path": "README.md",
+          "line": 21,
+          "end_line": 21,
+          "label": "modul 5"
+        },
+        {
+          "path": "packs/PSK-SIEA-002-2023-DV-EFRR/zop.json",
+          "line": 36,
+          "end_line": 263,
+          "label": "pravidlá P01 až P12"
+        },
+        {
+          "path": "src/moduly/zop/modul.ts",
+          "line": 45,
+          "end_line": 320,
+          "label": "kontroly"
+        }
+      ]
+    },
+    {
+      "id": "w_mu",
+      "lane": "sw",
+      "col": 4,
+      "type": "frontend",
+      "label": "Ukazovatele U01 až U03",
+      "sublabel": "plnenie MU, krátenie, včasnosť MS",
+      "sources": [
+        {
+          "path": "README.md",
+          "line": 22,
+          "end_line": 22,
+          "label": "modul 6"
+        },
+        {
+          "path": "packs/PSK-SIEA-002-2023-DV-EFRR/ukazovatele.json",
+          "line": 21,
+          "end_line": 37,
+          "label": "pravidlá U01 až U03"
+        },
+        {
+          "path": "src/moduly/ukazovatele/modul.ts",
+          "line": 60,
+          "end_line": 141,
+          "label": "kontroly"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "t01",
+      "from": "p_real",
+      "to": "p_zmena",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "t02",
+      "from": "p_zmena",
+      "to": "p_zop",
+      "label": "nie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "t03",
+      "from": "p_zmena",
+      "to": "s_zmena",
+      "label": "áno: OoZ, ŽoZZ",
+      "role": "branch"
+    },
+    {
+      "id": "t04",
+      "from": "s_zmena",
+      "to": "p_zop",
+      "label": "schválená",
+      "role": "branch"
+    },
+    {
+      "id": "t05",
+      "from": "p_zop",
+      "to": "s_fk",
+      "label": "ŽoP v ITMS21+",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "t06",
+      "from": "s_fk",
+      "to": "s_sprava",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "t07",
+      "from": "s_sprava",
+      "to": "p_zuctuje",
+      "label": "úhrada",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "t08",
+      "from": "p_zuctuje",
+      "to": "p_ms",
+      "label": "priebežne",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "t09",
+      "from": "p_ms",
+      "to": "s_ms",
+      "label": "MS v ITMS21+",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "t10",
+      "from": "s_ms",
+      "to": "p_udrz",
+      "label": "schválená",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "t11",
+      "from": "s_nezr",
+      "to": "p_vrati",
+      "label": "ŽoV",
+      "role": "error"
+    },
+    {
+      "id": "t12",
+      "from": "a_audit",
+      "to": "s_nezr",
+      "label": "zistenie",
+      "role": "error"
+    },
+    {
+      "id": "t13",
+      "from": "w_zmeny",
+      "to": "s_zmena",
+      "label": "návrh výroku",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "t14",
+      "from": "w_zop",
+      "to": "s_fk",
+      "label": "návrh výroku",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "t15",
+      "from": "w_mu",
+      "to": "s_ms",
+      "label": "plnenie MU",
+      "role": "async",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Ako čítať",
+      "items": [
+        "Ikona rozhodnutia je ľudský úsudok prijímateľa alebo SO; finančnú kontrolu ŽoP rozkladá diagram aktivít A3.",
+        "Rozsah FK ŽoP určuje písomná analýza rizík: formálna alebo úplná kontrola (DOP 3.2 r. 4121 až 4123).",
+        "Zmeny, platby a monitorovanie bežia súbežne; poradie stĺpcov je čitateľské, nie časové."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Lehoty",
+      "items": [
+        "predfinancovanie zúčtovať do 10 dní, nezúčtovaný rozdiel vrátiť do 10 dní",
+        "zálohu zúčtovať na 100 % do 12 mesiacov",
+        "námietky k návrhu správy aspoň 5 dní; výročná MS do 31. 1.; záverečná do 30 dní",
+        "vrátenie NFP do 90 dní od doručenia ŽoV; povinnosti trvajú 5 rokov od 31. 12. roka finančného ukončenia"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Hranice",
+      "items": [
+        "Obdobie udržateľnosti je vo vzore zmluvy prázdne (... rokov); určuje ho konkrétna zmluva.",
+        "Softvér nekontroluje zúčtovanie zálohy ani predfinancovania, ani text monitorovacej správy.",
+        "Úhradu nepriraďujem útvaru: lokálne podklady to nerozlišujú (DOP 3.2 r. 203 uvádza MF SR ako platobný orgán)."
+      ]
+    }
+  ]
+}
