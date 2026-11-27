@@ -1,0 +1,5 @@
+# Lokálne kontrolné záznamy archify (obsahujú absolútne cesty), necommitujú sa.
+*.finalize.json
+*.finalize-summary.json
+*.browser-check.json
+*.delivery.json

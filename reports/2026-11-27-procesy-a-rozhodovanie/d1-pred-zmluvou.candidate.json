@@ -1,0 +1,622 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Pred zmluvou: od výzvy po účinnú zmluvu o NFP",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-27-procesy-a-rozhodovanie/d1-pred-zmluvou.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "c0e7a16db98c8efde6b991a18ef50c931a35cc89"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: návrh"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "ziadatel",
+      "label": "Žiadateľ (obec, VÚC)"
+    },
+    {
+      "id": "kanal",
+      "label": "ITMS21+, e-schránka, CRZ"
+    },
+    {
+      "id": "kontrolor",
+      "label": "SO SIEA: kontrolór"
+    },
+    {
+      "id": "rozhoduje",
+      "label": "SO SIEA: rozhodnutie a zmluva"
+    },
+    {
+      "id": "softver",
+      "label": "eurofondy-kontrola: návrh, rozhoduje človek"
+    }
+  ],
+  "phases": [
+    {
+      "id": "p_vstup",
+      "label": "Vstup",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "p_podanie",
+      "label": "Podanie",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "p_overenie",
+      "label": "Overenie PPP",
+      "fromCol": 2,
+      "toCol": 2
+    },
+    {
+      "id": "p_doplnenie",
+      "label": "Doplnenie",
+      "fromCol": 3,
+      "toCol": 3
+    },
+    {
+      "id": "p_rozhodnutie",
+      "label": "Výber a rozhodnutie",
+      "fromCol": 4,
+      "toCol": 4,
+      "variant": "emphasis"
+    },
+    {
+      "id": "p_zmluva",
+      "label": "Zmluva",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "vstup_dopyt",
+    "ziad_rozhodne",
+    "kanal_podanie",
+    "k_vcas",
+    "k_ppp",
+    "k_splnene",
+    "k_vyber",
+    "r_rozhodnutie",
+    "r_zmluva",
+    "kanal_crz"
+  ],
+  "nodes": [
+    {
+      "id": "vstup_iny",
+      "lane": "ziadatel",
+      "col": 0,
+      "yOffset": -42,
+      "type": "external",
+      "label": "Národný projekt, územie",
+      "sublabel": "zámer schvaľuje komisia či rada",
+      "tag": "podľa astry"
+    },
+    {
+      "id": "vstup_dopyt",
+      "lane": "ziadatel",
+      "col": 0,
+      "yOffset": 42,
+      "type": "backend",
+      "icon": "start",
+      "label": "Dopytová výzva",
+      "sublabel": "žiadateľ pripraví ŽoNFP",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vyzva_PSK_2P1_SIEA_zmena_3.txt",
+          "line": 580,
+          "end_line": 580,
+          "label": "priebežné predkladanie"
+        }
+      ]
+    },
+    {
+      "id": "ziad_rozhodne",
+      "lane": "ziadatel",
+      "col": 1,
+      "type": "security",
+      "icon": "decision",
+      "label": "Podať teraz?",
+      "sublabel": "splní PPP, stihne piatkové kolo",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vyzva_PSK_2P1_SIEA_zmena_3.txt",
+          "line": 579,
+          "end_line": 590,
+          "label": "hodnotiace kolá"
+        }
+      ]
+    },
+    {
+      "id": "ziad_doplni",
+      "lane": "ziadatel",
+      "col": 3,
+      "type": "backend",
+      "label": "Doplní, vysvetlí",
+      "sublabel": "lehota aspoň 5 pracovných dní",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 596,
+          "end_line": 599,
+          "label": "lehota na doplnenie"
+        }
+      ]
+    },
+    {
+      "id": "kanal_podanie",
+      "lane": "kanal",
+      "col": 1,
+      "type": "cloud",
+      "label": "Podanie v ITMS21+",
+      "sublabel": "doručením sa začína konanie",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vyzva_PSK_2P1_SIEA_zmena_3.txt",
+          "line": 578,
+          "end_line": 578,
+          "label": "§ 16 ods. 2"
+        },
+        {
+          "path": "README.md",
+          "line": 78,
+          "end_line": 81,
+          "label": "softvér nie je napojený"
+        }
+      ]
+    },
+    {
+      "id": "kanal_crz",
+      "lane": "kanal",
+      "col": 5,
+      "type": "cloud",
+      "icon": "success",
+      "label": "Zverejnenie v CRZ",
+      "sublabel": "účinnosť deň po zverejnení",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_verzia_2.2.txt",
+          "line": 150,
+          "end_line": 150,
+          "label": "§ 47a OZ"
+        }
+      ]
+    },
+    {
+      "id": "k_vcas",
+      "lane": "kontrolor",
+      "col": 1,
+      "type": "security",
+      "icon": "decision",
+      "label": "Riadne a včas?",
+      "sublabel": "pochybnosť: vyjadrenie ≥ 5 pd",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 459,
+          "end_line": 462,
+          "label": "pochybnosti o podaní"
+        }
+      ]
+    },
+    {
+      "id": "k_ppp",
+      "lane": "kontrolor",
+      "col": 2,
+      "type": "backend",
+      "label": "Overí každú PPP",
+      "sublabel": "priebežne počas konania",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 287,
+          "end_line": 290,
+          "label": "§ 16 ods. 4"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 556,
+          "end_line": 556,
+          "label": "2.4 administratívne overenie"
+        }
+      ]
+    },
+    {
+      "id": "k_splnene",
+      "lane": "kontrolor",
+      "col": 3,
+      "type": "security",
+      "icon": "decision",
+      "label": "Všetky PPP splnené?",
+      "sublabel": "splnená, nesplnená, chýba podklad",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 693,
+          "end_line": 697,
+          "label": "zastavenie konania"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 706,
+          "end_line": 708,
+          "label": "opätovná výzva"
+        }
+      ]
+    },
+    {
+      "id": "k_vyber",
+      "lane": "kontrolor",
+      "col": 4,
+      "type": "security",
+      "icon": "decision",
+      "label": "Stačí alokácia kola?",
+      "sublabel": "inak poradie podľa HzP",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vyzva_PSK_2P1_SIEA_zmena_3.txt",
+          "line": 367,
+          "end_line": 367,
+          "label": "vecné kritériá"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vyzva_PSK_2P1_SIEA_zmena_3.txt",
+          "line": 380,
+          "end_line": 380,
+          "label": "poradie zostupne"
+        }
+      ]
+    },
+    {
+      "id": "r_rozhodnutie",
+      "lane": "rozhoduje",
+      "col": 4,
+      "type": "security",
+      "icon": "decision",
+      "label": "Preskúma a rozhodne",
+      "sublabel": "do 70 pd od uzavretia kola",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vyzva_PSK_2P1_SIEA_zmena_3.txt",
+          "line": 593,
+          "end_line": 595,
+          "label": "typy a lehota"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 335,
+          "end_line": 342,
+          "label": "preskúmanie výstupu"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 850,
+          "end_line": 855,
+          "label": "formálne nedostatky"
+        }
+      ]
+    },
+    {
+      "id": "r_zmluva",
+      "lane": "rozhoduje",
+      "col": 5,
+      "yOffset": -42,
+      "type": "database",
+      "label": "Zmluva o NFP",
+      "sublabel": "uzavretá podpisom oboch strán",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_verzia_2.2.txt",
+          "line": 150,
+          "end_line": 150,
+          "label": "uzavretie a účinnosť"
+        }
+      ]
+    },
+    {
+      "id": "r_odvolanie",
+      "lane": "rozhoduje",
+      "col": 5,
+      "yOffset": 42,
+      "type": "security",
+      "icon": "decision",
+      "label": "Odvolanie",
+      "sublabel": "10 pd; autoremedúra či štatutár",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 1032,
+          "end_line": 1033,
+          "label": "lehota 10 pd"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 787,
+          "end_line": 789,
+          "label": "kto rozhoduje"
+        }
+      ]
+    },
+    {
+      "id": "sw_predkontrola",
+      "lane": "softver",
+      "col": 2,
+      "type": "frontend",
+      "label": "Predkontrola 27 PPP",
+      "sublabel": "citácie, výzva, lehota doplnenia",
+      "sources": [
+        {
+          "path": "README.md",
+          "line": 3,
+          "end_line": 10,
+          "label": "navrhuje, rozhoduje človek"
+        },
+        {
+          "path": "src/podatelna/vyzva.ts",
+          "line": 185,
+          "end_line": 193,
+          "label": "návrh výzvy"
+        },
+        {
+          "path": "src/podatelna/lehoty.ts",
+          "line": 129,
+          "end_line": 135,
+          "label": "stav lehoty"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e01",
+      "from": "vstup_dopyt",
+      "to": "ziad_rozhodne",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e02",
+      "from": "vstup_iny",
+      "to": "ziad_rozhodne",
+      "label": "po zámere",
+      "role": "branch",
+      "variant": "dashed",
+      "toSide": "top"
+    },
+    {
+      "id": "e04",
+      "from": "ziad_rozhodne",
+      "to": "kanal_podanie",
+      "label": "áno: odošle",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e05",
+      "from": "kanal_podanie",
+      "to": "k_vcas",
+      "label": "doručená",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e06",
+      "from": "k_vcas",
+      "to": "k_ppp",
+      "label": "áno",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e07",
+      "from": "k_ppp",
+      "to": "k_splnene",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e08",
+      "from": "k_splnene",
+      "to": "k_vyber",
+      "label": "áno",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e09",
+      "from": "k_splnene",
+      "to": "ziad_doplni",
+      "label": "chýba podklad",
+      "role": "branch"
+    },
+    {
+      "id": "e10",
+      "from": "ziad_doplni",
+      "to": "k_ppp",
+      "label": "doplnené v lehote",
+      "role": "return"
+    },
+    {
+      "id": "e11",
+      "from": "k_splnene",
+      "to": "r_rozhodnutie",
+      "label": "nesplnená",
+      "role": "error",
+      "fromSide": "bottom",
+      "toSide": "left"
+    },
+    {
+      "id": "e12",
+      "from": "k_vyber",
+      "to": "r_rozhodnutie",
+      "label": "výber kola",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e13",
+      "from": "r_rozhodnutie",
+      "to": "r_zmluva",
+      "label": "schválenie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e14",
+      "from": "r_rozhodnutie",
+      "to": "r_odvolanie",
+      "label": "neschválenie",
+      "role": "error"
+    },
+    {
+      "id": "e15",
+      "from": "r_zmluva",
+      "to": "kanal_crz",
+      "label": "podpísaná",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e16",
+      "from": "sw_predkontrola",
+      "to": "k_ppp",
+      "label": "návrh výroku",
+      "role": "async",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Ako čítať",
+      "items": [
+        "Uzol s ikonou rozhodnutia je ľudský úsudok; podrobne ho rozkladajú diagramy aktivít A1 až A3.",
+        "Softvér iba navrhuje výrok s citáciou, rozhoduje človek (README r. 3 až 10).",
+        "Referenčná trasa: dopytová výzva PSK-SIEA-002-2023, SIEA ako SO."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Čo pribudlo oproti mape astry",
+      "items": [
+        "rozhodnutia žiadateľa, kontrolóra a štatutára",
+        "slučka doplnenia s lehotou aspoň 5 pd a prerušením lehoty na rozhodnutie",
+        "výber podľa alokácie a HzP, odvolanie, účinnosť zmluvy"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Zdroje a hranice",
+      "items": [
+        "MD č. 21 Konanie o ŽoNFP v1.0, výzva PSK 2P1 (Zmena č. 3), vzor zmluvy o NFP v2.2",
+        "Vstup národného projektu a územnej investície preberám z mapy astry 6.2 (27. 11. 2026), lokálne neoverený.",
+        "Lehotu 70 pd na rozhodnutie softvér nesleduje; sleduje lehotu doplnenia.",
+        "Modul Plánovanie výziev (README r. 17) pomáha žiadateľovi pri otázke Podať teraz?, ešte pred podaním."
+      ]
+    }
+  ]
+}
