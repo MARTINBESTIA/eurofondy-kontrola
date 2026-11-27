@@ -1,0 +1,519 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Diagram aktivít A3: finančná kontrola ŽoP",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-27-procesy-a-rozhodovanie/a3-aktivity-zop.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "c0e7a16db98c8efde6b991a18ef50c931a35cc89"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: návrh"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "prij",
+      "label": "Prijímateľ"
+    },
+    {
+      "id": "so",
+      "label": "SO SIEA: kontrolór ŽoP"
+    },
+    {
+      "id": "sw",
+      "label": "eurofondy-kontrola: návrh"
+    }
+  ],
+  "phases": [
+    {
+      "id": "h_predlozenie",
+      "label": "Predloženie",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "h_rozsah",
+      "label": "Rozsah kontroly",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "h_overenie",
+      "label": "Overenie výdavkov",
+      "fromCol": 2,
+      "toCol": 2,
+      "variant": "emphasis"
+    },
+    {
+      "id": "h_doplnenie",
+      "label": "Doplnenie",
+      "fromCol": 3,
+      "toCol": 3
+    },
+    {
+      "id": "h_navrh",
+      "label": "Návrh správy",
+      "fromCol": 4,
+      "toCol": 4
+    },
+    {
+      "id": "h_sprava",
+      "label": "Námietky a správa",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "p_zop",
+    "s_rozsah",
+    "s_overi",
+    "s_doplnit",
+    "s_navrh",
+    "p_namietky",
+    "s_sprava"
+  ],
+  "nodes": [
+    {
+      "id": "p_zop",
+      "lane": "prij",
+      "col": 0,
+      "type": "backend",
+      "icon": "start",
+      "label": "Predloží ŽoP",
+      "sublabel": "systém platby podľa zmluvy",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 1413,
+          "end_line": 1416,
+          "label": "spôsoby financovania"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4131,
+          "end_line": 4134,
+          "label": "začiatok FK po doručení"
+        }
+      ]
+    },
+    {
+      "id": "s_rozsah",
+      "lane": "so",
+      "col": 1,
+      "type": "security",
+      "icon": "decision",
+      "label": "Formálna či úplná FK?",
+      "sublabel": "analýza rizík; aj na mieste?",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4119,
+          "end_line": 4123,
+          "label": "analýza rizík určí rozsah"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4141,
+          "end_line": 4145,
+          "label": "FK na mieste"
+        }
+      ]
+    },
+    {
+      "id": "s_overi",
+      "lane": "so",
+      "col": 2,
+      "type": "backend",
+      "label": "Overí výdavky",
+      "sublabel": "zákonnosť, správnosť, oprávnenosť",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4124,
+          "end_line": 4128,
+          "label": "predmet FK ŽoP"
+        }
+      ]
+    },
+    {
+      "id": "sw_zop",
+      "lane": "sw",
+      "col": 2,
+      "type": "frontend",
+      "label": "ŽoP P01 až P12",
+      "sublabel": "obdobie, sumy, DPH, duplicity, VO",
+      "sources": [
+        {
+          "path": "README.md",
+          "line": 21,
+          "end_line": 21,
+          "label": "modul 5"
+        },
+        {
+          "path": "packs/PSK-SIEA-002-2023-DV-EFRR/zop.json",
+          "line": 36,
+          "end_line": 263,
+          "label": "pravidlá P01 až P12"
+        },
+        {
+          "path": "src/moduly/zop/modul.ts",
+          "line": 45,
+          "end_line": 320,
+          "label": "kontroly"
+        }
+      ]
+    },
+    {
+      "id": "s_doplnit",
+      "lane": "so",
+      "col": 3,
+      "type": "security",
+      "icon": "decision",
+      "label": "Podklady úplné?",
+      "sublabel": "inak pozastaví či vyčlení výdavky",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4136,
+          "end_line": 4138,
+          "label": "pozastavenie FK ŽoP"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 296,
+          "end_line": 296,
+          "label": "pozastavenie dotknutých výdavkov"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4146,
+          "end_line": 4148,
+          "label": "samostatná FK ŽoP"
+        }
+      ]
+    },
+    {
+      "id": "p_doplni",
+      "lane": "prij",
+      "col": 3,
+      "type": "messagebus",
+      "icon": "clock",
+      "label": "Doplní, vysvetlí",
+      "sublabel": "FK stojí do odstránenia",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4136,
+          "end_line": 4138,
+          "label": "do predloženia či vysvetlenia"
+        }
+      ]
+    },
+    {
+      "id": "s_navrh",
+      "lane": "so",
+      "col": 4,
+      "type": "database",
+      "label": "Návrh správy",
+      "sublabel": "neoprávnené sumy, lehota námietok",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 3991,
+          "end_line": 3996,
+          "label": "lehota v návrhu správy"
+        }
+      ]
+    },
+    {
+      "id": "p_namietky",
+      "lane": "prij",
+      "col": 5,
+      "type": "security",
+      "icon": "decision",
+      "label": "Podá námietky?",
+      "sublabel": "aspoň 5 dní od doručenia",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 3991,
+          "end_line": 3996,
+          "label": "aspoň 5 dní"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4004,
+          "end_line": 4008,
+          "label": "bez námietok akceptované"
+        }
+      ]
+    },
+    {
+      "id": "s_akcept",
+      "lane": "so",
+      "col": 5,
+      "yOffset": -42,
+      "type": "security",
+      "icon": "decision",
+      "label": "Prijme námietky?",
+      "sublabel": "úplne, sčasti, či vôbec",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 3997,
+          "end_line": 4000,
+          "label": "zohľadní opodstatnené"
+        }
+      ]
+    },
+    {
+      "id": "s_sprava",
+      "lane": "so",
+      "col": 5,
+      "yOffset": 42,
+      "type": "database",
+      "icon": "stop",
+      "label": "Správa z kontroly",
+      "sublabel": "schválená suma, potom úhrada",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 3997,
+          "end_line": 4000,
+          "label": "zašle správu"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 1493,
+          "end_line": 1493,
+          "label": "úhrada ŽoP v ITMS21+"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "c01",
+      "from": "p_zop",
+      "to": "s_rozsah",
+      "role": "main",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "c02",
+      "from": "s_rozsah",
+      "to": "s_overi",
+      "label": "rozsah určený",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "c03",
+      "from": "sw_zop",
+      "to": "s_overi",
+      "label": "návrh výrokov",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "c04",
+      "from": "s_overi",
+      "to": "s_doplnit",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "c05",
+      "from": "s_doplnit",
+      "to": "p_doplni",
+      "label": "[nie] pozastaví",
+      "role": "branch"
+    },
+    {
+      "id": "c06",
+      "from": "p_doplni",
+      "to": "s_overi",
+      "label": "doplnené",
+      "role": "return",
+      "fromSide": "left",
+      "toSide": "top"
+    },
+    {
+      "id": "c07",
+      "from": "s_doplnit",
+      "to": "s_navrh",
+      "label": "[áno]",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "c08",
+      "from": "s_navrh",
+      "to": "p_namietky",
+      "label": "doručí",
+      "role": "main",
+      "variant": "emphasis",
+      "fromSide": "top",
+      "toSide": "left"
+    },
+    {
+      "id": "c09",
+      "from": "p_namietky",
+      "to": "s_akcept",
+      "label": "[áno]",
+      "role": "branch"
+    },
+    {
+      "id": "c10",
+      "from": "p_namietky",
+      "to": "s_sprava",
+      "label": "[nie]",
+      "role": "main",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "right"
+    },
+    {
+      "id": "c11",
+      "from": "s_akcept",
+      "to": "s_sprava",
+      "label": "zohľadní",
+      "role": "branch"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Notácia UML",
+      "items": [
+        "Dráhy sú partície; ikona štartu je počiatočný uzol, ikona konca koncový.",
+        "Ikona rozhodnutia je ľudský úsudok, [stráž] na šípke je jeho výsledok.",
+        "Prijme námietky? má jeden tok: výsledok (úplne, sčasti, vôbec) sa premietne do správy."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Čo človek posudzuje",
+      "items": [
+        "SO: formálna či úplná kontrola podľa písomnej analýzy rizík, prípadne aj na mieste (DOP 3.2 r. 4121 až 4123, 4141 až 4145).",
+        "SO: pri chýbajúcom podklade či podozrení pozastaví len dotknuté výdavky alebo ich vyčlení do samostatnej FK (VZP r. 296, DOP 3.2 r. 4146 až 4148).",
+        "Prijímateľ: podať námietky? Bez nich sa zistenia považujú za akceptované (DOP 3.2 r. 4004 až 4008).",
+        "SO: opodstatnené námietky zohľadní v správe úplne alebo sčasti (DOP 3.2 r. 3997 až 4000)."
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Softvér a jeho hranice",
+      "items": [
+        "P01 až P12 navrhnú výroky k ŽoP: obdobie, sumy, duplicity, DPH, VO, hotovosť, doklady.",
+        "Analýzu rizík, rozsah kontroly ani kontrolu na mieste softvér nerobí.",
+        "Zúčtovanie predfinancovania (10 dní) a zálohy (12 mesiacov) nesleduje (DOP 3.2 r. 1513 až 1514, 1615 až 1616).",
+        "Lehotu 80 dní na úhradu ŽoP uvádza astra; lokálne podklady ju nepotvrdzujú, preto tu nie je."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,557 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Diagram aktivít A1: kontrolór posudzuje ŽoNFP",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-27-procesy-a-rozhodovanie/a1-aktivity-ziadost.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "c0e7a16db98c8efde6b991a18ef50c931a35cc89"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: návrh"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "ziad",
+      "label": "Žiadateľ"
+    },
+    {
+      "id": "kont",
+      "label": "SO SIEA: kontrolór"
+    },
+    {
+      "id": "sw",
+      "label": "eurofondy-kontrola: návrh"
+    },
+    {
+      "id": "ved",
+      "label": "SO SIEA: vydáva rozhodnutie"
+    }
+  ],
+  "phases": [
+    {
+      "id": "f_prijem",
+      "label": "Príjem",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "f_navrh",
+      "label": "Návrh softvéru",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "f_overenie",
+      "label": "Ľudské overenie",
+      "fromCol": 2,
+      "toCol": 2,
+      "variant": "emphasis"
+    },
+    {
+      "id": "f_doplnenie",
+      "label": "Doplnenie",
+      "fromCol": 3,
+      "toCol": 3
+    },
+    {
+      "id": "f_navrh_rozh",
+      "label": "Návrh rozhodnutia",
+      "fromCol": 4,
+      "toCol": 4
+    },
+    {
+      "id": "f_rozh",
+      "label": "Rozhodnutie",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "k_start",
+    "s_navrh",
+    "k_overi",
+    "k_chyba",
+    "k_vysledok",
+    "v_vystup",
+    "v_rozh"
+  ],
+  "nodes": [
+    {
+      "id": "k_start",
+      "lane": "kont",
+      "col": 0,
+      "type": "backend",
+      "icon": "start",
+      "label": "Prijme spis",
+      "sublabel": "potvrdí zaradenie príloh",
+      "sources": [
+        {
+          "path": "README.md",
+          "line": 69,
+          "end_line": 71,
+          "label": "postup kontrolóra"
+        },
+        {
+          "path": "src/podatelna/podatelna.ts",
+          "line": 98,
+          "end_line": 102,
+          "label": "odhad zaradenia potvrdí kontrolór"
+        }
+      ]
+    },
+    {
+      "id": "s_navrh",
+      "lane": "sw",
+      "col": 1,
+      "type": "frontend",
+      "label": "Navrhne výroky k PPP",
+      "sublabel": "citácia; neisté ide človeku",
+      "sources": [
+        {
+          "path": "README.md",
+          "line": 3,
+          "end_line": 10,
+          "label": "navrhuje, rozhoduje človek"
+        },
+        {
+          "path": "src/moduly/zonfp/modul.ts",
+          "line": 19,
+          "end_line": 58,
+          "label": "modul ŽoNFP"
+        }
+      ]
+    },
+    {
+      "id": "k_overi",
+      "lane": "kont",
+      "col": 2,
+      "yOffset": -42,
+      "type": "security",
+      "icon": "decision",
+      "label": "Sedí výrok s dokladom?",
+      "sublabel": "číta citovaný odsek a prílohu",
+      "sources": [
+        {
+          "path": "README.md",
+          "line": 106,
+          "end_line": 107,
+          "label": "nesúlad nevedie k nesplnené"
+        },
+        {
+          "path": "README.md",
+          "line": 114,
+          "end_line": 119,
+          "label": "odhad a nečitateľný súbor"
+        }
+      ]
+    },
+    {
+      "id": "k_oprava",
+      "lane": "kont",
+      "col": 2,
+      "yOffset": 42,
+      "type": "backend",
+      "label": "Zaznamená nesúlad",
+      "sublabel": "dôvod do poznámky rozhodnutia",
+      "sources": [
+        {
+          "path": "src/podatelna/podatelna.ts",
+          "line": 3,
+          "end_line": 4,
+          "label": "rozhodnutie zvlášť od návrhu"
+        },
+        {
+          "path": "src/podatelna/podatelna.ts",
+          "line": 536,
+          "end_line": 543,
+          "label": "odlišné rozhodnutia"
+        }
+      ]
+    },
+    {
+      "id": "k_chyba",
+      "lane": "kont",
+      "col": 3,
+      "type": "security",
+      "icon": "decision",
+      "label": "Treba doplniť?",
+      "sublabel": "výzva pomenuje doklad a PPP",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 596,
+          "end_line": 599,
+          "label": "výzva na doplnenie"
+        },
+        {
+          "path": "src/podatelna/vyzva.ts",
+          "line": 107,
+          "end_line": 107,
+          "label": "nenapraviteľné nie do výzvy"
+        }
+      ]
+    },
+    {
+      "id": "s_vyzva",
+      "lane": "sw",
+      "col": 3,
+      "type": "frontend",
+      "label": "Návrh výzvy a lehoty",
+      "sublabel": "poučenie o zastavení, lehota",
+      "sources": [
+        {
+          "path": "src/podatelna/vyzva.ts",
+          "line": 178,
+          "end_line": 179,
+          "label": "poučenie, prerušenie lehoty"
+        },
+        {
+          "path": "src/podatelna/vyzva.ts",
+          "line": 185,
+          "end_line": 193,
+          "label": "návrh výzvy"
+        },
+        {
+          "path": "src/podatelna/lehoty.ts",
+          "line": 129,
+          "end_line": 135,
+          "label": "stav lehoty"
+        }
+      ]
+    },
+    {
+      "id": "z_doplni",
+      "lane": "ziad",
+      "col": 3,
+      "type": "messagebus",
+      "icon": "clock",
+      "label": "Doplní v lehote",
+      "sublabel": "aspoň 5 pd od doručenia",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 596,
+          "end_line": 599,
+          "label": "aspoň 5 pd"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 706,
+          "end_line": 708,
+          "label": "opätovná výzva"
+        }
+      ]
+    },
+    {
+      "id": "k_vysledok",
+      "lane": "kont",
+      "col": 4,
+      "type": "security",
+      "icon": "decision",
+      "label": "Ktorý návrh rozhodnutia?",
+      "sublabel": "formálny nedostatok sám nestačí",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 850,
+          "end_line": 855,
+          "label": "formálne nedostatky"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 693,
+          "end_line": 697,
+          "label": "zastavenie konania"
+        }
+      ]
+    },
+    {
+      "id": "v_vystup",
+      "lane": "ved",
+      "col": 5,
+      "yOffset": -42,
+      "type": "security",
+      "icon": "decision",
+      "label": "Výstup úplný?",
+      "sublabel": "pochybnosť: vráti na dopracovanie",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 335,
+          "end_line": 342,
+          "label": "dopracovanie výstupu"
+        }
+      ]
+    },
+    {
+      "id": "v_rozh",
+      "lane": "ved",
+      "col": 5,
+      "yOffset": 42,
+      "type": "backend",
+      "icon": "stop",
+      "label": "Vydá rozhodnutie",
+      "sublabel": "schváli, neschváli, zastaví",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vyzva_PSK_2P1_SIEA_zmena_3.txt",
+          "line": 593,
+          "end_line": 595,
+          "label": "typy a lehota"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 693,
+          "end_line": 697,
+          "label": "zastavenie"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "a01",
+      "from": "k_start",
+      "to": "s_navrh",
+      "label": "spustí posúdenie",
+      "role": "main",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "a02",
+      "from": "s_navrh",
+      "to": "k_overi",
+      "label": "výroky s citáciou",
+      "role": "main",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "a03",
+      "from": "k_overi",
+      "to": "k_chyba",
+      "label": "[sedí]",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "a04",
+      "from": "k_overi",
+      "to": "k_oprava",
+      "label": "[nesedí]",
+      "role": "branch"
+    },
+    {
+      "id": "a05",
+      "from": "k_oprava",
+      "to": "k_chyba",
+      "role": "branch"
+    },
+    {
+      "id": "a06",
+      "from": "k_chyba",
+      "to": "z_doplni",
+      "label": "[áno] výzva",
+      "role": "branch"
+    },
+    {
+      "id": "a07",
+      "from": "z_doplni",
+      "to": "k_overi",
+      "label": "doplnené",
+      "role": "return",
+      "fromSide": "left",
+      "toSide": "top"
+    },
+    {
+      "id": "a08",
+      "from": "s_vyzva",
+      "to": "k_chyba",
+      "label": "návrh výzvy",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "a09",
+      "from": "k_chyba",
+      "to": "k_vysledok",
+      "label": "[nie]",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "a10",
+      "from": "z_doplni",
+      "to": "k_vysledok",
+      "label": "[nedoplní včas]",
+      "role": "error",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "a11",
+      "from": "k_vysledok",
+      "to": "v_vystup",
+      "label": "návrh s odôvodnením",
+      "role": "main",
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "left"
+    },
+    {
+      "id": "a12",
+      "from": "v_vystup",
+      "to": "v_rozh",
+      "label": "[áno]",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "a13",
+      "from": "v_vystup",
+      "to": "k_vysledok",
+      "label": "[nie] dopracovať",
+      "role": "return",
+      "fromSide": "top",
+      "toSide": "right"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Notácia UML",
+      "items": [
+        "Dráhy sú partície (kto koná); ikona štartu a konca sú počiatočný a koncový uzol.",
+        "Ikona rozhodnutia je ľudský úsudok; text v [hranatých zátvorkách] na šípke je stráž.",
+        "Prerušovaná šípka je návrh softvéru, ktorý človek prijme alebo odmietne.",
+        "Ktorý návrh rozhodnutia? má jeden tok: voľbu (schváliť, neschváliť, zastaviť) nesie jeho obsah."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Čo človek posudzuje",
+      "items": [
+        "či výrok softvéru sedí s citovaným odsekom a prílohou; nesúhlas zapíše s dôvodom",
+        "či nedostatok napraví doplnenie; nenapraviteľný sa do výzvy nedáva a odôvodní sa v rozhodnutí",
+        "či je nedostatok vecný: pre formálny nemožno zamietnuť ani zastaviť bez poučenia vo výzve (MD č. 21, r. 850 až 855)",
+        "či pochybnosť pretrváva aj po doplnení; vtedy navrhne zastavenie konania (MD č. 21, r. 693 až 697)"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Softvér a jeho hranice",
+      "items": [
+        "Chýbajúci údaj nikdy nevedie k splnené; odhad zaradenia prílohy čaká na potvrdenie kontrolóra.",
+        "Návrh výzvy obsahuje poučenie o zastavení a o prerušení lehoty na rozhodnutie (vyzva.ts r. 178 až 179).",
+        "Rozhodnutie kontrolóra sa ukladá zvlášť od návrhu: splnila, výzva na doplnenie, nesplnila (podatelna.ts r. 22 až 23).",
+        "Zastavenie konania, preskúmanie výstupu a lehotu 70 pd na rozhodnutie softvér nemodeluje."
+      ]
+    }
+  ]
+}

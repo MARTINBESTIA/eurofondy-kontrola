@@ -1,0 +1,605 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Diagram aktivít A2: kontrola VO po uzavretí zmluvy",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-27-procesy-a-rozhodovanie/a2-aktivity-vo.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "c0e7a16db98c8efde6b991a18ef50c931a35cc89"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: návrh"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "prij",
+      "label": "Prijímateľ"
+    },
+    {
+      "id": "uvo",
+      "label": "ÚVO ako SO"
+    },
+    {
+      "id": "so",
+      "label": "SO SIEA: kontrolór VO"
+    },
+    {
+      "id": "sw",
+      "label": "eurofondy-kontrola: návrh"
+    }
+  ],
+  "phases": [
+    {
+      "id": "g_prijem",
+      "label": "Príjem",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "g_riziko",
+      "label": "Riziková analýza",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "g_kontrola",
+      "label": "Kontrola ÚVO",
+      "fromCol": 2,
+      "toCol": 2
+    },
+    {
+      "id": "g_vystupy",
+      "label": "Výstupy kontrol",
+      "fromCol": 3,
+      "toCol": 3
+    },
+    {
+      "id": "g_vplyv",
+      "label": "Vplyv na výsledok",
+      "fromCol": 4,
+      "toCol": 4,
+      "variant": "emphasis"
+    },
+    {
+      "id": "g_naprava",
+      "label": "Náprava",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "so_start",
+    "so_riziko",
+    "so_vecna",
+    "so_vplyv",
+    "out_pripusti"
+  ],
+  "nodes": [
+    {
+      "id": "so_start",
+      "lane": "so",
+      "col": 0,
+      "type": "backend",
+      "icon": "start",
+      "label": "Prijme dokumentáciu VO",
+      "sublabel": "žiadosť o posúdenie v ITMS21+",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4041,
+          "end_line": 4043,
+          "label": "kompletná dokumentácia"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4058,
+          "end_line": 4062,
+          "label": "žiadosť o posúdenie"
+        }
+      ]
+    },
+    {
+      "id": "so_neriz",
+      "lane": "so",
+      "col": 1,
+      "yOffset": -42,
+      "type": "backend",
+      "icon": "stop",
+      "label": "Nevykoná kontrolu VO",
+      "sublabel": "oznámenie o nevykonaní FK",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4102,
+          "end_line": 4104,
+          "label": "neriziková zákazka"
+        }
+      ]
+    },
+    {
+      "id": "so_riziko",
+      "lane": "so",
+      "col": 1,
+      "yOffset": 42,
+      "type": "security",
+      "icon": "decision",
+      "label": "Riziková zákazka?",
+      "sublabel": "vlastná riziková analýza SO",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4031,
+          "end_line": 4036,
+          "label": "vecná kontrola rizikových"
+        },
+        {
+          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
+          "line": 288,
+          "end_line": 288,
+          "label": "ÚVO pri rizikových podlimitných"
+        }
+      ]
+    },
+    {
+      "id": "sw_vo",
+      "lane": "sw",
+      "col": 1,
+      "type": "frontend",
+      "label": "Kontrola VO V01 až V07",
+      "sublabel": "signály rizika, nie výrok",
+      "sources": [
+        {
+          "path": "packs/PSK-SIEA-002-2023-DV-EFRR/vo.json",
+          "line": 38,
+          "end_line": 125,
+          "label": "pravidlá V01 až V07"
+        },
+        {
+          "path": "src/moduly/vo/modul.ts",
+          "line": 51,
+          "end_line": 130,
+          "label": "kontroly"
+        }
+      ]
+    },
+    {
+      "id": "uvo_kontrola",
+      "lane": "uvo",
+      "col": 2,
+      "type": "backend",
+      "label": "Kontrola po zmluve",
+      "sublabel": "neúplná: preruší, vyzve doplniť",
+      "sources": [
+        {
+          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
+          "line": 540,
+          "end_line": 540,
+          "label": "prerušenie, kompletná dokumentácia"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4097,
+          "end_line": 4100,
+          "label": "pozastavenie FK VO"
+        }
+      ]
+    },
+    {
+      "id": "prij_vyjadri",
+      "lane": "prij",
+      "col": 2,
+      "type": "messagebus",
+      "icon": "clock",
+      "label": "Vyjadrí sa k zisteniam",
+      "sublabel": "aspoň 7 pd, potom sa neprihliada",
+      "sources": [
+        {
+          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
+          "line": 544,
+          "end_line": 544,
+          "label": "vyjadrenie aspoň 7 pd"
+        }
+      ]
+    },
+    {
+      "id": "uvo_protokol",
+      "lane": "uvo",
+      "col": 3,
+      "type": "database",
+      "label": "Protokol alebo záznam",
+      "sublabel": "návrh sadzby finančnej opravy",
+      "sources": [
+        {
+          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
+          "line": 555,
+          "end_line": 555,
+          "label": "koniec kontroly"
+        },
+        {
+          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
+          "line": 719,
+          "end_line": 719,
+          "label": "návrh percentuálnej sadzby"
+        }
+      ]
+    },
+    {
+      "id": "so_vecna",
+      "lane": "so",
+      "col": 3,
+      "type": "backend",
+      "label": "Vecná kontrola SO",
+      "sublabel": "súlad so ŽoNFP a zmluvou o NFP",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4031,
+          "end_line": 4036,
+          "label": "predmet vecnej kontroly"
+        },
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 4069,
+          "end_line": 4074,
+          "label": "návrh správy zohľadní ÚVO"
+        }
+      ]
+    },
+    {
+      "id": "so_vplyv",
+      "lane": "so",
+      "col": 4,
+      "type": "security",
+      "icon": "decision",
+      "label": "Malo či mohlo mať vplyv?",
+      "sublabel": "na výsledok VO; protokol do 5 pd",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Financne_opravy_VO.txt",
+          "line": 2,
+          "end_line": 2,
+          "label": "malo alebo mohlo mať vplyv"
+        },
+        {
+          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
+          "line": 562,
+          "end_line": 562,
+          "label": "premietne protokol do 5 pd"
+        }
+      ]
+    },
+    {
+      "id": "so_naprava",
+      "lane": "so",
+      "col": 5,
+      "yOffset": -42,
+      "type": "security",
+      "icon": "decision",
+      "label": "Aká náprava?",
+      "sublabel": "ex ante, ex post, či nepripustiť",
+      "sources": [
+        {
+          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
+          "line": 721,
+          "end_line": 721,
+          "label": "ex ante len pred pripustením"
+        },
+        {
+          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
+          "line": 725,
+          "end_line": 727,
+          "label": "voľba poskytovateľa"
+        },
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 162,
+          "end_line": 167,
+          "label": "možnosti po kontrole, ex post"
+        }
+      ]
+    },
+    {
+      "id": "out_pripusti",
+      "lane": "so",
+      "col": 5,
+      "yOffset": 42,
+      "type": "backend",
+      "icon": "success",
+      "label": "Pripustí výdavky VO",
+      "sublabel": "v plnej výške do financovania",
+      "sources": [
+        {
+          "path": "data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_Príloha_1_VZP_verzia_2.2.txt",
+          "line": 162,
+          "end_line": 163,
+          "label": "pripustiť v plnej výške"
+        }
+      ]
+    },
+    {
+      "id": "prij_suhlas",
+      "lane": "prij",
+      "col": 5,
+      "type": "messagebus",
+      "icon": "stop",
+      "label": "Námietky a súhlas",
+      "sublabel": "námietky ≥ 5 dní, súhlas do 5 pd",
+      "sources": [
+        {
+          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
+          "line": 3991,
+          "end_line": 3994,
+          "label": "námietky"
+        },
+        {
+          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
+          "line": 732,
+          "end_line": 732,
+          "label": "súhlas so sadzbou"
+        }
+      ]
+    },
+    {
+      "id": "sw_vazba",
+      "lane": "sw",
+      "col": 5,
+      "type": "frontend",
+      "label": "ŽoP P06 až P08",
+      "sublabel": "VO priradené, kontrola, zmluva",
+      "sources": [
+        {
+          "path": "packs/PSK-SIEA-002-2023-DV-EFRR/zop.json",
+          "line": 100,
+          "end_line": 137,
+          "label": "pravidlá P06 až P08"
+        },
+        {
+          "path": "src/moduly/zop/modul.ts",
+          "line": 197,
+          "end_line": 255,
+          "label": "väzba na VO"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "b01",
+      "from": "so_start",
+      "to": "so_riziko",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "b02",
+      "from": "sw_vo",
+      "to": "so_riziko",
+      "label": "signály rizika",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "b03",
+      "from": "so_riziko",
+      "to": "so_neriz",
+      "label": "[neriziková]",
+      "role": "branch"
+    },
+    {
+      "id": "b04",
+      "from": "so_riziko",
+      "to": "so_vecna",
+      "label": "[riziková]",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "b05",
+      "from": "so_riziko",
+      "to": "uvo_kontrola",
+      "label": "súbežne ÚVO",
+      "role": "branch",
+      "fromSide": "right",
+      "toSide": "bottom"
+    },
+    {
+      "id": "b06",
+      "from": "uvo_kontrola",
+      "to": "prij_vyjadri",
+      "label": "zistenia",
+      "role": "branch"
+    },
+    {
+      "id": "b07",
+      "from": "prij_vyjadri",
+      "to": "uvo_protokol",
+      "label": "vyjadrenie",
+      "role": "branch",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "b08",
+      "from": "uvo_protokol",
+      "to": "so_vplyv",
+      "label": "protokol, záznam",
+      "role": "branch",
+      "fromSide": "right",
+      "toSide": "top"
+    },
+    {
+      "id": "b09",
+      "from": "so_vecna",
+      "to": "so_vplyv",
+      "label": "zistenia SO",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "b10",
+      "from": "so_vplyv",
+      "to": "out_pripusti",
+      "label": "[nie]",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "b11",
+      "from": "so_vplyv",
+      "to": "so_naprava",
+      "label": "[áno] sadzba",
+      "role": "branch"
+    },
+    {
+      "id": "b12",
+      "from": "so_naprava",
+      "to": "prij_suhlas",
+      "label": "návrh správy, správa",
+      "role": "branch",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "b13",
+      "from": "sw_vazba",
+      "to": "out_pripusti",
+      "label": "faktúry k VO",
+      "role": "async",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Notácia UML",
+      "items": [
+        "Ikona štartu je počiatočný uzol; ikony konca a úspechu sú koncové uzly (aktivita ich môže mať viac).",
+        "Ikona rozhodnutia je ľudský úsudok, [stráž] na šípke je jeho výsledok.",
+        "Pri rizikovej zákazke bežia dva toky súbežne (v UML vidlica): vecná kontrola SO a kontrola ÚVO.",
+        "Aká náprava? má jeden tok: voľbu nesie správa z kontroly."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Čo človek posudzuje",
+      "items": [
+        "SO: je zákazka riziková? Neriziková dostane oznámenie o nevykonaní FK (DOP 3.2 r. 4102 až 4104).",
+        "SO: malo alebo mohlo mať porušenie vplyv na výsledok VO? Len vtedy platí sadzba (Príloha č. 4, r. 2).",
+        "SO: ex ante len kým výdavky nie sú pripustené; v určených prípadoch volí medzi opravou a nepripustením (CKO r. 721 až 727).",
+        "Prijímateľ: k zisteniam ÚVO sa vyjadrí aspoň v 7 pd, k návrhu správy podá námietky v lehote aspoň 5 dní."
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Softvér a jeho hranice",
+      "items": [
+        "V01 až V07 sú signály rizika; rizikovú analýzu SO nerobia ani nenahrádzajú.",
+        "P06 až P08 v ŽoP overia priradenie VO, kontrolu VO pred zahrnutím do ŽoP a limit zmluvy.",
+        "Vplyv na výsledok VO, sadzbu opravy ani lehoty kontroly softvér neposudzuje.",
+        "Kontrolu spisu VO pred odoslaním (ako predbežnú kontrolu ÚVO) softvér zatiaľ nemá."
+      ]
+    }
+  ]
+}
