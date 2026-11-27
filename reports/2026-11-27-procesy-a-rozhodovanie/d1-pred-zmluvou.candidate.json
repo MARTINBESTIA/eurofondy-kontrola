@@ -446,8 +446,8 @@
       "lane": "softver",
       "col": 2,
       "type": "frontend",
-      "label": "Predkontrola 27 PPP",
-      "sublabel": "citácie, výzva, lehota doplnenia",
+      "label": "Predkontrola PPP",
+      "sublabel": "27 pravidiel, citácie, lehota",
       "sources": [
         {
           "path": "README.md",
