@@ -1,0 +1,773 @@
+Metodický dokument riadiaceho orgánu pre Program Slovensko č. 3
+
+METODICKÉ USMERNENIE K VÝBERU ODBORNÝCH HODNOTITEĽOV
+
+Schválila:
+Adriana Červeňová
+generálna riaditeľka
+sekcia riadenia programu Slovensko
+
+Verzia: 3.0
+Dátum vydania: 09.09.2026
+Dátum účinnosti: 09.09.2026
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+Obsah
+
+      Úvod ........................................................................................................................................ 3
+
+Zoznam použitých skratiek ...................................................................................................... 4
+
+Definícia pojmov......................................................................................................................5
+
+Zoznam vykonaných zmien ..................................................................................................... 6
+
+1 Kľúčové princípy reformy v porovnaní s programovým obdobím      2014 - 2020 ...... 9
+
+2 Zodpovednosť poskytovateľa pri výbere OH...................................................................10
+
+3 Kritériá výberu OH ........................................................................................................... 11
+
+4 Povinná dokumentácia žiadateľa o zaradenie do evidencie OH ..................................... 11
+
+5 Preverenie existencie prípadného konfliktu záujmu OH.................................................12
+
+6 Odmeňovanie .................................................................................................................. 12
+
+7 Možné sankcie ................................................................................................................. 13
+
+8 Zverejňovanie .................................................................................................................. 14
+
+9 Príručka pre odborných hodnotiteľov – minimálne štandardy ....................................... 14
+
+10 Zoznam príloh ................................................................................................................ 15
+
+                                                                  2
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+Úvod
+
+Cieľom metodického usmernenia riadiaceho orgánu pre Program Slovensko č. 3 k výberu odborných
+hodnotiteľov, (ďalej len „metodické usmernenie“) je definovanie minimálnych štandardov pre výber
+odborných hodnotiteľov (ďalej len „OH“). Metodické usmernenie určuje všeobecné kritériá výberu OH
+a spôsob ich overenia a ďalšie pravidlá súvisiace s OH.
+V prípade, ak je postup upravený osobitnými pravidlami, v usmernení sa uvádza odkaz na tieto pravidlá,
+bez ich kopírovania. Usmernenie je záväzné pre subjekty zapojené do implementácie Programu Slovensko
+(ďalej aj „program,“ resp. „P SK“) v rozsahu v ňom uvedenom, ak v jeho texte nie je pri konkrétnom
+ustanovení uvedené inak.
+Metodické usmernenie a jeho aktualizácie sú zverejnené na webovom sídle www.eurofondy.gov.sk,
+v sekcii „Metodické dokumenty“, v časti „Metodické dokumenty pre Program Slovensko (P SK)“. Riadiaci
+orgán poskytuje metodickú podporu pri riešení otázok súvisiacich s výberom OH (prostredníctvom
+emailovej komunikácie [e-mail vynechaný]). Poskytovateľ je oprávnený doplniť, sprísniť a
+podrobnejšie upraviť postupy a povinnosti, vyplývajúce z tohto metodického usmernenia.
+Metodické usmernenie sa neuplatňuje na výber a odmeňovanie zahraničných odborných hodnotiteľov
+pre projekty výskumu a/alebo vývoja, ktoré sú v zmysle Záväznej metodiky riadenia, financovania a
+hodnotenia podpory výskumu, vývoja a inovácií, vydanej Výskumnou a inovačnou autoritou Úradu vlády
+SR povinne hodnotené zahraničnými odbornými hodnotiteľmi za podmienok stanovených predmetnou
+metodikou.
+Poskytovateľ je povinný zosúladiť štatúty a rokovacie poriadky pracovných skupín na výber odborných
+hodnotiteľov pre P SK s týmto metodickým usmernením verzie 3.0, a to formou písomného
+a očíslovaného dodatku k štatútom, najneskôr do 1 mesiaca odo dňa nadobudnutia účinnosti verzie 3.0
+tohto metodického usmernenia. Zosúladenie štatútu a rokovacieho poriadku pracovnej skupiny
+/spoločnej pracovnej skupiny na výber odborných hodnotiteľov pre P SK s týmto metodickým
+usmernením verzie 3.0 schváli štatutárny zástupca poskytovateľa zodpovedného za vecne príslušnú
+oblasť hodnotenia. Dodatok k existujúcemu štatútu bude prijatý a schválený postupom ustanoveným
+v pôvodnom znení štatútu. Do nadobudnutia účinnosti tohto dodatku sa štatúty a rokovacie poriadky
+pracovných skupín spravujú ich doterajším znením; tým nie sú dotknuté zasadnutia, úkony a
+rozhodnutia pracovnej skupiny vykonané do tohto okamihu.
+
+                                                                                                                    3
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+Zoznam použitých skratiek
+
+Tabuľka 1: Zoznam použitých skratiek
+
+Použitá skratka                                              Význam
+
+      ESF+       Európsky sociálny fond plus
+       EÚ        Európska únia
+       HP        horizontálne princípy
+    ITMS21+      informačný monitorovací systém ITMS21+
+       OH        odborný hodnotiteľ/odborní hodnotitelia
+ poskytovateľ    RO/SO
+      P SK       Program Slovensko
+     PS OH       pracovná skupina na výber odborných hodnotiteľov
+       RO        riadiaci orgán
+       SO        sprostredkovateľský orgán
+     SPS OH      spoločná pracovná skupina na výber odborných hodnotiteľov
+        SR       Slovenská republika
+     ŽoNFP       žiadosť o poskytnutie nenávratného finančného príspevku
+
+                                                                            4
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+Definícia pojmov
+
+Tabuľka 2: Definícia pojmov
+
+Pojem                        Definícia
+
+ARACHNE  Systém ARACHNE je špecifický nástroj na hĺbkovú analýzu údajov s cieľom určiť
+  GDPR   projekty, ktoré sú náchylné na riziká podvodu, konflikt záujmov a nezrovnalosti
+         a zároveň nástroj, ktorý môže zvýšiť efektívnosť riadenia projektov a posilniť
+         zisťovanie a odhaľovanie podvodov a predchádzanie podvodom).
+         Z pohľadu dodržiavania Nariadenia Európskeho parlamentu a Rady (EÚ)
+         2016/679 z 27. apríla 2016 o ochrane fyzických osôb pri spracúvaní osobných
+         údajov a o voľnom pohybe takýchto údajov, ktorým sa zrušuje smernica 95/46/ES
+         (všeobecné nariadenie o ochrane údajov).
+
+                                                                  5
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+Zoznam vykonaných zmien
+
+Zoznam vykonaných zmien poskytuje chronologický vývoj zmien metodického dokumentu formou
+dodatkov až po aktuálnu verziu dokumentu
+
+Tabuľka č. 3 Zoznam vykonaných zmien
+
+Časť dokumentu       Obsah upravovanej časti                      Verzia             Podnet1
+                                                                   2.0                 n/a
+                     Úprava formátu dokumentu a úvodnej
+                                                                          Vykonávacie rozhodnutie
+Celý dokument a časti metodického dokumentu.                               Komisie, zo 22.11.2022,
+                                                                          č. CCI 2021SK16FFPR001,
+prílohy              Sprecizovanie textu na základe návrhov
+                                                                             ktorým sa schvaľuje
+                     SO, odstránenie duplicitného textu.                     Program Slovensko.
+                                                                           Sprecizovanie textu na
+Celý dokument a      Nahradenie textu „Program Slovensko          2.0
+      prílohy        2021-2027“ pojmom „Program                                základe reálnosti
+                     Slovensko“.                                          funkcionality v ITMS21+.
+
+Celý dokument        Nahradenie textu „centrálny register         2.0            VLA č. 23-077
+   a prílohy         OH“ novým pojmom „evidencia OH“.
+                                                                                       n/a
+                     Doplnenie textu: „vyhlásenie výzvy na
+                                                                                       n/a
+                     výber odborných hodnotiteľov
+                                                                                       n/a
+Časť 2-              vyhlásená tak, aby v čase uzavretia
+                                                                                       n/a
+ Zodpovednosť výzvy na predkladanie ŽoNFP, resp.                  2.0
+poskytovateľa pri hodnotiaceho kola výzvy, bol k                                       n/a
+                                                                                       n/a
+výbere OH            dispozícii zoznam odborných
+
+                     hodnotiteľov zaradených v evidencii
+
+                     OH vedenej v ITMS21+“.
+
+Časť 5 - Preverenie  Doplnenie oblasti - preverenie               2.0
+     existencie      existencie prípadného konfliktu záujmu
+    prípadného       OH, doplnenie možných registrov
+                     a sprecizovanie textu.
+ konfliktu záujmu
+          OH
+
+                     Doplnenie textu v časti Čl. 2, písm. b a
+
+Príloha č. 10 a 11   c.; Čl.5, písm. e; Čl. 6, písm., c,          2.0
+                     poznámky pod čiaročou č. 1., Čl. 5
+
+                     doplnený bod 10.
+
+                     Doplnenie prílohy - vzor Čestné
+
+Príloha č. 12        vyhlásenie o nestrannosti, zachovaní         2.0
+                     dôvernosti informácií a vylúčení
+
+                     konfliktu záujmov.
+
+                     Doplnenie prílohy - vzor Čestné
+
+                     vyhlásenie o nestrannosti, zachovaní
+
+Príloha č. 12A dôvernosti informácií a vylúčení 2.0
+
+                     konfliktu záujmov člena PS OH
+
+                     a doplnenie poznámky č. 12.
+
+                     Doplnenie prílohy - vzor Poskytnutie
+
+Príloha č. 13        údajov potrebných na vyžiadanie 2.0
+
+                     výpisu z registra trestov.
+
+Časť 9 doplnenie     Doplnenie časti - Príručka pre               2.0
+    celej časti      odborných hodnotiteľov – minimálne
+                     štandardy.
+
+1 Uvedie sa napr. číslo kontroly/auditu, na ktorého základe bola daná zmena vykonaná.
+
+                                                                                                                    6
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+Časť 7 – Možné      Preformulovanie celého obsahu                 2.0  n/a
+    sankcie         možnosti vylúčenia a odradenia OH
+                    z procesu odborného hodnotenia.
+
+Príloha č. 9        Kalkulačka na výpočet odmeny OH.              2.0  n/a
+                    Označenie prílohy ako vzoru.
+
+                    Zmena číslovania prílohy č. 7 na 7a
+
+                    a doplnenie novej prílohy č. 7b – vzor
+
+Príloha č. 7a a 7b  štrukturovaného              životopisu.      2.0  n/a
+
+                    Poskytnutie možnosti výberu formátu
+
+                    životopisu        (Europass    alebo
+
+                    štrukturovaný životopis).
+
+Časť 2
+
+Zodpovednosť
+
+poskytovateľa pri   Doplnenie textu.                              2.0  n/a
+   výbere OH,
+
+(poznámka pod
+
+čiarou č. 10)
+
+Str. 3 - Poznámka   Doplnenie a spresnenie textu.                 2.0  n/a
+  pod čiarou 1
+
+Časť 2
+
+ Zodpovednosť       Doplnenie poznámky pod čiarou č. 12.          2.0  n/a
+poskytovateľa pri
+
+výbere OH,
+
+Príloha č. 4        Doplnenie poznámky č. 4.                      2.0  n/a
+
+                    Doplnený text: Poskytovateľ je povinný
+
+                    zosúladiť štatúty a rokovacie poriadky
+
+                    pracovných skupín na výber odborných
+
+                    hodnotiteľov pre P SK s týmto
+
+                    metodickým usmernením verzie 3.0, a
+
+                    to formou písomného a očíslovaného
+
+                    dodatku k štatútom, najneskôr do 1
+
+                    mesiaca odo dňa nadobudnutia
+
+                    účinnosti verzie 3.0 tohto metodického
+
+                    usmernenia. Zosúladenie štatútu a
+
+                    rokovacieho poriadku pracovnej
+
+                    skupiny /spoločnej pracovnej skupiny
+
+                    na výber odborných hodnotiteľov pre P
+
+Úvod                SK s týmto metodickým usmernením 3.0               n/a
+
+                    verzie 3.0 schváli štatutárny zástupca
+
+                    poskytovateľa zodpovedného za vecne
+
+                    príslušnú oblasť hodnotenia. Dodatok k
+
+                    existujúcemu štatútu bude prijatý a
+
+                    schválený postupom ustanoveným v
+
+                    pôvodnom znení štatútu. Do
+
+                    nadobudnutia účinnosti tohto dodatku
+
+                    sa štatúty a rokovacie poriadky
+
+                    pracovných skupín spravujú ich
+
+                    doterajším znením; tým nie sú
+
+                    dotknuté zasadnutia, úkony a
+
+                    rozhodnutia pracovnej skupiny
+
+                    vykonané do tohto okamihu.
+
+     Časť 4         Doplnenie a zosúladenie textu ohľadne              n/a
+   Povinná          ČV s MU CKO k jednotnému postupu 3.0
+dokumentácia        preukázania bezúhonnosti, verzia 1.1.
+   žiadateľa
+
+                                                                            7
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+o zaradenie do
+
+evidencie OH
+
+                Zosúladenie textu s MU CKO k
+
+Príloha č. 8    jednotnému postupu preukázania 3.0                     n/a
+
+                bezúhonnosti, verzia 1.1.
+
+                Príloha č. 10:
+
+                Úprava Čl. 2, ods.1, písm. d)
+
+                Poznámka č. 1 – doplnený text
+
+                Čl. 3, ods. 1, 2, 3 – písm. a), e)
+
+                Čl. 5, ods. 2, ods. 4 doplnenie písm. g)
+
+                Vypustenie ods. 8
+
+                Čl. 6, doplnenie ods. 2, ods. 4 –
+
+                doplnenie písm. d)
+
+Príloha č. 10 a 11 Čl. 7 úpráva ods. 2, 4                         3.0  n/a
+
+                Doplnenie poznámky pod čiarou č. 5
+
+                Čl. 8 úprava ods. 1, 3, 4.
+
+                Príloha č. 11:
+                Upráva Čl.3, ods. 3, písm. g)
+                Čl. 5, ods. 4, doplnenie písm. g)
+                Čl. 8. úprava ods. 1 a 3.
+
+                                                                            8
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+1 Kľúčové princípy reformy v porovnaní s programovým obdobím
+      2014 - 2020
+
+- štandardizácia kritérií/podmienok a pravidiel výberu OH predovšetkým elektronickou komunikáciou2
+    a jednotné pravidlá odmeňovania OH,
+
+- otvorené výzvy na výber OH a evidencia OH počas celého programového obdobia 2021 – 20273,
+- jednotné a lepšie pracovné podmienky pre OH - elektronické hodnotenie, možnosť odborného
+
+    hodnotenia aj formou práce z domu,
+- OH nie sú členení na interných a externých,
+- transparentný, automatizovaný výber OH - žrebovanie OH v informačnom monitorovacom systéme
+
+    (ďalej len „ITMS21+“), resp. ich automatické priraďovanie k jednotlivým žiadostiam o poskytnutie
+    nenávratného finančného príspevku (ďalej aj „ŽoNFP“),
+- požadovaná najmä odborná znalosť v oblasti hodnotenia4, doterajšia skúsenosť pri hodnotení
+    ŽoNFP zo strany OH má iba odporúčací charakter,
+- riadiaci orgán/sprostredkovateľský orgán, t.j. poskytovateľ zabezpečuje školiace aktivity pre OH5
+    týkajúce sa najmä legislatívy EÚ a SR, základných programových dokumentov SR, najmä o spôsobe
+    overenia podmienky poskytnutia príspevku, o predchádzaní konfliktu záujmov podľa § 45 zákona
+    č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a o zmene a doplnení niektorých zákonov
+    v znení neskorších predpisov,
+- poskytovateľ v spolupráci s gestorom horizontálnych princípov zabezpečuje školenia6 o spôsobe
+    overenia kritérií použitých pri výbere projektov na zabezpečenie dodržiavania horizontálnych
+    princípov (ďalej len „HP“),
+- poskytovateľ požiada emailom gestora HP [e-mail vynechaný] o zabezpečenie školenia OH
+    v oblasti horizontálnych princípov pre aktivity identifikované vo výzve na predkladanie ŽoNFP, ktorú
+    mu zašle v prílohe žiadosti, resp. zašle priamy odkaz na webové sídlo, na ktorom je výzva zverejnená,
+- možnosť spoločného vyhlasovania výziev na výber OH viacerými poskytovateľmi pre rovnaké
+    oblasti hodnotenia - v prípade, že viacerí poskytovatelia pripravujú výzvu na výber OH pre zhodné
+    oblasti hodnotenia, môžu sa rozhodnúť, že OH pre danú oblasť hodnotenia vyberú na základe
+    spoločne vyhlásenej výzvy na výber OH, v ktorej si spoločne zadefinujú odborné kritériá na výber OH.
+    V takom prípade pri zriaďovaní spoločnej pracovnej skupiny na výber OH (ďalej aj „SPS OH“) použijú
+    prílohu č. 11 tohto metodického usmernenia - vzor Štatút a rokovací poriadok spoločnej pracovnej
+    skupiny. Každý poskytovateľ, ktorý sa podieľal na spoločnom vyhlásení výzvy, si OH vybraných na
+    základe spoločnej výzvy zaeviduje samostatne7 v ITMS21+,
+- centrálne zverejňovanie výziev na výber OH na úrovni RO - poskytovateľ požiada zástupcu RO, ktorý
+    je členom pracovnej skupiny na výber odborných hodnotiteľov Programu Slovensko (ďalej aj „PS OH“
+    alebo „pracovná skupina“) o zverejnenie schválenej výzvy na výber OH na webovom sídle
+    www.eurofondy.gov.sk, v sekcii „Výzvy a vyhľadávanie“, v časti „Výzvy pre hodnotiteľov“.
+
+2 Poskytovateľ využíva predovšetkým komunikáciu formou emailu, ITMS21+, avšak rovnako je možné použiť listinnú (najmä v prípadoch doručenia
+písomností vyžadujúcich potvrdenie o prevzatí) a telefonickú komunikáciu (najmä v prípadoch potreby flexibilnej komunikácie s OH).
+3 Výzvu je možné uzavrieť, ak predmet hodnotenia, t. j. výzva pre žiadateľov o NFP, bola zrušená alebo uzavretá, a aj v prípade keď SO vyhodnotí,
+že pre danú výzvu na výber OH je zabezpečený dostačujúci počet OH.
+4 Termín „oblasť hodnotenia“ sa využíva na bližšiu špecifikáciu podporovaných aktivít, ktoré budú predmetom odborného hodnotenia a má iný
+význam ako pri použití tohto termínu v ITMS21+. Pri využití funkcie automatického priradenia hodnotiteľov v ITMS21+ je možné odborných
+hodnotiteľov pre danú oblasť hodnotenia zaevidovať buď ako kategóriu, alebo špecializáciu OH.
+5 Poskytovateľ sa môže rozhodnúť, že školenie vykoná online formou, resp. zaslaním relevantnej dokumentácie a potrebných informácii emailom.
+Absolvovanie úvodného školenia, resp. preštudovanie zaslanej dokumentácie OH potvrdzuje svojim podpisom na vyhlásení o absolvovaní
+školenia/vyhlásení o preštudovaní zaslanej dokumentácie/na prezenčnej listine, resp. poskytovateľ vykoná print screen obrazovky s menami
+účastníkov online školenia. Prípadne formou emailového potvrdenia od OH o absolvovaní školenia (t. j bez potreby podpisu OH).
+6 Po dohode poskytovateľa a gestora HP, najneskôr pred začatím konkrétneho odborného hodnotenia, školenie môže byť realizované online
+formou. Absolvovanie školenia OH potvrdzuje svojim podpisom na vyhlásení o absolvovaní školenia/na prezenčnej listine, resp. poskytovateľ
+vykoná print screen obrazovky s menami účastníkov online školenia. Prípadne formou emailového potvrdenia od OH o absolvovaní školenia (t. j
+bez potreby podpisu OH).
+7 Pod vlastným orgánom.
+
+                                                                                                                    9
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+- za účelom sprehľadnenia a rýchlejšej orientácie vo vyhlásených výzvach, RO odporúča nasledovné
+    kódovanie výziev na OH8:
+         kód výzvy: poradové číslo/rok/poskytovateľ
+         • poradové číslo výzvy má 2 miesta bez medzier a znakov, prvá výzva je označená poradovým
+              číslom 01,
+         • rok vyhlásenia sa uvádza bez medzier,
+         • skratka poskytovaľa sa uvádza bez „SR“,
+         • príklad: 01/2024/MIRRI,
+
+- vzorové prílohy metodického usmernenia – stanovujú minimálne požiadavky pre poskytovateľa,
+     ktoré si môže rozšíriť resp. doplniť v zmysle svojich špecifických potrieb.
+
+2 Zodpovednosť poskytovateľa pri výbere OH
+
+- každý poskytovateľ vedie vlastnú evidenciu OH9, ktorých v systéme ITMS21+ priraďuje k programovej
+    štruktúre, t. j. priradenie OH až na úroveň opatrenia, ak relevantné,
+
+- definovanie a stanovenie rozsahu odborných kritérií na výber OH za oblasti hodnotenia, na ktoré
+    poskytovateľ vyhlasuje výzvy na výber OH, pričom „Vzor zoznamu oblastí pre výber odborných
+    hodnotiteľov“ tvorí prílohu č. 1 tohto metodického usmernenia,
+
+- vyhlásenie výzvy na výber OH tak, aby v čase uzavretia výzvy na predkladanie ŽoNFP, resp.
+    hodnotiaceho kola výzvy, bol k dispozícii zoznam OH zaradených v evidencii OH vedenej v ITMS21+,
+
+- zverejnenie výzvy na výber OH na www.eurofondy.gov.sk (pozn. zverejňuje RO)10,
+- zriadenie PS OH za účelom výberu OH pre oblasti hodnotenia, na ktoré poskytovateľ vyhlasuje výzvu
+
+     na výber OH, zabezpečenie vypracovania a podpísania Čestného vyhlásenia o nestrannosti, zachovaní
+     dôvernosti informácií a vylúčení konfliktu záujmov člena PS OH (príloha č. 12A tohto metodického
+     usmernenia) členmi PS OH, resp. členmi SPS OH11,
+- vyhodnotenie splnenia kritérií a podmienok na zaradenie do evidencie OH. Výsledky vyhodnotenia
+    splnenia kritérií na zaradenie do evidencie OH sa zaznamenajú vo forme kontrolného zoznamu
+    (príloha č. 5 tohto metodického usmernenia),
+- v prípade potreby vyžiadanie doplnenia12 povinných náležitostí k žiadostiam o zaradenie do evidencie
+    OH,
+- zaradenie vybraných OH do evidencie OH za vybrané oblasti hodnotenia,
+- vyradenie OH z evidencie na základe rozhodnutia PS OH, prípadne na základe vlastnej žiadosti už
+    zaradeného OH alebo v prípade iných odôvodniteľných prípadoch,13 ak relevantné,
+- zazmluvnenie a poskytnutie odmeny z pridelenej alokácie poskytovateľa na technickú pomoc za
+    vykonanú prácu s možnosťou využitia vzorovej kalkulačky pre výpočet odmeny OH, (príloha č. 9 tohto
+    metodického usmernenia).
+
+8 Uvedené sa vzťahuje na výzvy vyhlasené po nadobudnutí účinnosti tohto metodického usmernenia. Kódovanie výziev je odporúčaním riadiaceho
+orgánu, vzhľadom na aktuálny stav vo vyhlasovaní výziev na OH.
+9 V prípade projektov alebo grantov výskumu, vývoja a inovácií a/alebo príspevkov na podporu výskumu, vývoja a inovácií môže poskytovateľ na
+odborné hodnotenie žiadostí o poskytnutie NFP využiť databázu expertov/evaluátorov (ďalej aj „odborní hodnotitelia“) Európskej komisie (ďalej
+aj „databáza EK“) vedenú v systéme Európskej komisie (EU Funding & Tenders Portal), ktorých využíva EK pri hodnotení projektov / grantov napr.
+v rámci programu Horizon Europe. V tomto prípade poskytovateľ vyberie relevantných odborných hodnotiteľov prostredníctvom funkcionalít
+portálu EK a zabezpečí transparentné priradenie odborných hodnotiteľov k jednotlivým žiadostiam o poskytnutie NFP, štandardne na základe
+výberu založeného na princípe „best match based on key words“. Poskytovateľ je zároveň povinný zabezpečiť primeraný audítorský záznam z
+procesu priraďovania odborných hodnotiteľov k jednotlivým žiadostiam o poskytnutie NFP. S ohľadom na to, že proces verifikácie odborných
+hodnotiteľov zabezpečujú priamo útvary EK, v prípade takéhoto využitia databázy EK poskytovateľ neuplatňuje kapitoly 3, 4 a 5 tohto usmernenia.
+Poskytovateľ je povinný vo svojom postupe výberu odborných hodnotiteľov a v priebehu odborného hodnotenia zohľadniť požiadavky kapitoly 6
+a 10 tohto usmernenia a ak je to relevantné zabezpečí zohľadnenie požiadaviek kapitoly 7, 8 a 9 tohto metodického usmernenia.
+10 RO odporúča zverejnenie výzvy na výber OH/zverejnenie odkazu publikovanej výzvy aj na príslušnom webovom sídle SO.
+11 Pozn. pri zmene formulára nie je nutné zabezpečiť podpísanie nového čestného vyhlásenia.
+12 V prípade potreby dožiadania je postačujúca emailová komunikácia.
+13 Každé vyradenie OH z evidencie OH musí poskytovateľ vedieť vydokladovať. Za iné odôvodniteľné dôvody možno považovať: umrtie OH (v
+prípade, že poskytovateľ má takúto informáciu k dispozícii), dlhodobo neuspokojivá a problémová spolupráca s OH (poskytovateľ túto skutočnosť
+musí vedieť zdokladovať) a pod. Viac uvedené v bode 7 tohto metodického usmernenia.
+
+                                                                                                                   10
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+3 Kritériá výberu OH
+
+Odborní hodnotitelia musia spĺňať základné všeobecné kritériá, zadefinované v prílohe č. 4 tohto
+metodického usmernenia.
+
+Odborné kritériá sú stanovené minimálne pre úroveň špecifických cieľov.
+Poskytovateľ môže pri definovaní odborných kritérií spolupracovať so zástupcami RO a SO, prípadne aj
+s Úradom splnomocnenca vlády SR pre rozvoj občianskej spoločnosti, za oblasť hodnotenia, pre ktorú
+vyhlasuje výzvu na výber OH. Následne poskytovateľ predkladá návrh výzvy na výber OH a jej príloh na
+odsúhlasenie pracovnej skupine pre výber OH.
+
+4 Povinná dokumentácia žiadateľa o zaradenie do evidencie OH
+
+Každý žiadateľ o zaradenie do evidencie OH musí zaslať emailom14 na RO alebo SO (podľa toho, kto danú
+výzvu na výber OH vyhlásil) minimálne15 nasledovnú dokumentáciu:
+
+    - žiadosť o zaradenie do evidencie OH (príloha č. 6 tohto metodického usmernenia),
+    - životopis vo forme Europass/alebo štrukturovaný životopis preukazujúci vzdelanie, odborné
+
+         skúsenosti, prax (príloha č. 7a a 7b tohto metodického usmernenia),
+    - sumarizačný prehľad k preukázaniu požadovanej praxe v oblasti súvisiacej s predmetom
+
+         odborného hodnotenia žiadateľ popíše v časti životopisu „Prax“ alebo „Pracovné skúsenosti“
+         (alebo v inom dokumente určenom poskytovateľom v rámci výzvy na výber OH), s uvedením
+         oblasti, v ktorej získal prax a s uvedením počtu mesiacov, počas ktorých na danej pozícii pôsobil.
+         Dosiahnutá prax sa preukazuje aj prostredníctvom zoznamu projektov a aktivít, na ktorých
+         žiadateľ pracoval spolu s ich stručným popisom (vrátane popisu rolí a zodpovedností), ostatných
+         dokumentov preukazujúcich kvalifikáciu v oblasti, ktorá je predmetom hodnotenia (kópie
+         certifikátov, resp. iných dokladov o dosiahnutom vzdelaní, resp. absolvovanom školení, atď.),
+    - doklad o vzdelaní - kópia dokladu preukazujúceho vysokoškolské vzdelanie II. prípadne
+         I. stupňa, resp. iného relevantného dokladu,
+    - čestné vyhlásenie o bezúhonnosti (príloha č. 8 tohto metodického usmernenia) a to v prípade
+         záujemcov, ktorí sú povinní v zmysle platných právnych predpisov preukázať svoju bezúhonnosť
+         svojmu zamestnávateľovi alebo je bezúhonnosť predpokladom pre výkon ich práce (napr. štátni
+         zamestnanci a zamestnanci verejnej správy Slovenskej republiky16, osoba vykonávajúca verejnú
+         funkciu17),
+    - poskytnutie údajov potrebných na vyžiadanie výpisu z registra trestov18 v prípade záujemcov, na
+         ktorých na nevzťahuje predchádzajúca podmienka (príloha č. 13 tohto metodického usmernenia),
+    - doklady preukazujúce dĺžku praxe a získané skúsenosti - žiadateľ predloží aspoň jednu referenciu
+         od zamestnávateľa, odberateľa služieb alebo inú objektívne overiteľnú referenciu19, preukazujúcu
+
+14 V súlade s legislatívou, týkajúcou sa ochrany osobných údajov (zákon č. 18/2018 Z. z. Zákon o ochrane osobných údajov a o zmene a doplnení
+niektorých zákonov v znení neskorších predpisov a Nariadenie Európskeho parlamentu a Rady (EÚ) 2016/679 z 27. apríla 2016 o ochrane fyzických
+osôb pri spracúvaní osobných údajov a o voľnom pohybe takýchto údajov, ktorým sa zrušuje smernica 95/46/ES (všeobecné nariadenie o ochrane
+údajov)) musí byť dokumentácia chránená. Uvedené sa týka aj žiadateľov o zaradenie do evidencie OH z radov zamestnancov poskytovateľa, v
+minulosti označenovaných ako „interných odborných hodnotiteľov“.
+15 Max. rozsah stanovuje príslušná výzva na výber OH.
+16 Osoby, ktoré sú povinné v zmysle platných právnych predpisov preukázať svoju bezúhonnosť svojmu zamestnávateľovi alebo je bezúhonnosť
+predpokladom pre výkon ich práce (napr. štátni zamestnanci), pokiaľ takýto osobitný predpis stanovuje aj preverenie právoplatných odsúdení
+za trestné činy spáchané z nedbanlivosti podľa § 263 zákona č. 300/2005 Z. z. Trestného zákona.
+17 Napr. štatutárne orgány samosprávnych orgánov.
+18 V zmysle § 46 ods. 5 zákona č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a o zmene a doplnení niektorých zákonov v znení neskorších
+predpisov zabezpečí výpis z registra trestov poskytovateľ na základe údajov poskytnutých žiadateľom potrebných na vyžiadanie výpisu z registra
+trestov (relevantné len pre občanov SR). Alternatívne má žiadateľ možnosť predložiť originál výpisu z registra trestov, nie starší ako 3 mesiace.
+19 Pod inou objektívne overiteľnou referenciou sa má na mysli referencia s uvedením kontaktnej osoby pre overenie referencií v rozsahu meno a
+priezvisko, telefónne číslo a email. V prípade potreby overenia referencie sa odporúča emailová komunikácia.
+
+                                                                                                                   11
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+         minimálnu dĺžku požadovanej praxe (pozn. v odôvodnených prípadoch, poskytovateľ sa môže
+         rozhodnúť, že postačujúcim spôsobom preukázania splnenia kritéria je predloženie zoznamu
+         projektov a referencií súvisiacich s vykonaním odborných hodnotení v relevantnej oblasti),
+    - ďalšie prílohy podľa vlastného uváženia (napr. kópie certifikátov, osvedčení, potvrdení, doklady
+         preukazujúce získané skúsenosti v oblasti, ktorá je predmetom hodnotenia), pričom dokumenty
+         musia byť platné ku dňu ich predloženia, ak relavantné. Predloženie predmetných dokumentov je
+         odporúčané na podporu informácií predložených v životopise.
+
+Dokumentácia je predkladaná vo forme skenu na emailovú adresu identifikovanú poskytovateľom vo
+výzve na výber OH. Ako predmet emailu je potrebné uviesť „Odborný hodnotiteľ“. Maximálnu veľkosť
+prílohy emailu, alebo jej prípadné rozdelenie si určí poskytovateľ taktiež vo výzve na výber OH. Zároveň je
+poskytovateľ povinný oboznámiť žiadateľa o spôsobe spracovania jeho osobných údajov.
+
+Pri spoločných výzvach na výber OH si poskytovatelia spoločne dohodnú všetky náležitosti požadované od
+žiadateľov na zaradenie do evidencie OH, ktoré uvedú v spoločnej výzve na výber OH.
+
+5 Preverenie existencie prípadného konfliktu záujmu OH
+
+Konfliktom záujmov sa rozumie najmä situácia,20 kedy z dôvodov osobného alebo obdobného vzťahu OH
+k niektorému zo žiadateľov o NFP v rámci danej výzvy,21 je ohrozená nestrannosť, objektívnosť
+a transparentnosť procesu odborného hodnotenia ŽoNFP.
+
+Odborný hodnotiteľ predkladá poskytovateľovi čestné vyhlásenie o nestrannosti, zachovaní dôvernosti
+informácií a vylúčení konfliktu záujmov (príloha č. 12 tohto metodického usmernenia).
+Poskytovateľ je povinný preveriť existenciu možného konfliktu záujmov u OH bezodkladne po pridelení
+ŽoNFP na odborné hodnotenie, najneskôr však pred začatím odborného hodnotenia ŽoNFP.
+Poskytovateľ overuje možný konflikt záujmu prostredníctvom:
+- verejne dostupných registrov, napr. v registroch www.orsr.sk, www.zrsr.sk, www.transparex.sk,
+www.registeruz.sk, www.cdcp.sk, https://zber.statistics.sk, resp. v registri a identifikátore právnických
+osôb, podnikateľov a orgánov verejnej moci (https://rpo.statistics.sk) alebo v systéme ARACHNE ako aj
+v iných relevantných informačných systémoch (ak k ním ma poskytovateľ prístup). Z overenia je potrebné
+uchovávať auditnú stopu (print screeny z verejne dostupných registrov, ARACHNE a pod.)
+V prípade zistenia konfliktu záujmu voči pridelenej ŽoNFP je daný OH odradený z odborného hodnotenia
+tejto ŽoNFP v ITMS21+. ŽoNFP bude bezodkladne prostredníctvom ITMS2021+ pridelená na odborného
+hodnotenie inému OH.
+
+6 Odmeňovanie
+
+Poskytovateľ zverejní výšku odmeny, resp. spôsob výpočtu výšky odmeny vo výzve na výber OH. Výška
+odmeny v rámci jednotlivých výziev/oblastí hodnotenia je určená v závislosti:
+
+    a) od výšky oprávnených výdavkov projektu v čase pridelenia ŽoNFP na hodnotenie OH, t. j. v čase
+         uzavretia dohody o vykonaní práce s OH, alebo
+
+    b) od iných preferencií poskytovateľa v závislosti od typu výzvy, oprávnených aktivít, náročnosti na
+         hodnotenie jednotlivých ŽoNFP, rozsahu oprávnených výdavkov a pod.
+
+20 K najčastejším situáciam patrí stav, keď je OH v príbuzenskom, priateľskom, zamestnaneckom, obchodnom, zmluvnom vzťahu, resp. obdobnom
+vzťahu so žiadateľom o nenávratny finančná príspevok v rámci pridelených ŽoNFP na odborné hodnotenie.
+21 Pozn. bez ohľadu na typ výzvy (otvorená, uzavretá).
+
+                                                                                                                   12
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+Poskytovateľ stanoví finančné limity na odmeňovanie pre OH v závislosti od disponibilných finančných
+prostriedkov vyčlenených na odborné hodnotenie. Výška odmeny pre OH za riadne vykonanú prácu je
+minimálne 100 EUR a nesmie byť vyššia ako 600 EUR22 za hodnotenie jednej ŽoNFP. V prípade hodnotenia
+projektov financovaných z ESF+ je možnosť určenia odmeny pre OH na úrovni minimálnej odmeny pre
+každý interval oprávnených výdavkov projektu,23 ktorý stanovuje vzor kalkukačky od výšky oprávnených
+výdavkov projektu v čase pridelenia ŽoNFP na hodnotenie OH. Odmena pre OH bude financovaná
+z prostriedkov technickej pomoci poskytovateľa. Druh dohody a ostatne naležitosti sa riadia internými
+smernicami/aktami poskytovateľa.
+
+7 Možné sankcie
+
+V súvislosti s výkonom činnosti OH je možné uplatniť nasledovné sankcie:
+
+Odradenie OH z odborného hodnotenia ŽoNFP môže nastať po priradení ŽoNFP OH, resp. v ktoromkoľvek
+momente počas priebehu odborného hodnotenia,
+- na základe identifikácie konfliktu záujmov24 a z dôvodov daných zákonom,25
+- na základe skutočnosti, že OH prestane plniť povinnosti OH,
+- na základe preukázateľného prerušenia komunikácie s poskytovateľom a prerušenia odborného
+
+       hodnotenia zo strany OH aj bez ním podaného písomného vyhlásenia o prerušení.
+
+Nedodržanie a porušenie pravidiel odborného hodnotnenia sa dokladuje emailovou komunikáciou.
+
+Vyradenie OH z evidencie OH (sa realizuje prostredníctvom zablokovania OH v ITMS21+, zablokovaný OH
+už nemôže byť automaticky priradený na hodnotenie žiadnej ŽoNFP, ale zostáva naďalej evidovaný
+v ITMS21+ za účelom auditnej stopy),
+
+    • na základe nedodržiavania a opakovaného porušovania pravidiel a podmienok odborného
+         hodnotenia (napr. nedodržiavanie stanovených termínov na odborné hodnotenie, nedostatočne
+         vykonané odborné hodnotenie aj po druhom, resp. treťom písomnom upozornení zo strany
+         poskytovateľa a iné).
+
+Pri vyradení OH z evidencie OH odporúčame nasledovné:
+    • návrh na vyradenie OH z evidencie OH poskytovateľ prerokováva na úrovni PS OH, ktorá rozhodla
+         o zaradení tohto OH do evidencie OH, PS rozhodne o vyradení/nevyradení OH z evidencie OH
+         poskytovateľa. V prípade nevyradenia, musí svoje rozhodnutie riadne zdôvodniť a uviesť
+         odporúčania týkajúce sa ďalšieho postupu,
+    • o vyradení OH z evidencie OH poskytovateľ informuje OH písomne s uvedením dôvodov vyradenia
+         OH z evidenicie OH. Poskytovateľ musí byť schopný vyradenie OH z evidencie OH riadne a
+         preukazateľné zdôvodniť (napr. prostredníctvom emailovej komunikácie, hodnotiacich hárkov,
+         predchádzajúcich písomných upozornení, atď.).
+
+Vyradenie OH z evidencie OH nevylučuje možnosť opätovného predloženia žiadosti o zaradenie do
+evidencie OH zo strany vyradeného OH. Poskytovateľ/PS OH je povinná žiadosť prijať a riadne o nej konať.
+
+Vyradenie OH z evidencie OH na vlastnú žiadosť OH
+
+22 Všetky odmeny sú uvádzané v brutto.
+23 Napr. pri oprávnených výdavkoch projektu vo výške 490 000 EUR je pri projektoch financovaných z ESF+ možnosť použiť namiesto kalkulovanej
+sumy vo výške 297,50 EUR iba sumu minimálnej odmeny vo výške 200 EUR.
+24 § 45 zákona č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a o zmene a doplnení niektorých zákonov v znení neskorších predpisov.
+25 Napríklad zákon č. 300/2005 Z. z. Trestný zákon v znení neskorších predpisov, zákon č. 343/2015 Z. z. o verejnom obstarávaní a o zmene
+a doplnení niektorých zákonov v znení neskorších predpisov, zákon č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a o zmene a doplnení
+niektorých zákonov v znení neskorších predpisov.
+
+                                                                                                                   13
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+    a) OH evidovaný v evidencii OH, ktorý sa rozhodol nepokračovať v hodnotení ŽoNFP, túto skutočnosť
+         písomne (emailom) oznámi poskytovateľovi, poskytovateľ zabezpečí jeho odradenie z konkrétnej
+         ŽoNFP – bez potreby prerokovávania v PS,
+
+    b) OH evidovaný v evidencii OH, ktorý sa rozhodol nepokračovať v odbornom hodnotení v rámci
+         hodnotiacej kola/výzvy, túto skutočnosť písomne26 oznámi poskytovateľovi, poskytovateľ
+         zabezpečí jeho odradenie v rámci hodnotiaceho kola/výzvy – bez potreby prerokovávania v PS,
+
+    c) OH evidovaný v evidencii OH, ktorý sa rozhodol nepokračovať v odbornom hodnotení, t. j.
+         požaduje vyradenie z evidencie OH, túto skutočnosť písomne27 oznámi poskytovateľovi,
+         poskytovateľ zabezpečí jeho zablokovanie v ITMS21+ (v rámci programovej štruktúry, ktorá je
+         v gescii daného poskytovateľa) a nemohlo dôjsť k ich automatickému priradeniu k ŽoNFP.
+
+8 Zverejňovanie
+
+Poskytovateľ zverejňuje štatút, rokovací poriadok a zoznam členov PS OH, ktorú zriadil na svojom
+webovom sídle a požiada zástupcu RO,28 ktorý je členom PS OH aj o ich zverejnenie na webovom sídle RO
+v časti Dokumenty a publikácie/Pracovné skupiny na výber odborných hodnotiteľov. Povinnosť
+zverejňovania sa vzťahuje aj na aktualizácie predmetných dokumentov. Poskytovateľ zabezpečí
+zverejnenie dokumentov bezodkladne29 po ich zverejnení na webovom sídle RO. Po ich zverejnení na
+webovom sídle RO je poskytovateľ povinný skontrolovať úplnosť a správnosť zverejnených dokumentov.
+V prípade SPS OH zverejňuje jej štatút, rokovací poriadok a zoznam jej členov na svojom webovom sídle
+každý poskytovateľ zriaďujúci SPS OH a o ich zverejnenie na webovom sídle RO požiada ten poskytovateľ,
+ktorého zástupca je predsedom pracovnej skupiny.
+
+Súčasťou metodického usmernenia je vzor vyhlásenia o ochrane osobných údajov na účely zabezpečenia
+výkonu činností PS OH (príloha č. 2 tohto metodického usmernenia), ako aj vzor informácie pre dotknutú
+osobu pri spracúvaní osobných údajov spojených s procesom výberu OH (príloha č. 3 tohto metodického
+usmernenia). Z pohľadu GDPR je v P SK pre oblasť výberu a evidencie OH prevádzkovateľom poskytovateľ
+príspevku, preto SO pri vypĺňaní prílohy č. 2 a 3 uvedú najprv identifikačné údaje RO a následne
+identifikačné údaje prevádzkovateľa GDPR (poskytovateľ), spolu s kontaktnými údajmi zodpovednej
+osoby prevádzkovateľa. V prípade spoločných výziev viacerých poskytovateľov na výber OH, je potrebné
+uviesť najprv identifikačné údaje RO a následne identifikačné údaje spoločných prevádzkovateľov GDPR
+(poskytovateľov) a ich zodpovedných osôb.
+
+9 Príručka pre odborných hodnotiteľov – minimálne štandardy
+
+Príručku pre OH vypracováva poskytovateľ s cieľom zadefinovania základných pravidiel odborného
+hodnotenia a poskytnutia jasných a jednoznačných inštrukcii k spôsobu a výkonu odborného hodnotenia.
+RO nastavuje minimálny štandard príručky pre OH, ktorý si poskytovateľ môže napĺňať, dopĺňať
+a upravovať v závislosti od svojich špecifík, potrieb a implementačných skúseností.
+
+Príručka pre OH musí obsahovať rozpracovanie nasledovných častí:
+- stručné informácie týkajúce sa schvaľovacieho procesu, napr.
+
+         ▪ jednotlivé fázy, termíny na vydanie rozhodnutí, proces výberu OH, hodnotiace kritéria,
+
+26 Oznámenie zaslané emailom je postačujúce.
+27 Oznámenie zaslané emailom je postačujúce.
+28 Prostredníctvom emailovej adresy: [e-mail vynechaný] najneskôr 2 pracovné dni pred ich plánovaným zverejnením. RO nezodpovedá
+za úplnosť a správnosť zverejených podkladov.
+29 Úkon je potrebné vykonať bez akéhokoľvek časového odkladu najneskôr do 7 pracovných dní od vzniku skutočnosti určujúcej pre počítanie
+lehoty, ak nie je uvedené inak. Do lehoty sa nezapočítava deň, v ktorom došlo ku skutočnosti určujúcej začiatok lehoty. Za vznik skutočnosti sa
+považuje schválenie predmetných dokumentov oprávnenou osobou, resp. subjektom.
+
+                                                                                                                   14
+Program Slovensko
+
+Metodické usmernenie k výberu odborných hodnotiteľov, verzia 3.0
+
+         ▪ opravné prostriedky,
+
+- spôsob a forma výkonu odborného hodnotenia, napr.
+         ▪ informácie týkajúce sa zabezpečenia prístupu do ITMS21+,
+         ▪ informácie k čestnému vyhláseniu o nestrannosti, zachovaní dôvernosti informácií a vylúčení
+              konfliktu záujmov,
+
+- priebeh odborného hodnotenia, napr.
+         ▪ nastavenie vzájomnej spolupráce,
+
+- hodnotenie práce OH, napr.
+         ▪ informácia o tom, že poskytovateľ je povinný (nielen oprávnený) preverovať a vyhodnocovať
+              činnosť, spoluprácu a kvalitu práce OH,
+         ▪ predmetom kvality práce OH je predovšetkým riadne, správne a kompletne vyplnený
+              hodnotiaci hárok,
+         ▪ informácia o možných sankciách.
+
+10 Zoznam príloh
+
+Príloha č. 1 Vzor - Zoznam oblastí hodnotenia pre výber OH
+Príloha č. 2 Vzor - Vyhlásenie o ochrane osobných údajov
+Príloha č. 3 Vzor - Informácia pre dotknutú osobu pri spracúvaní osobných údajov
+Príloha č. 4 Vzor - Výzva na výber OH
+Príloha č. 5 Vzor - Kontrolný zoznam pre výber OH
+Príloha č. 6 Vzor - Žiadosť o zaradenie do evidencie OH
+Príloha č. 7a Vzor - Životopis vo formáte Europass
+Príloha č. 7b Vzor - Štrukturovaný životopis
+Príloha č. 8 Vzor - Čestné vyhlásenie o bezúhonnosti
+Príloha č. 9 Vzor - Kalkulačka na výpočet odmeny pre OH v prípade, ak sa poskytovateľ rozhodne ako
+kritérium použiť výšku oprávnených výdavkov projektu
+Príloha č. 10 Vzor - Štatút a rokovací poriadok pracovnej skupiny
+Príloha č. 11 Vzor - Štatút a rokovací poriadok spoločnej pracovnej skupiny
+Príloha č. 12 Vzor - Čestné vyhlásenie o nestrannosti, zachovaní dôvernosti informácií a vylúčení konfliktu
+záujmov
+Príloha č. 12A Vzor - Čestné vyhlásenie o nestrannosti, zachovaní dôvernosti informácií a vylúčení konfliktu
+záujmov člena PS OH
+Príloha č. 13 Vzor - Poskytnutie údajov potrebných na vyžiadanie výpisu z registra trestov
+
+                                                                                                                   15

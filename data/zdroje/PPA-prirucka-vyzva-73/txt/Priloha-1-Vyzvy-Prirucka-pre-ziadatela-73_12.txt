@@ -1,0 +1,563 @@
+PRÍRUČKA PRE ŽIADATEĽA
+                     PRE VÝZVU č. 18/SP/2026-73.12
+        „Investície do vodozádržných opatrení mimo fariem“
+
+Verzia: 1
+Schválil: Ing. Marek Čepko, generálny riaditeľ Pôdohospodárskej platobnej agentúry
+Dátum platnosti: 10.09.2026
+Dátum účinnosti: 10.09.2026
+
+                                                Bratislava 2026
+
+                                                                                                                                      1
+Obsah
+
+1. PRÁVNY ZÁKLAD...................................................................................................................................... 3
+2. ÚČEL PRÍRUČKY PRE ŽIADATEĽA ................................................................................................................. 4
+3. VÝZVA NA PREDKLADANIE ŽIADOSTÍ ........................................................................................................... 4
+4. INFORMÁCIE PRE PODÁVANIE ŽOPP ........................................................................................................... 6
+5. PODMIENKY POSKYTNUTIA PRÍSPEVKU........................................................................................................ 8
+6. ROZHODNUTIA VYDANÉ V KONANÍ O ŽIADOSTI........................................................................................... 11
+7. PODPORA A POMOC V PRÍPADE NEJASNOSTÍ.............................................................................................. 12
+8. DÔLEŽITÉ LEHOTY .................................................................................................................................. 12
+
+                                                                                                                                        2
+1. PRÁVNY ZÁKLAD
+
+       Ustanovenia tejto Príručky pre žiadateľa vychádzajú predovšetkým z:
+a) Strategického plánu Spoločnej poľnohospodárskej politiky 2023 – 2027 (zverejnený na webovom
+
+       sídle Platobnej agentúry a Ministerstva pôdohospodárstva a rozvoja vidieka Slovenskej
+       republiky ďalej aj „MPRV SR“),
+b) Systému riadenia projektových intervencií Strategického plánu Spoločnej poľnohospodárskej
+       politiky 2023 – 2027 (ďalej len „Systém riadenia projektových intervencií“ zverejnený na
+       webovom sídle Platobnej agentúry a MPRV SR),
+c) Systému finančného riadenia európskeho poľnohospodárskeho fondu pre rozvoj vidieka v rámci
+       strategického plánu spoločnej poľnohospodárskej politiky 2023 – 2027 (ďalej len „Systém
+       finančného riadenia“ zverejnený na webovom sídle Platobnej agentúry a MPRV SR),
+d) Metodického usmernenia Riadiaceho orgánu č. 1/2025 o podmienkach poskytnutia príspevku
+       na projektové intervencie v rámci Strategického plánu SPP 2023 – 2027 (ďalej len „MURO č. 1“),
+e) Metodického usmernenia Riadiaceho orgánu č. 2/2025 o obstarávaní tovarov, služieb a
+       stavebných prác pri implementácii projektových intervencií v rámci strategického plánu SPP
+       2023 – 2027 (ďalej len „MURO č. 2“),
+f) Metodického usmernenia Riadiaceho orgánu č. 3/2025 o verejnom obstarávaní tovarov, služieb
+       a stavebných prác pri implementácii projektových intervencií v rámci strategického
+       plánu SPP 2023 – 2027 (ďalej len „MURO č. 3“),
+g) Metodického usmernenia Riadiaceho orgánu č. 4/2025 o konflikte záujmov pri implementácii
+       projektových intervencií v rámci strategického plánu SPP 2023 – 2027 (ďalej len „MURO č. 4“),
+h) Metodického usmernenia Riadiaceho orgánu č. 5/2025 o kontrolných procesoch
+       zabezpečujúcich overenie oprávnenosti výdavkov pri implementácii projektových intervencií
+       v rámci strategického plánu SPP 2023 – 2027 (ďalej len „MURO č. 5“),
+i) Metodického usmernenia Riadiaceho orgánu č. 6/2025 o nezrovnalostiach, korekciách a
+       sankciách vo verejnom obstarávaní, obstarávaní a pri implementácii projektových intervencií
+       v rámci Strategického plánu SPP 2023 – 2027 (ďalej len „MURO č. 6“),
+j) Legislatívy EÚ (zverejnená na webovom sídle EÚ: EUR-Lex https://eur-
+       lex.europa.eu/homepage.html?locale=sk; predovšetkým:
+        - Nariadenie Európskeho parlamentu a Rady (EÚ) 2021/2115 z 2. decembra 2021, ktorým sa
+
+             stanovujú pravidlá podpory strategických plánov, ktoré majú zostaviť členské štáty v rámci
+             spoločnej poľnohospodárskej politiky (strategické plány SPP) a ktoré sú financované
+             z Európskeho poľnohospodárskeho záručného fondu (EPZF) a Európskeho
+             poľnohospodárskeho fondu pre rozvoj vidieka (EPFRV), a ktorým sa zrušujú nariadenia (EÚ)
+             č. 1305/2013 a (EÚ) č. 1307/2013 v platnom znení.
+        - Nariadenie Európskeho parlamentu a Rady (EÚ) 2021/2116 z 2. decembra 2021
+             o financovaní, riadení a monitorovaní spoločnej poľnohospodárskej politiky a o zrušení
+             nariadenia (EÚ) č. 1306/2013 v platnom znení
+        - Nariadenie Európskeho parlamentu a Rady (EÚ, Euratom) 2024/2509 z 23. septembra 2024
+             o rozpočtových pravidlách, ktoré sa vzťahujú na všeobecný rozpočet
+k) Legislatívy Slovenskej republiky (zverejnená v Zbierke zákonov SR https://www.slov-
+       lex.sk/domov; predovšetkým:
+       - Zákon č. 247/2024 Z. z. o príspevkoch poskytovaných z Európskeho poľnohospodárskeho
+             fondu pre rozvoj vidieka a o zmene a doplnení niektorých zákonov (ďalej len „zákon
+             o príspevkoch“).
+l) Výzvy na predkladanie žiadostí č. 18/SP/2026-73.12 (ďalej len „Výzva na predkladanie žiadostí
+       alebo aj Výzva“).
+
+                                                                                                                                        3
+2. ÚČEL PRÍRUČKY PRE ŽIADATEĽA
+
+(1) Táto Príručka pre žiadateľa je predovšetkým informatívnym riadiacim dokumentom, ktorý
+       poskytuje žiadateľovi najdôležitejšie informácie o podmienkach, ktoré musí splniť, aby mu
+       mohol byť poskytnutý príspevok, rámcový prehľad a najdôležitejšie informácie o vyhlásenej
+       Výzve na predkladanie žiadostí a o postupoch na predkladanie žiadosti o príspevok (ďalej len
+       „ŽoPP“) pre vyhlásenú Výzvu na predkladanie žiadostí.
+
+(2) Je v záujme žiadateľa, aby sa oboznámil s obsahom tejto Príručky pre žiadateľa, čo by mu malo
+       napomôcť pri podaní takej ŽoPP, ktorú Platobná agentúra schváli.
+
+       V tejto Príručke pre žiadateľa sú uvedené najdôležitejšie informácie, špecifiká a upozornenia
+       v rámci Výzvy na predkladanie žiadostí. Ostatné informácie sú uvedené v samotnej Výzve
+       na predkladanie žiadostí o príspevok, taktiež všeobecné postupy v rámci konania o žiadosti sú
+       popísané v III. časti Systému riadenia projektových intervencií. Informácie o podmienkach
+       poskytnutia príspevku sú bližšie popísané v MURO č. 1.
+
+(3) Táto Príručka pre žiadateľa má okrem informatívneho aj záväzný charakter, avšak v prípade jej
+       rozporu s:
+       a) Výzvou na predkladanie žiadosti platia ustanovenia Výzvy na predkladanie žiadosti a Príručka
+           pre žiadateľa je v časti rozporu neplatná,
+       b) formulárom žiadosti o poskytnutie príspevku platia ustanovenia formulára žiadosti
+           o poskytnutie príspevku a Príručka pre žiadateľa je v časti rozporu neplatná,
+       c) s riadiacou dokumentáciou podľa kap. 2.2 písm. a) až j) a l) Systému riadenia projektových
+           intervencií platia ustanovenia riadiacej dokumentácie podľa Systému riadenia projektových
+           intervencií kap. 2.2 písm. a) až j) a l) a Príručka pre žiadateľa je v časti rozporu neplatná.
+
+3. VÝZVA NA PREDKLADANIE ŽIADOSTÍ
+
+(1) Výzva na predkladanie žiadostí v zmysle § 10 zákona o príspevkoch predstavuje podnet a
+       základný metodický podklad s vopred ustanovenými podmienkami a pravidlami, na základe
+       ktorého žiadateľ vypracuje a predloží svoju žiadosť o príspevok. Vyhlásená Výzva
+       na predkladanie žiadostí je záväzná ako pre Platobnú agentúru, tak aj pre žiadateľa.
+
+(2) Výzvu na predkladanie žiadostí vyhlasuje Platobná agentúra zverejnením na svojom webovom
+       sídle. Vyhlásením Výzvy na predkladanie žiadostí sa stáva Výzva na predkladanie žiadostí
+       účinnou.
+
+       Cieľom Výzvy na predkladanie žiadostí je podpora v zmysle uvedenej projektovej intervencie
+       73.12 „ Investície do vodozádržných opatrení mimo fariem“.
+       Cieľ výzvy je hodnotený merateľným ukazovateľom v rámci SP SPP 2023 – 2027:
+       R.39 – Počet vidieckych podnikov vrátane podnikov pôsobiacich v biohospodárstve s podporou
+       SPP na ich rozvoj.
+
+       Realizácia Projektu musí smerovať k dosiahnutiu nasledujúceho cieľa:
+       Cieľom projektu je realizácia adaptívnej obnovy hydromelioračných kanálov s kontrolovateľnou
+       úrovňou voľnej hladiny vody v kanáloch a podpovrchovej (podzemnej) vody, s umožnením
+       využitia retenčnej kapacity, blízkosti zdroja vody a procesov k zmierňovaniu negatívnych vplyvov
+
+                                                                                                                                        4
+       hydrologických extrémov. Realizáciou projektu sa zvýši vodozádržná kapacita krajiny a zabráni
+       sa tak aktívnemu odtoku z oblasti a zabezpečí sa priebežný výpar do atmosféry.
+
+(3) Výzva na predkladanie žiadostí má formu uzavretej výzvy (bližšie v III. časti, kap. 3.3., odd. 3.3.4
+       Systému riadenia projektových intervencií).
+
+(4) Bližšie o zmene a zrušení Výzvy na predkladanie žiadostí všeobecne v § 10 zákona o príspevkoch,
+       a v III. časti, kap. 3.3. odd. 3.3.6 Systému riadenia projektových intervencií.
+
+(5) Osobitosti Výzvy na predkladanie žiadostí:
+       a) Uzatvára sa Zmluva o príspevku podľa § 19 zákona o príspevkoch na základe Rozhodnutia
+           o schválení ŽoPP.
+       b) Uplatňujú sa postupy v zmysle MURO č. 2 a MURO č. 3. Bližšie vo Výzve - PPP k VO/O a Ďalšie
+           skutočnosti týkajúce sa poskytnutia príspevku.
+       c) Na Výzvu sa v súlade s čl. 145 nariadenia EÚ 2021/2115 nevzťahujú pravidlá štátnej pomoci,
+           keďže spadá do pôsobnosti článku 42 Zmluvy o fungovaní EÚ.
+       d) V rámci výzvy sa neuplatňujú bodovacie a rozlišovacie kritériá. ŽoPP, ktoré splnia všetky
+           podmienky poskytnutia príspevku, budú schvaľované podľa poradia doručenia ŽoPP, a to až
+           do vyčerpania disponibilnej alokácie výzvy.
+       e) Projekt musí prispievať k špecifickému cieľu spoločnej poľnohospodárskej politiky:
+           SO2 - Posilniť trhovú orientáciu a zvýšiť konkurencieschopnosť poľnohospodárskych
+           podnikov, a to z krátkodobého i dlhodobého hľadiska, vrátane intenzívnejšieho zamerania sa
+           na výskum, technológie a digitalizáciu.
+       f) Systémy financovania - refundácia a zálohové platby.
+       g) Rozsah podpory: Intenzita pomoci je 100% pre infraštruktúrne preventívne investície.
+       h) Maximálna suma príspevku na jeden projekt: 700 000 EUR.
+       i) Pre túto výzvu nie je stanovená minimálna hranica požadovaných bodov, nakoľko sa
+           neuplatňujú bodovacie kritériá. Podmienka udržateľnosti: Poskytnuté platby a podpora na
+           projekt, zahŕňajúci investície do infraštruktúry alebo investície do výroby, sa musí vrátiť,
+           počas 5 rokov od záverečnej platby poskytnutej prijímateľovi, ak došlo v rámci projektu
+           k skončeniu alebo premiestneniu výrobnej činnosti mimo územia SR.
+       j) Podmienka udržateľnosti: Poskytnuté platby a podpora na projekt, zahŕňajúci investície do
+           infraštruktúry alebo investície do výroby, sa musí vrátiť, počas 5 rokov od záverečnej platby
+           poskytnutej prijímateľovi, ak došlo v rámci projektu k zmene vlastníctva položky
+           infraštruktúry, ktorá poskytuje firme alebo orgánu verejnej moci neoprávnené zvýhodnenie.
+       k) Podmienka udržateľnosti: Poskytnuté platby a podpora na Projekt, zahŕňajúci investície do
+           infraštruktúry alebo investície do výroby, sa musí vrátiť, počas 5 rokov od záverečnej platby
+           poskytnutej prijímateľovi, ak došlo v rámci Projektu k podstatnej zmene, ktorá ovplyvňuje jej
+           povahu, ciele alebo podmienky realizácie, čo by spôsobilo narušenie jej pôvodných cieľov.
+       l) Podmienka udržateľnosti: Poskytnuté platby a podpora na operáciu zahŕňajúcu investície do
+           infraštruktúry alebo investície do výroby sa musí vrátiť, ak sa výrobná činnosť do 10 rokov od
+           záverečnej platby poskytnutej prijímateľovi presunula mimo EÚ, avšak okrem prípadu, ak je
+           prijímateľom MSP.
+       m) Osobitné podmienky oprávnenosti týkajúce sa charakteru podpory – viď. podmienky
+           poskytnutia príspevku Výzvy.
+       n) Ukazovatele Udržateľnosti projektu (ďalej aj „UUP“) – žiadateľ si nadefinuje UUP v zmysle
+           (V. časť, kap. 5.2, odd. 5.12.3) Systému riadenia projektových intervencií, ktoré majú slúžiť na
+           sledovanie dosiahnutia a udržania cieľa Projektu počas doby udržateľnosti Projektu.
+       o) Zákaz umelého vytvorenia podmienok.
+
+                                                                                                                                        5
+       p) Právny vzťah k nehnuteľnostiam, žiadateľ postupuje v zmysle PPP v rámci Výzvy.
+       q) Uplatňuje sa podmienka finančnej spôsobilosti žiadateľa/prijímateľa (len v prípade, ak je
+
+           príspevok vyšší ako 100 000,- €). Platobná agentúra vo fáze uzatvárania Zmluvy o príspevok
+           vyžiada od žiadateľa doklad preukazujúci jeho finančnú spôsobilosť (nerelevantné, ak vo fáze
+           uzatváranie Zmluvy o príspevku už došlo k zrealizovaniu aktivity Projektu). Príslušným
+           dokladom je najmä výpis z účtu, úverový prísľub a podobne (samotné čestné prehlásenie
+           nepostačuje).
+       r) Ak relevantné, žiadateľ predkladá doklady ohľadne národnej legislatívy (napr.: stavebný
+           zákon, vodný zákon, zákon o posudzovaní vplyvov na životné prostredie, zákon
+           o integrovanej prevencii a kontrole znečisťovania životného prostredia). Bližšie v rámci
+           Ďalších skutočností poskytnutia príspevku Výzvy a následne v Zmluve o príspevku.
+       s) Žiadateľ v ŽoPP poskytne informácie v zmysle čl. 2 bodu 11. Smernice EP a Rady 2013/34/EÚ,
+           tzn. identifikuje skupinu, resp. či je členom skupiny; skupinou sa rozumie materský podnik a
+           všetky jeho dcérske podniky.
+
+(6) Výzva na predkladanie žiadostí je určená pre tých, ktorí spĺňajú podmienky oprávnenosti
+       žiadateľa stanovených Výzvou, t. j. podpora bude poskytnutá žiadateľom, ktorí si podajú ŽoPP
+       v zmysle Výzvy a spĺňajú podmienky poskytnutia príspevku (ďalej aj „PPP“) a ktoré najlepšie
+       prispejú k stanoveným cieľom.
+
+4. INFORMÁCIE PRE PODÁVANIE ŽOPP
+
+(1) ŽoPP sa podáva výlučne elektronicky. Vylučuje sa akýkoľvek iný spôsob podávania ŽoPP.
+       Maximálna suma príspevku na jeden projekt: 700 000 EUR.
+
+(2) Každá podaná ŽoPP sleduje najmä ukazovatele výsledku Strategického plánu SPP
+       2023 - 2027, ktorými sú:
+
+       R.39 Počet vidieckych podnikov vrátane podnikov pôsobiacich v biohospodárstve s podporou SPP
+       na ich rozvoj.
+
+(3) Na podávanie ŽoPP slúži Informačný monitorovací systém (ďalej len „IMS“). Do IMS sa žiadateľ
+       dostane dvomi spôsobmi:
+       a) http://ispp.apa.sk, kde následne vyhľadá Výzvu na predkladanie žiadostí prostredníctvom
+               na to určenou funkcionalitou zadá číslo výzvy (18/SP/2026-73.12), alebo
+       b) na webovom sídle Platobnej agentúry klikne na odkaz, kde je zverejnená Výzva, a
+               prostredníctvom tohto úkonu sa dostane priamo na Výzvu na predkladanie žiadostí v IMS.
+
+(4) Predpokladom na podanie ŽoPP je registrácia žiadateľa v IMS1.
+
+(5) Registrácia2 je možná len cez eID, t. j. s občianskym preukazom s elektronickým čipom (eID). Po
+       registrácii žiadateľa postačuje ďalej iba prihlásenie sa do IMS. Registrácia do IMS je bezplatná.
+       Upozorňujeme žiadateľa, vystupujúceho ako fyzická osoba, že je potrebné sa registrovať ako
+       právnická osoba (organizácia), nie ako fyzická osoba. Z
+
+1 Systém IMS - #1 - REGISTRÁCIA
+2 Link na videonávod registrácie: Systém APP - #1 - REGISTRÁCIA
+
+                                                                                                                                        6
+       Zahraničný žiadateľ, ktorý nedisponuje slovenským rodným číslom môže požiadať Ministerstvo
+       vnútra SR o pridelenie slovenského rodného čísla postupom podľa § 5 ods. 3 písm. e) zákona
+       č. 301/1995 Z. z. o rodnom čísle, poprípade splnomocniť osobu, ktorá bude konať v jeho mene
+       a v procese Konania o žiadosti3.
+
+(6) Údaje v rámci registračného procesu a údaje o samotnom subjekte / žiadateľovi v IMS spravuje
+       a aktualizuje žiadateľ priamo v IMS. Konkrétne sa jedná o údaje v používateľskom konte v IMS:
+       Základné údaje subjektu / Kontaktné údaje subjektu / Zoznam osôb subjektu / Bankové spojenia
+       subjektu / Základné údaje osoby / Kontaktné údaje osoby. Relevantné údaje o žiadateľovi a osobe
+       / osobách žiadateľa sa automaticky načítavajú do samostatnej časti formuláru ŽoPP „Identifikácia
+       žiadateľa“.
+
+(7) Po registrácii / prihlásení sa do IMS si žiadateľ vyhľadá v IMS Výzvu (nájde ju aj klikom na odkaz,
+       ktorý je uvedený na webovom sídle Platobnej agentúry v časti, kde je Výzva zverejnená).
+
+(8) Žiadateľ vyhľadá funkcionalitu (ikonu) „Vytvoriť žiadosť k výzve“, čím sa preklikne na samotné
+       vypĺňanie formulára ŽoPP, ktoré je aktívne v období určenom na predkladanie ŽoPP. Mimo
+       obdobia, určenom na predkladanie ŽoPP, má žiadateľ dostupný náhľad formuláru ŽoPP a to cez
+       ikonu „Pozrieť si vzor žiadosti (právnická osoba)“ podľa ilustračného vzoru formulára - príloha
+       č. 2 Výzvy.
+
+(9) Formulár ŽoPP, uvedený v rámci Výzvy ako príloha, je Ilustračným vzorom. Vzor ŽoPP k tej ktorej
+       Výzve je potrebné si otvoriť a prezerať pred samotným podaním priamo v systéme IMS pri danej
+       Výzve, v tomto prípade 18/SP/2026-73.12.
+
+(10) Výšku verejných prostriedkov, o ktoré prijímateľ žiada v ŽoPP, prijímateľ zaokrúhli nadol na
+       najbližší cent, príp. info o „Suma finančných prostriedkov z verejných zdrojov, požadovaná
+       žiadateľom vo formulári ŽoPP v deň jej predloženia na PPA je konečná a nie je možné ju v rámci
+       procesu spracovávania dodatočne zvyšovať - to platí aj v prípade, že sa sumy zmenia na základe
+       obstarávania tovarov, stavebných prác a služieb. V prípade zrejmých chýb vo formulári ŽoPP
+       (nevyplnená žiadaná suma zo strany žiadateľa alebo zadaná 0; namiesto žiadanej sumy zadané
+       vlastné zdroje žiadateľa – opačný pomer %) je možné žiadanú sumu upraviť.“
+
+(11) Po vyplnení ŽoPP žiadateľ nahráva do IMS prílohy k ŽoPP podľa Výzvy na predkladanie žiadostí.
+       Prílohy žiadateľ môže nahrávať aj prostredníctvom funkcionality (ikony) „pridať prílohu“ v rámci
+       relevantných krokov formuláru ŽoPP. Ak jedna príloha k ŽoPP preukazuje splnenie viacerých
+       podmienok výzvy, tak prílohu nie je potrebné predkladať duplicitne.
+
+(12) ŽoPP musí byť podpísaná. ŽoPP sa podpisuje elektronicky4 prostredníctvom na to určenej
+       funkcionality (ikony) „Pridať podpis oprávnenej osoby“. V prípade žiadateľov, zapísaných
+       v Obchodnom registri SR, musí byť ŽoPP podpísaná v súlade s podmienkami konania v mene
+       žiadateľa uvedenými v Obchodnom registri SR.
+
+3 V rámci povinnej Prílohy ŽoPP č. 2 Údaje potrebné na vyžiadanie výpisu z registra trestov v prípade žiadateľa/ štatutárneho orgánu/
+prokuristu/dozorného orgánu/splnomocnenej osoby, ktorá nedisponuje rodným číslom generovaným v SR, je potrebné predložiť výpis z
+registra trestov z príslušnej krajiny spolu s úradne overeným prekladom do slovenského jazyka.
+4 Upozornenie: pre podanie ŽoPP v rámci IMS je potrebné, aby oprávnená osoba žiadateľa bola v IMS prihlásená s občianskym preukazom
+s elektronickým čipom (eID) s oprávnením na prístup a disponovanie s elektronickou schránkou žiadateľa, inak zaevidovanie ŽoPP v IMS
+nebude úspešné.
+
+                                                                                                                                        7
+(13) V prípade, že žiadateľ vyplnil ŽoPP tak, ako je požadované, „vysvieti“ sa mu funkcionalita (ikona)
+       „Podať žiadosť“.
+
+(14) V prípade nefunkčnosti IMS bude žiadateľ informovaný o ďalšom postupe; informácie budú
+       poskytnuté predovšetkým na webovom sídle Platobnej agentúry (žiadateľom sa preto odporúča,
+       aby pravidelne sledovali webové sídlo Platobnej agentúry, nie je vylúčená ani zmena formálnych
+       náležitostí Výzvy).
+
+(15) Žiadateľ vypĺňa ŽoPP v súlade s pokynmi uvedenými v rámci formulára v IMS. Pri vypĺňaní
+       formulára ŽoPP sa žiadateľovi odporúča riadiť sa pokynmi v rámci formuláru ŽoPP, samotnou
+       Výzvou na predkladanie žiadostí a touto Príručkou pre žiadateľa.
+
+(16) Podaním ŽoPP je táto doručená, evidovaná v IMS a zaregistrovaná.
+
+(17) ŽoPP musí byť podaná riadne, včas a vo forme určenej Platobnou agentúrou vo Výzve
+       na predkladanie žiadostí (podmienky predloženia ŽoPP). Podmienky predloženia ŽoPP sú
+       predmetom tzv. administratívneho overovania - bližšie v samotnej Výzve, všeobecná úprava
+       v III. časti, kap. 3.4, odd. 3.4.6 Systému riadenia projektových intervencií.
+       V prípade pochybností splnenia podmienok predloženia ŽoPP môže Platobná agentúra pristúpiť
+       ku tzv. klarifikácii (vyzvať žiadateľa na odstránenie pochybností ohľadom splnenia podmienok
+       predloženia ŽoPP riadne, včas alebo vo forme určenej Platobnou agentúrou vo Výzve - bližšie
+       v III. časti, kap. 3.4, odd. 3.4.6 ods. 12 a nasl. Systému riadenia projektových intervencií.
+       Žiadateľ má právo požiadať o predĺženie lehoty na odstránenie pochybností splnenia podmienok
+       predloženia ŽoPP, nie však viac ako o 10 pracovných dní. Žiadateľ nemá právny nárok na to, aby
+       Platobná agentúra jeho žiadosti vyhovela. Žiadateľ požiada Platobnú agentúru písomne
+       prostredníctvom Ústredného portálu verejnej správy, pričom táto žiadosť by mala byť Platobnej
+       agentúre doručená skôr, ako uplynie lehota určená platobnou agentúrou na odstránenie
+       pochybností splnenia podmienok predloženia ŽoPP. Predmetnú lehotu možno predĺžiť iba raz.
+
+5. PODMIENKY POSKYTNUTIA PRÍSPEVKU
+
+(1) PPP predstavujú súbor podmienok stanovených vo Výzve na predkladanie žiadostí, ktorých
+       splnenie je nevyhnutným predpokladom pre schválenie ŽoPP, vydanie rozhodnutia o schválení
+       ŽoPP a poskytnutie príspevku.
+
+(2) Všeobecne o PPP v MURO č. 1.
+
+(3) Výzva na predkladanie žiadostí obsahuje PPP, ktoré sú systematicky rozdelené medzi:
+       a) tzv. povinné PPP (§ 10 ods. 3 zákona o príspevkoch)
+       b) nepovinné PPP (§ 10 ods. 4 zákona o príspevkoch).
+
+(4) V rámci výzvy sa neuplatňujú bodovacie a rozlišovacie kritériá. ŽoPP, ktoré splnia všetky
+       podmienky poskytnutia príspevku, budú schvaľované podľa poradia doručenia ŽoPP, a to až do
+       vyčerpania disponibilnej alokácie výzvy.
+
+(5) Každá PPP vo Výzve na predkladanie ŽoPP má vymedzené:
+       a) či je statická alebo dynamická (kap. 4, odd. 4.3 MURO č. 1),
+
+                                                                                                                                        8
+       b) časový okamih, kedy majú byť statické PPP splnené, resp. stanovené časové obdobie,
+               počas ktorého majú byť dynamické PPP splnené (kap. 4, odd. 4.3 ods. 4 a nasl. MURO č. 1).
+
+       c) časový okamih, kedy sú zo strany Platobnej agentúry prvotne overované,
+       d) spôsob, akým Platobná agentúra overuje ich splnenie (nie je vylúčený aj iný spôsob ich
+
+               overenia, ktorý pri konkrétnej PPP nie je výslovne uvedený).
+
+(6) Platobná agentúra zásadne overuje splnenia PPP vlastnou zisťovacou činnosťou, avšak
+       v niektorých prípadoch je na žiadateľovi, aby či už k ŽoPP (alebo neskôr na základe vyzvania
+       Platobnej agentúry) predložil prílohy, resp. doklady či dokumenty, ktorými preukáže splnenie
+       PPP a ďalších skutočností týkajúcich sa poskytnutia príspevku.
+
+(7) V rámci každej PPP je uvedený spôsob jej overenia , kde žiadateľ nájde prílohu, ktorú má nahrať
+       pri zasielaní formulára Žiadosti o príspevok pri jednotlivých PPP. Pre lepší prehľad je v rámci
+       ďalších skutočností týkajúcich sa poskytnutia príspevku uvedený prehľad všetkých povinných
+       príloh. V rámci bodu prílohy výzvy sú uvedené podporné prílohy, ktoré dovysvetľujú určité PPP
+       alebo súvislosti výzvy poprípade je v nich uvedený vzorový formulár, na základe ktorého žiadateľ
+       predkladá povinnú prílohu v rámci formulára ŽoPP.
+
+       Preukázanie splnenia PPP na základe dokladov či dokumentov nezbavuje Platobnú agentúru
+       povinnosti preverovať splnenie PPP vlastnou zisťovacou činnosťou, ak to povaha PPP umožňuje.
+       Žiadateľ sa upozorňuje, že môže byť vyzvaný na odstránenie pochybností v prípade, ak bude
+       existovať nesúlad medzi obsahom dokladov a dokumentov ním predložených, a výsledkami
+       vlastnej zisťovacej činnosti Platobnej agentúry pri overovaní splnenia PPP.
+
+(8) Žiadateľovi sa poskytujú bližšie vysvetlenia ohľadom týchto PPP/ bodových kritérií:
+
+         a) V rámci PPP oprávnenosť žiadateľa: V rámci výzvy sa neuplatňujú bodovacie a rozlišovacie
+             kritériá. ŽoPP, ktoré splnia všetky podmienky poskytnutia príspevku, budú schvaľované
+             podľa poradia doručenia ŽoPP, a to až do vyčerpania disponibilnej alokácie výzvy.
+
+         b) V rámci Časovej oprávnenosti výdavkov
+             Objasnenie časovej oprávnenosti výdavkov v termíne do 31.10.2029: „konečnú“ časovú
+             oprávnenosť výdavkov je potrebné vnímať dvojako – jednak ako časovú oprávnenosť
+             určenú nariadením EÚ 2021/2115 (teda všeobecnú pre oprávnenosť výdavkov z  EPFRV),
+             a ako oprávnenosť výdavkov určenú pre prijímateľov výzvou. Oprávnenosť výdavkov určená
+             nariadením EÚ 2021/2115 je oprávnenosť výdavkov pre programové obdobie 2023 – 2027.
+             Aby výdavky mohli byť z Európskej komisie vyplatené z EPFRV, musia byť vynaložené
+             a vyplatené do 31.12.2029; táto lehota bola skrátená pre prijímateľa o 2 mesiace, čo súvisí
+             s tým, aby si Platobná agentúra ponechala lehotu na finančnú kontrolu ŽoP a následne ich
+             zaradenie do vyhlásenia o výdavkoch pre EK. Na uvedené sa tak možno pozerať ako na
+             časovú oprávnenosť výdavkov pre PPA, aby tieto mohli byť vyplatené z  EPFRV; po tejto
+             lehote by z EPFRV nemohli byť vyplatené, tzn., že EK by ich v zmysle princípu zdieľaného
+             riadenia členskému štátu nepreplatila.
+
+         c) V rámci Časovej oprávnenosti výdavkov
+             Objasnenie výdavkov na projekty, ktoré sa plne fyzicky dokončili alebo plne vykonali ešte
+             pred tým, ako žiadateľ podal ŽoPP - podmienka sa posudzuje na úrovni projektu ako celku.
+             Projekt nesmie byť ku dňu podania ŽoPP plne fyzicky dokončený, ani plne vykonaný. To však
+
+                                                                                                                                        9
+neznamená, že jednotlivé oprávnené výdavky nemôžu byť zrealizované pred podaním ŽoPP,
+ak to pravidlá výzvy umožňujú a projekt ako celok ešte nebol ukončený.
+
+d) V rámci PPP Osobitné podmienky oprávnenosti týkajúce sa charakteru príspevku:
+   Podmienky oprávnenosti sa uplatňujú podľa charakteru a nastavenia konkrétneho projektu
+   a vo vzťahu k realizovanej aktivite. Žiadateľ je povinný splniť iba tie podmienky
+   oprávnenosti, ktoré sú relevantné vzhľadom na predmet, rozsah a typ investície
+   realizovanej v rámci projektu; podmienky, ktoré sa na danú aktivitu alebo projekt
+   nevzťahujú, žiadateľ nie je povinný preukazovať ani plniť.
+
+e) V rámci UUP ( ukazovatele udržateľnosti projektu )
+   Počas obdobia udržateľnosti bude prijímateľ obnovovať hydromelioračné kanály
+   s umožnením využitia retenčnej kapacity za účelom zvýšenia vodozádržnej kapacity
+   a zabránenia aktívnemu odtoku a zabezpečenia priebežného výparu do krajiny a to
+   v rozsahu zodpovedajúcom schválenému projektu a to opatreniami na úrovni dosiahnutej
+   realizáciou projektu.
+
+Príklady UUP pre žiadateľa pri ich nastavovaní v rámci predkladania ŽoPP:
+
+Investícia     Aktivita                        Ukazovateľ udržateľnosti    Merná
+                                               projektu                    jednotka
+Investície do
+vodozádržných  Adaptívna obnova odvodňovacích  Dĺžka funkčných obnovených  km
+zariadení      kanálov zameraná na doplnenie   odvodňovacích kanálov
+               retenčnej funkcie
+
+               Adaptívna obnova odvodňovacích Výmera územia, na ktorom je
+
+               kanálov zameraná na doplnenie zabezpečená vodozádržná ha
+
+               retenčnej funkcie               funkcia
+
+               Adaptívna obnova odvodňovacích  Retenčný objem obnoveného   m³
+               kanálov zameraná na doplnenie   odvodňovacieho systému
+               retenčnej funkcie
+
+(9) Overenie splnenia PPP je predmetom odborného overovania; bližšie v III. časti, kap. 3.4, odd.
+       3.4.7 Systému riadenia projektových intervencií.
+
+(10) Ak pri odbornom overovaní PPP vzniknú pochybnosti o pravdivosti alebo úplnosti ŽoPP,
+       tzn. Ak ide o pochybnosti, ktoré Platobnej agentúre objektívne neumožňujú posúdiť, či žiadateľ
+       PPP určené Výzvou na predkladanie žiadostí splnil alebo nie, Platobná agentúra vykoná
+       tzv. klarifikáciu; bližšie v III. časti, kap. 3.4, odd. 3.4.7 ods. 12 a nasl. Systému riadenia
+       projektových intervencií. Nakoľko Výzva na predkladanie žiadostí neustanovuje niečo iné,
+       pri klarifikácií sa uplatňuje pravidlo „jedenkrát v tej istej veci, ak nie je ustanovené inak“; bližšie
+       v III. časti, kap. 3.4, odd. 3.4.7 ods. 19 Systému riadenia projektových intervencií.
+       Žiadateľ má právo požiadať o predĺženie lehoty na odstránenie pochybností o pravdivosti alebo
+       úplnosti ŽoPP. Žiadateľ nemá právny nárok na to, aby Platobná agentúra jeho žiadosti vyhovela.
+
+                                                                                                                10
+       Žiadateľ požiada Platobnú agentúru písomne prostredníctvom Ústredného portálu verejnej
+       správy, pričom táto žiadosť by mala byť Platobnej agentúre doručená skôr, ako pred uplynutím
+       lehoty určenej platobnou agentúrou na odstránenie pochybností o pravdivosti alebo úplnosti
+       ŽoPP. Predmetnú lehotu možno predĺžiť iba raz.
+
+(11) Možnosti opätovného konania o ŽoPP, ktorá bola späťvzatá (v dôsledku čoho bolo vydané
+       rozhodnutie o zastavení konania), v dôsledku zmeny Výzvy na predkladanie žiadostí, je bližšie
+       popísané vo Výzve na predkladanie žiadostí, Ďalšie skutočnosti týkajúce sa poskytnutia
+       príspevku, písm. B, a v III. časti, kap. 3.4, odd. 3.4.13 ods. 3 a nasl. Systému riadenia projektových
+       intervencií.
+
+(12) V prípade späťvzatia ŽoPP z dôvodov bližšie špecifikovaných v Systéme riadenia projektových
+       intervencií v III. časti, kap. 3.4, odd. 3.4.13:
+       a) žiadateľ vzal svoju žiadosť o príspevok späť pred vydaním rozhodnutia o žiadosti
+       b) žiadateľ zomrel, bol vyhlásený za mŕtveho (fyzická osoba) alebo zanikol bez právneho
+            nástupcu (právnická osoba).
+       c) žiadateľ nepredložil žiadosť riadne, včas a vo forme určenej vo Výzve na predkladanie
+            žiadostí alebo pretrvávajú pochybnosti o splnení podmienok doručenia žiadosti riadne, včas
+            a vo forme určenej vo Výzve na predkladanie žiadostí.
+       d) zistí pochybnosti o splnení podmienok poskytnutia príspevku a žiadateľ tieto pochybnosti
+            neodstránil v určenej lehote, hoci bol o možnosti zastavenia konania poučený.
+       e) ustanovuje tak zákon o príspevkoch
+       postupuje žiadateľ nasledovne: Žiadateľ podáva a doručuje späťvzatie žiadosti Platobnej
+       agentúre prostredníctvom Ústredného portálu verejnej správy (Slovensko.sk). V prípade
+       preukázanej nefunkčnosti Ústredného portálu verejnej správy možno späťvzatie podať a doručiť
+       Platobnej agentúre aj iným spôsobom (predovšetkým poštou, ale aj mailom).
+
+       Späťvzatie žiadosti musí obsahovať minimálne:
+
+       a) označenie žiadateľa,
+       b) označenie žiadosti o príspevok,
+       c) označenie Výzvy na predkladanie žiadostí, na základe ktorej bola žiadosť o príspevok
+
+           podaná,
+       d) čo sa navrhuje, t. j. že žiadateľ berie svoju žiadosť o príspevok späť.
+
+       Ak žiadateľ vezme svoju žiadosť späť, hľadí sa na neho, ako keby žiadosť o príspevok nikdy
+       nepodal.
+
+6. ROZHODNUTIA VYDANÉ V KONANÍ O ŽIADOSTI
+
+(1) Platobná agentúra o podanej ŽoPP rozhodne tak, že:
+       a) podanú ŽoPP schváli – ak žiadateľ splnil všetky PPP (za predpokladu, že predtým splnila
+           podmienky predloženia ŽoPP); bližšie v III. časti, kap. 3.4, odd. 3.4.12 Systému riadenia
+           projektových intervencií.
+       b) podanú ŽoPP neschváli, ak žiadateľ nesplnil všetky PPP (ak s nesplnením niektorej PPP nie je
+           spojené zníženie príspevku); bližšie v III. časti, kap. 3.4, odd. 3.4.12 Systému riadenia
+           projektových intervencií
+       c) konanie o ŽoPP zastaví; bližšie v III. časti, kap. 3.4, odd. 3.4.13 Systému riadenia projektových
+           intervencií.
+
+                                                                                                                                        11
+(2) Proti rozhodnutiam vydaným v konaní o žiadosti možno podať:
+       a) riadny opravný prostriedok – odvolanie, ktoré sa podáva na Platobnej agentúre
+           - bližšie v § 16 a 17 zákona o príspevkoch a III. časti, kap. 3.6, odd. 3.6.1 Systému riadenia
+               projektových intervencií
+           - žiadateľ sa upozorňuje na povinné obsahové náležitosti odvolania (odd. 3.6.1 ods. 9),
+               lehotu na podanie odvolania (odd. 3.6.1 ods. 3 a ods. 4), rozhodnutia vydané v konaní
+               o žiadosti, proti ktorým je odvolanie neprípustné (odd. 3.6.1 ods. 10) Systému riadenia
+               projektových intervencií
+       b) mimoriadny opravný prostriedok; podnet na preskúmanie rozhodnutia mimo odvolacieho
+           konania sa podáva na Platobnej agentúre. Bližšie v § 18 zákona o príspevkoch a v III. časti,
+           kap. 3.6, odd. 3.6.2 Systému riadenia projektových intervencií .
+
+7. PODPORA A POMOC V PRÍPADE NEJASNOSTÍ
+
+(1) Žiadatelia alebo iné subjekty môžu požiadať o informácie k Výzve prostredníctvom nasledovných
+       kontaktov Platobnej agentúry: [e-mail vynechaný], [e-mail vynechaný],
+       [e-mail vynechaný] (technická podpora pre IMS).
+
+(2) Upozornenie: Pôdohospodárska platobná agentúra ani Ministerstvo pôdohospodárstva a
+       rozvoja vidieka SR neposkytujú individuálne poradenstvo k Výzve. Počas konania o žiadosti
+       Pôdohospodárska platobná agentúra neposkytuje informácie o stave ich overovania.
+       Pri zasielaní otázok žiadateľ v mailovej komunikácii uvádza kód ŽoPP a číslo Výzvy na
+       predkladanie žiadostí.
+
+(3) Informácie k aktuálne vyhláseným Výzvam na predkladanie žiadostí poskytuje Národná sieť
+       rozvoja vidieka SR (NSRV SR), ktorej hostiteľským orgánom je Inštitút znalostného
+       pôdohospodárstva a inovácií (IZPI).
+       NSRV SR slúži ako kontaktný bod pre potenciálneho žiadateľa, ktorá v rámci poradenstva
+       bezplatne poskytuje informácie o predmetnej Výzve v zmysle vysvetlenia jej náležitostí
+       (oprávnenosť aktivity, oprávnenosť výdavkov a oprávnenosť žiadateľa).
+       V prípade záujmu o poskytnutie informácií k Výzve kontaktujte Inštitút znalostného
+       pôdohospodárstva a inovácií, Akademická 4, 949 01 Nitra (e-mail: mailto:[e-mail vynechaný]) alebo
+       regionálne pracoviská NSRV SR. Kontakty sú uvedené na nasledovnom odkaze:
+       https://www.nsrv.sk/?pl=3. NSRV SR taktiež realizuje vzdelávacie aktivity k Výzvam. Plánované
+       informačné aktivity sú uvedené na nasledovnom odkaze: https://www.nsrv.sk/index.php.
+
+(4) Oznámenia súvisiace s Výzvou na predkladanie žiadostí po jej vyhlásení sa zverejňujú
+       predovšetkým na webovom sídle Platobnej agentúry: www.apa.sk.
+
+8. DÔLEŽITÉ LEHOTY
+
+       V súvislosti s Výzvou na predkladanie žiadostí a konaním o ŽoPP, sa žiadateľovi zdôrazňujú tieto
+najdôležitejšie lehoty a dátumy:
+
+a) Dátum vyhlásenia Výzvy: 10.09.2026
+
+                                                                                                                                        12
+b) Lehota na predkladanie ŽoPP: 12.10.2026 až 15.12.2026
+c) Posledný deň lehoty na podanie ŽoPP: 15.12.2026 23:59 hod.
+d) Lehota na registráciu ŽoPP: v dostatočnom predstihu pred samotným „vytvorením ŽoPP k výzve“
+
+       a „podaním ŽoPP“ prostredníctvom IMS.
+e) Lehota na administratívne overenie ŽoPP: do 20 pracovných dní odo dňa uzavretia výzvy,
+
+       najneskôr do 30 pracovných dní odo dňa uzavretia výzvy.
+       Upozorňujeme žiadateľov, že tieto lehoty sú poriadkového a indikatívneho charakteru,
+       a nemožno vylúčiť ich predĺženie v dôsledku skutočností nezávislých na vôli Platobnej agentúry.
+       Žiadateľ sa upozorňuje, že počas trvania tzv. klarifikácie lehota na administratívne overenie ŽoPP
+       spočíva.
+f) Lehota na odborné overenie ŽoPP: do 30 pracovných dní po administratívnom overení ŽoPP,
+       najneskôr do 50 pracovných dní po administratívnom overení ŽoPP; Žiadateľ sa upozorňuje,
+       že tieto lehoty sú poriadkového a indikatívneho charakteru, a nemožno vylúčiť ich predĺženie
+       v dôsledku skutočností nezávislých na vôli Platobnej agentúry. Upozorňujeme žiadateľov,
+       že počas trvania tzv. klarifikácie lehota na odborné overenie ŽoPP spočíva.
+g) Lehota na výber ŽoPP a vydanie rozhodnutia o ŽoPP: bez zbytočného odkladu po odbornom
+       overení ŽoPP, resp. po uskutočnení výberu ŽoPP. Nevzťahuje sa na vydanie rozhodnutia
+       o zastavení konania, ktoré môže byť vydané a oznámené počas administratívneho overovania
+       ŽoPP, resp. počas odborného overovania ŽoPP.
+h) Lehota na podanie odvolania: do 10 pracovných dní odo dňa doručenia rozhodnutia, voči
+       ktorému je odvolanie prípustné. V prípade nesprávneho poučenia, resp. absentujúceho
+       poučenia v rozhodnutí o ŽoPP, proti ktorému je odvolanie prípustné, lehota na podanie
+       odvolania je jeden mesiac odo dňa doručenia rozhodnutia o ŽoPP.
+i) Lehota na podanie podnetu na preskúmanie rozhodnutia o neschválení ŽoPP alebo rozhodnutia
+       o zastavení konania do dvoch rokov od nadobudnutia právoplatnosti tohto rozhodnutia. Lehota
+       na podanie podnetu na preskúmanie rozhodnutia o schválení ŽoPP je bez limitu.
+       Lehoty na podanie žiadosti o platbu budú uvedené v Zmluve o poskytnutí príspevku a takisto
+       povinnosť fyzického ukončenie realizácie projektu (V. časť, kap. 5.2 ods. 18 Systému riadenia
+       projektových intervencií), ako aj termíny predloženia prvej žiadosti o platbu, žiadosti o platbu
+       na zúčtovanie a záverečnej žiadosti o platbu. Jednotlivé termíny sú vo výzve v časti Ďalšie
+       skutočnosti týkajúce sa poskytnutia príspevku.
+
+                                                                                                                                        13

@@ -1,0 +1,799 @@
+Centrálny koordinačný orgán v spolupráci s platobným orgánom
+
+METODICKÉ USMERNENIE K SLEDOVANÝM PRÍZNAKOM
+
+Programové obdobie 2021 – 2027
+
+Schválil:
+Samuel Migaľ
+minister
+
+Verzia: 1.0
+Dátum vydania: 12.11.2026
+Dátum účinnosti: 12.11.2026
+Metodické usmernenie k sledovaným príznakom 1.0
+
+Obsah
+
+Zoznam skratiek a pojmov....................................................................................................................... 2
+1 Úvod a všeobecné ustanovenia ...................................................................................................... 5
+2 Zoznam zmien ................................................................................................................................. 6
+3 Sledovaný príznak – základné informácie....................................................................................... 7
+3.1 Povinnosti poskytovateľov týkajúce sa sledovaných príznakov ...................................................... 10
+3.2 Základné zásady evidencie a posudzovania sledovaných príznakov............................................... 11
+4 Fázy riešenia pochybností a zistení prostredníctvom sledovaného príznaku .............................. 12
+4.1 Fáza prijatia prvej informácie a jej posúdenie................................................................................. 13
+4.2 Fáza zaevidovania a aktualizácie sledovaného príznaku ................................................................. 15
+4.3 Fáza posudzovania sledovaného príznaku ...................................................................................... 15
+4.4 Fáza uzatvorenia sledovaného príznaku ......................................................................................... 18
+5 Prílohy ........................................................................................................................................... 19
+
+                                                                                                                 1
+Metodické usmernenie k sledovaným príznakom 1.0
+
+Zoznam skratiek a pojmov
+
+EDA                         Európsky dvor audítorov
+EK                          Európska komisia
+EP                          Európsky parlament
+EPPO                        Európska prokuratúra
+EÚ                          Európska únia
+ITMS21+                     informačný monitorovací systém pre programové obdobie
+                            2021 - 2027
+KDP         o rozpočtových  kontrola delegovaných právomocí
+KZ                          kontrolný zoznam
+nariadenie                  Nariadenie Európskeho parlamentu a Rady (EÚ, Euratom)
+pravidlách                  2024/2509 z 23. septembra 2024 o rozpočtových
+                            pravidlách, ktoré sa vzťahujú na všeobecný rozpočet Únie
+nepotvrdená pochybnosť      riziko preskúmané interným preverením, auditom alebo
+                            kontrolou, pričom výsledkom je potvrdenie správnosti a
+NFP                         zákonnosti a výdavky je možné financovať, resp. deklarovať
+NKÚ SR                      na EK
+NSU                         nenávratný finančný príspevok
+                            Najvyšší kontrolný úrad Slovenskej republiky
+NV                          Nariadenie Európskeho parlamentu a Rady (EÚ) 2021/1060
+OA                          z 24. júna 2021, ktorým sa stanovujú spoločné ustanovenia
+OČTK                        o Európskom fonde regionálneho rozvoja, Európskom
+OLAF EK                     sociálnom fonde plus, Kohéznom fonde, Fonde pre
+ONÚ OLAF                    spravodlivú transformáciu a Európskom námornom,
+PMÚ SR                      rybolovnom a akvakultúrnom fonde a rozpočtové pravidlá
+PO                          pre uvedené fondy, ako aj pre Fond pre azyl, migráciu
+pochybnosť                  a integráciu, Fond pre vnútornú bezpečnosť a Nástroj
+                            finančnej podpory na riadenie hraníc a vízovú politiku
+                            v platnom znení
+                            neoprávnené výdavky
+                            orgán auditu
+                            orgány činné v trestnom konaní
+                            Európsky úrad pre boj proti podvodom
+                            Odbor Národný úrad pre OLAF
+                            Protimonopolný úrad Slovenskej republiky
+                            platobný orgán
+                            riziko, podnet, návrh zistenia alebo informácia vzbudzujúca
+                            podozrenie o správnosti a zákonnosti výdavkov1, ktoré môže
+                            mať finančný vplyv na výdavky projektu a zaväzuje
+                            poskytovateľa preveriť závažnosť danej pochybnosti a prijať
+                            opatrenia, vrátane zváženia možného pozastavenia
+                            financovania, kým sa podozrenie neobjasní. Pochybnosť
+                            vyplýva z externého zdroja, ako je napr. medializovaný
+                            podnet, podnet verejnosti, návrh správy/čiastkovej správy
+                            z auditu a kontroly iných subjektov, ako napr. vnútorný
+
+1 Pravidlá oprávnenosti výdavkov sú stanovené v čl. 63 ods. 1 NSU a vo vnútroštátnych pravidlách riadiaceho orgánu, napr. v príručke
+k oprávnenosti výdavkov.
+
+                                                                                                                 2
+Metodické usmernenie k sledovaným príznakom 1.0
+
+poskytovateľ                         audit, NKÚ SR, ÚV SR, kontrola delegovaných právomocí
+posúdenie financovania, resp.        vykonávaná RO, podanie na súd, podnet na OČTK, EPPO,
+deklarovania budúcich výdavkov       PMÚ SR, OLAF EK a iné orgány alebo si vyžaduje ďalšie
+posúdenie vysporiadania minulých     preskúmanie externým subjektom, ktorým je príslušný
+výdavkov                             vnútroštátny orgán alebo orgán EÚ
+                                     riadiaci orgán alebo sprostredkovateľský orgán, ak ho tým
+používateľská príručka k ARACHNE     riadiaci orgán poverí
+príručka k finančnému riadeniu       rozhodnutie, či je možné rizikové výdavky financovať
+RO                                   na národnej úrovni alebo ich deklarovať na EK
+sledované výdavky                    overenie, či výdavky, ktorých neoprávnenosť bola
+                                     potvrdená kontrolou alebo auditom, boli zahrnuté
+sledovaný príznak                    do rozpočtu EÚ. Ak takéto výdavky už boli v minulosti
+                                     do rozpočtu EÚ zahrnuté, nasleduje rozhodnutie o ich
+SO                                   vysporiadaní
+SP                                   Príručka k používaniu systému ARACHNE na programové
+SVP                                  obdobie 2021-2027
+SŽP                                  Príručka k finančnému riadeniu fondov EÚ na programové
+usmernenie k nezrovnalostiam         obdobie 2021 – 2027
+                                     riadiaci orgán
+ÚVO                                  skupina výdavkov projektu, ktorá je dotknutá pochybnosťou
+ÚV SR                                alebo potvrdeným zistením evidovaným na základe
+VLA                                  sledovaného príznaku, pričom danou skupinou môžu byť
+VO                                   výdavky celého projektu alebo len určité výdavky
+zákon o finančnej kontrole a audite  evidenčný a kontrolný nástroj podľa definície v príručke
+zákon o sťažnostiach                 k finančnému riadeniu, ktorý zabezpečuje auditnú stopu a
+zákon o príspevkoch z fondov EÚ      prehľad o pochybnostiach alebo zisteniach od momentu ich
+                                     identifikácie až po konečné finančné vyriešenie v ŽoP na EK,
+                                     resp. Účtoch. V ITMS21+ sú sledované príznaky evidované
+                                     v module Príznaky sledovania
+                                     sprostredkovateľský orgán
+                                     sledovaný príznak
+                                     subjekt vykonávajúci platbu
+                                     súhrnná žiadosť o platbu
+                                     Usmernenie č. 1/2024-U k nezrovnalostiam a finančným
+                                     opravám v rámci finančného riadenia fondov EÚ
+                                     na programové obdobie 2021 – 2027
+                                     Úrad pre verejné obstarávanie
+                                     Úrad vlády Slovenskej republiky
+                                     vládny audit
+                                     verejné obstarávanie
+                                     zákon č. 357/2015 Z. z. o finančnej kontrole a audite v znení
+                                     neskorších predpisov
+                                     zákon č. 9/2010 Z. z. o sťažnostiach v znení neskorších
+                                     predpisov
+                                     zákon č. 121/2022 Z. z o príspevkoch z fondov Európskej
+                                     únie a o zmene a doplnení niektorých zákonov v znení
+                                     neskorších predpisov
+
+                                                 3
+Metodické usmernenie k sledovaným príznakom 1.0
+
+zdokumentovaný zdroj  písomný podklad zaznamenaný v overiteľnej a spätne
+zistenie              dohľadateľnej forme, v ktorom je zachytená prvotná
+                      informácia o pochybnosti, ako aj ďalšie nové informácie
+ŽoP                   ohľadom riešenia tejto pochybnosti a informácie o výsledku
+ŽoP na EK             preskúmania tejto pochybnosti
+                      zistený nedostatok v zmysle zákona o finančnej kontrole
+                      a audite, resp. nedostatok z auditu EK, EDA alebo iného
+                      externého auditného subjektu, ktorý predstavuje potvrdenú
+                      pochybnosť s finančným vplyvom, ktorý je následne
+                      potrebné zohľadniť pri rozhodovaní o financovaní, resp.
+                      deklarovaní budúcich výdavkov alebo pri vysporiadaní voči
+                      minulým výdavkom
+                      žiadosť o platbu
+                      žiadosť o platbu na Európsku komisiu
+
+                                                 4
+Metodické usmernenie k sledovaným príznakom 1.0
+
+1 Úvod a všeobecné ustanovenia
+
+V súlade s § 5 ods. 2 písm. b) a § 48 zákona č. 121/2022 Z. z. o príspevkoch z fondov EÚ má Ministerstvo
+investícií, regionálneho rozvoja a informatizácie SR, ako centrálny koordinačný orgán, v kompetencii
+zabezpečiť tvorbu a zmenu strategických, koncepčných, legislatívnych alebo horizontálne
+uplatniteľných dokumentov pre politiku súdržnosti.
+Cieľom tohto usmernenia je stanoviť metodické a technicko-funkčné postupy týkajúce sa evidencie
+a spracovania údajov k sledovaným príznakom v informačnom systéme ITMS21+ na programové
+obdobie 2021 – 2027, tak aby podľa článku 69 a v nadväznosti na článok 98 NSU Slovenská republika
+zabezpečila zákonnosť a správnosť výdavkov obsiahnutých v účtoch a zároveň boli prijaté potrebné
+opatrenia na prevenciu, odhaľovanie a nápravu nezrovnalostí vrátane podvodov. Posúdenie
+sledovaných príznakov projektov priamo súvisí s posudzovaním správnosti a zákonnosti výdavkov,
+za ktoré podľa článku 74 NSU zodpovedá riadiaci orgán.
+
+Metodické usmernenie kladie dôraz na správnosť a úplnosť evidencie údajov v ITMS21+ tak, aby
+výstupné zostavy z ITMS21+ k výdavkom obsahovali správne, úplné a pravdivé informácie
+o sledovaných príznakoch vrátane prebiehajúcich skúmaní a o ďalších skutočnostiach, ktoré je
+potrebné sledovať z dôvodu prijatia potrebných opatrení voči dotknutým výdavkom, čo je možné iba
+za predpokladu správnej a úplnej evidencie v informačných systémoch.
+
+Usmernenie je záväzné pre subjekty zapojené do implementačnej štruktúry a procesov finančného
+riadenia fondov EÚ na programové obdobie 2021 – 2027 (RO, SO ako poskytovatelia, SVP a PO), ktoré
+využívajú dáta z ITMS21+ a ktoré sú povinné zapracovať vyplývajúce postupy z tohto usmernenia
+do svojich vnútorných postupov do 2 mesiacov od účinnosti tohto materiálu. Spätné doevidovanie
+aktívnych sledovaných príznakov do ITMS21+ sú relevantné subjekty povinné vykonať do 1 mesiaca od
+účinnosti tohto materiálu2.
+
+Toto usmernenie sa vzťahuje na Program Slovensko, Program Interreg Slovensko - Česko 2021 - 2027,
+Program Interreg Slovensko - Rakúsko 2021 - 2027 a Program Rybné hospodárstvo Slovenskej republiky
+2021 – 2027. Pri Programe Interreg Slovensko - Česko 2021 - 2027 a Programe Interreg Slovensko -
+Rakúsko 2021 - 2027 sa usmernenie aplikuje primerane s ohľadom na špecifiká uvedených programov.
+
+V prípade nedostupnosti príslušných funkcionalít ITMS21+ relevantné subjekty zabezpečia evidenciu
+a aktualizáciu sledovaných príznakov v samostatnom prehľade. Pre potreby prípravy ŽoP na EK a Účtov,
+resp. na vyžiadanie platobného orgánu pri schvaľovaní SŽP, poskytovateľ v takomto prípade predkladá
+PO prehľad sledovaných príznakov v štruktúre podľa prílohy č. 4. Po sprístupnení funkcionalít ITMS21+
+sú relevantné subjekty povinné v lehote stanovenej v príručke k finančnému riadeniu zaevidovať
+a aktualizovať všetky aktívne sledované príznaky v ITMS21+.
+
+Týmto usmernením nie sú dotknuté povinnosti a postupy poskytovateľa podľa inej riadiacej
+dokumentácie (napr. vo vzťahu k prebiehajúcim skúmaniam, k evidencii nezrovnalostí).
+
+2 Do ITMS21+ je v prípade potreby a za účelom zabezpečenia auditnej stopy pri riešení pochybnosti možné spätne doevidovať aj neaktívne
+sledované príznaky.
+
+                                                                                                                 5
+Metodické usmernenie k sledovaným príznakom 1.0
+
+2 Zoznam zmien
+
+Tabuľka 1: Zoznam zmien vykonaných v usmernení
+
+Časť dokumentu  Obsah upravovanej časti          Verzia  Podnet3
+
+3 Uvedie sa číslo kontroly/auditu, na ktorého základe bola daná zmena vykonaná a pod.
+
+                                                                                                                 6
+Metodické usmernenie k sledovaným príznakom 1.0
+
+3 Sledovaný príznak – základné informácie
+
+Sledovaný príznak je nástroj, ktorý napomáha napĺňaniu požiadaviek definovaných pre členský štát
+v čl. 36 ods. 2 a čl. 63 ods. 2 nariadenia o rozpočtových pravidlách ohľadom predchádzania,
+odhaľovania a nápravy nezrovnalostí.
+
+Sledovaný príznak zabezpečuje auditnú stopu o zdokumentovaní a riešení každej pochybnosti
+o výdavkoch a prepája toto evidované riziko s následným rozhodnutím o financovaní, resp. deklarovaní
+alebo vysporiadaní výdavkov voči rozpočtu EÚ4 podľa schémy v prílohe 2.
+
+Sledovaný príznak zabezpečuje, že externé riziká ako podnety z médií, od verejnosti, iných orgánov,
+podozrenia a zistenia z auditov, kontrol, vyšetrovaní a skúmaní sú zachytené, centrálne evidované
+a preskúmané a následne zohľadňované pri financovaní výdavkov dotknutého projektu na národnej
+úrovni a deklarovaní, resp. vysporiadaní týchto výdavkov voči rozpočtu EÚ.
+
+Monitorovanie prostredníctvom sledovaného príznaku sa začína momentom zachytenia prvej
+informácie o pochybnosti zo zdokumentovaného zdroja, pričom povinnosť sledovania trvá až
+do úplného preverenia a vyriešenia pochybností a zistení, a to v momente, keď už nemajú vplyv
+na financovanie projektu, t. j. neoprávnené výdavky boli odpočítané a nezahrnuté do ŽoP na EK, resp.
+Účtov, alebo boli výdavky po potvrdení ich oprávnenosti riadne deklarované na EK.
+
+Poskytovateľ je povinný zabezpečiť sledovanie projektu, v súvislosti s ktorým vznikla pochybnosť
+s potenciálnym i reálnym finančným vplyvom, vo všetkých fázach jeho životného cyklu, t. j.
+od schválenia žiadosti o NFP pred nadobudnutím účinnosti zmluvy o poskytnutí NFP, ak pochybnosť
+vznikla ešte pred nadobudnutím účinnosti zmluvy o poskytnutí NFP a existuje pochybnosť o správnosti
+a zákonnosti budúcich výdavkov projektu, počas celej doby jeho realizácie až po obdobie po ukončení
+realizácie projektu, ak nová pochybnosť vznikne dodatočne a pokiaľ výdavky projektu neboli ešte
+zahrnuté do rozpočtu EÚ, a to až do ukončenia programu5.
+
+Sledovaný príznak predstavuje širší nástroj, ktorý dopĺňa existujúce inštitúty prebiehajúceho skúmania,
+nezrovnalostí a reálnych rizík z ARACHNE+ tým, že umožňuje zachytiť aj prípady a riziká, ktoré
+nespadajú priamo pod tieto mechanizmy, no napriek tomu si vyžadujú pozornosť a následné
+rozhodnutie o financovaní výdavkov.
+
+Tabuľka 2: Vymedzenie sledovaných príznakov voči prebiehajúcim skúmaniam, nezrovnalostiam
+a rizikám z ARACHNE+
+
+           Sledovaný príznak zahŕňa:
+
+                                                  − prípady, ktoré súvisia s prebiehajúcim skúmaním,
+                                                       ktoré je začaté a ukončené momentom vymedzeným
+                                                       v príručke k finančnému riadeniu,
+
+                                                  − prípady, ktoré môžu predchádzať prebiehajúcemu
+                                                       skúmaniu: je nutné preskúmať závažnosť rizika a prijať
+                                                       rozhodnutie, či prípad vyžaduje ďalšie preskúmanie. Ide
+                                                       napr. o operatívne prešetrovanie OČTK, vyžiadanie
+
+4 Z hľadiska sledovaných príznakov je kľúčovou skutočnosťou stiahnutie potvrdenej nezrovnalosti zo ŽoP na EK, resp. Účtov v zmysle
+usmernenia k nezrovnalostiam. Nadväzujúce procesy vymáhania alebo vysporiadania dlžnej sumy od dlžníka prebiehajú samostatne
+na národnej úrovni a sú predmetom monitorovania prostredníctvom nezrovnalostí.
+
+5 V prípade pochybností a zistení týkajúcich sa projektu, ktoré vzniknú po úplnom zahrnutí dotknutých výdavkov do Účtov sa ich evidencia a
+následné vysporiadanie voči rozpočtu EÚ zabezpečuje cez režim nezrovnalostí a tieto prípady, ak je nezrovnalosť zaevidovaná, sa neevidujú
+ako sledovaný príznak. V prípade otvorených prípadov prebiehajúcich skúmaní pri ukončovaní programu, ďalší postup ohľadom deklarovania
+výdavkov v ŽoP na EK, resp. Účtoch bude dopracovaný po vydaní príslušného usmernenia EK k ukončovaniu pomoci.
+
+                                                                                                                 7
+Metodické usmernenie k sledovaným príznakom 1.0
+
+    SLEDOVANÝ PRÍZNAK         dokumentácie PMÚ SR, medializovaný/anonymný
+A PREBIEHAJÚCE SKÚMANIE6      podnet v súvislosti s podozrením na spáchanie
+                              trestného činu a pod. V danom prípade je predmetom
+    SLEDOVANÝ PRÍZNAK         monitorovania skutočnosť, či boli prijaté opatrenia
+      A NEZROVNALOSTI7        na riešenie pochybnosti a či nedošlo k začatiu
+                              prebiehajúceho skúmania,
+                          − prípady, kde prebiehajúce skúmanie nie je začaté: je
+                              potrebné preverenie určitej pochybnosti, avšak nie je
+                              predpoklad začatia prebiehajúceho skúmania alebo
+                              ešte nie je zrejmé, či bude začaté. Výsledkom takéhoto
+                              preverenia môže byť buď potvrdenie
+                              neopodstatnenosti prípadu, resp. potvrdenie alebo
+                              nepotvrdenie správnosti a zákonnosti výdavkov. Ide
+                              napr. o finančný nedostatok z VLA, kde nebolo začaté
+                              prebiehajúce skúmanie (napr. nebol zaslaný podnet
+                              iným orgánom alebo nie je požadované od povinnej
+                              osoby ďalšie preskúmanie výdavkov), preverenie
+                              pochybnosti, na ktorú poukázala verejnosť, médiá, príp.
+                              iný orgán „od stola“, t. j. mimo finančnej kontroly, ktoré
+                              nevyústi do prebiehajúceho skúmania,
+                          − prípady ukončeného prebiehajúceho skúmania
+                              s vplyvom na výdavky: pochybnosť bola predmetom
+                              prebiehajúceho skúmania, ktoré je ukončené a jeho
+                              výsledkom je nepotvrdenie správnosti a zákonnosti
+                              výdavkov. V danom prípade je monitorovanie zamerané
+                              na zamedzenie zahrnutia potvrdených neoprávnených
+                              výdavkov do financovania, na uplatnenie finančnej
+                              opravy na národnej úrovni, respektíve na vysporiadanie
+                              neoprávnených výdavkov voči rozpočtu EÚ,
+                          − prípady ukončeného prebiehajúceho skúmania
+                              bez vplyvu na výdavky: pochybnosť bola predmetom
+                              prebiehajúceho skúmania, ktoré je ukončené a jeho
+                              výsledkom je potvrdenie správnosti a zákonnosti
+                              výdavkov. V danom prípade je monitorovanie zamerané
+                              na zahrnutie pozastavených výdavkov do financovania,
+                              resp. deklarovania na EK.
+
+                          − prípady súvisiace s nezrovnalosťami: ide o prípady,
+                               kde stav riešenia pochybnosti vyžaduje evidenciu
+                               nezrovnalosti podľa usmernenia k nezrovnalostiam, ako
+
+6 Prebiehajúce skúmania predstavujú podmnožinu sledovaných príznakov. Platí, že každé prebiehajúce skúmanie sa vždy považuje za
+sledovaný príznak. Naopak, nie každý sledovaný príznak predstavuje prebiehajúce skúmanie - sledovaný príznak môže byť evidovaný aj na
+pochybnosť, ktorej preverenie nevyžaduje ďalšie preskúmanie, avšak uvedenú skutočnosť je nutné monitorovať napr. z dôvodu doriešenia
+tejto pochybnosti a rozhodnutiu voči financovaniu/deklarovaniu výdavkov. Všeobecné postupy a pravidlá týkajúce sa prebiehajúcich skúmaní
+stanovené v príručke k finančnému riadeniu týmito ustanoveniami nie sú dotknuté.
+
+7 Nezrovnalosť a sledovaný príznak plnia v systéme riadenia odlišné funkcie: zatiaľ čo nezrovnalosť slúži na formálne zdokumentovanie a
+nahlásenie porušenia pravidiel v zmysle usmernenia k nezrovnalostiam, sledovaný príznak je evidenčný nástroj spájajúci informáciu o riziku
+s jeho priebežným monitorovaním a posudzovaním voči budúcim i minulým výdavkom. Vzhľadom na to platí, že nie každá nezrovnalosť je
+sledovaným príznakom, napr. finančný nedostatok zistený vlastnou kontrolou poskytovateľa bez externého podnetu sa eviduje ako
+nezrovnalosť. Taktiež platí, že nie každý sledovaný príznak je nezrovnalosťou. Sledovaný príznak sa uplatňuje pri podnetoch z externých
+zdrojov, ako napr. OČTK, EPPO, audity, médiá, podnety verejnosti alebo pri potrebe externého preskúmania, čím pokrýva širší životný cyklus
+pochybnosti. Zahŕňa nielen potvrdené pochybnosti, ale aj stavy predchádzajúce prebiehajúcemu skúmaniu, či prípady nesúvisiace s
+nezrovnalosťami, keď ešte nie je dôvod na formálne zaevidovanie nezrovnalosti. Ak v priebehu riešenia pochybnosti dôjde k začatiu
+prebiehajúceho skúmania, resp. dôjde k ukončeniu preverenia pochybnosti, ktorého výsledkom je potvrdenie neoprávnených výdavkov,
+v takomto prípade sa k sledovanému príznaku v evidencii ITMS21+ priradí príslušná nezrovnalosť. V danom prípade sledovaný príznak slúži
+
+                                                                                                                 8
+Metodické usmernenie k sledovaným príznakom 1.0
+
+SLEDOVANÝ PRÍZNAK A ARACHNE+               napr. pri prebiehajúcich skúmaniach, potvrdených
+                                           nezrovnalostiach,
+                                       − prípady nesúvisiace s nezrovnalosťami: ide o prípady,
+                                           kedy je pochybnosť v štádiu preverovania
+                                           a k zaevidovaniu nezrovnalosti zatiaľ nedošlo, napr.
+                                           vyžiadanie dokumentácie PMÚ SR alebo negatívny
+                                           medializovaný podnet predstavujúci riziko, pričom
+                                           po preverení pochybnosti nemusí dôjsť
+                                           k prebiehajúcemu skúmaniu, resp. zaevidovaniu
+                                           nezrovnalosti.
+
+                                       − prípady rizík na základe analýzy z ARACHNE+ podľa
+                                           používateľskej príručky k ARACHNE a portálu ARACHNE
+                                           Academy8,
+
+                                       − iné prípady rizík z ďalších externých zdrojov: ide
+                                           o riziká, na ktoré upozornia médiá, verejnosť, kontroly,
+                                           audity, vyšetrovania a skúmania externých
+                                           vnútroštátnych a orgánov EÚ a pod.
+
+Tabuľka 3: Prípady pochybností a zistení, ktoré nespadajú pod sledovaný príznak
+
+Sledovaný príznak nezahŕňa:
+
+        PRÍPADY POCHYBNOSTÍ            Sledovaný príznak je nástrojom na rozhodovanie
+          IDENTIFIKOVANÝCH             o financovaní budúcich alebo vysporiadania minulých
+                                       výdavkov už existujúceho projektu, preto prípady
+    PRED ÚČINNOSŤOU ZMLUVY             podnetov a pochybností identifikovaných v procese
+          O POSKYTNUTÍ NFP             vyhlásenia výzvy, schvaľovania a zazmluvňovania
+                                       projektu, ktoré si nevyžadujú ďalšie monitorovanie
+ak nepredstavujú riziko vyžadujúce si  po nadobudnutí účinnosti zmluvy o poskytnutí NFP, nie sú
+ďalšie monitorovanie počas realizácie  sledovaným príznakom.
+
+        a financovania projektu        Uvedené podnety sú riešené prostredníctvom existujúcich
+                                       legislatívnych mechanizmov, napríklad podľa zákona
+                                       o sťažnostiach alebo podľa príslušných ustanovení zákona
+                                       č. 121/2022 Z. z. o príspevkoch z fondov EÚ.
+
+napr. na upozornenie, že výdavky, ktoré sú predmetom prebiehajúceho skúmania alebo výdavky, ktoré sa preskúmaním potvrdili ako
+neoprávnené, nie sú zahrnuté do financovania, resp. deklarovania, príp. sú predmetom konečného vysporiadania voči rozpočtu EÚ.
+
+8 Do vydania aktualizácie Príručky k používaniu systému Arachne, je potrebné v rámci kontrolných úkonov primerane postupovať v súlade
+s platným metodickým nastavením a s využitím informácií z podporných zdrojov z portálu Arachne Academy, kde je k dispozícii dokumentácia
+a školiace materiály k Arachne+.
+
+                                                                                                                 9
+Metodické usmernenie k sledovaným príznakom 1.0
+
+                                             •  Zistenia z vlastnej finančnej kontroly, resp. opätovnej
+                                                finančnej kontroly poskytovateľa nie sú sledovaným
+                                             •  príznakom.
+PRÍPADY ZISTENÍ IDENTIFIKOVANÝCH
+                                                Toto pravidlo sa vzťahuje aj na kontrolu VO vykonávanú
+   V RÁMCI FINANČNEJ KONTROLY                   ÚVO 10 , či už na základe analýzy rizík alebo mimo nej
+            POSKYTOVATEĽA9                      v prípade, kedy úrad plní úlohy SO v zmysle zmluvy
+                                                o delegovaní právomocí v rámci Programu Slovensko,
+    finančná kontrola VO, finančná              keďže táto kontrola je integrálnou súčasťou vnútorného
+  kontrola ŽoP, finančná kontrola na            systému kontroly poskytovateľa.
+
+                   mieste
+
+      3.1 Povinnosti poskytovateľov týkajúce sa sledovaných príznakov
+
+Poskytovatelia vo vzťahu k sledovaným príznakom zabezpečujú povinnosti stanovené
+v príručke k finančnému riadeniu, a to najmä:
+
+a) zaevidovanie a aktualizáciu sledovaného príznaku v stanovenej lehote podľa príručky
+    k finančnému riadeniu – včasné zaevidovanie relevantných pochybností a zistení s finančným
+    vplyvom do ITMS21+ zaručuje elimináciu administratívneho opomenutia a aktuálnosť informácií
+    pre všetky nadväzujúce subjekty zapojené do procesu schvaľovania výdavkov na národnej úrovni
+    a ich deklarovania na EK,
+
+b) posúdenie vplyvu sledovaného príznaku na výdavky – vyhodnotenie finančného vplyvu
+    pochybnosti alebo zistenia na výdavky s ohľadom na rozhodnutie o financovaní a deklarovaní voči
+    budúcim výdavkom, resp. rozhodnutie o potrebe vysporiadania voči minulým výdavkom,
+
+c) rozhodnutie o financovaní a deklarovaní voči budúcim výdavkom – v závislosti od závažnosti
+    pochybnosti poskytovateľ v zmysle príručky k finančnému riadeniu zvolí režim financovania a
+    deklarovania na EK pre budúce výdavky, pričom záverom rozhodnutia k dotknutým výdavkom
+    projektu, ku ktorému sa viaže sledovaný príznak, je ich:
+
+− nefinancovanie v ŽoP (neschválenie v ŽoP, resp. dočasné pozastavenie schvaľovania ŽoP
+     do ukončenia skúmania),
+
+− financovanie v ŽoP (ak sa poskytovateľ rozhodol financovať výdavky prebiehajúceho skúmania),
+     ale nezahrnutie do SŽP,
+
+− financovanie na národnej úrovni, ale nezahrnutie do ŽoP na EK, resp. Účtov,
+− financovanie znížené o finančnú opravu,
+− financovanie na národnej úrovni a ich zahrnutie do ŽoP na EK, resp. Účtov.
+
+d) rozhodnutie o potrebe vysporiadania voči minulým výdavkom – nápravný proces po ukončení
+    námietkového konania, keď je potrebné potvrdené neoprávnené výdavky vysporiadať voči
+    rozpočtu EÚ,
+
+e) predloženie informácií o sledovaných príznakoch vrátane informácií o začatí a ukončení
+    prebiehajúceho skúmania platobnému orgánu – predloženie prehľadu projektov so sledovaným
+    príznakom na účely prípravy ŽoP na EK a Účtov. Súčasťou prehľadu je vyhodnotenie vplyvu týchto
+
+9 Uvedené sa nevzťahuje na prípady zistení identifikovaných v rámci finančnej kontroly poskytovateľa otvorenej v súvislosti s prebiehajúcim
+skúmaním.
+
+10 Uvedené pravidlo neplatí pre Program Rybné hospodárstvo Slovenskej republiky 2021 – 2027, Program Interreg Slovensko - Česko 2021-
+2027 a Program Interreg Slovensko - Rakúsko 2021 -2027, kde ÚVO v zmysle § 41 zákona č. 121/2022 Z. z. o príspevkoch z fondov EÚ neplní
+úlohy SO. V danom prípade podanie podnetu na ÚVO zakladá sledovaný príznak, pretože úrad v tomto prípade koná ako externý orgán
+uskutočňujúci ďalšie preskúmanie.
+
+                                                                                                               10
+Metodické usmernenie k sledovaným príznakom 1.0
+
+    príznakov na konkrétne ŽoP s uvedením záveru, či je alebo nie je možné ich zahrnúť do ŽoP na EK,
+    resp. Účtov.
+
+   3.2 Základné zásady evidencie a posudzovania sledovaných príznakov
+
+Evidenciu a aktualizáciu sledovaného príznaku zabezpečuje používateľ, ktorým je:
+
+− príslušný poskytovateľ 11 zodpovedný za projekt, ktorého sa pochybnosť alebo zistenie týka.
+     Uvedené zabezpečuje príslušný poskytovateľ aj na podnet iného subjektu ako je anonym, podnet
+     od verejnosti, či iného orgánu. Ak sa pochybnosť alebo zistenie týka ÚVO ako SO a vzťahuje sa
+     na zákazku financovanú v rámci projektu príslušného poskytovateľa, evidenciu a aktualizáciu
+     zabezpečuje taktiež príslušný poskytovateľ. Ak sa pochybnosť týka projektov/zákazky, ktorá sa
+     týka viacerých poskytovateľov, evidenciu a aktualizáciu zabezpečuje každý poskytovateľ
+     zodpovedný za daný projekt zvlášť. Ak sa pochybnosť/zistenie týka viacerých poskytovateľov,
+     dotknutí poskytovatelia sú povinní sa vzájomne informovať o existencii a stave sledovanej
+     skutočnosti a poskytovať si súčinnosť potrebnú na zabezpečenie včasnej a úplnej evidencie
+     sledovaného príznaku v ITMS21+ na úrovni každého z nich.
+
+− platobný orgán, ak ide o prípad podľa § 39 ods. 4 zákona č. 121/2022 Z. z. o príspevkoch z fondov
+    EÚ, keď orgán auditu identifikuje podozrenie zo spáchania trestného činu, priestupku alebo iného
+    správneho deliktu v súvislosti s implementáciou programu zo strany štatutárneho orgánu,
+    zamestnanca alebo osoby konajúcej v mene poskytovateľa a o tomto podozrení informuje
+    prostredníctvom listinnej verzie nezrovnalosti iba platobný orgán, keďže sprístupnenie informácií
+    poskytovateľovi by mohlo ohroziť alebo zmariť vyšetrovanie. Platobný orgán môže evidovať
+    a aktualizovať sledovaný príznak aj na interné účely, napríklad na sledovanie odstránenia
+    nedostatkov zo SŽP alebo plnenia odporúčaní v oblasti finančného riadenia podľa metodických
+    usmernení platobného orgánu.
+
+Zaevidovaním a aktualizáciou sledovaného príznaku v ITMS21+ príslušným zamestnancom
+s oprávnením evidovať a editovať sledované príznaky, ako napr. manažérom auditov a nezrovnalostí
+RO/SO / manažérom pre informovanie a komunikáciu RO/SO 12 , sa zabezpečuje jeho viditeľnosť
+pre všetky dotknuté subjekty zapojené do implementácie a finančného riadenia - OA, PO, RO, príslušný
+poskytovateľ a SVP a pre všetky subjekty s čitateľským oprávnením. Obmedzenie viditeľnosti platí
+výlučne pre evidenciu sledovaného príznaku platobným orgánom, s výnimkou viditeľnosti pre OA, kde
+evidenciu zabezpečuje certifikátor.
+
+Sledovaný príznak je evidovaný na projekt, pričom sledovaným objektom môžu byť:
+
+− všetky výdavky projektu: ak pochybnosť alebo zistenie súvisí s prijímateľom, partnerom,
+    užívateľom, celkovými výdavkami alebo ich nemožno priradiť ku konkrétnym položkám,
+
+− časť výdavkov projektu: ak pochybnosť alebo zistenie súvisí iba s určitou skupinou výdavkov, ako
+    napr. s konkrétnou zákazkou, mzdovými výdavkami, nepriamymi výdavkami, výdavkami z jednej
+    faktúry atď.
+
+Ak je v rámci jedného projektu predmetom sledovania viacero skutočností, napr. medializovaný
+podnet a vyšetrovanie OČTK, používateľ v ITMS21+ eviduje v rámci toho istého projektu samostatný
+
+11 V prípade Programov Interreg evidenciu a aktualizáciu sledovaných príznakov zabezpečuje na úrovni celého programu riadiaci orgán. Ak
+má pochybnosť alebo zistenie horizontálny alebo systémový charakter a týka sa samotného nastavenia programu/programov, evidenciu
+a aktualizáciu sledovaných príznakov zabezpečuje samostatne riadiaci orgán, ako aj príslušný SO v prípade P SK, zodpovedný za projekt,
+s ktorým pochybnosť alebo zistenie súvisí.
+
+12 Ak vznikne potreba editácie sledovaných príznakov pre používateľa s čítacou pracovnou pozíciou, oprávnenia mu možno prideliť
+prostredníctvom existujúcej pracovnej pozície manažéra pre informovanie a komunikáciu alebo na základe požiadavky o vytvorenie novej
+pracovnej pozície cez IT HelpDesk: [e-mail vynechaný].
+
+                                                                                                               11
+Metodické usmernenie k sledovaným príznakom 1.0
+
+sledovaný príznak na každú kategóriu sledovania. V danom prípade používateľ eviduje jeden sledovaný
+príznak v kategórii „medializovaný podnet“, druhý sledovaný príznak v kategórii „vyšetrovanie
+OČTK/EPPO“, a to z dôvodu, že každá z týchto skutočností môže podliehať odlišnému postupu
+skúmania a riešenia v závislosti od konkrétnych okolností.
+
+Ak sa tá istá sledovaná skutočnosť týka viacerých projektov, napr. pochybnosť sa horizontálne týka
+všetkých projektov jednej výzvy alebo len projektov s určitým typom výdavkov, používateľ v ITMS21+
+k jednému sledovanému príznaku priradí všetky dotknuté projekty, ktorých sa sledovaná skutočnosť
+týka. Ak pominú dôvody na sledovanie niektorých projektov, používateľ tieto preverené projekty
+v evidencii ITMS21+ odradí, pričom sledovaný príznak ostáva aktívny až do doriešenia sledovanej
+skutočnosti v rámci všetkých projektov.
+
+V prípade fázovaných projektov z programového obdobia 2014 – 2020 do programového obdobia
+2021 – 2027, ak sa sledovaný príznak týka výdavkov projektu prvej fázy, je potrebné zabezpečiť
+evidenciu sledovaného príznaku aj pre výdavky projektu druhej fázy v tom prípade, ak sa sledovaný
+príznak týka aj výdavkov druhej fázy, ktoré majú byť predmetom financovania. Uvedené sa týka
+prípadu, ak sa uplatňuje finančná oprava z auditu, kontroly alebo overovania iného orgánu
+za porušenie pravidiel a postupov VO, príp. prebieha skúmanie OČTK, EPPO alebo PMÚ SR v rámci prvej
+fázy a financovanie daných výdavkov pokračuje aj v druhej fáze a pod.
+
+RO/poskytovateľ je povinný v zmysle čl. 69 ods. 6 NSU zabezpečiť uchovávanie dokladov pre audítorský
+záznam v súlade s prílohou XIII, kde je v prípade evidovaných pochybností a zistení nevyhnutné vkladať
+dokumenty tvoriace audítorskú stopu priamo do elektronického Spisu v module Príznaky sledovania,
+ak sa nenachádzajú v inej evidencii v ITMS, napr. pri nezrovnalostiach. Ide napr. o dokument s prvou
+alebo novou informáciou o pochybnosti alebo zistení, dokument preukazujúci začiatok alebo
+ukončenie prebiehajúceho skúmania, dokument potvrdzujúci neoprávnenosť výdavkov alebo
+dokument umožňujúci financovanie, resp. deklarovanie výdavkov, príp. e-mailová komunikácia
+k sledovanému príznaku s relevantnými orgánmi, ak nebola realizovaná cez funkcionalitu Komunikácia
+v ITMS21+.
+
+4 Fázy riešenia pochybností a zistení prostredníctvom sledovaného
+    príznaku
+
+Proces od prijatia prvej informácie o pochybnosti až po jej konečné doriešenie zahŕňa prvotné
+posúdenie prijatej informácie z hľadiska jej relevantnosti, zaevidovanie a priebežné monitorovanie
+stavu riešenia pochybnosti/zistenia v ITMS21+ a následné uzatvorenie sledovaného príznaku
+v ITMS21+ po doriešení sledovanej skutočnosti.
+
+                                                                                                               12
+Metodické usmernenie k sledovaným príznakom 1.0
+Obrázok 1: Schéma riešenia pochybností a zistení prostredníctvom sledovaného príznaku
+
+PRIJATIE PRVEJ      POSÚDENIE          ZAEVIDOVANIE       AKTUALIZÁCIA        UZATVORENIE
+ INFORMÁCIE           PRIJATEJ         SLEDOVANÉHO        SLEDOVANÉHO         SLEDOVANÉHO
+
+ prijatie prvej    INFORMÁCIE             PRÍZNAKU           PRÍZNAKU            PRÍZNAKU
+  informácie
+o pochybnosti        posúdenie           zaevidovanie      prijatie novej        doriešenie
+                 pochybnosti alebo        posúdenej          informácie     pochybnosti alebo
+                 zistenia z hľadiska                       o pochybnosti    zistenia a uzavretie
+                                      pochybnosti alebo     alebo zistení
+                       definície          zistenia do    a zaevidovanie do     sledovaného
+                    sledovaného            ITMS21+            ITMS21+             príznaku
+                                                                                 v ITMS21+
+                       príznaku
+
+      4.1 Fáza prijatia prvej informácie a jej posúdenie
+
+Fáza sa začína prijatím prvej informácie, ktorá poukazuje na pochybnosť alebo zistenie, ktorá sa týka
+alebo môže týkať projektu financovaného z fondov EÚ v programovom období 2021 – 2027.
+
+Po prijatí informácie poskytovateľ vykoná prvotné obsahové posúdenie, či pochybnosť alebo zistenie
+predstavuje sledovaný príznak podľa príručky k finančnému riadeniu, t. j. či:
+
+− predstavuje pochybnosť alebo zistenie týkajúce sa projektu príslušného poskytovateľa. Ak prijatý
+    podnet patrí do vecnej pôsobnosti iného subjektu ako toho, ktorý ho prijal, poskytovateľ ktorý
+    podnet prijal, v stanovenej lehote tento podnet postúpi kompetentnému poskytovateľovi, ktorý
+    tento podnet zaeviduje,
+
+− pochádza zo zdokumentovaného zdroja, pričom neoveriteľné alebo neformálne informácie, ktoré
+    nie sú zachytené v žiadnej forme umožňujúcej ich evidenciu a následné preverenie, ako napr.
+    neoficiálne verbálne podania bez vyhotovenia záznamu, sa nepovažujú za zdokumentovaný zdroj,
+
+− má alebo môže mať finančný vplyv na budúce výdavky projektu, ktoré budú predmetom
+    schvaľovania na národnej úrovni, resp. deklarovania na EK, prípadne má alebo môže mať finančný
+    vplyv na v minulosti schválené výdavky projektu.
+
+                                                                                       13
+Metodické usmernenie k sledovaným príznakom 1.0
+
+Obrázok 2: Prehľad príkladov prvej informácie o pochybnosti alebo zistení podľa zdroja informácie
+
+MEDIALIZÁCIA                                     PRVÉ ZACHYTENIE
+Médiá                                            mediálny výstup ako článok, reportáž, TV alebo
+podozrenia zverejnené v hromadných               rozhlasový šot, resp. iný mediálny výstup
+oznamovacích prostriedkoch a dostupné
+širokej verejnosti
+
+AUDIT INŠTITÚCIÍ EÚ  návrh  zistenia             PRVÉ ZACHYTENIE
+Audit EK, EDA                                    záverečné stretnutie k auditu – wrap-up, návrh
+predbežné zistenie,                              správy
+s finančným vplyvom
+
+VLÁDNY AUDIT                                     PRVÉ ZACHYTENIE
+Audit OA                                         návrh správy/čiastkovej správy, zaslanie
+návrh zistenia s finančným vplyvom               podnetu na ďalšie preskúmanie
+                                                 vnútroštátnemu orgánu alebo orgánu EÚ
+
+ADMINISTRATÍVNE VYŠETROVANIE                     PRVÉ ZACHYTENIE
+OLAF                                             informácia o administratívnom vyšetrovaní,
+OLAF EK, ONÚ OLAF                                žiadosť o informácie atď.
+podozrenie zo zneužitia finančných
+prostriedkov EÚ
+
+ORGÁNY ČINNÉ V TRESTNOM KONANÍ                   PRVÉ ZACHYTENIE
+OČTK, EPPO                                       žiadosť o poskytnutie súčinnosti, vyžiadanie
+podozrenie z trestného činu v súvislosti s       dokumentácie, informácia o operatívnom
+projektom                                        prešetrovaní alebo o začatí trestného konania,
+                                                 vyšetrovania, trestného stíhania alebo o
+                                                 vznesení obvinenia atď.
+
+HOSPODÁRSKA SÚŤAŽ                                PRVÉ ZACHYTENIE
+PMÚ SR                                           vyžiadanie dokumentácie, informácia o začatí
+podozrenie na narušenie hospodárskej             kontroly, prvostupňové rozhodnutie atď.
+súťaže
+
+INÝ ZDROJ                                        PRVÉ ZACHYTENIE
+Vnútorný audit, NKÚ SR, ÚV SR, RO,               podnet verejnosti, podanie na súd, protokol
+súd, ÚVO, ak neplní funkciu SO, iný              z kontroly, návrh správy/čiastkovej správy,
+externý audit a iné.                             vyžiadanie dokumentácie k projektu zo strany
+podozrenie, návrh zistenia alebo zistenie        auditného/kontrolného subjektu s vyjadrením
+s finančným vplyvom                              pochybnosti, podnet orgánu atď.
+
+                                                                                                   14
+Metodické usmernenie k sledovaným príznakom 1.0
+
+      4.2 Fáza zaevidovania a aktualizácie sledovaného príznaku
+
+Každú prijatú informáciu, ktorá je pochybnosťou alebo zistením s finančným vplyvom a ktorá je
+sledovaným príznakom, je nevyhnutné zaevidovať a následne aktualizovať v lehote podľa príručky
+k finančnému riadeniu v prípade nových skutočností v ITMS21+ v časti Príznaky sledovania podľa
+postupu v Prílohe 1.
+
+Aktualizáciu sledovaného príznaku vykonáva RO/poskytovateľ, príp. PO, ak zistí nové skutočnosti, či už
+na základe vlastného aktívneho monitoringu alebo na základe externých zdrojov. Predmetom
+aktualizácie sú predovšetkým nasledujúce nové skutočnosti:
+
+− informácie o priebehu a stave riešenia pochybnosti alebo zistenia alebo informácie, ktoré neboli
+    predtým známe alebo ktoré je potrebné upraviť či spresniť,
+
+− informácie o začatí a ukončení prebiehajúceho skúmania alebo preskúmania vnútroštátneho
+    orgánu alebo orgánu EÚ, ako napr. EK, EDA, OLAF, EPPO,
+
+− informácie o priradení alebo odradení určitého projektu, súvisiacej nezrovnalosti alebo
+    sledovaného príznaku.
+
+      4.3 Fáza posudzovania sledovaného príznaku
+
+Cieľom tejto fázy je vyhodnotenie vplyvu pochybnosti alebo zistenia evidovanej prostredníctvom
+sledovaného príznaku na výdavky projektu s cieľom zamedziť schváleniu rizikových alebo
+neoprávnených súm na národnej úrovni a ich následnému deklarovaniu na EK.
+
+Sledovaný príznak sa viaže na projekt, čo znamená, že v systéme ITMS21+ sa zobrazuje pri všetkých
+ŽoP daného projektu. Pri posudzovaní konkrétnych výdavkov, resp. pri rizikovej analýze alebo
+pri rozhodovaní o vykonaní kontroly, je poskytovateľ povinný preveriť prítomnosť sledovaného
+príznaku na úrovni daného projektu. Ak je sledovaný príznak na projekte evidovaný, poskytovateľ
+preverí, akých sledovaných skutočností sa príznak týka, či má vplyv na aktuálne vykonávaný úkon, napr.
+na zákazku, predloženú ŽoP a či sú výdavky dotknuté týmto príznakom predmetom aktívneho
+sledovania, v akom režime financovania sa nachádzajú a či je potrebné ich vylúčenie, dočasné
+vylúčenie, alebo konečné neschválenie, či trvalé stiahnutie.
+
+Posudzovanie sledovaných príznakov prebieha v niekoľkých krokoch implementačného cyklu:
+
+V procese vykonania rizikovej analýzy VO13 a kontroly VO: ak je na úrovni projektu evidovaný príznak,
+je potrebné posúdiť pochybnosť aj z hľadiska jej obsahu, keďže sledované skutočnosti sa môžu týkať
+všetkých VO projektu, len niektorých VO projektu, alebo len jedného konkrétneho VO. Ak sa sledovaný
+príznak obsahovo týka daného VO, takéto VO vstupuje do modelu rizikovej analýzy ako rizikové a je
+automaticky predmetom kontroly VO. Ak sa sledovaný príznak obsahovo netýka daného VO, príslušné
+rizikové faktory súvisiace so sledovanými príznakmi sa vyplnia hodnotou „nie" a VO bude hodnotené
+na základe ostatných relevantných rizikových faktorov modelu rizikovej analýzy. V prípade
+sledovaného príznaku, ktorý súvisí so zistením s finančným vplyvom z auditu, príp. kontroly iného
+kontrolného orgánu, je tento sledovaný príznak zohľadňovaný v príslušnom kontrolnom zozname
+v manuáli procedúr poskytovateľa v rámci kontroly VO. Ak pochybnosť alebo zistenie týkajúce sa
+medializovaného podnetu, podvodu, korupcie či konfliktu záujmov, vyvstane po vykonaní analýzy rizík
+
+13 Analýza rizík VO sa nevykonáva pre programy Interreg Slovensko – Česko 2021 – 2027 a Interreg Slovensko – Rakúsko 2021 – 2027.
+Pri týchto programoch je poskytovateľ povinný pri rozhodovaní o kontrole VO zohľadniť nielen finančný limit, ale aj všetky dôležité okolnosti,
+ktoré môžu naznačovať potrebu kontroly VO. Ide napríklad o medializované podnety, podozrenia z podvodu, korupcie alebo konfliktu
+záujmov.
+
+                                                                                                               15
+Metodické usmernenie k sledovaným príznakom 1.0
+
+VO, takéto VO bude automaticky predmetom finančnej kontroly VO bez vykonania novej analýzy rizík,
+ak finančná kontrola VO nebola pôvodne vykonaná.
+
+Pred rozhodnutím o potrebe vykonania kontroly na mieste mimo rizikovej analýzy: riziko evidované
+prostredníctvom sledovaného príznaku môže byť, v závislosti od posúdenia závažnosti prípadu,
+priamym dôvodom na začatie finančnej kontroly na mieste aj mimo rizikovej analýzy. Skutočnosťou
+zakladajúcou potrebu vykonania kontroly na mieste môže byť medializovaný podnet alebo podnet
+zaslaný iným subjektom, konanie OČTK, EPPO, PMÚ SR, OLAF EK buď z vlastného podnetu, alebo
+podnetu iného subjektu, závažná pochybnosť o výdavkoch vyjadrená EK, EDA na oficiálnom zhrnutí
+auditu atď.
+
+V procese vykonania finančnej kontroly ŽoP: pri vypracovaní rizikovej analýzy poskytovateľ preverí
+v ITMS21+ prítomnosť sledovaných príznakov na projekte týkajúcich sa medializovaných podnetov,
+podozrení z podvodov, korupcie či konfliktu záujmov, či iného rizika. Ak na projekte takéto sledované
+príznaky evidované sú, vstupujú do analýzy rizík ŽoP ako vylučovacie rizikové kritériá a znamenajú
+automatické zaradenie do úplnej kontroly ŽoP, resp. ako rizikový faktor pre výkon finančnej kontroly
+na mieste. Overenie týchto skutočností poskytovateľ zaznamenáva v príslušnom KZ v rámci kontroly
+ŽoP. Ak ŽoP obsahuje výdavky, ktoré sú predmetom prebiehajúceho skúmania, poskytovateľ
+na základe zvoleného režimu financovania výdavkov a v súlade s osobitnými pravidlami financovania
+výdavkov prijímateľa, ktoré sú predmetom prebiehajúceho skúmania v zmysle príručky k finančnému
+riadeniu, rozhodne o režime financovania výdavkov.
+
+V procese zostavenia súhrnnej žiadosti o platbu na SVP: pri zahrnutí výdavkov do SŽP postupuje
+poskytovateľ v súlade s osobitnými pravidlami financovania výdavkov prijímateľa, ktoré sú predmetom
+prebiehajúceho skúmania v zmysle príručky k finančnému riadeniu. Zároveň pri zaradení výdavkov
+do SŽP zohľadňuje nastavený režim financovania projektu s ohľadom na skutočnosti evidované
+v sledovanom príznaku. Ak financovanie nie je povolené, alebo je povolené len na úrovni prijímateľa,
+poskytovateľ zabezpečí, aby tieto výdavky neboli zahrnuté do SŽP. Ak od času schválenia výdavkov
+v ŽoP do momentu ich zahrnutia do SŽP nastanú nové skutočnosti potvrdzujúce začatie
+prebiehajúceho skúmania, poskytovateľ v stanovenej lehote podľa príručky k finančnému riadeniu
+zabezpečí zaevidovanie tejto skutočnosti do modulu Príznaky sledovania v ITMS21+ a takéto výdavky
+nezahrnie do SŽP. V prípade, ak poskytovateľ neplní funkciu SVP, o tejto skutočnosti v stanovenej
+lehote informuje SVP prostredníctvom funkcionality Komunikácia v ITMS21+ k príslušnému
+sledovanému príznaku, príp. e-mailom a požiada ho o nezaraďovanie týchto výdavkov do SŽP.
+
+V procese schválenia súhrnnej žiadosti o platbu na PO: ak od času zaslania SŽP na PO až do momentu
+jej schválenia PO nastanú nové skutočnosti indikujúce podozrenie na vznik prebiehajúceho skúmania
+alebo potvrdzujúce jeho začatie, poskytovateľ v stanovenej lehote podľa príručky k finančnému
+riadeniu zabezpečí zaevidovanie tejto skutočnosti do modulu Príznaky sledovania v ITMS21+ a o tejto
+skutočnosti informuje platobný orgán a SVP. Ak ide o prebiehajúce skúmanie, poskytovateľ zároveň
+požiada platobný orgán o vyradenie dotknutých výdavkov zo SŽP. Ak platobný orgán v rámci overenia
+súhrnnej žiadosti o platbu zistí, že sa na konkrétny projekt, ktorého výdavky sú zahrnuté do SŽP, môže
+vzťahovať sledovaný príznak, avšak tento príznak nie je evidovaný v systéme ITMS21+, v zmysle § 6
+ods. 5 zákona č. 121/2022 Z. z. o príspevkoch z fondov EÚ požiada poskytovateľa o súčinnosť, t. j.
+o zaslanie vyjadrenia, či je možné predmetné výdavky schváliť v rámci SŽP a požiada poskytovateľa
+o prípadné doevidovanie sledovaného príznaku do ITMS21+.Poskytovateľ zabezpečí informovanie SVP
+o doevidovaní sledovaného príznaku do ITMS21+.
+
+V procese prípravy žiadosti o platbu na Európsku komisiu a Účtov za príslušný účtovný rok:
+pri vypracovaní podkladov poskytovateľ preverí v ITMS21+ prítomnosť sledovaných príznakov
+
+                                                                                                               16
+Metodické usmernenie k sledovaným príznakom 1.0
+na projekte, ktorého výdavky sú zahrnuté14 do výkazu výdavkov ŽoP na EK, resp. Účtov alebo ktorého
+výdavky majú byť predmetom vysporiadania výdavkov v ŽoP na EK, resp. Účtov. Ak takéto sledované
+príznaky sú, poskytovateľ následne posúdi, či je potrebné na základe sledovaných skutočností požiadať
+platobný orgán o vykonanie nasledujúcich finančných úprav voči výkazu výdavkov k ŽoP na EK alebo
+Účtom:
+− mínusové úpravy: vyradenie výdavkov zo ŽoP na EK alebo ich dočasné vylúčenie z Účtov
+
+     prostredníctvom nezrovnalosti v prípade prebiehajúceho skúmania, trvalé stiahnutie potvrdených
+     nezrovnalostí vyplývajúcich zo sledovaných príznakov,
+− plusové úpravy: zaradenie výdavkov do ŽoP na EK, ktoré boli v minulosti vyradené zo ŽoP na EK
+     alebo dočasne vylúčené z Účtov po ukončení prebiehajúceho skúmania, ktoré nepotvrdilo vplyv
+     na výdavky.
+Výsledok posúdenia poskytovateľ zaznamená priamo v exporte z ITMS21+ Prehľad projektov
+implementovaných riadiacim orgánom/sprostredkovateľským orgánom, na ktoré sa vzťahuje
+sledovaný príznak, ktorý vygeneruje a vyplní spôsobom uvedeným v Prílohe 1.
+Kompletne vyplnený export z ITMS21+spolu s ďalšími informáciami relevantnými pre ich zohľadnenie
+pri príprave ŽoP na EK a Účtov predkladá poskytovateľ v rámci podkladov platobnému orgánu
+v zmysle príručky k finančnému riadeniu.
+Obrázok 3: Schéma posudzovania sledovaných príznakov
+
+14 Uvedené sa týka aj výdavkov, ktoré boli z predchádzajúcich ŽoP na EK alebo Účtov vyradené, resp. dočasne vylúčené z dôvodu
+prebiehajúcich skúmaní a toto skúmanie bolo ukončené a v závislosti od výsledku prebiehajúceho skúmania je potrebné tieto výdavky
+deklarovať na EK, resp. vysporiadať voči rozpočtu EÚ.
+
+                                                                                                               17
+Metodické usmernenie k sledovaným príznakom 1.0
+
+      4.4 Fáza uzatvorenia sledovaného príznaku
+
+Sledovaný príznak sa uzatvára v lehote stanovenej v príručke k finančnému riadeniu , keď sledovaná
+skutočnosť už nemá vplyv na financovanie alebo deklarovanie na EK ďalších výdavkov projektu, resp.
+nevyplýva z nej potreba vysporiadania minulých výdavkov:
+− pochybnosť bola preverená, potvrdila sa správnosť a zákonnosť a došlo k spusteniu financovania a
+
+    deklarovania výdavkov, ako na národnej úrovni, tak aj na úrovni EK,
+− pochybnosť bola preverená a identifikované neoprávnené výdavky boli vyriešené,
+− pominuli okolnosti, ktoré viedli k pochybnosti alebo zisteniu.
+Uzatvorenie sledovaného príznaku vykonáva príslušný zamestnanec s oprávnením evidovať a editovať
+sledované príznaky, ako napr. manažér auditov a nezrovnalostí RO/SO / manažér pre informovanie
+a komunikáciu RO/SO, príp. certifikátor. Uzatvorenie sledovaného príznaku sa vykonáva ako
+aktualizácia sledovaného príznaku podľa postupu v Prílohe 1. Podmienkou uzavretia je zaznamenanie
+skutočností a okolností, ktoré tento úkon podmieňujú, a následná zmena stavu sledovania
+na „neaktívny“, čím sa proces uzavretia formálne finalizuje.
+Obrázok 4: Schéma uzatvorenia sledovaného príznaku
+
+                                                                                                               18
+Metodické usmernenie k sledovaným príznakom 1.0
+
+5 Prílohy
+
+Príloha č. 1 Manuál evidencie sledovaných príznakov do ITMS21+
+Príloha č. 2 Schéma sledovaného príznaku
+Príloha č. 3 Príklady najčastejších chýb pri evidencii a posudzovaní sledovaných príznakov
+Príloha č. 4 Prehľad projektov implementovaných riadiacim orgánom/sprostredkovateľským orgánom,
+na ktoré sa vzťahuje sledovaný príznak (žiadosť o platbu na EK, Účty) – využíva sa v prípade
+nedostupnosti funkcionalít ITMS21+
+
+                                                                                                               19

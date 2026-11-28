@@ -1,0 +1,68 @@
+Informácia pre dotknutú osobu pri spracúvaní osobných údajov
+(VZOR)
+
+Podľa čl. 13 a 14 nariadenia Európskeho parlamentu a Rady (EÚ) 2016/679 z 27. apríla 2016 o ochrane fyzických osôb pri spracúvaní osobných údajov a o voľnom pohybe takých údajov, ktorým sa zrušuje smernica 95/46/ES (všeobecné nariadenie o ochrane údajov) (ďalej len „GDPR“) názov poskytovateľa (ďalej aj “akronym poskytovateľa” alebo “prevádzkovateľ”) ako subjekt, ktorý získava a následne spracúva osobné údaje dotknutej osoby, poskytuje dotknutej osobe nasledovné informácie:
+Identifikačné a kontaktné údaje riadiaceho orgánu:
+Ministerstvo investícií, regionálneho rozvoja a informatizácie Slovenskej republiky, Pribinova 25, 811 09, Bratislava, IČO: 50349287
+
+Identifikačné údaje prevádzkovateľa GDPR:
+
+Zodpovedná osoba pre oblasť osobných údajov v rámci (názov poskytovateľa):
+Zodpovedná osoba za oblasť GDPR, telefón: ..................., email: .................
+
+Názov spracúvania: Zabezpečenie činnosti Pracovných skupín na výber odborných hodnotiteľov pre riadiaci a sprostredkovateľský orgán Programu Slovensko (ďalej len „PS OH“) a zabezpečenie odborných hodnotení pre jednotlivé žiadosti o poskytnutie nenávratného finančného príspevku.
+
+Rozsah spracúvaných osobných údajov:
+
+titul, meno, priezvisko, email, telefónne číslo, adresa, informácie o dosiahnutom vzdelaní, dokumenty preukazujúce kvalifikáciu v oblasti, ktorá je predmetom hodnotenia (ako sú napr. certifikáty a osvedčenia, iné doklady o dosiahnutom vzdelaní, absolvovaní školenia, publikácie apod.), referencie z dostupných a overiteľných zdrojov, informácie o bezúhonnosti z registra trestov, osobné údaje zo životopisu.
+
+Kategórie osobných údajov: všeobecné osobné údaje.
+
+Kategórie dotknutých osôb:
+Fyzické osoby –  členovia PS OH: titul, meno, priezvisko, email, telefónne číslo a adresa
+Fyzické osoby –  žiadatelia o zaradenie do evidencie OH a odborní hodnotitelia pre Program Slovensko: titul, meno, priezvisko, email, telefónne číslo, adresa, informácie o dosiahnutom vzdelaní, dokumenty preukazujúce kvalifikáciu v oblasti, ktorá je predmetom hodnotenia (ako sú napr. certifikáty a osvedčenia, iné doklady o dosiahnutom vzdelaní, absolvovaní školenia, publikácie apod.), referencie z dostupných a overiteľných zdrojov, informácie o bezúhonnosti z registra trestov, osobné údaje zo životopisu.
+
+Účel spracúvania osobných údajov: Prevádzkovateľ spracúva osobné údaje za účelom zabezpečenia výkonu administratívno-technických činností PS OH, ako napr. vyhotovenia zápisov zo zasadnutí, overenia počtu účastníkov zasadnutia a pod., ako aj  zverejnenia zoznamu členov PS OH za účelom transparentného informovania verejnosti o aktívnej činnosti PS OH. Prevádzkovateľ taktiež spracúva osobné údaje za účelom výberu odborných hodnotiteľov do evidencie odborných hodnotiteľov, zisťovania konfliktu záujmov, kontroly splnenia podmienok a kritérií na výber odborných hodnotiteľov, vyhodnocovania skúseností a výsledkov z výkonu odborných hodnotiteľov, identifikovania problematických oblastí spojených s procesom výberu odborných hodnotiteľov a na účely prijatia návrhov nápravných opatrení na základe existujúcich zistení a poznatkov.
+
+Právny základ spracúvania: Právnym základom pre spracúvanie osobných údajov zamestnancov je plnenie úloh pri výkone verejného záujmu alebo pri výkone verejnej moci podľa čl. 6 ods.1 písm. e) GDPR:
+,,spracúvanie je nevyhnutné na splnenie úlohy realizovanej vo verejnom záujme alebo pri výkone verejnej moci zverenej prevádzkovateľovi, a to prostredníctvom činnosti Pracovnej skupiny na výber odborných hodnotiteľov pre riadiaci orgán a sprostredkovateľský orgán Programu Slovensko“.
+
+Prevádzkovateľovi vyplývajú úlohy podľa § 10 ods. 4 a 10 a § 11 zákona č. 121/2022 Z. z. o príspevkov z fondov Európskej únie a o zmene a doplnení niektorých zákonov v znení neskorších predpisov.
+
+Spracovatelia osobných údajov: Príslušné organizačné útvary prevádzkovateľa podľa rozsahu ich agendy upravenej v Organizačnom poriadku prevádzkovateľa v platnom znení.
+
+Príjemcovia osobných údajov: Na účely výkonu kontroly, auditu a výkonu dohľadu môžu byť osobné údaje poskytnuté aj platobnému orgánu, orgánu auditu, Európskej komisii, Európskemu úradu na boj proti podvodom a iným orgánom kontroly, auditu a dohľadu.
+
+Prostriedky spracúvania: Priestory prevádzkovateľa, kancelárske vybavenie, počítačové a softvérové vybavenie, ľudské zdroje v podobe oprávnených osôb prevádzkovateľa, ktorí spracúvajú osobné údaje.
+
+Zásady ochrany osobných údajov: Osobné údaje dotknutej osoby budú spracúvané v súlade s čl. 5 GDPR a všetkými ostatnými, na daný právny vzťah aplikovateľnými, ustanoveniami GDPR a relevantnými ustanoveniami vnútroštátneho práva.
+
+Doba uchovávania osobných údajov: Prevádzkovateľ spracúva osobné údaje v súlade s čl. 82 nariadenia Európskeho parlamentu a Rady (EÚ) 2021/1060 z 24. júna 2021, ktorým sa stanovujú spoločné ustanovenia o Európskom fonde regionálneho rozvoja, Európskom sociálnom fonde plus, Kohéznom fonde, Fonde na spravodlivú transformáciu a Európskom námornom, rybolovnom a akvakultúrnom fonde a rozpočtové pravidlá pre uvedené fondy, ako aj pre Fond pre azyl, migráciu a integráciu, Fond pre vnútornú bezpečnosť a Nástroj finančnej podpory na riadenie hraníc a vízovú politiku, t. j počas obdobia 5 rokov od 31. decembra roka, v ktorom riadiaci orgán a sprostredkovateľský orgán vyplatil prijímateľovi poslednú platbu.
+
+Opis plánovaného spracúvania: Prevádzkovateľ získava potrebné osobné údaje od dotknutej osoby pred/na a počas zasadnutia PS OH, kontroluje údaje o dotknutých osobách, štrukturalizuje ich a následne ich spracúva s cieľom zabezpečenia činnosti pracovnej skupiny, overovania aktuálnosti vyhlásenia o mlčanlivosti, vylúčení konfliktu záujmov, overovania účasti na zasadnutiach, uznášaniaschopnosti, zastupiteľnosti a evidencie hlasovania jednotlivých členov pracovnej skupiny a informovania na svojom webovom sídle.
+
+Prevádzkovateľ poskytuje osobné údaje orgánom, ktoré overujú kľúčové požiadavky na systém riadenia a kontroly a potenciálny konflikt záujmov pri výbere odborných hodnotiteľov a sprostredkovateľským orgánom, ktorých poverí MIRRI SR na vykonávanie časti svojich úloh podľa § 10 ods. 4 zákona č. 121/2022 Z. z. o príspevkov z fondov Európskej únie a o zmene a doplnení niektorých zákonov.
+
+Prenos osobných údajov do tretej krajiny: Nie, nevykonáva sa.
+
+Prenos osobných údajov medzinárodným organizáciám: Nie, nevykonáva sa.
+
+Osobné údaje nebudú použité na automatizované individuálne rozhodovanie, vrátane profilovania.
+
+V súlade s čl. 15 až 22 GDPR je dotknutá osoba oprávnená prostredníctvom žiadosti si uplatniť nasledovné práva dotknutej osoby:
+právo na potvrdenie o spracúvaní osobných údajov,
+právo na získanie prístupu k osobným údajom, vrátane relevantných informácií týkajúcich sa ich spracúvania,
+právo na opravu nesprávnych a na doplnenie neúplných osobných údajov, ktoré sa jej týkajú,
+právo na vymazanie osobných údajov, ktoré sa jej týkajú,
+právo na obmedzenie spracúvania osobných údajov,
+právo na prenosnosť osobných údajov,
+právo namietať spracúvanie osobných údajov.
+Právo dotknutej osoby na neuplatňovanie rozhodovania založeného výlučne na automatizovanom individuálnom rozhodovaní, vrátane profilovania sa na tu uvedené účely neuplatňuje.
+
+Dotknutá osoba je oprávnená podať žiadosť o výkon práv dotknutej osoby u prevádzkovateľa alebo u jeho zodpovednej osoby.
+
+Poskytovanie osobných údajov vyplýva z plnenia úloh pri výkone verejného záujmu alebo pri výkone verejnej moci podľa čl. 6 ods.1 písm. e) GDPR prostredníctvom činnosti PS OH. Bez uvedeného poskytnutia osobných údajov nebude možné plne zabezpečiť činnosť vyššie uvedeného výboru a komisií (ktoré členský štát musí povinne zriadiť, aby mohol implementovať fondy Európskej únie) a uvedená dotknutá osoba, ktorá neposkytla osobné údaje sa nebude môcť zúčastniť zasadnutia.
+
+V prípade neposkytnutia nevyhnutných osobných údajov nie je možné, aby bola zabezpečená činnosť PS OH, najmä aby sa zabezpečil efektívny systém na uchovávanie všetkých dokladov požadovaných na audítorský záznam podľa požiadavky na systém riadenia a kontroly podľa prílohy XI, kľúčovej požiadavky č. 5 nariadenia Európskeho parlamentu a Rady (EÚ) 2021/1060 z 24. júna 2021, ktorým sa stanovujú spoločné ustanovenia o Európskom fonde regionálneho rozvoja, Európskom sociálnom fonde plus, Kohéznom fonde, Fonde na spravodlivú transformáciu a Európskom námornom, rybolovnom a akvakultúrnom fonde a rozpočtové pravidlá pre uvedené fondy, ako aj pre Fond pre azyl, migráciu a integráciu, Fond pre vnútornú bezpečnosť a Nástroj finančnej podpory na riadenie hraníc a vízovú politiku. Poskytnutie osobných údajov je požiadavkou na overenie splnenia tejto kľúčovej požiadavky.
+
+Ak sa dotknutá osoba domnieva, že pri spracúvaní osobných údajov boli porušené jej práva, má právo podať návrh na začatie konania o ochrane osobných údajov Úradu na ochranu osobných údajov SR v súlade s ustanoveniami zákona č. 18/2018 Z. z. o ochrane osobných údajov a o zmene a doplnení niektorých zákonov v znení neskorších predpisov.

@@ -1,0 +1,256 @@
+Zoznam vykonaných zmien
+Zoznam vykonaných zmien poskytuje chronologický vývoj zmien metodického dokumentu formou dodatkov až po aktuálnu verziu dokumentu.
+Časť dokumentu
+ | Obsah upravovanej časti
+ | Verzia
+ | Podnet
+ |
+2.3
+ | Úprava priraďovania merateľných ukazovateľov v PZ IÚI – MU sa priraďujú k projektu, nie k hlavnej aktivite
+ | 2.1
+ | Zmena technického charakteru - Migrácia z ITMS2014+ na ITMS21+
+ |
+2.3
+ | Doplnenie postupu pri uplatňovaní neoprávnených výdavkov v PZ IÚI
+ | 2.1
+ | Precizovanie textu na základe požiadavky územných partnerov
+ |
+2.5
+ | Úprava formátu dokumentu
+ | 2.1
+ | Precizovanie textu na základe požiadavky územných partnerov
+ |
+2.7
+ | Doplnenie povinnosti predložiť ŽoNFP až po zaevidovaní schváleného PZ IÚI do neverejnej časti ITMS21+
+ | 2.1
+ | Precizovanie textu - požiadavka poskytovateľa
+ |
+Príloha č. 4
+ | Úprava časti merateľné ukazovatele
+ | 2.1
+ | Zmena technického charakteru - Migrácia z ITMS2014+ na ITMS21+
+ |
+2.1
+ | Spresnenie textácie v súlade s § 45 ods. 6 zákona č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a o zmene a doplnení niektorých zákonov v znení neskorších predpisov
+ | 2.2
+ | Zmena technického charakteru za účelom precizovania textu
+ |
+2.5
+ | Umožnenie aplikovania špecifického prístupu za účelom plynulého a efektívneho čerpania finančných prostriedkov
+ | 2.2
+ | Zmena technického charakteru vyplývajúca z implementačnej praxe
+ |
+Celý dokument
+ | Precizovanie textu za účelom jednoznačností a odstránenia duplicít
+ | 3.0
+ | n/a
+ |
+2.3
+ | Doplnenie a vyšpecifikovanie procesu prípravy PZ IÚI
+ | 3.0
+ | n/a
+ |
+2.4
+ | Precizovanie textu a doplnenie postupu overovania PZ IÚI
+ | 3.0
+ | n/a
+ |
+2.5
+ | Doplnenie postupu a priebehu procesu výberu a schvaľovania PZ IÚI
+ | 3.0
+ | n/a
+ |
+2.6
+ | Spresnenie/jasné a jednoznačné vymedzenie procesu individuálnych konzultácií
+ | 3.0
+ | n/a
+ |
+2.7
+ | Nastavenie overovania súladu ŽoNFP IÚI
+ | 3.0
+ | n/a
+ |
+3.0
+ | Doplnenie kapitoly
+ | 3.0
+ | n/a
+ |
+4.0
+Zoznam príloh
+ | Doplnenie nových príloh 7 -14
+ | 3.0
+
+ | n/a
+ |
+Príloha č. 4
+ | Dôvodovom technickej aktualizácie metodického dokumentu je pridanie funkcie namnoženia tabuľky 3.1 - Priradenie k programovej štruktúre Programu Slovenska 2021 - 2027
+ | 3.1
+ | n/a
+ |
+Príloha č. 3
+ | Dôvodom technickej aktualizácie metodického dokumentu je odstránenie chyby spôsobenej priložením nesprávnej prílohy.
+
+Ostatné časti metodického usmernenia zostávajú nemenné
+
+ | 3.1
+ | n/a
+ |
+Zoznam použitých skratiek
+ | Doplnenie zoznamu o skratky pridané v texte, úprava preformulovanie skratiek
+ | 4.0
+ | Precizovanie textu na základe požiadavky územných partnerov a poskytovateľov
+ |
+1.
+ | Úprava definície Integrácia na úrovni integrovaných územných stratégií a PZ IÚI
+ | 4.0
+ | Precizovanie textu na základe požiadavky územných partnerov a poskytovateľov
+ |
+1.
+ | Pridanie definície Strategického projektu
+ | 4.0
+ | Doplnenie textu na základe požiadavky územných partnerov
+ |
+2.1
+ | Vyňatie textu spolupráce s gestorom HP
+ | 4.0
+ | Uvedené automatický vyplýva z RIF
+ |
+2.1
+ | Pridanie textu „RO komunikuje s jednotlivými poskytovateľmi s cieľom zabezpečenia koordinácie vyhlasovania výziev, prípadne komplementárnych výziev, s prihliadnutím na pripravenosť a absorpčnú kapacitu územia, ako aj na nastavené priority P SK.“
+
+ | 4.0
+ | Doplnenie textu na základe požiadavky územných partnerov
+ |
+2.3 + celý text
+ | Doplnenie textu o špecifický cieľ
+ | 4.0
+ | Na základe zmeny P SK
+ |
+2.3
+ | Spresnenie textu aby aktivity boli v súlade s výzvou nie len s PPP
+ | 4.0
+ | Všetky výzvy IÚI sú vyhlásené
+ |
+2.3
+ | Doplnenie textu k ukazovateľom
+ | 4.0
+ | Doplnenie textu na základe požiadavky poskytovateľa
+ |
+2.3
+ | Doplnenie textu pod čiarou k rozdeleniu a definície neoprávnených výdavkov
+ | 4.0
+ | Doplnenie textu na základe požiadavky poskytovateľov a územných partnerov
+ |
+2.3
+ | Precizovanie textu k doplneniu PZ IÚI.
+ | 4.0
+ | Doplnenie textu na základe požiadavky poskytovateľov a územných partnerov
+ |
+2.4
+ | Doplnenie textu: „kontrola prepočtu rozpočtu v súlade s platnou aktualizáciou výzvy“
+ | 4.0
+ | Doplnenie textu na základe požiadavky  územných partnerov
+ |
+2.4
+ | Precizovanie textu k vydávaniu stanoviska podľa prílohy č.7
+ | 4.0
+ | Doplnenie textu na základe požiadavky  územných partnerov
+ |
+2.4 + celý text
+ | Doplnenie postupov k zasadnutiam formou hlasovania per rollam
+ | 4.0
+ | Potreba zjednotenia postupov hlasovania per rollam
+ |
+2.4
+ | Postupy v prípade nezapracovania pripomienok do PZ IÚI, resp. zmeny iných materiálov
+ | 4.0
+ | Doplnenie textu na základe požiadavky  územných partnerov a zjednotenie procesov zo strany RO.
+ |
+2.5
+ | Doplnenie povinnosti MIRRI
+ | 4.0
+ | Na základe potrieb z praxe
+ |
+2.5
+ | Precizovanie vyčíslenia neoprávnených výdavkov v rámci uznesenia
+ | 4.0
+ | Doplnenie textu na základe požiadavky  územných partnerov
+ |
+2.5
+ | Precizovanie textu v poznámke pod čiarou, pre správne stanovenie neoprávnených výdavkov v PZ IÚI
+ | 4.0
+ | Doplnenie textu na základe požiadavky  územných partnerov
+ |
+2.5
+ | Precizovanie textu pridaním zásady rovnakého zaobchádzania
+ | 4.0
+ | Požiadavka na spresnenie povinnosti územných partnerov
+ |
+2.5
+ | Doplnenie postupov po uplynutí účinnosti uznesenia o schválení PZ IÚI
+ | 4.0
+ | Požiadavka na spresnenie postupov a  povinnosti územných partnerov
+ |
+2.5
+ | Vysvetlenie stanovenia lehoty účinnosti uznesenia
+ | 4.0
+ | Doplnenie textu na základe požiadavky  územných partnerov
+ |
+2.7
+ | Úprava postupov overenia súladu ŽoNFP s PZ IÚI
+ | 4.0
+ | Doplnenie textu na základe požiadavky poskytovateľov a územných partnerov
+ |
+2.7
+ | Úprava postupu, kedy je možné meniť PZ IÚI ak bola podaná ŽoNFP
+ | 4.0
+ | Doplnenie textu na základe požiadavky poskytovateľov a územných partnerov
+ |
+2.7
+ | Doplnenie informácie o ďalších postupov pre žiadateľov/prijímateľov: Procesy následnej implementácie projektov IÚI po uzatvorení zmluvy o poskytnutí NFP sú stanovené v samotnej zmluve o poskytnutí NFP a príslušných právnych dokumentov (napr. Príručka pre prijímateľa, Usmernenia poskytovateľa a pod.)
+
+ | 4.0
+ | Doplnenie textu na základe požiadavky poskytovateľov.
+ |
+2.10
+ | Doplnenie novej kapitoly 2.10 „Úprava rozpočtu zmluvy o poskytnutí NFP po ukončení verejného obstarávania pri projektoch IÚI“
+ | 4.0
+ | Doplnenie textu na základe požiadavky poskytovateľov a územných partnerov
+ |
+3.
+ | Doplnenie opatrení na zníženie rizika dekomitmentu v integrovanom územnom mechanizme na úrovni RP/KR UMR vyplývajúcich z implementácie IÚI a revízie P SK. Úprava celej časti
+
+ | 4.0
+ | Doplnenie na základe implementácie IÚI a revízie P SK.
+
+ |
+3.1
+ | Úprava textu vypracovávania implementačných plánov
+ | 4.0
+ | Úprava na základe potrieb riešených v praxi.
+ |
+4.
+ | Doplnenie prechodných ustanovení a dátumu účinnosti jednotlivých príloha MD č. 8.
+ | 4.0
+ | Úprava na základe potrieb riešených v praxi.
+ |
+5
+ | Doplnenie a úprava zoznamu príloh.  Doplnená príloha A, 10A, 11A, 12G, 12H
+ | 4.0
+ | n/a
+ |
+Celý dokument
+ | Úprava a pridanie nových skratiek, slovných spojení, gramaticky nesprávnych tvarov
+ | 4.0
+ | n/a
+ |
+Príloha: 8,9
+ | Úprava merateľných ukazovateľov a minimálneho čerpania
+ | 4.0
+ | Zosúladenie s reálnym stavom
+ |
+Príloha: 4,6,7,10,10A,11, 11A,12A,B,D,E,F,G
+ | Úprava textu a precizovanie postupov
+ |
+ | Úprava na základe potrieb riešených v praxi a mana základe požiadaviek poskytovateľov a územných partnerov
+ |

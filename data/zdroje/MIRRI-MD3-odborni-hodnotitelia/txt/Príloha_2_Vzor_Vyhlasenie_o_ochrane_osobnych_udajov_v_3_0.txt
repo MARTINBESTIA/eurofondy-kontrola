@@ -1,0 +1,56 @@
+Názov poskytovateľa
+adresa poskytovateľa, IČO:
+(ďalej aj ako „prevádzkovateľ“ alebo „ministerstvo“)
+(VZOR)
+VYHLÁSENIE O OCHRANE OSOBNÝCH ÚDAJOV
+Podľa čl. 13 a 14 nariadenia Európskeho parlamentu a Rady (EÚ) 2016/679 z 27. apríla 2016 o ochrane fyzických osôb pri spracúvaní osobných údajov a o voľnom pohybe takých údajov, ktorým sa zrušuje smernica 95/46/ES (všeobecné nariadenie o ochrane údajov) (ďalej len „GDPR“) celý názov poskytovateľa (ďalej aj “akronym poskytovateľa” alebo “prevádzkovateľ”) ako subjekt, ktorý získava a následne spracúva osobné údaje dotknutej osoby, poskytuje dotknutej osobe nasledovné informácie:
+Identifikačné údaje riadiaceho orgánu pre Program Slovensko:
+Ministerstvo investícií, regionálneho rozvoja a informatizácie Slovenskej republiky, Pribinova  25, 811 09, Bratislava, IČO: 50349287
+
+Identifikačné údaje prevádzkovateľa:
+
+Názov prevádzkovateľa
+ |  |
+Identifikačné číslo organizácie (IČO)
+ |  |
+Obec a PSČ
+ |  |
+Ulica a číslo
+ |  |
+Kontakt na zodpovednú osobu za GDPR
+ |  |
+Informácie o spracúvaní osobných údajov, resp. link odkazujúci na zverejnené informácie
+ |  |
+
+Dotknutá osoba, ktorej údaje sa spracúvajú:
+Titul, meno, priezvisko,
+email, tel. číslo a adresa:
+ |  |
+
+Rozsah poskytnutých osobných údajov dotknutej osoby:
+Dotknutá osoba poskytuje osobné údaje v rozsahu titul, meno, priezvisko, email, telefónne číslo a adresa, uvedené v prezenčnej listine zo zasadnutia Pracovnej skupiny na výber odborných hodnotiteľov pre riadiaci orgán a sprostredkovateľský orgán Programu Slovensko (ďalej len „PS OH“).
+Účel spracúvania osobných údajov:
+Dotknutá osoba poskytuje osobné údaje na účely zabezpečenia výkonu administratívno-technických činností PS OH, ako aj zverejnenie zoznamu členov PS OH. Riadiaci orgán a sprostredkovateľský orgán zverejňuje zoznam členov PS OH na svojom webovom sídle.
+Doba uchovávania osobných údajov:
+Prevádzkovateľ spracúva osobné údaje v súlade s čl. 86 nariadenia Európskeho parlamentu a Rady (EÚ) 2021/1060 z 24. júna 2021, ktorým sa stanovujú spoločné ustanovenia o Európskom fonde regionálneho rozvoja, Európskom sociálnom fonde plus, Kohéznom fonde, Fonde na spravodlivú transformáciu a Európskom námornom, rybolovnom a akvakultúrnom fonde a rozpočtové pravidlá pre uvedené fondy, ako aj pre Fond pre azyl, migráciu a integráciu, Fond pre vnútornú bezpečnosť a Nástroj finančnej podpory na riadenie hraníc a vízovú politiku, t. j. počas obdobia 5 rokov od 31. decembra roka, v ktorom riadiaci orgán/sprostredkovateľský orgán vyplatil prijímateľovi poslednú platbu.
+Právny základ spracúvania osobných údajov:
+Právnym základom pre spracúvanie osobných údajov zamestnancov je plnenie úloh pri výkone verejného záujmu alebo pri výkone verejnej moci podľa čl. 6 ods.1 písm. e) GDPR:
+,,spracúvanie je nevyhnutné na splnenie úlohy realizovanej vo verejnom záujme alebo pri výkone verejnej moci zverenej prevádzkovateľovi, a to prostredníctvom činnosti Pracovnej skupiny na výber odborných hodnotiteľov pre riadiaci orgán a sprostredkovateľský orgán Programu Slovensko.“
+
+Profilovanie a automatizované individuálne rozhodovanie:
+Osobné údaje dotknutej osoby nebudú použité na automatizované individuálne rozhodovanie vrátane profilovania.
+Spracovatelia osobných údajov dotknutej osoby:
+K osobným údajom majú prístup výlučne osoby v štátnozamestnaneckom pomere alebo v pracovnoprávnom vzťahu s ministerstvom, ktoré sú viazané mlčanlivosťou a školené v oblasti bezpečnosti spracúvania osobných údajov.
+Príjemcovia osobných údajov dotknutej osoby:
+Na účely výkonu kontroly, auditu a výkonu dohľadu môžu byť osobné údaje poskytnuté aj platobnému orgánu, orgánom vykonávajúcim audit, Európskej komisii, Európskemu úradu na boj proti podvodom a iným orgánom kontroly, auditu a dohľadu. Na účely zabezpečenia činnosti PS OH budú osobné údaje poskytnuté aj sprostredkovateľskému orgánu.
+
+Ako prevádzkovateľ
+týmto vyhlasujeme,
+že všetky poskytované osobné údaje dotknutých osôb, ktoré ako prevádzkovateľ získavame od dotknutých osôb, sú následne spracúvané v súlade s nariadením Európskeho parlamentu a Rady (EÚ) 2016/679 z 27. apríla 2016 o ochrane fyzických osôb pri spracúvaní osobných údajov a o voľnom pohybe týchto údajov, ktorým sa zrušuje smernica 95/46/ES (všeobecné nariadenie o ochrane údajov) – GDPR a máme oprávnenie disponovať s údajmi dotknutých osôb.
+Ako dotknutá osoba
+týmto vyhlasujem,
+že som sa oboznámil/a s podmienkami spracúvania osobných údajov na vyššie uvedené účely; beriem na vedomie spracúvanie mojich osobných údajov v dohodnutom rozsahu a ich zverejňovanie na webovom sídle riadiaceho orgánu a sprostredkovateľského orgánu Programu Slovensko.
+V ......................., dňa ......................................
+.........................................................................
+							         meno, priezvisko dotknutej osoby
+                                                                                    a podpis dotknutej osoby

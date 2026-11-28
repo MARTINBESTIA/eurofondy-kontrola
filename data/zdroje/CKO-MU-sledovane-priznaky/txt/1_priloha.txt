@@ -1,0 +1,891 @@
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+      MANUÁL EVIDENCIE SLEDOVANÝCH PRÍZNAKOV DO ITMS21+
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obsah
+
+Úvod ........................................................................................................................................................ 2
+1. Používateľské rozhranie modulu ................................................................................................... 2
+2. Evidencia nového príznaku ............................................................................................................ 5
+3. Aktualizácia príznaku ................................................................................................................... 27
+4. Uzavretie príznaku ....................................................................................................................... 30
+5. Vytváranie exportov .................................................................................................................... 31
+6. Komunikácia k príznakom cez ITMS21+ ...................................................................................... 34
+
+                                                                                                                           1
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Úvod
+
+Cieľom manuálu je poskytnúť komplexný popis technicko-funkčných procesov evidencie a spracovania
+údajov k sledovaným príznakom v informačnom systéme ITMS21+ pre Program Slovensko, Program
+Rybné hospodárstvo Slovenskej republiky 2021 – 2027, Program Interreg Slovensko - Česko 2021-2027
+a Program Interreg Slovensko - Rakúsko 2021-2027.
+Manuál popisuje jednotlivé kroky spracovania údajov k sledovaným príznakom od iniciálnej evidencie
+v ITMS21+ až po jeho uzavretie. Dôraz sa kladie na správnosť a úplnosť evidencie v ITMS21+ tak, aby
+Slovenská republika bola schopná na základe výstupných zostáv z ITMS21+ zostaviť správny výkaz
+výdavkov k žiadosti o platbu na Európsku komisiu a Účtom znížený o potvrdené nezrovnalosti alebo
+výdavky s prebiehajúcim skúmaním, čo je možné iba za predpokladu správnej a úplnej evidencie
+v ITMS21+.
+
+1. Používateľské rozhranie modulu
+
+Sledované príznaky sú evidované v ITMS21+ v module Príznaky sledovania. Po kliknutí na voľbu
+„Príznaky sledovania“ sa zobrazí zoznam príznakov sledovania s nasledujúcimi informáciami: kód
+príznaku; kód projektu/projektov, ktorého sa sledovaný príznak týka; kategória príznaku; orgán, ktorý
+sledovaný príznak zaevidoval; stav sledovaného príznaku; stav prebiehajúceho skúmania; predmet
+sledovania a dátum vytvorenia príznaku.
+Na úrovni riadiaceho orgánu sa v zozname zobrazujú sledované príznaky vedené vo vlastnej evidencii,
+ako aj príznaky vzťahujúce sa na projekty všetkých poskytovateľov, ktoré patria do jeho pôsobnosti. Na
+úrovni poskytovateľa sú zobrazované sledované príznaky viažuce sa na projekty, ktoré spadajú
+do implementačnej kompetencie daného poskytovateľa. Na úrovni subjektu vykonávajúceho platbu sa
+zobrazujú sledované príznaky za všetkých poskytovateľov, ktorí sú tomuto subjektu priradení.
+Na úrovni ostatných orgánov sa v zozname zobrazujú sledované príznaky za všetky subjekty
+bez obmedzenia.
+
+Obrázok 1 Modul Príznaky sledovania - Zoznam príznakov sledovania
+
+                                                                                                                           2
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Po rozkliknutí konkrétneho sledovaného príznaku sa zobrazí karta príznaku - Detail, kde sú základné
+údaje štruktúrované do nasledujúcich častí:
+
+Obrázok 2 Modul Príznaky sledovania - používateľské rozhranie karty sledovaného príznaku
+
+                                                                                          karta sledovaného
+                                                                                                        príznaku
+
+                                                                                                lišta - tlačidlá
+
+                                                                                          záložky
+
+                                                                                          sekcia
+
+Lišta - v hornej časti pracovnej obrazovky sa nachádza akčná šedá lišta. Táto lišta obsahuje dostupné
+operácie, ktoré je možné vykonávať nad aktuálne zobrazeným záznamom. Tlačidlá na lište sa menia
+v závislosti od kontextu:
+
+Spis: cez tlačidlo používateľ podobne ako v iných evidenciách vkladá dokumenty súvisiace s daným
+sledovaným príznakom, ak sa nenachádzajú v inej evidencii v ITMS21+, napr. pri nezrovnalostiach, ako
+napr. zdroj prvej informácie; zdroj aktualizovanej informácie, dokument preukazujúci začiatok alebo
+koniec prebiehajúceho skúmania, dokument potvrdzujúci neoprávnené výdavky, dokument
+umožňujúci financovanie, resp. deklarovanie výdavkov, e-mailová komunikácia k sledovanému
+príznaku s relevantnými orgánmi.
+Komunikácia: aktivovaním tlačidla sa podobne ako v iných evidenciách sprístupnia zoznamy
+komunikácií viažuce sa k danému sledovanému príznaku.
+Zoznam verzií: tlačidlo slúži na zobrazenie všetkých aktualizácií, ktoré boli vytvorené k sledovanému
+príznaku. V zozname aktualizácií sa zobrazia jednotlivé aktualizácie s poradovým číslom, s dátumom
+vytvorenia a uzatvorenia, autorom aktualizácie, orgánu vytvárajúceho aktualizáciu, stav sledovaného
+príznaku a stav príslušnej verzie. Editáciu údajov používateľ pri vytvorení nového sledovaného príznaku
+vykonáva v prvej aktualizácii, ktorá je v stave „Rozpracovaná“.
+
+                                                                                                                           3
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+Ukončiť verziu: tlačidlo slúži na uzavretie evidencie príslušnej verzie sledovaného príznaku. Ukončenie
+verzie príznaku sledovania projektov nie je možné vrátiť späť a ďalšia editácia je možná len vytvorením
+ďalšej verzie sledovaného príznaku.
+Záložky - pod akčnou lištou sú umiestnené záložky, ktoré obsahujú rozdelenie údajov o sledovanom
+príznaku do tematických celkov a zjednodušujú orientáciu v detailoch záznamu.
+Základné údaje: záložka obsahuje základné informácie o sledovanom príznaku, najmä jeho
+identifikáciu, stav, stav prebiehajúceho skúmania, kategorizáciu, zdroje informácií a ďalšie kľúčové
+údaje potrebné na jeho evidenciu a posúdenie.
+Sledované objekty: záložka obsahuje informácie o priradenom predmete sledovania, ktorým je buď
+verejné obstarávanie, žiadosť o platbu alebo skupina výdavkov.
+Nezrovnalosti: záložka obsahuje informácie o priradených nezrovnalostiach, ktoré súvisia
+so sledovaným príznakom.
+Súvisiace príznaky: záložka obsahuje informácie o sledovaných príznakoch, ktoré predmetne súvisia
+s evidovaným sledovaným príznakom.
+Sekcie - obsah jednotlivých záložiek je členený do sekcií. Každá sekcia v záložke predstavuje konkrétnu
+oblasť údajov, napr. o základných údajoch sledovaného príznaku, projekte, výzve.
+
+                                                                                                                           4
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+2. Evidencia nového príznaku
+
+Po prijatí prvej informácie o pochybnosti/zistení používateľ vykoná evidenciu sledovaného príznaku
+stlačením tlačidla „Vytvoriť“.
+
+Obrázok 3 Evidencia sledovaného príznaku - "Vytvoriť"
+
+V prvom kroku používateľ na karte „Výber programu“ zvolí položku „Program“ a vyberie program
+z dostupných možností.
+
+Obrázok 4 Evidencia sledovaného príznaku - "Program"
+
+V ďalšom kroku používateľ zvolí položku „Fond“ a vyberie príslušný fond z dostupných možností.
+
+                                                                                                                           5
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 5 Evidencia sledovaného príznaku - "Fond"
+
+V ďalšom kroku používateľ zvolí položku „Poskytovateľ“ a vyberie príslušného poskytovateľa
+z dostupných možností.
+
+Obrázok 6 Evidencia sledovaného príznaku - "Poskytovateľ"
+
+Následne používateľ zvolí položku „Subjekt vykonávajúci platby“ a vyberie príslušný subjekt
+z dostupných možností.
+
+                                                                                                                           6
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 7 Evidencia sledovaného príznaku - "Subjekt vykonávajúci platby"
+
+Po výbere programu používateľ pokračuje stlačením tlačidla „Ďalej“.
+
+Obrázok 8 Evidencia sledovaného príznaku - tlačidlo "Ďalej"
+
+Následne používateľ pokračuje výberom projektu na karte „Výber projektu“. Používateľ stlačí tlačidlo
+„Priradiť“.
+
+                                                                                                                           7
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 9 Evidencia sledovaného príznaku - tlačidlo "Priradiť"
+
+Otvorí sa zoznam projektov, v ktorom používateľ vyhľadá požadovaný projekt alebo projekty, napr.
+zadaním kódu príslušného projektu do vyhľadávacieho poľa a kliknutím na tlačidlo lupy a označí políčko
+na zaškrtnutie.
+
+Obrázok 10 Evidencia sledovaného príznaku - vyfiltrovanie konkrétneho projektu
+
+Ak sa pochybnosť alebo zistenie týka iba jedného projektu, používateľ priradí príslušný projekt
+a výsledkom evidencie bude individuálny sledovaný príznak. Ak sa tá istá pochybnosť alebo zistenie
+jednej kategórie, napríklad vyšetrovanie orgánmi činnými v trestnom konaní alebo medializácia, týka
+viacerých projektov, napríklad projektov toho istého prijímateľa, projektov z určitej výzvy alebo
+projektov partnera, používateľ pri evidencii priradí všetky dotknuté projekty, pričom výsledkom
+evidencie bude jeden horizontálny sledovaný príznak. Systém automaticky vyhodnotí príznak ako
+horizontálny, ak sú k nemu priradené najmenej dva projekty. Z kódu sledovaného príznaku bude
+zároveň možné jednoznačne identifikovať, či ide o individuálny alebo horizontálny sledovaný príznak.
+Ak sa tá istá pochybnosť alebo zistenie týka rozdielnych kategórií sledovania, napr. podozrenie na
+konflikt záujmov v medializovanom podnete, na základe ktorého začne vyšetrovanie OČTK, používateľ
+priradí projekt, resp. relevantné projekty ku každej z týchto kategórií samostatne. Výsledkom evidencie
+je vytvorenie viacerých individuálnych alebo horizontálnych sledovaných príznakov.
+
+                                                                                                                           8
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+Výber projektu používateľ potvrdí stlačením tlačidla „Vybrať“. V prípade potreby priradenia viacerých
+projektov je možné priradiť ďalší projekt buď opätovným kliknutím na tlačidlo „Priradiť“ a v zozname
+projektov vyhľadať ďalší projekt cez tlačidlo „lupa“, alebo kliknúť na tlačidlo „filter“ pri vyhľadávacom
+poli a cez vlastné filtračné kritérium vyhľadať príslušnú skupinu projektov, napr. cez kód výzvy označiť
+súčasne naraz všetky projekty z výzvy, ak sú predmetom sledovania projekty z celej výzvy.
+
+Obrázok 11 Evidencia sledovaného príznaku - potvrdenie výberu projektu
+
+Po výbere projektu používateľ pokračuje stlačením tlačidla „Ďalej“.
+
+Obrázok 12 Evidencia sledovaného príznaku - tlačidlo "Ďalej"
+
+Následne používateľ pokračuje do detailu sledovaného príznaku na karte „Základné údaje“, kde vyplní
+nasledujúce povinné polia:
+
+                                                                                                                           9
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Stav skúmania“ - používateľ priradí väzbu sledovaného príznaku na prebiehajúce skúmanie výberom
+príslušnej možnosti:
+Nezačaté skúmanie – ak k začatiu prebiehajúceho skúmania ešte alebo vôbec nedošlo;
+Začaté skúmanie – ak ide o prebiehajúce skúmanie a došlo k momentu jeho začatia a toto skúmanie
+ešte nie je ukončené;
+Ukončené nepotvrdené skúmanie – ak išlo o prebiehajúce skúmanie, ale už došlo k momentu jeho
+ukončenia a zároveň toto skúmanie potvrdilo zákonnosť a správnosť výdavkov;
+Ukončené potvrdené skúmanie - ak išlo o prebiehajúce skúmanie, ale už došlo k momentu jeho
+ukončenia a zároveň toto skúmanie nepotvrdilo zákonnosť a správnosť a je vplyv na výdavky.
+
+„Kategória príznaku sledovania“ - používateľ priradí sledovaný príznak do jednej z kategórií, a to
+výberom príslušnej možnosti:
+
+AEK – Audit EK/EDA – všetky pochybnosti s možným vplyvom/vplyvom na výdavky projektu
+vyplývajúce z činnosti EK a EDA, napr. informácia z wrap-up alebo závažné zistenie z auditu;
+AOA – Audit OA – všetky pochybnosti s možným vplyvom/vplyvom na výdavky projektu vyplývajúce
+z činnosti OA, napr. podnet alebo závažný nedostatok z auditu operácii alebo systémového auditu;
+MED – Medializovaný podnet - všetky pochybnosti s možným vplyvom/vplyvom na výdavky projektu
+vyplývajúce z činnosti médií, ako napr.
+mediálny výstup ako článok, reportáž, TV alebo rozhlasový šot, resp. iný mediálny výstup;
+OLAF – OLAF EK/ONÚ OLAF - všetky pochybnosti s možným vplyvom/vplyvom na výdavky projektu
+vyplývajúce z činnosti OLAF EK alebo ONÚ OLAF ako žiadosť o informácie, informácia
+o administratívnom vyšetrovaní, závažné zistenia z administratívneho vyšetrovania, resp.
+predbežného overovania;
+PMU – Prešetrovanie/konanie PMÚ - všetky pochybnosti s možným vplyvom/vplyvom na výdavky
+projektu vyplývajúce z činnosti PMÚ SR ako žiadosť o informácie, informácia o začatí kontroly, závažné
+zistenia z vyšetrovania, resp. konania vo veci ochrany pravidiel hospodárskej súťaže;
+OCTK – Vyšetrovanie OČTK/EPPO - všetky pochybnosti s (možným) vplyvom na výdavky projektu
+vyplývajúce z činnosti OČTK alebo EPPO ako žiadosť o informácie alebo poskytnutie súčinnosti,
+predprípravné konanie alebo podozrenie zo spáchania trestného činu – operatívne prešetrovanie,
+začatie trestného konania, vyšetrovanie, trestného stíhania, vznesenie obvinenia;
+INE - Iné skúmanie - všetky pochybnosti s možným vplyvom/vplyvom na výdavky projektu vyplývajúce
+z činnosti iných externých vnútroštátnych orgánov alebo orgánov EÚ ako vnútorný audit, ÚV SR, NKÚ
+SR, súd, RO - kontrola delegovaných právomocí, ÚVO, ak neplní funkciu SO, iný externý auditný subjekt
+a iné, napr. podnet verejnosti, podanie na súd, protokol z kontroly, návrh správy/čiastkovej správy,
+vyžiadanie dokumentácie k projektu zo strany auditného/kontrolného subjektu s vyjadrením
+pochybnosti, nedostatok v správe z externého auditu atď.
+
+„Režim financovania“ – používateľ nastaví pre daný sledovaný príznak možnosť financovania, resp.
+deklarovania dotknutých výdavkov v budúcich ŽoP v súlade so všeobecnými pravidlami financovania
+výdavkov, ktoré sú predmetom prebiehajúceho skúmania v zmysle príručky k finančnému riadeniu,
+a to výberom jednej možnosti:
+XXXX – Nie je povolené financovanie – financovanie/deklarovanie výdavkov súvisiacich so sledovaným
+príznakom nie je umožnené na žiadnej úrovni. Ide o prípad, kedy je schvaľovanie rizikových výdavkov
+v ŽoP prijímateľovi dočasne pozastavené, napr. z dôvodu prebiehajúceho skúmania, alebo sa
+auditom/kontrolou potvrdili neoprávnené výdavky, ktoré nie je možné schvaľovať/zahrnúť do SŽP, ŽoP
+
+                                                                                                                         10
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+na EK alebo Účtov. Túto možnosť používateľ zvolí aj v prípade, ak sa na dotknuté výdavky uplatňuje
+100 % FO;
+PXXX – Povolené financovanie iba prijímateľovi - financovanie výdavkov súvisiacich so sledovaným
+príznakom je umožnené iba na úrovni prijímateľa, pričom financovanie v SŽP a deklarovanie v ŽoP na
+EK a Účtoch je dočasne pozastavené, t. j. výdavky je možné schváliť v ŽoP, ale nesmú byť zahrnuté do
+SŽP, ŽoP na EK alebo Účtov;
+PSXX – Povolené financovanie iba v SŽP - financovanie výdavkov súvisiacich so sledovaným príznakom
+je umožnené iba na národnej úrovni, t. j. na úrovni prijímateľa a v SŽP, pričom deklarovanie v ŽoP na
+EK a Účtoch je buď dočasne pozastavené, alebo výdavky na EK nebudú deklarované vôbec;
+PSZU – Povolené financovanie/deklarovanie – financovanie, resp. deklarovanie výdavkov súvisiacich
+so sledovaným príznakom je umožnené na všetkých úrovniach finančného riadenia, t. j. výdavky je
+možné schváliť v ŽoP a zahrnúť do SŽP, ŽoP na EK alebo Účtov;
+PSZU_FO – Povolené financovanie/deklarovanie iba po uplatnení FO – financovanie, resp. deklarovanie
+výdavkov súvisiacich so sledovaným príznakom je umožnené na všetkých úrovniach finančného
+riadenia po uplatnení finančnej opravy za porušenie pravidiel verejného obstarávania, a to buď zo
+strany prijímateľa vo fáze pred schválením a úhradou deklarovaných výdavkov alebo zo strany
+poskytovateľa v rámci procesu schvaľovania ŽoP alebo na základe uzatvorenia dodatku, ktorým budú
+celkové oprávnené výdavky znížené o finančnú opravu, t. j. po uplatnení FO je možné výdavky schváliť
+v ŽoP a zahrnúť do SŽP, ŽoP na EK alebo Účtov.
+
+„Zdroj prvej informácie“ – používateľ manuálne uvádza odkaz na zdroj informácie, ktorá predstavuje
+prvotný podklad, na základe ktorého sa sledovaný príznak prvýkrát identifikuje a eviduje, napr. odkaz
+na medializovanú informáciu; číslo listu, predmet e-mailu, číslo návrhu
+správy/správy/protokolu/rozhodnutia, požiadavky od vnútroštátneho alebo európskeho orgánu atď.
+
+„Dátum prvej informácie“ – používateľ uvádza dátum, kedy bola prvýkrát identifikovaná alebo získaná
+informácia vedúca k evidencii sledovaného príznaku.
+
+„Popis“ – používateľ uvedie krátky výstižný popis sledovanej skutočnosti/témy, napr. „trestné
+oznámenie pre podozrenie zo zneužívania právomoci verejného činiteľa“; „neoprávnené výdavky
+v súvislosti s duplicitným financovaním“; „medializácia v súvislosti s kartelovými dohodami“; „zistenie
+A001 z auditu OA – 25 % finančná oprava za diskriminačné podmienky účasti“. Uvedená informácia
+slúži na účely filtrácie a na rýchle zorientovanie sa, čoho sa daný sledovaný príznak týka.
+
+„Identifikátor priradenia“ – používateľ uvedie jednoznačný identifikačný prvok, na základe ktorého
+bude možné spätne dohľadať informácie ohľadom predmetu sledovania, ako napr. názov článku, či
+reportáže alebo iného mediálneho výstupu, číslo vládneho auditu, auditu EK, EDA, číslo kontroly ÚV
+SR, NKÚ SR, PMÚ SR, príp. spisová značka prípadu, číslo listu k prípadu OČTK, EPPO. Ak sledovaný
+príznak vyplýva z prvej fázy uvádza sa identifikačné číslo dokumentu, kontroly/auditu prvej fázy
+projektu.
+
+„Dokument umožňujúci financovanie/deklarovanie výdavkov“ – používateľ uvedie názov
+dokumentu, na základe ktorého je umožnené financovanie výdavkov prijímateľovi, resp. zahrnutie
+týchto výdavkov do SŽP, ŽoP na EK a Účtov, ako napr. zápis z preskúmania medializovaného podnetu;
+správa z kontroly, príp. iný dokument z kontroly; stanovisko OA k ukončenému prebiehajúcemu
+skúmaniu; konečné vyjadrenie EK k zisteniu z auditu, dokument z posúdenia financovania výdavkov
+
+                                                                                                                         11
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+prijímateľovi počas prebiehajúceho skúmania/ dokument povoľujúci zaradenie výdavkov počas
+prebiehajúceho skúmania do SŽP v zmysle príručky k finančnému riadeniu atď. Používateľ zabezpečí
+vloženie týchto dokumentov v časti „Spis“ k príslušnému sledovanému príznaku. Ak financovanie, resp.
+deklarovanie nie je umožnené, používateľ uvedie poznámku napr. „N/A“ alebo „financovanie, resp.
+deklarovanie nie je umožnené“, keďže vyplnenie poľa je povinné.
+
+„Predmet sledovania“ - používateľ vyberie podľa charakteru sledovaného príznaku, ktoré výdavky
+projektu sa týkajú sledovanej skutočnosti, a to výberom príslušnej možnosti:
+Verejné obstarávanie – predmetom sledovania sú výdavky týkajúce sa VO priradeného, resp.
+priradených k sledovanému projektu;
+Žiadosť o platbu – predmetom sledovania sú výdavky týkajúce sa iba konkrétnej, resp. konkrétnych
+ŽoP sledovaného projektu, ako napr. ŽoP overená VLA, v ktorej boli identifikované nedostatky
+s finančným vplyvom);
+Skupina výdavkov – predmetom sledovania je určitá skupina výdavkov z rozpočtu projektu, napr. iba
+výdavky za softvér, iba výdavky za konkrétneho partnera, iba nepriame výdavky, iba výdavky
+za stavebné práce z určitej faktúry, iba výdavky na informačnú tabuľu, iba mzdové výdavky alebo iba
+mzdové výdavky za konkrétneho zamestnanca atď.1
+Projekt – predmetom sledovania sú skutočnosti, ktoré sa týkajú výdavkov celého projektu, napr. ak sa
+sledovaná skutočnosť týka nesplnenia podmienok poskytnutia pomoci, prijímateľa, nedodržania
+zmluvných podmienok, príp. predmet sledovania nemožno priradiť ku konkrétnym položkám atď.
+Po vytvorení príznaku je možné v prípade predmetov sledovania verejné obstarávanie, žiadosť o platbu
+alebo skupina výdavkov vybrať konkrétne objekty v záložke Sledované objekty.
+
+„Príznak sledovania viditeľný iba pre platobný orgán“ – vypĺňa iba platobný orgán v prípade evidencie
+sledovaného príznaku s obmedzenou viditeľnosťou, s výnimkou viditeľnosti pre OA napr. v prípade
+zistenia OA s podozrením na spáchanie trestného činu na úrovni osôb konajúcich v mene alebo
+v prípade evidencie určitých skutočností, ktoré je potrebné sledovať iba z úrovne platobného orgánu.
+
+„Stav priradenia“ - ide o preddefinované pole, ktoré informuje o iniciačnom priradení projektu, resp.
+viacerých projektov k sledovanému príznaku. Po ukončení zaevidovania sledovaného príznaku alebo
+pri jeho aktualizácii, je možné určitý projekt, resp. projekty odradiť; uvedené sa týka horizontálnych
+sledovaných príznakov, kde je priradených viac projektov.
+
+„Sledované výdavky“ – používateľ vyberie podľa charakteru sledovaného príznaku, rozsah sledovanej
+skutočnosti, a to výberom príslušnej možnosti:
+Celý projekt – ak sa sledovanie týka výdavkov celého projektu;
+Určité výdavky – ak sa sledovanie týka iba určitých výdavkov projektu ako výdavky z VO, ŽoP, skupina
+výdavkov.
+
+„Dôvod sledovania“ – používateľ uvedie detailnejší popis dôvodu sledovania a stručné zhrnutie
+podstatných faktov poukazujúcich na pochybnosť, podozrenie alebo zistenie, t. j. zhrnutie sledovaných
+skutočností so stručnou informáciou o ďalších podstatných skutočnostiach o navrhovaných
+odporúčaniach, neoprávnených výdavkoch vrátane finančnej opravy.
+
+1 Ak sú predmetom sledovania výdavky z určitej zákazky, používateľ volí ako predmet sledovania možnosť „verejné obstarávanie“.
+
+                                                                                                                         12
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+„Poznámka k priradeniu“ – používateľ uvedie poznámku k priradenému projektu, resp. priradeným
+projektom, napr. „priradený 1 projekt v zmysle preskúmania medializovaného podnetu“, „priradených
+5 projektov v zmysle preskúmania výzvy“. Uvedená poznámka je relevantná najmä pri horizontálnom
+sledovanom príznaku, kde na základe aktualizácie stavu skúmania môže dôjsť k uzavretiu sledovania
+niektorých z priradených sledovaných projektov, pričom ostatné projekty môžu byť naďalej
+predmetom skúmania a môžu ostať naďalej priradené. Pri vytváraní nového príznaku sa Poznámka
+k priradeniu uloží pre každý projekt. Po vytvorení je možné poznámku k priradeniu editovať pre každý
+projekt samostatne.
+
+„Poznámka“ – používateľ uvedie všetky ostatné podstatné informácie ohľadom stavu riešenia
+pochybnosti alebo zistenia a financovania projektu, ktoré je potrebné sledovať, najmä informácia
+o financovaní výdavkov projektu, t. j. či sa režim financovania vzťahuje iba na určité výdavky, resp.
+na celý projekt, a iné informácie napr. o krokoch, ktoré je potrebné vykonať, resp. ktoré boli vykonané
+v súvislosti s riešením prípadu, bližšia špecifikácia výdavkov, ktoré sú predmetom sledovania, ako napr.
+číslo faktúry, označenie pozície zamestnanca, informácie a potrebe trvalého stiahnutia nezrovnalosti
+alebo dočasného vyradenia výdavkov zo ŽoP na EK, resp. Účtov, informácie o vplyve sledovaného
+príznaku na iných poskytovateľov, ak sa sledované skutočnosti môžu týkať aj iných poskytovateľov,
+odkaz, kde je v ITMS2014+ možné dohľadať informáciu o pochybnosti/zistení v prípade sledovaného
+príznaku vyplývajúceho z prvej fázy projektu (napr. odkaz na správu z kontroly, číslo NZR a pod).
+
+Po vyplnení všetkých povinných polí v záložke Základne údaje používateľ uloží zaevidované údaje
+k sledovanému príznaku stlačením tlačidla „Dokončiť“.
+
+Obrázok 13 Evidencia sledovaného príznaku - tlačidlo "Dokončiť"
+
+Systém následne vytvorí sledovaný príznak a pridelí mu jedinečný kód, ktorý je tvorený nasledovne:
+PSABCDEEEEE
+PS príznak sledovania
+ABC kód programovej štruktúry:
+
+         401 Program Slovensko
+         402 Program Rybné hospodárstvo SR
+         403 Program Interreg Slovensko – Česko 2021 - 2027
+         404 Program Interreg Slovensko - Rakúsko 2021 - 2027
+
+                                                                                                                         13
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+D  I – individuálny sledovaný príznak, H – horizontálny sledovaný príznak
+
+EEEEE poradové číslo
+
+Príklad: PS401I00001
+
+PS príznak sledovania
+
+401 Program Slovensko
+
+I  individuálny sledovaný príznak
+
+00001 poradové číslo
+
+Po zaevidovaní základných údajov k sledovanému príznaku systém automaticky vytvorí prvú
+aktualizáciu. Používateľ otvorí zoznam aktualizácií stlačením tlačidla „Zoznam verzií“ na lište vo
+formulári sledovaného príznaku.
+
+Obrázok 14 Formulár sledovaného príznaku - tlačidlo "Zoznam verzií"
+
+V zozname aktualizácií používateľ klikne na rozpracovanú aktualizáciu.
+
+Obrázok 15 Formulár sledovaného príznaku - zoznam aktualizácií
+
+Po otvorení rozpracovanej aktualizácie je možné sledovaný príznak v jednotlivých záložkách editovať.
+
+Záložka Základné údaje
+Ak sa v sekcii záložky nachádzajú editovateľné polia, pod názvom sekcie sa nachádza tlačidlo „ceruzka“.
+Stlačením tlačidla „ceruzka“ sa otvorí príslušná sekcia na editáciu.
+
+                                                                           14
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 16 Editácia evidovaného sledovaného príznaku – tlačidlo „ceruzka“
+
+Sekcia Základné údaje príznaku sledovania
+Používateľ má v tejto sekcii možnosť editovať pôvodne zadané údaje o sledovanom príznaku: Stav
+skúmania, Kategória príznaku sledovania, Režim financovania, Zdroj prvej informácie, Dátum prvej
+informácie, Popis, Identifikátor priradenia, Dokument umožňujúci financovanie/deklarovanie,
+Predmet sledovania, Dôvod sledovania a Poznámku.
+Okrem týchto údajov môže používateľ editovať aj nasledujúce polia:
+„Stav“ – aktuálny stav sledovaného príznaku:
+Aktívny: stav pochybnosti alebo zistenia je potrebné naďalej monitorovať;
+Neaktívny: stav pochybnosti alebo zistenia už nie je potrebné naďalej monitorovať a príznak je
+uzavretý.
+„Aktualizácia stavu skúmania“ - používateľ manuálne vyplní každú podstatnú aktualizáciu sledovaných
+skutočností, t. j. stručne popíše zmenu alebo nové okolnosti týkajúce sa evidovaného prípadu najmä
+v súvislosti so začatým prebiehajúcim skúmaním, resp. s ukončeným prebiehajúcim skúmaním
+a taktiež v súvislosti so zmenou ohľadom financovania sledovaných výdavkov.
+
+                                                                                                                         15
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 17 Editácia sledovaného príznaku - Sekcia Základné údaje príznaku sledovania
+
+Sekcia Identifikácia projektov
+V tejto sekcii sa nachádzajú needitovateľné informácie o začlenení priradeného, resp. priradených
+projektov do programovej štruktúry: Program, Fond, Poskytovateľ, Subjekt vykonávajúci platby.
+
+Obrázok 18 Editácia sledovaného príznaku - Sekcia Identifikácia projektov
+
+Sekcia Priradené projekty
+V tejto sekcii sa nachádzajú informácie o priradenom, resp. priradených projektoch, pričom používateľ
+má možnosť priradiť ďalší projekt, prípadne odradiť pôvodne priradený projekt.
+
+Obrázok 19 Editácia sledovaného príznaku - Sekcia Priradené projekty
+
+                                                                                                                         16
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+Sekcia Priradené projekty - výzvy
+V tejto sekcii sa nachádzajú needitovateľné informácie o výzve, ktorá sa týka projektu, resp. projektov,
+ktoré sú predmetom sledovania.
+
+Obrázok 20 Editácia sledovaného príznaku - Sekcia Priradené projekty - výzvy
+
+Sekcia Vizibilita
+V tejto sekcii sa nachádzajú informácie o viditeľnosti sledovaného príznaku v ITMS21+ pre iné orgány,
+pričom predvolene je vizibilita zabezpečená pre RO, príslušného poskytovateľa a SVP, PO, OA a ostatné
+orgány s čitateľským oprávnením. Editácia je možná len vo vzťahu k obmedzeniu viditeľnosti
+sledovaného príznaku evidovaného platobným orgánom, s výnimkou viditeľnosti pre OA.
+Ukladanie údajov
+Po vyplnení údajov používateľ ukončí prácu na záložke Základne údaje kliknutím na jedno
+z nasledujúcich tlačidiel:
+„Uložiť a zavrieť“ – systém uloží údaje a vráti používateľa späť do záložky s informáciou, že údaje boli
+úspešne uložené
+„Uložiť“ – systém uloží údaje a ponechá používateľa v sekcii otvorenej na editovanie
+„Zrušiť“ – neuloží údaje a vráti používateľa späť do záložky.
+Záložka „Sledované objekty“
+Záložka je rozdelená na sekcie podľa zaevidovaného predmetu sledovania – verejné obstarávanie,
+žiadosť o platbu, skupina výdavkov. Ak pri vytváraní príznaku bolo vybrané ako predmet sledovania
+verené obstarávanie, žiadosť o platbu alebo skupina výdavkov, používateľ pri editácii vyberie už
+konkrétne objekty v záložke Sledované objekty, t. j. konkrétne VO, konkrétnu ŽoP, či konkrétnejšiu
+skupinu výdavkov.
+
+                                                                                                                         17
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 21 Detail sledovaného príznaku – sekcia Sledované objekty otvorená na editáciu
+
+Sekcia Verejné obstarávania
+V prípade, že pri evidovaní základných údajov sledovaného príznaku bol zaevidovaný ako predmet
+sledovania „verejné obstarávanie“, používateľ v záložke Sledované objekty priradí verejné
+obstarávanie, ktoré je predmetom sledovania. Používateľ stlačí tlačidlo „Priradiť“.
+
+Obrázok 22 Editácia sledovaného príznaku - Sekcia Verejné obstarávania
+
+Otvorí sa zoznam verejných obstarávaní, v ktorom používateľ vyhľadá požadované verejné
+obstarávanie a označí políčko na zaškrtnutie. Výber verejného obstarávania používateľ potvrdí
+stlačením tlačidla „Vybrať“.
+
+                                                                                                                         18
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 23 Editácia sledovaného príznaku - vyfiltrovanie konkrétneho verejného obstarávania
+
+Sekcia Žiadosti o platbu
+V prípade, že pri evidovaní základných údajov sledovaného príznaku bol zaevidovaný ako predmet
+sledovania „žiadosť o platbu“, používateľ v záložke Sledované objekty priradí žiadosť o platbu, ktorá je
+predmetom sledovania. Používateľ stlačí tlačidlo „Priradiť“.
+
+Obrázok 24 Editácia sledovaného príznaku - Sekcia Žiadosť o platbu
+
+Otvorí sa zoznam žiadostí o platbu, v ktorom používateľ vyhľadá požadovanú ŽoP a označí políčko na
+zaškrtnutie. Výber ŽoP používateľ potvrdí stlačením tlačidla „Vybrať“.
+
+                                                                                                                         19
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 25 Editácia sledovaného príznaku - vyfiltrovanie konkrétnej žiadosti o platbu
+
+Sekcia Skupiny výdavkov
+V prípade, že pri evidovaní základných údajov sledovaného príznaku bol zaevidovaný ako predmet
+sledovania „skupina výdavkov“, používateľ v záložke Sledované objekty priradí výdavky, ktorá sú
+predmetom sledovania. Používateľ stlačí tlačidlo „Priradiť“.
+
+Obrázok 26 Editácia sledovaného príznaku - Sekcia Skupiny výdavkov
+
+Otvorí sa zoznam s výdavkami, v ktorom používateľ vyhľadá požadovanú skupinu výdavkov a označí
+políčko na zaškrtnutie. Výber výdavkov používateľ potvrdí stlačením tlačidla „Vybrať“.
+
+                                                                                                                         20
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 21 Editácia sledovaného príznaku - vyfiltrovanie konkrétnej skupiny výdavkov
+
+Vybrané sledované objekty je možné odradiť kliknutím na ikonu „Odradiť“ pri príslušnom predmete
+sledovania.
+
+Obrázok 28 Editácia sledovaného príznaku – odradenie predmetu sledovania
+
+Záložka „Nezrovnalosti“
+V záložke používateľ priradí všetky nezrovnalosti, ktoré súvisia so sledovanými skutočnosťami, napr.
+nezrovnalosť evidovaná na základe začatého prebiehajúceho skúmania, nezrovnalosť vyplývajúca
+z auditu, resp. kontroly, ktorá súvisí so sledovaným príznakom. Používateľ stlačí tlačidlo „Priradiť“.
+
+                                                                                                                         21
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 29 Editácia sledovaného príznaku – Záložka Nezrovnalosti
+
+Otvorí sa zoznam s nezrovnalosťami, v ktorom používateľ vyhľadá požadovanú nezrovnalosť a označí
+políčko na zaškrtnutie. Výber nezrovnalosti používateľ potvrdí stlačením tlačidla „Vybrať“.
+
+Obrázok 30 Editácia sledovaného príznaku - vyfiltrovanie konkrétnej nezrovnalosti
+
+Priradenie súvisiacej nezrovnalosti používateľ dokončí tlačidlom „Dokončiť“.
+                                                                                                                         22
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 31 Editácia sledovaného príznaku - priradenie nezrovnalosti k sledovanému príznaku
+
+Záložka „Súvisiace príznaky“
+V záložke používateľ priradí všetky súvisiace sledované príznaky, ktoré sa týkajú rovnakej pochybnosti
+alebo zistenia, napr. ak na základe medializovaného podnetu poskytovateľ začne finančnú kontrolu
+a identifikuje obdobnú pochybnosť, na základe ktorej podá podnet na OČTK a PMÚ SR, zaeviduje
+postupne 3 sledované príznaky, pričom pri evidencii sledovaného príznaku v kategórii „vyšetrovanie
+OČTK/EPPO“ priradí súvis aj s príznakom súvisiacim s medializáciou, ako aj s príznakom súvisiacim
+so šetrením PMÚ SR. Používateľ stlačí tlačidlo „Priradiť“.
+
+Obrázok 32 Editácia sledovaného príznaku – Záložka Súvisiace príznaky
+
+                                                                                                                         23
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+Po kliknutí na tlačidlo „Priradiť“ sa zobrazí karta pre priradenie súvisiacich príznakov, na ktorej
+používateľ klikne na tlačidlo „Priradiť hodnotu.“ Súčasne v poli „Poznámka“ stručne opíše dôvody
+priradenia súvisiaceho sledovaného príznaku.
+
+Obrázok 22 Editácia sledovaného príznaku – priradenie súvisiaceho príznaku
+
+Otvorí sa zoznam sledovaných príznakov, v ktorom používateľ vyhľadá súvisiaci sledovaný príznak a
+označí políčko na zaškrtnutie. Výber súvisiaceho sledovaného príznaku používateľ potvrdí stlačením
+tlačidla „Vybrať“.
+
+Obrázok 23 Editácia sledovaného príznaku - vyfiltrovanie súvisiaceho sledovaného príznaku
+
+Priradenie súvisiaceho sledovaného príznaku používateľ dokončí tlačidlom „Dokončiť“. Ak
+so sledovaným príznakom súvisia viaceré sledované príznaky, používateľ výber opakuje pre každý ďalší
+súvisiaci sledovaný príznak.
+
+                                                                                                                         24
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 35 Editácia sledovaného príznaku - priradenie súvisiaceho sledovaného príznaku, tlačidlo „Dokončiť“
+
+Priradený sledovaný príznak je možné odradiť kliknutím na ikonu „Odradiť“ pri príslušnom
+súvisiacom sledovanom príznaku.
+
+Obrázok 24 Editácia sledovaného príznaku – odradenie súvisiaceho sledovaného príznaku
+
+Po ukončení editácie sledovaného príznaku je potrebné, aby používateľ dokončil evidenciu
+sledovaného príznaku kliknutím na tlačidlo „Ukončiť verziu“.
+
+                                                                                                                         25
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 25 Ukončenie editácie sledovaného príznaku – tlačidlo „Ukončiť verziu“
+
+Po zvolení akcie systém zobrazí potvrdzovacie okno. Používateľ potvrdí ukončenie rozpracovanej verzie
+kliknutím na tlačidlo „Áno“. Týmto krokom dôjde k ukončeniu verzie, pričom túto operáciu nie je
+možné následne vrátiť späť. Po vykonaní akcie sa príslušná verzia sledovaného príznaku v zozname
+verzií zobrazí v stave „aktuálna“.
+
+Obrázok 26 Ukončenie editácie sledovaného príznaku – potvrdenie ukončenia editácie
+
+Po zaevidovaní sa sledovaný príznak bude zobrazovať aj v iných evidenciách. Informácia o tom, či
+na projekte danej ŽoP je vytvorený príznak je viditeľná priamo v zozname ŽoP, kde sa nachádzajú stĺpce
+Stav sledovania a Prebiehajúce skúmania. Ak je v stĺpci Stav skúmania hodnota "Aktívne", potom je
+na pri každej ŽoP projektu priradený aktívny sledovaný príznak spolu s informáciu, či ide o prebiehajúce
+skúmanie. Rovnako je príznak zobrazený pre SVP aj v module SŽoP v rámci zoznamov ŽoP pre zaradenie
+/ zaradených ŽoP.
+
+                                                                                                                         26
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 39 Zobrazenie sledovaného príznaku v zozname ŽoP
+
+3. Aktualizácia príznaku
+
+Ak vyvstanú nové alebo dodatočné informácie k iniciálne evidovanému sledovanému príznaku, je
+používateľ povinný v stanovenej lehote zaevidovať príslušnú aktualizáciu do ITMS21+ k príslušnému
+sledovanému príznaku.
+Pri vytváraní aktualizácie používateľ v zozname sledovaných príznakov vyhľadá sledovaný príznak,
+ku ktorému bude vytvárať aktualizáciu a po jeho rozkliknutí na akčnej lište v karte sledovaného
+príznaku stlačí tlačidlo „Vytvoriť novú verziu“.
+
+Obrázok 40 Aktualizácia sledovaného príznaku – tlačidlo „Vytvoriť novú verziu“
+
+                                                                                                                         27
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+Po zvolení akcie systém zobrazí potvrdzovacie okno. Používateľ potvrdí vytvorenie novej verzie
+sledovaného príznaku kliknutím na tlačidlo „Áno“.
+
+Obrázok 41 Aktualizácia sledovaného príznaku – potvrdenie vytvorenia novej verzie
+
+Následne systém zobrazí jednotlivé záložky na karte sledovaného príznaku pripravené na editáciu
+v príslušným sekciách. Stlačením tlačidla „ceruzka“ sa otvorí príslušná sekcia na editáciu. Po prijatí
+nových podstatných informácií, ktoré menia stav sledovanej skutočnosti alebo stav jej skúmania,
+používateľ zaznamená aktualizáciu najmä v týchto poliach:
+
+Záložka Základné údaje
+Stav skúmania: ak dôjde k začatiu, resp. ukončeniu prebiehajúceho skúmania
+Aktualizácia stavu skúmania: detailnejší popis dôvodov vykonanej aktualizácie, t.j. popis nových,
+doplňujúcich informácií. Pri získaní novej informácie používateľ uvedie zdroj novej informácie a dátum
+prijatia novej informácie.
+Režim financovania: ak dôjde k zmene režimu financovania v súvislosti so zmenou stavu skúmania
+Zdroj prvej informácie: zdroj informácie, ktorá predstavuje podklad, na základe ktorého dochádza
+k aktualizácii sledovaného príznaku
+Dátum prvej informácie: dátum prijatia informácie, na základe ktorej dochádza k aktualizácii
+sledovaného príznaku
+Dokument umožňujúci financovanie/deklarovanie výdavkov: ak dôjde aktualizáciou k umožneniu
+financovania, resp. deklarovania, používateľ uvedie odkaz na dokument, na základe ktorého je
+financovanie, resp. deklarovanie umožnené.
+Predmet sledovania – ak na základe aktualizácie dôjde k zmene v predmete sledovania, napr. rozsah
+sledovania sa na základe preskúmania zúži z celého projektu iba na určité výdavky – verejné
+obstarávanie, ŽoP, skupina výdavkov; alebo naopak rozšíri z určitých výdavkov na celý projekt.
+V takomto prípade je nutné najprv pri aktualizácii odradiť príslušný predmet sledovania v záložke
+Sledované objekty a v záložke Základné údaje zmeniť Predmet sledovania, až následne je možné
+aktualizovať predmet sledovania aj v záložke Sledované objekty
+Poznámka: používateľ uvedie všetky ostatné ďalšie podstatné informácie týkajúce sa aktualizácie
+Priradené projekty: ak dôjde k zmene, pokiaľ ide o priradené projekty a na základe preverenia
+podozrenia sa rozšíri pochybnosť aj na iný projekt alebo projekty, používateľ aktualizáciou vykoná
+dodatočné priradenie ďalšieho projektu kliknutím na tlačidlo „Priradiť“ v sekcii Priradené projekty.
+Naopak, ak na základe preverenia dôjde následne k vyriešeniu pochybností alebo pominutiu dôvodov
+na sledovanie niektorého z projektov, používateľ príslušný projekt odoberie z priradených projektov
+k sledovanému príznaku, a to tým spôsobom, že pri aktualizácii klikne na príslušný priradený projekt
+v záložke Základné údaje.
+
+                                                                                                                         28
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 42 Aktualizácia sledovaného príznaku – odradenie priradeného projektu
+
+Následne v detaile priradenia projektu používateľ klikne na ikonu „ceruzka“.
+Obrázok 43 Aktualizácia sledovaného príznaku – detail priradenia projektu
+
+V ďalšom kroku používateľ aktualizuje v poli „Stav priradenia“ na „odradený“ a v poli „Poznámka k
+priradeniu“ uvedie dôvod jeho odradenia zo sledovania. Tento dôvod musí byť preukázateľne
+zdokumentovaný na základe dokumentu, ktorý používateľ pri aktualizácii vloži do spisu k sledovanému
+príznaku. Po vyplnení všetkých polí používateľ potvrdí odradenie projektu kliknutím na tlačidlo „Uložiť
+a zavrieť“. Stav priradenia projektu sa v záložke Základne údaje, sekcia Priradené projekty zmeni na
+„odradený“.
+
+Obrázok 44 Aktualizácia sledovaného príznaku – potvrdenie odradenia projektu
+
+                                                                                                                         29
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+Po ukončení editácie sledovaného príznaku používateľ dokončí jeho aktualizáciu kliknutím na tlačidlo
+„Ukončiť verziu“. Po zvolení akcie systém zobrazí potvrdzovacie okno. Používateľ potvrdí ukončenie
+rozpracovanej verzie kliknutím na tlačidlo „Áno“. Týmto krokom dôjde k ukončeniu verzie, pričom túto
+operáciu nie je možné následne vrátiť späť. Po vykonaní akcie sa príslušná verzia sledovaného príznaku
+v zozname verzií zobrazí v stave „aktuálna“.
+
+4. Uzavretie príznaku
+
+Ak dôvod na monitorovanie sledovaného príznaku zanikol, napr. pochybnosť bola riadne preverená a
+vyriešená, alebo pominuli okolnosti, ktoré viedli k pochybnosti o výdavkoch, potvrdené neoprávnené
+výdavky boli zohľadnené aj voči rozpočtu EÚ alebo nie je potrebné sledovať vplyv sledovaného
+príznaku na budúce výdavky, používateľ je povinný v stanovenej lehote uzatvoriť sledovanie príznaku
+v ITMS21+ a zabezčiť jeho posun do stavu „neaktívny“.
+
+Používateľ pri uzatvorení sledovaného príznaku postupuje spôsobom opísaným v kapitole 3, pričom
+po prijatí nových informácií alebo zistenia nových skutočností, na základe ktorých dôvody
+na sledovanie pominuli, používateľ zaznamená aktualizáciu najmä v týchto poliach:
+
+Záložka Základné údaje
+Stav: používateľ aktualizuje stav na „neaktívny“,
+Aktualizácia stavu skúmania: detailnejší popis dôvodov vykonanej aktualizácie, t.j. popis dôvodov,
+na základe ktorých dochádza k uzatvoreniu sledovaného príznaku. Pri získaní novej informácie
+používateľ uvedie zdroj novej informácie a dátum prijatia novej informácie.
+Režim financovania: používateľ aktualizuje režim financovania, napr. aktualizácia do stavu PSZU –
+Povolené financovanie/deklarovanie, ak je prebiehajúce skúmanie ukončené, pochybnosť sa
+nepotvrdila a došlo k spusteniu financovania, resp. deklarovania,
+Zdroj prvej informácie: zdroj informácie, ktorá predstavuje podklad, na základe ktorého dochádza
+k aktualizácii a uzatvoreniu sledovaného príznaku
+Dátum prvej informácie: dátum prijatia informácie, na základe ktorej dochádza k aktualizácii
+a uzatvoreniu sledovaného príznaku
+Dokument umožňujúci financovanie/deklarovanie výdavkov: ak dôjde aktualizáciou k umožneniu
+financovania/deklarovania, používateľ uvedie odkaz na dokument, na základe ktorého bolo
+financovanie, resp. deklarovanie umožnené.
+
+Po ukončení editácie sledovaného príznaku používateľ dokončí jeho uzavretie kliknutím na tlačidlo
+„Ukončiť verziu“. Po zvolení akcie systém zobrazí potvrdzovacie okno. Používateľ potvrdí ukončenie
+rozpracovanej verzie kliknutím na tlačidlo „Áno“. Týmto krokom dôjde k ukončeniu verzie, pričom túto
+operáciu nie je možné následne vrátiť späť. Po vykonaní akcie sa príslušný sledovaný príznak v zozname
+sledovaných príznakov zobrazí v stave „neaktívny“.
+
+V prípade, že používateľ po uzavretí sledovaného príznaku zistí novú alebo dodatočnú informáciu
+súvisiacu s už uzatvoreným sledovaným príznakom, ktorá môže zakladať pochybnosti o výdavkoch,
+neaktívny sledovaný príznak znovu aktivuje v ITMS21+ vytvorením novej verzie sledovaného príznaku
+a zmenou stavu na „aktívny“ s popisom aktualizácie stavu skúmania.
+
+                                                                                                                         30
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+5. Vytváranie exportov
+
+Používateľ môže vytvárať export sledovaných projektov „Prehľad projektov implementovaných RO/SO,
+na ktoré sa vzťahuje sledovaný príznak“ na účely overenia SŽP, resp. prípravy ŽoP na EK alebo Účtov
+priamo v ITMS21+.
+Export používateľ vygeneruje priamo z evidencie SŽP, žiadosti o platbu na Európsku komisiu alebo
+Účtov, kde na akčnej lište klikne na záložku Súvisiace evidencie. Následne používateľ klikne na možnosť
+„Export sledovaných projektov“.
+
+Obrázok 45 Vytvorenie exportu k SŽP, ŽoP na EK a Účtom – záložka Súvisiace evidencie
+
+Po zvolení akcie systém zobrazí sprievodcu pre vytvorenie exportu. Používateľ klikne na tlačidlo
+„Ďalej“.
+
+Obrázok 46 Vytvorenie exportu k SŽP, ŽoP na EK a Účtom – tlačidlo „Ďalej“
+
+Následne používateľ zvolí položku „Subjekt vykonávajúci platby“ a vyberie príslušný subjekt
+z dostupných možností. Používateľ ďalej klikne na tlačidlo „Dokončiť“.
+
+                                                                                                                         31
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 47 Vytvorenie exportu k SŽP, ŽoP na EK a Účtom – tlačidlo „Dokončiť“
+
+Po vygenerovaní si používateľ v záhlaví stránky môže stiahnuť export. Všetky vygenerované exporty sú
+taktiež dostupné v časti Systém – Rozšírené exporty zo zoznamu.
+
+Obrázok 48 Vytvorenie exportu k SŽP, ŽoP na EK a Účtom – stiahnutie exportu
+
+Výsledný export obsahuje informácie vyplnené na základe dát evidovaných k jednotlivým sledovaným
+príznakom v ITMS21+. V exporte si používateľ pri príprave ŽoP na EK alebo Účtov vyfiltruje údaje
+za príslušného poskytovateľa (ak relevantné) a manuálne vyplní výsledok posúdenia vplyvu
+sledovaného príznaku na zaradené výdavky v ŽoP na EK alebo v návrhu Účtov, resp. Účtoch do stĺpca
+„Zaradiť do ŽoP na EK/zahrnúť do Účtov“, a to nasledujúcim spôsobom:
+Výsledok posúdenia:
+➢ „áno“
+− ak sa sledovaný príznak netýka výdavkov zaradených do ŽoP na EK/Účtov - napr. predmetom
+
+    sledovania je VO, ale ŽoP zahrnutá do ŽoP na EK, resp. Účtov neobsahuje výdavky z daného VO;
+                                                                                                                         32
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+− ak sledovaný príznak nemá finančný vplyv na výdavky zahrnuté do ŽoP na EK/Účtov - napr. nejde
+
+    o prebiehajúce skúmanie
+− ak sledovaný príznak má finančný vplyv na výdavky zahrnuté do ŽoP na EK/Účtov, ale
+
+    predmetom trvalého stiahnutia prostredníctvom nezrovnalosti je iba časť výdavkov ŽoP –
+    v takomto prípade je potrebné do poznámky v exporte k príslušnému sledovanému príznaku uviesť
+    informáciu s požiadavkou na trvalé stiahnutie súvisiacej nezrovnalosti.
+➢ „nie“ – ak sledovaný príznak má vplyv na výdavky zahrnuté do ŽoP na EK/Účtov - napr. obsahuje
+    výdavky týkajúce sa prebiehajúceho skúmania alebo ak je potrebné trvalo stiahnuť potvrdenú
+    nezrovnalosť vyplývajúcu zo sledovaných príznakov.
+Ak dôvody, pre ktoré boli z predchádzajúcich ŽoP na EK vyradené určité ŽoP alebo pre ktoré boli
+z predchádzajúcich Účtov dočasne vylúčené výdavky projektov prostredníctvom nezrovnalosti, už
+nepretrvávajú, používateľ manuálne doplní export o sledované príznaky týkajúce sa týchto
+výdavkov, ktoré je potrebné zohľadniť v ŽoP na EK, resp. Účtoch s výsledkom posúdenia, pričom
+tieto doplnené riadky farebne vyznačí:
+− „áno“ - ak sa sledovaný príznak týka výdavkov, ktoré je potrebné zahrnúť do ŽoP na EK, resp.
+    Účtov – dôvody na nedeklarovanie pominuli a bola potvrdená správnosť a zákonnosť výdavkov a je
+    možné ich zahrnúť do ŽoP na EK, resp. Účtov;
+− „nie“ – ak sa sledovaný príznak týka výdavkov, ktoré je potrebné trvalo stiahnuť do ŽoP na EK,
+    resp. Účtov - dôvody na nedeklarovanie pominuli a nebola potvrdená správnosť a zákonnosť
+    výdavkov a je potrebné stiahnuť tieto výdavky prostredníctvom nezrovnalosti zo ŽoP na EK, resp.
+    Účtov. V takomto prípade je potrebné do poznámky v exporte k príslušnému sledovanému
+    príznaku uviesť informáciu s požiadavkou na trvalé stiahnutie súvisiacej nezrovnalosti.
+
+Obrázok 49 Vygenerovaný export Prehľad projektov implementovaný RO/SO so sledovaným príznakom - stĺpec „Zaradiť
+do ŽoP na EK/zahrnúť do Účtov a stĺpec Poznámka
+
+Export sledovaných príznakov je možné vytvoriť aj mimo procesu SŽP, ŽoP na EK a Účtov, a to priamo
+v zozname sledovaných príznakov kliknutím na tlačidlo „Exportovať“.
+
+                                                                                                                         33
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 50 Vytvorenie exportu zo zoznamu príznakov – tlačidlo „Exportovať“
+
+6. Komunikácia k príznakom cez ITMS21+
+
+Tlačidlo Komunikácia na akčnej lište karty sledovaného príznaku, podobne ako v iných evidenciách
+ITMS21+, po aktivovaní sprístupní zoznam komunikácií viažucich sa k danému sledovanému príznaku.
+Slúži na evidenciu a dohľadateľnosť vzájomnej komunikácie medzi dotknutými subjektmi (napr. medzi
+poskytovateľom, RO, PO, SVP a pod. ) priamo v kontexte konkrétneho sledovaného príznaku – t. j.
+používateľ tu môže zaznamenať/dohľadať správy, žiadosti o doplnenie informácií, upozornenia či iné
+oznámenia súvisiace práve s daným príznakom.
+
+Obrázok 51 Detail sledovaného príznaku – tlačidlo Komunikácia
+
+Po kliknutí na tlačidlo „Komunikácia“ v detaile konkrétneho sledovaného príznaku používateľ v záložke
+Prichádzajúca z neverejnej časti uvidí zoznam komunikácie k príslušnému sledovanému príznaku od
+
+                                                                                                                         34
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+všetkých relevantných orgánov. V záložke Odchádzajúca z neverejnej časti môže používateľ vytvoriť
+novú komunikáciu kliknutím na tlačidlo „Vytvoriť“.
+
+Obrázok 52 Komunikácia odchádzajúca z neverejnej časti – tlačidlo „Vytvoriť“
+
+Po kliknutí na tlačidlo „Vytvoriť“ sa zobrazí sprievodca vytvorením komunikácie, kde jej potrebné zadať
+základné údaje: výber orgánu/adresáta, komu je komunikácia určená, vec – príznak sledovania
+projektov, predmet – stručné zhrnutie obsahu správy, text – obsah správy. Po zaevidovaní základných
+údajov je potrebné kliknúť na tlačidlo „Ďalej“.
+
+Obrázok 53 Vytvorenie komunikácie – vyplnenie základných údajov
+
+                                                                                                                         35
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+V nasledujúcom kroku sa zobrazí na kontrolu objekt evidencie (sledovaný príznak), zaevidovanie
+komunikácie používateľ ukončí kliknutím na tlačidlo „Dokončiť“, čím sa zaeviduje stav komunikácie
+ako „Nová“.
+
+Obrázok 54 Vytvorenie komunikácie – tlačidlo „Dokončiť“
+
+Po vytvorení komunikácie je možné v záložke Základné údaje editovať Základné údaje komunikácie
+a Obsah komunikácie kliknutím na ikonu ceruzky, kde je možné doplniť registratúrne číslo komunikácie
+a dátum registrácie a editovať predmet a text komunikácie.
+
+Obrázok 55 Editovanie vytvorenej komunikácie – základné údaje
+
+                                                                                                                         36
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+V záložke Adresát a odosielateľ môže používateľ zmeniť adresáta, taktiež je možné pridať konkrétne
+osoby na zvolenom orgáne, komu má byť doručená e-mailová notifikácia o novej komunikácii
+v ITMS21+ k sledovanému príznaku, a to kliknutím na tlačidlo „Priradiť“.
+
+Obrázok 56 Editovanie vytvorenej komunikácie – priradenie notifikácie konkrétnemu zamestnancovi na orgáne
+
+Výber konkrétneho zamestnanca na orgáne používateľ vykoná označením príslušného políčka
+na zaškrtnutie a kliknutím na tlačidlo „Vybrať“.
+
+Obrázok 57 Editovanie vytvorenej komunikácie – výber konkrétneho zamestnanca na orgáne na zaslanie notifikácie
+
+V záložke Príloha je možné vložiť dokumenty súvisiace s komunikáciou k sledovanému príznaku
+kliknutím na tlačidlo „Vytvoriť“.
+
+                                                                                                                         37
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 58 Editovanie vytvorenej komunikácie – vloženie príloh do komunikácie
+
+Odoslanie komunikácie zabezpečí používateľ kliknutím na záložku Proces spracovania a následným
+kliknutím na tlačidlo „Zmeniť stav“.
+
+Obrázok 59 Odoslanie komunikácie – proces spracovania
+
+Následne je potrebné označiť príslušné políčko na zaškrtnutie pri stave „Odoslaná“ a kliknúť na tlačidlo
+„Ďalej“.
+
+                                                                                                                         38
+Príloha č. 1 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+Obrázok 60 Odoslanie komunikácie – zmena stavu spracovania na Odoslaná
+
+Zmenu stavu procesu používateľ ukončí kliknutím na tlačidlo „Dokončiť“, čím je komunikácia viditeľná
+aj pre adresáta a zároveň je o nej informovaný aj konkrétny zvolený zamestnanec prostredníctvom
+notifikácie.
+
+Obrázok 61 Odoslanie komunikácie – tlačidlo „Dokončiť“
+
+Po doručení komunikácie má adresát možnosť v záložke Komunikácie – Prichádzajúca z neverejnej
+časti kliknutím na tlačidlo „Odpovedať“ zaslať odosielateľovi reakciu.
+
+                                                                                                                         39

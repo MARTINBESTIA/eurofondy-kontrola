@@ -1,0 +1,502 @@
+PROJEKTOVÝ ZÁMER
+INTEGROVANEJ ÚZEMNEJ INVESTÍCIE  (IÚI)
+
+ID žiadosti
+ | #ID
+ | priradzuje gestor
+ |
+Identifikácia Žiadateľa(ľov)
+	Tento dokument sa spracováva softvérovo, preto :
+needitujte údaje v prvých dvoch sivých stĺpcoch tabuliek v celom dokumente,
+ani nemnožte podkapitoly, alebo riadky s podfarbením iným spôsobom, ako je upravené v usmerneniach,
+automatické číslovanie a spracovávanie by sa tým nenávratne porušilo.
+	pre viacerých žiadateľov si vopred namnožte ďalšie Podkapitoly kliknutím  do podfarbenej oblasti,
+tým sa po jej pravom okraji dole objaví „+“, na ktoré kliknite. Opakujte kliknutie na „+“ podľa počtu žiadateľov.
+
+Žiadateľ č.  SEQ #Ziadat \*Arabic \n 1
+Názov žiadateľa:
+ | # STYLEREF 2 \s 1.1. SEQ #Head2 \* ALPHABETIC \s 2 A
+ |
+ |
+Sídlo :
+ | # STYLEREF 2 \s 1.1. SEQ #Head2 \* ALPHABETIC \s 2 B
+# STYLEREF 2 \s 1.1. SEQ #Head2 \* ALPHABETIC \s 2 C
+ | ulica číslo
+PSČ mesto
+ |
+IČO | DIČ | IČ DPH:
+ | # STYLEREF 2 \s 1.1. SEQ #Head2 \* ALPHABETIC \s 2 D
+ |
+ |
+ | len pre platiteľa DPH
+ |
+Právna forma:
+ | # STYLEREF 2 \s 1.1. SEQ #Head2 \* ALPHABETIC \s 2 E
+ | Vyberte položku.
+ | INÉ - špecifikujte, alebo vymažte
+ |
+Štatutárny orgán:
+ | # STYLEREF 2 \s 1.1. SEQ #Head2 \* ALPHABETIC \s 2 F
+ | Priezvisko Meno, tituly, funkcia v organizácii
+ |
+Kontaktná osoba:
+ | # STYLEREF 2 \s 1.1. SEQ #Head2 \* ALPHABETIC \s 2 G
+ | Priezvisko Meno, tituly, funkcia v organizácii
+ |
+e-mail | telefón
+ | # STYLEREF 2 \s 1.1. SEQ #Head2 \* ALPHABETIC \s 2 H
+ |
+ | +421 
+ |
+
+Ukončenie množenia podkapitol za účelom následného vpisovanie údajov vykonáte:
+v podfarbenej oblasti stlačte pravé tlačidlo myši („MyšR“) a z menu vyberte „Odstrániť ovládací prvok obsahu“.
+Aktualizáciu číslovania podkapitol v prípade viacerých žiadateľov vykonáte automaticky nasledovne vyberte namnožené podkapitoly za podržania ľavého tlačidla („Myš “+presun) a stlačte funkčnú klávesu F9.
+Aktualizáciu možno vykonať hoc aj na celý dokument: výber cez Ctrl+A  a stlačenie F9 - (na klávesnici nad číslom 0).
+
+Identifikácia Partnera(rov)
+pre viacerých partnerov si vopred namnožte ďalšie Podkapitoly kliknutím  do podfarbenej oblasti cez „+“.
+V tom prípade vykonajte aj Ukončenie množenia a Aktualizáciu číslovania podľa pokynov uvedených pri Žiadateľovi.
+Partner č.  SEQ #Partn \*Arabic \n 1
+Názov partnera:
+ | # STYLEREF 2 \s 2.1. SEQ #Head2 \* ALPHABETIC \s 2 A
+ | identifikáciu partnera doplňte v prípade ak je to relevantné, v opačnom prípade uveďte „bez partnera“
+ |
+Sídlo :
+
+ | # STYLEREF 2 \s 2.1. SEQ #Head2 \* ALPHABETIC \s 2 B
+# STYLEREF 2 \s 2.1. SEQ #Head2 \* ALPHABETIC \s 2 C
+ | ulica číslo
+PSČ mesto
+ |
+IČO | DIČ | IČ DPH:
+ | # STYLEREF 2 \s 2.1. SEQ #Head2 \* ALPHABETIC \s 2 D
+ |
+ |
+ | len pre platiteľa DPH
+ |
+Právna forma:
+ | # STYLEREF 2 \s 2.1. SEQ #Head2 \* ALPHABETIC \s 2 E
+ | Vyberte položku.
+ | INÉ - špecifikujte, alebo vymažte
+ |
+Štatutárny orgán:
+ | # STYLEREF 2 \s 2.1. SEQ #Head2 \* ALPHABETIC \s 2 F
+ | Priezvisko Meno, tituly, funkcia v organizácii
+ |
+Kontaktná osoba:
+ | # STYLEREF 2 \s 2.1. SEQ #Head2 \* ALPHABETIC \s 2 G
+ | Priezvisko Meno, tituly, funkcia v organizácii
+ |
+e-mail | telefón
+ | # STYLEREF 2 \s 2.1. SEQ #Head2 \* ALPHABETIC \s 2 H
+ |
+ | +421 
+ |
+Základná identifikácia PZ IÚI
+Názov PZ IÚI :
+ | #3.0.0
+ |
+ |
+
+Priradenie k programovej štruktúre Programu Slovensko 2021 – 2027
+Pre viacero priorít, špecifických cieľov, alebo opatrení si vopred namnožte celú tabuľku kliknutím do tabuľky a kliknutím vpravo na „+“.
+Priorita :
+ | #3. SEQ PSk \n 1. SEQ yz \* ALPHABETIC \r 1A
+ |
+ |
+Špecifický cieľ :
+ | #3. SEQ PSk \c 1. SEQ yz \* ALPHABETIC \nB
+ |
+ |
+Fond :
+ | #3. SEQ PSk \c 1. SEQ yz \* ALPHABETIC \nC
+ |
+ |
+Kategória regiónu :
+ | #3. SEQ PSk \c 1. SEQ yz \* ALPHABETIC \nD
+ |
+ |
+Opatrenie :
+ | #3. SEQ PSk \c 1. SEQ yz \* ALPHABETIC \nE
+ |
+ |
+
+ |
+ |
+ |
+
+Vykonajte aj Ukončenie množenia a Aktualizáciu číslovania podľa pokynov uvedených pri Žiadateľovi, následne vypíšte požadované.
+Komplementarita a synergie PZ IÚI
+Identifikácia synergických a komplementárnych účinkov
+ | #3.2.0
+ | Povinná príloha konkrétnej výzvy (každá výzva obsahuje túto prílohu s názvom  Komplementarita a synergie/Synergie/Identifikácia synergických a komplementárnych účinkov...):
+Potrebné identifikovať a priradiť opatrenia a/alebo podporené aktivity zo synergických výziev, ktoré boli identifikované a sú uvedené v prílohe každej výzve. V tejto prílohe sú uvedené výzvy so synergickým/komplementárnym účinkom k vyhlásenej výzve identifikované v rámci P SK, POO alebo predošlých programových obdobiach. V rámci týchto identifikovaných výziev sú definované opatrenia a podporené aktivity, ktoré súvisia, resp. môžu súvisieť s predkladaným PZ IÚI a tie je potrebné uviesť.
+
+A ZÁROVEŇ
+
+Potrebné identifikovať a priradiť synergické a komplementárne účinky s konkrétnym projektom/PZ IÚI podporeným z európskych fondov (aj mimo IÚI opatrení/ŠC) a zdôvodniť súvislosť.
+
+Komplementarity a  synergie sa uvádzajú v PZ IÚI primárne z dôvodu posúdenia integrovaného prístupu.
+
+Príklad:
+Výzva: uvedie sa názov a kód výzvy
+Opatrenia a/alebo podporené aktivity: uvedú sa opatrenia a/alebo podporené aktivity zo synergických výziev, ktoré boli identifikované.
+Projekt/PZ IÚI: uvedie sa konkrétny projekt/PZ IÚI, s ktorým boli identifikované tieto synergické a komplementárne účinky.
+Zdôvodnenie: uvedie sa, na základe čoho boli identifikované synergické a komplementárne účinky, resp. akým spôsobom sú uvedený projekt/PZ IÚI a predkladaný PZ IÚI medzi sebou synergické/komplementárne/súvisiace.
+
+ |
+Priradenie k stratégii IUS
+Priradenie k územiu :
+ | #3.3.0
+ | Vyberte položku.
+ |
+Identifikácia IÚS
+alebo IÚS UMR :
+ | #3.3.1
+ | názov Integrovanej územnej stratégie územia vrátane verzie
+(napr. IÚS KSK, ver. 2.0)
+ |
+Priorita IÚS / IÚS UMR :
+(prípadne PHRSR, ak totožné)
+ | #3.3.2
+ | priradenie PZ IÚI ku konkrétnym prioritám IÚS / IÚS UMR
+ |
+Cieľ IÚS / IÚS UMR :
+(prípadne PHRSR, ak totožné)
+ | #3.3.3
+ | priradenie PZ IÚI k príslušným strategickým a/alebo špecifickým cieľom IÚS / IÚS UMR
+ |
+Integrácia
+Potrebné vyplniť spôsob integrácie na úrovni IÚS. Integrácia na úrovni IÚS je nevyhnutná a musí byť preukázaná.
+Súlad PZ IÚI  s IÚS / IÚS UMR a zároveň  integrácia vykazovaná na úrovni IÚS / IÚS UMR:
+
+ | #3.4.1
+ | súlad predkladaného PZ IÚI s vzájomnými identifikačnými prvkami (opatreniami/aktivitami/akciami a iné) definovanými v IÚS/IÚS UMR (vzájomné identifikačné prvky na najnižšej úrovni IÚS/IÚS UMR),
+
+V prípade integrácie na úrovni IÚS je potrebné zadefinovať spôsob integrácie, to znamená realizáciou akých konkrétnych aktivít PZ IÚI dôjde k napĺňaniu stanovených priorít/cieľov/opatrení/aktivít IÚS.
+
+súlad s regionálnymi a miestnymi sektorovými stratégiami,
+
+zdôvodnenie prínosu predkladaného PZ IÚI k  integrovanému riešeniu  (v prípade integrovaného riešenia/integrovaného investičného balíka IÚI/integrovaného projektové balíka a pod. zadefinovaného v IÚS/IÚS UMR).
+ |
+Prínos PZ IÚI
+pre územie:
+ | #3.4.2
+ | Očakávané prínosy, konkrétne validovateľné benefity predkladaného PZ IÚI vo vzťahu ku určeným identifikačným prvkom IÚS/IÚS UMR, vrátane zdôvodnenia pozitívneho dopadu projektu IÚI na územie.
+ |
+
+Vyplniť nasledujúcu tabuľku ak je PZ IÚI integrovaný tematicky, územne, organizačne alebo finančne - je možné dosiahnuť kombináciu integrácií (Uvedie sa v prípade, ak je integrácia na týchto úrovniach identifikovaná).
+ Tematická integrácia
+
+ | #3.4.3
+ | Kombinácia aktivít z viac ako jednej priority P SK:
+PZ IÚI realizovaný cez najmenej dve opatrenia/ŠC P SK, zároveň cez najmenej dve rôzne priority P SK, napr. opatrenie 2.7.4 (priorita 2P2 Životné prostredie) a opatrenia 5.1.5 (priorita 5P1 Moderné regióny).
+PZ IÚI nadväzuje svojím riešením na iný PZ IÚI v rámci dvoch rôznych priorít P SK v rámci IÚI mechanizmu. Uvedie sa zároveň aj spôsob, akým medzi sebou súvisia/dopĺňajú sa uvedený PZ IÚI a predkladaný PZ IÚI.
+ |
+Územná integrácia
+ | #3.4.4
+ | Kombinácia aktivít realizovaných na spojitom území, bez ohľadu na administratívne hranice obcí:
+
+ aktivity realizovane jedným žiadateľom na území viacerých obcí/miest,
+b) aktivity realizované viacerými žiadateľmi príp. partnermi na území viacerých obcí/miest (aktivity musia na seba vzájomne nadväzovať a zároveň prepájať územie cez administratívne hranice minimálne dvoch rôznych území). Uvedie sa zároveň aj spôsob, akým medzi sebou súvisia/dopĺňajú sa aktivity uvedené v projekte/PZ IÚI a aktivity uvedené v predkladanom PZ IÚI.
+ |
+Organizačná integrácia
+ | #3.4.5
+ | Kombinácia aktivít rôznych zainteresovaných strán a partnerov v území, ktorí majú medzi sebou uzavretú zmluvu/dohodu/memorandum  V prípade uzavretej zmluvy/dohody/memoranda treba túto skutočnosť uviesť.
+
+aktivity realizované žiadateľom a partnerom ako dvoch rôznych zainteresovaných strán (zodpovednosť za jednotlivé aktivity nesie každý žiadateľ a partner samostatne vrátane finančnej zodpovednosti za uvedené aktivity).
+
+aktivity realizované viacerými žiadateľmi na základe uzavretej zmluvy/dohody/memoranda a i. (zodpovednosť za jednotlivé aktivity nesie každý žiadateľ samostatne, vrátane finančnej zodpovednosti za uvedené aktivity). Uvedie sa zároveň aj spôsob, akým medzi sebou súvisia/dopĺňajú sa aktivity uvedené v projekte/PZ IÚI a aktivity uvedené v predkladanom PZ IÚI.
+
+V prípade identifikácie viacerých zainteresovaných strán a viacerých katastrálnych území je možná identifikácia ako aj organizačnej tak aj územnej integrácie.
+ |
+Finančná integrácia
+ | #3.4.6
+ |  Kombinácia viacerých fondov EÚ:
+projekt/PZ IÚI nadväzujúci na predkladaný PZ IÚI je financovaný z iného fondu EÚ ako je predkladaný PZ IÚI (v prípade, ak je PZ IÚI financovaný z EFRR, nadväzujúci projekt musí byť financovaný z KF, FST, ESF+, ENRAF a pod.).
+ |
+
+Miesto realizácie PZ IÚI
+Pre viacero miest realizácie si vopred namnožte Podkapitoly kliknutím do tabuľky a kliknutím vpravo na „+“.
+Miesto realizácie č.  SEQ #Miesto \*Arabic \n 1
+Obec/Mesto:
+
+ | # STYLEREF 2 \s 4.1. SEQ #Head2 \* ALPHABETIC \s 2 A
+ | PSČ mesto
+ulica číslo (ak relevantné)
+ |
+Okres LAU 1:
+ | # STYLEREF 2 \s 4.1. SEQ #Head2 \* ALPHABETIC \s 2 B
+ | Vyberte položku.
+ |
+Územie NUTS 3:
+ | # STYLEREF 2 \s 4.1. SEQ #Head2 \* ALPHABETIC \s 2 C
+ | Vyberte položku.
+ |
+
+Vykonajte aj Ukončenie množenia a Aktualizáciu číslovania podľa pokynov uvedených pri Žiadateľovi, následne vypíšte požadované.
+Popis PZ IÚI
+Navrhované ciele PZ IÚI
+Pre viacero cieľov si vopred namnožte riadky kliknutím do riadku tabuľky a kliknutím vpravo na „+“.
+Cieľ PZ IÚI č.  SEQ #CielePZ \*Arabic \n 1 :
+ | # STYLEREF 2 \s 5.1. SEQ #Head2 \* ALPHABETIC \s 2 A
+ | aký cieľ, resp. konkrétny výsledok sa má realizáciou projektu dosiahnuť
+ |
+Vykonajte aj Ukončenie množenia a Aktualizáciu číslovania podľa pokynov uvedených pri Žiadateľovi, následne vypíšte požadované.
+Aktivity PZ IÚI a plánované obdobie realizácie aktivít
+Pre viacero hlavných aktivít si vopred namnožte tabuľku kliknutím do tabuľky a kliknutím vpravo dole na „+“. NEZABUDNITE na výber zodpovedného žiadateľa/partnera za HA a dopísať aj jeho poradie.
+Dĺžku realizácie HA je možné po výbere jednej z prednastavených hodnôt následne editovať/prepísať.
+Začiatok a koniec Obdobia realizácie HA sa nevypĺňa, pokiaľ nie sú podmienené presným termínom, alebo udalosťou; v prípade viazanosti HA na konkrétny termín dôvody uveďte v bode 5.4.
+Dátum sa po výbere vo výberovom poli vypíše vo formáte MM/YYYY; nezávisle od výberu dňa v mesiaci.
+Pri vypracovaní formulára PZ IÚI je nevyhnutné, aby aktivity (obsah jednotlivých aktivít) boli v súlade s príslušnou výzvou.
+		Hlavná aktivita PZ IÚI č.  SEQ HAč \*Arabic \n 1:
+Názov HA č.  SEQ HAč \c 1
+a kto je riešiteľom:
+ | #HA. SEQ HAč \c 1. SEQ Pc \* ALPHABETIC \r 1A
+ |  SEQ HAč \c 1. Názov uveďte za predpísaným číslom názov HA
+ | Vyberte položku.
+ |
+Obdobie realizácie HA:
+(dĺžka | začiatok | koniec)
+ | #HA. SEQ HAč \c 1. SEQ Pc \* ALPHABETIC \s B
+ | Vyberte položku.
+ | Vyberte dátum.
+ | Vyberte dátum.
+ |
+Špecifický cieľ P SK :
+ | #HA. SEQ HAč \c 1. SEQ Pc \* ALPHABETIC \s C
+ | Vyberte položku.
+ |
+Opatrenie P SK :
+ | #HA. SEQ HAč \c 1. SEQ Pc \* ALPHABETIC \s D
+ | Vyberte položku.
+ |
+
+Vykonajte aj Ukončenie množenia a Aktualizáciu číslovania podľa pokynov uvedených pri Žiadateľovi, následne vypíšte požadované.
+		Podporné aktivity
+Ponechajte nevyplnené v prípade neuplatnenia si podporných aktivít (PA).
+Obdobie realizácie PA:
+(dĺžka | začiatok | koniec)
+ | PA.0.0
+ | Vyberte položku.
+ | Vyberte dátum.
+ | Vyberte dátum.
+ |
+Zhrnutie opisu plánovaných projektových činností PZ IÚI
+Popis spôsobu realizácie aktivít projektu, vrátane vhodnosti navrhovaných aktivít s ohľadom na očakávané výsledky. V prípade relevantnosti, žiadateľ zahrnie do predmetnej časti aj popis súladu realizácie projektu s regionálnymi stratégiami a koncepciami.
+popis jednotlivých aktivít projektu, ich spôsob realizácie, technické zabezpečenie, ich uskutočniteľnosť, reálnosť a primeranosť,
+ popis navrhovaných postupov a riešení pri realizácii aktivít projektu (napr. vybrané materiály, technológie, technické riešenia metodologické postupy, potreby nákupu konkrétnych zariadení a pod),
+zdôvodnenie predkladaného technického riešenia. Ak boli v projekte posúdené alternatívy, je potrebné špecifikovať aké a popísať prečo bola vybraná práve táto alternatíva,
+časovú následnosť realizácie aktivít projektu, ich nadväznosť,
+popis, ako budú dosiahnuté stanovené ciele aktivít projektu
+
+Časová postupnosť realizácie projektu a súlad harmonogramu realizácie aktivít s ďalšími lehotami vyplývajúcimi z legislatívy SR (napr. stavebný zákon), stavebno-technologických postupov, relevantných zmluvných vzťahov, resp. relevantných povolení súvisiacich s realizáciou projektu.
+
+Obsahová/vecná stránka jednotlivých výdavkov na všetkých úrovniach rozpočtu. Žiadateľ popíše, ako výdavky projektu súvisia s oprávnenými aktivitami a zároveň, či sú v súlade so zoznamom oprávnených výdavkov uvedených v príslušnej výzve na predkladanie žiadostí o NFP a ako postupoval pri výpočte oprávnených výdavkov projektu. Taktiež, či sú účelné z pohľadu dosahovania stanovených cieľov projektu (t. j. či sú potrebné/nevyhnutné na realizáciu aktivít projektu) a či spĺňajú zásadu účinnosti (t. j. plnenie stanovených cieľov a dosahovanie plánovaných výsledkov).
+
+Odporúčame zvolenú aktivitu uvádzať vo vecnom súlade s typmi akcií predmetnej výzvy alebo podmienkami poskytnutia príspevku.
+ |
+Stav pripravenosti PZ IÚI
+Vybrať jeden popis stavu pripravenosti
+Zvyšné je potrebné vymazať
+
+Slovný popis stavu pripravenosti
+ | Poznámky
+ |
+povoľovacie procesy sa nevyžadujú
+ | ide o projekty doplnkové k investičným projektom, financované najmä z ESF+ alebo iných programov EÚ 
+ |
+štádium zámeru projektu
+ | existuje len krátky popis, prípadne formulár z Katalógu akcií
+ |
+spracovaná architektonická alebo iná štúdia realizovateľnosti
+ |
+ |
+príprava projektovej dokumentácie
+ | stav prípravy projektovej dokumentácie - špecifikácia VO
+ |
+majetkovo-právne vysporiadanie
+ | zmluvné vzťahy, nájomné zmluvy, listy vlastníctva, výpisy z katastra, príp. kúpne zmluvy
+ |
+zhotovená kompletná dokumentácia pre územné rozhodnutie
+ | platná projektová dokumentácia príp. po aktualizácii
+ |
+zhotovená kompletná dokumentácia pre stavebné povolenie
+ | platná projektová dokumentácia príp. po aktualizácii
+ |
+vydané právoplatné stavebné povolenie
+ | vydané stavebné povolenie alebo ohlásenie stavby
+ |
+zhotovená kompletná dokumentácia - realizačná
+ | platná projektová dokumentácia príp. po aktualizácii
+ |
+ukončené verejné obstarávanie na zhotoviteľa
+ | verejné obstarávanie na zhotoviteľa stavby/inej investičnej akcie
+ |
+
+ |
+
+Očakávané merateľné ukazovatele PZ IÚI
+PZ IÚI a očakávané merateľné ukazovatele
+Pre viacero merateľných ukazovateľov si vopred namnožte riadky kliknutím do riadku tabuľky a kliknutím vpravo na „+“.
+P.č.
+ | Merateľné ukazovatele adresované PZ IÚI
+ | Merná jednotka
+ | Východisková hodnota
+ | Cieľová hodnota
+ |
+ SEQ MUka \*Arabic \n 1.
+ | # STYLEREF 1 \s 6.0. SEQ #Head2 \* ALPHABETIC \s 2 A
+ | V súlade s výzvou
+ |
+ |
+ |
+ |
+Vykonajte aj Ukončenie množenia a Aktualizáciu číslovania podľa pokynov uvedených pri Žiadateľovi, následne vypíšte požadované.
+Indikatívny rozpočet PZ IÚI
+A. V prípade jediného žiadateľa sa vytváranie ďalších rozpočtových podkapitol neaplikuje, pristúpte k bodu B.
+    Pre ďalších žiadateľov vytvoríte rozpočtové podkapitoly nasledovne:
+kliknutí (Myš) v prvom riadku zeleno podfarbenej oblasti (nie v modrom riadku), vpravo dole sa objaví „+“, na ktoré kliknite
+uvedené opakujte podľa počtu žiadateľov (podkapitoly nemnožte iným spôsobom, automatické číslovanie sa poruší).
+	NEZABUDNITE na Aktualizáciu číslovania: výberom namnožených rozpočtových podkapitol (Myš) a stlačením F9
+B. V zeleno podfarbenej oblasti (nie v modrom riadku) stlačte MyšR a z menu vyberte „Odstrániť ovládací prvok obsahu“; viď aj skratky a pokyny uvedené pri Žiadateľovi.
+C. Postupne pre žiadateľa / všetkých žiadateľov  vytvorte potrebný počet rozpočtových výdavkov v členení podľa hlavných aktivít:
+v modro podfarbenej riadku po kliknutí (Myš) vpravo dole sa objaví modré „+“, na ktoré kliknite
+uvedené opakujte podľa počtu HA, v ktorých sa budú uplatňovať výdavky.
+Rozpočtové údaje môžete množiť a do(pre)pisovať podľa potreby až do vykonania Ukončenia množenia.
+	NEZABUDNITE na Aktualizáciu číslovania: výberom namnožených riadkov „Myš“ + presun (alebo celého textu cez Ctrl+A) a stlačením F9
+D.	Ukončenie množenia vykonáte v danej modrej oblasti stlačením MyšR a výberom z menu „Odstrániť ovládací prvok obsahu“
+
+POTREBNÉ UVIESŤ ROZPOČET PRE KAŽDÉ OPATRENIE SAMOSTATNE, AK SA REALIZUJÚ AKTIVITY V RÁMCI VIACERÝCH OPATRENÍ.
+AK SA REALIZUJÚ AJ PODPORNÉ AKTIVITY, TIETO MUSIA BYŤ ROZDELENÉ PRE KAŽDÉ OPATRENIE SAMOSTATNE, PRIČOM JE POTREBNÉ ZACHOVAŤ VÝŠKU NEPRIAMYCH VÝDAVKOV STANOVENÚ VO VÝZVE.
+
+Rozpočet žiadateľa č.  SEQ RoZiad \*Arabic \n 1:
+P. č.
+ | Hlavná aktivita PZ IÚI
+ | Pomenovanie predpokladaných výdavkov HA
+
+ | Výdavky
+na HA spolu (oprávnené a neoprávnené)
+ (EUR)
+ | Komentár
+(popis stanovenia výdavku vrátane identifikácie neoprávnených výdavkov s informáciou o tom, z akého dôvodu sa predpokladajú , ak relevantné)
+ |
+ AUTONUM  \* Arabic
+ | #Z. SEQ RoZiad \c 1. AUTONUM
+ | P. č. a Názov príslušnej hlavnej aktivity uvedený v podkapitole 5.2   - VLOŽTE
+ | V súlade s Príručkou oprávnenosti výdavkov
+V súlade s príslušnou výzvou.
+ |
+ |
+ |
+
+Zaokrúhľuje sa na 2 desatinné miesta.
+Toto pravidlo pre možnosť automatického spracovania používajte rovnako aj v ďalších výdavkových bunkách.
+Pre partnerA / ov postupujte rovnako ako pri žiadateľoch.
+V prípade partnera/ov bez nárokovania si prefinancovania ich výdavkov, vyplňte hodnoty 0 pre každú HA, ktorú budú realizovať (potvrdenie, že si preplatenie výdavkov nenárokujú).
+V prípade predkladania PZ IÚI bez partnerstva odporúčame celú podkapitolu Rozpočet partnera (nasledovnú hnedú oblasť) vybrať a vymazať (Del).
+Rozpočet partnera č.  SEQ RoPart \*Arabic \n 1:
+P.č.
+ | Hlavná aktivita PZ IÚI
+ | Pomenovanie predpokladaných výdavkov HA
+ | Výdavky
+na HA spolu (oprávnené a neoprávnené)
+ (EUR)
+ | Komentár
+(popis stanovenia výdavku, vrátane identifikácie neoprávnených výdavkov s informáciou o tom, z akého dôvodu sa predpokladajú NOTEREF _Ref224737388 \h  \* MERGEFORMAT 11, ak relevantné)
+ |
+1.
+ | #P. SEQ RoPart \c 1.1
+ | P. č. a Názov  príslušnej hlavnej aktivity uvedený  v podkapitole 5.2   - VLOŽTE
+ | V súlade v Príručkou oprávnenosti výdavkov11
+ | 0
+ |
+ |
+
+Rozpočet - podporné aktivity:
+P.č.
+ |
+ | Pomenovanie predpokladaných výdavkov PA
+a kto si ich uplatňuje (žiadateľ/partner č. ...)
+ | Výdavky na
+PA  spolu
+ (EUR)
+ | Komentár
+(popis stanovenia výdavku
+ |
+1.
+ | #R.0.1
+ | Podporné aktivity PZ IÚI
+ | V prípade uplatnenia si paušálnej sadzby uviesť kód a názov paušálnej sadzby
+ |
+ | v zmysle pravidiel výpočtu paušálu príslušnej výzvy
+ |
+
+Celkový rozpočet PZ IÚI:
+
+PZ IÚI
+ | # STYLEREF 1 \s 7.0.0
+ | Celkové predpokladané výdavky (v EUR)
+(oprávnené + neoprávnené výdavky)
+ | 0
+ |
+
+ | # STYLEREF 1 \s 7.0.1
+ | Neoprávnené výdavky (v EUR)
+ | 0
+ |
+
+ | # STYLEREF 1 \s 7.0.2
+ | Celkové oprávnené výdavky (v EUR)
+ | 0
+ |
+
+ | # STYLEREF 1 \s 7.0.3
+ | Zdroj EÚ (z COV v EUR)
+ | 0
+ |
+
+ | # STYLEREF 1 \s 7.0.4
+ | Štátny rozpočet (z COV v EUR)
+ | 0
+ |
+
+ | # STYLEREF 1 \s 7.0.5
+ | Vlastné zdroje prijímateľa (z COV v EUR)
+ | 0
+ |
+
+Iné informácie
+napr. rozhodujúce skutočnosti podmieňujúce začatie projektu, alebo jeho celkovú realizáciu;
+výhodnosť integrácie, nadväznosti na iné aktivity, projekty, strategické plánovanie;
+iné skutočnosti priorizujúce realizáciu predkladaného zámeru.
+ |
+Čestné vyhlásenie
+Pre každého žiadateľa namnožte vlastné vyhlásenie
+Ja, .......................................  ako štatutárny orgán / osoba splnomocnená štatutárnym orgánom žiadateľa č.  .....  čestne vyhlasujem, že:
+☐	všetky informácie obsiahnuté v PZ a všetkých jeho prílohách sú úplné, pravdivé a správne;
+☐	dodržím pri implementácii projektu horizontálne princípy zamerané na odstraňovanie nerovností a presadzovanie rovnosti žien a mužov, ako aj na boj proti diskriminácii na základe pohlavia, rasy alebo etnického pôvodu, náboženstva alebo viery, zdravotného postihnutia, veku alebo sexuálnej orientácie a zabezpečím prístupnosť v súlade s Dohovorom OSN o právach osôb so zdravotným postihnutím;
+☐	disponujem dostatočnými administratívnymi, odbornými a prevádzkovými kapacitami na riadenie a realizáciu projektu;
+☐	zabezpečím finančné prostriedky na spolufinancovanie PZ tak, aby nebola ohrozená jeho implementácia;
+☐	na oprávnené výdavky uvedené v PZ nečerpám inú pomoc, resp. požadovanie inej pomoci je v súlade s pravidlami kumulácie ustanovenými v príslušných právnych predpisoch poskytovania štátnej pomoci a na tieto výdavky v minulosti nebol poskytnutý príspevok z verejných prostriedkov ani z Recyklačného fondu;
+☐	som si vedomý skutočnosti, že na nenávratný finančný príspevok nie je právny nárok;
+☐	som si vedomý zodpovednosti za predloženie úplných a správnych údajov, pričom beriem na vedomie, že preukázanie opaku je spojené s rizikom možných následkov v rámci konania o ŽoNFP a/alebo implementácie PZ (napr. možnosť mimoriadneho ukončenia zmluvného vzťahu, vznik neoprávnených výdavkov);
+Zaväzujem sa bezodkladne písomne informovať príslušnú radu partnerstva/kooperačnú radu UMR o všetkých zmenách, ktoré sa týkajú uvedených údajov a skutočností.
+	Súhlasím so správou, spracovaním a uchovávaním všetkých uvedených osobných údajov.
+
+Ukončite množenia v danej oblasti stlačením MyšR a výberom z menu „Odstrániť ....“
+NEZABUDNITE: doplniť meno a priezvisko, preškrtnúť nehodiacu sa funkciu prehlasujúceho a odsúhlasiť každé vyhlásenie kliknutím na potvrdzujúci výber.
+Ja, ........................................ ako štatutárny orgán / osoba splnomocnená štatutárnym orgánom partnera č.  ..... čestne vyhlasujem, že:
+☐	všetky informácie obsiahnuté v PZ a všetkých jeho prílohách sú úplné, pravdivé a správne;
+☐	dodržím pri implementácii projektu horizontálne princípy zamerané na odstraňovanie nerovností a presadzovanie rovnosti žien a mužov, ako aj na boj proti diskriminácii na základe pohlavia, rasy alebo etnického pôvodu, náboženstva alebo viery, zdravotného postihnutia, veku alebo sexuálnej orientácie a zabezpečím prístupnosť v súlade s Dohovorom OSN o právach osôb so zdravotným postihnutím;
+☐	disponujem dostatočnými administratívnymi, odbornými a prevádzkovými kapacitami na riadenie a realizáciu projektu;
+☐	zabezpečím finančné prostriedky na spolufinancovanie PZ tak, aby nebola ohrozená jeho implementácia;
+☐	na oprávnené výdavky uvedené v PZ nečerpám inú pomoc, resp. požadovanie inej pomoci je v súlade s pravidlami kumulácie ustanovenými v príslušných právnych predpisoch poskytovania štátnej pomoci a na tieto výdavky v minulosti nebol poskytnutý príspevok z verejných prostriedkov ani z Recyklačného fondu;
+☐	som si vedomý skutočnosti, že na nenávratný finančný príspevok nie je právny nárok;
+☐	som si vedomý zodpovednosti za predloženie úplných a správnych údajov, pričom beriem na vedomie, že preukázanie opaku je spojené s rizikom možných následkov v rámci konania o ŽoNFP a/alebo implementácie PZ (napr. možnosť mimoriadneho ukončenia zmluvného vzťahu, vznik neoprávnených výdavkov);
+	Zaväzujem sa bezodkladne písomne informovať poskytovateľa o všetkých zmenách, ktoré sa týkajú uvedených údajov a skutočností.
+	Súhlasím so správou, spracovaním a uchovávaním všetkých uvedených osobných údajov.
+
+Tieto usmernenia sivým písmom nakoniec  odstráňte v celom dokumente.
+Pozor na vymazanie riadkov podkapitol, alebo iných číslovaných údajov; odporúčame vymazávanie (Del) len celých vybraných riadkov so sivým písmom.

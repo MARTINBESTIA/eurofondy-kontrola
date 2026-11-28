@@ -1,0 +1,1774 @@
+Príručka pre prijímateľa
+
+Čiastková obnova rodinných domov z prostriedkov Modernizačného fondu
+
+                                  (kód Výzvy: 26-MFOD-V01)
+
+                                                verzia 1.1
+                                        Platná od: 2. 11. 2026
+Obsah
+
+1 Úvod.........................................................................................................................................................3
+   1.1 Skratky..............................................................................................................................................3
+   1.2 Definícia používaných pojmov .........................................................................................................4
+
+2 Komunikácia.............................................................................................................................................5
+   2.1 Spôsoby komunikácie a všeobecné pravidlá komunikácie ..............................................................5
+   2.2 Základné pravidlá elektronickej a listinnej komunikácie .................................................................6
+
+3 Realizácia projektu...................................................................................................................................7
+4 Kontrola projektu.....................................................................................................................................8
+
+   4.1 Finančná kontrola ŽoP .....................................................................................................................9
+      4.1.1 Všeobecné ustanovenia ...........................................................................................................9
+      4.1.2 Finančná kontrola podľa § 8 zákona o finančnej kontrole.................................................... 10
+      4.1.3 Finančná kontrola podľa § 9 zákona o finančnej kontrole (kontrola na mieste) .................. 10
+
+   4.2 Finančná kontrola počas Doby udržateľnosti projektu................................................................. 12
+      4.2.1 Podmienky, ktoré museli byť splnené pred uzavretím Zmluvy o PP a vyplatením zálohy
+      a ktoré platia aj po uzavretí a nadobudnutí účinnosti Zmluvy o PP ..................................................... 12
+
+5 Vyplatenie príspevku .............................................................................................................................14
+   5.1 Predloženie žiadosti o platbu........................................................................................................ 15
+      5.1.1 Spôsob vyčíslenia výšky schválených oprávnených výdavkov .............................................. 17
+      5.1.2 Maximálne jednotkové ceny ................................................................................................. 21
+      5.1.3 Prílohy ŽoP na preukázanie rozsahu zrealizovanej obnovy RD a vyčíslenie výšky schválených
+      oprávnených výdavkov ......................................................................................................................... 23
+
+6 Ďalšie povinnosti prijímateľa vyplývajúce zo Zmluvy o PP ....................................................................25
+   6.1 Poskytovanie informácií................................................................................................................ 25
+   6.2 Viditeľnosť poskytnutej podpory .................................................................................................. 25
+   6.3 Vysporiadanie finančných vzťahov a nezrovnalosti ...................................................................... 26
+   6.4 Udržateľnosť projektu................................................................................................................... 27
+   6.5 Uchovávanie dokladov súvisiacich s poskytnutím príspevku ....................................................... 27
+
+7 Zmena Zmluvy o PP................................................................................................................................28
+   7.1 Všeobecné zásady uplatňované v rámci zmeny Zmluvy o PP ....................................................... 28
+   7.2 Typy zmien a spôsob ich posudzovania ........................................................................................ 29
+      7.2.1 Formálna zmena Zmluvy o PP ............................................................................................... 29
+      7.2.2 Významná zmena Zmluvy o PP ............................................................................................. 29
+   7.3 Vyhotovenie dodatku k Zmluve o PP ............................................................................................ 30
+   7.4 Zmena Zmluvy o PP z iniciatívy SAŽP ............................................................................................ 31
+
+                                                                2
+1 Úvod
+
+Cieľom tejto Príručky je poskytnúť prijímateľom, ktorí uzavreli Zmluvu o PP, všetky potrebné informácie
+súvisiace so spôsobom preukázania realizácie čiastkovej obnovy rodinného domu, stanovenia celkovej
+výšky príspevku a vyplatenia príspevku po zohľadnení výšky poskytnutej zálohy, vrátane povinností
+vyplývajúcich zo Zmluvy o PP.
+
+Príručka je záväznou dokumentáciou v zmysle Zmluvy o PP (pozri definície v čl. 1 Všeobecných zmluvných
+podmienok) a prijímateľ je povinný dodržiavať podmienky z nej vyplývajúce.
+
+Príručka nadobúda platnosť dňom uvedeným na úvodnej strane, najskôr však dňom zverejnenia
+na webovom sídle www.obnovdom.sk, čím sa stáva záväznou pre prijímateľa.
+
+Každá zmena Príručky (aktualizácia) musí byť riadne označená číslom verzie, dátumom platnosti a účinnosti
+a musí byť zverejnená na webovom sídle www.obnovdom.sk.
+
+Slovenská agentúra životného prostredia zabezpečí dostupnosť všetkých informácií ich zverejnením
+na webovom sídle www.obnovdom.sk.
+
+1.1 Skratky
+
+V tejto kapitole sú zhrnuté skratky využívané v celom dokumente Príručky.
+
+EÚ                Európska únia
+
+LV                list vlastníctva
+
+MoF               Modernizačný fond
+
+MŽP SR            Ministerstvo životného prostredia Slovenskej republiky
+
+OVZ               okolnosť vylučujúca zodpovednosť
+
+Príručka          Príručka pre prijímateľa Čiastková obnova rodinných domov z prostriedkov
+
+                  Modernizačného fondu v aktuálnej verzii
+
+Príspevok         nenávratný finančný príspevok poskytovaný z prostriedkov Modernizačného
+
+                  fondu
+
+RD                rodinný dom
+
+SAŽP              Slovenská agentúra životného prostredia
+
+SOV               schválené oprávnené výdavky
+
+Trestný zákon     zákon č. 300/2005 Z. z. trestný zákon v znení neskorších predpisov
+
+ÚPVS              Ústredný portál verejnej správy dostupný na www.slovensko.sk
+
+Výzva             Výzva č. 1 na predkladanie žiadostí o poskytnutie nenávratného finančného
+
+                  príspevku na čiastkovú obnovu rodinných domov, vyhlásená 15. júla 2026
+
+                  a označená kódom 26-MFOD-V01, pričom na prijímateľa sa vzťahujú
+
+                  podmienky príslušného kola Výzvy, v rámci ktorého predložil žiadosť
+
+                  o poskytnutie nenávratného finančného príspevku
+
+VZP               Všeobecné zmluvné podmienky, príloha č. 1 Zmluvy o PP
+
+zákon o e-Governmente zákon č. 305/2013 Z. z. o elektronickej podobe výkonu pôsobnosti orgánov
+
+                  verejnej moci a o zmene a doplnení niektorých zákonov (zákon
+
+                  o e-Governmente) v znení neskorších predpisov
+
+zákon o finančnej kontrole zákon č. 357/2015 Z. z. o finančnej kontrole a audite a o zmene a doplnení
+
+                  niektorých zákonov v znení neskorších predpisov
+
+zákon č. 414/2012 Z. z. zákon č. 414/2012 Z. z. o obchodovaní s emisnými kvótami a o zmene
+
+                  a doplnení niektorých zákonov v znení neskorších predpisov
+
+zákon o odpadoch  zákon č. 79/2015 Z. z. o odpadoch a o zmene a doplnení niektorých zákonov
+
+                  v znení neskorších predpisov
+
+Zmluva o PP       Zmluva o poskytnutí nenávratného finančného príspevku z prostriedkov
+
+                  Modernizačného fondu
+
+                                        3
+žiadosť  žiadosť o poskytnutie nenávratného finančného príspevku na čiastkovú
+ŽoP      obnovu rodinných domov
+         žiadosť o platbu
+
+1.2 Definícia používaných pojmov
+
+Definície pojmov uvedené v Zmluve o PP sú platné aj pre účely tejto Príručky. V tejto kapitole sú uvedené
+definície najmä tých pojmov, ktoré nie sú zahrnuté v Zmluve o PP (VZP).
+
+Dodávateľ je osoba alebo skupina osôb, ktorá so žiadateľom, resp. prijímateľom uzavrie alebo uzavrela
+odplatnú zmluvu (alebo jej ekvivalent, napr. objednávku) na dodanie tovaru, uskutočnenie stavebných prác
+alebo poskytnutie služby v súvislosti s realizáciou čiastkovej obnovy RD v rozsahu definovanom vo Výzve
+a v tejto Príručke.
+
+E-schránka je elektronická schránka dostupná prostredníctvom portálu www.slovensko.sk podľa zákona
+o e-Governmente.
+
+Hospodárska činnosť je v zmysle ustálenej judikatúry Súdneho dvora EÚ poskytovanie tovarov a/alebo
+služieb na trhu. V kontexte tejto Výzvy sa posudzuje, či je rodinný dom (v akom rozsahu a za akých
+podmienok) využívaný na hospodárske účely. Typickým príkladom je vykonávanie slobodného povolania
+v RD alebo prenájom časti RD tretím osobám (upozorňujeme, že akýkoľvek prenájom RD alebo jeho časti
+je v rámci všetkých výziev programu Obnov dom mini+ zakázaný, t. j. je v rozpore s podmienkami
+poskytnutia príspevku stanovenými Výzvou a Zmluvou o PP).
+
+Kontaktná osoba je osoba písomne splnomocnená výlučným vlastníkom, bezpodielovými spoluvlastníkmi
+alebo podielovými spoluvlastníkmi RD na vykonávanie úkonov vyplývajúcich zo Zmluvy o PP (predloženie
+ŽoP, komunikácia v mene prijímateľa a poskytovanie súčinnosti v zmysle požiadaviek SAŽP). Kontaktná
+osoba nie je prijímateľom. V prípade, že na úkony podľa prechádzajúcej vety bola splnomocnená kontaktná
+osoba, SAŽP adresuje všetku komunikáciu súvisiacu s platnou a účinnou Zmluvou o PP len kontaktnej osobe,
+ak nie je v tejto Príručke uvedené inak.
+
+Kontrolný výpočet je matematický výpočet, ktorým SAŽP, v zmysle článku 4 VZP, v rámci finančnej kontroly
+ŽoP určí výšku SOV podľa kapitoly 5.1.1 tejto Príručky. Na základe SOV následne vyčísli výšku príspevku,
+ktorú prijímateľovi vyplatí v súlade s podmienkami Zmluvy o PP a Výzvy. Kontrolný výpočet je povinnou
+prílohou správy z finančnej kontroly. Kotol na biomasu je pre účely výziev Obnov dom mini+ vykurovacie
+zariadenie určené na spaľovanie biomasy vo forme peliet alebo palivového dreva splyňovaním, a ktoré slúži
+na výrobu tepla (t. j. vykurovanie), pričom pod pojmom zastaraný kotol na biomasu sa pre účely výziev
+Obnov dom mini+ rozumie zastarané vysokoemisné (neekologické) vykurovacie zariadenie na spaľovanie
+biomasy, t. j. starý kotol na spaľovanie biomasy alebo lokálny zdroj tepla určený na spaľovanie biomasy
+(napr. krbová vložka, kozub, kachle alebo pec na drevo), ktoré slúžilo v RD ako hlavný zdroj tepla
+(vykurovania). Ak je lokálnych zdrojov tepla viac, musí nový kotol na biomasu nahradiť všetky takéto lokálne
+zdroje tepla (preto je medzi oprávnené opatrenia zahrnuté aj vybudovanie vnútorných rozvodov systému
+centrálneho vykurovania vrátane vykurovacích telies a ich pripojenie na kotol na biomasu obstaraný v rámci
+realizovaného projektu).
+
+Nezrovnalosť je akékoľvek porušenie ustanovenia práva EÚ vyplývajúce z konania alebo opomenutia
+konania hospodárskeho subjektu, dôsledkom čoho je alebo by bolo poškodenie všeobecného rozpočtu EÚ
+alebo rozpočtov ňou spravovaných, buď zmenšením, alebo stratou výnosov plynúcich z vlastných zdrojov
+vyberaných priamo v mene EÚ alebo neoprávnenou výdajovou položkou. Na účely správnej aplikácie
+podmienok tejto definície nezrovnalosti, stanovenej nariadením Rady (ES, Euratom) č. 2988/95 Ú. v. EÚ
+z 18. decembra 1995 o ochrane finančných záujmov Európskych spoločenstiev v platnom znení,
+sa pri posudzovaní skutočností a zistených nedostatkov pod pojmom nezrovnalosť rozumie aj podozrenie
+z nezrovnalosti.
+
+Prijímateľ je v kontexte Výzvy fyzická osoba (výlučný vlastník, podielový spoluvlastník alebo bezpodielový
+spoluvlastník RD), ktorá podľa § 19 ods. 5 zákona č. 414/2012 Z. z. uzavrela so SAŽP Zmluvu o PP na základe
+
+         4
+schválenej žiadosti (uzavretím Zmluvy o PP sa žiadateľ stáva prijímateľom). Prijímateľovi sa vypláca záloha
+a po splnení zmluvných podmienok aj zvyšné prostriedky z MoF na obnovu RD.
+
+Príspevok alebo nenávratný finančný príspevok, resp. NFP sú finančné prostriedky MoF určené
+na zlepšenie energetickej efektívnosti rodinných domov obývaných domácnosťami s nízkymi príjmami
+(pre účely Výzvy sa za takéto domácnosti považujú domácnosti ohrozené energetickou chudobou), pričom
+podľa § 18 ods. 15 zákona č. 414/2012 Z. z. sa použijú na podporu investícií vrátane financovania malých
+investičných projektov, na modernizáciu energetických systémov a zlepšenie energetickej efektívnosti.
+V kontexte Výzvy ide o finančné prostriedky, ktoré budú v prípade splnenia stanovených podmienok
+vyplatené prijímateľovi v zmysle Zmluvy o PP.
+
+Rekapitulácia podania dokument vo formáte PDF, ktorý SAŽP po zaevidovaní ŽoP automaticky zasiela
+prijímateľovi na e-mailovú adresu uvedenú v ŽoP. Obsahuje prehľad údajov uvedených v ŽoP a dátum a čas
+jej zaevidovania. Slúži ako potvrdenie o predložení ŽoP; prijímateľ ho nepodpisuje ani nezasiela SAŽP.
+
+Rodinný dom alebo RD je existujúca, užívaná budova, určená predovšetkým na individuálne rodinné
+bývanie, ktorá svojím stavebnotechnickým usporiadaním slúži na bývanie jednej alebo viacerých
+domácností, pričom tradične sa za rodinný dom považuje stavba s najviac tromi bytmi, najviac dvoma
+nadzemnými podlažiami a podkrovím a obnova ktorej je predmetom žiadosti. Rodinným domom sa podľa
+predchádzajúcej vety rozumie aj dom v radovej výstavbe so samostatným súpisným číslom. V prípade
+„dvojdomu“ sa za rodinný dom považuje každá z prevádzkových jednotiek tvoriacich dvojdom
+pod podmienkou, že majú samostatné súpisné číslo (dvojdom je bytová budova, ktorá vzniká združením
+dvoch rodinných domov (jedno alebo dvojbytových), ktoré majú jednu spoločnú deliacu stenu umiestnenú
+na spoločnej hranici pozemku a každý z nich má samostatný prístup do domu a na vlastný pozemok).
+
+Technický list je dokument vydaný výrobcom uvádzajúci výkonnostné a technické parametre výrobku
+(zariadenia).
+
+Zmluva o poskytnutí príspevku alebo Zmluva o PP je zmluva o poskytnutí nenávratného finančného
+príspevku z prostriedkov MoF v zmysle § 19 ods. 5 zákona č. 414/2012 Z. z. uzatvorená medzi SAŽP (ktorá
+koná v súlade s písomným Poverením MŽP SR) a žiadateľom, ktorého žiadosť splnila podmienky definované
+vo Výzve. V prípade, že RD vlastní viacero osôb, Zmluva o PP je uzavretá len s jednou z nich, ktorú na tento
+účel písomne splnomocnia všetci ostatní spoluvlastníci uvedení na príslušnom LV.
+
+Zoznam oprávnených zariadení zverejnený na https://is-zd.zelenadomacnostiam.sk/zariadenia je zoznam
+zariadení, z ktorého SAŽP určuje oprávnenosť zariadení skupiny B a pri opatreniach B.1a a B.2 aj ich výkon.
+Oprávnenosť sa posudzuje podľa zoznamu platného v čase výkonu finančnej kontroly ŽoP.
+
+Žiadateľ je fyzická osoba (výlučný vlastník, podielový spoluvlastník alebo bezpodielový vlastník RD), ktorá
+podľa § 19 ods. 4 zákona č. 414/2012 Z. z. predložila žiadosť o poskytnutie nenávratného finančného
+príspevku na čiastkovú obnovu rodinného domu z prostriedkov MoF na základe Výzvy, ktorú SAŽP zverejnila
+na svojom webovom sídle. Detailný popis, kto sa pre účely Výzvy považuje za žiadateľa je uvedený
+v kapitolách 2.2 a 2.3 Príručky pre žiadateľa k Výzve na predkladanie žiadostí o príspevok na čiastkovú
+obnovu rodinných domov zo dňa 15. 07. 2026, kód Výzvy: 26-MFOD-V01 (ďalej len „Príručka pre žiadateľa“).
+
+Žiadosť o poskytnutie nenávratného finančného príspevku z prostriedkov Modernizačného fondu alebo
+žiadosť je dokument, ktorý pozostáva z formulára žiadosti a povinných príloh, na základe ktorých
+je po overení splnenia podmienok poskytnutia príspevku možné so žiadateľom uzavrieť Zmluvu o PP.
+
+2 Komunikácia
+
+2.1 Spôsoby komunikácie a všeobecné pravidlá komunikácie
+
+Komunikácia medzi prijímateľom a SAŽP sa v súlade s príslušnými ustanoveniami Zmluvy o PP
+uskutočňuje nasledovnými spôsobmi:
+
+                                                                5
+1. elektronicky e-mailom, ktorý slúži ako hlavný komunikačný nástroj medzi SAŽP a prijímateľom
+     do momentu predloženia ŽoP bude komunikácia prebiehať výlučne prostredníctvom e-mailovej adresy
+     prijímateľa uvedenej v žiadosti; po predložení ŽoP bude platná e-mailová adresa prijímateľa uvedená
+     v ŽoP; ak prijímateľ v súlade s čl. 5 ods. 5.7 Zmluvy o PP (bližšie definovaný v kapitole 7.2 tejto Príručky)
+     oznámi zmenu e-mailovej adresy, bude SAŽP od doručenia oznámenia o zmene používať takto
+     oznámenú e-mailovú adresu;
+     - prijímateľ kontaktuje SAŽP prioritne na adrese [e-mail vynechaný];
+
+2. elektronicky prostredníctvom Ústredného portálu verejnej správy (ďalej len „ÚPVS“) –
+     www.slovensko.sk
+     pre využitie tohto spôsobu komunikácie musí mať prijímateľ aktivovanú e-schránku na portáli
+     www.slovensko.sk; v takom prípade prebieha komunikácia prostredníctvom osobnej e-schránky
+     prijímateľa a e-schránky SAŽP: E0005698870 v rámci všeobecnej agendy;
+
+3. listinne – prostredníctvom poštových služieb; korešpondencia je zo strany SAŽP odosielaná na adresu
+     prijímateľa uvedenú v Zmluve o PP, resp. na korešpondenčnú adresu (ak je oznámená);
+     zo strany prijímateľa je zase korešpondencia odosielaná na adresu:
+         Slovenská agentúra životného prostredia
+         Rožňavská 24
+         821 04 Bratislava
+     alebo na adresu niektorej z regionálnych kancelárií SAŽP, ktorých zoznam je dostupný na webovom
+     sídle www.obnovdom.sk;
+
+4. osobne – v niektorej z regionálnych kancelárií SAŽP, ktorých adresy sú dostupné na webovom sídle
+     www.obnovdom.sk.
+
+V prípade, že je prijímateľ zastúpený kontaktnou osobou, SAŽP adresuje všetku komunikáciu kontaktnej
+osobe na jej kontaktný e-mail oznámený podľa článku 5 ods. 5.7 Zmluvy o PP, do e-schránky kontaktnej
+osoby alebo na korešpondenčnú adresu kontaktnej osoby (ak kontaktná osoba nemá aktivovanú e-schránku
+na doručovanie).
+
+Ak sa v tejto kapitole uvádza „prijímateľ“, myslí sa tým:
+     a. samotný prijímateľ alebo
+     b. kontaktná osoba (ak prijímateľ splnomocnil kontaktnú osobu).
+
+Upozorňujeme prijímateľa, aby si pravidelne kontroloval najmä doručenú elektronickú poštu, ktorá slúži
+ako hlavný komunikačný kanál a predišiel tak prípadnému nesplneniu lehôt a podmienok stanovených
+SAŽP, napr. v súvislosti s posudzovaním predloženej ŽoP. Nedodržanie stanovených termínov môže byť
+dôvodom na neschválenie ŽoP.
+
+V zmysle čl. 5 ods. 5.9 Zmluvy o PP prebieha komunikácia v slovenskom alebo českom jazyku.
+
+2.2 Základné pravidlá elektronickej a listinnej komunikácie
+
+Komunikácia medzi prijímateľom a SAŽP prebieha prioritne prostredníctvom e-mailu, ak Zmluva o PP alebo
+táto Príručka neustanovuje iný spôsob komunikácie.
+
+Prijímateľ je povinný zabezpečiť aktuálnosť svojich kontaktných údajov. Každú zmenu kontaktných údajov
+(najmä zmenu e-mailovej adresy) je prijímateľ povinný oznámiť (listinne alebo elektronicky) SAŽP v súlade
+s čl. 5 ods. 5.7 Zmluvy o PP a spôsobom uvedeným v kapitole 7.2 tejto Príručky.
+
+Pri komunikácii so SAŽP je prijímateľ povinný vždy uvádzať číslo (kód) projektu uvedené v čl. 2 ods. 2.2
+Zmluvy o PP, čím sa zabezpečí jednoznačná identifikácia projektu a správne priradenie doručovanej
+komunikácie.
+
+                                                                6
+V prípade komunikácie prostredníctvom e-mailu sa písomnosť alebo zásielka adresovaná prijímateľovi
+považuje za doručenú momentom uplynutia lehoty stanovenej v zaslanej písomnosti, resp. prijatím
+vyjadrenia prijímateľa k zaslanej písomnosti. V prípade písomnosti alebo zásielky adresovanej SAŽP
+e-mailom sa táto považuje za doručenú v momente, keď prijímateľovi príde potvrdenie o úspešnom
+doručení zásielky. Ak SAŽP v e-mailovej správe určí lehotu na odpoveď alebo predloženie dokumentov,
+prijímateľ je povinný túto lehotu dodržať. Pokiaľ prijímateľ predmetnú lehotu nedodrží, t. j. v lehote
+stanovenej e-mailom nereaguje, SAŽP zašle písomnosť prijímateľovi elektronicky prostredníctvom
+e-schránky alebo listinne (prostredníctvom Slovenskej pošty, kuriérskou službou alebo osobne). Písomnosť
+sa zasiela listinne v prípade, ak prijímateľ nemá aktivovanú e-schránku na doručovanie.
+
+Nesplnenie lehoty stanovenej v zaslanej písomnosti môže viesť k podstatnému porušeniu Zmluvy o PP,
+a tým aj k uplatneniu práva SAŽP odstúpiť od Zmluvy o PP. Preto je nevyhnutné, aby prijímatelia priebežne
+sledovali najmä e-mailovú schránku oznámenú SAŽP, čím predídu negatívnym dôsledkom vyplývajúcim
+z prípadného porušenia Zmluvy o PP.
+
+Pri komunikácii prostredníctvom e-mailu prijímateľ uvedie číslo (kód) projektu do predmetu e-mailu.
+
+V prípade komunikácie cez ÚPVS prostredníctvom elektronickej schránky zriadenej každej zmluvnej strane
+v súlade so zákonom o e-Governmente, táto komunikácia prebieha prostredníctvom e-schránky
+„Všeobecná agenda“. Písomnosti, pri ktorých sa vyžaduje autorizácia, musia byť autorizované spôsobom
+ustanoveným príslušnými právnymi predpismi, najmä kvalifikovaným elektronickým podpisom, prípadne
+kvalifikovaným elektronickým podpisom s mandátnym certifikátom, ak sa takáto autorizácia vyžaduje.
+
+Písomnosť doručená do e-schránky prostredníctvom ÚPVS sa bude považovať za doručenú v deň uvedený
+na elektronickej doručenke alebo márnym uplynutím úložnej lehoty podľa toho, ktorá skutočnosť nastane
+skôr, a to aj vtedy, ak sa adresát o tom nedozvedel.
+
+V prípade, že prijímateľ nemá aktivovanú e-schránku na doručovanie, komunikuje so SAŽP listinne, pričom
+zásielky určené pre SAŽP môže:
+
+     a) zaslať poštou (alebo inou doručovacou službou) do podateľne SAŽP alebo
+     b) doručiť osobne do podateľne SAŽP alebo na adresu niektorej z regionálnych kancelárií.
+
+Pri komunikácii prostredníctvom e-schránky (v rámci všeobecnej agendy) prijímateľ v časti „Údaje o správe“
+uvedie ako „Predmet“ číslo (kód) projektu a ako „značku odosielateľa“ Žiadosť o platbu.
+
+V prípade komunikácie prebiehajúcej v listinnej podobe sa zásielka považuje za doručenú, ak dôjde do sféry
+dispozície adresáta (na adresu uvedenú v Zmluve o PP, resp. na korešpondenčnú adresu), a to aj v prípade,
+ak adresát písomnosť neprevzal, pričom za deň doručenia písomnosti sa považuje deň, keď:
+
+    a) uplynula úložná (odberná) lehota písomnosti zaslanej poštou a nebola vrátená podľa písm. c.,
+    b) adresát odoprel písomnosť doručovanú poštou alebo osobne prijať,
+    c) bola písomnosť vrátená späť odosielateľovi (bez ohľadu na prípadnú poznámku „adresát
+
+         neznámy“),
+
+podľa toho, ktorá skutočnosť nastane skôr.
+
+Pri listinnej komunikácii prijímateľ uvedie číslo (kód) projektu na obálku. Adresa pre podávanie zásielok
+(„Bratislava – podateľňa“) ako aj všetkých regionálnych kancelárií je dostupná na stránke
+www.obnovdom.sk v časti kontakty.
+
+3 Realizácia projektu
+
+Prijímateľ môže realizovať čiastkovú obnovu RD výlučne prostredníctvom dodávateľa, t. j. na práce
+realizované svojpomocne, ani na materiál/tovar zakúpený prijímateľom, pri ktorom nie je jednoznačne
+preukázané jeho použitie na čiastkovú obnovu RD (napr. vyhlásením dodávateľa), sa príspevok neposkytuje.
+
+                                                                7
+Výber dodávateľa je na rozhodnutí prijímateľa, pričom dodávateľ môže byť zo SR a aj zo zahraničia. V tejto
+súvislosti upozorňujeme, že materiál/tovar pôvodom (dovezený) z krajín mimo EÚ nebude považovaný
+za oprávnený výdavok, pokiaľ nebude preukázané, že je certifikovaný na použitie v rámci EÚ.
+
+Realizácia projektu začala najskôr 1. januára 2025 a ukončená musí byť do 10 mesiacov odo dňa
+nadobudnutia účinnosti Zmluvy o PP, najneskôr však do 31. decembra 2027, podľa toho, ktorá
+zo skutočností nastane skôr.
+
+Ak hrozí, že prijímateľ nestihne zrealizovať projekt do 10 mesiacov odo dňa nadobudnutia účinnosti
+Zmluvy o PP, môže na základe adekvátneho odôvodnenia požiadať SAŽP o predĺženie lehoty realizácie
+projektu (keďže predĺženie lehoty realizácie projektu je významnou zmenou Zmluvy o PP, postup
+pri predložení žiadosti o predĺženie lehoty realizácie projektu sa riadi podmienkami uvedenými v kapitole
+7.2.2 tejto Príručky). SAŽP môže po zvážení dôvodov uvedených prijímateľom lehotu realizácie projektu
+predĺžiť, najdlhšie však do 31. decembra 2027.
+
+Realizácia projektu začína prvým dňom, kedy dodávateľ začal s realizáciou prác čiastkovej obnovy RD, ide
+o konkrétne práce vykonané na RD (stavebné práce alebo inštalácia zariadení, podľa toho, čo nastane skôr).
+Dátum začatia realizácie projektu potvrdzuje dodávateľ v Preberacom protokole, resp. v Doklade o inštalácii
+a uvedení zariadenia do prevádzky.
+
+Realizácia projektu sa považuje za ukončenú dňom odovzdania diela alebo zariadenia, resp. jeho poslednej
+časti, ktorý je potvrdený zhotoviteľom/dodávateľom na Preberacom protokole, resp. na Doklade o inštalácii
+a uvedení zariadenia do prevádzky.
+
+Vzhľadom na krátkosť termínu na ukončenie realizácie projektu odporúčame venovať osobitnú pozornosť
+výberu dodávateľov, ktorí sa majú podieľať na realizácii čiastkovej obnovy RD.
+
+4 Kontrola projektu
+
+Príspevok a každá jeho časť (vyplatená záloha a zvyšná časť príspevku) je finančným prostriedkom
+poskytnutým z prostriedkov MoF podľa zákona č. 414/2012 Z. z. Neoprávnené použitie alebo zadržanie
+poskytnutých verejných prostriedkov môže mať za následok vznik povinnosti ich vrátenia, uloženie sankcií
+podľa osobitných predpisov alebo vznik iných právnych následkov podľa právneho poriadku SR a EÚ.
+Na kontrolu a audit použitia príspevku a na ukladanie a vymáhanie sankcií za porušenie finančnej disciplíny
+sa vzťahuje režim upravený v Zmluve o PP, Právnom rámci a tejto Príručke.
+
+Vzhľadom na skutočnosť, že na realizáciu projektu sú poskytované verejné prostriedky, podlieha plnenie
+podmienok Zmluvy o PP (na základe ktorej je príspevok vyplatený) finančnej kontrole v zmysle zákona
+o finančnej kontrole.
+
+Z hľadiska predmetu finančnej kontroly je možné rozlišovať:
+
+   i. finančnú kontrolu ŽoP – bližšie popísaná v kapitole 4.1 tejto Príručky a
+  ii. finančnú kontrolu plnenia podmienok Zmluvy o PP (osobitná kontrola, ktorá môže byť vykonaná
+
+         kedykoľvek počas obdobia platnosti a účinnosti Zmluvy o PP, mimo finančnej kontroly ŽoP).
+
+Každý projekt je predmetom minimálne jednej finančnej kontroly, a to v súvislosti s predloženou ŽoP.
+Na účely výkonu kontroly si SAŽP môže od prijímateľa vyžiadať potrebné doklady, resp. informácie
+preukazujúce splnenie podmienok poskytnutia príspevku vyplývajúcich z Výzvy a Zmluvy o PP a prijímateľ
+je (v zmysle čl. 13 VZP) povinný poskytnúť potrebnú súčinnosť a vytvoriť primerané podmienky na výkon
+finančnej kontroly. Prijímateľ je zároveň povinný zdržať sa akéhokoľvek konania, ktoré by mohlo ohroziť
+začatie alebo riadny priebeh výkonu kontroly a plniť všetky povinnosti, ktoré mu vyplývajú z Právneho
+rámca, najmä zo zákona o finančnej kontrole.
+
+V prípadoch, ak je to nevyhnutné pre získanie primeraného uistenia o splnení podmienok overovaných
+v rámci finančnej kontroly, je možné ako súčasť finančnej kontroly vykonať aj kontrolu na mieste realizácie
+
+                                                                8
+projektu (napr. na základe posúdenia rizikových faktorov (rizikovej analýzy) konkrétneho projektu, medzi
+ktoré patrí aj evidencia podnikateľskej prevádzky na adrese RD).
+
+Kontrolu projektu môžu okrem SAŽP vykonať aj ďalšie oprávnené osoby, ktoré sú uvedené v čl. 1 VZP.
+Povinnosť poskytnutia súčinnosti a vytvorenia podmienok pre výkon kontroly v zmysle Zmluvy o PP
+sa uplatňuje bez ohľadu na typ kontroly a orgán vykonávajúci kontrolu (oprávnený subjekt).
+
+4.1 Finančná kontrola ŽoP
+
+4.1.1 Všeobecné ustanovenia
+
+Výkon finančnej kontroly sa riadi zákonom o finančnej kontrole. Finančná kontrola ŽoP je vždy vykonávaná
+ako finančná kontrola podľa § 8 zákona o finančnej kontrole (tzv. administratívna kontrola) a v prípade
+potreby aj ako finančná kontrola podľa § 9 zákona o finančnej kontrole (tzv. kontrola na mieste).
+
+Finančná kontrola je štandardne ukončená zaslaním správy z finančnej kontroly prijímateľovi. V prípade,
+že v rámci finančnej kontroly:
+
+a. neboli zistené nedostatky, zaslaním správy z finančnej kontroly je finančná kontrola ukončená,
+b. boli zistené nedostatky, SAŽP najprv zasiela prijímateľovi návrh správy z finančnej kontroly. Prijímateľ
+
+     je oprávnený v lehote stanovenej SAŽP (nie kratšej ako 10 kalendárnych dní od doručenia návrhu
+     správy z finančnej kontroly) zaslať písomné vyjadrenie k:
+     1. zisteným nedostatkom a
+     2. navrhnutým opatreniam a
+     3. lehote na splnenie opatrení uvedených v návrhu správy z finančnej kontroly.
+
+     Po vyhodnotení prípadných písomných námietok prijímateľa, SAŽP vypracuje a zašle prijímateľovi
+     správu z finančnej kontroly, čím je finančná kontrola ukončená.
+
+     Ak prijímateľ zašle k návrhu správy z finančnej kontroly odôvodnené námietky, resp. dokumentáciu,
+     ktorá by vyvracala nedostatky identifikované v návrhu správy, SAŽP preverí ich opodstatnenosť
+     a po ich vyhodnotení svoje závery zohľadní (spolu s odôvodnením neopodstatnenosti, ak relevantné)
+     v správe z finančnej kontroly, ktorú zasiela prijímateľovi.
+
+     Ak prijímateľ v stanovenej lehote nedoručí námietky alebo v stanovenej lehote zašle oznámenie,
+     že nemá námietky k zisteným nedostatkom, navrhnutým odporúčaniam alebo k lehotám uvedeným
+     v návrhu správy z finančnej kontroly, SAŽP vypracuje správu z finančnej kontroly a zašle ju
+     prijímateľovi.
+
+     V prípade, ak SAŽP po zaslaní návrhu správy z finančnej kontroly, avšak pred skončením samotnej
+     kontroly (teda pred zaslaním správy z finančnej kontroly) identifikuje skutočnosti, ktoré je potrebné
+     zohľadniť v návrhu správy z finančnej kontroly, vypracuje dodatok k návrhu správy z finančnej kontroly,
+     ktorým dôjde k doplneniu/úprave pôvodne vypracovaného návrhu. Upravený návrh správy z finančnej
+     kontroly zasiela SAŽP prijímateľovi rovnako ako pôvodný návrh v zmysle písm. b. vyššie.
+
+Ak počas výkonu finančnej kontroly nastali nové skutočnosti, ktoré znemožňujú pokračovanie vo výkone
+finančnej kontroly, SAŽP vypracuje záznam o zastavení finančnej kontroly, ktorý sa v závislosti od dôvodu
+zastavenia finančnej kontroly buď zasiela prijímateľovi (napr. späťvzatie ŽoP prijímateľom) alebo ukladá
+do spisu (napr. úmrtie prijímateľa), čím je finančná kontrola ukončená.
+
+Ak SAŽP zistí akýkoľvek nedostatok, ktorý má alebo môže mať vplyv na výsledok predchádzajúcej finančnej
+kontroly vykonanej SAŽP, vykoná z vlastného podnetu alebo na podnet prijímateľa, prípadne tretej osoby
+opätovnú finančnú kontrolu. Opätovná finančná kontrola môže byť vykonaná kedykoľvek počas platnosti
+a účinnosti Zmluvy o PP (t. j. vrátane Doby udržateľnosti projektu).
+
+                                                                9
+4.1.2 Finančná kontrola podľa § 8 zákona o finančnej kontrole
+
+Po doručení ŽoP začne SAŽP výkon finančnej kontroly podľa § 8 zákona o finančnej kontrole (ďalej len
+„administratívna kontrola“). SAŽP v rámci administratívnej kontroly overí, či sú splnené všetky relevantné
+podmienky na vyplatenie príspevku v zmysle Zmluvy o PP a Výzvy.
+
+V prípade, že SAŽP v rámci administratívnej kontroly zistí, že je ŽoP neúplná, prípadne schváleniu ŽoP bránia
+iné nedostatky, ktoré je možné odstrániť, e-mailom prostredníctvom tzv. výzvy na doplnenie vyzve
+prijímateľa na doplnenie ŽoP a/alebo odstránenie zistených nedostatkov ŽoP. Ak e-mailová adresa uvedená
+vo formulári ŽoP nebude správna (napr. správa sa vráti ako nedoručiteľná), SAŽP vyzve prijímateľa
+prostredníctvom e-schránky (ak prijímateľ má e-schránku aktivovanú na doručovanie), resp. listinne
+v zmysle kapitoly 2 tejto Príručky.
+
+SAŽP určí prijímateľovi lehotu na doplnenie ŽoP a/alebo odstránenie zistených nedostatkov brániacich
+schváleniu ŽoP, ktorá nesmie byť kratšia ako 10 kalendárnych dní od doručenia výzvy SAŽP na doplnenie
+ŽoP a/alebo odstránenie týchto nedostatkov.
+
+Ak SAŽP pri administratívnej kontrole zistí, že niektoré skutočnosti je potrebné overiť na mieste, prípadne
+potreba vykonania kontroly na mieste vyplynie z analýzy rizík, SAŽP vykoná finančnú kontrolu podľa § 9
+zákona o finančnej kontrole (ďalej len „kontrola na mieste“). Kontrola na mieste je v takomto prípade
+súčasťou celkovej kontroly ŽoP a je realizovaná v nadväznosti na administratívnu kontrolu.
+
+Po ukončení finančnej kontroly ŽoP je vypracovaná správa z finančnej kontroly tak, ako je uvedené
+v kapitole 4.1.1 tejto Príručky.
+
+Záverom finančnej kontroly uvedeným v správe z finančnej kontroly (v zmysle kapitoly 4.1.1 tejto Príručky)
+môže byť:
+
+  a. schválenie ŽoP bez nedostatkov,
+  b. schválenie ŽoP s nedostatkami, ktoré nemajú vplyv na výšku SOV,
+  c. schválenie ŽoP s nedostatkami, ktoré majú vplyv na výšku SOV, a tým aj výšku príspevku, ktorú SAŽP
+
+       prijímateľovi vyplatí, pričom SAŽP v správe presne špecifikuje, ktoré opatrenia zahrnuté prijímateľom
+       do ŽoP neuznala za oprávnené a z akého dôvodu,
+  d. zamietnutie ŽoP v prípade, ak sú vykonanou kontrolou identifikované:
+
+         i. také závažné nedostatky alebo porušenia podmienok poskytnutia príspevku, ktoré sú svojou
+             povahou neodstrániteľné a nedali by sa odstrániť ani prípadnou dodatočnou výzvou
+             na odstránenie nedostatkov alebo doplnenie ŽoP alebo
+
+        ii. nedostatky, ktoré prijímateľ ani po opakovanej výzve SAŽP neodstránil.
+
+SAŽP v návrhu správy/správe z finančnej kontroly presne špecifikuje dôvody, ktoré viedli k zamietnutiu ŽoP
+vrátane informácie, či identifikované nedostatky sú zároveň podstatným porušením Zmluvy o PP,
+v dôsledku čoho je SAŽP oprávnená odstúpiť od Zmluvy o PP v súlade s čl. 11 ods. 11 VZP alebo prijímateľ
+môže (po odstránení dôvodov vedúcich k zamietnutiu ŽoP) ŽoP opätovne predložiť.
+
+Po ukončení finančnej kontroly ŽoP SAŽP zasiela prijímateľovi správu z finančnej kontroly a následne
+zabezpečí vyplatenie príspevku v zmysle záverov zo správy z finančnej kontroly (ak bola ŽoP schválená).
+Povinnou prílohou správy z finančnej kontroly je kontrolný výpočet.
+
+4.1.3 Finančná kontrola podľa § 9 zákona o finančnej kontrole (kontrola na mieste)
+
+V prípade, ak SAŽP v rámci výkonu administratívnej kontroly nezískala primerané uistenie o splnení
+relevantných podmienok poskytnutia príspevku, môže SAŽP vykonať kontrolu na mieste. Kontrolu na mieste
+môže SAŽP vykonať aj v prípade, ak potreba vykonania kontroly na mieste vznikla z posúdenia rizikových
+faktorov (rizikovej analýzy) konkrétneho projektu (napr. ak je na adrese RD evidovaná podnikateľská
+prevádzka) alebo z dôvodu overenia projektu na mieste na vybranej vzorke aj nad rámec identifikácie
+rizikových faktorov.
+
+                                                               10
+Hlavným cieľom kontroly na mieste v súvislosti s kontrolou ŽoP je overenie správnosti informácií o realizácii
+projektu, overenie skutočnej realizácie opatrení uvedených v ŽoP, overenie splnenia podmienok
+poskytnutia príspevku vyplývajúcich z Výzvy, ako aj overenie ďalších skutočností súvisiacich s plnením
+podmienok vyplývajúcich zo Zmluvy o PP (napr. spôsob užívania RD tak, aby nedošlo k poskytnutiu
+nepriamej štátnej pomoci, označenie RD v zmysle kapitoly 6.2 tejto Príručky, uchovávanie dokumentácie
+v súlade s kapitolou 6.5 tejto Príručky a i.).
+
+Prijímateľom poskytnuté ubytovanie odídencom (t. j. odídencom z Ukrajiny), ktoré nie je spojené
+s výkonom činností, z ktorých prijímateľovi plynú príjmy podľa § 6 zákona č. 595/2003 Z. z. o dani z príjmov
+v znení neskorších predpisov, sa nepovažuje za hospodársku činnosť. Akákoľvek forma prenájmu RD alebo
+jeho časti je v zmysle podmienok Výzvy a Zmluvy o PP zakázaná a predstavuje podstatné porušenie Zmluvy
+o PP, ktoré zakladá dôvod na odstúpenie od Zmluvy o PP a povinnosť vrátiť celú vyplatenú sumu príspevku.
+
+SAŽP zohľadňuje závery výsledkov kontroly na mieste:
+
+    a. v spoločnej správe z finančnej kontroly ŽoP alebo
+    b. v samostatnej správe z kontroly na mieste, najmä ak je kontrola realizovaná počas obdobia
+
+         udržateľnosti projektu.
+Kontrolu na mieste vykonávajú minimálne dve osoby. Zamestnanci SAŽP vykonávajúci kontrolu na mieste
+sú povinní pred jej začatím preukázať sa písomným Poverením na vykonanie kontroly na mieste a dokladom
+totožnosti, resp. služobným preukazom SAŽP.
+Na vykonanie kontroly na mieste môže SAŽP prizvať zamestnancov iných orgánov verejnej správy alebo
+iných právnických osôb alebo fyzické osoby s ich súhlasom, ak je to odôvodnené osobitnou povahou
+kontroly na mieste.
+Kontrola na mieste sa formálne začína doručením Oznámenia o výkone kontroly na mieste, ktoré SAŽP
+zasiela e-mailom na aktuálnu kontaktnú adresu oznámenú prijímateľom (adresa uvedená v žiadosti, v ŽoP,
+resp. aktualizovaná prijímateľom podľa článku 5 ods. 5.7 Zmluvy o PP). V prípade, ak je prijímateľ zastúpený
+kontaktnou osobou, Oznámenie o výkone kontroly na mieste sa zasiela na e-mailovú adresu kontaktnej
+osoby aj prijímateľa.
+SAŽP oznamuje prijímateľovi plánovaný termín vykonania kontroly na mieste minimálne 10 kalendárnych
+dní vopred. V prípade, že prijímateľovi navrhovaný termín nevyhovuje, je potrebné na kontaktnom
+telefónnom čísle uvedenom v Oznámení o výkone kontroly na mieste dohodnúť vhodný alternatívny termín
+výkonu kontroly.
+Ak by Oznámením o výkone kontroly na mieste podľa predchádzajúcej vety mohlo dôjsť k zmareniu kontroly
+na mieste, môžu zamestnanci poverení výkonom kontroly oznámiť začatie výkonu kontroly na mieste
+najneskôr pri začatí samotného fyzického výkonu tejto kontroly (tzv. neohlásená kontrola na mieste).
+Predmetom kontroly na mieste môže byť najmä:
+
+    a. kontrola uchovávania dokumentov (v originálnom vyhotovení), ktoré boli prijímateľom predložené
+         ako kópia alebo sken originálu;
+
+    b. skutočné dodanie tovarov, poskytnutie služieb, realizácia stavebných prác v rozsahu deklarovanom
+         v ŽoP v súlade s podmienkami stanovenými vo Výzve a Zmluve o PP, porovnanie zrealizovaných
+         opatrení v zmysle dokumentácie predloženej v rámci ŽoP so skutočným stavom na mieste;
+
+    c. udržanie výsledkov projektu, t. j. či počas Doby udržateľnosti projektu (3 roky odo dňa finančného
+         ukončenia projektu) nedošlo k demontáži a/alebo inému znehodnoteniu/znefunkčneniu zariadení
+         alebo opatrení financovaných v rámci čiastkovej obnovy RD;
+
+    d. kontrola dodržiavania pravidiel informovanosti verejnosti definovaných čl. 6 VZP a kapitolou 6.2
+         tejto Príručky;
+
+    e. kontrola neprekrývania sa (duplicitného financovania) predmetu projektu, resp. jeho časti;
+    f. kontrola toho, či je RD využívaný na bývanie v súlade s podmienkami Výzvy (najmä či nie je
+
+         prenajímaný tretím osobám, alebo ak je čiastočne využívaný na hospodársku činnosť inú ako
+
+                                                               11
+         prenájom, či náklady spojené s užívaním RD nie sú zahrnuté do nákladov hospodárskej činnosti
+         vykonávanej v RD).
+
+Povinnosti Prijímateľa pri výkone kontroly na mieste
+
+Prijímateľ (podľa čl. 13 ods. 10 VZP), ako aj tretia osoba (zhotoviteľ/dodávateľ podľa čl. 13 ods. 12 VZP)
+sú povinní pri výkone kontroly na mieste poskytnúť SAŽP súčinnosť. Práva a povinnosti SAŽP a Prijímateľa
+pri výkone kontroly upravuje Zmluva o PP a zákon o finančnej kontrole.
+V tejto súvislosti upozorňujeme, že prijímateľ podpisom Zmluvy o PP udelil v článku 3 ods. 3.7 Zmluvy o PP
+súhlas s výkonom kontroly na mieste a vyplatenie príspevku (na základe prijímateľom predloženej ŽoP)
+je podmienené kladným výsledkom finančnej kontroly (administratívnej kontroly, ako aj prípadnej kontroly
+na mieste). Preto odmietnutie poskytnutia súčinnosti pri výkone kontroly môže viesť k uplatneniu
+práva SAŽP odstúpiť od Zmluvy o PP v súlade s čl. 11 ods. 11 VZP.
+
+4.2 Finančná kontrola počas Doby udržateľnosti projektu
+
+V súlade s príslušnými ustanoveniami Zmluvy o PP je SAŽP oprávnená kedykoľvek počas celej Doby
+udržateľnosti Projektu overiť dodržiavanie podmienok poskytnutia príspevku, ako aj všetkých čestných
+vyhlásení prijímateľa, najmä čestných vyhlásení týkajúcich sa plnenia podmienok oprávnenosti
+špecifikovaných vo Výzve a v ostatnej Záväznej dokumentácii.
+V rámci overenia dodržiavania podmienok poskytnutia príspevku v Dobe udržateľnosti projektu sa overuje
+najmä:
+
+    - udržanie cieľa projektu,
+    - uchovávanie dokumentácie týkajúcej sa projektu,
+    - dodržanie stanovených podmienok týkajúcich sa prípadného prevodu majetku
+
+         obnoveného/nadobudnutého z príspevku na tretiu osobu,
+    - dodržanie povinností týkajúcich sa informovania verejnosti o podpore získanej z prostriedkov MoF,
+    - overenie dodržiavania podmienok, ktoré museli byť splnené, aby bola so žiadateľom uzavretá
+
+         Zmluva o PP (a vyplatená záloha) a ktoré platia aj po uzavretí a nadobudnutí účinnosti Zmluvy o PP.
+Kontrolu počas Doby udržateľnosti projektu môže SAŽP vykonať z vlastného podnetu, na základe posúdenia
+rizikových faktorov (rizikovej analýzy) konkrétneho projektu, z dôvodu overenia projektu na mieste
+na vybranej vzorke projektov, ako aj na základe podnetu tretích osôb.
+Finančná kontrola vrátane kontroly na mieste počas Doby udržateľnosti projektu sa riadi pravidlami
+uvedenými v kapitole 4.1 tejto Príručky.
+
+4.2.1 Podmienky, ktoré museli byť splnené pred uzavretím Zmluvy o PP a vyplatením zálohy a ktoré
+         platia aj po uzavretí a nadobudnutí účinnosti Zmluvy o PP
+
+V súlade s čl. 2 ods. 2.6 v spojení s čl. 1 ods. 1.3 Zmluvy o PP platí, že Prijímateľ je povinný počas celej doby
+platnosti a účinnosti Zmluvy o PP spĺňať podmienky poskytnutia príspevku ustanovené v Zmluve o PP,
+v Právnom rámci a Záväznej dokumentácii, ak z ich povahy alebo z ich výslovného znenia nevyplýva inak.
+Porušenie a/alebo nesplnenie týchto podmienok sa považuje za porušenie, resp. podstatné porušenie
+Zmluvy o PP a môže viesť k uplatneniu sankcií vrátane povinnosti vrátenia príspevku alebo jeho časti podľa
+príslušných ustanovení VZP.
+
+V nadväznosti na vyššie uvedené ustanovenia Zmluvy o PP sú v tejto kapitole špecifikované podmienky
+poskytnutia príspevku, ktoré ostávajú v platnosti počas celej doby platnosti a účinnosti Zmluvy o PP,
+a ktorých dodržiavanie môže byť predmetom finančnej kontroly. Uvedené podmienky sú bližšie
+špecifikované v kapitolách 2.2 až 2.5 Príručky pre žiadateľa.
+
+  1. Podmienky oprávnenosti žiadateľa (po nadobudnutí účinnosti Zmluvy o PP sa vzťahujú
+       aj na prijímateľa)
+
+                                                               12
+    Prijímateľ nesmie byť do momentu vyplatenia príspevku (do momentu finančného ukončenia
+    projektu) právoplatne odsúdený za trestný čin:
+
+          i. subvenčný podvod (§ 225 Trestného zákona),
+         ii. poškodzovanie finančných záujmov Európskej únie (§ 261 - § 263 Trestného zákona),
+        iii. machinácie pri verejnom obstarávaní a verejnej dražbe (§ 266 - § 268 Trestného zákona),
+        iv. prijímanie úplatku (§ 328 - § 330 Trestného zákona),
+         v. podplácanie (§ 332 - § 334 Trestného zákona),
+        vi. nepriama korupcia (§ 336 Trestného zákona), alebo
+        vii. trestný čin prijatia a poskytnutia nenáležitej výhody (§ 336c - § 336d Trestného zákona)
+
+    a ekvivalentných trestných činov v ostatných členských štátoch EÚ. Overovanie tejto podmienky
+    sa nevzťahuje na osoby mladšie ako 14 rokov, a to v súlade s § 94 Trestného zákona.
+
+    Zároveň platí, že právoplatné odsúdenie za spáchanie trestného činu v súvislosti s projektom je podľa
+    čl. 11 ods. 8 písm. i) VZP považované za podstatné porušenie Zmluvy o PP, ktoré zakladá dôvod
+    na uplatnenie práva SAŽP odstúpiť od Zmluvy o PP a povinnosť prijímateľa vrátiť celú vyplatenú sumu
+    príspevku (resp. vyplatenú zálohu).
+
+    Prijímateľ musí byť vlastníkom alebo spoluvlastníkom RD. Prípadnú zmenu vlastníckych vzťahov
+    k RD je prijímateľ povinný bezodkladne oznámiť SAŽP, pričom ak súčasne dochádza k zmene
+    prijímateľa uvedeného na prvej strane Zmluvy o PP, musí nový vlastník nehnuteľnosti so SAŽP
+    uzatvoriť dodatok k Zmluve o PP, ktorým dôjde k zmene v osobe prijímateľa.
+    Vlastníkom/spoluvlastníkom RD nesmie byť právnická osoba.
+
+    Prijímateľ (aspoň jeden zo spoluvlastníkov RD) musí byť členom domácnosti obývajúcej RD.
+    V prípade, ak sú členmi domácnosti výlučne osoby s právom doživotného bývania a užívania
+    nehnuteľnosti evidovaným ako ťarcha (vecné bremeno) na LV, a dôjde k úmrtiu člena domácnosti
+    pred finančným ukončením projektu, bude táto skutočnosť znamenať zánik domácnosti. Uvedené
+    bude mať za následok odstúpenie od Zmluvy o PP zo strany SAŽP a povinnosť vrátiť celú vyplatenú
+    sumu príspevku. V prípade, ak dôjde k úmrtiu výlučného vlastníka RD pred finančným ukončením
+    projektu, dochádza k porušeniu tejto podmienky, avšak ak noví vlastníci RD pristúpia k uzatvoreniu
+    dodatku k Zmluve o PP, nebude táto podmienka aplikovaná z dôvodu, že jej porušenie vyplýva
+    z objektívnej právnej skutočnosti, ktorú SAŽP považuje za dôvod hodný osobitného zreteľa.
+
+    Prijímateľ musí počas celého obdobia platnosti a účinnosti Zmluvy o PP disponovať
+    plnomocenstvom od spoluvlastníka (spoluvlastníkov) RD na zastupovanie vo veciach týkajúcich
+    sa predloženia žiadosti, podpisu Zmluvy o PP, predloženia ŽoP a ďalších úkonov vo vzťahu k SAŽP
+    v súvislosti s realizáciou projektu. Ak pred finančným ukončením projektu dôjde k odvolaniu
+    plnomocenstva, je uvedené možné považovať za podstatné porušenie Zmluvy o PP, ktoré zakladá
+    dôvod na uplatnenie práva SAŽP odstúpiť od Zmluvy o PP a povinnosť prijímateľa vrátiť celú
+    vyplatenú sumu príspevku.
+
+    Prijímateľ alebo niektorý z členov domácnosti obývajúcich RD musí byť vlastníkom alebo
+    spoluvlastníkom bežného účtu alebo mať dispozičné právo k bežnému účtu vedenému v EUR, ktorý
+    je uvedený v Zmluve o PP do vyplatenia príspevku.
+
+2. Podmienka týkajúca sa príslušnosti k domácnosti s nízkymi príjmami
+
+    Príspevok na čiastkovú obnovu RD je možné poskytnúť len v prípade, že RD obýva domácnosť
+    s nízkymi príjmami. Na účely Výzvy sa za domácnosť s nízkymi príjmami považuje domácnosť
+    ohrozená energetickou chudobou, ktorou je:
+
+    a) domácnosť, ktorej ekvivalentný disponibilný príjem za rok 2024 nepresiahol 12 990 EUR
+
+    alebo
+
+                                                            13
+       b) domácnosť určená ako tzv. proxy skupina, ktorá ako celok vykazuje vysokú koreláciu
+             s chudobou a štatisticky spĺňa vyššie uvedený ekvivalentný disponibilný príjem domácnosti.
+             Na základe podkladov poskytnutých Prognostickým ústavom Slovenskej akadémie vied
+             sa v rámci Výzvy aplikujú nasledovné proxy skupiny:
+             1. domácnosti, ktorých členovia sú výhradne poberatelia starobného dôchodku,
+             2. domácnosti v hmotnej núdzi – domácnosti, ktorých členom je poberateľ pomoci v hmotnej
+                 núdzi (poberateľ príspevku na bývanie alebo dávok v hmotnej núdzi) a
+             3. domácnosti so 4 a viac maloletými deťmi.
+
+       Splnenie tejto podmienky sa posudzuje výlučne do času finančného ukončenia projektu (t. j.
+       do vyplatenia zvyšku príspevku na základe ŽoP), a to v prípadoch, ak v tom čase dôjde k:
+       - úmrtiu člena domácnosti obývanej výlučne osobami s právom doživotného bývania a užívania
+
+          nehnuteľnosti evidovaným ako ťarcha (vecné bremeno) na LV;
+       - prevodu (t. j. predaju alebo darovaniu) nehnuteľnosti na nových vlastníkov, tzn. zmena
+
+          majetkovoprávnych pomerov týkajúcich sa nehnuteľnosti.
+       V týchto prípadoch, ale nielen, bude SAŽP overovať príjem novej domácnosti z hľadiska splnenia
+       podmienok poskytnutia príspevku. SAŽP si zároveň vyhradzuje právo overiť príjem domácnosti
+       kedykoľvek počas platnosti a účinnosti Zmluvy o PP, ak napr. vznikne dôvodné podozrenie,
+       že pôvodne určená výška príjmu domácnosti nebola správna.
+
+  3. Podmienky týkajúce sa rodinného domu
+       Na LV je evidovaný pod kódom 10 „rodinný dom“ a zároveň nesmie mať na LV evidovanú
+       poznámku/ťarchu súvisiacu s obmedzením práva k nehnuteľnosti. Ostatné podmienky (lokalizácia
+       a vek RD) sa nemenia, a preto ich nie je potrebné opätovne overovať.
+
+  4. Vylúčenie opakovanej podpory
+       Na obnovu RD je možné poskytnúť príspevok zo zdrojov MoF len raz, a to bez ohľadu na to, kto
+       o poskytnutie príspevku žiada, resp. aké opatrenia sú súčasťou projektu.
+
+Všetky podmienky (ak nie je uvedené v tejto kapitole inak) musia byť splnené počas celej doby platnosti
+a účinnosti Zmluvy o PP a SAŽP má právo ich plnenie kedykoľvek overiť (skontrolovať).
+
+Podmienky, po splnení ktorých sa prijímateľovi vypláca zvyšok príspevku na čiastkovú obnovu RD,
+sa vyplatením príspevku považujú za splnené a ďalej sa neoverujú s výnimkou:
+
+  a. podnetu smerujúcemu k podozreniu z nesplnenia niektorých podmienok pred vyplatením príspevku
+       alebo
+
+  b. podozrenia z podvodu alebo
+  c. takých zásahov do RD po jeho obnove, ktoré by mali negatívny vplyv na udržanie cieľa projektu
+
+       (výsledkov čiastkovej obnovy) a mohli by viesť k vymáhaniu časti alebo celej výšky už vyplateného
+       príspevku.
+
+5 Vyplatenie príspevku
+
+Príspevok sa prijímateľovi vypláca v dvoch častiach, a to ako:
+    1. zálohová platba podľa článku 3 ods. 3.1 Zmluvy o PP a článku 16a VZP vo výške 50 % celkových
+         predpokladaných výdavkov na čiastkovú obnovu RD, uvedených vo formulári žiadosti, najviac však
+         5 500 EUR, a to do 15 kalendárnych dní odo dňa nadobudnutia účinnosti Zmluvy o PP a
+
+                                                               14
+    2. zvyšok príspevku na základe ŽoP, predloženej prijímateľom (alebo splnomocnenou – kontaktnou
+         osobou) po nadobudnutí účinnosti Zmluvy o PP a ukončení realizácie projektu (čiastkovej obnovy
+         RD). Ukončenie realizácie projektu je popísané v kapitole 3 tejto Príručky.
+
+Vzhľadom na postup vyplatenia príspevku (najprv sa vypláca záloha a až po preukázaní ukončenia realizácie
+čiastkovej obnovy RD sa vypláca zvyšok príspevku) je nevyhnutné, aby si prijímateľ zabezpečil dostatočný
+objem finančných prostriedkov potrebných na uhrádzanie záväzkov voči zhotoviteľom/dodávateľom, ktorí
+sa na čiastkovej obnove RD podieľali, a to v súlade s platobnými podmienkami dohodnutými medzi
+prijímateľom a zhotoviteľom/dodávateľom.
+
+5.1 Predloženie žiadosti o platbu
+
+Podľa článku 4 ods. 4.1 Zmluvy o PP prijímateľ predkladá ŽoP (vrátane všetkých relevantných príloh)
+najneskôr do 1 mesiaca po:
+
+    a. ukončení realizácie Projektu (bližšie informáciu sú uvedené v kapitole 3 tejto Príručky) alebo
+    b. nadobudnutí účinnosti Zmluvy o PP
+
+v závislosti od toho, ktorá zo skutočností uvedených podľa písm. a) alebo b) nastane neskôr. Za dátum
+predloženia ŽoP sa považuje dátum elektronického zaevidovania on-line formulára ŽoP.
+
+Prijímateľ predkladá ŽoP výlučne elektronicky prostredníctvom on-line formulára dostupného
+na www.obnovdom.sk. Vyplnenie a odoslanie on-line formulára je priamym elektronickým podaním
+bez potreby dodatočného zasielania podpísanej ŽoP prostredníctvom e-schránky alebo poštou.
+
+Formulár ŽoP je intuitívny a rozdelený do viacerých samostatných obrazoviek, do ktorých prijímateľ vkladá
+požadované údaje. Pre prechod medzi jednotlivými obrazovkami je nevyhnutné potvrdiť už predvyplnené
+polia z údajov zo žiadosti a Zmluvy o PP a vyplniť všetky ostatné povinné polia.
+
+1) Overenie oprávnenosti predkladateľa ŽoP - predkladateľom ŽoP je buď prijímateľ uvedený na Zmluve
+    o PP, resp. splnomocnená kontaktná osoba, ktorá disponuje všetkými potrebnými údajmi. V prvom
+    kroku on-line formulár overí, či ŽoP predkladá oprávnená osoba (t. j. prijímateľ uvedený v Zmluve o PP,
+    resp. splnomocnená kontaktná osoba). Oprávnenosť predkladateľa sa overuje porovnaním dvoch
+    neverejných identifikačných údajov:
+
+    a) identifikátora žiadosti (jedinečného 14-miestneho čísla uvedeného v čl. 2 ods. 2.2 Zmluvy o PP)
+         a zároveň
+
+    b) rodného čísla prijímateľa (osoby, ktorá je uvedená na prvej strane Zmluvy o PP).
+
+    Oba údaje sú v Zmluve o PP zverejnenej v Centrálnom registri zmlúv anonymizované. Po zadaní
+    obidvoch údajov on-line formulár automaticky overí a identifikuje schválený projekt s platnou a účinnou
+    Zmluvou o PP. Ak sa vyplnené údaje zhodujú so Zmluvou o PP, sprístupní sa samotný on-line formulár
+    ŽoP na jeho vyplnenie a odoslanie. Ak sa zadané údaje nezhodujú s niektorým zo schválených projektov,
+    bol zadaný nesprávny identifikátor alebo rodné číslo, prípadne Zmluva o PP ešte nie je platná a účinná,
+    on-line formulár sa nesprístupní a ŽoP nebude možné predložiť.
+
+2) Kontrola predvyplnených údajov. Po úspešnom overení on-line formulár automaticky predvyplní výšku
+    vyplatenej zálohy, IBAN, identifikačné údaje prijímateľa, prípadne splnomocnenej kontaktnej osoby
+    a identifikačné údaje RD (v rozsahu kraj, okres, obec, katastrálne územie, parcelné číslo, súpisné
+    a prípadne orientačné číslo a číslo LV). Predkladateľ ŽoP je povinný predvyplnené údaje skontrolovať
+    a nesprávne údaje aktualizovať.
+
+    Aktualizácia údajov v ŽoP. Zmena kontaktných údajov, korešpondenčnej adresy a čísla účtu (IBAN)
+    vykonaná v ŽoP sa považuje za oznámenie formálnej zmeny podľa čl. 10 ods. 14 a čl. 15 ods. 2 VZP.
+    Samostatné oznámenie zmeny nie je potrebné. V prípade zmeny čísla účtu (IBAN) musí byť k ŽoP
+    predložený relevantný doklad o vlastníctve účtu, resp. o dispozičnom práve k účtu. Z predloženého
+    dokladu musí vyplývať, že vlastníkom/spoluvlastníkom/disponentom daného účtu je prijímateľ alebo
+
+                                                               15
+    niektorí z členov domácnosti obývajúcich RD. Akceptovaný nebude účet kontaktnej osoby,
+    zhotoviteľa, dodávateľa ani inej tretej osoby. Iné zmeny, najmä zmenu mena, priezviska či trvalého
+    pobytu prijímateľa alebo splnomocnenej kontaktnej osoby, oznamuje prijímateľ postupom podľa
+    kapitoly 7.2.1. tejto Príručky.
+
+    Údaje o RD nie je možné v ŽoP meniť, keďže by to znamenalo zmenu predmetu projektu. Zmenu
+    súpisného, orientačného alebo parcelného čísla (napr. na základe nového geometrického plánu)
+    prijímateľ oznamuje ako formálnu zmenu podľa kapitoly 7.2.1 písm. d) tejto Príručky spolu s príslušným
+    úradným dokladom.
+
+    Zmena prijímateľa predstavuje významnú zmenu a vyžaduje si vypracovanie písomného dodatku
+    k Zmluve o PP. V prípade zmeny prijímateľa je možné predložiť ŽoP až po nadobudnutí účinnosti
+    takéhoto dodatku.
+
+3) Rozsah projektu. Predkladateľ ŽoP označí opatrenia, ktoré pri čiastkovej obnove RD skutočne
+    a preukázateľne zrealizoval. Údaje o rozsahu (výmera, výkon) ani žiadaná výška príspevku
+    sa do formulára ŽoP neuvádzajú. Výšku príspevku určí SAŽP na základe posúdenia ŽoP a jej príloh.
+
+4) Zdroj vykurovania. Na účely monitorovania výsledkov projektu predkladateľ ŽoP vyberie pôvodný zdroj
+    vykurovania a palivo v čase začatia realizácie projektu a aktuálny zdroj vykurovania a palivo po ukončení
+    realizácie projektu. Údaje musia byť v súlade s Dokladom o inštalácii a uvedení zariadenia do prevádzky.
+
+5) Povinné prílohy. Predkladateľ ŽoP nahrá skeny všetkých relevantných príloh. On-line formulár
+    automaticky určí zoznam povinných príloh podľa údajov uvedených v ŽoP. Prílohy sa predkladajú
+    výlučne elektronicky. Prijímateľ je povinný uchovávať ich originály na účely kontroly.
+
+6) Súhrnné čestné vyhlásenie. Predkladateľ ŽoP vyberie v bodoch [2 a 4] relevantné vyjadrenie a potvrdí
+    správnosť uvedených údajov.
+
+7) Odoslanie. On-line formulár ŽoP skontroluje vyplnenie povinných polí a priloženie príloh a umožní
+    odoslanie ŽoP. Odoslaním predkladateľ potvrdzuje pravdivosť, úplnosť a správnosť údajov.
+
+Po úspešnom zaevidovaní systém pridelí ŽoP identifikátor a zašle prijímateľovi na e-mailovú adresu
+uvedenú v ŽoP notifikáciu spolu s Rekapituláciou podania vo formáte PDF. Za deň predloženia ŽoP
+sa považuje dátum elektronického zaevidovania on-line formulára, ktorý je uvedený v PDF Rekapitulácii
+podania.
+
+Predloženie listinnej podoby ŽoP s vlastnoručným podpisom, ako ani elektronické podanie do e-schránky
+s kvalifikovaným elektronickým podpisom (KEP) sa nevyžaduje.
+
+V prípade akýchkoľvek problémov s on-line formulárom ŽoP (napr. s overením oprávnenosti predkladateľa
+ŽoP), môže prijímateľ kontaktovať infolinku SAŽP, resp. ktorúkoľvek regionálnu kanceláriu SAŽP
+(www.obnovdom.sk).
+
+  Upozornenie:
+
+  V rámci projektu je možné predložiť len jednu ŽoP, a to po ukončení realizácie projektu. Predloženie
+  druhej ŽoP je možné len v prípade:
+
+ - neschválenia prvej ŽoP a odstránení dôvodov neschválenia, pokiaľ nejde o neschválenie z dôvodu
+       podstatného porušenia Zmluvy o PP,
+
+ - späťvzatia prvej ŽoP a následného zastavenia finančnej kontroly alebo
+ - zastavenia finančnej kontroly z dôvodu úmrtia prijímateľa uvedeného na prvej strane Zmluvy o PP
+
+       a po nadobudnutí účinnosti dodatku k Zmluve o PP o zmene prijímateľa.
+
+Prijímateľ je oprávnený vziať ŽoP späť kedykoľvek v procese jej posudzovania (od odoslania on-line
+formulára do ukončenia finančnej kontroly) aj bez uvedenia dôvodu. SAŽP odporúča vziať ŽoP späť najmä
+
+                                                               16
+v prípade poistnej udalosti na rodinnom dome s následkom zničenia predmetu projektu alebo dodatočného
+zistenia zásadných chýb v predloženej ŽoP. Späťvzatie ŽoP je potrebné doručiť SAŽP písomne (elektronicky
+alebo listinne) v súlade s kapitolou 2 tejto Príručky s uvedením kódu projektu a identifikátora ŽoP.
+Späťvzatie ŽoP nebude akceptované, ak finančná kontrola ŽoP už bola ukončená.
+
+5.1.1 Spôsob vyčíslenia výšky schválených oprávnených výdavkov
+
+Pri vyčíslení výšky schválených oprávnených výdavkov (SOV) sa vychádza z:
+
+1. prijímateľom preukázaného rozsahu zrealizovaných opatrení na čiastkovú obnovu RD na základe
+     predloženého dokladu vystaveného, resp. potvrdeného treťou stranou (dodávateľom):
+
+     a. pri opatreniach skupiny A – Preberací protokol podľa záväzného vzoru zverejneného
+           na webovom sídle www.obnovdom.sk a fotodokumentácia zrealizovaných opatrení;
+
+     b. pri opatreniach skupiny B – Doklad o inštalácii a uvedení zariadenia do prevádzky podľa
+           záväzného vzoru zverejneného na webovom sídle www.obnovdom.sk, Potvrdenie o vykonaní
+           preskúšania komína (revízna správa komína) pri opatreniach B.3d a B.3e a fotodokumentácia
+           zrealizovaných opatrení vrátane fotodokumentácie výrobného štítku nainštalovaných zariadení;
+
+     a zároveň
+
+2. z celkovej ceny za opatrenie uvedenej na faktúre vystavenej dodávateľom po ukončení prác, resp.
+     inštalácii a spustení zariadenia do prevádzky.
+
+Výška SOV na jednotlivé opatrenia sa určí na základe jednotkovej ceny bez DPH vypočítanej z predloženej
+faktúry a zrealizovanej výmery (m2), výkonu (kW) alebo počtu (kusy, miestnosti). Jednotková cena bez DPH
+z faktúry sa vypočíta ako súčet všetkých položiek faktúry týkajúcich sa daného opatrenia (vrátane položiek
+priamo súvisiacich s opatrením – montáž a demontáž lešenia, doprava materiálov, odvoz odpadu, parapety
+pri výmene okien a pod.), vydelený zrealizovanou výmerou alebo výkonom alebo počtom v závislosti
+od realizovaného opatrenia (vypočíta sa tak cena bez DPH na m2 alebo cena bez DPH na kW alebo cena
+bez DPH na kus). Ak je jednotková cena bez DPH vypočítaná z faktúry vyššia ako finančný limit na jednotku
+bez DPH (maximálna jednotková cena bez DPH) uvedený kapitole 5.1.2 tejto Príručky, SAŽP pre výpočet SOV
+použije tento finančný limit. Po určení jednotkovej ceny, ktorá bude použitá pri výpočte výšky SOV, sa k tejto
+jednotkovej cene následne pripočíta percentuálna sadzba DPH uvedená na faktúre. Maximálna výška
+príspevku nemôže prekročiť 11 000 EUR.
+
+Merné jednotky používané pre výpočet jednotkovej ceny a zdroj údajov pre stanovenie rozsahu
+realizovaného opatrenia:
+
+Typ opatrenia                       Jednotka                           Zdroj údajov
+
+A. zlepšenie tepelno-technických                       m2              Preberací protokol podľa záväzného vzoru
+vlastností budovy
+                                    (výška SOV sa vypočíta na základe
+                                     výmery celej zateplenej plochy,
+                                    resp. výmery vymenenej strešnej
+
+                                         krytiny alebo otvorových
+                                                 konštrukcií)
+
+B.1a Tepelné čerpadlo vzduch-voda,  kW                                 1. Fotografia výrobného štítku vonkajšej
+voda-voda, zem-voda
+                                                                       jednotky1 (určenie výrobného typu)
+
+1 Fotografia výrobného štítku novo inštalovaného zariadenia je povinnou súčasťou fotodokumentácie potvrdzujúcej realizáciu
+   projektu čiastkovej obnovy RD v zmysle zverejneného vzoru. V prípade, ak nie je možné vložiť čitateľnú fotografiu výrobného
+   štítku do fotodokumentácie potvrdzujúcej realizáciu projektu čiastkovej obnovy RD, odporúčame k ŽoP priložiť samostatnú
+   fotografiu výrobného štítku v dostatočnej kvalite. V prípade inštalácie viacerých tepelných čerpadiel vzduch-vzduch,
+   je nevyhnutné predložiť fotografiu výrobného štítku každej nainštalovanej vnútornej jednotky. V prípade inštalácie viacerých
+
+                                                               17
+                                     (výška SOV sa vypočíta na základe   2. Zoznam oprávnených zariadení2 (výkon
+                                            vykurovacieho výkonu             a oprávnenosť podľa výrobného typu)
+
+                                        nainštalovaného tepelného        3. Doklad o inštalácii a uvedení zariadenia
+                                                   čerpadla)                 do prevádzky podľa záväzného vzoru
+
+B.1b Tepelné čerpadlo vzduch-                          kW                1. Fotografia výrobného štítku každej
+vzduch                                                                       vnútornej jednotky1 (výrobný typ a výkon)
+                                     (výška SOV sa vypočíta na základe
+                                        súčtu vykurovacích výkonov       2. Zoznam oprávnených zariadení2
+                                          všetkých nainštalovaných           (oprávnenosť podľa výrobného typu)
+                                            vnútorných jednotiek)
+                                                                         3. Doklad o inštalácii a uvedení zariadenia
+                                                                             do prevádzky podľa záväzného vzoru
+
+B.2 Solárne kolektory                                   kW               1. Fotografia výrobného štítku každého typu
+                                                                             zariadenia1 (určenie výrobného typu)
+                                     (výška SOV sa vypočíta na základe
+                                     súčtu výkonov všetkých              2. Zoznam oprávnených zariadení2 (výkon
+                                     nainštalovaných solárnych               a oprávnenosť podľa výrobného typu)
+                                     kolektorov, resp. výkon jedného
+                                     kolektora krát počet inštalovaných  3. Doklad o inštalácii a uvedení zariadenia
+                                     kusov)                                  do prevádzky podľa záväzného vzoru
+
+                                                                         1. Fotografia výrobného štítku zariadenia1
+
+                                                                         (určenie výrobného typu)
+
+B.3a Kotol na biomasu – tepelný      kus                                 2. Zoznam oprávnených zariadení2 (výkon
+zdroj
+                                                                         a oprávnenosť podľa výrobného typu)
+
+                                                                         3. Doklad o inštalácii a uvedení zariadenia
+
+                                                                         do prevádzky podľa záväzného vzoru
+
+B.3b Kotol na biomasu – akumulačná
+
+nádrž                                kus                                 Doklad o inštalácii a uvedení zariadenia
+B.3c Kotol na biomasu – systém                                           do prevádzky podľa záväzného vzoru
+
+centrálneho vykurovania
+
+B.3d Kotol na biomasu – vybudovanie                                      1. Doklad o inštalácii a uvedení zariadenia
+
+nového komína                        kus                                     do prevádzky podľa záväzného vzoru
+B.3e Kotol na biomasu –                                                  2. Potvrdenie o vykonaní preskúšania komína
+
+vyvložkovanie existujúceho komína                                        (revízna správa komína)
+
+B.4a až B.4c Inštalácia alebo        Počet vykurovaných miestností       Doklad o inštalácii a uvedení zariadenia
+modernizácia systému merania a          s nainštalovanou zónovou         do prevádzky podľa záväzného vzoru
+regulácie vykurovacej sústavy                     reguláciou
+
+B.4d Inštalácia alebo modernizácia   kus                                 Doklad o inštalácii a uvedení zariadenia
+systému merania a regulácie                                              do prevádzky podľa záväzného vzoru.
+vykurovacej sústavy – Smart merač
+
+V prípade všetkých opatrení je realizácia okrem vyššie uvedených dokumentov preukazovaná aj
+predložením fotodokumentácie podľa záväzného vzoru, ktorý je zverejnený na www.obnovdom.sk.
+
+   typov solárnych kolektorov je nevyhnutné predložiť fotografiu výrobného štítku každého typu inštalovaného kolektora
+   a informáciu o počte inštalovaných kusov daného typu.
+2 Zoznam oprávnených zariadení je dostupný na https://is-zd.zelenadomacnostiam.sk/zariadenia. V prípade, ak sa inštalované
+   zariadenie (konkrétny typ zariadenia) nenachádza v uvedenom zozname, prijímateľ môže požiadať o zaregistrovanie
+   predmetného zariadenia. Bližšie informácie a postup pri registrácii nového zariadenia nájdete na www.zelenadomacnostiam.sk.
+
+                                                               18
+  Upozornenie 1: V prípade, ak v rámci realizácie opatrenia A6 Výmena strešnej krytiny dochádza
+  k odstráneniu azbestu, je prijímateľ pri jeho odstránení povinný dodržať nielen príslušné ustanovenia
+  zákona č. 79/2015 Z. z. o odpadoch a o zmene a doplnení niektorých zákonov v znení neskorších
+  predpisov, ale aj príslušné ustanovenia zákona č. 355/2007 Z. z. o ochrane, podpore a rozvoji verejného
+  zdravia a o zmene a doplnení niektorých zákonov v znení neskorších predpisov a nariadenia vlády SR
+  č. 185/2026 Z. z. o ochrane zamestnancov pred rizikami súvisiacimi s expozíciou azbestu pri práci.
+  Z uvedených právnych predpisov vyplýva, že fyzickým osobám – nepodnikateľom je zakázané
+  s azbestom zaobchádzať a jeho odstránenie môže vykonávať výlučne fyzická osoba – podnikateľ alebo
+  právnická osoba, ktorá disponuje oprávnením na odstraňovanie azbestu alebo materiálov obsahujúcich
+  azbest zo stavieb vydaným Úradom verejného zdravotníctva SR. Nedodržanie zákonných pravidiel
+  týkajúcich sa odstránenia a likvidácie azbestu predstavuje podstatné porušenie Zmluvy o PP. Bližšie
+  informácie k podmienkam odstraňovania azbestu nájdete na webovom sídle Úrade verejného
+  zdravotníctva SR www.uvzsr.sk.
+
+  Upozornenie 2: Výrobný typ zariadenia v prípade opatrení skupiny B uvedený na Doklade o inštalácii
+  a uvedení zariadenia do prevádzky musí byť v súlade s výrobným štítkom zariadenia.
+
+  Upozornenie 3: Oprávnené zariadenia v rámci opatrení B1 až B3 sa musia nachádzať na Zozname
+  oprávnených zariadení, ktorý je zverejnený na webe: https://is-zd.zelenadomacnostiam.sk/zariadenia.
+  Oprávnenosť zariadenia sa posudzuje výlučne na základe jeho zaradenia v uvedenom zozname,
+  bez ohľadu na to, či je predmetné zariadenie podporované v rámci programu Zelená domácnostiam
+  alebo Zelená solidarita. V prípade tepelných čerpadiel vzduch-vzduch postačuje, ak je v zozname
+  zaradená jedna časť tepelného čerpadla, t. j. stačí, ak je v zozname len vnútorná jednotka alebo
+  len vonkajšia jednotka, alebo niektorá z týchto jednotiek aj v kombinácii s inou jednotkou.
+
+Vysvetlenie k opatreniam skupiny B.4a až B.4c:
+
+Zónová regulácia vykurovacej sústavy je systém, ktorý rozdeľuje vykurovaciu sústavu na viacero nezávislých
+častí – zón. Každá zóna má vlastný teplotný senzor a ovládanie, vďaka čomu možno nastaviť individuálnu
+teplotu podľa potreby. Tento prístup umožňuje vykurovať miestnosti podľa spôsobu ich využívania, dennej
+doby, vonkajšej teploty, počasia a pod., a udržiavať v nich optimálne podmienky.
+
+Inteligentná zónová regulácia vykurovania sa typicky skladá z týchto častí (konkrétne súčasti inteligentnej
+zónovej regulácie závisia od systému vykurovania):
+
+1. programovateľné priestorové termostaty a/alebo teplotné senzory – v každej zóne merajú aktuálnu
+     teplotu a porovnávajú ju s požadovanou (najmä v prípade podlahového vykurovania),
+
+2. elektronické termostatické hlavice riadené centrálne (v prípade radiátorového vykurovania) – otvárajú
+     a zatvárajú jednotlivé vykurovacie okruhy podľa požiadavky termostatu,
+
+3. zónové ventily alebo elektrotermické pohony (v prípade podlahového vykurovania) – otvárajú
+     a zatvárajú jednotlivé vykurovacie okruhy podľa požiadavky termostatu,
+
+4. centrálna riadiaca jednotka – „mozog“ systému, ktorý spracúva údaje zo senzorov a riadi jednotlivé
+     okruhy,
+
+5. rozdeľovač vykurovania – pri podlahovom kúrení rozdeľuje vykurovaciu vodu do jednotlivých okruhov;
+     na ňom bývajú umiestnené pohony,
+
+6. komunikácia/sieť – napr. káblová zbernica, Wi-Fi, Zigbee alebo iný protokol, ktorým spolu jednotlivé
+     prvky komunikujú,
+
+7. vonkajší teplotný snímač – pri pokročilejších systémoch umožňuje prispôsobenie teploty vykurovacej
+     vody vonkajšej teplote,
+
+8. ovládací softvér/aplikácia – umožňuje nastavovať teploty, časové programy a sledovať alebo ovládať
+     kúrenie na diaľku.
+
+                                                               19
+Realizácia bude uznaná ako oprávnená za každú vykurovanú miestnosť, v ktorej regulácia pokrýva všetky
+vykurovacie telesá a/alebo okruhy podlahového vykurovania (najviac však za 4 miestnosti). V každej z týchto
+miestností musí byť možné nastaviť teplotu a automatický časový program samostatne. Nastavenie
+všetkých miestností musí byť dostupné z jedného miesta, teda z mobilnej aplikácie alebo z centrálnej
+jednotky. Opatrenie sa týka existujúcej vykurovacej sústavy.
+
+Za účelom uznania realizácie opatrenia ako oprávneného sa vyžaduje inštalácia minimálne:
+
+Opatrenie B.4a
+    - elektronickej termostatickej hlavice riadenej centrálne na každé vykurovacie teleso v uplatňovanej
+         miestnosti,
+    - termostatického ventilu s prednastavením alebo dynamického ventilu na každé vykurovacie teleso
+         v uplatňovanej miestnosti,
+    - riadiacej jednotky a/alebo ovládacieho softvéru/aplikácie s prepojením na zdroj vykurovania.
+    V prípade riadiacej jednotky a/alebo ovládacieho softvéru/aplikácie postačuje inštalácia jedného
+    pre celý RD.
+
+Opatrenie B.4b
+    - zónových ventilov alebo elektrotermických pohonov na každom vykurovacom okruhu miestnosti,
+    - programovateľných priestorových termostatov (teplotných senzorov),
+    - riadiacej jednotky a
+    - ovládacieho softvéru/aplikácie s prepojením na zdroj vykurovania.
+    V prípade riadiacej jednotky a/alebo ovládacieho softvéru/aplikácie postačuje inštalácia jedného
+    pre celý RD.
+
+Opatrenie B.4c
+    - programovateľných priestorových termostatov s podlahovým čidlom,
+    - riadiacej jednotky a
+    - ovládacieho softvéru/aplikácie s prepojením na zdroj vykurovania.
+    V prípade riadiacej jednotky a/alebo ovládacieho softvéru/aplikácie postačuje inštalácia jedného
+    pre celý RD.
+
+Vysvetlenie k opatreniu skupiny B.4d:
+
+Inteligentný elektromer (smart meter) je moderný merač elektriny, ktorý poskytuje podrobné dáta
+o spotrebovanej a prípadne aj vyrobenej elektrickej energii a zároveň umožňuje zber, spracovanie, diaľkový
+prenos a elektronické poskytovanie nameraných údajov. Na rozdiel od klasického mechanického
+elektromera alebo jednoduchého elektronického merača, smart meter zaznamenáva spotrebu v krátkych
+intervaloch (napríklad každú 15. minútu alebo hodinu) a tieto informácie môže automaticky posielať
+distribučnej spoločnosti alebo koncovému odberateľovi. Smart merač z hľadiska domácnosti umožňuje
+najmä:
+
+1. presnejšie a aktuálnejšie faktúry – odpočet bez potreby manuálnej návštevy technika (dáta
+     sú sťahované automaticky na diaľku) a fakturácia skutočnej spotreby elektrickej energie (nie spotreba
+     na základe prognóz),
+
+2. detailný prehľad o spotrebe – rozdelenie spotreby podľa dní, hodín alebo zariadení (ak sú prepojené
+     s domácim systémom), čo pomáha identifikovať úsporné opatrenia,
+
+3. možnosť využívať flexibilné tarify – nižšie ceny v mimoriadnych hodinách (nočné, víkendové) alebo
+     dynamické tarify podľa záťaže siete, ak poskytovateľ také ponuky má,
+
+4. rýchlejšie riešenie porúch – operátor môže detegovať výpadok alebo nezrovnalosť v údajoch a začať
+     opravu bez telefonovania zákazníkovi.
+
+V RD sa zvyčajne inštaluje jeden smart merač.
+
+Príklady výpočtu SOV a výšky platby:
+
+                                                               20
+Príklad Faktúra      Výpočet                            SOV         Záloha     Výsledok
+
+   25 m² okien,      7 000 / 25 = 280 EUR/m²;
+   7 000 EUR s DPH
+1                    maximálna jednotková cena          7 000 EUR 3 500 EUR doplatok 3 500 EUR
+                     553,50 EUR/m² → použije
+
+                     sa fakturovaná cena
+
+                     10 000 / 18 = 555,56 EUR/m²
+
+2  18 m² okien,      maximálna jednotková cena          9 963 EUR   5 000 EUR  doplatok 4 963 EUR; 37 EUR
+   10 000 EUR s DPH  553,50 EUR/m² → použije                                   hradí prijímateľ z vlastných
+                     sa maximálna jednotková cena,                             prostriedkov
+                     keďže je nižšia ako fakturovaná →
+
+                     18 × 553,50 = 9 963 EUR
+
+                     600 EUR/m² > 553,50 EUR/m²
+
+                     maximálna jednotková cena
+
+3  25 m² okien,      553,50 EUR/m² → použije            11 000 EUR  5 500 EUR  doplatok 5 500 EUR; 4 000 EUR
+   15 000 EUR s DPH  sa maximálna jednotková cena,                             hradí prijímateľ z vlastných
+                     keďže je nižšia ako fakturovaná →                         prostriedkov
+                     25 × 553,50 = 13 837,50 EUR;
+
+                     maximálna výška príspevku
+
+                     11 000 EUR
+
+4  16 m² okien,      300 EUR/m² → použije               4 800 EUR   5 500 EUR  preplatok 700 EUR prijímateľ
+                                                                               vráti do 10 kalendárnych dní
+   4 800 EUR s DPH sa fakturovaná cena                                         od doručenia žiadosti o vrátenie
+
+5.1.2 Maximálne jednotkové ceny
+
+Maximálne jednotkové ceny bez DPH a s 23 % DPH stanovené podľa kapitoly 2.8 Príručky pre žiadateľa
+sa používajú pre výpočet výšky príspevku. Bližšie informácie k spôsobu výpočtu výšky príspevku
+sú uvedené v kapitole 5.1.1.
+
+Skupina opatrení A. zlepšenie tepelno-technických vlastností budovy (zahŕňa stavebné práce, vrátane
+použitého materiálu):
+
+                                                                               Limit            Limit
+
+Opatrenie/spôsob realizácie                             Jednotka    v EUR/jednotku v EUR/jednotku
+                                                        EUR/m²
+1. Zateplenie obvodového plášťa                                             (bez DPH)           (s DPH)
+2. Výmena otvorových konštrukcií                        EUR/m²
+                                                        EUR/m²                 116,44           143,22
+  a. výmena okien (výmena celých okien vrátane
+      rámov alebo výmena pôvodného zasklenia)           EUR/m²                 450,00             553,50
+                                                                               900,00           1 107,00
+  b. výmena vstupných dverí vrátane zárubní             EUR/m²
+3. Zateplenie strešného plášťa                          EUR/m²                 158,75           195,26
+                                                        EUR/m²
+  a. zateplenie plochej strechy s realizáciou                                   37,26            45,83
+      hydroizolácie v prípade, že je priamo                                     35,00            43,05
+      pod strechou vykurovaný priestor                                          75,00            92,25
+
+  b. zateplenie šikmej strechy v prípade, že je
+      priamo pod strechou vykurovaný priestor
+
+4. Zateplenie podlahy nevykurovaného podkrovia
+5. Zateplenie stropu nevykurovaného suterénu
+
+                                                  21
+6. Výmena strešnej krytiny šikmej strechy (len ak je   EUR/m²                        43,70            53,75
+zároveň realizované aj zateplenie strešného plášťa
+alebo zateplenie podlahy nevykurovaného
+podkrovia)
+
+Skupina opatrení B. inštalácia zdroja energie (vrátane jeho uvedenia do prevádzky):
+
+                                                                  Limit v EUR/ Limit v EUR/ Maximálny
+
+Opatrenie/spôsob realizácie                            Jednotka   jednotku jednotku limit v EUR
+
+                                                                  (bez DPH) (s DPH)          (s DPH)
+
+1. Tepelné čerpadlo
+
+  a. vzduch-voda, voda-voda, zem-voda                  EUR/kW     1 092,50        1 343,78   11 000,00
+  b. vzduch-vzduch                                     EUR/kW      483,00          594,09    7 129,08
+2. Solárny kolektor                                    EUR/kW     1 300,00        1 599,00   5 564,52
+
+3. Kotol určený na spaľovanie biomasy vo forme peliet alebo palivového dreva splyňovaním vrátane
+súvisiacich prác a pridružených nákladov
+
+a. Tepelný zdroj – kotol, expanzná nádoba,               EUR/     3 500,00                  4 305,00
+   v prípade kotlov na pelety zásobník na pelety,      opatrenie
+   pripojenie kotla k vykurovacej sústave a práce
+   a materiál súvisiaci s inštaláciou kotla
+
+b. Akumulačná nádrž (na ohrev vody                       EUR/     2 000,00                  2 460,00
+   na vykurovanie alebo ohrev teplej vody)             opatrenie
+   vrátane pripojenia na tepelný zdroj obstaraný
+   v rámci opatrenia B.3a a práce a materiál
+   súvisiaci s inštaláciou akumulačnej nádrže
+
+c. Vnútorné rozvody systému centrálneho                  EUR/     2 000,00                  2 460,00
+   vykurovania vrátane vykurovacích telies a ich       opatrenie  2 200,00                  2 706,00
+   pripojenie na tepelný zdroj obstaraný v rámci                  1 700,00                  2 091,00
+   opatrenia B.3a                                        EUR/
+                                                       opatrenie
+d. Vybudovanie nového komínového telesa,
+   vrátane základovej pätky a pripojenia                 EUR/
+   na tepelný zdroj obstaraný v rámci opatrenia        opatrenie
+   B.3a
+
+e. Vyvložkovanie existujúceho komínového
+   telesa pripojeného na tepelný zdroj obstaraný
+   v rámci opatrenia B.3a
+
+4. Inštalácia alebo modernizácia systému merania a regulácie vykurovacej sústavy
+
+a. Inteligentná zónová regulácia radiátorového        EUR/vykur.  196,90             242,19           968,76
+   vykurovania                                        miestnosť   398,97
+                                                                  265,03             490,73           1 962,92
+b. Inteligentná zónová regulácia teplovodného         EUR/vykur.  121,95
+   podlahového vykurovania                            miestnosť                      325,99           1 303,96
+
+c. Inteligentná zónová regulácia elektrického         EUR/vykur.                             150,00
+   podlahového vykurovania                            miestnosť
+
+d. Smart merač                                           EUR/
+                                                      opatrenie
+
+                                                   22
+5.1.3 Prílohy ŽoP na preukázanie rozsahu zrealizovanej obnovy RD a vyčíslenie výšky schválených
+         oprávnených výdavkov
+
+Prijímateľ k ŽoP predkladá nasledovné prílohy preukazujúce realizáciu čiastkovej obnovy RD v súlade
+s podmienkami Výzvy a schválenou žiadosťou, ktorá splnila podmienky poskytnutia príspevku. Všetky
+prílohy sa predkladajú elektronicky prostredníctvom on-line formulára ŽoP podľa kapitoly 5.1 tejto Príručky.
+
+1. Doklady preukazujúce zrealizovanie čiastkovej obnovy RD:
+
+      a. Preberací protokol k všetkým opatreniam skupiny A potvrdený dodávateľom podľa záväzného
+           vzoru3, ktorý obsahuje povinné náležitosti vyžadované na účely preukázania realizácie opatrenia
+           a určenia SOV (záväzný vzor je zverejnený na webovom sídle www.obnovdom.sk)
+
+      b. Doklad o inštalácii a uvedení zariadenia do prevádzky k všetkým opatreniam skupiny B
+           potvrdený dodávateľom spolu s odborne spôsobilou osobou na inštaláciu daného zariadenia
+           podľa záväzného vzoru3, ktorý obsahuje povinné náležitosti vyžadované na účely preukázania
+           realizácie opatrenia (záväzný vzor je zverejnený na webovom sídle www.obnovdom.sk)
+
+      c. Potvrdenie o vykonaní preskúšania komína (revízna správa komína) výlučne v prípade realizácie
+           podopatrení B.3d a B.3e
+
+  Upozornenie:
+
+  Preberací protokol, resp. Doklad o inštalácii a uvedení zariadenia do prevádzky musia byť vyplnené
+  vo všetkých bodoch, nakoľko tam uvedené údaje preukazujú realizáciu jednotlivých opatrení, ako aj
+  oprávnenosť zrealizovaných opatrení vo vzťahu k splneniu podmienok oprávnenosti výdavkov v zmysle
+  Výzvy a Záväznej dokumentácie. Nepredloženie týchto dokumentov, resp. ich predloženie bez vyplnenia
+  všetkých požadovaných údajov môže viesť k neschváleniu oprávnenosti výdavkov, resp. k zamietnutiu
+  celej ŽoP.
+
+      d. Doklad preukazujúci vznik a spôsob nakladania dodávateľa so stavebným odpadom ku všetkým
+           opatreniam skupiny A, a to:
+
+               i. Potvrdenie od dodávateľskej firmy stavebných prác o odovzdaní stavebného odpadu
+                   a odpadu z demolácií osobe oprávnenej na nakladanie s odpadmi a/alebo
+
+              ii. Vyjadrenie dodávateľskej firmy stavebných prác, že množstvo stavebného odpadu bolo
+                   počas realizácie čiastkovej obnovy RD minimalizované a nakladanie s ním prebiehalo
+                   v súlade so zákonom o odpadoch a Vyhláškou MŽP SR č. 344/2022 Z. z. o stavebných
+                   odpadoch a odpadoch z demolácií.
+
+             iii. Potvrdenie zberného dvora o odovzdaní drobného stavebného odpadu do systému podľa
+                   platného VZN o nakladaní s komunálnymi odpadmi a drobnými stavebnými odpadmi, resp.
+                   doklad vystavený poverenou osobou v obci v prípade, že obec nemá zberný dvor a zber
+                   drobného stavebného odpadu realizuje kalendárovým zberom.
+
+           Pokiaľ prijímateľ predišiel vzniku odpadu tým, že časť odpadu opätovne použil, predkladá Čestné
+           vyhlásenie spolu s opisom spôsobu, akým boli stavebné prvky, resp. iný vhodný materiál použitý.
+           SAŽP si v prípade pochybností môže vyžiadať fotodokumentáciu preukazujúcu spôsob využitia
+           týchto materiálov.
+
+           Bližšie informácie vrátane príkladov príloh k preberaciemu protokolu nájdete v dokumente
+           „Usmernenie k preukazovaniu vzniku a spôsobu nakladania so stavebným odpadom pri obnove
+           rodinného domu – Obnov dom mini+“, ktoré je zverejnené na webovom sídle www.obnovdom.sk.
+
+3 SAŽP môže akceptovať aj iný dokument vydaný zhotoviteľom, dodávateľom alebo odborne spôsobilou osobou,
+   pokiaľ obsahuje všetky náležitosti podľa záväzného vzoru nevyhnutné na preukázanie realizácie opatrenia a určenia
+   SOV.
+
+                                                               23
+          V prípade opatrení skupiny B sa vzhľadom na ich charakter doklad preukazujúci vznik a spôsob
+          nakladania dodávateľa so stavebným odpadom nevyžaduje.
+
+     e. Fotodokumentácia preukazujúca stav RD pred čiastkovou obnovou a po ukončení realizácie
+          opatrení čiastkovej obnovy RD (vo farebnom rozlíšení) podľa záväzného vzoru3 zverejneného
+          na webovom sídle www.obnovdom.sk.
+
+          Fotodokumentáciu je potrebné vyhotoviť ku všetkým opatreniam, ktoré sú zahrnuté do projektu
+          čiastkovej obnovy RD. V prípade, že predmetom financovania je inštalácia kotla na biomasu, ktorý
+          nahrádza zastaraný kotol na biomasu alebo vykurovacie systémy na báze uhlia/oleja, musí byť
+          z fotografie pôvodného zdroja energie zrejmé, že zariadenie bolo odpojené od vykurovacej
+          sústavy.
+
+          V prípade absencie časti fotodokumentácie preukazujúcej stav RD pred obnovou odporúčame,
+          aby prijímateľ k ŽoP predložil vysvetlenie k absencii požadovanej fotodokumentácie
+          zachytávajúcej stav RD pred obnovou. V prípade, že SAŽP v rámci finančnej kontroly ŽoP
+          na základe prijímateľom predložených dokladov (príloh ŽoP, vrátane fotodokumentácie RD
+          pred a po obnove) nezíska primerané uistenie o skutočnom zrealizovaní opatrení na čiastkovú
+          obnovu RD, vyzve prijímateľa na doplnenie ŽoP (dokladov preukazujúcich zrealizovanie čiastkovej
+          obnovy RD v zmysle podmienok Výzvy), pričom skutočnú realizáciu môže overiť aj kontrolou
+          na mieste.
+
+2. Faktúra vystavená zhotoviteľom/dodávateľom po ukončení stavebných prác, resp. inštalácii
+    zariadenia. Faktúra musí zahŕňať všetky náklady súvisiace s realizáciou daného opatrenia (stavebné
+    práce vrátane použitého materiálu, dodávka a montáž okien a dverí, resp. dodávka zariadenia, jeho
+    montáž a uvedenie do prevádzky). Z hľadiska zrýchlenia schvaľovacieho procesu ŽoP odporúčame
+    predkladať za každé zrealizované opatrenie samostatnú faktúru (napr. samostatná faktúra za výmenu
+    okien, samostatná faktúra za výmenu dverí, samostatná faktúra za kotol). Ak je na jednej faktúre
+    uvedených viacero zrealizovaných opatrení, musí byť zrejmé, ktoré náklady (položky faktúry)
+    sa týkajú ktorého opatrenia tak, aby bolo možné identifikovať výdavky na každé zrealizované
+    opatrenie.
+
+    Upozornenia týkajúce sa faktúr:
+
+    - pokladničné bločky a iné obdobné doklady nie sú akceptované,
+    - faktúry vystavené na inú osobu ako prijímateľa alebo niektorého člena domácnosti
+
+        nie sú akceptované,
+    - ak zhotoviteľ/dodávateľ vystavil zálohovú faktúru, k ŽoP sa predkladá konečná (vyúčtovacia)
+
+        faktúra, ktorá zahŕňa celé plnenie a odpočet prijatej zálohy; samotná zálohová faktúra
+        nie je podkladom na výpočet SOV,
+    - v prípade, ak je dodávateľom neplatiteľ DPH, k jednotkovej cene stanovenej podľa kapitoly 5.1.1
+        nebude pripočítaná DPH (DPH nie je prijímateľom uhrádzaná, a teda nie je oprávneným výdavkom),
+     - faktúra musí spĺňať všetky náležitosti vyžadované príslušnými právnymi predpismi (najmä
+        predpismi o dani z pridanej hodnoty a o účtovníctve),
+     - zahraničný zhotoviteľ/dodávateľ musí spĺňať všetky podmienky stanovené slovenskou legislatívou
+        pre poskytovanie služieb/prác/dodávok na Slovensku,
+    - na faktúre musí byť ako miesto realizácie/dodávky uvedená adresa obnovovaného RD,
+    - doklad o úhrade faktúry sa k ŽoP nepredkladá; výška príspevku sa určuje na základe faktúry.
+        Prijímateľ je však povinný použiť vyplatenú zálohu výlučne na úhradu služieb/prác/dodávok
+        zhotoviteľovi/dodávateľovi a finančne sa vysporiadať so všetkými zhotoviteľmi/dodávateľmi. SAŽP
+        si môže doklad o úhrade kedykoľvek vyžiadať,
+    - v prípade, ak prijímateľ predloží samostatnú faktúru za nákup materiálu, je spolu s touto faktúrou
+        povinný predložiť aj vyjadrenie zhotoviteľa/dodávateľa o tom, že materiál uvedený na predmetnej
+        faktúre bol použitý v rámci čiastkovej obnovy RD (prípadne aj s presným rozpisom a výmerou
+        použitého materiálu na čiastkovú obnovu RD),
+    - ak čiastkovú obnovu RD realizuje zhotoviteľ/dodávateľ z krajín mimo EÚ, je prijímateľ povinný spolu
+
+                                                              24
+         s faktúrou predložiť aj doklady preukazujúce, že materiál použitý v rámci čiastkovej obnovy RD
+         spĺňa požiadavky na použitie v EÚ (je certifikovaný na použitie v rámci EÚ).
+
+Dokumentácia preukazujúca zrealizovanie projektu (vrátane faktúry) musí byť vyhotovená v slovenskom
+alebo českom jazyku. Dokumentácia vyhotovená v inom jazyku musí byť úradne preložená (postačuje kópia
+alebo sken úradného prekladu, pričom originál je prijímateľ povinný uchovávať pre prípady budúcich
+kontrol) s výnimkou osobitných prípadov, ak tak určí SAŽP (napr. ak je obsah dokumentu, resp. jeho časť,
+ktorá je podstatná pre overenie splnenia podmienok na vyplatenie príspevku, zrejmá, resp. zrozumiteľná
+aj bez úradného prekladu). Osobitné prípady je potrebné komunikovať so SAŽP.
+
+V prípade, že prijímateľ po predložení ŽoP podľa kapitoly 5.1 tejto Príručky zistí, že spolu so ŽoP nepredložil
+niektorý z dokumentov preukazujúcich čiastkovú obnovu RD v súlade s podmienkami Výzvy a Zmluvy o PP,
+môže ŽoP doplniť aj bez výzvy SAŽP. Doplnenie ŽoP je možné vykonať e-mailom na adresu:
+[e-mail vynechaný]. Do predmetu správy napíšte „Doplnenie žiadosti o platbu“ a číslo (kód) projektu
+zo Zmluvy o PP.
+
+ Upozorňujeme prijímateľa, že v prípade, ak bude realizovať opatrenie B3. Kotol na biomasu vrátane
+ súvisiacich prác a pridružených nákladov, je povinný vykonať preskúšanie komína a dymovodu.
+ Pri inštalácii zariadenia ústredného vykurovania a pri výstavbe a používaní komína a dymovodu musia
+ byť dodržané technické podmienky a požiadavky na protipožiarnu bezpečnosť v súlade s Vyhláškou
+ Ministerstva vnútra Slovenskej republiky č. 401/2007 Z. z. o technických podmienkach a požiadavkách
+ na protipožiarnu bezpečnosť pri inštalácii a prevádzkovaní palivového spotrebiča, elektrotepelného
+ spotrebiča a zariadenia ústredného vykurovania a pri výstavbe a používaní komína a dymovodu
+ a o lehotách ich čistenia a vykonávania kontrol.
+
+6 Ďalšie povinnosti prijímateľa vyplývajúce zo Zmluvy o PP
+
+6.1 Poskytovanie informácií
+
+Prijímateľ je v zmysle čl. 5 VZP povinný bezodkladne písomne informovať SAŽP o akýchkoľvek
+skutočnostiach, ktoré majú alebo môžu mať negatívny vplyv na dosiahnutie a/alebo udržanie cieľa projektu,
+ako napr. začatie a ukončenie akéhokoľvek súdneho, exekučného alebo správneho konania voči
+prijímateľovi, vznik a zánik OVZ a pod.
+
+V tejto súvislosti odporúčame, aby prijímateľ preventívne komunikoval všetky potenciálne problémy, ktoré
+v súvislosti s plnením jeho zmluvných povinností hrozia, aby bolo možné včas predísť skutočnostiam, ktoré
+by znamenali porušenie podmienok Zmluvy o PP s povinnosťou vrátenia už vyplateného príspevku, resp.
+odstúpenie od Zmluvy o PP pred vyplatením príspevku.
+
+SAŽP má zároveň právo kedykoľvek počas platnosti a účinnosti Zmluvy o PP vyžiadať od prijímateľa
+informácie týkajúce sa projektu, pričom v žiadosti uvádza dôvod ich vyžiadania, spôsob ich predloženia
+a lehotu, v akej má prijímateľ požadované informácie predložiť.
+
+6.2 Viditeľnosť poskytnutej podpory
+
+Na zabezpečenie informačnej povinnosti prijímateľa podľa čl. 6 VZP je prijímateľ povinný označiť RD
+umiestnením informačného prvku preukazujúceho realizáciu obnovy RD z prostriedkov Modernizačného
+fondu (napr. informačná tabuľa, informačný plagát, samolepka). Informačný prvok musí byť umiestnený
+na viditeľnom mieste z verejne prístupných komunikácií alebo priestranstiev (napr. pri súpisnom čísle RD,
+ktoré je umiestnené v zmysle vyhlášky Ministerstva vnútra Slovenskej republiky č. 31/2003 Z. z., ktorou
+sa ustanovujú podrobnosti o označovaní ulíc a iných verejných priestranstiev a o očíslovaní stavieb v znení
+neskorších predpisov).
+
+                                                               25
+Za týmto účelom SAŽP zašle prijímateľovi informačnú tabuľu spolu so správou z finančnej kontroly ŽoP
+(podľa kapitoly 4.1.1 tejto Príručky), predmetom ktorej je schválenie ŽoP. V prípade, že SAŽP nedoručí
+prijímateľovi informačnú tabuľu pred uplynutím lehoty na jej osadenie podľa čl. 6 ods. 1 VZP4, je prijímateľ
+povinný osadiť dočasný informačný prvok a po doručení informačnej tabule od SAŽP je prijímateľ povinný
+túto informačnú tabuľu osadiť do 14 kalendárnych dní od jej prijatia.
+
+Informačný prvok musí zostať na RD počas celej doby platnosti a účinnosti Zmluvy o PP.
+
+Bližší popis informačného prvku nájdete na webovom sídle www.obnovdom.sk.
+
+6.3 Vysporiadanie finančných vzťahov a nezrovnalosti
+
+Prijímateľ je v súlade s čl. 14 VZP povinný vrátiť príspevok v prípade, že:
+
+  1. bol poskytnutý z titulu mylnej platby alebo neoprávnene alebo
+  2. výška poskytnutej zálohy prevyšuje SOV (v takom prípade je prijímateľ povinný vrátiť rozdiel medzi
+
+       SOV a vyplatenou zálohou),
+  3. prijímateľ porušil povinnosti vyplývajúce zo Zmluvy o PP a takéto porušenie znamená povinnosť
+
+       vrátenia vyplateného príspevku, alebo jeho časti alebo
+  4. došlo k zániku Zmluvy o PP z dôvodu jej mimoriadneho ukončenia podľa čl. 11 VZP alebo v iných
+
+       prípadoch, ak tak ustanovuje Zmluva o PP.
+
+V prípade prijatia mylnej platby, prijímateľ o uvedenom bezodkladne informuje SAŽP, ktorá mu poskytne
+inštrukcie (platobné údaje) na vrátenie mylne prijatej platby.
+
+V prípade zistenia nezrovnalosti počas obdobia platnosti a účinnosti Zmluvy o PP je prijímateľ povinný
+ju bezodkladne oznámiť SAŽP a zaslať (v zmysle čl. 14 ods. 5 písm. b. VZP) príslušnú dokumentáciu týkajúcu
+sa nezrovnalosti (ak relevantné). SAŽP vyhodnotí predložené podklady a v prípade, že zistená nezrovnalosť
+znamená také porušenie podmienok Zmluvy o PP, ktoré vedie k povinnosti vrátiť vyplatený príspevok alebo
+jeho časť, zašle prijímateľovi žiadosť o vrátenie NFP, v ktorej uvedie výšku príspevku, ktorý má vrátiť, lehotu
+na vrátenie a číslo účtu, na ktorý je prijímateľ povinný príspevok vrátiť.
+
+V prípade, že je pre prijímateľa problematické vrátiť príspevok v stanovenej lehote, môže písomne požiadať
+SAŽP o stanovenie splátkového kalendára (t. j. uzavretie dohody o splátkach).
+
+V prípade, ak prijímateľ nevráti príspevok z vlastnej iniciatívy, SAŽP vyzve Prijímateľa na vrátenie príspevku
+alebo jeho časti zaslaním žiadosti o vrátenie NFP. Ak sa vysporiadanie finančných vzťahov vykonáva z titulu
+porušenia finančnej disciplíny a prijímateľ vráti príspevok v lehote určenej v žiadosti o vrátenie NFP, penále
+a pokuta za porušenie finančnej disciplíny sa neuplatňuje.
+
+Ak prijímateľ nevráti príspevok alebo jeho časť v lehote 30 kalendárnych dní (resp. 10 kalendárnych dní,
+ak ide o vrátenie zálohy) odo dňa doručenia žiadosti o vrátenie NFP na správny účet, príslušný záväzok
+prijímateľa zostáva nesplnený a finančné vzťahy voči SAŽP sa považujú za nevysporiadané. Ak prijímateľ
+nevráti príspevok podľa predchádzajúcej vety, ani nedôjde k uzatvoreniu dohody o splátkach alebo dohody
+o odklade plnenia, SAŽP:
+
+    a. oznámi porušenie pravidiel a podmienok uvedených v Zmluve o PP príslušnému správnemu orgánu
+         (ak ide o porušenie finančnej disciplíny) alebo
+
+    b. postupuje podľa osobitného predpisu (napr. Civilný sporový poriadok) a uplatní pohľadávku
+         na vrátenie príspevku alebo jeho časti na príslušnom orgáne (napr. súde).
+
+Proti akejkoľvek pohľadávke na vrátenie príspevku, ako aj proti akýmkoľvek iným pohľadávkam SAŽP voči
+prijímateľovi vzniknutým z akéhokoľvek právneho dôvodu, prijímateľ nie je oprávnený jednostranne
+započítať akúkoľvek svoju pohľadávku. Vzájomné započítanie pohľadávok medzi SAŽP a prijímateľom
+nie je možné.
+
+4 Podľa čl. 6 ods. 1 VZP je prijímateľ povinný osadiť informačnú tabuľu najneskôr tri mesiace po finančnom ukončení projektu
+   (vyplatení príspevku).
+
+                                                               26
+Ak prijímateľ nevráti príspevok ani na základe žiadosti o vrátenie NFP, SAŽP podá podnet príslušnému
+orgánu na ďalšie konanie.
+
+6.4 Udržateľnosť projektu
+
+V zmysle čl. 1 ods. 2 VZP sa na projekty čiastkovej obnovy RD vzťahuje „Doba udržateľnosti projektu“
+3 roky. Uvedené znamená, že počas obdobia troch rokov odo dňa finančného ukončenia projektu, t. j. od:
+
+    a. prijatia zvyšku príspevku na účet prijímateľa (v prípade, že je výška vyplatenej zálohy nižšia ako SOV)
+         alebo
+
+    b. vrátenia rozdielu medzi SOV a vyplatenou zálohou (v prípade, že výška vyplatenej zálohy je vyššia
+         ako SOV) alebo
+
+    c. doručenia správy z finančnej kontroly ŽoP prijímateľovi (v prípade, že výška SOV je rovnaká ako
+         výška zálohy)
+
+je prijímateľ alebo jeho právny nástupca povinný dodržiavať najmä nasledovné zmluvné povinnosti:
+    1. udržať cieľ projektu definovaný v článku 2 ods. 2.4 Zmluvy o PP,
+    2. informovať verejnosť o podpore získanej z prostriedkov MoF na čiastkovú obnovu RD osadením
+         informačného prvku v zmysle článku 6 ods. 1 VZP,
+    3. strpieť výkon kontroly a auditu v zmysle podmienok upravených Zmluvou o PP a poskytnúť náležitú
+         súčinnosť SAŽP alebo inej oprávnenej osobe pri výkone kontroly a auditu,
+    4. nemôže dôjsť k predaju alebo akémukoľvek odstráneniu častí projektu (napr. kotol na biomasu
+         alebo solárne panely), na ktoré bol poskytnutý príspevok,
+    5. môže dôjsť k zmene vlastníkov RD v prípade splnenia podmienok definovaných v článku 8 ods. 5
+         VZP.
+
+Poistenie RD, resp. majetku nadobudnutého v súvislosti s obnovou RD, na ktorú je poskytovaný finančný
+príspevok, sa nevyžaduje ale prijímateľom sa odporúča.
+
+6.5 Uchovávanie dokladov súvisiacich s poskytnutím príspevku
+
+Prijímateľ je podľa článku 2 ods. 4 písm. e) VZP povinný uchovávať všetku dokumentáciu týkajúcu
+sa projektu (najmä doklady, na základe ktorých bola vypracovaná a predložená žiadosť a ŽoP) po Dobu
+udržateľnosti projektu, minimálne však do 31. decembra 2030, ak zo Zmluvy o PP nevyplýva dlhšia doba
+(napr. v prípade, ak dôjde k porušeniu podmienok Zmluvy o PP s povinnosťou vrátenia poskytnutého
+príspevku alebo jeho časti a prijímateľ tento príspevok (alebo jeho časť) do 31. decembra 2030 nevráti)
+a do tejto doby strpieť výkon kontroly/auditu zo strany oprávnených osôb podľa Zmluvy o PP. Stanovená
+doba podľa prvej vety môže byť automaticky predĺžená (t. j. bez potreby vyhotovenia osobitného dodatku
+k Zmluve o PP, len na základe oznámenia SAŽP prijímateľovi). Porušenie tejto povinnosti je podstatným
+porušením Zmluvy o PP.
+Dokumenty sa uchovávajú buď vo forme originálov, alebo úradne overených kópií originálov, alebo
+všeobecne prijímaných nosičov dát vrátane elektronických verzií originálnych dokumentov alebo
+dokumentov, ktoré existujú iba v elektronickej podobe.
+Uchovávané dokumenty musia poskytovať dostatočnú záruku spoľahlivosti na účely auditu a kontroly.
+V prípade, ak existujú dokumenty len v elektronickej podobe, musia používané počítačové systémy spĺňať
+bezpečnostné štandardy, ktoré zabezpečia, že uchovávané dokumenty sú v súlade so záväznými právnymi
+predpismi SR a sú dôveryhodné na účely auditu a kontroly.
+
+                                                               27
+7 Zmena Zmluvy o PP
+
+7.1 Všeobecné zásady uplatňované v rámci zmeny Zmluvy o PP
+
+Prijímateľ je povinný oznámiť SAŽP všetky zmeny alebo skutočnosti, ktoré majú alebo môžu mať negatívny
+vplyv na udržanie cieľa projektu (výsledkov čiastkovej obnovy RD), alebo sa akýmkoľvek spôsobom týkajú
+alebo môžu týkať neplnenia povinností prijímateľa zo Zmluvy o PP, a to aj v prípade, ak má prijímateľ čo i len
+pochybnosť o dodržiavaní svojich záväzkov vyplývajúcich zo Zmluvy o PP.
+Prijímateľ oznamuje formálnu zmenu Zmluvy o PP, alebo žiada o schválenie zmeny Zmluvy o PP
+na formulároch a v súlade s postupom definovaným v kapitole 7.2 tejto Príručky. Bližšie informácie o zmene
+Zmluvy o PP sú uvedené v čl. 10 VZP, zmena vlastníckych vzťahov a postup pri predaji a dedení je bližšie
+popísaný v čl. 7 a 8 VZP.
+Základným princípom zmien predložených SAŽP je:
+
+  - dôsledné, podrobné a relevantné odôvodnenie,
+  - preukázanie, že navrhovaná zmena Zmluvy o PP nemá negatívny vplyv na udržanie cieľa projektu
+
+       v takom rozsahu, že by to viedlo k podstatnému porušeniu podmienok Zmluvy o PP, uvedené
+       sa netýka oznámenia formálnych zmien,
+  - predloženie všetkých príloh (písomné alebo elektronické), ktoré sú relevantné pre navrhovanú
+       zmenu.
+
+Predmetom jednej žiadosti o zmenu, resp. oznámenia zmeny môže byť naraz aj viacero zmien.
+SAŽP môže prijímateľa v prípade potreby vyzvať na doplnenie žiadosti o zmenu, resp. oznámenia zmeny
+o ďalšiu podpornú dokumentáciu, resp. nápravu, vysvetlenie dokumentov, ktoré tvoria súčasť žiadosti
+o zmenu, resp. oznámenia zmeny, ak z už predloženej dokumentácie nie je jednoznačne preukázaný účel
+navrhovanej zmeny a vplyv na dosiahnutie alebo udržanie cieľa projektu, resp. nie je možné posúdiť
+prípadný vplyv na plnenie podmienok Zmluvy o PP. SAŽP určí lehotu na odstránenie identifikovaných
+nedostatkov, resp. doplnenie žiadosti o zmenu alebo oznámenia zmeny.
+SAŽP môže v súvislosti so žiadosťou o zmenu, ak to uzná za potrebné za účelom posúdenia jej vplyvu
+na plnenie podmienok Zmluvy o PP, vykonať kontrolu na mieste.
+Ak SAŽP zamietla žiadosť o zmenu z dôvodu:
+
+  a. formálnych nedostatkov, prijímateľ môže opätovne požiadať o zmenu Zmluvy o PP,
+  b. nesplnenia vecných aspektov, prijímateľ nie je oprávnený opätovne požiadať o vykonanie rovnakej
+
+       zmeny.
+V zmysle čl. 10 VZP, možno zmeny Zmluvy o PP rozdeliť na:
+
+  - formálne zmeny – podrobnejšie informácie sú uvedené v kapitole 7.2.1,
+  - zmeny Zmluvy o PP z iniciatívy SAŽP – podrobnejšie informácie sú uvedené v kapitole 7.4,
+  - významné zmeny – podrobnejšie informácie sú uvedené v kapitole 7.2.2 (menej významné zmeny
+
+       Zmluvy o PP sa neuplatňujú).
+
+Prijímateľ je povinný požiadať o zmenu Zmluvy o PP bezodkladne pred vykonaním samotnej zmeny alebo
+pred uplynutím doby, ku ktorej sa požadovaná zmena viaže, alebo pred vznikom, prípadne zánikom
+skutočnosti, ktorá sa má prostredníctvom vykonania zmeny odvrátiť.
+
+                                                               28
+7.2 Typy zmien a spôsob ich posudzovania
+
+7.2.1 Formálna zmena Zmluvy o PP
+
+Formálna zmena je zmena spočívajúca v údajoch týkajúcich sa zmluvných strán alebo identifikácie projektu:
+
+    a) názov a sídlo MŽP SR a/alebo SAŽP;
+    b) štatutárny orgán MŽP SR a/alebo SAŽP
+    c) meno, priezvisko a titul, vrátane adresy trvalého pobytu prijímateľa (pod podmienkou, že nejde
+
+         o zmenu vo vlastníckej štruktúre RD, t. j. nedochádza k zmene skladby vlastníkov, ale len k zmene
+         identifikačných údajov niektorého z vlastníkov, napr. zmena priezviska alebo trvalého bydliska);
+    d) identifikačné údaje splnomocnenej (kontaktnej) osoby, t. j. obchodné meno a sídlo, ak je ním
+         právnická osoba, resp. meno, priezvisko, titul a miesto trvalého pobytu, ak je ním fyzická osoba;
+    e) identifikačné údaje RD (napr. zmena súpisného čísla RD, zmena čísla parcely na základe nového
+         geometrického plánu);
+    f) zmena kontaktných údajov zmluvných strán (korešpondenčná adresa, telefón, e-mailová adresa);
+    g) zmena čísla účtu určeného na príjem príspevku;
+    h) iná zmena, ktorá má vo vzťahu k Zmluve o PP iba deklaratórny účinok.
+
+V prípade formálnych zmien na strane prijímateľa (vrátane kontaktnej osoby) je prijímateľ povinný
+bezodkladne písomne oznámiť uvedenú zmenu SAŽP (formulár oznámenia zmeny je zverejnený
+na webovom sídle www.obnovdom.sk), pričom v písomnom oznámení je potrebné uviesť dôvody
+a v prípade zmeny kontaktnej osoby priložiť nové splnomocnenie s úradne overeným podpisom
+splnomocniteľa (výlučného vlastníka alebo všetkých spoluvlastníkov RD). K oznámeniu formálnej zmeny
+nie je potrebné predkladať žiadne dokumenty (s výnimkou, ak o to SAŽP na základe prijímateľom
+predloženého oznámenia zmeny výslovne požiada).
+
+Oznámenie zmeny (s uvedením kódu projektu a identifikátora žiadosti) predkladá prijímateľ elektronicky
+prostredníctvom e-mailu na adresu [e-mail vynechaný], do e-schránky SAŽP (E0005698870) alebo
+listinne do podateľne v Bratislave, resp. na adresu príslušnej regionálnej kancelárie (adresy nájdete
+na www.obnovdom.sk.
+
+Formálna zmena predstavuje zmenu, ktorú SAŽP berie na vedomie, t. j. SAŽP zmenu neschvaľuje. SAŽP
+informuje prijímateľa o vzatí formálnej zmeny na vedomie e-mailom.
+
+V prípade formálnej zmeny na strane MŽP SR alebo SAŽP, SAŽP o uvedenom informuje prijímateľa
+e-mailom.
+
+SAŽP zapracuje formálne zmeny do Zmluvy o PP pri vyhotovení najbližšieho písomného dodatku, ktorého
+predmetom bude aj úprava iných než len formálnych zmien. SAŽP je oprávnená rozhodnúť, že sa dodatok
+k Zmluve o PP len z dôvodu formálnych zmien nebude vyhotovovať, a teda vyplatenie príspevku
+ani schválenie ŽoP nie je podmienené uzavretím dodatku k Zmluve o PP v nadväznosti na prijímateľom
+oznámenú a SAŽP akceptovanú (vzatú na vedomie) zmenu.
+
+Právne účinky takejto zmeny nastávajú v deň, kedy skutočne zmena vznikla (napr. v deň, kedy došlo
+k zmene čísla účtu-IBAN). SAŽP je oprávnená zobrať na vedomie formálnu zmenu projektu aj ex-post.
+V prípade, ak SAŽP zašle prijímateľovi odôvodnené stanovisko, že neakceptuje formálnu zmenu, právne
+účinky nenastanú.
+
+7.2.2 Významná zmena Zmluvy o PP
+
+Za významnú zmenu sa považuje najmä:
+
+    a) zmena majetkovo-právnych pomerov týkajúcich RD (zmena skladby vlastníkov RD);
+    b) zmena prijímateľa podľa článku 8 VZP;
+    c) predĺženie lehoty na realizáciu projektu uvedenej v článku 3. ods. 3.4 Zmluvy o PP,
+
+                                                               29
+    d) zmena spočívajúca v inej zmene, ktorá je ako významná zmena označená v Záväznej dokumentácii.
+
+Akákoľvek významná zmena Zmluvy o PP si v čase pred finančným ukončením projektu vyžaduje
+schválenie zo strany SAŽP.
+
+V čase po finančnom ukončení projektu do uplynutia Doby udržateľnosti projektu si zmena majetkovo-
+právnych pomerov týkajúcich sa RD, ako ani zmena prijímateľa nevyžadujú prechádzajúci písomný súhlas
+SAŽP, ak sú splnené podmienky definovaných v článku 8 ods. 5 VZP.
+
+Prijímateľ je povinný požiadať o zmenu Zmluvy o PP na formulári, ktorý je zverejnený na webovom sídle
+www.obnovdom.sk. Žiadosť o zmenu (s uvedením kódu projektu a identifikátora žiadosti) predkladá
+prijímateľ elektronicky do e-schránky SAŽP (E0005698870) alebo listinne na adresu podateľne v Bratislave,
+resp. na adresu príslušnej regionálnej kancelárie (zverejnené na www.obnovdom.sk).
+
+Prijímateľ je povinný požiadať o zmenu Zmluvy o PP pred vykonaním samotnej zmeny alebo pred uplynutím
+doby, ku ktorej sa požadovaná zmena viaže, alebo pred vznikom, prípadne zánikom skutočnosti, ktorá sa má
+prostredníctvom vykonania zmeny odvrátiť, a to v primeranej lehote pred vykonaním takejto zmeny.
+Uvedené sa nevzťahuje na zmeny po finančnom ukončení projektu.
+
+Prijímateľ v žiadosti o zmenu uvedie popis a dôvody navrhovanej zmeny, jej vplyv na cieľ projektu a predloží
+podpornú dokumentáciu podľa typu zmeny.
+
+SAŽP môže prijímateľa v prípade potreby vyzvať na doplnenie informácií, resp. doplnenie relevantných
+príloh. Pri významnej zmene Zmluvy o PP musí byť aj doplnenie vykonané výlučne listinne (poštou, osobne
+alebo prostredníctvom e-schránky).
+
+SAŽP po posúdení žiadosti o významnú zmenu informuje prijímateľa o schválení alebo neschválení
+významnej zmeny Zmluvy o PP.
+
+V prípade, ak dôjde k neschváleniu žiadosti o zmenu, prijímateľ nie je oprávnený realizovať predmetnú
+zmenu. Ak by k realizácii zmeny došlo, výdavky súvisiace s takouto zmenou sú považované za neoprávnené
+výdavky, ktoré nie je možné financovať z prostriedkov MoF, resp. uvedené môže byť považované
+za porušenie podmienok Zmluvy o PP s dôsledkom mimoriadneho ukončenia Zmluvy o PP a vrátenia
+príspevku, ak už bol vyplatený. Uvedené sa týka najmä prípadov, ak prijímateľ neukončí realizáciu aktivít
+projektu v zmluvne stanovenom termíne.
+
+Významnú zmenu je možné vykonať len na základe vzájomnej dohody oboch zmluvných strán vo forme
+písomného a očíslovaného dodatku k Zmluve o PP, s výnimkou prípadu, kedy významná zmena projektu
+nemá vplyv na znenie ustanovení Zmluvy o PP. V prípade schválenia významnej zmeny, SAŽP spolu
+s informáciou o schválení zmeny zasiela návrh dodatku k Zmluve o PP na podpis prijímateľovi s výnimkou
+prípadu, ak SAŽP v oznámení o schválení žiadosti o zmenu prijímateľovi oznámi, že nebude v nadväznosti
+na schválenú zmenu bezprostredne vypracovávať dodatok k Zmluve o PP a ten vypracuje a predloží
+až v prípade neskorších zmien. Predmetom jedného dodatku k Zmluve o PP môže byť aj viacero schválených
+významných, ale aj menej významných alebo formálnych zmien.
+
+Významnou zmenou sa rozumie aj taká zmena projektu, ktorá nemá vplyv na znenie ustanovení Zmluvy
+o PP. Na takúto významnú zmenu projektu sa vzťahujú ustanovenia týkajúce sa schválenia takejto zmeny,
+pričom pri schválení takejto zmeny sa dodatok k Zmluve o PP nevyhotovuje.
+
+Právne účinky takejto zmeny nastávajú v kalendárny deň odoslania žiadosti o zmenu zo strany prijímateľa
+SAŽP, ak bola zmena schválená, alebo v kalendárny deň vyplývajúci zo schválenia žiadosti o zmenu SAŽP.
+
+7.3 Vyhotovenie dodatku k Zmluve o PP
+
+V prípade listinného vyhotovenia dodatku SAŽP zasiela prijímateľovi návrh dodatku podpísaný štatutárnym
+orgánom SAŽP na oboznámenie sa s jeho obsahom a podpísanie prijímateľom. Dodatok sa vyhotovuje
+v dvoch rovnopisoch, pričom prijímateľ je povinný doručiť späť jeden podpísaný rovnopis dodatku (jeden
+
+                                                               30
+rovnopis prijímateľovi zostáva), a to najneskôr do 10 pracovných dní odo dňa doručenia návrhu dodatku
+k Zmluve o PP prijímateľovi (ak SAŽP neurčí inak).
+V prípade, že si prijímateľ ako spôsob podpisu Zmluvy o PP zvolil kvalifikovaný elektronický podpis, SAŽP
+zasiela návrh dodatku k Zmluve o PP podpísaný štatutárnym orgánom SAŽP do e-schránky prijímateľa.
+SAŽP má právo iniciovať dodatok k Zmluve o PP aj bez predchádzajúcej písomnej žiadosti prijímateľa
+za predpokladu, ak sa uvedeným krokom zabezpečí úspešná a riadna implementácia projektu
+s prihliadnutím na zabezpečenie naplnenia cieľov projektu a s prihliadnutím na čl. 2 VZP, kedy sa zmluvné
+strany zaviazali vzájomne poskytnúť si všetku potrebnú súčinnosť na plnenie záväzkov vyplývajúcich
+zo Zmluvy o PP.
+SAŽP môže (po dohode s prijímateľom) odovzdať návrh dodatku k Zmluve o PP prijímateľovi osobne
+na pracovisku SAŽP. Prijímateľ je oprávnený nevyužiť lehotu určenú SAŽP na prijatie návrhu dodatku
+k Zmluve o PP a o následnom prijatí, resp. odmietnutí návrhu na uzavretie dodatku k Zmluve o PP písomne
+informovať SAŽP.
+Po vrátení prijímateľom podpísaného rovnopisu dodatku k Zmluve o PP, zabezpečí SAŽP bez zbytočného
+odkladu zverejnenie dodatku v Centrálnom registri zmlúv vedenom Úradom vlády Slovenskej republiky
+v zmysle § 5a ods. 1 zákona č. 211/2000 Z. z. o slobodnom prístupe k informáciám a o zmene a doplnení
+niektorých zákonov (zákon o slobode informácií) v znení neskorších predpisov.
+
+7.4 Zmena Zmluvy o PP z iniciatívy SAŽP
+
+SAŽP sa za účelom zabezpečenia súladu Zmluvy o PP a jej príloh so zmenami legislatívy, tejto Príručky,
+závermi z procesu monitorovania alebo kontroly projektu, alebo na základe podnetov od tretích subjektov
+zapojených do implementácie programu Obnov dom mini+, vykonať úpravu zmluvného vzťahu
+aktualizáciou Zmluvy o PP.
+SAŽP v rámci aktualizácie Zmluvy o PP z vlastnej iniciatívy zohľadňuje najmä:
+
+     požiadavky vyplývajúce s príslušnej legislatívy SR a EÚ;
+     podmienky vzťahujúce sa na mimoriadnu situáciu, núdzový stav alebo výnimočný stav;
+     ďalšie situácie vyžadujúce si úpravu Zmluvy o PP, najmä v prípade potreby plošnej úpravy
+
+         už uzavretých zmlúv o PP.
+Všetky zmeny Zmluvy o PP, ktoré iniciuje SAŽP a ktoré nie sú osobitne riešené v ustanoveniach Zmluvy o PP
+(napríklad v prípade zmien potrebných z dôvodu mimoriadnej situácie, núdzového stavu alebo
+výnimočného stavu), sa vykonajú na základe písomného a očíslovaného dodatku k Zmluve o PP. SAŽP
+môže obsah zmeny vopred ústne, elektronicky alebo písomne komunikovať s prijímateľom a následne
+dohodnuté znenie zapracovať do návrhu písomného a očíslovaného dodatku k Zmluve o PP alebo priamo
+pripraviť návrh písomného a očíslovaného dodatku k Zmluve o PP a zaslať ho na odsúhlasenie prijímateľovi.
+V prípade, ak sa v dôsledku zmeny Právneho rámca dostane niektoré ustanovenie Zmluvy o PP do rozporu
+s právnymi predpismi SR alebo právnymi aktmi EÚ, nebude sa naň prihliadať a postupuje sa tak, ako
+je stanovené v článku 10 VZP Zmluvy o PP.
+
+                                                               31

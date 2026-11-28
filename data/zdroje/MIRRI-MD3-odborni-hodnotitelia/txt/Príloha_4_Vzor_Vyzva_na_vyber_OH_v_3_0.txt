@@ -1,0 +1,175 @@
+Ministerstvo investícií, regionálneho rozvoja a informatizácie Slovenskej republiky
+ ako riadiaci orgán pre Program Slovensko vyhlasuje
+Výzvu na výber odborných hodnotiteľov žiadostí o poskytnutie nenávratného finančného príspevku
+
+kód výzvy (č. výzvy/rok/poskytovateľ) napr. 01/2024/MIRRI
+Typ výzvy: otvorená
+(Vzor)
+
+Identifikácia oblasti hodnotenia:
+(definuje poskytovateľ)
+
+pre Cieľ politiky / špecifický cieľ / opatrenie:
+(definuje poskytovateľ)
+
+CP1 Konkurencieschopnejšia a inteligentnejšia Európa vďaka presadzovaniu inovatívnej a inteligentnej transformácie hospodárstva a regionálnej prepojenosti IKT
+
+1P1 Veda, výskum a inovácie
+ RSO1.1 Rozvoj a rozšírenie výskumných a inovačných kapacít a využívanie pokročilých technológií
+RSO1.2 Využívanie prínosov digitalizácie pre občanov, podniky, výskumné organizácie a orgány verejnej správy
+RSO1.3 Posilnenie udržateľného rastu a konkurencieschopnosti MSP a tvorby pracovných miest v MSP, a to aj produktívnymi investíciami
+RSO1.4 Rozvoj zručností pre inteligentnú špecializáciu, priemyselnú transformáciu a podnikanie
+1P2 Digitálna pripojiteľnosť
+RSO1.5 Zvyšovanie digitálnej pripojiteľnosti
+
+CP2 Prechod z ekologickejšieho, nízko uhlíkového hospodárstva na hospodárstvo s nulovou bilanciou uhlíka a odolnú Európu vďaka presadzovaniu čistej a spravodlivej energetickej transformácie, zelených a modrých investícií, obehového hospodárstva, zmierňovania zmeny klímy a adaptácie na ňu, predchádzania rizikám a ich riadenia a udržateľnej mestskej mobility
+
+2P1 Energetická efektívnosť a dekarbonizácia
+RSO2.1Podpora energetickej efektívnosti a znižovania emisií skleníkových plynov
+RSO2.2 Podpora energie z obnoviteľných zdrojov v súlade so smernicou (EÚ) 2018/2001 vrátane kritérií udržateľnosti, ktoré sú v nej stanovené
+RSO2.3 Vývoj inteligentných energetických systémov, sietí a uskladnenia mimo transeurópskej energetickej siete (TEN-E)
+2P2 Životné prostredie
+RSO2.4 Podpora adaptácie na zmenu klímy a prevencie rizika katastrof, ako aj odolnosti, a to s prihliadnutím na ekosystémové prístupy
+RSO2.5 Podpora prístupu k vode a udržateľného vodného hospodárstva
+RSO2.6 Podpora prechodu na obehové hospodárstvo, ktoré efektívne využíva zdroje
+RSO2.7 Posilnenie ochrany a zachovania prírody, biodiverzity a zelenej infraštruktúry, a to aj v mestských oblastiach, a zníženie všetkých foriem znečistenia
+2P3 Udržateľná mestská mobilita
+RSO2.8 Podpora udržateľnej multimodálnej mestskej mobility ako súčasti prechodu na hospodárstvo s nulovou bilanciou uhlíka
+
+CP3 Prepojenejšia Európa vďaka posilneniu mobility
+
+3P1 Doprava
+RSO3.1 Rozvoj inteligentnej, bezpečnej, udržateľnej a intermodálnej TEN-T odolnej proti zmene klímy
+RSO3.2 Rozvoj a posilňovanie udržateľnej, inteligentnej a intermodálnej vnútroštátnej, regionálnej a miestnej mobility
+
+CP4 Sociálnejšia a inkluzívnejšia Európa vykonávajúca Európsky pilier sociálnych práv
+
+4P1 Adaptabilný a prístupný trh práce
+RSO4.1 Zvyšovanie účinnosti a inkluzívnosti trhov práce a prístupu ku kvalitnému zamestnaniu rozvíjaním sociálnej infraštruktúry a podporou sociálneho hospodárstva
+4P2 Kvalitné a inkluzívne vzdelávanie
+RSO4.2 Zlepšenie rovného prístupu k inkluzívnym a kvalitným službám v oblasti vzdelávania, odbornej prípravy a celoživotného vzdelávania rozvíjaním dostupnej infraštruktúry vrátane posilňovania odolnosti pre dištančné a online vzdelávanie a odbornú prípravu
+4P3 Zručnosti pre lepšiu adaptabilitu a inklúziu
+RSO4.2 Zlepšenia rovného prístupu k inkluzívnym a kvalitným službám v oblasti vzdelávania, odbornej prípravy a celoživotného vzdelávania rozvíjaním dostupnej infraštruktúry vrátane posilňovania odolnosti pre dištančné a online vzdelávanie a odbornú prípravu
+4P4 Záruka pre mladých
+4P5 Aktívne začlenenie a dostupné služby
+RSO4.3 Podpora sociálno-ekonomického začlenenia marginalizovaných komunít, domácností s nízkym príjmom a znevýhodnených skupín vrátane osôb s osobitnými potrebami prostredníctvom integrovaných akcií vrátane bývania a sociálnych služieb
+RSO4.5 Zabezpečenia rovného prístupu k zdravotnej starostlivosti a zvýšením odolnosti systémov zdravotnej starostlivosti vrátane primárnej starostlivosti, a podpory prechodu z inštitucionálnej starostlivosti na rodinnú a komunitnú starostlivosť
+RSO4.6 Posilnenie úlohy kultúry a udržateľného cestovného ruchu v oblasti hospodárskeho rozvoja, sociálneho začlenenia a sociálnej inovácie
+4P6 Aktívne začlenenie rómskych komunít
+RSO4.3 Podpora sociálno-ekonomického začlenenia marginalizovaných komunít, domácností s nízkym príjmom a znevýhodnených skupín vrátane osôb s osobitnými potrebami prostredníctvom integrovaných akcií vrátane bývania a sociálnych služieb
+4P7 Sociálne inovácie a experimenty
+4P8 Potravinová a materiálna deprivácia
+
+CP5 Európa bližšie k občanom vďaka podpore udržateľného a integrovaného rozvoja všetkých typov území a miestnych iniciatív
+
+5P1 Moderné regióny
+RSO5.1 Podpora integrovaného a inkluzívneho sociálneho, hospodárskeho a environmentálneho rozvoja, kultúry, prírodného dedičstva, udržateľného cestovného ruchu a bezpečnosti v mestských oblastiach
+RSO5.2 Podpora integrovaného a inkluzívneho sociálneho, hospodárskeho a environmentálneho miestneho rozvoja, kultúry, prírodného dedičstva, udržateľného cestovného ruchu a bezpečnosti v iných ako mestských oblastiach
+
+FST Fond na spravodlivú transformáciu
+
+8P1 Fond na spravodlivú transformáciu
+JSO8.1 Umožniť regiónom a obyvateľom riešiť sociálne, hospodárske a environmentálne dôsledky spôsobené transformáciou v rámci plnenia energetického a klimatického cieľa Únie do roku 2030 a dosahovania klimaticky neutrálneho hospodárstva Únie do roku 2050 na základe Parížskej dohody
+
+Základné kritériá na výber odborných hodnotiteľov pre hodnotenie žiadostí o poskytnutie  nenávratného finančného príspevku:
+
+Základné všeobecné kritériá – spoločné pre všetkých OH
+Kritérium
+ | Spôsob preukázania splnenia kritéria
+ | Spôsob overenia splnenia kritéria
+ |
+Bezúhonnosť a spôsobilosť na právne úkony
+ | Žiadosť o zaradenie do evidencie OH, čestné vyhlásenie, výpis z registra trestov
+ | Poskytovateľ  prostredníctvom žiadosti o zaradenie do evidencie OH, čestného vyhlásenia a výpisu z registra trestov  overí požadované kritérium. Výpis z registra trestov sa predkladá pred uskutočnením odborného hodnotenia  iba raz, a to pred zaradením do evidencie OH, pričom poskytovateľ oboznámi odborného hodnotiteľa s povinnosťou informovať o každej zmene vo výpise z registra trestov (zamestnanci, ktorí sú povinní v zmysle osobitných právnych predpisov SR preukázať svoju bezúhonnosť svojmu zamestnávateľovi alebo je bezúhonnosť predpokladom pre výkon ich práce /napr. štátni zamestnanci/ výpis z registra trestov nepredkladajú ale iba čestné vyhlásenie).
+ |
+Dosiahnuté vysokoškolské vzdelanie II. stupňa
+(VŠ II. stupňa)
+ |
+Kópia dokladu o dosiahnutom vysokoškolskom vzdelaní min. II. stupňa
+ |  Poskytovateľ prostredníctvom  kópie dokladu
+ o dosiahnutom vzdelaní overí  požadované min.  dosiahnuté vzdelanie.
+ |
+Dosiahnuté vysokoškolské vzdelanie I. stupňa
+(VŠ I. stupňa)
+(v prípade ak sa nevyžaduje II. stupeň VŠ vzdelania)
+ |
+Kópia dokladu o dosiahnutom vysokoškolskom vzdelaní min. I. stupňa
+ |  Poskytovateľ prostredníctvom  kópie dokladu
+o dosiahnutom vzdelaní overí požadované min. dosiahnuté vzdelanie.
+ |
+ Dĺžka praxe v  oblasti súvisiacej s predmetom odborného hodnotenia preukazujúca získané skúsenosti
+ Pre VŠ II. stupňa minimálne 3 roky
+Pre VŠ I. stupňa minimálne 5 rokov
+ | Žiadateľ predloží aspoň jednu referenciu od zamestnávateľa, odberateľa služieb alebo inú objektívne overiteľnú referenciu, preukazujúcu minimálnu dĺžku požadovanej praxe a životopis vo forme Europass/štruktúrovaný životopis
+ |  Poskytovateľ prostredníctvom minimálne jednej referencie a životopisu vo forme Europass, resp. iného dokumentu overí požadované kritérium.
+V odôvodnených prípadoch, poskytovateľ sa môže rozhodnúť, že postačujúcim spôsobom preukázania splnenia kritéria je predloženie zoznamu projektov a referencií súvisiacich s vykonaním odborných hodnotení v relevantnej oblasti.
+ |
+
+Odborné kritériá sú stanovené minimálne pre úroveň špecifických cieľov.
+Poskytovateľ môže pri definovaní odborných kritérií spolupracovať so zástupcami RO a SO, prípadne aj s Úradom splnomocnenca vlády SR pre rozvoj občianskej spoločnosti, za oblasť hodnotenia, pre ktorú vyhlasuje výzvu na výber OH. Následne poskytovateľ predkladá návrh výzvy a jej príloh na výber OH pracovnej skupine/komisii pre výber odborných hodnotiteľov na odsúhlasenie.
+
+Odborný hodnotiteľ musí spĺňať podmienky vylúčenia konfliktu záujmov v zmysle zákona                                 č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a o zmene a doplnení niektorých zákonov v znení neskorších predpisov. Vylúčenie konfliktu záujmov bude preverené pred začatím každého odborného hodnotenia ŽoNFP.
+
+	Požadovaná dokumentácia žiadateľa o zaradenie do evidencie odborných hodnotiteľov:
+Žiadosť o zaradenie do evidencie odborných hodnotiteľov (príloha č. 6 metodického usmernenia).
+Životopis vo forme Europass preukazujúci vzdelanie, odborné skúsenosti (prax)  -  prax v oblasti súvisiacej s predmetom odborného hodnotenia žiadateľ popíše v časti životopisu „Prax“ s uvedením oblasti, v ktorej získal prax a s uvedením počtu mesiacov, počas ktorých na danej pozícii pôsobil. Dosiahnutá prax sa preukazuje aj prostredníctvom zoznamu projektov a aktivít na ktorých žiadateľ pracoval spolu s ich popisom (vrátanie popisu rolí a zodpovedností), ostatných dokumentov preukazujúcich kvalifikáciu v oblasti, ktorá je predmetom hodnotenia (napr. kópie certifikátov, resp. iných dokladov o dosiahnutom vzdelaní, resp. absolvovanom školení, atď.). (príloha č. 7 metodického usmernenia).
+Doklad o vzdelaní - kópia dokladu preukazujúceho vysokoškolské vzdelanie II. prípadne I. stupňa, resp. iného relevantného dokladu.
+Čestné vyhlásenie o bezúhonnosti (príloha č. 8 metodického usmernenia).
+Poskytnutie údajov potrebných na vyžiadanie výpisu z registra trestov (príloha č. 13 metodického usmernenia) - žiadatelia, ktorí sú povinní v zmysle platných právnych predpisov preukázať svoju bezúhonnosť svojmu zamestnávateľovi alebo je bezúhonnosť predpokladom pre výkon ich práce (napr. štátni zamestnanci) výpis z registra trestov nepredkladajú, ale iba čestné vyhlásenie o bezúhonnosti.
+Doklady preukazujúce dĺžku praxe a získané skúsenosti - žiadateľ predloží aspoň jednu referenciu od zamestnávateľa, odberateľa služieb alebo inú objektívne overiteľnú referenciu preukazujúcu minimálnu dĺžku požadovanej praxe.
+Ďalšie prílohy podľa vlastného uváženia (kópie certifikátov, osvedčení, potvrdení, doklady preukazujúce získané skúsenosti v oblasti, ktorá je predmetom hodnotenia – dokumenty musia byť platné ku dňu ich predloženia) – predloženie predmetných dokumentov je odporúčané na podporu informácií predložených v životopise.
+Príslušné náležitosti k výberu žiadateľa na pozíciu odborného hodnotiteľa zašle žiadateľ formou naskenovaných dokumentov na emailovú adresu poskytovateľom  vo výzve na výber OH. Ako predmet emailu je potrebné uviesť „Odborný hodnotiteľ“.
+
+Maximálnu veľkosť prílohy, alebo jej prípadné rozdelenie si určí poskytovateľ  taktiež vo výzve na výber  OH. Zároveň je poskytovateľ povinný oboznámiť žiadateľa o spôsobe spracovania jeho osobných údajov. V súlade s legislatívou, týkajúcou sa ochrany osobných údajov (zákon č. 18/2018 Z. z. zákon o ochrane osobných údajov a o zmene a doplnení niektorých zákonov v znení neskorších predpisov) musí byť dokumentácia chránená.
+
+Poskytovateľ  si vo výzve na výber OH stanoví, či bude pred uzatvorením zmluvného vzťahu s odborným hodnotiteľom, vyžadovať predloženie originálu dokumentov.
+	Ďalšie informácie:
+
+Tí uchádzači, ktorí budú spĺňať zverejnené kritériá na základe celkového zhodnotenia doručených náležitostí k výberu uchádzača na pozíciu odborného hodnotiteľa, budú následne zaradení do evidencie odborných hodnotiteľov. Výkon odborného hodnotenia je možné realizovať aj formou práce z domu.
+Odmena za zhodnotenie jednej žiadosti o poskytnutie nenávratného finančného príspevku je v rozsahu od 100 EUR do 600 EUR v závislosti od výšky oprávnených výdavkov projektu.
+	Kontakt pre bližšie informácie o výzve: (poskytovateľ uvedie kontaktné údaje)
+
+Príslušný poskytovateľ si prispôsobí odborné kritériá podľa jednotlivých oblastí.
+
+Uvádzame príklad za oblasť IT:
+Kritérium
+ | Spôsob preukázania splnenia kritéria
+ | Splnenie kritéria
+ |
+Najmenej 5 rokov praxe v oblasti IT, resp. IKT, pokročilých digitálnych technológií, inovácií a digitálnych zručností
+
+V prípravnej, projekčnej, realizačnej, konzultačnej činnosti
+(t. j. aj skúsenosť s hodnotením/posudzovaním projektov financovaných z fondov EÚ alebo akýchkoľvek iných dotačných mechanizmov)
+
+ | Žiadateľ predkladá životopis, čestné vyhlásenie, zoznam projektov na ktorých žiadateľ pracoval spolu s ich popisom (vrátane popisu rolí a zodpovedností), ostatné dokumenty preukazujúce kvalifikáciu v oblasti, ktorá je predmetom hodnotenia (kópie certifikátov, resp. iných dokladov o dosiahnutom vzdelaní, resp. absolvovanom školení atď.)
+
+ | Žiadateľ prostredníctvom životopisu (Europass/štruktúrovaný životopis), minimálne jednej referencie a zoznamu projektov preukáže požadovanú prax v danej oblasti, svoje znalosti, skúsenosti
+
+ |
+Zoznam minimálne 3 projektov, na ktorých pracoval v oblasti IT, resp. IKT, pokročilých digitálnych technológií, inovácií a digitálnych zručností
+
+ |  | Žiadateľ predloží zoznam minimálne 3 projektov, ktorý musí obsahovať minimálne: názov projektu, pozíciu a detailný popis činnosti vykonávanej na projekte, vrátane zoznamu výstupov, na ktorých hodnotiteľ participoval, dĺžka trvania vykonávania pracovnej pozície (od - do), obchodné meno objednávateľa resp. prijímateľa/realizátora projektu, stručnú identifikáciu projektu/zmluvy, webový odkaz, prostredníctvom ktorého si môže vyhlasovateľ výzvy overiť pravdivosť poskytnutých informácií.
+ |
+Znalosť nariadení a smerníc vyplývajúcich z legislatívy SR v oblasti informatizácie, t. j. zákona č. 305/2013 Z. z. o elektronickej podobe výkonu pôsobnosti orgánov verejnej moci a o zmene a doplnení niektorých zákonov (zákon o e-Governmente), zákona č. 95/2019 Z. z. o informačných technológiách vo verejnej správe a o zmene a doplnení niektorých zákonov a s tým súvisiace vykonávacie predpisy, a to najmä vyhláška č. 85/2020 Z. z. o riadení projektov, vyhláška 69/2018 Z. z. o kybernetickej bezpečnosti, vyhláška
+č. 78/2020 Z. z. o štandardoch pre ITVS a i.
+
+ |
+ | Žiadateľ prostredníctvom životopisu, minimálne jednej referencie a zoznamu projektov preukáže požadovanú prax v danej oblasti, svoje znalosti, skúsenosti
+
+ |
+Znalosť všeobecne záväzných právnych predpisov a legislatívy EÚ a SR prezentovaných v programových dokumentoch (Program Slovensko, plán obnovy a odolnosti, Národná koncepcia informatizácie verejnej správy, Stratégia digitálnej transformácie Slovenska 2030, Stratégia výskumu a inovácií pre inteligentnú špecializáciu SR (RIS3 SK)
+
+ |
+ |
+ |
+Samostatné kritérium pre hodnotiteľov vo vybraných aktivitách v oblasti kybernetickej bezpečnosti obsahujúcich utajované skutočnosti
+
+ |
+ | Žiadateľ predloží Certifikát o bezpečnostnej previerke (s príslušným stupňom utajenia)
+ |
+
+Prílohy:
+Príloha č. 1 - Žiadosť o zaradenie do evidencie odborných hodnotiteľov
+Príloha č. 2 – Životopis preukazujúci vzdelanie, odborné skúsenosti (prax/pracovné skúsenosti)
+Príloha č. 3 - Čestné vyhlásenie o bezúhonnosti
+Príloha č. 4 - Poskytnutie údajov potrebných na vyžiadanie výpisu z registra trestov

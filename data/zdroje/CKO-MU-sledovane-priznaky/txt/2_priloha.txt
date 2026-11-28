@@ -1,0 +1,43 @@
+Príloha č. 2 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+                                                                                   SCHÉMA SLEDOVANÉHO PRÍZNAKU
+
+                                                     FINANCOVANIE/DEKLAROVANIE VÝDAVKOV PROJEKTU
+
+EXTERNÝ
+ ZDROJ
+
+   médiá                          PRVÁ INFORMÁCIA                                                          NOVÉ INFORMÁCIE, KTORÉ MENIA STAV                                                                 NOVÁ INFORMÁCIA
+verejnosť                            O POCHYBNOSTI                                                             RIEŠENIA POCHYBNOSTI/ZISTENIA                                                          ODÔVODŇUJÚCA UZAVRETIE
+
+                        zaevidovanie sledovaného                                   aktualizácia sledovaného príznaku podľa stavu riešenia sledovaných                                                        RIEŠENIA ZISTENIA
+                    príznaku po posúdení informácie                                                                  skutočností
+                                                                                                                                                                                                 uzavretie sledovaného príznaku po
+                                aktívny                                                          SLEDOVANÝ PRÍZNAK                                                                                 doriešení pochybnosti / zistenia
+                              sledovaný
+                                                         vyžaduje                  ÁNO                        PSRleEdoBvaInEýHprAíznJaÚk CE                                                                                  neaktívny
+                                príznak              pochybnosť /                                                SKÚMANIE                                                                                                   sledovaný
+                                                     zistenie ďalšie                           začiatok
+                                                                                          prebiehajúceho  podozrenie / zistenie vyriešené bez     ukončenie                                                                   príznak
+                                                       skúmanie?                                               prebiehajúceho skúmania         prebiehajúceho
+                                                                                              skúmania                                                                                     PREBIEHAJÚCE SKÚMANIE NEZAČATÉ
+                                                                                                                                                   skúmania                                     pochybnosť sa po preskúmaní
+                                                                                     NIE                                                                                                       nepotvrdila / sledovanie stratilo
+OČTK, EPPO, PMÚ
+SR, OLAF EK a iný     MEDIALIZOVANÝ PODNET              POSÚDENIE ZÁVAŽNOSTI         OTVORENIE FINANČNEJ      UKONČENIE FINANČNEJ                                 ZOHĽADNENIE ZÁVERU          opodstatnenie / vysporiadanie NV
+                                                        POCHYBNOSTI, PRIJATIE       KONTROLY / PODNET NA       KONTROLY / FINÁLNE                              Z PREVERENIA POCHYBNOSTI    PREBIEHAJÚCE SKÚMANIE UKONČENÉ
+         orgán       prvá informácia                                               OČTK/EPPO, PMÚ SR, OLAF                                                     / ZISTENIA PRI FINANCOVANÍ
+                              ANONYMNÝ /                   OPATRENÍ NA JEHO          EK, INÝ ORGÁN, NÁVRH        STANOVISKO OA /                                                                         NEPOTVRDENÉ
+     auditný orgán                                   VYRIEŠENIE A ROZHODNUTIE                                  EXTERNÉHO AUDITU –                                      A DEKLAROVANÍ                      zaradenie do
+                       NEANONYMNÝ PODNET                                                SPRÁVY Z AUDITU,    zistenie alebo nepotvrdená                                                            financovania/deklarovania
+    iný orgán ako    ČINNOSŤ OČTK/EPPO, PMÚ                     O ĎALŠOM                PROTOKOL NKÚ SR                                                                                    PREBIEHAJÚCE SKÚMANIE UKONČENÉ
+  NKÚ SR, VA, ÚV    SR, OLAF EK, ÚVO – ak neplní     FINANCOVANÍ/DEKLAROVANÍ                                         pochybnosť                                                                            POTVRDENÉ
+                                                                                                                                                                                                        vysporiadanie NV
+    SR, KDP, súd                 úlohu SO                              v
+          a pod.              POCHYBNOSŤ                                                                                                                                                             FINANČNÉ DORIEŠENIE
+                         Z AUDITU/KONTROLY                                                                                                                                                         POTVRDENÉHO ZISTENIA
+
+                    PRIJATIE PRVEJ INFORMÁCIE:
+                    POCHYBNOSŤ S FINANČNÝM
+
+                                VPLYVOM

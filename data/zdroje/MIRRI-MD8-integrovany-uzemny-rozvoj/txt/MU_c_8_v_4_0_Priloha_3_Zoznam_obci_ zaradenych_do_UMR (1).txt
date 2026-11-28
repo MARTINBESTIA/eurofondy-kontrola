@@ -1,0 +1,1136 @@
+Názov mesta / obce
+ | Územie UMR
+ | Počet obyvateľov (SODB 2021)
+ |
+Badín
+ | Banská Bystrica
+ | 2 028
+ |
+Banská Bystrica – jadrové mesto
+ | Banská Bystrica
+ | 76 018
+ |
+Dolný Harmanec
+ | Banská Bystrica
+ | 261
+ |
+Harmanec
+ | Banská Bystrica
+ | 848
+ |
+Horná Mičiná
+ | Banská Bystrica
+ | 641
+ |
+Horné Pršany
+ | Banská Bystrica
+ | 398
+ |
+Hronsek
+ | Banská Bystrica
+ | 654
+ |
+Kordíky
+ | Banská Bystrica
+ | 477
+ |
+Králiky
+ | Banská Bystrica
+ | 693
+ |
+Kynceľová
+ | Banská Bystrica
+ | 391
+ |
+Malachov
+ | Banská Bystrica
+ | 1 117
+ |
+Môlča
+ | Banská Bystrica
+ | 412
+ |
+Nemce
+ | Banská Bystrica
+ | 1 142
+ |
+Riečka
+ | Banská Bystrica
+ | 832
+ |
+Selce
+ | Banská Bystrica
+ | 2 125
+ |
+Slovenská Ľupča
+ | Banská Bystrica
+ | 3 265
+ |
+Špania Dolina
+ | Banská Bystrica
+ | 223
+ |
+Tajov
+ | Banská Bystrica
+ | 668
+ |
+Vlkanová
+ | Banská Bystrica
+ | 1 293
+ |
+Bratislava-Čunovo
+ | Bratislava
+ | 1 635
+ |
+Bratislava-Devín
+ | Bratislava
+ | 1 912
+ |
+Bratislava-Devínska Nová Ves
+ | Bratislava
+ | 17 153
+ |
+Bratislava-Dúbravka
+ | Bratislava
+ | 36 206
+ |
+Bratislava-Jarovce
+ | Bratislava
+ | 2 706
+ |
+Bratislava-Karlova Ves
+ | Bratislava
+ | 35 644
+ |
+Bratislava-Lamač
+ | Bratislava
+ | 7 789
+ |
+Bratislava-Nové Mesto
+ | Bratislava
+ | 44 458
+ |
+Bratislava-Petržalka
+ | Bratislava
+ | 114 000
+ |
+Bratislava-Podunajské Biskupice
+ | Bratislava
+ | 23 464
+ |
+Bratislava-Rača
+ | Bratislava
+ | 25 733
+ |
+Bratislava-Rusovce
+ | Bratislava
+ | 4 388
+ |
+Bratislava-Ružinov
+ | Bratislava
+ | 81 004
+ |
+Bratislava-Staré Mesto
+ | Bratislava
+ | 46 080
+ |
+Bratislava-Vajnory
+ | Bratislava
+ | 6 079
+ |
+Bratislava-Vrakuňa
+ | Bratislava
+ | 20 711
+ |
+Bratislava-Záhorská Bystrica
+ | Bratislava
+ | 6 541
+ |
+Hlavné mesto SR Bratislava – jadrové mesto
+ | Bratislava
+ | 475 503
+ |
+Brekov
+ | Humenné
+ | 1 332
+ |
+Brestov
+ | Humenné
+ | 595
+ |
+Gruzovce
+ | Humenné
+ | 132
+ |
+Hažín nad Cirochou
+ | Humenné
+ | 677
+ |
+Humenné – jadrové mesto
+ | Humenné
+ | 31 359
+ |
+Chlmec
+ | Humenné
+ | 588
+ |
+Jasenov
+ | Humenné
+ | 1 179
+ |
+Kamenica nad Cirochou
+ | Humenné
+ | 2 275
+ |
+Kamienka
+ | Humenné
+ | 526
+ |
+Kochanovce
+ | Humenné
+ | 737
+ |
+Lackovce
+ | Humenné
+ | 834
+ |
+Myslina
+ | Humenné
+ | 583
+ |
+Porúbka
+ | Humenné
+ | 257
+ |
+Ptičie
+ | Humenné
+ | 638
+ |
+Slovenská Volová
+ | Humenné
+ | 561
+ |
+Topoľovka
+ | Humenné
+ | 795
+ |
+Udavské
+ | Humenné
+ | 1 231
+ |
+Veľopolie
+ | Humenné
+ | 362
+ |
+Závadka
+ | Humenné
+ | 538
+ |
+Baška
+ | Košice
+ | 713
+ |
+Belža
+ | Košice
+ | 411
+ |
+Beniakovce
+ | Košice
+ | 785
+ |
+Bočiar
+ | Košice
+ | 249
+ |
+Budimír
+ | Košice
+ | 1 288
+ |
+Bukovec
+ | Košice
+ | 851
+ |
+Čaňa
+ | Košice
+ | 5 864
+ |
+Družstevná pri Hornáde
+ | Košice
+ | 2 764
+ |
+Geča
+ | Košice
+ | 1 822
+ |
+Gyňov
+ | Košice
+ | 669
+ |
+Haniska
+ | Košice
+ | 1 494
+ |
+Hrašovík
+ | Košice
+ | 383
+ |
+Hýľov
+ | Košice
+ | 512
+ |
+Chrastné
+ | Košice
+ | 632
+ |
+Kokšov-Bakša
+ | Košice
+ | 1 251
+ |
+Kostoľany nad Hornádom
+ | Košice
+ | 1 247
+ |
+Mesto Košice – jadrové mesto
+ | Košice
+ | 229 040
+ |
+Košice-Barca
+ | Košice
+ | 3 692
+ |
+Košice-Dargovských hrdinov
+ | Košice
+ | 25 234
+ |
+Košice-Džungľa
+ | Košice
+ | 750
+ |
+Košice-Juh
+ | Košice
+ | 21 339
+ |
+Košice-Kavečany
+ | Košice
+ | 1 346
+ |
+Košice-Košická Nová Ves
+ | Košice
+ | 2 901
+ |
+Košice-Krásna
+ | Košice
+ | 5 895
+ |
+Košice-Lorinčík
+ | Košice
+ | 883
+ |
+Košice-Luník IX
+ | Košice
+ | 7 037
+ |
+Košice-Myslava
+ | Košice
+ | 2 545
+ |
+Košice-Nad jazerom
+ | Košice
+ | 22 686
+ |
+Košice-Pereš
+ | Košice
+ | 2 079
+ |
+Košice-Poľov
+ | Košice
+ | 1 192
+ |
+Košice-Sever
+ | Košice
+ | 19 123
+ |
+Košice-Sídlisko KVP
+ | Košice
+ | 22 241
+ |
+Košice-Sídlisko Ťahanovce
+ | Košice
+ | 20 863
+ |
+Košice-Staré Mesto
+ | Košice
+ | 20 133
+ |
+Košice-Šaca
+ | Košice
+ | 5 722
+ |
+Košice-Šebastovce
+ | Košice
+ | 770
+ |
+Košice-Ťahanovce
+ | Košice
+ | 2 238
+ |
+Košice-Vyšné Opátske
+ | Košice
+ | 2 633
+ |
+Košice-Západ
+ | Košice
+ | 37 738
+ |
+Košická Belá
+ | Košice
+ | 986
+ |
+Košická Polianka
+ | Košice
+ | 1 030
+ |
+Košické Oľšany
+ | Košice
+ | 1 348
+ |
+Malá Ida
+ | Košice
+ | 1 701
+ |
+Milhosť
+ | Košice
+ | 392
+ |
+Nižná Hutka
+ | Košice
+ | 614
+ |
+Nižná Myšľa
+ | Košice
+ | 1 568
+ |
+Nižný Klátov
+ | Košice
+ | 878
+ |
+Ploské
+ | Košice
+ | 952
+ |
+Rozhanovce
+ | Košice
+ | 2 591
+ |
+Sady nad Torysou
+ | Košice
+ | 1 964
+ |
+Seňa
+ | Košice
+ | 2 170
+ |
+Skároš
+ | Košice
+ | 1 108
+ |
+Sokoľ
+ | Košice
+ | 1 250
+ |
+Trebejov
+ | Košice
+ | 206
+ |
+Trstené pri Hornáde
+ | Košice
+ | 1 471
+ |
+Vajkovce
+ | Košice
+ | 941
+ |
+Valaliky
+ | Košice
+ | 4 475
+ |
+Veľká Ida
+ | Košice
+ | 3 911
+ |
+Vyšná Hutka
+ | Košice
+ | 508
+ |
+Vyšná Myšľa
+ | Košice
+ | 957
+ |
+Vyšný Klátov
+ | Košice
+ | 470
+ |
+Zlatá Idka
+ | Košice
+ | 392
+ |
+Ždaňa
+ | Košice
+ | 1 383
+ |
+Bešeňová
+ | Liptovský Mikuláš - Ružomberok
+ | 657
+ |
+Bobrovník
+ | Liptovský Mikuláš - Ružomberok
+ | 132
+ |
+Demänovská Dolina
+ | Liptovský Mikuláš - Ružomberok
+ | 317
+ |
+Galovany
+ | Liptovský Mikuláš - Ružomberok
+ | 311
+ |
+Gôtovany
+ | Liptovský Mikuláš - Ružomberok
+ | 471
+ |
+Ivachnová
+ | Liptovský Mikuláš - Ružomberok
+ | 680
+ |
+Likavka
+ | Liptovský Mikuláš - Ružomberok
+ | 2 987
+ |
+Liptovská Sielnica
+ | Liptovský Mikuláš - Ružomberok
+ | 605
+ |
+Liptovská Teplá
+ | Liptovský Mikuláš - Ružomberok
+ | 1 031
+ |
+Liptovské Sliače
+ | Liptovský Mikuláš - Ružomberok
+ | 3 718
+ |
+Liptovský Mikuláš – jadrové mesto
+ | Liptovský Mikuláš - Ružomberok
+ | 30 522
+ |
+Liptovský Trnovec
+ | Liptovský Mikuláš - Ružomberok
+ | 583
+ |
+Lisková
+ | Liptovský Mikuláš - Ružomberok
+ | 2 061
+ |
+Prosiek
+ | Liptovský Mikuláš - Ružomberok
+ | 226
+ |
+Ružomberok – jadrové mesto
+ | Liptovský Mikuláš - Ružomberok
+ | 27 407
+ |
+Štiavnička
+ | Liptovský Mikuláš - Ružomberok
+ | 869
+ |
+Turík
+ | Liptovský Mikuláš - Ružomberok
+ | 279
+ |
+Vlachy
+ | Liptovský Mikuláš - Ružomberok
+ | 619
+ |
+Boľkovce
+ | Lučenec
+ | 636
+ |
+Divín
+ | Lučenec
+ | 2 030
+ |
+Halič
+ | Lučenec
+ | 1 662
+ |
+Lovinobaňa
+ | Lučenec
+ | 1 935
+ |
+Lučenec – jadrové mesto
+ | Lučenec
+ | 25 902
+ |
+Mikušovce
+ | Lučenec
+ | 275
+ |
+Mýtna
+ | Lučenec
+ | 1 165
+ |
+Panické Dravce
+ | Lučenec
+ | 743
+ |
+Pinciná
+ | Lučenec
+ | 208
+ |
+Rapovce
+ | Lučenec
+ | 930
+ |
+Stará Halič
+ | Lučenec
+ | 638
+ |
+Tomášovce
+ | Lučenec
+ | 1 374
+ |
+Trenč
+ | Lučenec
+ | 558
+ |
+Tuhár
+ | Lučenec
+ | 339
+ |
+Veľká nad Ipľom
+ | Lučenec
+ | 932
+ |
+Vidiná
+ | Lučenec
+ | 1 694
+ |
+Bystrička
+ | Martin
+ | 1 476
+ |
+Diaková
+ | Martin
+ | 491
+ |
+Dražkovce
+ | Martin
+ | 1 019
+ |
+Košťany nad Turcom
+ | Martin
+ | 1 336
+ |
+Lipovec
+ | Martin
+ | 899
+ |
+Martin – jadrové mesto
+ | Martin
+ | 52 520
+ |
+Sučany
+ | Martin
+ | 4 711
+ |
+Turčianske Kľačany
+ | Martin
+ | 1 024
+ |
+Vrútky
+ | Martin
+ | 7 511
+ |
+Žabokreky
+ | Martin
+ | 1 206
+ |
+Čečehov
+ | Michalovce
+ | 385
+ |
+Krásnovce
+ | Michalovce
+ | 640
+ |
+Lastomír
+ | Michalovce
+ | 1 248
+ |
+Michalovce – jadrové mesto
+ | Michalovce
+ | 36 704
+ |
+Petrovce nad Laborcom
+ | Michalovce
+ | 1 065
+ |
+Pozdišovce
+ | Michalovce
+ | 1 334
+ |
+Suché
+ | Michalovce
+ | 407
+ |
+Trnava pri Laborci
+ | Michalovce
+ | 586
+ |
+Vinné
+ | Michalovce
+ | 1 965
+ |
+Zalužice
+ | Michalovce
+ | 1 186
+ |
+Zbudza
+ | Michalovce
+ | 535
+ |
+Zemplínska Široká
+ | Michalovce
+ | 982
+ |
+Branč
+ | Nitra
+ | 2 168
+ |
+Cabaj-Čápor
+ | Nitra
+ | 4 295
+ |
+Čakajovce
+ | Nitra
+ | 1 163
+ |
+Čechynce
+ | Nitra
+ | 1 255
+ |
+Dolné Obdokovce
+ | Nitra
+ | 1 140
+ |
+Golianovo
+ | Nitra
+ | 1 892
+ |
+Ivanka pri Nitre
+ | Nitra
+ | 2 868
+ |
+Jarok
+ | Nitra
+ | 2 065
+ |
+Jelšovce
+ | Nitra
+ | 988
+ |
+Kolíňany
+ | Nitra
+ | 1 551
+ |
+Lehota
+ | Nitra
+ | 2 382
+ |
+Lužianky
+ | Nitra
+ | 3 060
+ |
+Malý Cetín
+ | Nitra
+ | 452
+ |
+Malý Lapáš
+ | Nitra
+ | 1 206
+ |
+Mojmírovce
+ | Nitra
+ | 2 922
+ |
+Nitra – jadrové mesto
+ | Nitra
+ | 78 489
+ |
+Nitrianske Hrnčiarovce
+ | Nitra
+ | 2 196
+ |
+Podhorany
+ | Nitra
+ | 1 085
+ |
+Pohranice
+ | Nitra
+ | 1 112
+ |
+Poľný Kesov
+ | Nitra
+ | 654
+ |
+Svätoplukovo
+ | Nitra
+ | 1 368
+ |
+Štitáre
+ | Nitra
+ | 1 028
+ |
+Veľké Zálužie
+ | Nitra
+ | 4 350
+ |
+Veľký Cetín
+ | Nitra
+ | 1 626
+ |
+Veľký Lapáš
+ | Nitra
+ | 1 887
+ |
+Výčapy-Opatovce
+ | Nitra
+ | 2 197
+ |
+Zbehy
+ | Nitra
+ | 2 222
+ |
+Bajč
+ | Nové Zámky - Komárno
+ | 1 223
+ |
+Hurbanovo
+ | Nové Zámky - Komárno
+ | 7 467
+ |
+Komárno
+ | Nové Zámky - Komárno
+ | 32 967
+ |
+Nové Zámky – jadrové mesto
+ | Nové Zámky - Komárno
+ | 37 791
+ |
+Batizovce
+ | Poprad-Svit-Kežmarok
+ | 2 457
+ |
+Gánovce
+ | Poprad-Svit-Kežmarok
+ | 1 404
+ |
+Gerlachov
+ | Poprad-Svit-Kežmarok
+ | 835
+ |
+Huncovce
+ | Poprad-Svit-Kežmarok
+ | 3 055
+ |
+Kežmarok
+ | Poprad-Svit-Kežmarok
+ | 15 552
+ |
+Ľubica
+ | Poprad-Svit-Kežmarok
+ | 4 476
+ |
+Malý Slavkov
+ | Poprad-Svit-Kežmarok
+ | 1 126
+ |
+Mlynčeky
+ | Poprad-Svit-Kežmarok
+ | 679
+ |
+Nová Lesná
+ | Poprad-Svit-Kežmarok
+ | 1 657
+ |
+Poprad – jadrové mesto
+ | Poprad-Svit-Kežmarok
+ | 49 855
+ |
+Stará Lesná
+ | Poprad-Svit-Kežmarok
+ | 971
+ |
+Stráne pod Tatrami
+ | Poprad-Svit-Kežmarok
+ | 2 289
+ |
+Svit
+ | Poprad-Svit-Kežmarok
+ | 7 743
+ |
+Veľká Lomnica
+ | Poprad-Svit-Kežmarok
+ | 5 120
+ |
+Veľký Slavkov
+ | Poprad-Svit-Kežmarok
+ | 1 477
+ |
+Vysoké Tatry
+ | Poprad-Svit-Kežmarok
+ | 3 901
+ |
+Haniska
+ | Prešov
+ | 739
+ |
+Ľubotice
+ | Prešov
+ | 3 638
+ |
+Prešov – jadrové mesto
+ | Prešov
+ | 84 824
+ |
+Záborské
+ | Prešov
+ | 1 080
+ |
+Bojnice
+ | Prievidza - Nováky
+ | 4 978
+ |
+Koš
+ | Prievidza - Nováky
+ | 1 041
+ |
+Nováky – jadrové mesto
+ | Prievidza - Nováky
+ | 4 197
+ |
+Prievidza – jadrové mesto
+ | Prievidza - Nováky
+ | 45 017
+ |
+Čerenčany
+ | Rimavská Sobota
+ | 548
+ |
+Hnúšťa
+ | Rimavská Sobota
+ | 6 762
+ |
+Hrachovo
+ | Rimavská Sobota
+ | 799
+ |
+Klenovec
+ | Rimavská Sobota
+ | 3 026
+ |
+Kociha
+ | Rimavská Sobota
+ | 205
+ |
+Nižný Skálnik
+ | Rimavská Sobota
+ | 193
+ |
+Ožďany
+ | Rimavská Sobota
+ | 1 624
+ |
+Pavlovce
+ | Rimavská Sobota
+ | 406
+ |
+Rimavská Baňa
+ | Rimavská Sobota
+ | 528
+ |
+Rimavská Sobota – jadrové mesto
+ | Rimavská Sobota
+ | 22 048
+ |
+Rimavské Brezovo
+ | Rimavská Sobota
+ | 504
+ |
+Rimavské Janovce
+ | Rimavská Sobota
+ | 1 373
+ |
+Rimavské Zalužany
+ | Rimavská Sobota
+ | 350
+ |
+Tisovec
+ | Rimavská Sobota
+ | 3 720
+ |
+Veľké Teriakovce
+ | Rimavská Sobota
+ | 865
+ |
+Vyšný Skálnik
+ | Rimavská Sobota
+ | 136
+ |
+Opatovce
+ | Trenčín
+ | 425
+ |
+Skalka nad Váhom
+ | Trenčín
+ | 1 166
+ |
+Soblahov
+ | Trenčín
+ | 2 408
+ |
+Trenčianska Teplá
+ | Trenčín
+ | 4 222
+ |
+Trenčianska Turná
+ | Trenčín
+ | 3 563
+ |
+Trenčianske Stankovce
+ | Trenčín
+ | 3 403
+ |
+Trenčín – jadrové mesto
+ | Trenčín
+ | 54 740
+ |
+Veľké Bierovce
+ | Trenčín
+ | 708
+ |
+Zamarovce
+ | Trenčín
+ | 1 163
+ |
+Bohdanovce nad Trnavou
+ | Trnava
+ | 1 465
+ |
+Brestovany
+ | Trnava
+ | 2 622
+ |
+Bučany
+ | Trnava
+ | 2 386
+ |
+Dolné Lovčice
+ | Trnava
+ | 800
+ |
+Hrnčiarovce nad Parnou
+ | Trnava
+ | 2 237
+ |
+Jaslovské Bohunice
+ | Trnava
+ | 2 337
+ |
+Malženice
+ | Trnava
+ | 1 560
+ |
+Ružindol
+ | Trnava
+ | 1 659
+ |
+Suchá nad Parnou
+ | Trnava
+ | 2 202
+ |
+Šelpice
+ | Trnava
+ | 917
+ |
+Špačince
+ | Trnava
+ | 3 110
+ |
+Trnava – jadrové mesto
+ | Trnava
+ | 63 803
+ |
+Zeleneč
+ | Trnava
+ | 2 632
+ |
+Budča
+ | Zvolen
+ | 1 340
+ |
+Kováčová
+ | Zvolen
+ | 1 552
+ |
+Lieskovec
+ | Zvolen
+ | 1 409
+ |
+Sliač
+ | Zvolen
+ | 4 894
+ |
+Zvolen – jadrové mesto
+ | Zvolen
+ | 40 637
+ |
+Bitarová
+ | Žilina
+ | 808
+ |
+Divinka
+ | Žilina
+ | 1 022
+ |
+Horný Hričov
+ | Žilina
+ | 835
+ |
+Hôrky
+ | Žilina
+ | 882
+ |
+Mojš
+ | Žilina
+ | 1 311
+ |
+Ovčiarsko
+ | Žilina
+ | 709
+ |
+Teplička nad Váhom
+ | Žilina
+ | 4 379
+ |
+Višňové
+ | Žilina
+ | 3 004
+ |
+Žilina – jadrové mesto
+ | Žilina
+ | 82 656
+ |
+Lietavská Lúčka
+ | Žilina
+ | 1 880
+ |

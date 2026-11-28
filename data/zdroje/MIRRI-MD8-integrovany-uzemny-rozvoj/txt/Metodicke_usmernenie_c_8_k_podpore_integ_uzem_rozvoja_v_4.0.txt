@@ -1,0 +1,1747 @@
+Metodický dokument riadiaceho orgánu pre
+                                  Program Slovensko č. 8
+
+METODICKÉ USMERNENIE K PODPORE INTEGROVANÉHO ÚZEMNÉHO ROZVOJA
+
+Schválili:
+
+Veronika Vozárová
+generálna riaditeľka
+sekcia programovania a podpory Programu Slovensko
+Mário Gogora
+generálny riaditeľ
+sekcia riadenia Programu Slovensko
+
+Verzia: 4.0
+Dátum vydania: 25.03.2026
+Dátum účinnosti: 26.03.2026
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+Metodický dokument riadiaceho orgánu pre Program Slovensko č. 8, pod názvom „METODICKÉ
+USMERNENIE K PODPORE INTEGROVANÉHO ÚZEMNÉHO ROZVOJA“ (ďalej len „metodické
+usmernenie“) je vypracovaný v zmysle čl. 9 Nariadenia Európskeho parlamentu a Rady (EÚ)
+č. 2021/10581 o Európskom fonde regionálneho rozvoja a Kohéznom fonde; čl. 28 – 30 Nariadenia
+Európskeho parlamentu a Rady (EÚ) č. 2021/10602 (ďalej len „NSU“), ktorým sa stanovujú spoločné
+ustanovenia o Európskom sociálnom fonde plus, Kohéznom fonde, Fonde na spravodlivú
+transformáciu a Európskom námornom, rybolovnom a akvakultúrnom fonde a rozpočtové pravidlá
+pre uvedené fondy, ako aj pre Fond pre azyl, migráciu a integráciu, Fond vnútornú bezpečnosť
+a Nástroj finančnej podpory na riadenie hraníc a vízovú politiku (ďalej len „nariadenie o spoločných
+ustanoveniach“), a § 7 a § 24 zákona č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie
+a o zmene a doplnení niektorých zákonov v znení neskorších predpisov3 (ďalej len „zákon
+o príspevkoch z fondov EÚ“).
+Metodické usmernenie sa vydáva v zmysle § 5 ods. 1 písm. c) zákona o príspevkoch z fondov EÚ a je
+záväzné pre orgány v oblasti podpory integrovaného územného rozvoja podľa § 7 zákona o príspevkoch
+z fondov EÚ, TS RP/AK UMR, poskytovateľov implementujúcich integrovaný územný rozvoj
+implementačné sekcie riadiaceho orgánu, sprostredkovateľské orgány, žiadateľov a prijímateľov
+v rámci podpory integrovaného územného rozvoja, Regionálne centrá MIRRI SR (ďalej len „RC MIRRI“)
+a iné subjekty (ak relevantné) v plnom rozsahu, ak pri jednotlivých procesoch, resp. v jeho prílohách,
+nie je uvedené inak.
+
+1 NARIADENIE EURÓPSKEHO PARLAMENTU A RADY (EÚ) 2021/1058.
+2 NARIADENIE EURÓPSKEHO PARLAMENTU A RADY (EÚ) 2021/1060.
+3 Zákon 121/2022 o príspevkoch z fondov EÚ.
+
+                                                                    2
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+Obsah
+
+Zoznam použitých skratiek ......................................................................................................... 4
+Zoznam vykonaných zmien ........................................................................................................ 5
+1. Všeobecné informácie........................................................................................................ 6
+2. Procesy tvorby, výberu, hodnotenia a vydávania rozhodnutia o poskytnutí príspevku
+
+      z fondov EÚ pre projekt integrovanej územnej investície ................................................. 9
+      2.1. Vyhlásenie výziev pre opatrenia/špecifické ciele a alokáciu vyčlenenú pre nástroj
+
+              integrovaného územného rozvoja .......................................................................... 9
+      2.2. Vytvorenie a administrácia projektového zásobníka IÚS/IÚS UMR ........................ 9
+      2.2.1. Harmonogram zasadnutí ....................................................................................... 10
+      2.3. Vypracovanie formulára projektového zámeru integrovanej územnej investície 10
+      2.4. Overenie súladu náležitostí PZ IÚI a posúdenie pridanej hodnoty PZ IÚI pre rozvoj
+
+              územia ................................................................................................................... 14
+      2.5. Výber a schvaľovanie projektových zámerov IÚI................................................... 15
+      2.6. Súbežný proces prípravy formulára ŽoNFP k PZ IÚI a individuálnych konzultácií
+
+              s poskytovateľom .................................................................................................. 22
+      2.7. Overenie súladu ŽoNFP IÚI s PZ IÚI ....................................................................... 23
+      2.8. Rozhodnutie o ŽoNFP............................................................................................. 25
+      2.9. Uzatvorenie Zmluvy o poskytnutí NFP................................................................... 25
+      2.10. Možnosti zohľadňovania úspor po realizácií VO/O v rámci disponibilných zdrojov
+
+              jednotlivých území ................................................................................................ 26
+3. Opatrenia na zníženie rizika dekomitmentu v integrovanom územnom mechanizme
+
+      na úrovni RP/KR UMR....................................................................................................... 27
+      3.1 Implementačné plány ............................................................................................ 29
+      3.2 Monitoring plnenia IP .............................................................................................. 30
+      3.3 Opatrenia v prípade neplnenia schválených IP ...................................................... 31
+4. Prechodné ustanovenia.................................................................................................... 31
+5. Zoznam príloh................................................................................................................... 31
+
+                                                                    3
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+Zoznam použitých skratiek
+
+AK UMR        administratívna kapacita udržateľného mestského rozvoja
+
+COV           celkové oprávnené výdavky
+
+EÚ            Európska Únia
+
+FNV           finančné neoprávnené výdavky
+
+gestor HP     gestor horizontálnych princípov
+
+IP            implementačný plán
+
+ITMS21+       informačný monitorovací systém 2021+
+
+IÚI           integrovaná územná investícia
+
+IÚS           integrovaná územná stratégia
+
+KR UMR        kooperačná rada udržateľného mestského rozvoja
+
+MIRRI SR      Ministerstvo investícií, regionálneho rozvoja a informatizácie Slovenskej
+
+              republiky
+
+MU            merateľný ukazovateľ
+
+Metodické usmernenie Metodické usmernenie k podpore integrovaného územného rozvoja
+
+MV pre P SK   Monitorovací výbor pre Program Slovensko 2021-2027
+
+NFP           nenávratný finančný príspevok
+
+NUTS 3        tretia úroveň nomenklatúry štatistických územných jednotiek
+
+NSU           Nariadenie Európskeho parlamentu a Rady (EÚ) 2021/1060 z 24. júna 2021,
+
+              ktorým sa stanovujú spoločné ustanovenia o Európskom fonde regionálneho
+
+              rozvoja, Európskom sociálnom fonde plus, Kohéznom fonde, Fonde
+
+              na spravodlivú transformáciu a Európskom námornom, rybolovnom a
+
+              akvakultúrnom fonde a rozpočtové pravidlá pre uvedené fondy, ako aj
+
+              pre Fond pre azyl, migráciu a integráciu, Fond pre vnútornú bezpečnosť a
+
+              Nástroj finančnej podpory na riadenie hraníc a vízovú politiku
+
+OMKIÚS        odbor metodiky a koordinácie integrovaných územných stratégií
+
+OV            oprávnené výdavky
+
+PHRSR         program hospodárskeho rozvoja a sociálneho rozvoja
+
+PO            programové obdobie
+
+poskytovateľ  relevantné sprostredkovateľské orgány a implementačné sekcie riadiaceho
+
+              orgánu
+
+PPP           podmienky poskytnutia príspevku
+
+P SK          Program Slovensko
+
+PZ IÚI        projektový zámer integrovanej územnej investície resp. projektový zámer
+
+              integrovanej územnej investície udržateľného mestského rozvoja
+
+RC MIRRI      regionálne centrum MIRRI SR
+
+RO            riadiaci orgán
+
+RP            rada partnerstva
+
+SO            sprostredkovateľský orgán
+
+SPR           strategicko-plánovací región
+
+SRPS          sekcia riadenia Programu Slovensko
+
+TS RP         technický sekretariát rady partnerstva
+
+UMR           udržateľný mestský rozvoj
+
+VÚC           vyšší územný celok
+
+                                         4
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+VO/O                 verejné obstarávanie v zmysle zákona č. 343/2015 Z. z. o verejnom obstarávaní
+                     a o zmene a doplnení niektorých zákonov v znení neskorších predpisov
+Zákon o príspevkoch  Zákon č. 121/2022 Z. z. o príspevkoch z fondov Európskej Únie a o zmene
+z fondov EÚ          a doplnení niektorých zákonov v znení neskorších predpisov
+Zákon o              Zákon č. 305/2013 Z. z. o elektronickej podobe výkonu pôsobnosti orgánov
+e-Governmente        verejnej moci a o zmene a doplnení niektorých zákonov
+ŽoNFP                žiadosť o nenávratný finančný príspevok
+ŽoP                  žiadosť o platbu
+
+Zoznam vykonaných zmien
+Zoznam vykonaných zmien poskytuje chronologický vývoj metodického usmernenia od jeho vydania
+až po aktuálnu verziu. Vzhľadom na jeho rozsah tvorí prílohu A tohto dokumentu.
+
+                     5
+1. Všeobecné informácie
+
+ Integrované územné stratégie: Definícia integrovaných územných stratégií je stanovená v čl. 29 NSU:
+ „Územné stratégie implementované podľa článku 28 písm. a) alebo c) musia obsahovať tieto prvky:
+ a) geografickú oblasť, na ktorú sa stratégia vzťahuje,
+ b) analýzu potrieb rozvoja a potenciálu danej oblasti vrátane hospodárskych, sociálnych
+
+      a environmentálnych prepojení,
+ c) opis integrovaného prístupu na riešenie identifikovaných potrieb rozvoja a potenciálu danej
+
+      oblasti,
+ d) opis zapojenia partnerov v súlade s článkom 8 do prípravy a plnenia stratégie.
+
+ Integrované územné stratégie môžu obsahovať aj zoznam operácií, ktoré sa majú podporiť.
+ Zodpovednosť za územné stratégie nesú príslušné územné orgány alebo subjekty. Existujúce
+ strategické dokumenty týkajúce sa predmetných oblastí sa môžu použiť pre územné stratégie.“
+
+ Integrované územné investície: Definícia integrovaných územných investícií (ďalej len „IÚI“) je
+ stanovená v čl. 30 NSU: „Ak územná stratégia uvedená v článku 29 NSU zahŕňa investície, ktoré
+ získavajú podporu z jedného alebo viacerých fondov, jedného alebo viacerých programov alebo z viac
+ ako jednej priority toho istého programu, akcie sa môžu realizovať ako integrovaná územná investícia“.
+ V zmysle čl. 29 NSU výber operácií vykonajú alebo sa doň zapoja príslušné územné orgány alebo
+ subjekty. V podmienkach SR v zmysle § 7 zákona o príspevkoch z fondov EÚ sa na potreby
+ integrovaného územného rozvoja zriaďujú rady partnerstva a kooperačné rady udržateľného
+ mestského rozvoja, do ktorých kompetencií patrí o. i. schvaľovanie projektových zámerov IÚI.
+
+ Integrácia na úrovni integrovaných územných stratégií: Pre implementáciu integrovanej územnej
+ stratégie (ďalej len „IÚS“) je, v rámci Programu Slovensko (ďalej len „P SK“), vyčlenených viacero
+ opatrení/špecifických cieľov v rámci politiky súdržnosti, vrátane opatrenia 5.1.6 – Európske hlavné
+ mesto kultúry, implementované na území mestskej funkčnej oblasti Trenčín. IÚI sú podporované
+ z Európskeho fondu regionálneho rozvoja a z Kohézneho fondu v prípade opatrenia 2.8.3 v gescii
+ Ministerstva dopravy Slovenskej republiky. Integrácia projektov IÚI je posudzovaná na úrovni IÚS.
+ Jednotlivé projekty implementované prostredníctvom tohto mechanizmu musia vykazovať vnútornú
+ intervenčnú logiku, vzájomne na seba nadväzovať alebo sa dopĺňať, byť v súlade s IÚS a prispievať
+ k napĺňaniu cieľov IÚS. Integrácia na úrovni IÚS je nevyhnutná a musí byť preukázaná.
+
+ Integráciu územných investícií je možné zároveň dosahovať aj na nasledujúcich úrovniach4:
+ Tematická – kombinácia aktivít z viac ako jednej priority toho istého programu,
+ Územná – kombinácia aktivít realizovaných na spojitom území, bez ohľadu na administratívne hranice
+ obcí,
+ Organizačná – kombinácia aktivít rôznych zainteresovaných strán a partnerov v území,
+ Finančná – kombinácia viacerých fondov EÚ.
+
+ Projektový zámer IÚI (ďalej len „PZ IÚI“): je súhrn informácií o všetkých projektových aktivitách IÚI,
+ uvedených vo formulári, ktorý tvorí prílohu 4 tohto metodického usmernenia riadiaceho orgánu.
+ Formulár PZ IÚI predstavuje minimálny rozsah požadovaných informácií. PZ IÚI môže obsahovať
+ aktivity jedného alebo viacerých budúcich žiadateľov, ako aj partnerov, v rámci jedného alebo
+ viacerých opatrení, resp. špecifických cieľov, ktoré nie sú členené na opatrenia. V prípade ak sú
+ vo formulári PZ IÚI identifikovaní partneri jednotlivých budúcich žiadateľov, nebudú pripravovať
+ vlastnú žiadosť o nenávratný finančný príspevok (ďalej len „ŽoNFP“), ale budú s budúcim žiadateľom
+ spolupracovať na základe osobitnej zmluvy v zmysle § 3 písm. t) zákona o príspevkoch z fondov EÚ.
+
+ 4 Ak je integrácia na týchto úrovniach identifikovaná, uvedie sa.
+
+                                                                     6
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+Vypracovanie formuláru PZ IÚI je základným krokom pre schválenie PZ IÚI. PZ IÚI schvaľuje príslušná
+rada partnerstva (ďalej len „RP“)/kooperačná rada udržateľného mestského rozvoja (ďalej len „KR
+UMR“), pričom PZ IÚI musí byť v súlade s IÚS a musí prispievať k naplneniu cieľa alebo cieľov IÚS. PZ
+IÚI schválený príslušnou RP/KR UMR je spracovaný do ŽoNFP na základe výzvy vyhlásenej príslušným
+poskytovateľom. V prípade, že PZ IÚI obsahuje aktivity viacerých budúcich žiadateľov alebo viacerých
+poskytovateľov, je potrebné vypracovať viaceré ŽoNFP tak, aby každá ŽoNFP obsahovala aktivity vo
+vecnej gescii jedného poskytovateľa.
+
+Projektový zásobník IÚS/IÚS UMR: obsahuje navrhované investície potenciálne realizovateľné v rámci
+alokácií mechanizmu IÚI v danom území. Projektový zásobník IÚS/IÚS UMR obsahuje návrhy PZ IÚI,
+ktoré prispievajú k napĺňaniu cieľov IÚS. Projektový zásobník je vytváraný participatívne za účasti
+členov komôr RP, členov KR UMR v prípade aktivít pre UMR a ďalších socio-ekonomických partnerov.
+Na základe rozhodnutia predsedu RP/KR UMR môže byť proces definovania projektových zámerov
+a aktivít otvorený aj širokej verejnosti prostredníctvom dotazníka alebo webového formulára.
+Výstupom je kontinuálne dopĺňaný a aktualizovaný projektový zásobník, ktorý administruje technický
+sekretariát (ďalej len „TS“) RP/administratívna kapacita (ďalej len „AK“) UMR.
+
+Fázované projekty z PO 2014-2020: Fázované projekty môžu byť súčasťou IÚI. Pre fázované projekty
+spĺňajúce podmienky podľa čl. 118 NSU poskytovateľ vyhlasuje výzvu v súlade s § 24 zákona
+o príspevkoch z fondov EÚ. Pre fázované projekty podľa čl. 118a NSU poskytovateľ poskytuje príspevok
+bez vyhlásenia výzvy v súlade s § 22a zákona o príspevkoch z fondov EÚ, pričom požiadavky na tieto
+projekty vyplývajúce z NSU upraví v zmluve podľa § 22 zákona o príspevkoch z fondov EÚ.
+
+Rady partnerstva a kooperačné rady udržateľného mestského rozvoja: Štruktúra riadenia
+implementácie IÚI je stanovená v súlade so znením čl. 29 NSU a § 7 zákona o príspevkoch z fondov EÚ.
+Mechanizmus implementácie IÚI je založený na princípe partnerstva, pričom viacúrovňové riadenie sa
+uplatňuje najmä pri príprave, schvaľovaní, implementácii, monitorovaní a hodnotení IÚI, ktoré sa
+vykonáva v partnerstve zástupcov samospráv a miestnych partnerov.
+
+Rada partnerstva: je územným orgánom v zmysle čl. 29 NSU na regionálnej úrovni (NUTS 35). RP
+koordinuje prípravu IÚS, schvaľuje IÚS a schvaľuje PZ IÚI, ktorých predmet patrí do jej pôsobnosti
+v rámci P SK. Postavenie, zloženie, úlohy, výkon činnosti a spôsob prijímania rozhodnutí RP upravuje
+štatút a rokovací poriadok, ktorý schvaľuje MIRRI SR a pripravuje, predkladá na schválenie a vydáva
+samosprávny kraj. Vzorový štatút a rokovací poriadok rady partnerstva tvorí prílohu 1 tohto
+metodického usmernenia.
+
+Kooperačná rada udržateľného mestského rozvoja: je územným orgánom v zmysle čl. 29 NSU pre
+územia udržateľného mestského rozvoja. KR UMR koordinuje prípravu IÚS UMR, schvaľuje IÚS UMR
+a schvaľuje PZ IÚI, ktorých predmet patrí do jej pôsobnosti v rámci P SK. Postavenie, zloženie, úlohy,
+výkon činnosti a spôsob prijímania rozhodnutí KR UMR upravuje štatút a rokovací poriadok, ktorý
+schvaľuje MIRRI SR a pripravuje, predkladá na schválenie a vydáva jadrové mesto. Vzorový štatút
+a rokovací poriadok kooperačnej rady udržateľného mestského rozvoja tvorí prílohu 2 tohto
+metodického usmernenia.
+
+Udržateľný mestský rozvoj: v rámci udržateľného rozvoja miest sa považuje za nevyhnutné
+podporovať integrovaný územný rozvoj s cieľom účinnejšie riešiť hospodárske, environmentálne,
+klimatické, demografické a sociálne výzvy, ktoré majú vplyv na mestské oblasti vrátane funkčných
+mestských oblastí, pričom sa zohľadňuje potreba propagovať prepojenia medzi mestom a vidiekom.
+
+5 SK-NUTS je skratka pre normalizovanú klasifikáciu územných celkov na Slovensku pre potreby štatistického úradu a Eurostatu. Prvou
+úrovňou NUTS 1 je Slovensko, druhú úroveň NUTS 2 tvoria štyri oblasti – Bratislava, Západné Slovensko, Stredné Slovensko a Východné
+Slovensko. Úroveň NUTS 3 tvoria kraje.
+
+                                                                    7
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+Cieľom udržateľného mestského rozvoja je riešenie spoločných výziev a problémov jadrových miest
+a ich zázemia, vrátane využitia rozvojového potenciálu územia. Územie UMR je chápané ako územie
+intenzívnych interakcií jadrového mesta/jadrových miest a obcí jeho/ich zázemia, v ktorom možnosť
+a efektívnosť využitia rozvojového potenciálu, riešenia problémov a výziev je podmienená medzi-
+komunálnou spoluprácou a implementáciou spoločnej stratégie (napr. v oblasti dopravy, zásobovania
+vodou, odpadového hospodárstva, služieb obyvateľstva, školstva, protipovodňovej ochrany,
+rekreácie).
+
+Jadrové mestá na území UMR: sú identifikované na základe Koncepcie územného rozvoja Slovenska
+definujúcej ťažiská osídlenia 1. a 2. kategórie. Územia UMR ako mestské funkčné oblasti sú definované
+vo väzbe na identifikované centrá mestských oblastí, pričom tieto územia museli byť spojité
+s minimálnym počtom 40 000 obyvateľov. Zoznam jadrových miest UMR a obcí, ktoré sú súčasťou
+území UMR, tvorí prílohu 3 tohto metodického usmernenia.
+
+Strategicko-plánovacie regióny: sú územia, pre ktoré môžu byť v rámci programu hospodárskeho
+rozvoja a sociálneho rozvoja (ďalej len „PHRSR“) vyššieho územného celku (ďalej len „VÚC“) /IÚS VÚC
+definované špecifické územné stratégie, resp. strategické ciele. Skupina miest a obcí tvoriaca
+strategicko-plánovací región (ďalej len „SPR“) môže na základe zmluvy o spolupráci vypracovať
+spoločný PHRSR skupiny obcí podľa zákona o regionálnom rozvoji a tým nahradiť PHRSR jednotlivých
+obcí. Na území SPR môže byť, na základe iniciatívy samosprávneho kraja alebo obcí, ktoré sú súčasťou
+SPR, vytvorená kooperačná rada SPR uzavretím Memoranda o spolupráci členov SPR. KR SPR je
+poradným orgánom členov komory miestnej samosprávy. Príloha 1 Vzorový štatút a rokovací poriadok
+rady partnerstva a Príloha 2 Vzorový štatút a rokovací poriadok kooperačnej rady udržateľného
+mestského rozvoja sa použijú primerane pre štatút a rokovací poriadok kooperačnej rady SPR.
+
+Strategický projekt: pre účely tohto metodického usmernenia sa pod pojmom strategický projekt
+rozumie projekt, ktorý predstavuje ciele a opatrenia na dosiahnutie prosperity a udržateľného rozvoja
+daného územia. To znamená, že strategický projekt prispieva ku strategickým cieľom daného územia,
+má viacero pozitívnych dopadov na územie a regionálny charakter. Prináša dlhodobé ekonomické a
+spoločenské výhody, ako je tvorba HDP, rast kvality života, zamestnanosti a rozvoj inovácií. Strategické
+projekty daného územia definuje PHRSR VÚC, spoločný PHRSR obcí, PHRSR obce, resp. vychádzajú
+z priorít vyššie uvedených programov a sú súčasťou zoznamu strategických projektov schválených
+radou partnerstva/kooperačnou radou UMR.
+
+Územní partneri: pre účely tohto metodického usmernenia sú to partneri, ktorí spoločne plánujú
+a realizujú rozvoj konkrétneho územia, tak aby bol efektívnejší a udržateľnejší. Pre účely tohto
+metodického usmernenia sú to a) primárne zástupcovia technických sekretariátov rád
+partnerstva/administratívnych kapacít udržateľného mestského rozvoja; b) obce, mestá, regionálne
+samosprávy, socioekonomickí partneri.
+
+                                                                    8
+Program Slovensko
+
+ Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+2. Procesy tvorby, výberu, hodnotenia a vydávania rozhodnutia o poskytnutí príspevku
+    z fondov EÚ pre projekt integrovanej územnej investície
+
+2.1. Vyhlásenie výziev pre opatrenia/špecifické ciele a alokáciu vyčlenenú pre nástroj
+        integrovaného územného rozvoja
+
+ Poskytovatelia vypracujú a vyhlásia výzvu v zmysle § 24 zákona o príspevkoch z fondov EÚ pre
+ opatrenia/špecifické ciele, ktoré sú vo vecnej gescii jednotlivých poskytovateľov, a ktorá bude otvorená
+ počas celého obdobia implementácie P SK, resp. pokiaľ nebude vyčerpaná alokácia
+ v opatrení/špecifickom cieli. Pre každé opatrenie/špecifický cieľ, z ktorého časť alokácie bola vyčlenená
+ pre mechanizmus integrovaného územného rozvoja, je vyhlásená samostatná otvorená výzva na
+ predkladanie ŽoNFP, resp. môže byť vyhlásená výzva na predkladanie ŽoNFP pre viac
+ opatrení/špecifických cieľov v gescii jedného poskytovateľa pre všetky oprávnené RP/KR UMR. Postup
+ prípravy výzvy je uvedený v Metodickom dokumente RO pre P SK č. 9 k príprave výzvy6 a v súlade
+ s prílohou „Podmienky poskytnutia príspevku a ďalšie skutočnosti“ platnej verzie Vzoru manuálu
+ procedúr riadiaceho orgánu7.
+
+ Poskytovateľ prostredníctvom RO zašle finálny návrh výzvy na predkladanie ŽoNFP pre projekty IÚI
+ (vrátane všetkých príloh) na pripomienky RP/KR UMR prostredníctvom TS RP/AK UMR, pričom lehota
+ na pripomienkovanie je stanovená na 10 pracovných dní od doručenia návrhu. Poskytovateľ
+ prostredníctvom RO po vyhodnotení pripomienok zašle vyhodnotenie pripomienok RP/KR UMR
+ prostredníctvom TS RP/AK UMR.
+
+ Proces pripomienkového konania vo vzťahu k výzve pre projekty IÚI predstavuje formu
+ participatívneho zapojenia8 územných partnerov do definovania potrieb a parametrov výzvy a zároveň
+ plní informačnú funkciu pre územných partnerov, ktorí na základe týchto informácií môžu pripravovať
+ PZ IÚI.
+
+ RO komunikuje s jednotlivými poskytovateľmi s cieľom zabezpečenia koordinácie vyhlasovania výziev,
+ prípadne komplementarity výziev, s prihliadnutím na pripravenosť a absorpčnú kapacitu územia, ako
+ aj na nastavené priority P SK.
+
+2.2. Vytvorenie a administrácia projektového zásobníka IÚS/IÚS UMR
+
+ Projektový zásobník IÚS/IÚS UMR administruje TS RP/AK UMR a obsahuje minimálne nasledovné
+ informácie:
+ a) názov navrhovaného projektového zámeru IÚI,
+ b) navrhované aktivity,
+ c) identifikáciu budúceho žiadateľa/partnera (ak relevantné),
+ d) indikatívny rozpočet,
+ e) stav projektovej prípravy.
+
+ Na účely optimalizácie procesov RP/KR UMR môžu byť navrhované PZ IÚI v projektovom zásobníku
+ IÚS/IÚS UMR filtrované na základe kritérií s cieľom zúženia výberu9, pre ktoré bude vypracovaný
+ formulár PZ IÚI. Predmetné kritériá pre priorizáciu by mali zohľadňovať súlad s IÚS, príspevok
+
+ 6 V časti - Metodické dokumenty pre Program Slovensko https://eurofondy.gov.sk/dokumenty-a-publikacie/metodicke-
+ dokumenty/metodicke-dokumenty-specificke-pre-program-slovensko/.
+ 7 Príloha „Podmienky poskytnutia príspevku a ďalšie skutočnosti“ v rámci platnej verzie Vzoru manuálu procedúr riadiaceho orgánu,
+ dokument zverejnený na webovom sídle https://eurofondy.gov.sk/dokumenty-a-publikacie/metodicke-dokumenty/metodicke-dokumenty-
+ cko/.
+ 8 § 45 ods. 6 zákona o príspevkoch z fondov EÚ.
+ 9 Zúžiť výber/možnosti/rozsah.
+
+                                                                     9
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+k napĺňaniu cieľov IÚS, relevantnosť, integrovanosť a významnosť navrhovaných aktivít pre územie,
+stav projektovej pripravenosti, ukazovatele výsledku a výstupu, prínos pre územie a iné.
+
+Kritériá pre filtrovanie a zúženie výberu PZ IÚI schvaľuje RP/KR UMR10. Kritériá musia byť po schválení
+zverejnené na webovom sídle samosprávneho kraja alebo jadrového mesta pre zachovanie
+transparentnosti procesu a môžu byť uplatnené až po ich schválení a zverejnení.
+
+V prípade, ak TS RP/AK UMR posúdi, že navrhovaný PZ IÚI vedený v projektovom zásobníku IÚS/IÚS
+UMR nespĺňa kritériá pre filtrovanie a zúženie výberu PZ IÚI podľa bodu 2.2, pre takýto PZ IÚI nemusí
+byť vypracovaný formulár PZ IÚI a nemusí byť predložený na zasadnutie RP/KR UMR.
+
+PZ IÚI, ktorý nie je súčasťou projektového zásobníka, je možné predložiť na zasadnutie RP/KR UMR,
+pokiaľ štatút a rokovací poriadok RP/KR UMR neustanovuje inak.
+
+2.2.1. Harmonogram zasadnutí
+
+Prostredníctvom výberu užšieho zoznamu navrhovaných PZ IÚI pre vypracovanie formulára PZ IÚI
+podľa bodu 2.2 tohto metodického usmernenia môžu zamestnanci TS RP/AK UMR riadiť frekvenciu
+zasadnutí RP/KR UMR tým, že stanovia, ktorí budúci žiadatelia budú na jednotlivé zasadnutia
+pripravovať a predkladať materiály o podpore projektu z územnej alokácie fondov EÚ prostredníctvom
+nástroja IÚI.
+
+Harmonogram plánovaných zasadnutí RP/KR UMR schvaľuje RP/KR UMR a vydáva ho TS RP alebo AK
+UMR na pokyn predsedu RP/KR UMR a zverejňuje ho na webovom sídle príslušného samosprávneho
+kraja alebo jadrového mesta UMR.
+
+Schválený harmonogram plánovaných zasadnutí RP/KR UMR má indikatívny charakter a zasadnutie
+RP/KR UMR bude zvolané v súlade so štatútom a rokovacím poriadkom RP/KR UMR.
+
+RP/KR UMR môže schváliť harmonogram zasadnutí RP/KR UMR aj s určením najneskoršieho možného
+termínu na predloženie formulára PZ IÚI. RP/KR UMR môže tiež určiť opatrenia/špecifické ciele,
+pre ktoré majú byť predkladané PZ IÚI na konkrétnom zasadnutí RP/KR UMR.
+
+2.3. Vypracovanie formulára projektového zámeru integrovanej územnej investície
+
+Budúci žiadateľ vypracuje formulár PZ IÚI11, v ktorom je popísaný cieľ IÚI, návrh aktivít, ktoré tvoria IÚI,
+ich priradenie k opatreniu P SK, resp. špecifickému cieľu P SK, indikatívny rozpočet pre realizáciu
+projektu IÚI, prínos pre územie, stav pripravenosti projektu IÚI a plánované hodnoty merateľných
+ukazovateľov.
+
+Pri vypracovaní formulára PZ IÚI je nevyhnutné, aby aktivity12 boli v súlade s príslušnou výzvou. Každej
+aktivite musí byť priradený rozpočet a doba realizácie v mesiacoch.
+
+PZ IÚI musí byť v súlade s prílohou 413 tohto metodického usmernenia v minimálnom rozsahu
+požadovaných informácií s dôrazom na popis preukazujúci súlad daného PZ IÚI s IÚS a popis
+príspevku PZ IÚI k integrovanému riešeniu a k napĺňaniu cieľov IÚS.
+
+10 Kritéria môžu byť schvaľované osobitne pre každé opatrenie/špecifický cieľ.
+11 Pre vypracovanie PZ IÚI nie je potrebné disponovať vopred vypracovanou projektovou dokumentáciou a ďalšími prílohami potrebnými
+pre dopracovanie ŽoNFP, okrem prípadu, ak RP/KR UMR schválila kritériá, ktoré uvedenú dokumentáciu vyžadujú.
+12 Hlavné aktivity projektu musia byť naviazané na typy akcií, ktoré sú definované vo výzve. K jednému typu akcie môže byť definovaných
+viacero hlavných aktivít projektu.
+13 Z dôvodu minimalizácie chybovostí je potrebné použiť aktuálnu verziu formulára PZ IÚI, avšak na prílohu č. 4 sa vzťahuje prechodné
+obdobie, počas ktorého je možné akceptovať aj predkladanie formulára PZ IÚI v jeho predchádzajúcich verziách. Toto prechodné obdobie sa
+uplatňuje do 31.05.2026.
+
+                                                                   10
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+Predložený formulár PZ IÚI musí byť vyplnený úplne, správne a musí obsahovať všetky požadované
+náležitosti.
+
+RP/KR UMR môže svojim rozhodnutím schváliť formulár PZ IÚI, ktorý bude obsahovať informácie
+nad rámec prílohy 4 tohto metodického usmernenia.
+
+V procese prípravy PZ IÚI môže budúci žiadateľ alebo TS RP/AK UMR konzultovať PPP vyplývajúce
+z výzvy s RC MIRRI. Konzultácie s RC MIRRI pred schválením PZ IÚI majú odporúčací charakter.
+
+Pre ďalšie konanie zo strany TS RP/AK UMR (VÚC, resp. jadrové mesto) musí byť vypracovaný
+a budúcim žiadateľom podpísaný formulár PZ IÚI doručený TS RP/AK UMR v súlade so zákonom
+č. 305/2013 Z. z. o elektronickej podobe výkonu pôsobnosti orgánov verejnej moci a o zmene
+a doplnení niektorých zákonov v úplnom znení (ďalej len „zákon o e-Governmente“), alebo v listinnej
+podobe do podateľne VÚC alebo jadrového mesta, resp. jadrových miest podľa príslušnosti PZ IÚI
+k územiu jadrového mesta (v prípade viacerých jadrových miest v rámci jedného UMR)14, a to 45
+pracovných dní pred zasadnutím/hlasovaním formou per rollam RP/KR UMR. Lehotu na predkladanie
+vypracovaných PZ IÚI je možné upraviť uznesením RP/KR UMR.
+
+Predložený formulár PZ IÚI musí byť riadne zaregistrovaný v súlade s registratúrnym poriadkom
+VÚC/jadrového mesta, resp. jadrových miest podľa príslušnosti PZ IÚI k jadrovému mestu (v prípade
+viacerých jadrových miest v rámci jedného UMR).
+
+V prípade pochybností alebo nejasností je TS RP/AK UMR oprávnený požiadať budúceho žiadateľa
+o doplnenie predloženého formulára PZ IÚI alebo takýto formulár vrátiť budúcemu žiadateľovi
+na prepracovanie (pozri prílohu 5 Výzva na doplnenie/prepracovanie PZ IÚI15) a do doby doplnenia
+alebo prepracovania o ňom nekonať. TS RP/AK UMR určí budúcemu žiadateľovi primeranú lehotu
+na doplnenie alebo prepracovanie, ktorá nesmie byť pri prvej výzve na doplnenie alebo prepracovanie
+kratšia ako 5 pracovných dní odo dňa doručenia výzvy na doplnenie alebo prepracovanie PZ IÚI.
+
+Zároveň musí byť dodržaná zásada rovnakého zaobchádzania, t. j. lehota na doplnenie alebo
+prepracovanie má byť rovnaká pre všetkých budúcich žiadateľov. Určenie rozdielnej lehoty
+na doplnenie alebo prepracovanie jednotlivým budúcim žiadateľom musí TS RP/AK UMR v prípade
+potreby vedieť zdôvodniť. Spôsob doručenia určí TS RP/AK UMR tak, aby bolo možné postup objektívne
+overiť. Doba potrebná na doplnenie alebo prepracovanie PZ IÚI sa do lehoty na vydanie stanoviska TS
+RP/AK UMR nezapočítava. Lehoty opätovne začínajú plynúť nasledujúcim pracovným dňom po dni
+doručenia doplneného alebo prepracovaného PZ IÚI.
+
+Pri nedodržaní lehoty stanovenej TS RP/AK UMR na doplnenie alebo prepracovanie predloženého
+formulára PZ IÚI budúcemu žiadateľovi je TS RP/AK UMR oprávnený takýto PZ IÚI vylúčiť
+z posudzovacieho procesu a ďalej o ňom nekonať. V stanovisku TS RP/AK UMR túto skutočnosť uvedie
+a zdôvodní a PZ IÚI nepredloží na zasadnutie/hlasovanie formou per rollam RP/KR UMR.
+
+Budúci žiadateľ je oprávnený vziať späť podaný PZ IÚI, a to aj bez udania dôvodu. Späťvzatie PZ IÚI
+musí byť doručené TS RP/AK UMR v súlade so zákonom o e-Governmente alebo v listinnej podobe
+do podateľne VÚC alebo jadrového mesta, resp. jadrových miest, podľa príslušnosti PZ IÚI k územiu
+jadrového mesta (v prípade viacerých jadrových miest v rámci jedného UMR).
+
+14 Prípadne iným spôsobom, ak sa tak rozhodne TS RP/AK UMR, v súlade s registratúrnym poriadkom príslušného TS RP/AK UMR a platnou
+legislatívou SR.
+15 Príloha 5 je odporúčaným vzorom. Je na rozhodnutí TS RP/AK UMR, akú formu komunikácie s budúcim žiadateľom zvolí, avšak je potrebné
+zachovať auditnú stopu, t. j. aby TS RP/AK UMR mali archivovanú dokumentáciu potvrdzujúcu zaslanie výzvy na budúceho žiadateľa na
+doplnenie/prepracovanie PZ IÚI, a to aj pre účely následného auditu a kontroly.
+
+                                                                   11
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+V prípade doručenia späťvzatia PZ IÚI, TS RP/AK UMR zastaví posudzovanie PZ IÚI ku dňu doručenia
+späťvzatia PZ IÚI zo strany budúceho žiadateľa. V prípade späťvzatia schváleného PZ IÚI je potrebné
+postupovať v súlade s procesmi v tomto metodickom usmernení o zrušení uznesenia na základe
+späťvzatia PZ IÚI zo strany budúceho žiadateľa.
+
+2.3.1 Merateľné ukazovatele
+
+Merateľné ukazovatele vrátane cieľovej hodnoty sa priraďujú k PZ IÚI (projektu) na základe podmienok
+definovaných vo výzve na predkladanie ŽoNFP. Merateľné ukazovatele PZ IÚI (projektu) sú rozdelené
+do dvoch skupín, a to projektové ukazovatele výstupové a projektové ukazovatele výsledkové16.
+
+Príklad:
+Schválený projektový zámer dňa 6.11.2023, uznesenie číslo 748/2023, s celkovým rozpočtom
+2 500 000 € má 2 aktivity:
+
+Prvá aktivita
+    • z opatrenia 2.7.4 s názvom podpora revitalizácie a tvorby sídelnej zelene - rekonštrukcia parku
+         Dlhá lúka
+    • rozloha 0,5 ha
+    • rozpočet 500 000 €
+    • doba realizácie 12 mesiacov
+
+Druhá aktivita
+    • z opatrenia 2.7.4 s názvom podpora revitalizácie a tvorby sídelnej zelene – obnova parku
+         Krátka lúka
+    • rozloha 1 ha
+    • rozpočet aktivity 2 000 000 €
+    • doba realizácie 24 mesiacov
+
+a PZ IÚI (projekt) prispieva k plneniu týchto merateľných ukazovateľov:
+    • kód MU: PSKPRCO36 (Zelená infraštruktúra podporovaná na iné účely ako adaptácia na zmenu
+         klímy) s cieľovou hodnotou 1,5 ha
+    • kód MU: PSKPRCR95 (Populácia, ktorá má prístup k novej alebo modernizovanej zelenej
+         infraštruktúre) s cieľovou hodnotou 40 000 osôb.
+
+2.3.2 Neoprávnené výdavky
+
+V PZ IÚI môžu byť definované aj výdavky, ktoré nie sú oprávnené na financovanie v zmysle výzvy
+alebo v danom momente nevstupujú do celkových oprávnených výdavkov (ďalej len „COV“)
+rozpočtu. Takéto výdavky sa uvedú samostatne do rozpočtu ako tzv. „neoprávnené výdavky“ vo
+formulári PZ IÚI17. Neoprávnené výdavky schválené v PZ IÚI sú výdavkami, ktoré sú neoddeliteľnou
+súčasťou projektu a musia byť prijímateľom vynaložené na realizáciu projektu, tzn. musia byť
+následne súčasťou ŽoNFP, rozhodnutia (ak relevantné), a zmluvy o poskytnutí nenávratného
+finančného príspevku18. Na finančné prostriedky, ktoré vznikli v dôsledku úspory finančných
+prostriedkov po zrealizovaní verejného obstarávania, prípadne obstarávania (ďalej len „VO/O“), nemá
+prijímateľ právny nárok. Ak v PZ IÚI sú definované neoprávnené výdavky, musia byť priradené ku
+konkrétnej aktivite. V prípade udelenia finančnej opravy na VO/O na finančnú sumu, ktorá vznikne z
+
+16 Výzva na predkladanie ŽoNFP stanovuje, či žiadateľ má povinnosť zadefinovať aj výstupový aj výsledkový merateľný ukazovateľ alebo nie.
+17 Príloha 4 tohto metodického usmernenia.
+18 Prijímateľ je povinný zrealizovať projekt ako celok, teda vynaložiť aj neoprávnené výdavky schválené v PZ IÚI bez ohľadu na výsledok
+verejného obstarávania.
+
+                                                                   12
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+rozdielu oprávnených a neoprávnených výdavkov na základe vyčíslenia finančnej opravy, nemá
+prijímateľ právny nárok.
+
+Neoprávnené výdavky v rámci PZ IÚI:
+    a) vecne neoprávnené výdavky,
+    b) finančne neoprávnené výdavky.
+
+Vecne neoprávnený výdavok - ide najmä o výdavky, ktoré nespĺňajú pravidlá oprávnenosti podľa
+zmluvy o poskytnutí nenávratného finančného príspevku (ďalej len „NFP“) a/alebo výzvy a/alebo
+schémy pomoci a/alebo podľa právnych dokumentov, ktoré poskytovateľ vydal pre určenie
+oprávnenosti výdavkov podľa čl. 63 ods. 1 NSU ako prílohu výzvy. To znamená, že ak výdavok nespĺňa
+podmienky oprávnenosti, nie je spôsobilý na preplatenie z NFP.
+
+Finančne neoprávnené výdavky (ďalej len „FNV“) – neoprávnené výdavky z dôvodu ich nezaradenia
+do oprávnených výdavkov (ďalej len „OV“) na strane RP/KR UMR (napr. výdavky sú nad rámec alokácie
+opatrenia/špecifického cieľa, RP/KR UMR schválila nižšiu sumu, ako je predpokladaný rozpočet
+projektu), pričom tieto výdavky sú v zmysle Výzvy vecne oprávnené.
+
+Na vymedzené neoprávnené výdavky uvedené v PZ IÚI, následne prenesené do ŽoNFP a zmluvy o
+poskytnutí NFP poskytovateľ prihliada, nakoľko je prijímateľ povinný preukázať zdroje financovania
+a následne zabezpečiť financovanie všetkých neoprávnených výdavkov.
+
+Poskytovateľ po ukončení finančnej kontroly príslušného VO/O (overenia súladu VO/O so zákonom
+č. 343/2015 Z. z. o verejnom obstarávaní a o zmene a doplnení niektorých zákonov v znení neskorších
+predpisov, Príručkou k VO/O a so zmluvou o poskytnutí NFP), alebo najneskôr pred úhradou prvej ŽoP
+vzťahujúcej sa k príslušnému VO/O, vykoná technickú zmenu zmluvy o poskytnutí NFP, v rámci ktorej
+upraví položkový rozpočet projektu tak, že presunie FNV alebo ich časť do OV v rámci toho istého
+VO/O, maximálne do výšky COV vydaného rozhodnutia o schválení ŽoNFP. Poskytovateľ presunie
+úspory finančných prostriedkov vzniknuté v príslušnom VO/O do samostatného riadku položkového
+rozpočtu projektu s názvom Úspora na OV. Poskytovateľ môže týmto spôsobom postupovať vo
+všetkých VO/O, v ktorých vznikne úspora finančných prostriedkov. V prípade finančnej opravy sa tieto
+zmeny zohľadnia po jej predchádzajúcom vyčíslení, pričom finančnú sumu, ktorá vznikne z rozdielu
+oprávnených a neoprávnených výdavkov na základe vyčíslenia finančnej opravy, nie je možné zahrnúť
+do Úspory na OV.
+
+Prijímateľ má možnosť využiť finančné prostriedky uvedené v riadku Úspora na OV na pokrytie FNV
+z iných VO/O v rámci tej istej skupiny výdavkov alebo z inej skupiny výdavkov toho istého projektu,
+v ktorých nevznikla úspora, pričom pri zmene zmluvy o poskytnutí NFP postupuje podľa pravidiel
+zadefinovaných poskytovateľom. Prijímateľ je oprávnený iniciovať zmenu až po doručení oznámenia
+poskytovateľa o technickej zmene.
+
+Úsporu na OV je možné zo strany prijímateľa využívať aj postupne, v závislosti od ukončených
+finančných kontrol VO/O a s tým súvisiacimi technickými zmenami, pričom prijímateľ je povinný
+navrhnúť/požiadať o presun výdavkov najneskôr do 2 mesiacov od doručenia oznámenia
+poskytovateľa o technickej zmene zmluvy o poskytnutí NFP vzťahujúcej sa k poslednej ukončenej
+finančnej kontrole VO/O v rámci projektu. Poskytovateľ po poslednom presune výdavkov vykonanom
+na základe iniciatívy prijímateľa vypracuje dodatok k zmluve o poskytnutí NFP, v ktorom stanoví finálnu
+výšku COV vyplývajúcu z presunov výdavkov a z položkového rozpočtu odstráni riadok Úspora na OV.
+Presun výdavkov je možné vykonať maximálne do výšky COV v schválenej ŽoNFP, resp. v príslušnom
+dodatku k zmluve o poskytnutí NFP vypracovanom na základe vykonaných finančných opráv. V
+prípade, ak prijímateľ v priebehu realizácie projektu alebo v stanovenej lehote 2 mesiacov
+
+                                                                   13
+ Program Slovensko
+
+  Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+  nenavrhne/nepožiada o presun výdavkov, poskytovateľ po uplynutí tejto lehoty vypracuje dodatok k
+  zmluve o poskytnutí NFP z vlastnej iniciatívy.
+
+  Poskytovateľ prispôsobí formulár povinnej prílohy ŽoNFP podrobného rozpočtu projektu tak, aby
+  žiadateľ v rozpočte projektu uviedol všetky neoprávnené výdavky a dôvody ich neoprávnenosti v
+  súlade so schváleným PZ a uznesením, aj v súlade s týmto metodickým usmernením.
+
+2.4. Overenie súladu náležitostí PZ IÚI a posúdenie pridanej hodnoty PZ IÚI pre rozvoj územia
+
+  Zamestnanci TS RP/AK UMR vykonajú overenie splnenia formálnych náležitostí predloženého PZ IÚI
+  a posúdia jeho kvalitatívnu stránku vo vzťahu k súladu PZ IÚI s IÚS a príspevku k napĺňaniu cieľov IÚS
+  vrátane integrovaného prístupu.
+
+  Zamestnanci TS RP/AK UMR pri overení prihliadajú aj na prílohy PZ IÚI, ak sú predložené.
+
+  2.4.1 Oblasti overovania a posudzovania
+  Zamestnanci TS RP/AK UMR:
+  a) overia formálnu stránku predloženého PZ IÚI (či obsahuje všetky náležitosti, či sú údaje
+
+       vo formulári PZ IÚI uvedené správne, či je dodržaný minimálny rozsah požadovaných informácií,
+       kontrola prepočtu rozpočtu v súlade s platnou aktualizáciou výzvy a pod.),
+  posúdia:
+  b) súlad s opatreniami/špecifickými cieľmi P SK vyčlenenými pre IÚI (tematické zameranie, ciele
+       projektu, finančné parametre)19,
+  c) súlad s PPP a stanovenie merateľných ukazovateľov projektu príslušnej výzvy v rozsahu, ktorý
+       umožňujú informácie uvedené vo formulári PZ IÚI,
+  d) súlad s IÚS, regionálnymi/miestnymi sektorovými stratégiami,
+  e) prínos PZ IÚI k deklarovanému integrovanému riešeniu a pozitívny dopad PZ IÚI na územie,
+  f) súlad s kritériami pre výber PZ IÚI (ak relevantné).
+
+  Posúdenie súladu s SK RIS3 2021+20:
+  a) pri PZ IÚI, pri ktorých sa overuje súlad aktivít projektu s SK RIS3, je poskytovateľ povinný posúdiť
+
+       súlad v súčinnosti s RO21.
+
+ 2.4.2 Stanovisko TS RP/AK KR UMR
+
+  Na základe posúdenia PZ IÚI TS RP/AK UMR vydáva stanovisko podľa prílohy 7 tohto metodického
+  usmernenia, ktoré z hľadiska obsahu a formálnych náležitostí napĺňa aj funkciu kontrolného zoznamu.
+  Pri posudzovaní PZ IÚI môže byť ako podklad pre vypracovanie stanoviska vypracovaný aj samostatný
+  Kontrolný zoznam k overeniu PZ IÚI (pozri prílohu 6 tohto metodického usmernenia).
+
+  TS RP/AK UMR vypracujú stanovisko ku každému predloženému PZ IÚI v štruktúre uvedenej v prílohe
+  7 tohto metodického usmernenia do 10 pracovných dní od predloženia PZ IÚI budúcim žiadateľom
+  na TS RP/AK UMR. Lehotu na vydanie stanoviska je možné upraviť uznesením RP/KR UMR.
+
+  Stanovisko TS RP/AK UMR má odporúčací charakter, je súčasťou materiálu predkladaného členom
+  RP/KR UMR pred hlasovaním a slúži ako podklad pre hlasovanie RP/KR UMR. Stanovisko sa zároveň
+  zasiela budúcemu žiadateľovi, aby sa s ním mohol oboznámiť pred zasadnutím/hlasovaním formou per
+  rollam RP/KR UMR, a to tak, aby mal budúci žiadateľ stanovisko k dispozícii najneskôr 10 pracovných
+
+  19 Pod uvedeným sa rozumie aj zabezpečenie plnenia príslušných požiadaviek podľa čl. 73 NSU.
+  20 Pri výzve PSK-MIRRI-613-2024-ITI-EFRR a PSK-MIRRI-016-2024-IUI-EFRR.
+  21 [e-mail vynechaný], v súlade s metodickým dokumentom RO pre P SK č. 9.
+
+                                                                     14
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+dní pred zasadnutím/hlasovaním formou per rollam RP/KR UMR. Lehotu je možné upraviť uznesením
+RP/KR UMR.
+
+V prípade, ak TS RP/AK UMR má schválené výberové kritériá na PZ IÚI a posúdi, že predložený PZ IÚI
+nespĺňa kritériá pre výber PZ IÚI podľa kapitoly 2.5 tohto metodického usmernenia, takýto PZ IÚI
+nemusí byť predložený na zasadnutie/hlasovanie formou per rollam RP/KR UMR. Stanovisko TS RP/AK
+UMR v tomto prípade musí obsahovať aj informáciu, ktoré kritériá pre výber PZ IÚI daný PZ IÚI nesplnil,
+spolu s odôvodnením.
+
+Budúci žiadateľ, ktorého PZ IÚI nebol predložený na zasadnutie/hlasovanie formou per rollam RP/KR
+UMR, má právo požiadať predsedu RP/KR UMR o zaradenie PZ IÚI na zasadnutie/hlasovanie formou
+per rollam RP/KR UMR, ak sa so stanoviskom TS RP/AK UMR nestotožnil z overiteľných dôvodov.
+Požiadať predsedu o zaradenie na zasadnutie/hlasovanie formou per rollam RP/KR UMR je možné v
+súlade so zákonom o e-Governmente alebo v listinnej podobe do podateľne VÚC alebo jadrového
+mesta, resp. jadrových miest, podľa príslušnosti PZ IÚI k územiu jadrového mesta (v prípade viacerých
+jadrových miest v rámci jedného UMR), a to v lehote 10 pracovných dní od doručenia stanoviska TS
+RP/AK UMR. Lehotu je možné upraviť uznesením.
+
+Žiadosť o zaradenie PZ IÚI na zasadnutie/hlasovanie formou per rollam RP/KR UMR už pri jej podaní
+musí byť odôvodnená tak, aby bolo zrejmé, v ktorej časti sa stanovisko TS RP/AK UMR napáda a aké
+chyby sa vytýkajú.
+
+Predseda RP/KR UMR je povinný takýto PZ IÚI predložiť na zasadnutie/hlasovanie formou per rollam
+RP/KR UMR.
+V prípade, ak RP/KR UMR nemá schválené výberové kritériá na PZ IÚI, musia byť všetky predložené
+PZ IÚI zaslané členom RP/KR UMR, a to aj v prípade, ak TS RP/AK UMR v stanovisku podľa kapitoly 2.4
+tohto metodického usmernenia neodporúča RP/KR UMR schváliť PZ IÚI. RP/KR UMR následne
+rozhodne o schválení/neschválení takto predložených PZ IÚI.
+
+2.5. Výber a schvaľovanie projektových zámerov IÚI
+
+2.5.1 Kritéria pre výber PZ IÚI
+
+RP/KR UMR môže uznesením schváliť kritériá pre výber PZ IÚI22. Kritériá pre výber PZ IÚI môžu byť
+schválené pre každé opatrenie/špecifický cieľ osobitne.
+
+Kritériá pre výber PZ IÚI, ktoré zodpovedajú PPP (oprávnenosť budúceho žiadateľa, oprávnenosť
+aktivít, oprávnenosť výdavkov a pod.) musia byť v súlade s vyhlásenou výzvou na dané
+opatrenie/špecifický cieľ23.
+
+Kritéria pre výber PZ IÚI musia byť budúcim žiadateľom známe pred predkladaním formulárov PZ IÚI
+prostredníctvom ich zverejnenia na webovom sídle samosprávneho kraja alebo jadrového mesta.
+Takéto kritériá výberu PZ IÚI sú pre členov RP/KR UMR záväzné24. Výber a schvaľovanie PZ IÚI
+pre podporu z fondov EÚ je v kompetencii RP/KR UMR.
+
+Podkladom pre rozhodnutie RP/KR UMR sú:
+
+22 Kritériá sa vzťahujú výhradne na PZ IÚI a poskytovateľ nie je povinný ich zohľadniť pri príprave a vyhlásení výzvy.
+23 Ak je už výzva na predkladanie ŽoNFP vyhlásená. Pokiaľ výzva na predkladanie ŽoNFP nie je vyhlásená v čase schválenia kritérií pre výber
+PZ IÚI, je po vyhlásení potrebné kritériá pre výber PZ IÚI uviesť do súladu s výzvou.
+24 V prípade, ak sa RP/KR UMR rozhodne neurčovať poradie predkladaných PZ IÚI prostredníctvom schválených kritérií, resp. uprednostniť
+konkrétne PZ IÚI mimo ich rámca, je nevyhnutné tieto kritériá najskôr primerane upraviť alebo zrušiť. Až po vykonaní tejto zmeny je možné
+určiť poradie PZ IÚI na základe dohody v území.
+
+                                                                   15
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+    a. formulár PZ IÚI,
+    b. stanovisko TS RP/AK UMR,
+    c. návrh uznesenia25.
+
+2.5.2 Doručovanie materiálov pred zasadnutím RP/KR UMR
+
+V zmysle štatútu a rokovacieho poriadku RP/KR UMR sa materiály na prerokovanie, stanoviská TS
+RP/AK UMR a návrhy uznesení RP/KR UMR k jednotlivým bodom zasadnutia doručujú 15 pracovných
+dní pred zasadnutím všetkým členom RP/KR UMR. V prípade KR UMR sa materiály v rovnakej lehote
+zasielajú aj MIRRI SR26.
+
+2.5.2.1 Doručovanie materiálov pred hlasovaním formou per rollam
+
+Materiály k novým PZ IÚI27, ktoré budú predmetom schvaľovania, sa doručujú elektronicky (emailom)
+minimálne 5 pracovných dní pred samotným termínom vyhlásenia hlasovania formou per rollam
+všetkým členom RP/KR UMR. V prípade KR UMR sa materiály v rovnakej lehote zasielajú aj MIRRI SR26.
+
+S cieľom predísť prípadným nedostatkom ešte pred spustením hlasovania sa odporúča zasielať všetky
+materiály na hlasovanie formou per rollam na MIRRI SR26 v dostatočnom časovom predstihu.
+
+Kompletné materiály k jednotlivým bodom hlasovania formou per rollam zasiela TS RP/AK UMR pri
+samotnom vyhlásení hlasovania formou per rollam všetkým členom RP/KR UMR. V prípade KR UMR sa
+tieto materiály zasielajú aj MIRRI SR26.
+
+2.5.3 Proces pripomienkovania
+
+MIRRI SR26:
+    a) zabezpečí distribúciu PZ IÚI príslušným poskytovateľom, ak nie sú členom RP/KR UMR,
+    b) zaslanie PZ IÚI poskytovateľovi nezakladá povinnosť poskytovateľa vypracovať stanovisko k PZ
+         IÚI, poskytovateľ však k uvedenému PZ IÚI má možnosť vypracovať stanovisko,
+    c) zašle stanoviská poskytovateľov (ak relevantné podľa písm. b) TS RP/AK UMR, ktorý s nimi
+         oboznámi budúceho žiadateľa. Budúci žiadateľ je povinný pripomienky poskytovateľa a MIRRI
+         SR26 zapracovať do PZ IÚI28, a to aj v prípade hlasovania formou per rollam. Technické detaily
+         a spôsob zapracovania vznesených pripomienok je možné riešiť vzájomnou komunikáciou
+         s poskytovateľom a MIRRI SR26, V prípade, že vzájomná komunikácia vedie k dohode o úprave
+         rozsahu zapracovania vznesených pripomienok, uvedie sa táto skutočnosť v zápisnici
+         zo zasadnutia, resp. z hlasovania formou per rollam, a zároveň vo vyhodnotení vznesených
+         pripomienok,
+    d) zabezpečí zaslanie pripomienok vznesených MIRRI SR príslušnému RC MIRRI,
+    e) vypracovanie, resp. nevypracovanie, stanoviska k PZ IÚI zo strany poskytovateľa nezakladá
+         povinnosť ani záväzok poskytovateľa konať vo vzťahu k schváleniu PZ IÚI, resp. ŽoNFP, ani
+         nijakým spôsobom nepredurčuje alebo neovplyvňuje rozhodovací proces v tejto veci.
+
+25 Uznesenie musí obsahovať všetky povinné náležitosti v zmysle štatútu a rokovacieho poriadku RP/KR UMR. Návrhy uznesení tvoria prílohu
+12 tohto metodického usmernenia a predstavujú odporúčaný vzor. TS RP/AK UMR si môžu vypracovať aj vlastný vzor uznesenia pri zachovaní
+všetkých povinných náležitostí v zmysle štatútu a rokovacieho poriadku RP/KR UMR.
+26 Odbor metodiky a koordinácie integrovaných územných stratégií.
+27 Minimálne v rozsahu formulára PZ IÚI.
+28 RP/KR UMR môže schváliť PZ IÚI s povinnosťou budúceho žiadateľa zapracovať pripomienky poskytovateľa po schválení PZ IÚI – pozri
+prílohu 12B vzor uznesenia s pripomienkami.
+
+                                                                   16
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+TS RP/AK UMR overí zapracovanie pripomienok zo strany budúceho žiadateľa29. V prípade potreby TS
+RP/AK UMR konzultuje zapracovanie pripomienok s príslušným poskytovateľom a MIRRI SR26.
+Vyhodnotenie vznesených pripomienok sa zároveň zasiela členom RP/KR UMR.
+
+V prípade, že budúci žiadateľ nezapracuje vznesené pripomienky z konkrétneho dôvodu, zapracovanie
+pripomienok nestihne včas, resp. ich nezapracuje v požadovanej forme, TS RP/AK UMR o tejto
+skutočnosti informuje členov RP/KR UMR30.
+
+V prípade riadneho zasadnutia RP/KR UMR, môže byť nesúlad prerokovaný v rámci diskusie priamo
+na zasadnutí RP/KR UMR, zároveň môže byť prijaté uznesenie s podmienkou dodatočného
+zapracovania vznesených pripomienok (pozri prílohu 12B tohto metodického usmernenia), resp.
+zapracovania v požadovanej forme a k nesúladu sa môžu vyjadriť predkladatelia vznesených
+pripomienok. V prípade hlasovania formou per rollam, TS RP/AK UMR informuje členov RP/KR UMR
+o stave zapracovania vznesených pripomienok a po dohode s predkladateľom vznesených
+pripomienok a budúcim žiadateľom, formulujú uznesenie tak, aby zohľadňovalo podmienky dohody
+relevantných strán. Zároveň môže byť prijaté uznesenie s podmienkou dodatočného zapracovania
+vznesených pripomienok (pozri prílohu 12B tohto metodického usmernenia).
+
+Zároveň táto skutočnosť musí byť uvedená aj v zápisnici zo zasadnutia/hlasovania formou per rollam
+RP/KR UMR. TS RP/AK UMR následne požiada budúceho žiadateľa o doplnenie predloženého formulára
+PZ IÚI31. Následne po úprave formulára PZ IÚI budúcim žiadateľom, TS RP/AK UMR skontroluje
+zapracovanie pripomienok vo formulári PZ IÚI.
+
+V prípade, ak budúci žiadateľ nezapracuje dodatočne vznesené pripomienky a nedoplní formulár PZ
+IÚI v zmysle pripomienok do stanoveného termínu, TS RP/AK UMR informuje o tejto skutočnosti RC
+MIRRI32. Vzhľadom na uvedené, TS RP/AK UMR nepredloží predmetný PZ IÚI na RC MIRRI na
+zaevidovanie do systému ITMS21+ s odôvodnením, že PZ IÚI nebol doplnený a upravený v súlade so
+vznesenými pripomienkami v stanovenej lehote. O tomto postupe TS RP/AK UMR informuje RP/KR
+UMR na jej najbližšom zasadnutí. Následne môže RP/KR UMR na základe nesplnenia podmienok
+stanovených v uznesení rozhodnúť o jeho zrušení.
+
+2.5.4 Zmena materiálov pri zasadnutí RP/KR UMR
+
+V prípade, ak sa identifikujú formálne nedostatky v materiáloch, ktoré budú predkladané na zasadnutie
+RP/KR UMR v lehote 15 pracovných dní pred zasadnutím RP/KR UMR, TS RP/AK UMR je oprávnený ich
+upraviť alebo doplniť.
+
+Uvedené sa nevzťahuje na odstránenie formálnych nedostatkov predložených PZ IÚI. V prípade
+formálnych nedostatkov PZ IÚI vyzve TS RP/AK UMR budúceho žiadateľa, aby formálne nedostatky
+odstránil. Na odstránenie formálnych nedostatkov určí lehotu tak, aby upravené PZ IÚI mohli byť
+zaradené na dotknuté zasadnutie RP/KR UMR. Za formálne nedostatky sa považujú najmä zjavné chyby
+v počítaní, gramatické chyby, prípadne ak je potrebné zosúladiť informácie uvedené v uznesení a v PZ
+IÚI alebo iné zrejmé nesprávnosti.
+
+V prípade, ak dôjde k zmene materiálu z objektívnych príčin (napr. aktualizácia výzvy, zmena
+rozhodnutia budúceho žiadateľa, pripomienky poskytovateľa a pod.), resp. k doplneniu a/alebo
+spresneniu predkladaných materiálov po ich zaslaní členom RP/KR UMR, zmena materiálu musí byť
+prezentovaná členom RP/KR UMR, vrátane zdôvodnenia vykonanej zmeny. TS RP/AK UMR je povinný
+
+29 Uvedené sa vzťahuje aj na zapracovanie pripomienok po samotnom zasadnutí/hlasovaní formou per rollam v prípade, ak došlo k schváleniu
+PZ IÚI s pripomienkami.
+30 Uvedené sa vzťahuje na úpravu uznesenia najneskôr na zasadnutí RP/KR UMR alebo najneskôr deň pred spustením hlasovania formou per
+rollam v RP/KR UMR.
+31 Príloha 5 tohto metodického usmernenia „Výzva na doplnenie/prepracovanie projektového zámeru Integrovanej územnej investície“.
+32 Celý proces prebieha prostredníctvom emailu.
+
+                                                                   17
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+o týchto zmenách členov RP/KR UMR informovať najneskôr na zasadnutí RP/KR UMR, a to vrátane
+rozsahu vykonaných úprav, a predložiť členom RP/KR UMR upravené materiály.
+
+Informácia o zmene materiálov musí obsahovať aktualizované podklady s označením vykonaných
+zmien. Tieto úpravy sa zaznamenajú aj v zápisnici zo zasadnutia RP/KR UMR.
+
+K zmene materiálov, o ktorých sa rokuje na zasadnutí RP/KR UMR, dochádza len v ojedinelých
+a v odôvodnených prípadoch.
+
+2.5.4.1 Zmena materiálov pri hlasovaní formou per rollam
+
+K zmene materiálov, o ktorých sa hlasuje formou per rollam v RP/KR UMR, dochádza len v ojedinelých
+a odôvodnených prípadoch.
+
+Ak počas prebiehajúceho hlasovania formou per rollam dôjde k doplneniu a/alebo spresneniu
+predkladaných materiálov, TS RP/AK UMR je povinný bezodkladne informovať všetkých členov RP/KR
+UMR, ako aj MIRRI SR26. Informácia o zmene materiálov musí obsahovať aktualizované podklady
+s označením vykonaných zmien. Tieto úpravy sa zaznamenajú aj v zápisnici z hlasovania formou per
+rollam.
+
+Doplnením a/alebo spresnením materiálov počas prebiehajúceho hlasovania formou per rollam sa
+lehota na hlasovanie neukončuje, hlasovanie pokračuje, pokiaľ predseda RP/KR UMR nerozhodne inak.
+Členovia RP/KR UMR sú oprávnení zmeniť svoj hlas do uplynutia lehoty na hlasovanie formou per
+rollam, ak došlo k takej zmene materiálov, ktorá môže mať vplyv na ich predchádzajúce stanovisko.
+
+2.5.5 Zmena návrhu uznesenia pri zasadnutí RP/KR UMR
+
+Každá zmena návrhu uznesenia musí byť odôvodnená, pričom odôvodnenie zmeny tvorí neoddeliteľnú
+súčasť zápisnice z príslušného zasadnutia RP/KR UMR.
+
+Pokiaľ dochádza k zmene návrhu uznesenia, je vhodné, aby sa uvedené zrealizovalo pozmeňujúcim
+návrhom člena RP/KR UMR. Pripomienky k zmene návrhu uznesenia sú doručované TS RP/AK UMR. TS
+RP/AK UMR následne prezentuje zmenu návrhu uznesenia na zasadnutí a členovia RP/KR UMR hlasujú
+za alebo proti prijatiu zmeny návrhu uznesenia.
+
+2.5.5.1 Zmena návrhu uznesenia pri hlasovaní formou per rollam
+
+Každá zmena návrhu uznesenia musí byť odôvodnená, pričom odôvodnenie zmeny tvorí neoddeliteľnú
+súčasť zápisnice z príslušného hlasovania formou per rollam. Odporúča sa, aby všetky zmeny
+v návrhoch uznesení boli vykonané prostredníctvom funkcie „sledovanie zmien“.
+
+V prípade, že počas prebiehajúceho hlasovania formou per rollam dôjde k zmene návrhu uznesenia, o
+takto aktualizovanom návrhu uznesenia je potrebné opätovne hlasovať v prípade, ak už člen predtým
+zaslal svoj hlas. Lehota na hlasovanie sa neukončuje, hlasovanie pokračuje, pokiaľ predseda RP/KR
+UMR nerozhodne inak.
+
+O formálnych alebo technických úpravách návrhu uznesenia, ktoré nemenia jeho vecný obsah, nie je
+potrebné vykonať opätovné hlasovanie. Tieto úpravy sa zaznamenajú v zápisnici z hlasovania formou
+per rollam.
+
+                                                                   18
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+2.5.6 Zasadnutia RP/KR UMR
+
+Zasadnutia a ich priebeh sa riadi platným štatútom a rokovacím poriadkom.
+
+Pokiaľ zasadnutiu RP/KR UMR predchádzajú čiastkové zasadnutia (napr. zasadnutia SPR, zasadnutia
+ZMOS a pod.), tieto musia prebehnúť pred odoslaním pozvánky na zasadnutie, ktorej prílohou sú
+materiály, ktoré majú byť prerokované. Keďže jednotlivé RP/KR UMR zostavujú ročný harmonogram
+zasadnutí, je nevyhnutné, aby zasadnutia, ktoré majú predchádzať zasadnutiu RP/KR UMR, boli vopred
+plánované s ohľadom na lehoty na zaslanie pozvánky (vrátane materiálov) na zasadnutie RP/KR UMR.
+
+Pri výbere a schvaľovaní PZ IÚI RP/KR UMR prihliada na skutočnosť, aby boli realizáciou vybraných
+projektov (keď sa schválený PZ IÚI premietne do ŽoNFP) dosiahnuté cieľové hodnoty33 merateľných
+ukazovateľov34 P SK35, ktoré sa vzťahujú k jednotlivým opatreniam/špecifickým cieľom P SK, a to vo
+výške zodpovedajúcej podielu výšky alokácie vyčlenenej v rámci daného opatrenia/špecifického cieľa
+na IÚI osobitne pre RP a osobitne pre KR UMR. Sledovanie dosahovania cieľových hodnôt merateľných
+ukazovateľov sa uplatňuje na úrovni územnej alokácie, nie na úrovni konkrétneho projektu.
+
+RP/KR UMR môže schváliť PZ IÚI do výšky alokácie COV každého opatrenia/špecifického cieľa
+pridelených danému územiu36.
+
+RP/KR UMR môže schváliť ďalšie PZ IÚI do dodatočnej výšky 50% COV RP/KR UMR bez ohľadu
+na opatrenie/špecifický cieľ (tzn., že RP/KR UMR schváli PZ IÚI do celkovej výšky 150% COV pridelených
+danému územiu RP/ KR UMR).
+
+Uznesenie RP/KR UMR o schválení projektového zámeru IÚI musí v oboch prípadoch obsahovať:
+    a) informáciu, či je projektový zámer IÚI schválený do 100% výšky alokácie COV37 každého
+         opatrenia/špecifického cieľa pridelených danému územiu alebo nad 100% výšky alokácie COV
+         každého opatrenia/špecifického cieľa pridelených danému územiu,
+    b) vyčíslené neoprávnené výdavky38 pozostávajúce z vecne neoprávnených výdavkov v zmysle
+         výzvy na predkladanie ŽoNFP a finančne neoprávnených výdavkov (ak relevantné).39
+
+Oprávnené na financovanie sú len PZ IÚI schválené do 100% výšky alokácie COV každého
+opatrenia/špecifického cieľa pridelených danému územiu.
+
+33 Cieľovou hodnotou je hodnota, ktorá má byť dosiahnutá v roku 2029.
+34 Merateľný ukazovateľ – ukazovateľ výkonnosti, prostredníctvom ktorého sa meria, do akej miery sa plní cieľ projektu a na agregovanej
+úrovni prispieva k plneniu cieľov programu. Pokiaľ nie je uvedené inak, pojem merateľný ukazovateľ zahŕňa aj merateľný ukazovateľ výsledku
+aj merateľný ukazovateľ výstupu.
+35 Príloha 8 Ukazovatele JMD_IUI a UMR.
+36 V prípade integrovanej výzvy (výzvy, ktorá zahŕňa viac ako jedno opatrenie/špecifický cieľ , môže poskytovateľ elektronicky na adrese
+[e-mail vynechaný] požiadať RO o schválenie špecifického postupu, t. j. RP/KR UMR môže schváliť PZ IÚI do výšky alokácie COV
+pridelených danému územiu kumulatívne za všetky opatrenia/špecifické ciele, ktoré sú súčasťou predmetnej výzvy. V prípade, ak RO takúto
+možnosť schváli, poskytovateľ túto skutočnosť musí uviesť v príslušnej výzve v časti Financovanie projektu „RP/KR UMR môže schváliť PZ IÚI
+do výšky alokácie (COV) pridelených danému územiu kumulatívne za všetky opatrenia/špecifické ciele (poskytovateľ doplní všetky relevantné
+opatrenia/špecifické ciele)“. Informáciu o schválení špecifického prístupu sa uvádza v uznesení o schválení PZ IÚI podľa prílohy 12G a v
+zápisnici zo zasadnutia/hlasovania formou per rollam RP/KR UMR. V prípade uplatňovania tohto postupu, je poskytovateľ podľa skutočne
+predložených ŽoNFP povinný priebežne zasielať na adresu [e-mail vynechaný] žiadosti o zmenu programu (formulár žiadosti
+o zmenu Programu Slovensko) s návrhmi na presuny alokácií (v rámci jednej a tej istej priority). Po ich posúdení zo strany RO, budú návrhy
+na zmenu programu predložené na príslušnú/é komisiu/e pri Monitorovacom výbore pre Program Slovensko 2021 – 2027 (ďalej len „MV pre
+P SK“) a MV pre P SK v závislosti od plánovaného termínu schvaľovania návrhov zmien programu MV pre P SK.
+37 V prípade schválenia špecifického postupu podľa vyššie uvedenej poznámky pod čiarou sa za PZ IÚI schválený do 100 % výšky alokácie COV
+každého opatrenia/špecifického cieľa pridelených danému územiu považujú kumulatívne COV za všetky opatrenia/špecifické ciele, ktoré sú
+súčasťou predmetnej výzvy.
+38 Dôvod, z akého sa predpokladajú neoprávnené výdavky, v členení na vecne neoprávnené výdavky a finančne neoprávnené výdavky, musí
+byť uvedený vo formulári PZ IÚI.
+39 Neoprávnené výdavky spolu (finančne neoprávnené výdavky a aj vecne neoprávnené v zmysle výzvy na predkladanie ŽoNFP) budú v zmysle
+textu v zátvorke rozdelené v schválenom PZ IÚI.
+
+                                                                   19
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+V prípade zvýšenia disponibility alokácie COV opatrenia/špecifického cieľa pridelených danému
+územiu, RP/KR UMR môže pôvodne schválený PZ IÚI nad 100% alokácie COV schváliť opätovne
+do 100% výšky alokácie COV.
+
+Pre výpočet COV sa používa zdroj EFRR, resp. KF + spolufinancovanie zo štátneho rozpočtu a vlastných
+zdrojov prijímateľa podľa Stratégie financovania EFRR, ESF+, KF, FST a ENRAF na PO 2021 - 2027
+Ministerstvo financií Slovenskej republiky (www.mfsr.sk) v platnom znení.
+
+Schválenie PZ IÚI nezakladá automaticky nárok na schválenie ŽoNFP v zmysle § 24 ods. 7 a 8 zákona
+o príspevkoch z fondov EÚ.
+
+2.5.7 Uznesenie
+
+2.5.7.1 Účinnosť uznesenia
+
+V prípade, ak uznesenie RP/KR UMR o schválení PZ IÚI obsahuje obmedzenie účinnosti uznesenia
+o schválení PZ IÚI, je TS RP/AK UMR povinný sledovať plynutie lehoty. Deň po uplynutí účinnosti
+uznesenia o schválení PZ IÚI, pre ktorý TS/AK UMR neeviduje podanie ŽoNFP, TS/AK UMR informuje
+o tejto skutočnosti RC MIRRI. V emailovej informácii je uvedený kód PZ IÚI, názov budúceho žiadateľa,
+číslo uznesenia a dátum uplynutia lehoty.
+
+RC MIRRI bezodkladne po doručení informácie od TS RP/AK UMR preverí podanie ŽoNFP zo strany
+budúceho žiadateľa vo vzťahu k predmetnému PZ IÚI. V prípade, ak budúci žiadateľ pre príslušný PZ
+IÚI v rámci lehoty účinnosti uznesenia o schválení PZ IUI nepodal ŽoNFP, RC MIRRI požiada príslušné
+oddelenie MIRRI40 o odradenie daného PZ IUI od výzvy/výziev. Odradenie PZ IUI sa vykoná do 3
+pracovných dní od doručenia žiadosti od RC MIRRI. Následne RC MIRRI zmení stav príslušného PZ IÚI
+zo schváleného na zamietnutý, a to najneskôr do 2 pracovných dní od vykonania odradenia PZ IUI
+zo strany príslušného oddelenia MIRRI SR.
+
+V prípade, ak uznesenie RP/KR UMR o schválení PZ IÚI obsahuje obmedzenie účinnosti uznesenia
+o schválení PZ IÚI, budúci žiadateľ je povinný predložiť ŽoNFP najneskôr posledný deň lehoty účinnosti
+uznesenia RP/KR UMR o schválení PZ IÚI. PPP spočívajúca v uznesení RP/KR UMR o schválení PZ IÚI je
+splnená, ak uznesenie RP/KR UMR o schválení PZ IÚI je účinné v deň predloženia ŽoNFP
+prostredníctvom ITMS21+ a to aj v prípade, ak lehota účinnosti uznesenia uplynie počas doby konania
+o ŽoNFP.
+
+Ak v uznesení absentuje explicitne ustanovenie lehoty, tak v zmysle §122 ods. 2 a 3 zákona č. 40/1964
+Zb. Občianskeho zákonníka „Koniec lehoty určenej podľa týždňov, mesiacov alebo rokov pripadá
+na deň, ktorý sa pomenovaním alebo číslom zhoduje s dňom, na ktorý pripadá udalosť, od ktorej sa
+lehota začína. Ak nie je takýto deň v poslednom mesiaci, pripadne koniec lehoty na jeho posledný deň.
+Ak posledný deň lehoty pripadne na sobotu, nedeľu alebo sviatok, je posledným dňom lehoty najbližší
+nasledujúci pracovný deň.“ (V prípade, ak uznesenie obsahuje lehotu účinností, napr. do 3 mesiacov
+odo dňa schválenia PZ IÚI, tak k určeniu posledného dňa účinnosti uznesenia sa pristupuje obdobne,
+ako je uvedené vyššie pri počítaní lehoty na predloženie žiadosti, teda podľa Občianskeho zákonníka.
+Napríklad, ak je uznesenie schválené 01.09.2025 a platí do 3 mesiacov od schválenia, 3-mesačná lehota
+končí 01.12.2025, t. z. posledným dňom účinnosti uznesenia je 01.12.2025, teda od 02.12.2025 je už
+uznesenie neúčinné).
+
+40 Oddelenie rozvoja informačných systémov fondov EÚ/ odbor správy informačných systémov fondov EÚ.
+
+                                                                   20
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+Po uplynutí účinnosti uznesenia o schválení PZ IÚI, TS RP/AK UMR predloží na najbližšie zasadnutie
+RP/KR UMR návrh na zrušenie uznesenia41 o schválení PZ IÚI.
+
+V prípade, ak je rozhodnuté zaradiť PZ IÚI, ktorému uplynula účinnosť uznesenia z dôvodu uplynutia
+lehoty do procesu jeho opätovného schválenia, budúci žiadateľ predkladá PZ IÚI v súlade
+s postupmi podľa kapitoly 2.3. Tieto PZ IÚI musia byť opätovne schválené RP/KR UMR a to s pridelením
+nového čísla uznesenia a nového čísla PZ IÚI.
+
+2.5.8 Ďalšia administrácia
+
+PZ IÚI schválený príslušnou RP/KR UMR do 100 % výšky alokácie COV42, vrátane uznesenia o schválení,
+
+prípadnom schválení zmeny alebo zrušení PZ IÚI, zašle TS RP/AK UMR na emailovú adresu (RC MIRRI)
+
+podľa nasledujúceho zoznamu za účelom ich registrácie do neverejnej časti ITMS21+:
+
+            AK UMR BB
+
+TS RP BBSK  AK UMR LC              [e-mail vynechaný]
+            AK UMR ZV
+
+            AK UMR RS
+
+TS RP BSK   AK UMR BA              [e-mail vynechaný]
+
+TS RP KSK   AK UMR MI              [e-mail vynechaný]
+            AK UMR KE
+
+TS RP NSK   AK UMR NR              [e-mail vynechaný]
+            AK UMR NZ - KN
+
+            AK UMR HE
+
+TS RP PSK   AK UMR PO              [e-mail vynechaný]
+
+            AK UMR PP - Svit - KK
+
+TS RP TSK   AK UMR TN              [e-mail vynechaný]
+            AK UMR PD
+
+TS RP TTSK  AK UMR TT              [e-mail vynechaný]
+
+            AK UMR ZA
+
+TS RP ŽSK   AK UMR MT              [e-mail vynechaný]
+
+            AK UMR RK-LM
+
+Formulár PZ IÚI, vrátane uznesenia o schválení43 PZ IÚI, ktoré musí obsahovať podpis predsedu RP/KR
+UMR, zašle príslušný TS RP/AK UMR v needitovateľnom formáte, ktorý umožňuje vyhľadávanie44, do 5
+pracovných dní od podpísania zápisnice zo zasadnutia RP/KR UMR k schváleniu PZ IÚI na vyššie
+uvedenú emailovú adresu podľa územnej príslušnosti RP/KR UMR , najneskôr však do 15 pracovných
+dní od konania zasadnutia RP/KR UMR. Po doručení formulára PZ IÚI RC MIRRI emailom potvrdí TS
+RP/AK UMR doručenie.
+
+Doručený formulár PZ IÚI RC MIRRI zaeviduje v systéme ITMS21+ najneskôr do 10 pracovných dní
+od doručenia.
+
+V prípade, že zaslaný formulár PZ IÚI alebo uznesenie má formálne nedostatky, ktoré bránia evidencii
+PZ IÚI v ITMS21+ (t. j. nezriadené konto v ITMS21+, nepriradené opatrenie, nepriradené výdavky
+k hlavnej aktivite PZ IÚI, nepriradený rozpočet, chýbajúce MU a ich cieľové hodnoty, harmonogram
+
+41 Uvedený postup zrušenia uznesenia o schválení PZ IÚI sa uplatňuje aj v prípade, ak ŽoNFP je v stave: neschválená, stiahnutá žiadateľom,
+zastavené konanie, zmluva neakceptovaná, vrátená poskytovateľom, resp. v takom stave, pri ktorom bolo konanie o ŽoNFP zastavené a/alebo
+ukončené s negatívnym výsledkom, a žiadateľ nebude predkladať novú ŽoNFP.
+42 PZ IÚI schválené nad 100 % COV sa neevidujú do neverejnej časti ITMS21+, ich evidenciu vedie TS RP/AK UMR.
+43 TS RP/KR UMR zasiela všetky uznesenia viažuce sa k danému PZ IÚI, tzn. aj uznesenia o zrušení, zmene a pod.
+44 Odporúča sa PDF/A, oficiálna archivačná verzia formátu PDF definovaná v štandardoch ISO 19005-1:2005 a ISO 19005-2:2011.
+
+                                                                   21
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+realizácie aktivít, chýbajúce povinné náležitosti uznesenia a pod.), takýto formulár PZ IÚI alebo
+uznesenie môže RC MIRRI vrátiť TS RP/AK UMR na opravu. Lehota na odstránenie formálnych
+nedostatkov je minimálne 5 pracovných dní odo dňa doručenia výzvy na opravu. TS RP/AK UMR
+následne bezodkladne vyzve budúceho žiadateľa na súčinnosť pri odstránení nedostatkov. Pri určovaní
+dĺžky lehoty na odstránenie nedostatkov musí byť dodržaná zásada rovnakého zaobchádzania voči
+budúcim žiadateľom; určenie rozdielnej lehoty na odstránenie nedostatkov musí TS RP/AK UMR
+v prípade potreby vedieť zdôvodniť.
+
+V prípade, že formulár PZ IÚI má nedostatky, ktoré mali byť odstránené v zmysle kapitoly 2.3
+metodického usmernenia (napr. chyby v písaní, počítaní alebo iné zrejmé nesprávnosti), RC MIRRI
+zasiela TS RP/AK UMR upozornenie na nedostatky v schválenom PZ IÚI (v prípade nedostatkov
+spôsobujúcich úpravy v rozpočte sa môže RP/KR rozhodnúť o opätovnom schválení PZ IÚI hlasovaním
+formou per rollam alebo na najbližšom zasadnutí RP/KR).
+
+V prípade, ak ide o zásadné nedostatky (t. j. chýbajúce povinné náležitosti uznesenia alebo PZ IÚI,
+neoprávnenosť PZ IÚI z danej výzvy, rozdielne COV uvedené v PZ IÚI a uznesení, nesprávne
+špecifikovaná intenzita pomoci a pod.) môže RC MIRRI takýto formulár PZ IÚI, alebo uznesenie vrátiť
+TS RP/AK UMR na opätovné schválenie RP/KR UMR.
+
+V prípade, ak má RP/KR UMR platné uznesenie upravujúce poverenie na úpravu uznesenia TS RP/AK
+UMR, je možné upraviť uznesenie po formálnej, resp. technickej stránke, bez opätovného schválenia
+RP/KR UMR.
+
+V oboch prípadoch, pri vrátení na opravu aj pri vrátení na opätovné schválenie, RC MIRRI komunikuje
+s TS RP/AK UMR elektronicky, prostredníctvom emailovej pošty. Lehota na registráciu formulára PZ IÚI
+do neverejnej časti ITMS21+ sa prerušuje až do odstránenia nedostatkov.
+
+Po zaevidovaní formulára PZ IÚI do neverejnej časti ITMS21+ oznámi RC MIRRI emailom príslušnému
+TS RP/AK UMR dátum zaevidovania a pridelený kód PZ IÚI. Uvedenú informáciu zašle MIRRI aj
+príslušnému poskytovateľovi, ktorý má v gescii dané opatrenie/špecifický cieľ.
+
+TS RP/AK UMR informuje budúceho žiadateľa o zaevidovaní PZ IÚI v neverejnej časti ITMS21+,
+o dátume zaevidovania a o pridelenom kóde PZ IÚI. Spolu s touto informáciou TS RP/AK UMR zašle
+budúcemu žiadateľovi aj uznesenie RP/KR UMR o schválení PZ IÚI45.
+
+Budúci žiadateľ je oprávnený predložiť ŽoNFP až po zaevidovaní PZ IÚI do neverejnej časti ITMS21+
+v súlade s týmto bodom.
+
+2.6. Súbežný proces prípravy formulára ŽoNFP k PZ IÚI a individuálnych konzultácií
+       s poskytovateľom
+
+Pri príprave ŽoNFP k PZ IÚI môže poskytovateľ usmerňovať budúceho žiadateľa. Budúci žiadateľ je
+povinný tieto usmernenia dodržiavať.
+
+Pri príprave ŽoNFP k PZ IÚI je poskytovateľ povinný usmerniť budúceho žiadateľa, ak o to budúci
+žiadateľ požiada.
+
+Individuálnu konzultáciu poskytovateľ zrealizuje do 5 pracovných dní od doručenia žiadosti
+o individuálnu konzultáciu zo strany budúceho žiadateľa.
+
+45 Zasiela sa uznesenie o schválení PZ IÚI bez podpisov.
+
+                                                                   22
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+Formu, rozsah a spôsob konzultácie určuje každý poskytovateľ.46
+
+Individuálnej konzultácie sa zúčastňuje poskytovateľ, budúci žiadateľ, miestne príslušný TS RP/AK UMR
+a miestne príslušné RC MIRRI.
+
+Z každej konzultácie je vyhotovený záznam sumarizujúci obsah konzultácie ŽoNFP. Poskytovateľ sa
+môže rozhodnúť, akú formu záznamu z konzultácie zvolí. Záznam z konzultácie bude zaslaný všetkým
+zúčastneným stranám.
+
+Pri usmerňovaní budúceho žiadateľa môže poskytovateľ proces prípravy ŽoNFP konzultovať
+s príslušnými gestormi plnenia PPP, o. i. najmä vo veci oprávnenosti aktivít a výdavkov, zabezpečenia
+súladu projektu IÚI s čl. 73 NSU, zabezpečenia súladu projektu IÚI s princípom DNSH (zásada „výrazne
+nespôsobovať škodu“), aby plánovaná investícia výrazne nenarušila životné prostredie, plnenia
+horizontálnych princípov a základných horizontálnych podmienok zabezpečenia oprávnenosti
+výdavkov a zamedzeniu dvojitého financovania investície z ďalších podporných zdrojov.
+
+Pokiaľ nejde o individuálnu konzultáciu poskytovateľa vo vzťahu k budúcemu žiadateľovi podľa vyššie
+uvedeného a konzultáciu vykonáva RC MIRRI, tak si v prípade potreby RC MIRRI, TS RP/AK UMR
+a poskytovateľ vzájomne poskytujú informácie z konzultácií k PZ IÚI.
+
+2.7. Overenie súladu ŽoNFP IÚI s PZ IÚI
+
+Budúci žiadateľ je oprávnený podať poskytovateľovi ŽoNFP až po zaevidovaní schváleného PZ IÚI
+do neverejnej časti ITMS21+ v súlade s bodom 2.5 tohto metodického usmernenia. V prípade, ak PZ
+IÚI má identifikovaných viacerých budúcich žiadateľov, každý budúci žiadateľ podá ŽoNFP
+poskytovateľovi podľa vecnej príslušnosti aktivít, ktoré sa budú realizovať.
+
+Konanie o ŽoNFP je realizované poskytovateľom, podľa pravidiel platných pre výber projektov (článok
+73 NSU) a § 24 zákona o príspevkoch z fondov EÚ. Ide o overenie splnenia relevantných PPP
+zadefinovaných vo výzve, ako aj o overenie všeobecných kritérií pre výber projektov. Všeobecná
+metodika a kritériá použité pre výber projektov sú schvaľované Monitorovacím výborom pre P SK 2021
+- 202747.
+
+Zo strany poskytovateľa je povinnou súčasťou overenia PPP v rámci ŽoNFP overenie súladu
+so schváleným PZ IÚI RP/KR UMR a to v nasledovných častiach:
+
+1. Overenie súladu žiadateľa/žiadateľov, partnera/partnerov.
+
+2. Overenie súladu aktivít.
+Súlad aktivít sa overuje po obsahovej stránke. Poskytovateľ pri overovaní súladu aktivít definovaných
+v PZ IÚI a v ŽoNFP skúma popis hlavných aktivít vo formulári PZ IÚI, nie názov hlavnej aktivity.
+
+3. Overenie výšky rozpočtu.
+Overenie výšky rozpočtu48 projektu porovnaním rozdielu medzi COV uvedenými v schválenom
+formulári PZ IÚI a vo formulári predloženej ŽoNFP, pričom tento rozdiel môže dosiahnuť odchýlku
+nižšiu ako 10 % COV projektu:
+
+46 Odporúča sa vykonávať individuálne konzultácie prednostne online formou.
+47 Monitorovací výbor pre Program Slovensko 2021 – 2027.
+48 Za výšku rozpočtu sa považujú COV, t. j. EÚ zdroj + štátny rozpočet + vlastné zdroje prijímateľa podľa Stratégie financovania EFRR, ESF+,
+KF, FST a ENRAF na PO 2021 - 2027 | Ministerstvo financií Slovenskej republiky (www.mfsr.sk).
+
+                                                                   23
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+      a) v prípade, ak COV v ŽoNFP podanej žiadateľom je oproti indikatívnemu rozpočtu COV
+           schváleného PZ IÚI vyšší o 10 % alebo viac, poskytovateľ môže vydať rozhodnutie
+           o neschválení ŽoNFP,
+
+      b) v prípade, ak COV v ŽoNFP podanej žiadateľom je oproti indikatívnemu rozpočtu COV
+           schváleného PZ IÚI nižší, poskytovateľ o ŽoNFP koná bez potreby ďalšieho schvaľovania
+           prostredníctvom RP/ KR UMR,
+
+      c) v prípade, ak COV v ŽoNFP podanej žiadateľom je oproti indikatívnemu rozpočtu COV
+           schváleného PZ IÚI vyšší o menej ako 10%, poskytovateľ o ŽoNFP koná bez potreby ďalšieho
+           schvaľovania prostredníctvom RP/ KR UMR.
+
+Žiadateľovi je v prípade zachovania rozpočtovej flexibility umožnené zahrnúť do rozpočtu podanej
+ŽoNFP aj podporné aktivity vo forme nepriamych výdavkov.49
+
+4. Overenie platnosti a účinnosti uznesenia o schválení PZ IÚI.
+
+V prípade rozdielnych informácií v ŽoNFP a PZ IÚI uvedených vyššie, môže poskytovateľ vyzvať
+žiadateľa na doplnenie ŽoNFP. Poskytovateľ zároveň môže žiadateľa vyzvať na doplnenie ŽoNFP aj
+v rozsahu iných informácií (napr. súlad NV) potrebných k overeniu jednotlivých PPP uvedených vo
+vyhlásenej výzve.
+
+V prípade, že na základe výzvy na doplnenie ŽoNFP žiadateľ plánuje pristúpiť k takej zmene PZ IÚI
+a ŽoNFP, ktorá má vplyv na schválený PZ IÚI alebo ktorá by mohla mať vplyv na rozhodnutie
+príslušnej RP/KR UMR50, je potrebné takýto PZ IÚI predložiť RP/KR UMR na schválenie zmeny PZ IÚI.
+
+Postup pri vyššie uvedenom je nasledovný:
+    1. Po doručení výzvy na doplnenie ŽoNFP žiadateľ informuje TS RP/AK UMR o tejto skutočnosti
+         a požiada o zmenu v schválenom PZ IÚI rozhodnutím RP/KR UMR.
+    2. Žiadosť o zmenu v schválenom PZ IÚI na opätovné rozhodnutie RP/KR UMR musí obsahovať
+         výzvu na doplnenie a zdôvodnenie žiadateľa, prečo prišlo k nesúladu medzi PZ IÚI a ŽoNFP.
+         Žiadateľ je zároveň povinný zapracovať požadovanú zmenu do PZ IÚI a predložiť PZ IÚI
+         so zapracovanými zmenami na TS RP/AK UMR.
+    3. RP/KR UMR môže o predmetnej zmene PZ IÚI rozhodnúť na zasadnutí RP/KR UMR alebo
+         hlasovaním formou per rollam51.
+    4. V prípade potreby žiadateľ požiada poskytovateľa o predĺženie lehoty na doplnenie ŽoNFP
+         s odôvodnením. Rozhodnutie o predĺžení lehoty je v kompetencii poskytovateľa.
+    5. Pre opätovné rozhodnutie o PZ IÚI na základe výzvy na doplnenie ŽoNFP nie je potrebné
+         dodržať lehotu na predloženie PZ IÚI52, avšak procesné lehoty musia byť zachované53 .
+    6. RP/KR UMR o schválení/neschválení zmeny PZ IÚI rozhodne uznesením (pozri prílohu 12C).
+    7. TS RP/AK UMR zašle uvedené uznesenie žiadateľovi a RC MIRRI na zaevidovanie do neverejnej
+         časti ITMS21+ spolu s PZ IÚI so zapracovanými zmenami.
+    8. RC MIRRI zaeviduje predmetné uznesenie do príslušného spisu PZ IÚI v neverejnej časti
+         ITMS21+ spolu s PZ IÚI so zapracovanými zmenami.
+    9. Žiadateľ uznesenie doručí poskytovateľovi prostredníctvom verejnej časti ITMS21+.
+
+Poskytovateľ v prípade neodstránenia nesúladu ŽoNFP a PZ IÚI vo vyššie uvedených bodoch
+rozhodne o neschválení ŽoNFP.
+
+49 Uplatnenie podporných aktivít upravuje každá výzva na predkladanie ŽoNFP zvlášť.
+50 Napr. zmena miesta realizácie projektu, nerealizovanie aktivity (úplná debarierizácia objektu), obsahová zmena aktivity, výrazné zníženie
+cieľovej hodnoty MU (o viac ako 20%) a pod. okrem prípadov zmeny výpočtu cieľovej hodnoty merateľného ukazovateľa z objektívnych
+dôvodov.
+51 Materiály na zasadnutie RP/KR UMR alebo hlasovanie formou per rollam budú obsahovať výzvu na doplnenie spolu so zdôvodnením
+žiadateľa, prečo došlo k nesúladu medzi PZ IÚI a ŽoNFP, PZ IÚI so zapracovanými zmenami a návrh uznesenia podľa prílohy 12C.
+52 45 pracovných dní alebo podľa uznesenia RP/KR UMR.
+53 Lehota na zaslanie pozvánky, lehota na rozhodnutie mimo zasadnutia formou per rollam a pod.
+
+                                                                   24
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+V prípade, ak už je k predmetnému PZ IÚI doručená ŽoNFP v zmysle § 24 zákona o príspevkoch
+z fondov EÚ, schválený PZ IÚI je možné meniť len na základe výzvy na doplnenie ŽoNFP
+od poskytovateľa v procese konania o žiadosti.
+
+V prípade PZ IÚI, ktorý je nastavený na 2 a viac opatrení, a teda je na jeho základe možné podať
+viacero ŽoNFP, ak už je ku konkrétnemu opatreniu PZ IÚI doručená ŽoNFP v zmysle § 24 zákona
+o príspevkoch z fondov EÚ, tak schválený PZ IÚI v rámci predmetného opatrenia je možné meniť len
+na základe výzvy na doplnenie ŽoNFP od poskytovateľa v procese konania o žiadosti.
+
+V prípade, ak na základe §17 ods. (1) písm. a) zákona o príspevkoch z fondov EÚ žiadateľ vzal späť svoju
+žiadosť pred vydaním rozhodnutia, poskytovateľ konanie o žiadosti zastaví. Následne môže žiadateľ
+opätovne podať ŽoNFP, ale je povinný predložiť opätovnú ŽoNFP najneskôr posledný deň lehoty
+účinnosti uznesenia RP/KR UMR o schválení PZ IÚI.
+
+2.8. Rozhodnutie o ŽoNFP
+
+Ak sú splnené PPP a poskytovateľ ŽoNFP v plnom rozsahu vyhovie, poskytovateľ rozhodne o schválení
+ŽoNFP zápisom v spise54 a zašle žiadateľovi písomný návrh na uzavretie zmluvy o poskytnutí NFP.
+
+Proti rozhodnutiu o schválení ŽoNFP zápisom v spise, ktorým bola žiadosť schválená tak, ako bola
+podaná, nie je možné podať odvolanie.
+
+V prípade, ak poskytovateľ nevyhovie ŽoNFP v plnom rozsahu (napr. dochádza k znižovaniu výšky NFP
+alebo sa schválená ŽoNFP líši od pôvodne predloženej ŽoNFP, pričom nejde o zmenu formálnych
+náležitostí), rozhodne o schválení ŽoNFP vydaním písomného rozhodnutia podľa § 24 ods. 8 zákona
+o príspevkoch z fondov EÚ.
+
+V prípade nesplnenia PPP zo strany žiadateľa bude vydané poskytovateľom rozhodnutie o neschválení
+ŽoNFP podľa § 24 ods. 8 zákona o príspevkoch z fondov EÚ. Voči rozhodnutiu podľa § 24 ods. 8
+a následne § 16 ods. 6 zákona o príspevkoch z fondov EÚ sa môže žiadateľ odvolať.
+
+Postup pri poskytnutí príspevku je v plnom rozsahu stanovený zákonom o príspevkoch z fondov EÚ,
+ďalšími právnymi predpismi, na ktoré zákon o príspevkoch z fondov EÚ odkazuje a príslušnými
+metodickými dokumentmi.
+
+2.9. Uzatvorenie Zmluvy o poskytnutí NFP
+
+2.9.1. Poskytnutie súčinnosti
+
+Pred podpisom zmluvy o poskytnutí NFP môže poskytovateľ vyzvať žiadateľa na poskytnutie súčinnosti
+za účelom predloženia podkladov k overeniu splnenia podmienok stanovených vo výzve, resp. vo
+výroku rozhodnutia. Poskytovateľ rovnako postupuje aj v prípade, ak identifikuje pokles hodnoty
+merateľného ukazovateľa55 o viac ako 20 %, je potrebné takýto PZ IÚI predložiť RP/KR UMR na
+schválenie zmeny PZ IÚI56. V tomto prípade sa uplatňuje postup vymedzený v kapitole 2.7, v bode 4.
+
+Poskytovateľ v prípade neodstránenia nesúladu ŽoNFP a PZ IÚI vo vyššie uvedenom bode rozhodne
+o neschválení ŽoNFP.
+
+54 § 24 ods. 7 zákona o príspevkoch z fondov EÚ.
+55 Uplatňuje sa v prípade, ak je stanovenie merateľných ukazovateľov projektu uvedené vo výzve ako „Ďalšiu skutočnosť týkajúca sa
+poskytovania príspevku“.
+56 Pokles hodnoty merateľného ukazovateľa je osobitne zdôraznený z dôvodu jeho častého výskytu.
+
+                                                                   25
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+V prípade, ak už je k predmetnému PZ IÚI doručená ŽoNFP v zmysle § 24 zákona o príspevkoch
+z fondov EÚ, schválený PZ IÚI je možné meniť len na základe výzvy na doplnenie ŽoNFP
+od poskytovateľa v procese poskytnutia súčinnosti.
+
+V prípade, ak na základe §17 ods. (1) písm. a) zákona o príspevkoch z fondov EÚ žiadateľ vzal späť svoju
+žiadosť pred vydaním rozhodnutia, poskytovateľ konanie o žiadosti zastaví. Následne môže žiadateľ
+opätovne podať ŽoNFP, ale je povinný predložiť opätovnú ŽoNFP najneskôr posledný deň lehoty
+účinnosti uznesenia RP/KR UMR o schválení PZ IÚI.
+
+2.9.2. Proces uzatvorenia zmluvy o poskytnutí NFP
+
+V prípade rozhodnutia o schválení ŽoNFP poskytovateľom, pripraví poskytovateľ zmluvu v zmysle § 24,
+resp. podľa § 22 zákona o príspevkoch z fondov EÚ. Poskytovateľ vyzve pred zaslaním návrhu zmluvy
+o poskytnutí NFP žiadateľa o potrebnú súčinnosť. V rámci súčinnosti je žiadateľ na základe Výzvy
+na predkladanie ŽoNFP pre projekty IÚI povinný splniť ďalšie formálne náležitosti predmetnej Výzvy,
+ktorú vyhlásil poskytovateľ.
+
+Zmluva o poskytnutí NFP pre projekt IÚI sa uzatvára medzi žiadateľom a poskytovateľom, t. j. RO/SO
+zodpovedným za implementáciu vecne príslušných aktivít. V prípade, ak projekt IÚI má
+identifikovaných viacerých žiadateľov, každý žiadateľ následne uzatvorí samostatnú zmluvu
+o poskytnutí NFP pre projekt IÚI s poskytovateľom podľa vecnej príslušnosti aktivít, ktoré budú
+realizovať.
+
+V procese poskytnutia súčinnosti pred zaslaním návrhu zmluvy o poskytnutí NFP medzi
+poskytovateľom a žiadateľom sa odkontroluje nastavenie merateľných ukazovateľov uvedených
+v ŽoNFP s formulárom PZ IÚI, a to spôsobom, aby hodnota merateľných ukazovateľov zodpovedala
+skutočnému stavu podporovaných aktivít projektu. Príslušné RC MIRRI bude priebežne informovať
+relevantnú RP/KR UMR prostredníctvom príslušného/príslušnej TS RP/AK UMR o stave projektu IÚI.
+
+Procesy následnej implementácie projektov IÚI po uzatvorení zmluvy o poskytnutí NFP sú stanovené
+v samotnej zmluve o poskytnutí NFP a v príslušných právnych dokumentoch (napr. Príručka
+pre prijímateľa, Usmernenia poskytovateľa a pod.)
+
+2.10. Možnosti zohľadňovania úspor po realizácií VO/O v rámci disponibilných zdrojov jednotlivých
+         území
+
+Úspora z VO/O, ktorá vznikla po schválení PZ IÚI a zároveň pred predložením ŽoNFP, t. j. náklady
+na realizáciu projektu v rámci ŽoNFP sú nižšie než sú náklady na realizáciu projektu v rámci schváleného
+PZ IÚI. Žiadateľ predložil ŽoNFP, vrátane rozpočtu na základe zrealizovaného VO/O.
+Žiadateľ nemá na vzniknutú úsporu právny nárok. Ušetrená suma sa vracia späť do alokácie danej
+príslušnej RP/KR UMR.
+
+Ďalší postup:
+
+    - žiadateľ o vzniknutej úspore informuje TS RP/AK UMR,
+    - žiadateľ predloží ŽoNFP vo výške v súlade so zrealizovaným VO/O,
+    - TS RP/AK UMR na najbližšom zasadnutí o tejto skutočnosti informuje členov RP/KR UMR a
+
+         upraví výšku aktuálne disponibilných zdrojov, t. j. úsporu z VO/O započíta k disponibilným
+         zdrojom,
+    - nedochádza k zmene PZ IÚI a nie je potrebné meniť uznesenie RP/KR UMR o schválení daného
+         PZ IÚI.
+
+                                                                   26
+Program Slovensko
+
+ Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+ Ak prijímateľ v rámci realizácie projektu na základe zmluvy o poskytnutí NFP, realizoval VO/O a ak na
+ základe výsledkov VO/O je potrebná úprava rozpočtu projektu, musia byť dodržané nasledovné
+ princípy: Úprava rozpočtu je možná max. do výšky COV uvedenej v rozhodnutí o schválenej
+ ŽoNFP/v zápise v spise pri dodržaní stanoveného pomeru spolufinancovania COV.
+ Na použitie vytvorenej úspory finančných prostriedkov COV po VO/O nemá prijímateľ automatický
+ právny nárok a v prípade potreby (napr. úpravy rozpočtu projektu po ukončení VO/O) poskytovateľ
+ postupuje v súlade so zmluvou o poskytnutí NFP, resp. iným právnym dokumentom.
+
+ Úspora z VO/O, ktorá vznikla po uzatvorení zmluvy o poskytnutí NFP, t. j. žiadateľ zrealizoval VO/O
+ počas konania o ŽoNFP, alebo po podpise zmluvy o poskytnutí NFP. Ak, nadobudol účinnosť dodatok k
+ zmluve o poskytnutí NFP, vypracovaný zo strany poskytovateľa, v ktorom je zazmluvnená suma
+ ponížená o pripadnú úsporu z VO/O, žiadateľ nemá na vzniknutú úsporu právny nárok, úspora je
+ k dispozícií danej RP/KR UMR. Podrobný popis je uvedený v časti 2.3.2.
+ Ďalší postup:
+
+     - prijímateľ o tejto skutočnosti informuje TS RP/AK UMR,
+     - TS RP/AK UMR na najbližšom zasadnutí o tejto skutočnosti informuje členov RP/KR UMR a
+
+          upraví výšku aktuálne disponibilných zdrojov, t. j. úsporu z VO/O započíta k disponibilným
+          zdrojom.
+
+ Úspora, ktorá vznikla z nedočerpania poskytnutého NFP pred uplynutím doby platnosti a účinnosti
+ zmluvy o poskytnutí NFP a to dohodou zmluvných strán, resp. odstúpením od zmluvy o poskytnutí
+ NFP zo strany prijímateľa alebo poskytovateľa, alebo výpoveďou zmluvy o poskytnutí NFP zo strany
+ prijímateľa. Po vykonaní úkonov vzťahujúcich sa k finančnému vysporiadaniu s prijímateľom,
+ nedočerpaná výška NFP je k dispozícií danej RP/KR UMR.
+
+ Ďalší postup:
+
+     - prijímateľ o tejto skutočnosti informuje TS RP/AK UMR,
+     - TS RP/AK UMR osloví poskytovateľa a po dohode s poskytovateľom (poskytovateľ vyčísli
+
+          finančné vysporiadanie s prijímateľom), na najbližšom zasadnutí o tejto skutočnosti informuje
+          členov RP/KR UMR a upraví výšku aktuálne disponibilných zdrojov, t. j. úspora sa započíta k
+          disponibilným zdrojom.
+
+3. Opatrenia na zníženie rizika dekomitmentu v integrovanom územnom mechanizme
+    na úrovni RP/KR UMR
+
+ Opatrenia a míľniky na rok 2025
+ RP/KR UMR sú povinné schváliť PZ IÚI57 v kumulatívnom súčte indikatívnych rozpočtov PZ IÚI58
+ v objeme 85%59 alokácie pridelenej danej RP/KR UMR najneskôr do 31. 12. 2025. RP/KR UMR môže
+ požiadať o výnimku v prípade prípravy strategických projektov, resp. v iných odôvodniteľných
+ prípadoch s priamym dopadom na plnenie implementačného plánu (ďalej len „IP“). Výnimku udeľuje
+ RO60. Odôvodnenú žiadosť61 zašle RP/KR UMR prostredníctvom TS RP/AK UMR na emailovú adresu
+ [e-mail vynechaný]. Výnimka sa spravidla udeľuje najneskôr pri vyhodnotení IP
+
+ 57 Na účely tohto metodického dokumentu sa za schválené PZ IÚI, započítavané do plnenia míľnikov, považujú výlučne PZ IÚI schválené v
+ RP/KR UMR do 100% alokácie pridelenej danej RP/KR UMR.
+ 58 Počíta sa zdroj EÚ.
+ 59 V prípade, ak dôjde k naplneniu míľnika PZ IÚI/ŽoNFP na úrovni minimálne 84% pri PZ IÚI a 59% pri ŽoNFP, tzn. rozdiel medzi požadovanou
+ hodnotou a skutočne dosiahnutou hodnotou je menší ako 1%, RO tento rozdiel považuje za prípustnú odchýlku. Táto odchýlka bude zo strany
+ RO akceptovaná bez potreby zasielania formulára žiadosti na udelenie výnimky.
+ 60 Odbor metodiky a koordinácie integrovaných územných stratégií.
+ 61 Formulár žiadosti o udelenie výnimky tvorí prílohu č.1 dokumentu RO „Postup pri vyhodnocovaní plnenia míľnikov a udeľovaní výnimiek
+ v rámci integrovaného územného mechanizmu Programu Slovensko pre programové obdobie 2021-2027“.
+
+                                                                    27
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+k 31. 12. 2025. Percentuálny podiel udelenej výnimky v roku 2025 bude premietnutý do záväzkov
+v roku 2026.
+
+RP/KR UMR sú povinné zabezpečiť prostredníctvom uznesení RP/KR UMR o schválení PZ IÚI62, aby
+kumulatívny súčet rozpočtov predložených ŽoNFP58 tvoril 60 %59 alokácie pridelenej danej RP/KR UMR
+najneskôr do 31. 12. 2025. RP/KR UMR môže požiadať o výnimku v prípade prípravy strategických
+projektov, resp. v iných odôvodniteľných prípadoch s priamym dopadom na plnenie IP. Výnimku
+udeľuje RO60. Odôvodnenú žiadosť61 zašle RP/KR UMR prostredníctvom TS RP/AK UMR na emailovú
+adresu [e-mail vynechaný]. Výnimka sa spravidla udeľuje najneskôr pri vyhodnotení IP
+k 31. 12. 2025. Percentuálny podiel udelenej výnimky v roku 2025 bude premietnutý do záväzkov
+v roku 2026.
+
+Opatrenia a míľniky na rok 2026
+RP/KR UMR sú povinné schváliť PZ IÚI57 v kumulatívnom súčte indikatívnych rozpočtov PZ IÚI v objeme
+100%63 alokácie pridelenej danej RP/KR UMR, najneskôr do 30. 6. 2026, vrátane percentuálneho
+podielu udelenej výnimky na rok 2025.
+
+Pri schvaľovaní PZ IÚI RP/KR UMR prihliada na strategický rozmer investície a úroveň pripravenosti
+PZ IÚI (stav rozpracovanosti projektovej dokumentácie, vydané povolenia a pod.) tak, aby žiadateľ
+predložil ŽoNFP v súlade s výzvou v najkratšom možnom čase.
+
+RP/KR UMR môže požiadať o výnimku v odôvodniteľných prípadoch s priamym dopadom na plnenie IP
+(napr. presuny časti alokácie). Výnimku udeľuje RO60. Odôvodnenú žiadosť61 zašle RP/KR UMR
+prostredníctvom TS RP/AK UMR na emailovú adresu [e-mail vynechaný]. Výnimka sa
+spravidla udeľuje najneskôr pri vyhodnotení IP k 30. 6. 2026. Percentuálny podiel udelenej výnimky
+v roku 2026 bude pomerne premietnutý do záväzkov do 31. 12. 2026 a do roku 2027. Pri udeľovaní
+výnimiek RO prihliada zároveň na nasledovné dôvody:
+
+a) flexibilitu rozpočtu projektu, ŽoNFP je možné navýšiť oproti schválenému PZ IÚI do 10% COV. To
+   znamená, že môže byť identifikovaný rozdiel do 10% medzi schválenou sumou PZ IÚI a podanou
+   sumou pri ŽoNFP. Pri PZ IÚI, kde bola podaná ŽoNFP vo vyššej sume, sa bude zohľadňovať toto
+   navýšenie. Pri PZ IÚI, kde nebola doteraz podaná ŽoNFP, sa bude zohľadňovať možné navýšenie do
+   10% rozpočtu COV. Na základe uvedených skutočností v zmysle podmienok výzvy nie je možné
+   naplniť stanovený míľnik na 100% a v záujme objektívneho posudzovania bude stanovený míľnik
+   ponížený o percento, ktoré zodpovedá navýšeniu alokácie pri ŽoNFP. Pre potreby IP sa počíta so
+   sumou v rámci EÚ zdroja;
+
+b) zostatok alokácie v danom opatrení/špecifickom cieli, na ktorý nie je naviazané schvaľovanie
+   PZ IÚI64.
+
+Pri udelení výnimky je RP/KR UMR povinná zabezpečiť, aby žiadateľ bol povinný predložiť kompletnú
+ŽoNFP, t. j. vrátane všetkých relevantných podkladov podľa výzvy príslušnému poskytovateľovi.
+
+62 Schválené PZ IÚI sú základným predpokladom pre predloženie ŽoNFP poskytovateľovi. Súčasťou uznesenia o schválení môže byť stanovenie
+lehoty na predloženie ŽoNFP, to znamená stanovenie účinnosti uznesenia. ŽoNFP je predložená včas, ak je podaná najneskôr posledný deň
+účinnosti uznesenia.
+63 V prípade, ak dôjde k naplneniu míľnika PZ IÚI/ŽoNFP na úrovni minimálne 99% pri PZ IÚI a 84% pri ŽoNFP, tzn. rozdiel medzi požadovanou
+hodnotou a skutočne dosiahnutou hodnotou je menší ako 1%, RO tento rozdiel považuje za prípustnú odchýlku. Táto odchýlka bude zo strany
+RO akceptovaná bez potreby zasielania formulára žiadosti na udelenie výnimky.
+64 Uplatňuje sa v prípade, ak zostatok alokácie v danom opatrení/špecifickom cieli, resp. výzve je nižší ako minimálna výška príspevku uvedená
+vo výzve alebo ak zostatok alokácie v danom opatrení/špecifickom cieli, resp. výzve je natoľko nízky, že nie je možná realizácia PZ IÚI z daného
+opatrenia/špecifického cieľa, resp. výzvy.
+
+                                                                   28
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+RP/KR UMR sú povinné zabezpečiť prostredníctvom uznesení RP/KR UMR o schválení PZ IÚI62, aby
+kumulatívny súčet rozpočtov predložených65 ŽoNFP58 tvoril 85%63 alokácie pridelenej danej RP/KR UMR
+najneskôr do 31. 12. 2026, vrátane percentuálneho podielu udelenej výnimky na rok 2025.
+RP/KR UMR môže požiadať o výnimku v prípade prípravy strategických projektov, resp. v iných
+odôvodniteľných prípadoch s priamym dopadom na plnenie IP, napr. v prípade prípravy ŽoNFP na nové
+priority P SK je termín podania ŽoNFP naviazaný na termín vyhlásenia výzvy a RO bude prihliadať
+na uvedenú skutočnosť. Výnimku udeľuje RO60. Odôvodnenú žiadosť61 zašle RP/KR UMR
+prostredníctvom TS RP/AK UMR na emailovú adresu [e-mail vynechaný]. Výnimka sa
+spravidla udeľuje najneskôr pri vyhodnotení IP k 31. 12. 2026. Percentuálny podiel udelenej výnimky
+v roku 2026 bude premietnutý do záväzkov v roku 2027.
+
+V prípade nenaplnenia stanovených míľnikov na rok 2026, mimo povolených výnimiek, môže dôjsť
+k zníženiu alebo presunu alokácie danej RP/KR UMR.66
+
+Nastavenie minimálneho čerpania za VÚC a UMR za rok 2025 a 2026 z pohľadu dekomitmentu tvorí
+prílohu 9 tohto dokumentu67.
+
+Z dôvodu zabezpečenia plnenia stanovených míľnikov a plnenia povinností v súlade s týmto
+metodickým usmernením, žiadateľ/prijímateľ je povinný poskytnúť TS RP/AK UMR potrebnú súčinnosť
+a informácie požadované TS RP/AK UMR k jednotlivým fázam implementačného procesu.
+
+    3.1 Implementačné plány
+
+Z dôvodu potreby predvídať potenciálne riziká neplnenia finančného plánu P SK je potrebné
+vypracovávať implementačné plány (ďalej len „IP“) na úrovni RP/KR UMR, vychádzajúce z pomeru
+územných prostriedkov pridelených na jednotlivé roky vo vzťahu k potrebe plnenia finančných
+záväzkov na úrovni P SK. IP nastavujú RP a KR UMR.
+
+RP/KR UMR prostredníctvom TS RP/AK UMR vypracujú IP na týchto úrovniach:
+   1. schválenie PZ IÚI,
+   2. predkladanie ŽoNFP.
+
+RP a KR UMR prostredníctvom TS RP/AK UMR predložili RO IP, na roky 2025 a 2026 s výhľadom na rok
+2027 so stanovením štvrťročných míľnikov k 31. 3, 30. 6., 30. 9., 31. 12., pričom zohľadnili svoje
+špecifiká (napr. dlhšia príprava strategických projektov atď.) a výnimky udelené zo strany RO.
+
+IP RP/KR UMR schvaľuje RP/KR UMR uznesením v súlade so štatútom a rokovacím poriadkom RP/KR
+UMR.
+
+RP/KR UMR prostredníctvom TS RP/AK UMR predložili RO IP prostredníctvom emailovej adresy
+[e-mail vynechaný] vrátane uznesenia RP/KR UMR o schválení IP.
+
+Tieto IP obsahujú plán schvaľovania PZ IÚI a plán predkladania ŽoNFP na rok 2025 vrátane 2. štvrťroku
+2025 a rok 2026. IP sa spracúvajú na celé obdobie rokov 2025 a 2026.
+
+65 Na účely tohto metodického dokumentu sa za predložené ŽoNFP považujú výlučne ŽoNFP „očistené“ o ŽoNFP so stavom: neschválená,
+stiahnutá žiadateľom, zastavené konanie, zmluva neakceptovaná, vrátená poskytovateľom, resp. o také stavy, pri ktorých bolo konanie
+o ŽoNFP zastavené a/alebo ukončené s negatívnym výsledkom. Cieľom takto očistených údajov je eliminácia duplicitného započítania
+a zabezpečenie objektívneho a reálneho zobrazovania dát.
+66 Opatrenia k nenapĺňaniu stanovených míľnikov upravuje samostatný metodický dokument Postup pri vyhodnocovaní plnenia míľnikov a
+udeľovaní výnimiek v rámci integrovaného územného mechanizmu Programu Slovensko
+67 Požiadavka na minimálne čerpanie sa vypočíta vždy z aktuálne platnej verzie Programu Slovensko. Pri zmene Programu Slovensko môže
+dôjsť k zmene požiadavky na minimálne čerpanie.
+
+                                                                   29
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+IP spracúva TS RP/AK UMR. Žiadatelia sú povinní poskytnúť TS RP/AK UMR všetku potrebnú súčinnosť
+k vypracovaniu a vyhodnoteniu plnenia IP RP/KR UMR.
+
+V prípade, ak RP/KR UMR schválila aktualizáciu, resp. novú verziu IP68, je povinná do 10 pracovných dní
+od jej schválenia prostredníctvom TS RP/AK UMR predložiť RO aktualizovanú, resp. novú verziu IP
+prostredníctvom emailovej adresy [e-mail vynechaný] vrátane uznesenia RP/KR UMR
+o schválení aktualizácie, resp. novej verzie IP.
+
+Pokrok v plnení plánu implementácie69 sa monitoruje štvrťročne (k 30. 4., 31. 7., 31. 10., 31. 01.)
+vyznačením progresu, resp. plnenia/neplnenia nastavených míľnikov a vyhodnotenie70 sa zasiela
+na emailovú adresu [e-mail vynechaný].
+
+IP RP/KR UMR sú spracované na základe už schválených PZ IÚI, schválených zoznamov prioritných
+projektov, zoznamu operácií, ktoré sa majú vykonať, zásobníka projektových zámerov, ak sú súčasťou
+IÚS a pod., ako aj harmonogramu zasadnutí RP/KR UMR.
+
+V IP musí byť rozpísaná v plnom rozsahu požiadavka na minimálne čerpanie kumulatívne za roky 2025
+a 2026 k 31. 12. 2026.
+
+Vzor IP pre schvaľovanie PZ IÚI (Príloha 10)
+    • Vypĺňa sa za jednotlivé štvrťroky na roky 2025 a 2026.
+    • Vypĺňa sa za jednotlivé opatrenia, špecifické ciele, resp. výzvy, podľa toho, čo je
+         špecifickejšie71.
+    • Vypĺňa sa celková alokácia schvaľovaných PZ IÚI za daný štvrťrok v danej výzve v EÚ zdroji.
+    • Nie je potrebné uvádzať konkrétne PZ IÚI, ktoré budú schvaľované.
+
+Vzor IP pre predkladanie ŽoNFP (Príloha 11)
+    • Vypĺňa sa za jednotlivé štvrťroky na roky 2025 a 2026.
+    • Vypĺňa sa za jednotlivé opatrenia, špecifické ciele, resp. výzvy, podľa toho, čo je
+         špecifickejšie72.
+    • Vypĺňa sa už za konkrétne projekty, vrátane názvu projektu, žiadateľa, rozpočtu v zdroji EÚ
+         a stavu príslušného PZ IÚI.
+
+V záujme optimálneho a efektívneho nastavenia IP a jeho následného plnenia sa odporúča:
+    • v prípade, keď dopyt prevyšuje alokáciu – schválenie kritérií výberu,
+    • obmedzenie účinnosti uznesení RP/KR UMR,
+    • tvorbu „zásobníka“ – pripravené PZ IÚI schválené nad 100% alokácie. Vytvorené zásobníky
+         projektov, resp. pripravené národné projekty, budú kľúčovým kritériom pre pridelenie
+         dodatočných finančných prostriedkov.
+
+3.2 Monitoring plnenia IP
+
+Pokrok v plnení IP je monitorovaný RO k nasledovným termínom: 31. 1., 30. 4., 31. 7., 31. 10. Cieľom
+monitoringu plnenia opatrení a míľnikov je zavedenie dodatočných opatrení na akcelerovanie
+implementácie, resp. návrh na realokáciu.
+
+68 Schválenie novej verzie IP, resp. aktualizácia IP sa môže použiť najmä v prípadoch, ak dôjde k zásadnej zmene v IP, tzn. doplnenie PZ
+IÚI/ŽoNFP do IP a i. Zároveň, ak IP v plnej miere nezohľadňuje záväzky na rok 2026 s výhľadom na rok 2027, RO resp. OMKIÚS taktiež odporúča
+schválenie aktualizácie/novej verzie IP v RP/KR UMR.
+69 Odporúčaný vzor vyhodnotenia plnenia pokroku IP tvoria prílohy 10a a 11a.
+70 Vyhodnotenie IP sa vykoná vždy k aktuálne platnej verzii IP, schválenej v RP/KR UMR.
+71 Napr. pre integrované výzvy v stĺpci opatrenie sa uvedie „integrovaná výzva“ a použije kód výzvy, pre špecifický cieľ RSO4.5 použite RSO4.5
+podľa poskytovateľa a kód výzvy a pod.), platí pre PZ IÚI
+72 Napr. pre integrované výzvy v stĺpci opatrenie sa uvedie „integrovaná výzva“ a použije kód výzvy, pre špecifický cieľ RSO4.5 použite RSO4.5
+podľa poskytovateľa a kód výzvy a pod.), platí pre ŽoNFP.
+
+                                                                   30
+Program Slovensko
+
+ Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+ V prípade, že RO zhodnotí pokrok v plnení IP ako uspokojivý, pokračuje v priebežnom monitorovaní.
+ Za uspokojivé plnenie IP sa považuje ich plnenie na úrovni minimálne 90 %.
+
+ V prípade, že plnenie IP nie je uspokojivé, t. j. na úrovni menšej ako 90 % a nepreukazuje pokrok, RO
+ pripraví návrh na nápravné opatrenia.
+
+ Ak k neplneniu IP došlo z dôvodov nezávislých od vôle žiadateľa73, ide o okolnosti vylučujúce
+ zodpovednosť. Tieto okolnosti je potrebné uviesť vrátane zdôvodnenia pri štvrťročnom monitoringu
+ plnenia IP.
+
+ Do vyhodnotenia plnenia IP v roku 2026 je potrebné okrem odporúčaného rozsahu informácií
+ uvedených v prílohách 10a a 11a MD RO pre P SK č. 8 uvádzať aj nasledovné:
+
+ 1. Pri vyhodnotení plnenia IP PZ IÚI – percentuálny podiel alokácie v schválených PZ IÚI ku koncu
+ uvedeného štvrťroka , ktorý sa vyhodnocuje;
+
+ 2. Pri vyhodnotení plnenia IP ŽoNFP – percentuálny podiel alokácie v podaných ŽoNFP ku koncu
+ uvedeného štvrťroka, ktorý sa vyhodnocuje.
+
+ Uvedená informácia bude slúžiť ako podklad pre štvrťročné monitorovanie plnenia míľnikov v roku
+ 2026 a zároveň ako podklad pre plnenie udelených výnimiek z roku 2025.
+
+3.3 Opatrenia v prípade neplnenia schválených IP
+
+ V prípade neplnenia schválených IP budú individuálne identifikované problematické oblasti a následne
+ prijaté cielené nápravné opatrenia.
+
+ Jedným z možných opatrení pri opakovanom neplnení IP je presun pridelených alokácií medzi
+ územiami v rámci mechanizmu IÚI za vopred stanovených objektívnych podmienok (najskôr v polovici
+ roka 2026).
+
+ V prípade krátenia alokácie P SK z dôvodu neplnenia finančného záväzku74 v roku 2026, v dôsledku
+ nedostatočného čerpania daného územia, bude krátenie alokácie uplatnené voči alokácii konkrétnej
+ RP/KR UMR.
+
+4. Prechodné ustanovenia
+
+ Ustanoveniami tohto metodického usmernenia nie sú dotknuté ustanovenia iných metodických
+ usmernení. Procesy začaté a neukončené pred účinnosťou tohto metodického usmernenia sa dokončia
+ podľa pôvodného metodického usmernenia.
+
+5. Zoznam príloh
+
+ Príloha A: Zoznam vykonaných zmien
+ Príloha 1: Vzorový štatút a rokovací poriadok rady partnerstva
+ Príloha 2: Vzorový štatút a rokovací poriadok kooperačnej rady udržateľného mestského rozvoja
+ Príloha 3: Zoznam obcí zaradených do udržateľného mestského rozvoja
+
+ 73 Nečinnosť poskytovateľa, výpadky služieb prevádzkovaných štátom, vyššia moc a pod.
+ 74 Dekomitment.
+
+                                                                    31
+Program Slovensko
+
+Metodické usmernenie k podpore integrovaného územného rozvoja, verzia 4.0
+
+Príloha 4: Formulár PZ IÚI
+Príloha 5: Výzva na doplnenie/prepracovanie PZ IÚI
+Príloha 6: Kontrolný zoznam k overeniu PZ IÚI
+Príloha 7: Stanovisko TS RP/AK UMR
+Príloha 8: Ukazovatele JMD IUI a UMR
+Príloha 9: Minimálne čerpanie za VÚC a UMR za rok 2025 a 2026 z pohľadu dekomitmentu
+Príloha 10: Implementačný plán PZ IÚI
+Príloha 10A: Vzor vyhodnotenia plnenia schváleného implementačného plánu PZ IÚI
+Príloha 11: Implementačný plán ŽoNFP
+Príloha 11A: Vzor vyhodnotenia plnenia schváleného implementačného plánu ŽoNFP
+Príloha 12A: Návrh uznesenia o schválení PZ IÚI do 100%/nad 100%
+Príloha 12B: Návrh uznesenia o schválení PZ IÚI do 100%/nad 100% s pripomienkami
+Príloha 12C: Návrh uznesenia o súhlase so zmenou PZ IÚI podľa výzvy na doplnenie
+Príloha 12D: Návrh uznesenia pre obmedzenie účinnosti
+Príloha 12E: Návrh uznesenia o schválení PZ IÚI cez viac ako 1 opatrenie ŠC
+Príloha 12F: Návrh uznesenia zrušenia schváleného PZ IÚI
+Príloha 12G: Návrh uznesenia o schválení PZ IÚI kumulatívne za opatrenia/špecifické ciele
+Príloha 12H: Návrh uznesenia o predĺžení účinnosti
+Príloha 13: Procesy v rámci fázy prípravy a schvaľovania PZ IÚI a možnosti konzultácie
+Príloha 14: Mapa procesov
+
+                                                                   32

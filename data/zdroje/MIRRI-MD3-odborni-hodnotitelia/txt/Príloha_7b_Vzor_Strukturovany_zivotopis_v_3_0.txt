@@ -1,0 +1,41 @@
+Titul, meno a priezvisko
+right27570100ulica, číslo, PSČ, obec, štát ǀ telefónne/mobilné číslo ǀ emailová adresa
+
+PRACOVNÉ SKÚSENOSTI (uviesť samostatnú položku pre každú relevantnú prax, začať najnovším údajom)
+Dátum (od – do)		Druh práce/pracovná pozícia
+				Názov a sídlo zamestnávateľa
+				Hlavné činnosti a zodpovednosť
+Odvetvie hospodárstva, v ktorom pôsobíme v rámci daného zamestnávateľa
+
+VZDELANIE (uviesť samostatnú položku pre každé relevantné ukončené vzdelanie, začať najnovším údajom)
+Dátum (od – do)		Názov získanej kvalifikácie
+				Názov a sídlo organizácie poskytujúcej vzdelávanie
+Zoznam hlavných predmetov/praktické zručnosti
+
+JAZYKOVÉ ZNALOSTI
+uviesť jazyk	uviesť úroveň
+
+PRACOVNÉ, ORGANIZAČNÉ A RIADIACE ZRUČNOSTI
+Uviesť nadobudnuté pracovné, organizačné a riadiace zručnosti a informáciu kde boli získané. Príklad:
+  ▪ vedúce postavenie (zodpovednosť za tím desiatich ľudí)
+ ▪ dobré ovládanie postupov kontroly kvality (zodpovednosť za audit kvality)
+
+DIGITÁLNE A IT ZRUČNOSTI
+Uviesť programy, systémy a software a pod., ktoré ste doteraz využívali v práci i súkromne. Uviesť aj úroveň.
+Príklad:
+MS Office – pokročilý
+
+ĎALŠIE ZRUČNOSTI	 (uviesť ďalšie zručnosti a kompetencie, ktoré nie sú uvedené v predchádzajúcich položkách)
+
+VODIČSKÝ PREUKAZ (uviesť skupinu vozidiel. Príklad: B)
+
+DOPLŇUJÚCE INFORMÁCIE (odstrániť nehodiacu sa položku)
+Publikácie
+Prezentácie
+Projekty
+Konferencie/semináre
+Členstvá
+Referencie
+Kurzy
+Certifikácia
+A iné.

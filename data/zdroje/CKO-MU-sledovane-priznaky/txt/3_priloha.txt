@@ -1,0 +1,61 @@
+Príloha č. 3 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+             Príklady najčastejších chýb pri evidencii a posudzovaní sledovaných príznakov
+
+TYP NEDOSTATKU                                       OPIS NEDOSTATKU                                                    RIZIKO
+                                    poskytovateľ nedodrží lehotu na zaevidovanie,          nepreverenie rizikových výdavkov a ich schválenie na
+nedodržanie  lehoty    na           aktualizáciu sledovaného príznaku                      národnej úrovni a zahrnutie do rozpočtu EÚ, zvýšenie
+                                                                                           chybovosti
+evidenciu/aktualizáciu sledovaného  poskytovateľ eviduje ako sledované príznaky aj také    administratívne preťaženie, duplicita procesov
+                                    prípady, ktoré sledovaným príznakom nie sú, napr.
+príznaku                            nepochádzajú zo zdokumentovaného zdroja, týkajú        nepreverenie rizikových výdavkov a ich schválenie na
+                                    sa finančnej kontroly poskytovateľa mimo               národnej úrovni a zahrnutie do rozpočtu EÚ, zvýšenie
+nedodržanie zásad evidencie         prebiehajúceho skúmania, resp. ÚVO ako SO              chybovosti
+                                    poskytovateľ nezaeviduje sledovaný príznak, ktorý sa
+sledovaných príznakov               týka RO a má prierezový charakter alebo naopak RO      zablokovanie financovania výdavkov, ktoré nie sú
+                                    nezaeviduje na svojej úrovni sledovaný príznak, ak má  predmetom sledovania
+nedodržanie zásad evidencie         prierezový charakter                                   nepreverenie rizikových výdavkov a ich schválenie na
+sledovaných príznakov               poskytovateľ nesprávne zaeviduje ako predmet           národnej úrovni a zahrnutie do rozpočtu EÚ, zvýšenie
+                                    sledovania celý projekt, ak sú špecifikované           chybovosti, administratívne preťaženie
+nedodržanie zásad evidencie         konkrétne výdavky, ktoré sa majú sledovať a naopak     narušenie auditnej stopy, neprehľadnosť
+sledovaných príznakov
+                                    poskytovateľ zaeviduje 1 sledovaný príznak na viac     nepreverenie rizikových výdavkov a ich schválenie na
+nedodržanie zásad      evidencie    sledovaných skutočností                                národnej úrovni a zahrnutie do rozpočtu EÚ, zvýšenie
+sledovaných príznakov  evidencie    poskytovateľ nepriradí k SP všetky projekty, ktoré sú  chybovosti, administratívne preťaženie
+nedodržanie zásad                   predmetom sledovania, resp. sleduje aj tie projekty,
+sledovaných príznakov               ktoré by mali byť v rámci príznaku odradené
+
+                                                                                            1
+Príloha č. 3 k Metodickému usmerneniu k sledovaným príznakom, verzia 1.0
+
+nedodržanie zásad evidencie poskytovateľ v prípade fázovaných projektov                      schválenie rizikových výdavkov, potvrdených NV na
+                                                                                             národnej úrovni a ich zahrnutie do rozpočtu EÚ, zvýšenie
+sledovaných príznakov                 nepremietne sledovaný príznak aj pre druhú fázu, ak    chybovosti
+                                                                                             narušenie auditnej stopy
+                                      sa sledovaná skutočnosť týka prvej fázy
+                                                                                             nepreverenie rizikových výdavkov a ich schválenie na
+nedodržanie zásad evidencie poskytovateľ nezabezpečí uloženie do spisu                       národnej úrovni a zahrnutie do rozpočtu EÚ, zvýšenie
+                                                                                             chybovosti
+sledovaných príznakov                 k sledovanému príznaku relevantné dokumenty            nepreverenie rizikových výdavkov a ich schválenie na
+                                                                                             národnej úrovni a zahrnutie do rozpočtu EÚ, zvýšenie
+nezohľadnenie rizika vyplývajúceho poskytovateľ eviduje iba prípady prebiehajúceho           chybovosti
+                                                                                             schválenie rizikových výdavkov, potvrdených NV na
+zo sledovaného príznaku               skúmania ako sledované príznaky                        národnej úrovni a ich zahrnutie do rozpočtu EÚ, zvýšenie
+                                                                                             chybovosti
+nezohľadnenie rizika vyplývajúceho    poskytovateľ nezohľadní sledované príznaky pri         finančné nedoriešenie sledovaných skutočností, predčasné
+zo sledovaného príznaku               rizikovej analýze VO alebo ŽoP, príp. nevyhodnotí ako  uzavretie pred uvoľnením/vysporiadaním finančných
+                                      podnet na vykonanie kontroly                           prostriedkov
+nezohľadnenie          sledovaného    poskytovateľ nepremietne skutočnosti, ktoré sú
+                                      predmetom sledovania, do záveru z kontroly ŽoP,        administratívne preťaženie
+príznaku pri kontrole ŽoP a príprave  príp. podkladov k ŽoP na EK, Účtom
+                                      poskytovateľ uzavrie sledovaný príznak pred
+podkladov k ŽoP na EK a Účtom         doriešením sledovaného príznaku, napr. ešte nie je
+                                      spustené financovanie v prípade ukončeného
+nedodržanie zásad pre uzatvorenie     prebiehajúceho skúmania, ktoré nepotvrdilo vplyv na
+                                      výdavky, alebo projekt je finančne ukončený, ale
+sledovaného príznaku                  nedošlo ešte k vysporiadaniu vzťahov voči EK
+                                      poskytovateľ neuzavrie sledovaný príznak, aj keď už
+nedodržanie zásad pre uzatvorenie     nie je dôvod na sledovanie
+sledovaného príznaku
+
+                                                                                             2

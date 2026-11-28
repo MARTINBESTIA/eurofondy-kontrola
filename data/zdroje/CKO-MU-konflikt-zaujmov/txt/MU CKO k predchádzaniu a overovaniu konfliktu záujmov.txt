@@ -1,0 +1,802 @@
+Centrálny koordinačný orgán
+
+METODICKÉ USMERNENIE
+
+K PREDCHÁDZANIU A OVEROVANIU KONFLIKTU ZÁUJMOV NA ÚROVNI
+
+RIADIACEHO / SPROSTREDKOVATEĽSKÉHO ORGÁNU
+
+Programové obdobie 2021 – 2027
+
+Verzia: 1.0
+Dátum vydania: 18.5.2026
+Dátum účinnosti: 18.5.2026
+
+Schválil:
+Samuel Migaľ
+minister
+Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+orgánu 1.0
+
+                                       Obsah
+
+1 Úvod a všeobecné ustanovenia....................................................................................................... 2
+2 Zoznam zmien.................................................................................................................................. 4
+3 Legislatívny rámec ........................................................................................................................... 4
+4 Predchádzanie konfliktu záujmov ................................................................................................... 5
+5 Základné pravidlá pre vykonanie kontroly alebo overenia ............................................................. 8
+
+   5.1 Východiská pre výkon kontroly alebo overenia ...................................................................... 8
+   5.2 Rozsah kontroly alebo overenia .............................................................................................. 9
+   5.3 Dokumentácia a údaje k vybranej vzorke zamestnancov ....................................................... 9
+   5.4 Spôsob kontroly alebo overenia............................................................................................ 10
+   5.5 Ochrana osobných údajov a nakladanie s údajmi ................................................................. 12
+6 Závery z kontroly alebo overovania .............................................................................................. 14
+7 Príloha............................................................................................................................................ 15
+
+                                                             1
+  Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+  orgánu 1.0
+
+ 1 Úvod a všeobecné ustanovenia
+
+1) Riadiaci orgán1 (ďalej aj „RO“) v rámci systému riadenia a kontroly zabezpečí u všetkých svojich
+   zamestnancov (vrátane osôb, s ktorými bola uzatvorená dohoda o prácach vykonávaných mimo
+   pracovného pomeru a verejných funkcionárov podľa zákona č. 357/2004 Z. z. o ochrane verejného
+   záujmu pri výkone funkcií verejných funkcionárov) vykonávajúcich činnosti pri implementácii
+   programu alebo jeho časti2 podpísanie čestného vyhlásenia o mlčanlivosti a vylúčení konfliktu
+   záujmov pri plnení pracovných a/alebo služobných povinností (ďalej aj „čestné vyhlásenie
+   o mlčanlivosti a vylúčení konfliktu záujmov“). Vzor čestného vyhlásenia o mlčanlivosti a vylúčení
+   konfliktu záujmov vrátane doplňujúcej informácie tvorí prílohu č. 1.
+
+   Toto vyhlásenie sa predkladá (v prípade súbehu viacerých skutočností postačuje jedno čestné
+   vyhlásenie):
+
+   - najneskôr do 30 dní od nástupu do štátnozamestnaneckého alebo pracovného pomeru, príp. od
+   vymenovania do verejnej funkcie;
+   - najneskôr do konca kalendárneho mesiaca nasledujúceho po nadobudnutí účinnosti nového opisu
+   štátnozamestnaneckého miesta, resp. pracovnej náplne, pokiaľ ide o vecnú zmenu náplne činností
+   zamestnanca, ktorá má vplyv na procesy implementácie programu (povinnosť sa nevzťahuje
+   na formálne úpravy, napr. zmena názvu organizačného útvaru),
+
+   - periodicky, najneskôr do 31. marca príslušného kalendárneho roka, pokiaľ nedošlo v aktuálnom
+   kalendárnom roku do uvedeného dátumu k predloženiu čestného vyhlásenia z vyššie uvedených
+   dôvodov.
+
+2) Nad rámec povinnosti podľa bodu 1, na zabezpečenie plnenia povinnosti podľa § 45 ods. 4 zákona
+   č. 121/2022 Z. z. o príspevku z fondov EÚ a o zmene a doplnení niektorých zákonov v znení
+   neskorších predpisov (ďalej aj „zákon č. 121/2022 Z. z.“) zabezpečuje RO podpísanie čestného
+   vyhlásenia o mlčanlivosti a vylúčení konfliktu záujmov pri konkrétnych úkonoch RO:
+
+   - príprava3 a vyhlásenie výzvy na predkladanie projektových zámerov a výzvy na predkladanie
+        žiadostí o poskytnutie nenávratného finančného príspevku (ďalej len „ŽoNFP“) 4;
+
+   - konanie o žiadosti o poskytnutie nenávratného finančného príspevku;
+   - finančná kontrola projektu / verejného obstarávania / obstarávania podľa zákona č. 357/2015
+
+        Z. z. v znení neskorších predpisov;
+   - kontrola verejného obstarávania podľa zákona č. 343/2015 Z. z. o verejnom obstarávaní
+
+        a o zmene a doplnení niektorých zákonov v znení neskorších predpisov (ďalej aj „zákon
+        č. 343/2015 Z. z.“).
+   Tieto vyhlásenia sa zabezpečujú ako samostatný dokument alebo ako súčasť relevantného
+   kontrolného zoznamu (v takom prípade bude vyhlásenie uvedené vo výrokovej časti kontrolného
+   zoznamu), prípadne iného dokumentu RO v zmysle jeho riadiacej dokumentácie.
+
+  1 Všetky ustanovenia, ktoré sa vzťahujú na riadiaci orgán, sa rovnako aplikujú aj na sprostredkovateľský orgán v rozsahu, v akom naňho bol
+  delegovaný výkon činností RO prostredníctvom „Zmluvy o poverení na vykonávanie časti úloh riadiaceho orgánu sprostredkovateľským
+  orgánom a o zodpovednostiach súvisiacich s týmto poverením“.
+  2 Povinnosť deklarovať neprítomnosť konfliktu záujmov sa vzťahuje na zamestnancov, ktorých vecná náplň práce zahŕňa úkony s priamym
+  alebo nepriamym vplyvom na procesy programovania, finančného riadenia, výberu, kontroly alebo monitorovania projektov. Táto povinnosť
+  sa spravidla netýka zamestnancov vykonávajúcich výlučne podporné, administratívno-technické alebo prevádzkové činnosti (napr.
+  podateľňa, archív, mzdová a personálna agenda, IT správa infraštruktúry), pri ktorých je miera diskrečnej právomoci vo vzťahu
+  k implementácii prostriedkov EÚ zanedbateľná.
+  3 Z prípravy výzvy na predkladanie projektových zámerov a výzvy na predkladanie žiadostí o poskytnutie nenávratného finančného príspevku
+  je vylúčený žiadateľ a zainteresované osoby na strane žiadateľa. Žiadateľ a zainteresované osoby na strane žiadateľa nie sú vylúčené
+  z participatívnej tvorby výzvy.
+  4 Za prípravu výzvy sa v tomto kontexte nepovažuje posudzovanie výziev zo strany RO. Zamestnanci posudzujúci výzvy za RO nemajú
+  povinnosť predkladať čestné vyhlásenia podľa kap. 1 bodu 2
+
+                                                               2
+  Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+  orgánu, verzia 1.0
+
+3) Povinnosti zamestnanca podľa tohto usmernenia vrátane uvedenia zodpovedného útvaru
+   za archiváciu čestných vyhlásení o mlčanlivosti a vylúčení konfliktu záujmov zapracuje RO
+   do príslušného procesu v rámci manuálu procedúr alebo iného interného riadiaceho aktu. Spôsob
+   a miesto archivácie čestných vyhlásení určí RO interne (napr. v rámci personálnej agendy alebo
+   spisovej dokumentácie k projektu), pričom sa nevyžaduje ich povinné ukladanie do systému ITMS21+,
+   ak k nim RO zabezpečí prístup pre účely kontroly a auditu.
+
+4) V rámci plánovania internej kontrolnej činnosti zabezpečí RO v súlade s internými postupmi
+   vykonanie kontroly zameranej na overenie pravdivosti a úplnosti čestných vyhlásení o mlčanlivosti
+   a vylúčení konfliktu záujmov minimálne 1-krát za kalendárny rok (viď kap. 5 tohto usmernenia).
+
+5) Kontrola alebo overovanie sa vykonáva na zodpovedajúcej reprezentatívnej vzorke zamestnancov RO
+   v sledovanom období zapojených do riadenia a implementácie programu, ktorí vykonávajú činnosti
+   RO (vrátane osôb, s ktorými bola uzatvorená dohoda o prácach vykonávaných mimo pracovného
+   pomeru). Cieľom kontroly je poskytnutie uistenia o spoľahlivosti a pravdivosti deklarovaných
+   skutočností, ktoré slúžia ako podklad pre následné posúdenie prítomnosti alebo neprítomnosti
+   konfliktu záujmov príslušným nadriadeným zamestnancom.
+
+6) Toto metodické usmernenie má odporúčací charakter a slúži ako vzor pre spracovanie interných
+   postupov RO. RO môže svoje postupy upraviť tak, aby boli v súlade s jeho interným riadiacim
+   a kontrolným systémom, pričom musí zachovať základné pravidlá podľa zákona č. 121/2022 Z. z. tak,
+   aby zvolený systém kontroly / overovania poskytoval dostatočné uistenie o eliminácii rizika konfliktu
+   záujmov. Za dodržanie tohto štandardu sa považuje aj uplatňovanie vlastných postupov RO, ktoré
+   preukázateľne zabezpečujú ciele a princípy kontroly / overovania definované v tomto usmernení.
+   Úpravy čestného vyhlásenia uvedeného v Prílohe č. 1, prípadne jeho rozšírenie sú plne v kompetencii
+   RO. Čestné vyhlásenie uvedené v Prílohe č. 1 sa nevzťahuje na odborných hodnotiteľov, pokiaľ má
+   RO zavedený samostatný formulár na identifikáciu a elimináciu konfliktu záujmov odborného
+   hodnotiteľa vo vzťahu k posudzovaným žiadostiam o poskytnutie NFP (žiadateľom/partnerom) a na
+   zabezpečenie transparentného a nediskriminačného procesu hodnotenia.
+
+7) Toto metodické usmernenie nemá vplyv na nastavenie postupov a procesov upravených štatútmi a
+   rokovacími poriadkami Monitorovacieho výboru pre Program Slovensko 2021 - 2027 a ním
+   zriadených komisií.
+
+                                                               3
+Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+orgánu 1.0
+
+2 Zoznam zmien
+
+Tabuľka 1: Zoznam zmien vykonaných v usmernení
+
+Časť dokumentu  Obsah upravovanej časti         Verzia  Podnet5
+
+Zoznam vykonaných zmien poskytuje chronologický vývoj zmien usmernenia zmenou formou
+dodatkov až po aktuálnu verziu dokumentu.
+
+3 Legislatívny rámec
+
+Predchádzanie konfliktu záujmov, kontrolná činnosť alebo overovanie konfliktu záujmov zohľadňuje
+najmä požiadavky a pravidlá vyplývajúce z nasledujúcich legislatívnych aktov a vykonávacích
+predpisov:
+
+    A) Právne akty Európskej únie:
+     Nariadenie Európskeho parlamentu a Rady (EÚ) 2021/1060 z 24. júna 2021, ktorým sa
+
+         stanovujú spoločné ustanovenia o Európskom fonde regionálneho rozvoja, Európskom
+         sociálnom fonde plus, Kohéznom fonde, Fonde na spravodlivú transformáciu a Európskom
+         námornom, rybolovnom a akvakultúrnom fonde a rozpočtové pravidlá pre uvedené fondy, ako
+         aj pre Fond pre azyl, migráciu a integráciu, Fond pre vnútornú bezpečnosť a Nástroj finančnej
+         podpory na riadenie hraníc a vízovú politiku v platnom znení;
+     Nariadenie Európskeho parlamentu a Rady (EÚ, Euratom) č. 2024/2509 z 23. septembra 2024
+         o rozpočtových pravidlách, ktoré sa vzťahujú na všeobecný rozpočet Únie (prepracované
+         znenie) (ďalej aj „nariadenie o rozpočtových pravidlách“);
+     Nariadenie Európskeho parlamentu a Rady (EÚ) 2016/679 z 27. apríla 2016 o ochrane fyzických
+         osôb pri spracúvaní osobných údajov a o voľnom pohybe takýchto údajov, ktorým sa zrušuje
+         smernica 95/46/ES (všeobecné nariadenie o ochrane údajov), Ú. v. EÚ L 119, 4.5.2016 (ďalej
+         len „GDPR“).
+
+    B) Ústavné zákony Slovenskej republiky:
+     Ústavný zákon č. 357/2004 Z. z. o ochrane verejného záujmu pri výkone funkcií verejných
+
+         funkcionárov v znení neskorších predpisov;
+
+    C) Zákony Slovenskej republiky:
+     Zákon č. 121/2022 Z. z. o príspevkoch z fondov Európskej únie a o zmene a doplnení niektorých
+
+         zákonov v znení neskorších predpisov (ďalej len „zákon č. 121/2022 Z. z.“);
+     Zákon č. 357/2015 Z. z. o finančnej kontrole a audite a o zmene a doplnení niektorých zákonov
+
+         v znení neskorších predpisov (ďalej len „zákon č. 357/2015 Z. z.“);
+     Zákon č. 343/2015 Z. z. o verejnom obstarávaní a o zmene a doplnení niektorých zákonov
+
+         v znení neskorších predpisov;
+     Zákon č. 55/2017 Z. z. o štátnej službe a o zmene a doplnení niektorých zákonov v znení
+
+         neskorších predpisov;
+     Zákon č. 552/2003 Z. z. o výkone práce vo verejnom záujme v znení neskorších predpisov;
+     Zákon č. 311/2001 Z. z. Zákonník práce v znení neskorších predpisov;
+     Zákon č. 18/2018 Z. z. o ochrane osobných údajov a o zmene a doplnení niektorých zákonov
+
+         v znení neskorších predpisov (ďalej len „zákon o ochrane osobných údajov“);
+     Zákon č. 395/2002 Z. z. o archívoch a registratúrach a o doplnení niektorých zákonov;
+
+5 Uvedie sa napr. číslo kontroly / auditu, na ktorého základe bola daná zmena vykonaná.
+Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+orgánu, verzia 1.0
+
+     Zákon č. 54/2019 Z. z. o ochrane oznamovateľov protispoločenskej činnosti a o zmene
+         a doplnení niektorých zákonov v znení neskorších predpisov;
+
+     Zákon Národnej rady Slovenskej republiky č. 10/1996 Z. z. o kontrole v štátnej správe v znení
+         neskorších predpisov (ďalej len „zákon č. 10/1996 Z. z.“);
+
+     Zákon č. 40/1964 Zb. Občiansky zákonník v znení neskorších predpisov (ďalej len „Občiansky
+         zákonník“);
+
+     Zákon č. 192/2023 Z. z. o registri trestov a o zmene a doplnení niektorých zákonov v znení
+         neskorších predpisov;
+
+    D) Vykonávacie a súvisiace predpisy:
+     Vyhláška Úradu vlády Slovenskej republiky č. 400/2019 Z. z., ktorou sa vydáva Etický kódex
+
+         štátneho zamestnanca;
+
+    E) Metodické usmernenia a iné dokumenty:
+     Usmernenie EK týkajúce sa predchádzania a riešenia konfliktov záujmov v zmysle nariadenia
+
+         o rozpočtových pravidlách (2021/C 121/01)6;
+     riadiaca dokumentácia7 a iné záväzné dokumenty týkajúce sa implementácie programu alebo
+
+         jeho časti.
+
+4 Predchádzanie konfliktu záujmov
+
+Konflikt záujmov vymedzuje § 45 ods. 1 zákona č. 121/2022 Z. z. nasledovne:
+
+„Konflikt záujmov je pri poskytovaní a použití príspevku, poskytovaní príspevku na finančný nástroj
+a vykonávaní finančného nástroja, kontrole a audite zakázaný. Na účely tohto zákona sa konfliktom
+záujmov rozumie skutočnosť, keď z rodinných alebo citových dôvodov, politickej alebo národnej
+príslušnosti, ekonomického záujmu alebo akéhokoľvek iného priameho alebo nepriameho osobného
+záujmu je narušený alebo ohrozený nestranný a objektívny výkon činností podľa predchádzajúcej
+vety“.
+
+Konflikt záujmov štátneho zamestnanca upravuje aj zákon o štátnej službe. .
+
+Zásady etického správania štátneho zamestnanca upravuje aj vyhláška Úradu vlády Slovenskej
+republiky č. 400/2019 Z. z., ktorou sa vydáva Etický kódex štátneho zamestnanca.
+
+..
+
+Etický kódex je odporúčanou súčasťou Adaptačného vzdelávania zamestnanca. Štátny zamestnanec sa
+s Etickým kódexom oboznámi (napr. formou samoštúdia), najneskôr do 1 mesiaca odo dňa nástupu
+zamestnanca do zamestnania.
+
+RO môže vymenovať etického poradcu. Úlohou etického poradcu je na základe podnetu zamestnanca
+alebo riadiaceho orgánu posudzovať, či sú konanie zamestnanca a postupy RO v súlade s Etickým
+kódexom. Etický poradca zároveň navrhuje opatrenia zamerané na rozvoj etiky a prevenciu
+porušovania Etického kódexu.
+
+Konflikt záujmov v súvislosti s činnosťami RO sa tiež definuje podľa príslušných všeobecne záväzných
+právnych predpisov a ostatných záväzných dokumentov, vrátane predpisov a dokumentov EÚ, najmä
+§ 111 ods. 1 písm. d) ako aj § 111 ods. 2 písm. c) zákona č. 55/2017 Z. z. o štátnej službe a o zmene
+
+6 usmernenie je aplikovateľné aj na Nariadenie (EÚ, Euratom) 2024/2509 vzhľadom na kontinuitu ustanovení o konflikte záujmov (napr.
+čl. 61). Viď príloha č. II Nariadenia (EÚ, Euratom) 2024/2509 - TABUĽKA ZHODY.
+7 predpisy, opatrenia, usmernenia, metodické postupy, príručky, rozhodnutia alebo akékoľvek iné právne dokumenty vydané orgánom
+zapojeným do riadenia, auditu a kontroly fondov EÚ.
+
+                                                             5
+Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+orgánu, verzia 1.0
+
+a doplnení niektorých zákonov, § 45 zákona č. 121/2022 Z. z., čl. 61 nariadenia Európskeho parlamentu
+a Rady (EÚ, Euratom) 2024/2509 z 23. septembra 2024 o rozpočtových pravidlách, ktoré sa vzťahujú
+na všeobecný rozpočet Únie a Usmernenie týkajúce sa predchádzania a riešenia konfliktov záujmov
+podľa nariadenia o rozpočtových pravidlách (2021/C 121/01).
+
+Zákon č. 121/2022 Z. z. vychádza z čl. 61 ods. 3 nariadenia o rozpočtových pravidlách, podľa ktorého
+ku konfliktu záujmov dochádza „vtedy, keď je ohrozený nestranný a objektívny výkon funkcií účastníka
+finančnej operácie alebo inej osoby“ zapojenej do plnenia rozpočtu „z rodinných alebo citových
+dôvodov, z dôvodov politickej alebo národnej príslušnosti, ekonomického záujmu alebo akéhokoľvek
+iného priameho alebo nepriameho osobného záujmu“.
+
+Usmernenie EK týkajúce sa predchádzania a riešenia konfliktov záujmov dopĺňa, že ku konfliktu
+záujmov môže dôjsť dokonca aj vtedy, keď daná osoba nemá zo situácie žiadny skutočný úžitok,
+postačuje, ak je danými okolnosťami ohrozený objektívny a nestranný výkon jej funkcií. Tieto okolnosti
+však majú určitú identifikovateľnú a osobnú súvislosť s konkrétnymi aspektmi konania, správania alebo
+vzťahov danej osoby (alebo majú na ne vplyv)8.
+
+Podľa usmernenia EK sa konflikt záujmov týka kohokoľvek, kto by mohol ovplyvniť rozhodovací proces
+vrátane vnútroštátnych, regionálnych a miestnych orgánov, zamestnancov alebo členov týchto
+orgánov, pokiaľ sa podieľajú na niektorom z krokov plnenia rozpočtu EÚ; ide o akúkoľvek osobu, ktorá
+je zodpovedná za rozhodovací proces spojený s plnením rozpočtu EÚ, a/alebo ktorá môže tento proces
+riadiť a/alebo ho ovplyvňovať. Toto zapojenie však musí byť primerane významné: daná osoba musí
+mať právo do istej miery uplatňovať vlastné uváženie alebo vykonávať kontrolu nad plnením rozpočtu
+(t. j. právomoc konať alebo vydávať pokyny osobám, ktoré konajú, alebo poskytovať poradenstvo alebo
+stanoviská osobám, ktoré konajú). „Zapojenie“ podľa článku 61 ods. 1 nariadenia o rozpočtových
+pravidlách zahŕňa aj prípravné akty a akýkoľvek krok v procese plánovania používania finančných
+prostriedkov EÚ, rozhodovania o ich používaní, ako aj ich riadenia, auditu a kontroly.
+
+Usmernenie EK stanovuje povinnosť prijať vhodné opatrenia na predchádzanie konfliktu záujmov
+pri činnostiach, ktoré patria do zodpovednosti príslušného subjektu, a tiež na riešenie situácií, ktoré
+môžu byť objektívne vnímané ako konflikt záujmov. Za situácie, ktoré sú „objektívne vnímané ako
+konflikt záujmov“ možno považovať situácie, v rámci ktorých existujú overiteľné prvky, ako napríklad
+hierarchické prepojenie.
+
+Podľa Usmernenia EK týkajúceho sa predchádzania a riešenia konfliktov záujmov: „Konfliktom záujmov
+je potrebné predchádzať a riešiť ich a dôsledne dodržiavať zásady, ktorými sa riadi rozpočet EÚ.
+Vzhľadom na to, že pravidlá týkajúce sa konfliktov záujmov majú zásadný význam, porušenie právnych
+predpisov EÚ v tejto súvislosti predstavuje vážny problém a za bežných okolností je jeho dôsledkom
+určitá forma nápravy, či už finančnej alebo inej (napr. disciplinárnej).“
+
+Riadiaci orgán je preto povinný venovať osobitnú pozornosť identifikácii, predchádzaniu a riešeniu
+konfliktu záujmov vo všetkých fázach a procesoch riadenia programu, vrátane zabezpečenia
+primeraných kontrolných mechanizmov a dokumentovania prijatých opatrení.
+
+Predchádzanie vzniku konfliktu záujmov je zabezpečené najmä prostredníctvom:
+
+a) hierarchického riadenia – výstupy, stanoviská, výklady, schvaľovania predložených dokumentov
+   atď. sú založené na viacstupňovom riadení, tzn. že výstup nie je vykonaný (tzn. pripravený a zaslaný)
+   len jedným zamestnancom, ale je schvaľovaný minimálne jeho priamym nadriadeným (resp.
+   vedúcim kontrolnej skupiny);
+
+8 viď kapitola 3.2.1 Vymedzenie pojmu konflikt záujmov Oznámenia Komisie - Usmernenie týkajúce sa predchádzania a riešenia konfliktov
+záujmov v zmysle nariadenia o rozpočtových pravidlách (2021/C 121/01)
+
+                                                             6
+Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+orgánu, verzia 1.0
+
+b) tzv. „princípu kontroly 4 očí“ – vykonávanie kontroly predložených dokumentov minimálne dvomi
+   zamestnancami;
+
+c) oddelenosti funkcií/činností – rozdelenie agendy medzi jednotlivé organizačné útvary RO tak, aby
+   napr. nenastala situácia kumulácie pracovnej pozície manažéra posudzovania ŽoNFP
+   a projektového manažéra pri jednej a tej istej ŽoNFP/projekte a pod.9;
+
+d) kultúry integrity: etický kódex, čestné vyhlásenia a iné;
+e) nastavenia procesných krokov v riadiacej dokumentácii k spôsobu nahlasovania a riešenia
+
+   identifikovaného konfliktu záujmov v organizácii, vrátane určenia zodpovednosti za jeho riešenie,
+   a spôsobu oboznamovania zamestnancov s týmito procesmi;
+f) informovanosti;
+g) vzdelávania.
+
+RO je povinný zabezpečiť pravidelné zvyšovanie povedomia relevantných zamestnancov v oblasti
+prevencie, identifikácie a riešenia konfliktu záujmov. Toto vzdelávanie sa odporúča realizovať formou
+cielenej aktivity minimálne jedenkrát v priebehu kalendárneho roka pre zamestnancov, ktorých opis
+štátnozamestnaneckého miesta alebo pracovná náplň zahŕňa úkony podľa kap. 1 bod 2 tohto
+usmernenia. Cieľom je eliminovať riziká spojené s fluktuáciou personálu a zabezpečiť kontinuitu
+odborných vedomostí v systéme riadenia a kontroly. Voľba formy vzdelávania (napr. prezenčné
+školenie, workshop alebo e-learning) patrí do kompetencie RO, pričom obsah musí reflektovať
+aktuálne metodické usmernenia Európskej komisie a vnútroštátnu rozhodovaciu prax, so zameraním
+na praktickú identifikáciu rizika konfliktu záujmov, zdroje overovania a pod. RO je povinný viesť
+o realizovaných vzdelávacích aktivitách evidenciu. V prípade, ak sa zamestnanec po podpise čestného
+vyhlásenia dozvie o skutočnostiach zakladajúcich potenciálny konflikt záujmov, je povinný túto
+informáciu bezodkladne písomne oznámiť svojmu priamemu nadriadenému v súlade s čl. 61 ods. 2
+nariadenia 2024/2509 o rozpočtových pravidlách a v zmysle § 45 ods. 11 zákona č. 121/2022 Z. z. o
+príspevkoch z fondov Európskej únie.
+
+Zamestnanec je až do písomného posúdenia nadriadeného povinný zdržať sa akéhokoľvek úkonu,
+rozhodovania alebo ovplyvňovania procesov, pri ktorých by mohla byť spochybnená jeho nestrannosť
+alebo objektívnosť. Príslušný nadriadený po posúdení situácie písomne potvrdí absenciu konfliktu
+záujmov alebo existenciu konfliktu záujmov a bezodkladne prijme adekvátne opatrenia. Tieto
+opatrenia zahŕňajú najmä vylúčenie zamestnanca z príslušného procesu a jeho nahradenie inou
+osobou, pričom o celom postupe a prijatých krokoch sa vyhotoví písomný záznam pre účely auditnej
+stopy.
+
+Nerešpektovanie týchto povinností zamestnancom sa považuje za závažné porušenie disciplíny
+a v závislosti od typu pracovnoprávneho vzťahu sa posudzuje podľa § 117 až § 121 zákona č. 55/2017
+Z. z. o štátnej službe (u štátnych zamestnancov), § 81 Zákonníka práce v spojení so zákonom
+č. 552/2003 Z. z. (u zamestnancov pri výkone práce vo verejnom záujme) alebo príslušných ustanovení
+Zákonníka práce o dohodách mimo pracovného pomeru, čo zakladá dôvod na okamžité ukončenie
+pracovnoprávneho vzťahu.
+
+9 § 45 ods. 4 a nasledujúce zákona č. 121/2022 Z. z.
+
+                                                             7
+  Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+  orgánu, verzia 1.0
+
+ 5 Základné pravidlá pre vykonanie kontroly alebo overenia
+
+ 5.1 Východiská pre výkon kontroly alebo overenia
+
+1) Kontrolu alebo overenie pravdivosti čestných vyhlásení o mlčanlivosti a vylúčení konfliktu záujmov
+   pri plnení pracovných a/alebo služobných povinností zamestnancov vykonáva riadiaci orgán
+   vo vzťahu k zamestnancom, ktorí na základe interných aktov a v súlade so svojim opisom
+   štátnozamestnaneckého miesta / pracovnou náplňou vykonávajú úlohy, zodpovednosti a činnosti
+   vo vzťahu k implementácii programu alebo jeho časti (vrátane osôb, s ktorými bola uzatvorená
+   dohoda o prácach vykonávaných mimo pracovného pomeru). Hlavným metodickým rámcom
+   interného nastavenia postupov RO, podľa ktorého je vykonávaný program alebo jeho časť, je manuál
+   procedúr. Detailné postupy súvisiace s implementáciou programu alebo jeho časti môže mať RO
+   upravené aj inými internými riadiacimi aktmi.10 Riadené postupy a povinnosti vyplývajúce z platných
+   interných riadiacich aktov RO sa vzťahujú aj na zamestnancov, ktorí nevykonávajú konkrétne úkony
+   podľa kap. 1 bod 2 tohto usmernenia, ale ich činnosť je prierezová (metodicky usmerňujú procesy,
+   právne ich zastrešujú, monitorujú alebo inak zásadne ovplyvňujú integritu systému) a kontrola alebo
+   overenie sa primeraným spôsobom realizuje aj voči týmto zamestnancom.
+
+2) Pre zabezpečenie nezávislosti a efektivity kontroly alebo overovania musia byť splnené nasledujúce
+   požiadavky:
+
+       kontrolu alebo overenie vykonáva:
+                - nezávislý organizačný útvar, ktorý je organizačne odčlenený od konkrétnych
+                     organizačných útvarov v rámci RO, na ktorých sú zaradení zamestnanci, ktorých čestné
+                     vyhlásenia o mlčanlivosti a vylúčení konfliktu záujmov sa majú kontrolovať alebo
+                     overovať (napr. organizačný útvar zodpovedný za vnútornú kontrolu11) alebo
+                - zamestnanci nezaradení v organizačných útvaroch, na ktorých sú zaradení
+                     zamestnanci, ktorých čestné vyhlásenia sa majú kontrolovať alebo overovať12 alebo
+                - útvar vnútorného auditu orgánu verejnej správy v rámci overovania a hodnotenia
+                     vnútorného kontrolného systému13 v súlade s § 10 ods. 2 písm. c) zákona
+                     č. 357/2015 Z. z.;
+
+       V prípade, ak sa kontrola / overovanie čestných vyhlásení vykonáva zo strany organizačného
+           útvaru v rámci RO, stanoví RO ex ante metodiku výberu vzorky, ktorá musí zohľadniť mieru
+           rizika v rozhodovacích a riadiacich procesoch a viesť k dostatočnému uisteniu o pravdivosti
+           čestných vyhlásení zo strany zamestnancov (vzorka minimálne 5 % zamestnancov, ktorí boli
+           v sledovanom období zapojení do riadenia a implementácie programu); v prípade kontroly
+           vykonávanej podľa osobitného predpisu14 bude veľkosť vybranej vzorky určovaná pri každej
+           kontrole na základe nezávislého odborného úsudku, výsledkov predchádzajúcich kontrol a
+           analýzy a vyhodnotenia doručených podnetov/podaní. Samotný výber vzorky na účely
+           kontroly alebo overenia pravdivosti čestných vyhlásení môže byť realizovaný:
+                - výberom konkrétnych zamestnancov (vhodné najmä pre periodické overovanie
+                     integrity v zmysle kap. 1 bod 1 tohto usmernenia; alebo
+                - výberom konkrétnych úkonov, v rámci ktorých sa následne overujú všetky osoby,
+                     ktoré k danému úkonu predložili čestné vyhlásenie v zmysle kap. 1 bod 2 tohto
+                     usmernenia. V takomto prípade sa do stanoveného limitu započítava počet unikátne
+                     preverených osôb; alebo
+                - kombináciou týchto prístupov.
+
+  10 záväzný dokument vydávaný v rámci organizácie, ktorý upravuje vnútornú organizáciu, postupy, kompetencie a činnosť zamestnancov.
+  11 Výkon kontroly podľa zákona č. 10/1996 Z. z.
+  12 Je možné aj vzájomné overovanie jednotlivých organizačných útvarov v rámci rovnakej sekcie.
+  13 Overovanie integrity zamestnancov, vrátane osôb, s ktorými bola uzatvorená dohoda o prácach vykonávaných mimo pracovného pomeru,
+  a riadenie súvisiacich rizík, vrátane rizika podvodu, korupcie a konfliktu záujmov je súčasťou vnútorného kontrolného systému, v zmysle § 4
+  ods. 1 zákona č. 357/2015 Z. z.
+  14 Zákon č. 10/1996 Z. z. o kontrole v štátnej správe
+
+                                                               8
+    Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+    orgánu, verzia 1.0
+
+         pri stanovovaní vzorky je možné použiť metódu náhodného výberu alebo výberu na základe
+             vopred stanovených rizík (s použitím faktorov ako napríklad objem prostriedkov výzvy/ŽoP,
+             seniorita zamestnancov, spracovanie agendy s vysokou mierou expozície voči finančnému
+             riziku, miera diskrečnej právomoci a vplyv na rozhodovanie, podnety/podania), resp.
+             kombináciu týchto metód. Zdokumentovanie zhodnotenia týchto faktorov v metodike RO sa
+             považuje za dostatočné ex ante zadefinovanie postupu pre výber reprezentatívnej vzorky. Pri
+             určovaní rozsahu kontroly alebo overenia a pri výbere vzorky zamestnancov sa osobitne
+             zohľadňujú činnosti súvisiace s verejným obstarávaním, ktoré predstavujú zvýšené riziko
+             vzniku konfliktu záujmov.
+
+         pri uplatňovaní metodiky sa zohľadňuje princíp proporcionality, aby sa zamedzilo cyklickému
+             zaťažovaniu rovnakých skupín zamestnancov, pokiaľ neexistuje konkrétne podozrenie alebo
+             zmena vo vyhodnotení rizík.
+
+         kontrola alebo overenie čestných vyhlásení o mlčanlivosti a vylúčení konfliktu záujmov pri
+             plnení pracovných a/alebo služobných povinností zamestnancov RO sa vykoná minimálne za
+             kalendárny rok.
+
+    5.2 Rozsah kontroly alebo overenia
+
+    1) Minimálny rozsah dokumentácie, podkladov a údajov pre výber vzorky:
+
+           zoznam všetkých zamestnancov organizačných útvarov, ktorí sú v súlade s manuálom
+               procedúr a inými internými riadiacimi aktmi (ak relevantné) zapojení do riadenia
+               a implementácie programu alebo jeho časti, a to vrátane osôb, s ktorými bola uzatvorená
+               dohoda o prácach vykonávaných mimo pracovného pomeru, s priradením procesov RO,
+               na ktorých sa daný zamestnanec podieľa.
+
+           závery z predchádzajúcich kontrol / overovaní (ak relevantné)15
+
+    Tabuľka č. 2: Zoznam zamestnancov organizačných útvarov RO zapojených do riadenia
+    a implementácie programu alebo jeho časti16:
+
+meno a priezvisko  útvar RO (sekcia / odbor /  vedúca pozícia  číslo procesu podľa  názov procesu podľa
+                            oddelenie)           (áno / nie)        audit trailu          audit trailu
+
+XY                 SXYZ / OXYZ /oXYZ              áno / nie    napr. AT 2 / AT 2.1  napr. Výber
+                                                                                    projektov / Príprava
+                                                                                    výzvy
+
+    5.3 Dokumentácia a údaje k vybranej vzorke zamestnancov
+
+    Odporúčaný rozsah dokumentácie pre kontrolu alebo overenie čestného vyhlásenia o mlčanlivosti a
+    vylúčení konfliktu záujmov:
+
+         čestné vyhlásenie o mlčanlivosti a vylúčení konfliktu záujmov;
+         pracovná náplň, opis štátnozamestnaneckého miesta alebo ekvivalentný dokument, z ktorého
+
+             vyplýva rozsah činností, ktoré má zamestnanec vykonávať;
+         profesijný životopis zamestnanca z osobného spisu zamestnanca;
+
+    15 V prípade, ak sú súčasťou vzorky odborní hodnotitelia, pri ktorých RO už vykonal preverenie existencie možného konfliktu záujmov, je
+    možné spoľahnúť sa na výsledok tohto preverenia v rozsahu, v akom bolo vykonané
+    16 nevzťahuje sa na výber vzorky výberom z konkrétnych úkonov, v rámci ktorých sa následne overujú všetky osoby, ktoré k danému úkonu
+    predložili čestné vyhlásenie
+
+                                                                 9
+Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+orgánu, verzia 1.0
+
+     v prípade zamestnancov zapojených do procesov kontroly verejného obstarávania /
+         obstarávania sú súčasťou dokumentácie aj relevantné podklady z procesu verejného
+         obstarávania / obstarávania (napr. personálna mapa obstarávania, resp. dokumentácia k
+         príprave a realizácii verejného obstarávania / obstarávania, menovanie komisií, čestné
+         vyhlásenia členov komisií, záznamy o vyhodnocovaní ponúk);
+
+     údaje o zamestnancovi, resp. iných relevantných osobách, v nevyhnutnom a
+         objektívne potrebnom rozsahu pre overenie neexistencie konfliktu záujmov v zmysle čl. 61
+         nariadenia Európskeho parlamentu a Rady (EÚ, Euratom) č. 2024/2509 a § 45 ods. 1 zákona
+         č. 121/2022 Z. z., pričom konkrétny rozsah, metódu, spôsob ich získavania a zdroj
+         spracúvaných údajov určí príslušný RO v rámci svojich vnútorných riadiacich postupov17, a to
+         pri dodržiavaní zásady minimalizácie údajov. V prípade, ak sa RO rozhodne údaje získavať
+         priamo od zamestnanca, sa v záujme zabezpečenia jednotnosti údajov odporúča, aby RO na
+         tento účel vypracoval štruktúrovaný formulár.
+
+Všetky osobné údaje budú spracúvané a chránené v súlade s relevantnými predpismi a internými
+riadiacimi aktmi:
+
+ Nariadenie Európskeho parlamentu a Rady (EÚ) 2016/679 z 27. apríla 2016 o ochrane fyzických
+    osôb pri spracúvaní osobných údajov a o voľnom pohybe takýchto údajov, ktorým sa zrušuje
+    smernica 95/46/ES (všeobecné nariadenie o ochrane údajov) Ú. v. EÚ L 119, 4.5.2016.
+
+ Zákon č. 18/2018 Z. z. o ochrane osobných údajov a o zmene a doplnení niektorých zákonov v znení
+    neskorších predpisov.
+
+ Smernica RO o ochrane osobných údajov.
+
+5.4 Spôsob kontroly alebo overenia
+
+Zodpovedný útvar, resp. určená kontrolná skupina preverí pravdivosť čestného vyhlásenia
+o mlčanlivosti a vylúčení konfliktu záujmov zamestnanca v rámci nižšie uvedených procesov, ak sú
+pre RO relevantné.
+
+Zainteresovanou osobou na strane žiadateľa alebo prijímateľa je najmä:
+
+a) partner,
+b) užívateľ18,
+c) dodávateľ19,
+
+d) štatutárny orgán alebo člen štatutárneho orgánu alebo dozorného orgánu žiadateľa, prijímateľa,
+užívateľa, dodávateľa alebo partnera,
+
+e) spoločník právnickej osoby, ktorá je žiadateľom, prijímateľom, užívateľom, dodávateľom alebo
+partnerom; to neplatí, ak spoločníkom právnickej osoby je alebo v jeho mene koná štát zastúpený
+príslušným štátnym orgánom ako správcom majetku štátu,
+
+f) osoba, ktorá je v pracovnoprávnom vzťahu k žiadateľovi, prijímateľovi, užívateľovi, dodávateľovi
+alebo partnerovi alebo v inom obdobnom vzťahu k žiadateľovi, prijímateľovi, užívateľovi, dodávateľovi
+alebo partnerovi,
+
+17 V prípade, ak sa overovanie čestných vyhlásení vykonáva zo strany vnútornej kontroly alebo vnútorného auditu, určuje rozsah, metódu,
+spôsob získavania a zdroj údajov o zamestnancovi, resp. iných relevantných osobách príslušný zodpovedný útvar
+18 V projektoch s veľkým počtom užívateľov sa overovanie vo vzťahu k užívateľom a osobám na strane užívateľa podľa písm. d) až h) vykonáva,
+len ak existujú dôvodné pochybnosti o pravdivosti a úplnosti čestného vyhlásenia.
+19 V prípade projektov s veľkým množstvom dodávateľov je možné overovať iba na vzorke, pri zohľadnení princípu proporcionality a hodnoty
+plnenia.
+
+                                                            10
+Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+orgánu, verzia 1.0
+
+g) osoba, ktorá sa podieľala na vypracovaní alebo realizácii projektu pre žiadateľa alebo prijímateľa
+alebo ktorá prijala finančné prostriedky z rozpočtu projektu,
+h) osoba, ktorá je blízkou osobou20 žiadateľovi, prijímateľovi alebo osobe uvedenej v písmenách a)
+až g).
+
+Proces kontroly alebo overovania konfliktu záujmov na strane zamestnanca, ktorého čestné
+vyhlásenie o mlčanlivosti a vylúčení konfliktu záujmov je overované / kontrolované, začína
+identifikáciou relevantných subjektov (právnických a fyzických osôb), vo vzťahu ku ktorým sa bude
+existencia konfliktu záujmov skúmať. Tento okruh subjektov závisí od konkrétnej činnosti/činností,
+na ktorých sa daný zamestnanec podieľal v období, na ktoré sa vzťahuje jeho čestné vyhlásenie
+o mlčanlivosti a vylúčení konfliktu záujmov:
+
+1.) Príprava výzvy
+
+     žiadatelia a zainteresované osoby na strane žiadateľa.
+
+2.) Konanie o žiadosti o poskytnutie NFP podľa zákona č. 121/2022 Z. z.
+
+     žiadatelia a zainteresované osoby na strane žiadateľa.
+
+3.) Finančná kontrola VO
+
+     prijímateľ, resp. verejný obstarávateľ / obstarávateľ a zainteresované osoby na strane
+         prijímateľa.
+
+     členovia hodnotiacich komisií, osoby podieľajúce sa na príprave súťažných podkladov,
+         vyhodnocovaní ponúk a rozhodovaní o výsledku verejného obstarávania,
+
+4.) Finančná kontrola ŽoP podľa § 8 zákona č. 357/2015 Z. z.
+
+     prijímateľ a zainteresované osoby na strane prijímateľa.
+
+5.) Finančná kontrola podľa § 9 zákona č. 357/2015 Z. z.
+
+     prijímateľ a zainteresovaná osoba na strane prijímateľa.
+
+V prípade zamestnancov, ktorých činnosť nie je možné jednoznačne priradiť k vyššie uvedeným
+procesom (napr. riadiaci zamestnanci mimo uvedených procesov, metodici), sa kontrola / overovanie
+pravdivosti čestného vyhlásenia zameriava na verifikáciu osobných a majetkových prepojení s cieľom
+identifikovať riziká systémového konfliktu záujmov.
+
+Zodpovedný útvar, resp. určená kontrolná skupina pri výkone overenia alebo kontroly využije údaje
+o zamestnancovi, resp. iných relevantných osobách získané priamo od zamestnanca, a/ alebo podľa
+potreby a miery dostupnosti pre konkrétny subjekt z ďalších dostupných nástrojov a zdrojov údajov
+a informácií, ako napr.:
+
+     Informačný monitorovací systém ITMS21+;
+     systém ARACHNE;
+     Obchodný register SR;
+     portál OverSi.gov.sk;
+     komerčné informačné systémy sledovania hospodárskych subjektov;
+     Register partnerov verejného sektora;
+     elektronické služby registra fyzických osôb;
+     Register právnických osôb, podnikateľov a orgánov verejnej moci;
+     Živnostenský register SR,
+     Register mimovládnych neziskových organizácií,
+
+20 § 116 Občianskeho zákonníka.
+
+                                                            11
+Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+orgánu, verzia 1.0
+
+     Register záujmových združení právnických osôb.
+
+Zodpovedný útvar, resp. určená kontrolná skupina pri výkone overenia alebo kontroly je povinná
+uchovávať z kontroly / overenia dostatočný auditný záznam.
+Procesy dotýkajúce sa samotného priebehu a ukončenia kontroly alebo overenia sa riadia internými
+riadiacimi aktmi RO, resp. orgánu verejnej moci ako takého.
+
+Po vykonaní overenia alebo kontroly zodpovedný útvar resp. určená kontrolná skupina vykoná
+komplexné posúdenie a vyhodnotenie zistených skutočností.
+
+Výsledkom tohto posúdenia je:
+
+A)Nesúlad nebol identifikovaný: Údaje uvedené v čestnom vyhlásení sa zhodujú so skutočnosťami
+zistenými kontrolou / overením a neindikujú riziko konfliktu záujmov.
+
+B) Zistenie dôkazov o prítomnosti možného konfliktu záujmov: Identifikovanie priameho rozporu
+medzi deklarovaným stavom a zistenou skutočnosťou, resp. skutočnosti, ktoré indikujú konflikt
+záujmov, čo si vyžaduje nápravné opatrenia a prípadne postup podľa osobitných predpisov (§ 45 ods.
+14 zákona č. 121/2022 Z. z.).
+
+5.5 Ochrana osobných údajov a nakladanie s údajmi
+
+RO pri kontrole alebo overovaní konfliktu záujmov spracúva osobné údaje dotknutých osôb –
+zamestnancov RO (vrátane osôb, s ktorými bola uzatvorená dohoda o prácach vykonávaných mimo
+pracovného pomeru), vykonávajúcich činnosti pri implementácii programu alebo jeho časti, a ich
+blízkych osôb, v súlade s GDPR a zákonom o ochrane osobných údajov. Povinnosti RO ako
+prevádzkovateľa podľa Nariadenia Európskeho parlamentu a Rady (EÚ) 2016/679 (GDPR) a zákona č.
+18/2018 Z. z. o ochrane osobných údajov týmto usmernením nie sú dotknuté.
+
+RO spracúva na zabezpečenie splnenia účelu bežné osobné údaje. Osobné údaje osobitnej kategórie
+osobných údajov ani osobné údaje týkajúce sa uznania viny za trestné činy a priestupky RO pri kontrole
+alebo overovaní konfliktu záujmov nespracúva.
+
+Spracúvanie je nevyhnutné na splnenie úlohy realizovanej vo verejnom záujme alebo pri výkone
+verejnej moci zverenej prevádzkovateľovi (čl. 6 ods. 1 písm. e) GDPR) vyplývajúcej z čl. 61 Nariadenia
+o rozpočtových pravidlách 2024/2509 a z čl. 4 a čl. 59 ods. 7 Nariadenia (EÚ) 2021/1060 a na splnenie
+zákonnej povinnosti prevádzkovateľa vyplývajúcej z legislatívy upravujúcej poskytovanie príspevku
+z fondov EÚ – z § 46 zákona č. 121/2022 Z. z.
+
+Účelom spracúvania osobných údajov je riadne plnenie úloh pri riadení a implementácii programu,
+zabezpečenie transparentnosti a prevencie korupcie a konfliktu záujmov a následné konania súvisiace
+s identifikovaným podozrením na existenciu konfliktu záujmov, komplexné posúdenie a vyhodnotenie
+zistených skutočností, zabezpečenie nápravných opatrení alebo postupov podľa § 45 ods. 14 zákona č.
+121/2022 Z. z. v prípade zistenia prítomnosti konfliktu záujmov a ochrana finančných záujmov
+Európskej únie.
+
+RO informuje dotknuté osoby, ak na spracúvanie osobných údajov využíva sprostredkovateľa alebo
+sub-sprostredkovateľa.
+
+                                                            12
+Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+orgánu, verzia 1.0
+
+Osobné údaje môžu byť poskytnuté orgánom a inštitúciám zapojeným do ďalšieho prešetrovania
+a následného konania súvisiaceho s identifikovaným konfliktom záujmov:
+
+ - Európska komisia,
+ - Európsky úrad pre boj proti podvodom,
+ - iné orgány kontroly, auditu a dohľadu,
+ - orgány činné v trestnom konaní
+ - správne orgány.
+
+Osobné údaje a dokumentácia z kontroly / overovania (vrátane dotazníkov) sa uchovávajú v súlade
+s pravidlami archivácie dokumentácie k fondom EÚ podľa čl. 82 Nariadenia (EÚ) 2021/1060 a zákona
+č. 431/2002 Z. z. o účtovníctve (spravidla 10 rokov od ukončenia programu, ak osobitný predpis
+neustanovuje inak). Po uplynutí tejto lehoty RO zabezpečí bezpečnú likvidáciu údajov v súlade so
+zákonom č. 395/2002 Z. z. o archívoch a registratúrach tak, aby sa zabránilo spätnej rekonštrukcii
+údajov.
+
+RO informuje dotknuté osoby o prenose osobných údajov do tretích krajín a medzinárodným
+organizáciám.
+
+Osobné údaje nebudú použité na automatizované individuálne rozhodovanie ani na profilovanie.
+
+V súlade s čl. až čl. 22 GDPR je dotknutá osoba oprávnená prostredníctvom žiadosti uplatniť si práva
+dotknutej osoby. RO informuje dotknuté osoby o týchto právach.
+
+Dotknutá osoba je oprávnená podať žiadosť o výkon práv dotknutej osoby. RO informuje dotknuté
+osoby, akým spôsobom sú oprávnené podať žiadosť (napr. listom na adresu RO, e-mailom na e-mailovú
+adresu zodpovednej osoby za ochranu osobných údajov RO alebo osobne na podateľni RO).
+
+RO poskytne dotknutým osobám kontakt na zodpovednú osobu za ochranu osobných údajov.
+
+RO informuje dotknuté osoby o ich oprávnenosti podať návrh na začatie konania o ochrane osobných
+údajov Úradu na ochranu osobných údajov SR v súlade s ustanoveniami zákona č. 18/2018 Z. z.
+o ochrane osobných údajov a o zmene a doplnení niektorých zákonov v znení neskorších predpisov, ak
+sa domnievajú, že pri spracúvaní osobných údajov boli porušené ich práva.
+
+RO získava potrebné osobné údaje z registrov a iných zdrojov, napr.:
+
+ - priamo od zamestnanca (napr. prostredníctvom štruktúrovaného formulára pre posúdenie
+      konfliktu záujmov);
+
+ - osobný spis zamestnanca;
+ - informačný monitorovací systém ITMS21+;
+ - systém ARACHNE;
+ - Obchodný register SR;
+ - portál OverSi.gov.sk;
+ - komerčné informačné systémy sledovania hospodárskych subjektov;
+ - Register partnerov verejného sektora;
+ - elektronické služby registra fyzických osôb;
+ - Register právnických osôb, podnikateľov a orgánov verejnej moci;
+ - Živnostenský register SR,
+ - Register mimovládnych neziskových organizácií,
+ - Register záujmových združení právnických osôb.
+
+                                                            13
+Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+orgánu, verzia 1.0
+
+Zásady spracúvania:
+
+ - Zásada transparentnosti a informačná povinnosť: RO ako prevádzkovateľ zabezpečí splnenie
+      informačnej povinnosti voči dotknutým osobám (zamestnancom aj blízkym osobám). S ohľadom
+      na charakter zberu údajov o blízkych osobách (najmä nepriamy zber od zamestnanca) sa
+      informovanie týchto tretích strán realizuje v súlade s čl. 14 ods. 5 písm. b) GDPR (výnimka
+      z individuálneho informovania pri vynaložení neprimeraného úsilia).
+
+ - Zásada obmedzenia účelu: Údaje získané na účely kontroly alebo overenia konfliktu záujmov
+      nesmú byť použité na iný, nezlučiteľný účel.
+
+ - Zásada minimalizácie a primeranosti: Rozsah preverovania je obmedzený na nevyhnutnú mieru
+      potrebnú na ochranu finančných záujmov EÚ. Rozsah preverovania v informačných systémoch
+      a registroch zohľadňuje časové hľadisko a intenzitu rizika. Rozsah vyžadovaných údajov je
+      obmedzený na identifikátory nevyhnutné na vykonanie kontroly v informačných systémoch
+      a registroch SR.
+
+ - Zásada integrity a dôvernosti: RO zabezpečí, aby k údajom v dotazníkoch a k výsledkom kontroly
+      / overovania mali prístup len oprávnené osoby viazané mlčanlivosťou (napr. kontrolná skupina,
+      štatutár, audítor).
+
+6 Závery z kontroly alebo overovania
+
+Zodpovedný útvar, resp. určená kontrolná skupina po ukončení kontroly alebo overovania vyhotoví
+písomný záznam, informuje o jej výsledkoch a o prípadných zistených nedostatkoch priameho
+nadriadeného riadiaceho zamestnanca dotknutého zamestnanca a dotknutého zamestnanca, pričom
+zabezpečí preukázateľnosť kontrolných zistení priložením relevantnej dokumentácie (napr. výpisy
+z verejných registrov, analýzy prepojení, iná relevantná dokumentácia potvrdzujúca rozpor
+so skutočným stavom) a ak relevantné, určí primeranú lehotu na predloženie návrhu opatrení, nie
+kratšiu ako 10 pracovných dní. Po odsúhlasení prijatých opatrení určí zodpovedný útvar, resp. určená
+kontrolná skupina, primeranú lehotu na predloženie dokumentácie preukazujúcej splnenie prijatých
+opatrení, nie kratšiu ako 10 pracovných dní. V prípade podozrenia zo spáchania trestného činu,
+priestupku alebo iného správneho deliktu je zodpovedný útvar, resp. určená kontrolná skupina
+povinná bezodkladne oznámiť relevantné skutočnosti príslušným orgánom. V prípade potvrdenia
+konfliktu záujmov, s ohľadom na závažnosť porušenia zákazu konfliktu záujmov môžu navrhnuté
+opatrenia zahŕňať postup podľa § 45 ods. 14 zákona č. 121/2022 Z. z.
+
+V prípade zistenia konfliktu záujmov sa skúmajú všetky relevantné skutkové okolnosti. Bez ohľadu
+na mieru zavinenia je riadiaci orgán zodpovedný za zabezpečenie integrity procesov. To zahŕňa
+spravidla:
+
+ - bezodkladné vylúčenie dotknutého zamestnanca z ďalšieho rozhodovacieho alebo kontrolného
+      procesu,
+
+ - preskúmanie úkonov, na ktorých sa dotknutý zamestnanec podieľal nezávislou osobou (napr.
+      opätovné vykonanie finančnej kontroly), ak relevantné,
+
+ - záznam o prijatých opatreniach sa priloží k dokumentácii projektu / predmetného úkonu pre
+      potreby následného auditu.
+
+Konečné rozhodnutie o prítomnosti konfliktu záujmov a o konkrétnych opatreniach prijatých na
+odstránenie nedostatkov prijíma nadriadený zamestnanec dotknutého zamestnanca (t. j.
+zamestnanca, ktorý bol kontrolovaný alebo overovaný), a to v stanovenom termíne, ktorý určil
+zodpovedný útvar, resp. určená kontrolná skupina. Splnenie opatrení prijatých na odstránenie
+nedostatkov následne kontrolovaný útvar vykazuje útvaru zodpovednému za kontrolu alebo
+
+                                                            14
+Metodické usmernenie k predchádzaniu a overovaniu konfliktu záujmov na úrovni riadiaceho / sprostredkovateľského
+orgánu, verzia 1.0
+
+overovanie. V prípade kontroly vykonávanej podľa zákona č. 10/1996 Z. z. sú oprávnenia a povinnosti
+pracovníkov kontroly uvedené v § 11 a o výsledku vykonanej kontroly, ktorou boli zistené nedostatky,
+vypracujú pracovníci kontroly podľa § 13 protokol.
+V prípade, ak overovanie čestných vyhlásení vykonáva útvar vnútorného auditu, vypracuje sa v zmysle
+§ 21 zákona č. 357/2015 Z. z. správa z auditu, resp. záznam.
+
+7 Príloha
+
+Príloha č. 1 Čestné vyhlásenie o mlčanlivosti a vylúčení konfliktu záujmov pri plnení pracovných a/alebo
+služobných povinností zamestnancov RO
+
+                                                            15
