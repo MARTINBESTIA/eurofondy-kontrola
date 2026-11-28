@@ -1,22 +1,22 @@
 {
- "cas": "2026-11-23T10:45:38.928Z",
- "dnes": "2026-11-23",
+ "cas": "2026-11-28T12:20:46.679Z",
+ "dnes": "2026-11-28",
  "vyzva": "PSK-SIEA-002-2023-DV-EFRR",
  "moduly": {
   "vyzvy": {
    "pripadov": 186,
-   "trvanieMs": 417,
+   "trvanieMs": 380,
    "navrhy": {
-    "na_preverenie": 153,
-    "nesplnene_podmienky": 33
+    "na_preverenie": 152,
+    "nesplnene_podmienky": 34
    },
    "pravidla": [
     {
      "id": "C01",
      "nazov": "Výzva je k dátumu predloženia otvorená",
      "pocty": {
-      "mimo_podkladov": 164,
-      "nesplnene": 18,
+      "mimo_podkladov": 163,
+      "nesplnene": 19,
       "neuplatnuje_sa": 4
      }
     },
@@ -24,8 +24,8 @@
      "id": "C02",
      "nazov": "Po dátume predloženia existuje uzávierka",
      "pocty": {
-      "mimo_podkladov": 65,
-      "nesplnene": 33,
+      "mimo_podkladov": 64,
+      "nesplnene": 34,
       "na_preverenie": 84,
       "neuplatnuje_sa": 4
      }
@@ -65,12 +65,12 @@
      "nazov": "Výzva zrušená",
      "pravidlo": "C01",
      "ocakavane": "nesplnene",
-     "n": 65,
-     "zachytene": 65,
-     "presne": 65,
+     "n": 64,
+     "zachytene": 64,
+     "presne": 64,
      "falosneOk": 0,
      "stavy": {
-      "nesplnene": 65
+      "nesplnene": 64
      },
      "priklady": []
     },
@@ -91,12 +91,12 @@
      "nazov": "Príprava trvá dlhšie, ako ostáva do uzávierky",
      "pravidlo": "C03",
      "ocakavane": "nesplnene",
-     "n": 65,
-     "zachytene": 65,
-     "presne": 65,
+     "n": 64,
+     "zachytene": 64,
+     "presne": 64,
      "falosneOk": 0,
      "stavy": {
-      "nesplnene": 65
+      "nesplnene": 64
      },
      "priklady": []
     },
@@ -130,12 +130,12 @@
      "nazov": "Otvorená výzva, plánovaný dátum predloženia nezadaný",
      "pravidlo": "C01",
      "ocakavane": "mimo_podkladov",
-     "n": 65,
+     "n": 64,
      "zachytene": 0,
-     "presne": 65,
+     "presne": 64,
      "falosneOk": 0,
      "stavy": {
-      "mimo_podkladov": 65
+      "mimo_podkladov": 64
      },
      "priklady": []
     },
@@ -156,12 +156,12 @@
      "nazov": "Údaje výzvy z ITMS21+ staršie ako 7 dní",
      "pravidlo": "C01",
      "ocakavane": "na_preverenie",
-     "n": 65,
-     "zachytene": 65,
-     "presne": 65,
+     "n": 64,
+     "zachytene": 64,
+     "presne": 64,
      "falosneOk": 0,
      "stavy": {
-      "na_preverenie": 65
+      "na_preverenie": 64
      },
      "priklady": []
     },
@@ -181,13 +181,13 @@
    ],
    "poznamky": [
     "Z 182 výziev má 91 aspoň dve datované verzie (zmenu po vyhlásení); žiadateľ, ktorý pracuje so starou verziou, je reálne riziko.",
-    "Plánované výzvy: 4, z toho po plánovanom termíne vyhlásenia a nevyhlásené k 2026-11-23: 3 (2026/00027 plán 2026-11-01, 2025/00012 plán 2025-07-01, 2024/00035 plán 2026-03-01).",
+    "Plánované výzvy: 4, z toho po plánovanom termíne vyhlásenia a nevyhlásené k 2026-11-28: 3 (2026/00027 plán 2026-11-01, 2025/00012 plán 2025-07-01, 2024/00035 plán 2026-03-01).",
     "Bez zadaného plánu žiadateľa (dni prípravy, dátum oboznámenia) ostávajú pravidlá C03 a C04 neoverené, preto väčšina reálnych výrokov je „čiastočne overené“."
    ]
   },
   "zonfp": {
    "pripadov": 799,
-   "trvanieMs": 293,
+   "trvanieMs": 285,
    "navrhy": {
     "na_preverenie": 735,
     "nesplnene_podmienky": 58,
@@ -491,7 +491,7 @@
   },
   "vo": {
    "pripadov": 659,
-   "trvanieMs": 938,
+   "trvanieMs": 915,
    "navrhy": {
     "na_preverenie": 658,
     "nesplnene_podmienky": 1
@@ -779,6 +779,58 @@
       "na_preverenie": 367
      },
      "priklady": []
+    },
+    {
+     "nazov": "Tovary a služby s oslovením, PHZ 141 000 EUR, VO začaté 15. 9. 2026 (MD č. 26: pod 140 000 EUR)",
+     "pravidlo": "V01",
+     "ocakavane": "nesplnene",
+     "n": 29,
+     "zachytene": 29,
+     "presne": 29,
+     "falosneOk": 0,
+     "stavy": {
+      "nesplnene": 29
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Tovary a služby s oslovením, PHZ 141 000 EUR, zmluva z 20. 4. 2026, deň začatia VO neznámy",
+     "pravidlo": "V01",
+     "ocakavane": "na_preverenie",
+     "n": 29,
+     "zachytene": 29,
+     "presne": 29,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 29
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Tovary a služby s oslovením, PHZ 141 000 EUR, VO začaté 2. 3. 2026 (vyhláška 140 000 EUR, príručka v2 143 000 EUR)",
+     "pravidlo": "V01",
+     "ocakavane": "na_preverenie",
+     "n": 29,
+     "zachytene": 29,
+     "presne": 29,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 29
+     },
+     "priklady": []
+    },
+    {
+     "nazov": "Tovary a služby s oslovením, PHZ 141 000 EUR, VO začaté 1. 2. 2028 (nové prahy EÚ softvér nemá)",
+     "pravidlo": "V01",
+     "ocakavane": "na_preverenie",
+     "n": 29,
+     "zachytene": 29,
+     "presne": 29,
+     "falosneOk": 0,
+     "stavy": {
+      "na_preverenie": 29
+     },
+     "priklady": []
     }
    ],
    "overenia": [
@@ -796,6 +848,21 @@
      "nazov": "A07: VO00064405 (doklady 1 723 377,98 EUR, zmluvy 1 526 945,44 EUR) → V04 na preverenie, prevyšujú aj bez DPH",
      "vysledok": "na_preverenie: Doklady spolu 1 723 377,98 EUR s DPH prevyšujú zmluvy 1 526 945,44 EUR, a to aj bez DPH (1 641 312,35 EUR). Overiť dodatky (podliehajú kontrole VO).",
      "ok": true
+    },
+    {
+     "nazov": "T4: VO17195877 (PHZ 142 000 EUR, zmluva účinná 25. 3. 2025) ostane v limite 143 000 EUR",
+     "vysledok": "splnene: PHZ 142 000 EUR je v limite postupu (podlimitná zákazka s oslovením min. 3 hospodárskych subjektov na tovary a služby: p",
+     "ok": true
+    },
+    {
+     "nazov": "T4: rovnaké VO s dňom začatia 2. 2. 2025 z formulára je splnené a deň doloží formulár kontrolóra",
+     "vysledok": "splnene; Formulár kontrolóra: 2. 2. 2025",
+     "ok": true
+    },
+    {
+     "nazov": "T4: deň začatia 1. 6. 2025 je po účinnosti zmluvy 25. 3. 2025, V01 ide na preverenie",
+     "vysledok": "na_preverenie: eskorší ako účinnosť zmluvy (25. 3. 2025), jeden z dátumov je chybný. Limit platný v čase VO softvér neoveril.",
+     "ok": true
     }
    ],
    "poznamky": [
@@ -806,7 +873,7 @@
   },
   "zmeny": {
    "pripadov": 2336,
-   "trvanieMs": 846,
+   "trvanieMs": 844,
    "navrhy": {
     "na_preverenie": 2336
    },
@@ -1165,7 +1232,7 @@
   },
   "zop": {
    "pripadov": 1362,
-   "trvanieMs": 8387,
+   "trvanieMs": 8282,
    "navrhy": {
     "na_preverenie": 1361,
     "nesplnene_podmienky": 1
@@ -1222,7 +1289,7 @@
     },
     {
      "id": "P07",
-     "nazov": "Kontrola VO prebehla pred zahrnutím výdavkov do ŽoP",
+     "nazov": "Posúdenie VO prebehlo pred zahrnutím výdavkov do ŽoP",
      "pocty": {
       "mimo_podkladov": 1175,
       "neuplatnuje_sa": 187
@@ -1770,7 +1837,7 @@
   },
   "ukazovatele": {
    "pripadov": 242,
-   "trvanieMs": 206,
+   "trvanieMs": 205,
    "navrhy": {
     "na_preverenie": 242
    },
@@ -2203,5 +2270,5 @@
    "ok": true
   }
  ],
- "trvanieMs": 65383
+ "trvanieMs": 64734
 }

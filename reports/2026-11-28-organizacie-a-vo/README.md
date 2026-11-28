@@ -2,6 +2,10 @@
 
 Stav k 28. 11. 2026. Tento priečinok odpovedá na dve otázky:
 
+> **Doplnené 28. 11. 2026:** úloha T4 je hotová (`TODO.md`, sekcia Hotové; commit „Fix V01 limit by VO start date
+> and re-source VO pack to MD 26“). V01 určuje limit podľa dňa začatia VO a balíky VO a ŽoP citujú MD 26.
+> Text nižšie je upravený tam, kde T4 uvádzal ako otvorenú.
+
 1. Pre ktoré inštitúcie sa dá zostaviť demo s terajším softvérom?
 2. Dá sa demo pre procesy, ktoré sa dajú zefektívniť AI, rozšíriť (duplikovať) aj na ďalšie organizácie?
 
@@ -29,7 +33,7 @@ Všetky využitia vo verejnom obstarávaní (VO), hotové aj návrhy, sú v [`VY
 - **Demo hneď, bez zmeny softvéru (úroveň A).**
   - SIEA, výzva `PSK-SIEA-002-2023-DV-EFRR`: šesť modulov a podateľňa. Moduly sú plánovanie výziev, žiadosť
     o NFP, VO, zmeny projektu, žiadosť o platbu (ŽoP) a merateľné ukazovatele. Je to dnešný pilot. Otvorené
-    úlohy T2 až T4 sú vylepšenia, demo beží aj bez nich.
+    úlohy T2 a T3 sú vylepšenia, demo beží aj bez nich.
   - Plánovanie výziev vo všetkých výzvach Programu Slovensko (182 výziev a 4 plánované). Modul je určený
     žiadateľom a konzultantom, nie úradom (`README.md`, tabuľka modulov). Používa balík `PSK` pre celý program
     (`src/moduly/vyzvy/modul.ts:151`).
@@ -38,9 +42,8 @@ Všetky využitia vo verejnom obstarávaní (VO), hotové aj návrhy, sú v [`VY
     Sú to MIRRI, Úrad vlády SR, MŽP, MPSVR, MŠVVaM, ministerstvo dopravy, MH, MZ a MV. Ich projekty sú vo verejnom
     API ITMS21+.
   - ÚVO ako kontrolór VO v Programe Slovensko, nad VO z ľubovoľných výziev programu.
-    - Predtým treba opraviť limit V01 podľa MD 26 (`TODO.md`, T4). Bez opravy by ÚVO videl limit podľa
-      príručky, ktorú MD 26 nahradila.
-    - Oprava je malá zmena kódu (`src/moduly/vo/modul.ts:33-41`) a citácií v balíku.
+    - Limit V01 a citácie balíka VO podľa MD 26 sú opravené (`TODO.md`, T4). Limit pre tovary a služby sa určuje
+      podľa dňa začatia VO (`src/moduly/vo/modul.ts:31-96`), ktorý ITMS21+ neuvádza a zadáva ho kontrolór.
   - MV SR (fondy AMIF, BMVI, ISF), MPRV (Program Rybné hospodárstvo) a slovenskí partneri v Interreg SK-AT
     a SK-CZ, ak sú ich projekty a VO v ITMS21+ [overiť].
 - **Demo s novým kódom (úroveň C).**
@@ -92,13 +95,13 @@ dokumentov preto pri každej úrovni beží na vymyslených dokumentoch, aj v pi
 
 | Inštitúcia | Proces na demo | Dáta | Čo softvér už vie | Čo chýba | Úroveň |
 |---|---|---|---|---|---|
-| SIEA (Program Slovensko) | celý pilot: žiadosť o NFP, VO, zmeny, ŽoP, ukazovatele, podateľňa | ITMS21+: 799 žiadostí, 659 VO, 2 336 zmien, 1 362 ŽoP, 242 projektov | všetkých šesť modulov (`README.md`, tabuľka modulov) | vylepšenia T2 až T4 v `TODO.md`; T4 sa týka VO s predpokladanou hodnotou 140 000 až 142 999 EUR a v dátach pilotu sú 4 také VO, všetky z rokov 2024 a 2025, keď platil limit 143 000 EUR | A |
+| SIEA (Program Slovensko) | celý pilot: žiadosť o NFP, VO, zmeny, ŽoP, ukazovatele, podateľňa | ITMS21+: 799 žiadostí, 659 VO, 2 336 zmien, 1 362 ŽoP, 242 projektov | všetkých šesť modulov (`README.md`, tabuľka modulov) | vylepšenia T2 a T3 v `TODO.md`; T4 (limit V01 podľa MD 26) je hotová, 4 VO pilotu v pásme 140 000 až 142 999 EUR výsledok nezmenili | A |
 | Vyhlasovatelia Programu Slovensko: MIRRI, ÚV SR, MŽP, MPSVR, MŠVVaM, ministerstvo dopravy, MH, MZ, MV | plánovanie výziev (pre žiadateľov a konzultantov) | ITMS21+, 182 výziev | modul Plánovanie výziev | nič; pravidlá sú údaje ITMS21+, nie právny text | A |
-| tí istí | kontrola VO, ŽoP a zmien na ich výzvach | ITMS21+; skripty berú kód výzvy (`scripts/05-stiahni-projekty.ts:11`, `scripts/06-stiahni-zop-vo.ts:11`) | V01 až V07, P01 až P12 modulu ŽoP, 8 pravidiel zmien; limity postupov VO sú v kóde a platia pre každú výzvu (`src/moduly/vo/modul.ts:33-41`) | balík s citáciami príručky daného SO; ukazovatele počítajú sankcie podľa kalkulačky SIEA (`src/moduly/ukazovatele/kalkulacka.ts`) | B, ukazovatele C |
+| tí istí | kontrola VO, ŽoP a zmien na ich výzvach | ITMS21+; skripty berú kód výzvy (`scripts/05-stiahni-projekty.ts:11`, `scripts/06-stiahni-zop-vo.ts:11`) | V01 až V07, P01 až P12 modulu ŽoP, 8 pravidiel zmien; limity postupov VO sú v kóde a platia pre každú výzvu (`src/moduly/vo/modul.ts:31-56`) | balík s citáciami príručky daného SO; ukazovatele počítajú sankcie podľa kalkulačky SIEA (`src/moduly/ukazovatele/kalkulacka.ts`) | B, ukazovatele C |
 | tí istí | žiadosť o NFP v podateľni | formulár z ITMS21+; prílohy neverejné | podateľňa prijme podanie do každej výzvy, ktorá má balík `zonfp.json` (`src/podatelna/podatelna.ts:506`); 22 z 27 pravidiel pilotu nie je viazaných na energetickú efektívnosť | 5 pravidiel pilotu je viazaných na energetickú efektívnosť (`packs/PSK-SIEA-002-2023-DV-EFRR/zonfp.json:184`, `:200`, `:218`, `:282`, `:358`); iná výzva potrebuje vlastné | B, doménové pravidlá C |
-| ÚVO (SO pre kontrolu VO v Programe Slovensko), diagram O1 | predbežná kontrola a kontrola po uzavretí zmluvy | VO z ITMS21+; dokumentácia VO je neverejná | modul VO; 12 z 68 využití vo `VYUZITIA-VO.md` je hotových alebo čiastočných (6 a 6) | T4 (oprava v kóde); lehoty podľa MD 26: oznámenie do 40 dní (r. 416), prerušenie, počas ktorého lehota neplynie (r. 475, 476, 479); úplnosť dokumentácie (riadok U46 vo `VYUZITIA-VO.md`) | B pre VO, C pre lehoty |
+| ÚVO (SO pre kontrolu VO v Programe Slovensko), diagram O1 | predbežná kontrola a kontrola po uzavretí zmluvy | VO z ITMS21+; dokumentácia VO je neverejná | modul VO; 13 z 68 využití vo `VYUZITIA-VO.md` je hotových alebo čiastočných (7 a 6) | lehoty podľa MD 26: oznámenie do 40 dní (r. 416), prerušenie, počas ktorého lehota neplynie (r. 475, 476, 479); úplnosť dokumentácie (riadok U46 vo `VYUZITIA-VO.md`) | B pre VO, C pre lehoty |
 | MIRRI, VÚC a mestá (integrované územné investície), diagram O2 | projektový zámer a stanovisko | detail projektu v ITMS21+ má pole `projektovyZamerIUS` (pri projekte Interreg prázdne), obsah pri projektoch IÚI [overiť]; uznesenia rád partnerstva sú zverejnené [overiť] | lehoty v pracovných dňoch (`src/podatelna/lehoty.ts:73-88`); model číta uznesenie obce pri pravidle P03 balíka žiadosti o NFP (`zonfp.json:431-449`) | modul projektového zámeru, kontrolný zoznam z MD 8, Príloha 6 | C |
-| Ktorýkoľvek SO, diagram O6 | výber odborných hodnotiteľov, hodnotiaci hárok | formuláre žiadostí sú v ITMS21+, hodnotiace hárky neverejné | citácia a úryvok pri každom náleze; overenie štatutárov v RPO pri V06 (`src/moduly/vo/modul.ts:141-176`) | modul hárku podľa MD 21, Príloha 1; osobné údaje hodnotiteľov smie spracúvať len SO | C |
+| Ktorýkoľvek SO, diagram O6 | výber odborných hodnotiteľov, hodnotiaci hárok | formuláre žiadostí sú v ITMS21+, hodnotiace hárky neverejné | citácia a úryvok pri každom náleze; overenie štatutárov v RPO pri V06 (`src/moduly/vo/modul.ts:203-238`) | modul hárku podľa MD 21, Príloha 1; osobné údaje hodnotiteľov smie spracúvať len SO | C |
 | MV SR (fondy vnútra) | VO a ŽoP | ITMS21+ (podľa astry) | ako u vyhlasovateľov Programu Slovensko | balík podľa príručky MV; VO v ITMS21+ [overiť] | B |
 | Interreg SK-AT a SK-CZ, diagram O7 | kontrola VO slovenských partnerov | projekty v ITMS21+: SK-AT som overil na jednom projekte 28. 11. 2026, jeho detail uvádza aj slovenského partnera a dodávateľov (pole `dodavatel`); samotné záznamy VO [overiť] | modul VO | pravidlá PVO PCS v2.1 namiesto MD 26; ÚVO tu nie je SO (CKO SP r. 438–440) | B, ak sú VO v API; inak D (vymyslené: B) |
 | Interreg HU-SK, HUSKROUA, PL-SK | podanie a vykazovanie | e-mail, CST2021 (podľa astry) | nič špecifické | konektor alebo ručné nahratie súborov | D (vymyslené: B) |
@@ -136,7 +139,7 @@ neskúmal [overiť].
 
 Ide o úsudok, nie o overený fakt.
 
-1. **ÚVO: modul VO nad VO z viacerých výziev Programu Slovensko** (úroveň B, po oprave T4).
+1. **ÚVO: modul VO nad VO z viacerých výziev Programu Slovensko** (úroveň B; oprava T4 je hotová).
    - Kontrola VO je zmerané úzke miesto. Podľa ÚVO trvala v priemere takmer 51 dní v roku 2025 a 43,6 dňa
      za január až júl 2026 (astrina metodika, aktualita ÚVO z 11. 8. 2026).
    - Modul VO od výzvy nezávisí.
@@ -151,8 +154,8 @@ Ide o úsudok, nie o overený fakt.
 
 ### Kontrolný zoznam pre prvé demo (ÚVO, modul VO)
 
-1. Opraviť T4: limit V01 v kóde (`src/moduly/vo/modul.ts:33-41`), citácie MD 26 v balíku a test so zasadenou
-   chybou (`TODO.md`, T4).
+1. Hotové 28. 11. 2026: limit V01 podľa dňa začatia VO (`src/moduly/vo/modul.ts:31-96`), citácie MD 26 v balíku
+   a testy so zasadenou chybou (`TODO.md`, T4).
 2. Vybrať výzvy. Pre každú stiahnuť projekty, potom ŽoP a VO: `npm run data:projekty -- <kód výzvy>` a
    `npm run data:zop-vo -- <kód výzvy>`. Skripty berú kód výzvy ako parameter.
 3. Vytvoriť `packs/<kód výzvy>/vo.json` z pilotného balíka a prepísať v ňom kód výzvy a citácie.
@@ -225,7 +228,7 @@ dá preniesť do ďalšej organizácie výmenou balíka. Čísla procesov odkazu
 | V2 Párovanie dokladov | 23, 24, 25, 26, 27, 34, 44, 45, 49 | modul ŽoP: sumy voči dokladom, dvojité nárokovanie, DPH, väzba na VO, výpis (P01 až P12 v `zop.json`) | balík podľa príručky SO; konektor pri dátach mimo ITMS21+ | všetci SO, Interreg, PPA, SAŽP |
 | V3 Porovnanie dokumentov a verzií | 2, 5, 6, 16, 17, 43, 47, 54 | modul Zmeny; kontrola zmien výzvy v ITMS21+ (`src/core/zmeny.ts`) | model porovná dva dokumenty po podmienkach s úryvkom z oboch | MIRRI, VÚC, všetci SO, Interreg, EUI |
 | V4 Lehoty a čakanie | 13, 15, 28, 38, 39 | lehota na doplnenie v pracovných dňoch aj pri neznámom dni doručenia (`src/podatelna/lehoty.ts:130`) | kalendárne dni, prerušenie lehoty, časová os fáz z ITMS21+ | všetci SO, ÚVO, PPA, Interreg |
-| V5 Verejné obstarávanie | 18, 19, 20, 33 | modul VO V01 až V07; 68 využití vo `VYUZITIA-VO.md` | T4; pravidlá PVO PCS pre Interreg a SIPOO pre Plán obnovy | ÚVO, všetci SO, Interreg, NIKA, PPA (LEADER) |
+| V5 Verejné obstarávanie | 18, 19, 20, 33 | modul VO V01 až V07; 68 využití vo `VYUZITIA-VO.md` | pravidlá PVO PCS pre Interreg a SIPOO pre Plán obnovy | ÚVO, všetci SO, Interreg, NIKA, PPA (LEADER) |
 | V6 Dôkazový spis pre človeka | 4, 7, 11, 12, 14, 21, 22, 29, 30, 31, 32, 42, 46 | citácia a úryvok pri každom náleze, audit posudkov a rozhodnutí, inventár 44 podmienok zmluvy | zostavy pre preskúmanie, audit a nezrovnalosť | všetci SO, orgán auditu, NIKA |
 | V7 Odpovede z textu výzvy s citáciou | 1, 36, 48, 51, 52 | zatiaľ nič; plánovanie výziev rieši len termíny a verzie | nový modul otázok nad textom výzvy | regionálne centrá, národné kontaktné body, PPA |
 
@@ -277,7 +280,7 @@ Ani jeden proces nie je „Hotové“, lebo každý astrin bod žiada aj niečo,
 | 9 | Podanie, registrácia a formálne náležitosti | Podateľňa: príjem, zaradenie príloh, znaky obsahu, súlad žiadateľa a projektu v Prílohe č. 8 s formulárom, znenie výzvy podľa kola. Podpis len označí, z textu sa overiť nedá. | Čiastočne | A (SIEA), inde B | V1 | všetci SO |
 | 10 | Doplnenie neúplného spisu | Návrh výzvy na doplnenie (`src/podatelna/vyzva.ts`), lehota (`src/podatelna/lehoty.ts:73`), doplnenie k spisu (`src/podatelna/podatelna.ts:217`). Návrh: pri návrate ukázať len zmenené miesta. | Čiastočne | A (SIEA), inde B | V1 | všetci SO |
 | 11 | Odborné hodnotenie a vydanie rozhodnutia | Každý nález k žiadosti o NFP má citáciu a úryvok. Návrh: hodnotiaci hárok podľa MD 21, Príloha 1 (diagram O6). | Čiastočne | C | V6 | všetci SO |
-| 12 | Nezávislosť a výkazy odborných hodnotiteľov | Návrh: dôkazový spis o hodnotiteľovi, o konflikte rozhodne človek. Vzor: štatutári v RPO pri V06 (`src/moduly/vo/modul.ts:141-176`). | Nie | C | V6 | všetci SO |
+| 12 | Nezávislosť a výkazy odborných hodnotiteľov | Návrh: dôkazový spis o hodnotiteľovi, o konflikte rozhodne človek. Vzor: štatutári v RPO pri V06 (`src/moduly/vo/modul.ts:203-238`). | Nie | C | V6 | všetci SO |
 | 13 | Kapacita výzvy, poradie a zásobník | Návrh: stav a dôvod čakania pri žiadosti. Súvisí: register výziev počíta zásobník (`src/podatelna/podatelna.ts:513`). | Nie | B | V4 | SIEA, ostatní SO |
 | 14 | Preskúmanie rozhodnutia o príspevku | Posudky a rozhodnutia s poznámkou sa ukladajú (`src/podatelna/podatelna.ts:375`, `:387`). Návrh: chronológia a sporné kritériá pre odborníka. | Čiastočne | B | V6 | SO, PPA (odvolanie) |
 
@@ -294,7 +297,7 @@ Ani jeden proces nie je „Hotové“, lebo každý astrin bod žiada aj niečo,
 | # | Proces | Čo urobí softvér | Stav | Demo | Vzor | Organizácie |
 |---|---|---|---|---|---|---|
 | 18 | Súťažné podklady a vysvetlenia | Návrh: model hľadá rozpory medzi opisom predmetu, výkazom výmer, kritériami a zmluvou. | Nie | C | V5 | prijímatelia, ÚVO |
-| 19 | Kontrola verejného obstarávania | Modul VO V01 až V07 (`packs/PSK-SIEA-002-2023-DV-EFRR/vo.json:38-125`). Lehoty ÚVO podľa MD 26 chýbajú. Prehľad 68 využití vo `VYUZITIA-VO.md`. | Čiastočne | A (SIEA), inde B, lehoty C | V5 | ÚVO, SO, prijímatelia |
+| 19 | Kontrola verejného obstarávania | Modul VO V01 až V07 (`packs/PSK-SIEA-002-2023-DV-EFRR/vo.json:53-140`). Lehoty ÚVO podľa MD 26 chýbajú. Prehľad 68 využití vo `VYUZITIA-VO.md`. | Čiastočne | A (SIEA), inde B, lehoty C | V5 | ÚVO, SO, prijímatelia |
 | 20 | Námietky pri obstarávaní | Návrh: zoradiť dôkazy a odôvodnenia pred podaním. | Nie | C | V5 | uchádzači, ÚVO |
 | 21 | Míľniky a skutočný postup stavby | Návrh: porovnať hlásenie s posledným harmonogramom a upozorniť na posunutý závislý termín. Súvisí: včasnosť monitorovacích správ v module Ukazovatele. | Nie | C; pri Pláne obnovy D (vymyslené: C) | V6 | NIKA, ministerstvo dopravy, SO |
 | 22 | Monitorovacia správa a ukazovatele | Modul Ukazovatele: plnenie ukazovateľov, krátenie podľa kalkulačky SIEA, včasnosť správ. Návrh: väzba každého tvrdenia na protokol a definíciu ukazovateľa. | Čiastočne | A (SIEA), inde C | V6 | všetci SO |
@@ -407,14 +410,14 @@ Webové stránky ÚVO:
 - **SAŽP.** Nepoznám verejné API pre žiadosti a platby.
 - **Existujúce nástroje** (SOLA, asistent v Mape partnerstva, Truhlica, AMS) sú uvedené podľa astry.
   Čo presne robia, som neoveril.
-- **Demo pre ÚVO.** Má zmysel až po oprave T4. Kým pravidlá VO citujú príručku CKO VO v2, ÚVO by videl limit,
-  ktorý MD 26 zmenila.
+- **Demo pre ÚVO.** Oprava T4 je hotová. Neoverené zostáva, ako ÚVO číta MD 26 r. 100 pri VO začatom pred
+  31. 7. 2026 a bunku „Povinná“ v tabuľke kontrol pri nadlimitných stavebných prácach (`TODO.md`, T4).
 
 ## Súvisiace
 
 - [`VYUZITIA-VO.md`](../../VYUZITIA-VO.md): 68 využití vo verejnom obstarávaní so stavom a zdrojmi.
-- [`TODO.md`](../../TODO.md): T1 (údaje z verejných zdrojov), T2 (označenie neoverených bodov), T3 (poistky V07),
-  T4 (balík VO podľa MD 26).
+- [`TODO.md`](../../TODO.md): T1 (údaje z verejných zdrojov), T2 (označenie neoverených bodov), T3 (poistky V07);
+  T4 (balík VO podľa MD 26) je hotová.
 - [`reports/2026-11-27-procesy-a-rozhodovanie/README.md`](../2026-11-27-procesy-a-rozhodovanie/README.md):
   posúdenie astriných bodov 6.2 a diagramy procesov SIEA.
 
@@ -454,7 +457,7 @@ Webové stránky ÚVO:
 | PSK | Program Slovensko; predpona kódu výzvy, napríklad `PSK-SIEA-002-2023-DV-EFRR` |
 | V01, G10, P03 | identifikátory pravidiel; platia len v rámci jedného balíka. V01 je v balíku VO limit postupu, v balíku žiadosti o NFP kontrola, či je formulár predložený do tejto výzvy. P03 je v balíku žiadosti o NFP uznesenie obce, v balíku ŽoP dvojité nárokovanie. G označuje overenia v registroch pri žiadosti o NFP |
 | U46 | riadok tabuľky vo `VYUZITIA-VO.md` (U01 až U68), nie pravidlo U01 až U03 modulu ukazovateľov |
-| T1 až T4 | otvorené úlohy v `TODO.md` |
+| T1 až T4 | úlohy v `TODO.md` (T4 je hotová) |
 | S, M, L | hrubý odhad rozsahu návrhu vo `VYUZITIA-VO.md` |
 | r. | riadok textového výťahu predpisu v `data/zdroje/<priečinok>/txt/` |
 | pravidlo 80 dní | lehota na vyplatenie žiadosti o platbu prijímateľovi (podľa astry; lokálne podklady ho nedokladajú [overiť]) |

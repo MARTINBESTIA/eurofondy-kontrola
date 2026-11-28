@@ -4,13 +4,28 @@
  "vyzvaKod": "PSK-SIEA-002-2023-DV-EFRR",
  "vyzvaNazov": "Výzva na podporu energetickej efektívnosti a využívania OZE vo verejných budovách",
  "poskytovatel": "Slovenská inovačná a energetická agentúra; kontrola VO: ÚVO ako sprostredkovateľský orgán",
- "verzia": "Príručka k procesu a kontrole VO/O, verzia 2 (1. 8. 2024)",
- "platnaOd": "2024-08-01",
+ "verzia": "MD č. 26, Príručka k procesu a kontrole VO/O, verzia 1.0 (účinnosť 31. 7. 2026); limit postupu pri VO začatom skôr aj podľa príručky CKO VO v2 (1. 8. 2024) a vyhlášok ÚVO",
+ "platnaOd": "2026-07-31",
  "zdroje": [
   {
-   "nazov": "Príručka k procesu a kontrole verejného obstarávania/obstarávania, verzia 2", "skratka": "Príručka k procesu a kontrole VO/O v2",
+   "nazov": "Metodický dokument riadiaceho orgánu pre Program Slovensko č. 26: Príručka k procesu a kontrole verejného obstarávania / obstarávania, verzia 1.0", "skratka": "MD č. 26",
+   "subor": "data/zdroje/MIRRI-MD26-prirucka-VO/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.docx",
+   "url": "https://eurofondy.gov.sk/wp-content/uploads/2026/07/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.docx"
+  },
+  {
+   "nazov": "Príručka k procesu a kontrole verejného obstarávania/obstarávania, verzia 2 (platná pred MD č. 26)", "skratka": "Príručka k procesu a kontrole VO/O v2",
    "subor": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
    "url": ""
+  },
+  {
+   "nazov": "Vyhláška ÚVO č. 421/2025 Z. z. o finančných limitoch (účinnosť 1. 1. 2026)",
+   "subor": "",
+   "url": "https://static.slov-lex.sk/static/SK/ZZ/2025/421/20260101.html"
+  },
+  {
+   "nazov": "Vyhláška ÚVO č. 481/2023 Z. z. o finančných limitoch (účinnosť 1. 1. 2024 až 31. 12. 2025)",
+   "subor": "",
+   "url": "https://static.slov-lex.sk/static/SK/ZZ/2023/481/vyhlasene_znenie.html"
   },
   {
    "nazov": "Príručka pre prijímateľa DOP, verzia 3.2", "skratka": "Príručka pre prijímateľa DOP 3.2",
@@ -30,8 +45,8 @@
  ],
  "proces": [
   "Prijímateľ vyberie postup podľa PHZ a druhu zákazky, vykoná VO a uzavrie zmluvu.",
-  "Dokumentáciu predloží cez ITMS21+; ÚVO vykoná kontrolu po uzavretí zmluvy (povinnú alebo podľa rizikovej analýzy) pred zahrnutím výdavkov do ŽoP.",
-  "Pri zistení porušenia sa uplatní finančná oprava podľa prílohy č. 11 príručky VO."
+  "Dokumentáciu predloží cez ITMS21+; pri PHZ od 50 000 EUR vykoná ÚVO ako SO kontrolu po uzavretí zmluvy pred zahrnutím výdavkov do ŽoP, ak poskytovateľ zákazku rizikovou analýzou vyhodnotil ako rizikovú (pri nadlimitných stavebných prácach uvádza tabuľka v MD č. 26 aj „Povinná“).",
+  "Pri zistení porušenia sa uplatní finančná oprava podľa prílohy č. 11 MD č. 26."
  ],
  "pravidla": [
   {
@@ -41,11 +56,11 @@
    "druh": "data",
    "kontrola": "vo_postup",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
-    "cast": "Podlimitné zákazky s oslovením min. troch hospodárskych subjektov; zákazky malého rozsahu",
-    "znenie": "Pri podlimitných zákazkách na tovary a služby zadávané verejným obstarávateľom podľa § 7 ods. 1 písm. a) ZVO a podlimitných zákazkách na tovary a služby zadávané verejným obstarávateľom podľa § 7 ods. 1 písm. b) až e) ZVO s predpokladanou hodnotou nižšou ako 143 000 eur bez DPH, prijímateľ na účel zadania podlimitnej zákazky vyzve na predloženie ponuky aspoň tri hospodárske subjekty"
+    "dokument": "MD č. 26",
+    "cast": "Podlimitné zákazky s oslovením min. troch hospodárskych subjektov",
+    "znenie": "Pri podlimitných zákazkách na tovary a služby zadávaných verejným obstarávateľom podľa § 7 ods. 1 písm. a) ZVO a podlimitných zákazkách na tovary a služby zadávaných verejným obstarávateľom podľa § 7 ods. 1 písm. b) až e) ZVO s predpokladanou hodnotou nižšou ako 140 000 eur bez DPH, prijímateľ na účel zadania podlimitnej zákazky vyzve na predloženie ponuky aspoň tri hospodárske subjekty"
    },
-   "overenieZdroj": "Stavebné práce: limit 360 000 EUR bez DPH (rovnaký odsek); zákazky malého rozsahu do 50 000 EUR bez DPH podľa § 1 ods. 14 ZVO (kap. o určení PHZ). Limity platia od 1. 8. 2024."
+   "overenieZdroj": "Limit sa určuje podľa dňa začatia VO: deň odoslania výzvy alebo oznámenia, inak deň začatia postupu (MD č. 26, Určenie PHZ). ITMS21+ ho neuvádza, zadáva ho kontrolór; bez neho softvér berie rozsah od 1. 8. 2024 po prvú účinnosť zmluvy. Tovary a služby: 143 000 EUR pri VO začatom do 31. 12. 2025 (príručka CKO VO v2, vyhláška ÚVO č. 481/2023 Z. z.); 1. 1. až 30. 7. 2026 vyhláška ÚVO č. 421/2025 Z. z. uvádza 140 000 EUR a vtedy platná príručka v2 143 000 EUR; od 31. 7. 2026 140 000 EUR (MD č. 26). Ak rozsah dní alebo zdroje pripúšťajú dva limity, PHZ medzi nimi dá na preverenie, nikdy splnené. Stavebné práce 360 000 EUR (rovnaký odsek), zákazky malého rozsahu do 50 000 EUR (§ 1 ods. 14 ZVO). Limity príručky sú prísnejšie ako ZVO: § 108 ZVO postup s oslovením sumou neobmedzuje, verejnú výzvu žiada § 110 ods. 1 ZVO len pri stavebných prácach od 800 000 EUR. Limit pre VO začaté po 31. 12. 2027 softvér nepozná (nové prahy EÚ)."
   },
   {
    "id": "V02",
@@ -54,7 +69,7 @@
    "druh": "data",
    "kontrola": "vo_ponuky",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "dokument": "MD č. 26",
     "cast": "Zoznam najčastejších rizikových indikátorov",
     "znenie": "V rámci súťaže bol predložený nízky počet ponúk alebo žiadostí o účasť (1 až 2)."
    }
@@ -66,8 +81,8 @@
    "druh": "data",
    "kontrola": "vo_cena",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
-    "cast": "Určenie predpokladanej hodnoty zákazky",
+    "dokument": "MD č. 26",
+    "cast": "Určenie PHZ",
     "znenie": "PHZ sa stanovuje ako cena bez DPH s cieľom ustanovenia postupu VO podľa finančných limitov"
    }
   },
@@ -90,8 +105,8 @@
    "druh": "data",
    "kontrola": "vo_delenie",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
-    "cast": "Výber postupu, § 6 ods. 16 ZVO",
+    "dokument": "MD č. 26",
+    "cast": "Výber postupu verejného obstarávania, § 6 ods. 16 ZVO",
     "znenie": "V súlade s § 6 ods. 16 ZVO nemôže prijímateľ zákazku, koncesiu alebo súťaž návrhov rozdeliť ani zvoliť spôsob určenia PHZ, ak by výsledkom tohto postupu bolo zníženie predpokladanej hodnoty pod finančné limity podľa ZVO"
    },
    "overenieZdroj": "Pri zákazkách malého rozsahu prijímateľ vyhlasuje, že v kalendárnom roku neobstará rovnaký predmet nad 50 000 EUR bez DPH. Rovnaký predmet softvér aproximuje rovnakými prvými tromi číslicami CPV."
@@ -103,9 +118,9 @@
    "druh": "register",
    "kontrola": "vo_rpo",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
-    "cast": "Konflikt záujmov vo verejnom obstarávaní",
-    "znenie": "Podľa § 23 ods. 1 ZVO je verejný obstarávateľ povinný zabezpečiť, aby vo verejnom obstarávaní nedošlo ku konfliktu záujmov, ktorý by mohol narušiť alebo obmedziť hospodársku súťaž alebo porušiť princíp transparentnosti a princíp rovnakého zaobchádzania"
+    "dokument": "MD č. 26",
+    "cast": "Konflikt záujmov",
+    "znenie": "Podľa § 23 ods. 1 ZVO je verejný obstarávateľ povinný zabezpečiť, aby vo verejnom obstarávaní / obstarávaní nedošlo ku konfliktu záujmov, ktorý by mohol narušiť alebo obmedziť hospodársku súťaž alebo porušiť princíp transparentnosti a princíp rovnakého zaobchádzania"
    },
    "overenieZdroj": "Register právnických osôb, aktuálne údaje; porovnáva sa len zhoda mena štatutára."
   },
@@ -168,10 +183,11 @@
     ]
    },
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "dokument": "MD č. 26",
     "cast": "Podlimitné zákazky – všeobecné pravidlá",
     "znenie": "Postup prijímateľa pri zadávaní podlimitnej zákazky bude zdokumentovaný v rámci záznamu zo zadania zákazky (netýka sa zjednodušeného postupu pre zákazky na bežne dostupné tovary a služby)."
-   }
+   },
+   "overenieZdroj": "MD č. 26 uvádza 15 minimálnych náležitostí záznamu. V07 overuje 9 z nich (predmet, PHZ, kritérium, oslovené subjekty s dátumom, zoznam uchádzačov bez dátumu a času predloženia, úspešný uchádzač, konečná zmluvná cena, konflikt záujmov podľa § 23 ZVO, meno, funkcia, dátum a podpis zodpovednej osoby). Neoveruje identifikáciu prijímateľa, spôsob zadania zákazky, informáciu o overení oprávnenosti oslovených subjektov, dátum predloženia ponúk, vyhodnotenie podmienok účasti a spôsob vzniku záväzku."
   }
  ],
  "podmienky": [
@@ -186,9 +202,9 @@
     "V03"
    ],
    "pokrytie": "ciastocne",
-   "neoverene": "postup pri nadlimitných zákazkách, koncesiách a výnimkách a správnosť určenia PHZ (V03 porovnáva PHZ len s cenou zmlúv)",
+   "neoverene": "postup pri nadlimitných zákazkách, koncesiách a výnimkách, správnosť určenia PHZ (V03 porovnáva PHZ len s cenou zmlúv) a deň začatia VO, ktorý ITMS21+ neuvádza (V01 ho berie zo zadania kontrolóra, inak z rozsahu dní)",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "dokument": "MD č. 26",
     "cast": "Určenie PHZ",
     "znenie": "PHZ sa stanovuje ako cena bez DPH s cieľom ustanovenia postupu VO podľa finančných limitov"
    }
@@ -203,7 +219,7 @@
    "pokrytie": "ziadne",
    "neoverene": "dokumentácia k určeniu PHZ (prieskum trhu alebo iný postup, podklady nie staršie ako 6 mesiacov ku dňu vyhlásenia VO)",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "dokument": "MD č. 26",
     "cast": "Určenie PHZ",
     "znenie": "Informácie a podklady, na základe ktorých bola určená PHZ nesmú byť staršie ako 6 mesiacov ku dňu vyhlásenia VO. [...] Prijímateľ písomne zdokumentuje spôsob určenia PHZ."
    }
@@ -220,7 +236,7 @@
    "pokrytie": "ciastocne",
    "neoverene": "nediskriminačný opis predmetu zákazky, primerané podmienky účasti a kritériá na vyhodnotenie ponúk (V02 je len rizikový indikátor nízkeho počtu ponúk)",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "dokument": "MD č. 26",
     "cast": "Realizácia verejného obstarávania, Všeobecné pravidlá",
     "znenie": "Príprava a zadávanie zákaziek, koncesií a súťaže návrhov sa nesmú realizovať so zámerom nedovoleného uplatnenia výnimky zo ZVO alebo narušenia hospodárskej súťaže bezdôvodným zvýhodnením alebo znevýhodnením hospodárskych subjektov."
    }
@@ -237,8 +253,8 @@
    "pokrytie": "ciastocne",
    "neoverene": "zákazky toho istého obstarávateľa mimo tejto výzvy a zákazky bez uvedenej PHZ",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
-    "cast": "Výber postupu, § 6 ods. 16 ZVO",
+    "dokument": "MD č. 26",
+    "cast": "Výber postupu verejného obstarávania, § 6 ods. 16 ZVO",
     "znenie": "V súlade s § 6 ods. 16 ZVO nemôže prijímateľ zákazku, koncesiu alebo súťaž návrhov rozdeliť ani zvoliť spôsob určenia PHZ, ak by výsledkom tohto postupu bolo zníženie predpokladanej hodnoty pod finančné limity podľa ZVO"
    }
   },
@@ -252,7 +268,7 @@
    "pokrytie": "ziadne",
    "neoverene": "ak je zákazka zadaná v režime výnimky (§ 1 ods. 2 až 14 ZVO), či výnimku naozaj spĺňa",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "dokument": "MD č. 26",
     "cast": "Zadávanie zákaziek, na ktoré sa zákon o verejnom obstarávaní nevzťahuje",
     "znenie": "Prijímateľ nesmie zadať zákazku v režime výnimky s cieľom vyhnúť sa použitiu pravidiel a postupov zadávania zákaziek podľa ZVO."
    }
@@ -269,9 +285,9 @@
    "pokrytie": "ciastocne",
    "neoverene": "prepojenie ďalších zainteresovaných osôb s uchádzačmi (nielen štatutárov) a stav k dátumu zadania zákazky; V06 porovnáva len mená štatutárov v aktuálnom RPO",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
-    "cast": "Konflikt záujmov vo verejnom obstarávaní",
-    "znenie": "Podľa § 23 ods. 1 ZVO je verejný obstarávateľ povinný zabezpečiť, aby vo verejnom obstarávaní nedošlo ku konfliktu záujmov, ktorý by mohol narušiť alebo obmedziť hospodársku súťaž alebo porušiť princíp transparentnosti a princíp rovnakého zaobchádzania"
+    "dokument": "MD č. 26",
+    "cast": "Konflikt záujmov",
+    "znenie": "Podľa § 23 ods. 1 ZVO je verejný obstarávateľ povinný zabezpečiť, aby vo verejnom obstarávaní / obstarávaní nedošlo ku konfliktu záujmov, ktorý by mohol narušiť alebo obmedziť hospodársku súťaž alebo porušiť princíp transparentnosti a princíp rovnakého zaobchádzania"
    }
   },
   {
@@ -284,9 +300,9 @@
    "pokrytie": "ziadne",
    "neoverene": "podmienky účasti osobného postavenia úspešného uchádzača (§ 32 ods. 1 písm. e) a f) ZVO), dôvod na vylúčenie pre konflikt záujmov a zápis v registri partnerov verejného sektora",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
-    "cast": "Podlimitné zákazky s oslovením min. troch hospodárskych subjektov",
-    "znenie": "Prijímateľ nesmie uzavrieť zmluvu s uchádzačom, ktorý nespĺňa podmienky účasti osobného postavenia podľa § 32 ods. 1 písm. e) a f) ZVO alebo ak u neho existuje dôvod na vylúčenie podľa § 40 ods. 6 písm. f) ZVO (konflikt záujmov nemožno odstrániť inými účinnými opatreniami), ustanovenie § 11 ZVO (povinnosť zápisu do RPVS) tým nie je dotknuté."
+    "dokument": "MD č. 26",
+    "cast": "Realizácia verejného obstarávania, Všeobecné pravidlá; Podlimitné zákazky – všeobecné pravidlá",
+    "znenie": "Prijímateľ nesmie uzavrieť zmluvu, koncesnú zmluvu alebo rámcovú dohodu s dodávateľom alebo dodávateľmi, ktorí majú povinnosť zapisovať sa do RPVS a nie sú zapísaní v RPVS [...] Na zadávanie podlimitných zákaziek sa povinne nevzťahujú inštitúty druhej časti, prvej hlavy ZVO (t. j. procesné ustanovenia k zadávaniu nadlimitných zákaziek) iné ako tie, na ktoré sa v ustanoveniach § 108 a § 111 explicitne odkazuje (napr. § 32 ods. 1 písm. e) a f), § 40 ods. 6 písm. f), § 46, § 64)."
    }
   },
   {
@@ -299,9 +315,9 @@
     "V07"
    ],
    "pokrytie": "ciastocne",
-   "neoverene": "ostatná dokumentácia VO (výzva na predkladanie ponúk, ponuky, zmluva) a súlad údajov záznamu s údajmi VO v ITMS21+",
+   "neoverene": "6 z 15 náležitostí záznamu podľa MD č. 26 (identifikácia prijímateľa, spôsob zadania zákazky, overenie oprávnenosti oslovených subjektov, dátum predloženia ponúk, vyhodnotenie podmienok účasti, spôsob vzniku záväzku), ostatná dokumentácia VO (výzva na predkladanie ponúk, ponuky, zmluva) a súlad údajov záznamu s údajmi VO v ITMS21+",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "dokument": "MD č. 26",
     "cast": "Podlimitné zákazky – všeobecné pravidlá",
     "znenie": "Postup prijímateľa pri zadávaní podlimitnej zákazky bude zdokumentovaný v rámci záznamu zo zadania zákazky (netýka sa zjednodušeného postupu pre zákazky na bežne dostupné tovary a služby)."
    }
@@ -333,7 +349,7 @@
    "pokrytie": "ziadne",
    "neoverene": "súlad každého dodatku s § 18 ZVO a so schválenou ŽoNFP a zmluvou o NFP",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O v2",
+    "dokument": "MD č. 26",
     "cast": "Kontrola zmien zmluvy - dodatkov",
     "znenie": "Predmetom kontroly dodatkov je posúdenie ich súladu s príslušnými ustanoveniami ZVO, a to najmä ustanovením § 18 ZVO, ak ide o zmenu zmluvy, ktorá sa viaže k zákazke verejného obstarávania."
    }

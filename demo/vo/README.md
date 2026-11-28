@@ -8,7 +8,7 @@ Modul VO nie je v Podateľni. Je na karte **Kontrola**, v kroku procesu **Verejn
 
 | Pravidlo | Čo kontroluje | Odkiaľ |
 |---|---|---|
-| V01 | PHZ nepresahuje limit postupu (malý rozsah do 50 000 EUR, podlimitná s oslovením troch subjektov pod 143 000 / 360 000 EUR) | údaje VO z ITMS21+ |
+| V01 | PHZ nepresahuje limit postupu (malý rozsah do 50 000 EUR, podlimitná s oslovením troch subjektov: tovary a služby pod 143 000 EUR pri VO začatom do 31. 12. 2025, pod 140 000 EUR od 31. 7. 2026 podľa MD č. 26, stavebné práce pod 360 000 EUR) | údaje VO z ITMS21+, deň začatia VO zadáva kontrolór |
 | V02 | VO nemá len 1 až 2 ponuky alebo jedinú platnú | údaje VO |
 | V03 | cena zmlúv zodpovedá PHZ | údaje VO |
 | V04 | faktúry neprevyšujú zmluvy | údaje VO a účtovné doklady |
@@ -71,8 +71,13 @@ uvedené pole a stlač **Skontrolovať**. Pred ďalším scenárom vyber VO v zo
 | R1 | `VO02211653` | nič | reálne VO s jedinou ponukou, V02 **na preverenie** |
 | R2 | `VO61189849` | nič | jediné VO výzvy s nesplnenou podmienkou: zákazka malého rozsahu s PHZ 270 193,23 EUR. Softvér nevie, či ide o zle zaevidovaný postup v ITMS21+, alebo o porušenie; to posúdi kontrolór |
 
-Pri každom VO ukazuje box pod nálezmi aj to, aký druh kontroly VO podľa príručky prichádza do úvahy (od 50 000 EUR
-kontrola po uzavretí zmluvy, pod touto hranicou overenie hospodárnosti pri finančnej kontrole).
+Pri každom VO ukazuje box pod nálezmi aj to, aký druh kontroly VO podľa MD č. 26 prichádza do úvahy (od 50 000 EUR
+kontrola ÚVO ako SO po uzavretí zmluvy, ak poskytovateľ zákazku rizikovou analýzou vyhodnotí ako rizikovú; pod touto
+hranicou prieskum trhu na overenie hospodárnosti a pri zákazke malého rozsahu vyhlásenie o rovnakom predmete v roku).
+
+Pri podlimitnej zákazke na tovary a služby určuje limit V01 deň začatia VO (pole **Deň začatia VO** v boxe Údaje):
+143 000 EUR pri VO začatom do 31. 12. 2025, 140 000 EUR od 31. 7. 2026. Bez dňa začatia a pri PHZ medzi limitmi
+možných období dá V01 „na preverenie“, nikdy „splnené“.
 
 ## 3. Voliteľne: konflikt záujmov cez register RPO (V06)
 

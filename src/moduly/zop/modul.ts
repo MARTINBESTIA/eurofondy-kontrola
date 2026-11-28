@@ -211,11 +211,11 @@ function voKontrola(v: VstupZop): VysledokKontroly {
   // VO, ktoré v dátach chýba, a VO bez PHZ sa nepočítajú ako PHZ 0: pri nich sa nedá určiť, či je kontrola VO potrebná.
   const chybaVo = ids.filter((id) => !VO.has(id)); const bezPhz = vos.filter((x) => x.phz == null);
   const velke = vos.filter((x) => x.phz != null && x.phz >= 50_000);
-  if (v.voKontrola === 'nie') return { stav: 'nesplnene', zdovodnenie: 'Podľa zadania kontrola VO pred zahrnutím výdavkov do ŽoP neprebehla alebo nebola ukončená.' };
-  if (v.voKontrola === 'ano') return { stav: 'splnene', zdovodnenie: 'Podľa zadania bola kontrola VO ukončená pred zahrnutím výdavkov do ŽoP.' };
-  const velkeText = velke.length ? `VO s PHZ od 50 000 EUR: ${velke.map((x) => `${x.kod} (${eur(x.phz)}, ${x.postup.slice(0, 60)})`).join('; ')}. Pri týchto postupoch môže byť kontrola po uzavretí zmluvy povinná; jej výsledok verejné dáta neobsahujú.` : '';
-  if (chybaVo.length || bezPhz.length) return { stav: 'mimo_podkladov', zdovodnenie: [velkeText, `PHZ nie je známa pri ${[...bezPhz.map((x) => x.kod), ...chybaVo.map((id) => `VO id ${id} (chýba v dátach)`)].join(', ')}, preto sa nedá určiť, či bola potrebná kontrola VO po uzavretí zmluvy.`].filter(Boolean).join(' ') };
-  if (!velke.length) return { stav: 'neuplatnuje_sa', zdovodnenie: vos.length ? 'Všetky priradené VO majú PHZ pod 50 000 EUR; kontrola po uzavretí zmluvy sa podľa tabuľky príručky VO nevyžaduje.' : 'ŽoP nemá priradené VO.' };
+  if (v.voKontrola === 'nie') return { stav: 'nesplnene', zdovodnenie: 'Podľa zadania posúdenie VO (analýza rizík, pri rizikovej zákazke kontrola ÚVO ako SO) pred zahrnutím výdavkov do ŽoP neprebehlo alebo nebolo ukončené.' };
+  if (v.voKontrola === 'ano') return { stav: 'splnene', zdovodnenie: 'Podľa zadania bolo posúdenie VO (analýza rizík, pri rizikovej zákazke kontrola ÚVO ako SO) ukončené pred zahrnutím výdavkov do ŽoP.' };
+  const velkeText = velke.length ? `VO s PHZ od 50 000 EUR: ${velke.map((x) => `${x.kod} (${eur(x.phz)}, ${x.postup.slice(0, 60)})`).join('; ')}. Podľa MD č. 26 ich poskytovateľ formálne posúdi a analýzou rizík určí, či sa kontrola vykoná; zákazky vyhodnotené ako rizikové kontroluje ÚVO ako SO po uzavretí zmluvy a pred predložením výdavkov v ŽoP (pri nadlimitných stavebných prácach tabuľka uvádza aj „Povinná“). Výsledok posúdenia ani kontroly nie je vo verejných dátach.` : '';
+  if (chybaVo.length || bezPhz.length) return { stav: 'mimo_podkladov', zdovodnenie: [velkeText, `PHZ nie je známa pri ${[...bezPhz.map((x) => x.kod), ...chybaVo.map((id) => `VO id ${id} (chýba v dátach)`)].join(', ')}, preto sa nedá určiť, či VO patrí do posúdenia a kontroly po uzavretí zmluvy.`].filter(Boolean).join(' ') };
+  if (!velke.length) return { stav: 'neuplatnuje_sa', zdovodnenie: vos.length ? 'Všetky priradené VO majú PHZ pod 50 000 EUR; tabuľka kontrol VO v MD č. 26 sa začína od 50 000 EUR, kontrola po uzavretí zmluvy sa preto nevyžaduje.' : 'ŽoP nemá priradené VO.' };
   return { stav: 'mimo_podkladov', zdovodnenie: velkeText };
 }
 
@@ -357,7 +357,7 @@ function dokladyZop(v: VstupZop, n: Nalez, p: Pravidlo): Podklad[] {
     case 'zop_dph_vypocet': return dokladyVstupov(n, zdroj, [u('Položky dokladov: základ × sadzba = DPH', (x) => uctovne(x).flatMap((d) => d.polozky.map((q) => `${d.cislo}: ${eur(q.bezDph)} × ${q.sadzba == null ? '–' : `${cislo(q.sadzba)} %`} = ${eur(q.dph)}`)))]);
     case 'zop_vo_vazba': return dokladyVstupov(n, zdroj, [u('Výdavky a priradené VO', (x) => x.vydavky.map((y) => `č. ${y.poradie} (${y.typ}): ${y.voIds.length ? y.voIds.map((id) => VO.get(id)?.kod ?? `VO id ${id}`).join(', ') : 'bez VO'}`))]);
     case 'zop_vo_kontrola': return v.voKontrola
-      ? dokladyVstupov(n, zdroj, [['Kontrola VO ukončená pred predložením ŽoP', v.voKontrola === 'ano' ? 'áno' : 'nie', ZADANE]])
+      ? dokladyVstupov(n, zdroj, [['Posúdenie VO ukončené pred predložením ŽoP', v.voKontrola === 'ano' ? 'áno' : 'nie', ZADANE]])
       : dokladyVstupov(n, zdroj, [u('Priradené VO a ich PHZ', (x) => [...new Set(x.vydavky.flatMap((y) => y.voIds))].map((id) => { const o = VO.get(id); return o ? `${o.kod}: PHZ ${eur(o.phz)}` : `VO id ${id}: chýba v dátach`; }))]);
     case 'zop_vo_zmluva': return dokladyVstupov(n, zdroj, [u('Zmluvy z VO priradené výdavkom: suma (ITMS21+ neuvádza, či s DPH)', (x) => [...new Set(x.vydavky.flatMap((y) => y.zmluvaVoIds))].map((id) => { const s = ZMLUVY.get(id); return s ? `zmluva k ${s.vo.kod}: ${eur(s.suma)}` : `zmluva id ${id}: chýba v dátach`; }))],
       [u('Výdavky so zmluvou z VO: žiadaná suma a z nej bez DPH', (x) => x.vydavky.filter((y) => y.zmluvaVoIds.length).map((y) => `č. ${y.poradie}: ${y.ziadana == null ? 'žiadaná suma nezadaná' : `${eur(y.ziadana)}, bez DPH ${eur(r2(ziadanaBezDph(y)))}`}`)),
@@ -401,7 +401,7 @@ export const zop: Modul<VstupZop> = {
     { kluc: 'hotovostMax', typ: 'cislo', nazov: 'Najvyššia jednotlivá platba v hotovosti (EUR)' },
     { kluc: 'hotovostMesiac', typ: 'cislo', nazov: 'Najvyššia suma hotovostných platieb v jednom mesiaci (EUR)' },
     { kluc: 'hotovostMajetok', typ: 'vyber', nazov: 'Hotovosťou sa platil dlhodobý majetok', moznosti: [{ hodnota: '', nazov: 'nezadané' }, { hodnota: 'nie', nazov: 'nie' }, { hodnota: 'ano', nazov: 'áno' }] },
-    { kluc: 'voKontrola', typ: 'vyber', nazov: 'Kontrola VO bola ukončená pred predložením ŽoP', moznosti: [{ hodnota: '', nazov: 'nezadané' }, { hodnota: 'ano', nazov: 'áno' }, { hodnota: 'nie', nazov: 'nie' }] },
+    { kluc: 'voKontrola', typ: 'vyber', nazov: 'Posúdenie VO (analýza rizík, pri rizikovej zákazke kontrola ÚVO ako SO) bolo ukončené pred predložením ŽoP', moznosti: [{ hodnota: '', nazov: 'nezadané' }, { hodnota: 'ano', nazov: 'áno' }, { hodnota: 'nie', nazov: 'nie' }] },
   ],
   prilohy: (v) => povinnePrilohy(v).map(({ cislo, nazov }) => ({ cislo, nazov })),
   doFormulara: (v) => ({ ...Object.fromEntries(v.zop.vydavky.slice(0, 12).map((x) => [`ziadana_${x.id}`, x.ziadana])), hotovostMax: v.hotovostMax, hotovostMesiac: v.hotovostMesiac, hotovostMajetok: v.hotovostMajetok, voKontrola: v.voKontrola }),

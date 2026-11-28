@@ -24,7 +24,8 @@ efektívnosť a OZE vo verejných budovách):
 Otvorené úlohy (napr. dohľadanie údajov z verejných registrov, spresnenie poistiek) sú v `TODO.md`.
 
 Zdroje pravidiel: výzva (Zmena č. 3), VZP verzia 2.2, Príručka pre prijímateľa DOP 3.2 (1. 6. 2026) a jej
-príloha č. 12 (sankčná kalkulačka MU), Príručka k procesu a kontrole VO/O verzia 2 (1. 8. 2024). Pri
+príloha č. 12 (sankčná kalkulačka MU), MD č. 26 (Príručka k procesu a kontrole VO/O verzia 1.0, účinná od 31. 7. 2026;
+pri limite postupu VO začatého skôr aj príručka CKO VO verzia 2 a vyhlášky ÚVO č. 481/2023 a 421/2025 Z. z.). Pri
 plánovaní výziev sú pravidlami údaje ITMS21+, nie právny text, a citácie to tak aj uvádzajú.
 
 ## Spustenie
@@ -275,7 +276,7 @@ z XLSM (Príloha č. 8 ŽoNFP), kde má lepšie knižnice.
   hodnotiacich kolách zo stránky SIEA (94 PDF). Pri neschválených je dôvod: nedostatok finančných
   prostriedkov alebo nesplnenie podmienok poskytnutia príspevku. Ktorá podmienka, zverejnené nie je.
 - **Pravidlá:** balík výzvy z ITMS21+ (`/dokument/<uuid>`), text výzvy, zoznam príloh, kritériá výberu,
-  merateľné ukazovatele; VZP 2.2, príručka DOP 3.2 s prílohou č. 12, príručka VO v2 (`data/zdroje/`).
+  merateľné ukazovatele; VZP 2.2, príručka DOP 3.2 s prílohou č. 12, MD č. 26 a príručka VO v2 (`data/zdroje/`).
 - **Projekty** (`/projekt`): 242 projektov výzvy so zmluvou, ukazovateľmi, harmonogramom monitorovania
   a 2 336 zmenami (predmet, číslo dodatku, názvy príloh).
 - **ŽoP a VO** (`/zop`, `/uctovnydoklad`, `/verejneobstaravanie`, `/dodavatelobstaravatel`): 1 367 ŽoP,
@@ -535,7 +536,10 @@ Nezávislý audit astry (Codex) našiel štyri ďalšie cesty k falošnému OK. 
 - Plánovanie výziev: pravidlá sú údaje ITMS21+, nie právny text. Posun plánovanej výzvy sa zistí až z dvoch a
   viac denných snímok (`npm run data:projekty` treba spúšťať pravidelne).
 - VO: limity postupov sú overené len pre zákazky malého rozsahu (50 000 EUR) a podlimitné s oslovením troch
-  subjektov (143 000 / 360 000 EUR) od 1. 8. 2024. RPO porovnáva len zhodu mien štatutárov v aktuálnom stave;
+  subjektov pri VO začatom od 1. 8. 2024. Limit pre tovary a služby sa určuje podľa dňa začatia VO: 143 000 EUR do
+  31. 12. 2025, od 31. 7. 2026 140 000 EUR (MD č. 26); 1. 1. až 30. 7. 2026 sa vyhláška ÚVO (140 000) a vtedy platná
+  príručka v2 (143 000) rozchádzajú. Stavebné práce 360 000 EUR. ITMS21+ deň začatia neuvádza, zadáva ho kontrolór;
+  bez neho PHZ medzi limitmi možných období dá na preverenie. Limit po 31. 12. 2027 softvér nepozná. RPO porovnáva len zhodu mien štatutárov v aktuálnom stave;
   príbuzenské vzťahy a historických štatutárov neoverí.
 - Zmeny: zatriedenie je pravidlové podľa textu predmetu zmeny a typov z VZP čl. 16 a kap. 4.13 príručky.
   Presnosť voči skutočnému formuláru sa z verejných dát zmerať nedá.

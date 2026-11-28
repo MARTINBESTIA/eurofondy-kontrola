@@ -146,6 +146,16 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
   VSETKY_VO.splice(VSETKY_VO.length - pridane.length, pridane.length);
   // Audit A07: doklady s DPH nad sumou zmlúv nie sú „neprevyšujú“, aj keď sú pod 123 % zmlúv.
   r.zasadene.push(await zasad(m, b, 'Faktúry o 10 % nad súčet zmlúv', 'V04', 'na_preverenie', sZmluvou.map((v) => { const x = structuredClone(v); const s = x.vo.zmluvy.reduce((a, z) => a + (z.suma ?? 0), 0); x.vo.doklady = [{ id: -1, cislo: 'T', celkom: s * 1.1, datum: null }]; return x; })));
+  // T4: limit podlimitnej zákazky s oslovením na tovary a služby podľa dňa začatia VO: 143 000 EUR do 31. 12. 2025,
+  // vyhláška ÚVO č. 421/2025 Z. z. 140 000 EUR od 1. 1. 2026, MD č. 26 od 31. 7. 2026. PHZ 141 000 EUR je medzi nimi.
+  const tovary108 = vs.filter((v) => /§ 108/.test(v.vo.postup) && !/stavebn/i.test(v.vo.druhZakazky));
+  const pasmo = (zaciatok: string | null, ucinnost: string) => tovary108.map((v) => { const x = structuredClone(v); x.vo.phz = 141_000; x.vo.vytvorene = '2026-03-02'; x.vo.zaciatok = zaciatok; x.vo.zmluvy = x.vo.zmluvy.map((z) => ({ ...z, ucinnost })); return x; });
+  r.zasadene.push(
+    await zasad(m, b, 'Tovary a služby s oslovením, PHZ 141 000 EUR, VO začaté 15. 9. 2026 (MD č. 26: pod 140 000 EUR)', 'V01', 'nesplnene', pasmo('2026-09-15', '2026-11-02')),
+    await zasad(m, b, 'Tovary a služby s oslovením, PHZ 141 000 EUR, zmluva z 20. 4. 2026, deň začatia VO neznámy', 'V01', 'na_preverenie', pasmo(null, '2026-04-20')),
+    await zasad(m, b, 'Tovary a služby s oslovením, PHZ 141 000 EUR, VO začaté 2. 3. 2026 (vyhláška 140 000 EUR, príručka v2 143 000 EUR)', 'V01', 'na_preverenie', pasmo('2026-03-02', '2026-04-20')),
+    await zasad(m, b, 'Tovary a služby s oslovením, PHZ 141 000 EUR, VO začaté 1. 2. 2028 (nové prahy EÚ softvér nemá)', 'V01', 'na_preverenie', pasmo('2028-02-01', '2028-03-01')),
+  );
   // Audit A06: úprava súčtu zmlúv o 1 EUR nesmie zmeniť režim V01 (účinnosť zmluvy pred 1. 8. 2024).
   const sumou = vs.filter((v) => v.vo.zmluvy.some((z) => z.suma != null));
   const v01 = async (x: VstupVo) => (await posud(x, b, m, { llm: false, iba: ['V01'] })).nalezy[0];
@@ -154,10 +164,17 @@ const vsetkyId = (m: Modul) => m.pripady('', '', 1e9).pripady.map((p) => p.id);
   const v1851 = nacitaj<VstupVo>(m, 'VO01851095'); const d1851 = await v01(m.zFormulara!(v1851, { ...m.doFormulara!(v1851), zmluva: 19_381 }));
   const ucinnost = d1851.doklady?.find((d) => d.miesto === 'Účinnosť zmlúv');
   const f405 = (await posud(nacitaj<VstupVo>(m, 'VO00064405'), b, m, { llm: false, iba: ['V04'] })).nalezy[0];
+  // T4: skutočné VO v pásme 140 000 až 142 999 EUR so zmluvou z roku 2025 a deň začatia z formulára kontrolóra.
+  const v7195 = nacitaj<VstupVo>(m, 'VO17195877'); const f7195 = m.doFormulara!(v7195);
+  const [t4, t4den, t4zly] = [await v01(v7195), await v01(m.zFormulara!(v7195, { ...f7195, zaciatok: '2025-02-02' })), await v01(m.zFormulara!(v7195, { ...f7195, zaciatok: '2025-06-01' }))];
+  const denDoklad = t4den.doklady?.find((d) => d.miesto.startsWith('Deň začatia VO'));
   r.overenia = [
     { nazov: `A06: súčet zmlúv o 1 EUR vyšší nezmení V01 pri žiadnom z ${sumou.length} VO so zmluvou`, vysledok: zmenene.length ? zmenene.slice(0, 5).join('; ') : 'bez zmeny', ok: sumou.length > 0 && !zmenene.length },
     { nazov: 'A06: VO01851095 so súčtom 19 381 EUR ostane na preverenie a doloží účinnosť 26. 3. 2024 z ITMS21+', vysledok: `${d1851.stav}; ${ucinnost ? `${ucinnost.nazov.split(',')[0]}: ${ucinnost.citat}` : 'bez dokladu účinnosti'}`, ok: d1851.stav === 'na_preverenie' && !!ucinnost?.nazov.startsWith('ITMS21+') && /26\. 3\. 2024/.test(ucinnost.citat) },
     { nazov: 'A07: VO00064405 (doklady 1 723 377,98 EUR, zmluvy 1 526 945,44 EUR) → V04 na preverenie, prevyšujú aj bez DPH', vysledok: `${f405.stav}: ${f405.zdovodnenie.slice(0, 150)}`, ok: f405.stav === 'na_preverenie' && /aj bez DPH \(1\s641\s312,35 EUR\)/.test(f405.zdovodnenie) && !!f405.doklady?.some((d) => /s DPH/.test(d.miesto)) },
+    { nazov: 'T4: VO17195877 (PHZ 142 000 EUR, zmluva účinná 25. 3. 2025) ostane v limite 143 000 EUR', vysledok: `${t4.stav}: ${t4.zdovodnenie.slice(0, 120)}`, ok: t4.stav === 'splnene' && /143\s000 EUR/.test(t4.zdovodnenie) && !/140\s000/.test(t4.zdovodnenie) },
+    { nazov: 'T4: rovnaké VO s dňom začatia 2. 2. 2025 z formulára je splnené a deň doloží formulár kontrolóra', vysledok: `${t4den.stav}; ${denDoklad ? `${denDoklad.nazov.split(',')[0]}: ${denDoklad.citat}` : 'bez dokladu dňa'}`, ok: t4den.stav === 'splnene' && !!denDoklad?.nazov.startsWith('Formulár kontrolóra') && denDoklad.citat === '2. 2. 2025' },
+    { nazov: 'T4: deň začatia 1. 6. 2025 je po účinnosti zmluvy 25. 3. 2025, V01 ide na preverenie', vysledok: `${t4zly.stav}: ${t4zly.zdovodnenie.slice(-110)}`, ok: t4zly.stav === 'na_preverenie' && /neskorší ako účinnosť zmluvy/.test(t4zly.zdovodnenie) },
   ];
   for (const o of r.overenia) console.log(`  ${o.ok ? '✓' : '✗'} ${o.nazov} → ${o.vysledok}`);
   r.poznamky = [

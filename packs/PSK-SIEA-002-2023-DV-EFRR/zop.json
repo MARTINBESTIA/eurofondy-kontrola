@@ -4,7 +4,7 @@
  "vyzvaKod": "PSK-SIEA-002-2023-DV-EFRR",
  "vyzvaNazov": "Výzva na podporu energetickej efektívnosti a využívania OZE vo verejných budovách",
  "poskytovatel": "Slovenská inovačná a energetická agentúra (sprostredkovateľský orgán pre Program Slovensko)",
- "verzia": "VZP verzia 2.2; Príručka pre prijímateľa DOP verzia 3.2 (1. 6. 2026); Príručka k procesu VO/O verzia 2 (1. 8. 2024)",
+ "verzia": "VZP verzia 2.2; Príručka pre prijímateľa DOP verzia 3.2 (1. 6. 2026); MD č. 26, Príručka k procesu a kontrole VO/O verzia 1.0 (31. 7. 2026)",
  "platnaOd": "2026-06-01",
  "zdroje": [
   {
@@ -18,9 +18,9 @@
    "url": ""
   },
   {
-   "nazov": "Príručka k procesu a kontrole VO/O, verzia 2",
-   "subor": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-   "url": ""
+   "nazov": "Metodický dokument riadiaceho orgánu pre Program Slovensko č. 26: Príručka k procesu a kontrole verejného obstarávania / obstarávania, verzia 1.0", "skratka": "MD č. 26",
+   "subor": "data/zdroje/MIRRI-MD26-prirucka-VO/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.docx",
+   "url": "https://eurofondy.gov.sk/wp-content/uploads/2026/07/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.docx"
   },
   {
    "nazov": "ŽoP, výdavky a účtovné doklady projektov výzvy",
@@ -111,15 +111,15 @@
   {
    "id": "P07",
    "ppp": null,
-   "nazov": "Kontrola VO prebehla pred zahrnutím výdavkov do ŽoP",
+   "nazov": "Posúdenie VO prebehlo pred zahrnutím výdavkov do ŽoP",
    "druh": "data",
    "kontrola": "zop_vo_kontrola",
    "citacia": {
-    "dokument": "Príručka k procesu a kontrole VO/O, verzia 2",
-    "cast": "Definovanie kontrol VO, tabuľka druhov kontrol",
-    "znenie": "Po uzavretí zmluvy s úspešným uchádzačom, pred predložením výdavkov v rámci ŽoP a po schválení príspevku z prostriedkov EÚ"
+    "dokument": "MD č. 26",
+    "cast": "Definovanie kontrol verejného obstarávania/obstarávania, tabuľka druhov kontrol",
+    "znenie": "Po uzavretí zmluvy alebo rámcovej dohody s úspešným uchádzačom, pred predložením výdavkov v rámci ŽoP a po schválení príspevku z prostriedkov EÚ [...] Kontrola po uzavretí zmluvy, ak bola zákazka poskytovateľom na základe ním vykonanej rizikovej analýzy vyhodnotená ako riziková (podnet podáva poskytovateľ)."
    },
-   "overenieZdroj": "Či je kontrola po uzavretí zmluvy povinná, závisí od postupu, PHZ a druhu obstarávateľa (tabuľka v príručke VO); hranica 50 000 EUR."
+   "overenieZdroj": "Tabuľka kontrol VO v MD č. 26 sa začína od PHZ 50 000 EUR. Prijímateľ predloží VO na posúdenie, poskytovateľ ho formálne posúdi a analýzou rizík určí, či sa kontrola vykoná; zákazky vyhodnotené ako rizikové (alebo pri pochybnosti poskytovateľa) kontroluje ÚVO ako SO po uzavretí zmluvy. Pri nadlimitných stavebných prácach bunka tabuľky uvádza aj „Povinná“. Výsledok posúdenia ani kontroly nie je vo verejných dátach, preto pri VO od 50 000 EUR rozhoduje zadanie kontrolóra."
   },
   {
    "id": "P08",
@@ -304,7 +304,7 @@
     "P07"
    ],
    "pokrytie": "ciastocne",
-   "neoverene": "podmienky oprávnenosti výdavkov podľa výzvy a záver kontroly VO, že výdavky možno pripustiť do financovania (P07 overuje len to, že kontrola VO prebehla pred zahrnutím výdavkov do ŽoP)",
+   "neoverene": "podmienky oprávnenosti výdavkov podľa výzvy a záver kontroly VO, že výdavky možno pripustiť do financovania (P07 overuje len to, že posúdenie VO prebehlo pred zahrnutím výdavkov do ŽoP)",
    "citacia": {
     "dokument": "VZP verzia 2.2",
     "cast": "čl. 15 Oprávnené výdavky, ods. 1",
