@@ -1,0 +1,591 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "MIRRI a regióny: projektové zámery integrovaných územných investícií",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-28-organizacie-a-vo/o2-mirri-uzemne-investicie.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "74176cea9e3151a623ed690a13dcb5dd60523ba2"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: hotové aj návrhy"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "mirri",
+      "label": "MIRRI, RC MIRRI a poskytovateľ"
+    },
+    {
+      "id": "ziad",
+      "label": "Budúci žiadateľ"
+    },
+    {
+      "id": "ts",
+      "label": "TS RP alebo AK UMR"
+    },
+    {
+      "id": "rp",
+      "label": "RP alebo KR UMR"
+    },
+    {
+      "id": "sw",
+      "label": "eurofondy-kontrola"
+    }
+  ],
+  "phases": [
+    {
+      "id": "q_vyzva",
+      "label": "Výzva",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "q_pz",
+      "label": "Projektový zámer",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "q_stan",
+      "label": "Stanovisko TS",
+      "fromCol": 2,
+      "toCol": 2
+    },
+    {
+      "id": "q_hlas",
+      "label": "Hlasovanie",
+      "fromCol": 3,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "q_reg",
+      "label": "Registrácia",
+      "fromCol": 4,
+      "toCol": 4
+    },
+    {
+      "id": "q_zonfp",
+      "label": "ŽoNFP",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "m_vyzva",
+    "z_pz",
+    "t_uplny",
+    "t_stanovisko",
+    "r_hlasuje",
+    "m_registr",
+    "z_zonfp",
+    "m_rozhodne"
+  ],
+  "nodes": [
+    {
+      "id": "m_vyzva",
+      "lane": "mirri",
+      "col": 0,
+      "type": "backend",
+      "icon": "start",
+      "label": "Návrh výzvy IÚI",
+      "sublabel": "pripomienky územia do 10 pd",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 378,
+          "end_line": 381,
+          "label": "pripomienkovanie výzvy"
+        }
+      ]
+    },
+    {
+      "id": "z_pz",
+      "lane": "ziad",
+      "col": 1,
+      "type": "backend",
+      "label": "Predloží PZ IÚI",
+      "sublabel": "45 pd pred hlasovaním",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 493,
+          "end_line": 497,
+          "label": "predloženie PZ IÚI"
+        }
+      ]
+    },
+    {
+      "id": "t_uplny",
+      "lane": "ts",
+      "col": 1,
+      "type": "security",
+      "icon": "decision",
+      "label": "PZ úplný?",
+      "sublabel": "doplnenie aspoň 5 pd",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 506,
+          "end_line": 508,
+          "label": "doplnenie alebo prepracovanie"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 518,
+          "end_line": 521,
+          "label": "vyradenie"
+        }
+      ]
+    },
+    {
+      "id": "t_stanovisko",
+      "lane": "ts",
+      "col": 2,
+      "type": "security",
+      "icon": "decision",
+      "label": "Stanovisko a kritériá",
+      "sublabel": "do 10 pd, Príloha č. 7",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 691,
+          "end_line": 698,
+          "label": "stanovisko do 10 pd"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 701,
+          "end_line": 703,
+          "label": "žiadateľovi 10 pd vopred"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 717,
+          "end_line": 721,
+          "label": "nesplnené kritériá"
+        }
+      ]
+    },
+    {
+      "id": "z_ziada",
+      "lane": "ziad",
+      "col": 2,
+      "type": "backend",
+      "label": "Žiada zaradenie",
+      "sublabel": "predsedovi do 10 pd",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 723,
+          "end_line": 730,
+          "label": "žiadosť predsedovi"
+        }
+      ]
+    },
+    {
+      "id": "r_hlasuje",
+      "lane": "rp",
+      "col": 3,
+      "type": "security",
+      "icon": "decision",
+      "label": "Schváli PZ IÚI?",
+      "sublabel": "zasadnutie alebo per rollam",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 779,
+          "end_line": 781,
+          "label": "materiály 15 pd vopred"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 787,
+          "end_line": 787,
+          "label": "per rollam 5 pd vopred"
+        }
+      ]
+    },
+    {
+      "id": "t_ucinnost",
+      "lane": "ts",
+      "col": 4,
+      "type": "messagebus",
+      "label": "Účinnosť uznesenia",
+      "sublabel": "bez ŽoNFP: odradenie PZ",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 1023,
+          "end_line": 1032,
+          "label": "sledovanie účinnosti"
+        }
+      ]
+    },
+    {
+      "id": "m_registr",
+      "lane": "mirri",
+      "col": 4,
+      "type": "cloud",
+      "label": "Registrácia v ITMS21+",
+      "sublabel": "neverejná časť, cez RC MIRRI",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 1071,
+          "end_line": 1077,
+          "label": "registrácia PZ IÚI"
+        }
+      ]
+    },
+    {
+      "id": "z_zonfp",
+      "lane": "ziad",
+      "col": 5,
+      "type": "backend",
+      "label": "Podá ŽoNFP",
+      "sublabel": "až po zaevidovaní PZ",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 1214,
+          "end_line": 1219,
+          "label": "ŽoNFP po zaevidovaní"
+        }
+      ]
+    },
+    {
+      "id": "m_rozhodne",
+      "lane": "mirri",
+      "col": 5,
+      "type": "security",
+      "icon": "decision",
+      "label": "Rozhodne o ŽoNFP",
+      "sublabel": "zápis v spise alebo § 24 ods. 8",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 1328,
+          "end_line": 1338,
+          "label": "rozhodnutie o ŽoNFP"
+        }
+      ]
+    },
+    {
+      "id": "s_zoznam",
+      "lane": "sw",
+      "col": 2,
+      "type": "frontend",
+      "label": "Kontrolný zoznam PZ",
+      "sublabel": "návrh: pravidlá z Prílohy č. 6",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/MU_c_8_v_4_0_Priloha_6_Kontrolny_zoznam_k_overeniu_PZ_IUI (1).txt",
+          "line": 9,
+          "end_line": 63,
+          "label": "kontrolný zoznam"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 691,
+          "end_line": 694,
+          "label": "zoznam ako podklad"
+        }
+      ]
+    },
+    {
+      "id": "s_lehoty",
+      "lane": "sw",
+      "col": 3,
+      "type": "frontend",
+      "label": "Odpočet lehôt",
+      "sublabel": "čiastočne: pracovnyDenPred",
+      "sources": [
+        {
+          "path": "src/podatelna/lehoty.ts",
+          "line": 79,
+          "end_line": 88,
+          "label": "N pracovných dní pred"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 493,
+          "end_line": 497,
+          "label": "45 pd"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD8-integrovany-uzemny-rozvoj/txt/Metodicke_usmernenie_c_8_k_podpore_integ_uzem_rozvoja_v_4.0.txt",
+          "line": 779,
+          "end_line": 781,
+          "label": "15 pd"
+        }
+      ]
+    },
+    {
+      "id": "s_zonfp",
+      "lane": "sw",
+      "col": 5,
+      "type": "frontend",
+      "label": "Posúdenie ŽoNFP",
+      "sublabel": "hotové jadro, nový balík",
+      "sources": [
+        {
+          "path": "src/core/posud.ts",
+          "line": 1,
+          "end_line": 1,
+          "label": "jadro nevie nič o výzve"
+        },
+        {
+          "path": "src/core/posud.ts",
+          "line": 10,
+          "end_line": 12,
+          "label": "balík podľa výzvy"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "i01",
+      "from": "m_vyzva",
+      "to": "z_pz",
+      "label": "vyhlásená výzva",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "i02",
+      "from": "z_pz",
+      "to": "t_uplny",
+      "label": "cez podateľňu",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "i03",
+      "from": "t_uplny",
+      "to": "t_stanovisko",
+      "label": "úplný",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "i04",
+      "from": "t_stanovisko",
+      "to": "z_ziada",
+      "label": "nesplnil kritériá",
+      "role": "branch"
+    },
+    {
+      "id": "i05",
+      "from": "t_stanovisko",
+      "to": "r_hlasuje",
+      "label": "splnil",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "i06",
+      "from": "z_ziada",
+      "to": "r_hlasuje",
+      "label": "predseda predloží",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "id": "i07",
+      "from": "r_hlasuje",
+      "to": "m_registr",
+      "label": "schválený",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "i08",
+      "from": "r_hlasuje",
+      "to": "t_ucinnost",
+      "label": "uznesenie",
+      "role": "branch"
+    },
+    {
+      "id": "i09",
+      "from": "t_ucinnost",
+      "to": "m_registr",
+      "label": "bez ŽoNFP: odradiť",
+      "role": "error"
+    },
+    {
+      "id": "i10",
+      "from": "m_registr",
+      "to": "z_zonfp",
+      "label": "zaevidovaný",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "i11",
+      "from": "z_zonfp",
+      "to": "m_rozhodne",
+      "label": "ŽoNFP",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "i12",
+      "from": "s_zoznam",
+      "to": "t_stanovisko",
+      "label": "podklad",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "i13",
+      "from": "s_lehoty",
+      "to": "r_hlasuje",
+      "label": "lehoty pred hlasovaním",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "i14",
+      "from": "s_zonfp",
+      "to": "z_zonfp",
+      "label": "posúdenie",
+      "role": "async",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Ako čítať",
+      "items": [
+        "PZ IÚI je projektový zámer integrovanej územnej investície. Vyberá ho územie: TS ho posúdi, RP alebo KR UMR hlasuje uznesením.",
+        "O ŽoNFP potom rozhoduje poskytovateľ; ŽoNFP možno podať až po zaevidovaní PZ v ITMS21+ (MD č. 8 r. 1214 až 1219).",
+        "Stanovisko poskytovateľa k PZ je nepovinné, jeho pripomienky však žiadateľ musí zapracovať (r. 799 až 805)."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Lehoty (MD č. 8 v4.0, účinné od 26. 3. 2026)",
+      "items": [
+        "pripomienky územia k návrhu výzvy: 10 pd (r. 378 až 381)",
+        "PZ IÚI 45 pd pred hlasovaním; doplnenie aspoň 5 pd (r. 493 až 497, 506 až 508)",
+        "stanovisko TS do 10 pd, žiadateľovi najneskôr 10 pd pred hlasovaním (r. 696 až 703)",
+        "materiály členom 15 pd pred zasadnutím, per rollam aspoň 5 pd vopred; žiadosť predsedovi do 10 pd (r. 729, 779 až 787)"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Softvér dnes a návrhy",
+      "items": [
+        "Hotové jadro: Podateľňa, výzva na doplnenie a posúdenie ŽoNFP. Balík pravidiel je dnes len pre výzvu PSK-SIEA-002-2023.",
+        "Návrh: pravidlá z kontrolného zoznamu PZ IÚI (Príloha č. 6) ako podklad pre stanovisko TS.",
+        "Čiastočne: odpočet pracovných dní pred dátumom už vie pracovnyDenPred; chýba kalendár zasadnutí.",
+        "Nové: stráženie účinnosti uznesenia a odradenia PZ bez ŽoNFP (r. 1023 až 1032)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Interreg: kontrola verejného obstarávania slovenských partnerov",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-28-organizacie-a-vo/o7-interreg-vo.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "74176cea9e3151a623ed690a13dcb5dd60523ba2"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: hotové aj návrhy"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "prij",
+      "label": "Prijímateľ: slovenský partner"
+    },
+    {
+      "id": "posk",
+      "label": "Poskytovateľ: kontrola VO"
+    },
+    {
+      "id": "sw",
+      "label": "eurofondy-kontrola"
+    }
+  ],
+  "phases": [
+    {
+      "id": "q_zmluva",
+      "label": "Zmluva s dodávateľom",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "q_pred",
+      "label": "Predloženie",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "q_kont",
+      "label": "Ex post kontrola",
+      "fromCol": 2,
+      "toCol": 2,
+      "variant": "emphasis"
+    },
+    {
+      "id": "q_dopl",
+      "label": "Doplnenie",
+      "fromCol": 3,
+      "toCol": 3
+    },
+    {
+      "id": "q_navrh",
+      "label": "Návrh správy",
+      "fromCol": 4,
+      "toCol": 4
+    },
+    {
+      "id": "q_vys",
+      "label": "Výsledok",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "p_zmluva",
+    "p_predlozi",
+    "k_kontrola",
+    "k_dopln",
+    "k_nedostatky",
+    "k_ok"
+  ],
+  "nodes": [
+    {
+      "id": "p_zmluva",
+      "lane": "prij",
+      "col": 0,
+      "type": "database",
+      "icon": "start",
+      "label": "Zmluva s úspešným",
+      "sublabel": "platná a účinná alebo odkladacia",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1280,
+          "end_line": 1285,
+          "label": "kompletná dokumentácia"
+        },
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1287,
+          "end_line": 1293,
+          "label": "odkladacia podmienka"
+        }
+      ]
+    },
+    {
+      "id": "p_predlozi",
+      "lane": "prij",
+      "col": 1,
+      "type": "cloud",
+      "label": "Predloží dokumentáciu",
+      "sublabel": "ITMS21+, CST2021 alebo e-mail",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1300,
+          "end_line": 1309,
+          "label": "SK-AT, SK-CZ, PL-SK"
+        },
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1311,
+          "end_line": 1314,
+          "label": "len zaevidované v MS"
+        },
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1316,
+          "end_line": 1324,
+          "label": "HU-SK e-mailom"
+        }
+      ]
+    },
+    {
+      "id": "k_kontrola",
+      "lane": "posk",
+      "col": 2,
+      "type": "backend",
+      "label": "Ex post kontrola VO",
+      "sublabel": "20 pd výnimky, 25 pd ZVO",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1339,
+          "end_line": 1349,
+          "label": "lehota kontroly"
+        },
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1262,
+          "end_line": 1267,
+          "label": "finančná kontrola § 8"
+        }
+      ]
+    },
+    {
+      "id": "k_dopln",
+      "lane": "posk",
+      "col": 3,
+      "type": "security",
+      "icon": "decision",
+      "label": "Treba vysvetlenie?",
+      "sublabel": "lehota kontroly stojí",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1351,
+          "end_line": 1355,
+          "label": "žiadosť o vysvetlenie"
+        }
+      ]
+    },
+    {
+      "id": "p_dopln",
+      "lane": "prij",
+      "col": 3,
+      "type": "backend",
+      "label": "Doplní alebo vysvetlí",
+      "sublabel": "5 až 10 pd, bez zmeny dokladov",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1351,
+          "end_line": 1360,
+          "label": "doplnenie dokumentácie"
+        }
+      ]
+    },
+    {
+      "id": "k_nedostatky",
+      "lane": "posk",
+      "col": 4,
+      "type": "security",
+      "icon": "decision",
+      "label": "Nedostatky s vplyvom?",
+      "sublabel": "na výsledok VO",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1372,
+          "end_line": 1379,
+          "label": "zistenie nedostatkov"
+        }
+      ]
+    },
+    {
+      "id": "p_namietky",
+      "lane": "prij",
+      "col": 4,
+      "type": "backend",
+      "label": "Námietky k návrhu",
+      "sublabel": "aspoň 5 pd",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1379,
+          "end_line": 1385,
+          "label": "námietky"
+        }
+      ]
+    },
+    {
+      "id": "k_oprava",
+      "lane": "posk",
+      "col": 5,
+      "yOffset": -42,
+      "type": "database",
+      "label": "Oprava alebo nepripustenie",
+      "sublabel": "Príloha č. 11, ex ante alebo ex post",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1388,
+          "end_line": 1398,
+          "label": "záver kontroly"
+        },
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1400,
+          "end_line": 1407,
+          "label": "opätovná kontrola"
+        },
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1623,
+          "end_line": 1690,
+          "label": "ex ante a ex post oprava"
+        }
+      ]
+    },
+    {
+      "id": "k_ok",
+      "lane": "posk",
+      "col": 5,
+      "yOffset": 42,
+      "type": "backend",
+      "icon": "success",
+      "label": "Oznámenie o ukončení",
+      "sublabel": "bez nedostatkov s vplyvom",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1372,
+          "end_line": 1374,
+          "label": "oznámenie o ukončení"
+        }
+      ]
+    },
+    {
+      "id": "s_vo",
+      "lane": "sw",
+      "col": 2,
+      "type": "frontend",
+      "label": "Pravidlá V01 až V07",
+      "sublabel": "hotové, ak sú VO v API",
+      "sources": [
+        {
+          "path": "packs/PSK-SIEA-002-2023-DV-EFRR/vo.json",
+          "line": 38,
+          "end_line": 125,
+          "label": "pravidlá VO"
+        },
+        {
+          "path": "src/moduly/vo/modul.ts",
+          "line": 221,
+          "end_line": 259,
+          "label": "modul VO"
+        }
+      ]
+    },
+    {
+      "id": "s_lehoty",
+      "lane": "sw",
+      "col": 3,
+      "type": "frontend",
+      "label": "Lehota s prerušením",
+      "sublabel": "návrh: 20 alebo 25 pd",
+      "sources": [
+        {
+          "path": "src/podatelna/lehoty.ts",
+          "line": 72,
+          "end_line": 77,
+          "label": "koniec lehoty v pd"
+        },
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 1339,
+          "end_line": 1355,
+          "label": "lehota a prerušenie"
+        }
+      ]
+    },
+    {
+      "id": "s_kartel",
+      "lane": "sw",
+      "col": 4,
+      "type": "frontend",
+      "label": "Signály kartelu",
+      "sublabel": "návrh U31 až U33",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-PVO-PCS-cezhranicne/txt/PVO_PCS_21-27__verzia-2.1_final.txt",
+          "line": 4702,
+          "end_line": 4800,
+          "label": "rizikové indikátory"
+        },
+        {
+          "path": "VYUZITIA-VO.md",
+          "line": 111,
+          "end_line": 113,
+          "label": "U31 až U33"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "n01",
+      "from": "p_zmluva",
+      "to": "p_predlozi",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "n02",
+      "from": "p_predlozi",
+      "to": "k_kontrola",
+      "label": "žiadosť o kontrolu",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "n03",
+      "from": "k_kontrola",
+      "to": "k_dopln",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "n04",
+      "from": "k_dopln",
+      "to": "p_dopln",
+      "label": "áno",
+      "role": "branch"
+    },
+    {
+      "id": "n05",
+      "from": "p_dopln",
+      "to": "k_nedostatky",
+      "label": "doplnené",
+      "role": "branch"
+    },
+    {
+      "id": "n06",
+      "from": "k_dopln",
+      "to": "k_nedostatky",
+      "label": "nie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "n07",
+      "from": "k_nedostatky",
+      "to": "k_ok",
+      "label": "nie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "n08",
+      "from": "k_nedostatky",
+      "to": "p_namietky",
+      "label": "áno: návrh správy",
+      "role": "branch"
+    },
+    {
+      "id": "n09",
+      "from": "p_namietky",
+      "to": "k_oprava",
+      "label": "správa",
+      "role": "error"
+    },
+    {
+      "id": "n10",
+      "from": "s_vo",
+      "to": "k_kontrola",
+      "label": "návrh výrokov",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "n11",
+      "from": "s_lehoty",
+      "to": "k_dopln",
+      "label": "stráži lehotu",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "n12",
+      "from": "s_kartel",
+      "to": "k_nedostatky",
+      "label": "signály",
+      "role": "async",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Ako čítať",
+      "items": [
+        "V programoch Interreg SK-CZ a SK-AT ÚVO neplní úlohy SO; VO kontroluje poskytovateľ sám a podnet na ÚVO je sledovaný príznak (SP r. 438 až 440).",
+        "Dokumentáciu treba predložiť ku každej zákazke bez ohľadu na limit, aj mimo ZVO (r. 1280 až 1285).",
+        "Zmluva s odkladacou podmienkou nadobudne účinnosť až po kontrole bez nedostatkov s vplyvom (r. 1287 až 1293)."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Lehoty (príručka v2.1, účinná od 27. 1. 2026)",
+      "items": [
+        "kontrola 20 pd pri výnimkách zo ZVO, 25 pd pri postupoch ZVO; v rámci ŽoP rovnaká ako lehota ŽoP (r. 1339 až 1349)",
+        "vysvetlenie alebo doplnenie 5 až 10 pd; lehota kontroly sa prerušuje (r. 1351 až 1355)",
+        "námietky k návrhu správy aspoň 5 pd (r. 1379 až 1381)",
+        "keď poskytovateľ lehotu nedodrží, prijímateľ môže pozastaviť hlavné aktivity (r. 1362 až 1370)"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Softvér dnes a návrhy",
+      "items": [
+        "Projekty SK-AT a SK-CZ sú vo verejnom API ITMS21+ (overený projekt 404101B456, program 404000); či sú tam aj ich VO, treba overiť.",
+        "Hotové: V01 až V07 by bežali bez zmeny, ak budú VO v API. HU-SK a HU-SK-RO-UA posielajú dokumentáciu e-mailom, teda len nahratím súborov.",
+        "Návrh: lehota 20 alebo 25 pd s prerušením; signály kartelu z Prílohy č. 13 (U31 až U33)."
+      ]
+    }
+  ]
+}

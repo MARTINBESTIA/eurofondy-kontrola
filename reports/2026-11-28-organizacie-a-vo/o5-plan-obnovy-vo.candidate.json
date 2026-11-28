@@ -1,0 +1,530 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Plán obnovy: kontrola verejného obstarávania pri žiadosti o platbu",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-28-organizacie-a-vo/o5-plan-obnovy-vo.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "74176cea9e3151a623ed690a13dcb5dd60523ba2"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: hotové aj návrhy"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "prij",
+      "label": "Prijímateľ alebo partner"
+    },
+    {
+      "id": "vyk",
+      "label": "Vykonávateľ (ministerstvo)"
+    },
+    {
+      "id": "uvo",
+      "label": "ÚVO, OČTK, PMÚ"
+    },
+    {
+      "id": "sw",
+      "label": "eurofondy-kontrola"
+    }
+  ],
+  "phases": [
+    {
+      "id": "q_zmluva",
+      "label": "Zmluva s dodávateľom",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "q_pred",
+      "label": "Predloženie",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "q_over",
+      "label": "Overenie VO",
+      "fromCol": 2,
+      "toCol": 2,
+      "variant": "emphasis"
+    },
+    {
+      "id": "q_zav",
+      "label": "Závažné nezrovnalosti",
+      "fromCol": 3,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "q_podnet",
+      "label": "Podnet",
+      "fromCol": 4,
+      "toCol": 4
+    },
+    {
+      "id": "q_vys",
+      "label": "Výsledok",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "p_zmluva",
+    "p_predlozi",
+    "v_overi",
+    "v_zavazne",
+    "v_uzna"
+  ],
+  "nodes": [
+    {
+      "id": "p_zmluva",
+      "lane": "prij",
+      "col": 0,
+      "type": "database",
+      "icon": "start",
+      "label": "Zmluva s dodávateľom",
+      "sublabel": "platná a účinná",
+      "sources": [
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4436,
+          "end_line": 4438,
+          "label": "VO až po účinnej zmluve"
+        }
+      ]
+    },
+    {
+      "id": "p_predlozi",
+      "lane": "prij",
+      "col": 1,
+      "type": "backend",
+      "label": "Predloží dokumentáciu VO",
+      "sublabel": "najneskôr s prvou ŽoP",
+      "sources": [
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4440,
+          "end_line": 4443,
+          "label": "spolu so ŽoP"
+        },
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4445,
+          "end_line": 4457,
+          "label": "osobitná kontrola"
+        }
+      ]
+    },
+    {
+      "id": "u_kontrola",
+      "lane": "uvo",
+      "col": 1,
+      "type": "external",
+      "label": "Kontrola ÚVO",
+      "sublabel": "ak ju ÚVO vykonal",
+      "sources": [
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4468,
+          "end_line": 4471,
+          "label": "závery ÚVO"
+        }
+      ]
+    },
+    {
+      "id": "v_overi",
+      "lane": "vyk",
+      "col": 2,
+      "type": "backend",
+      "label": "Overí VO pri ŽoP",
+      "sublabel": "finančná kontrola § 8, aj dodatky",
+      "sources": [
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4459,
+          "end_line": 4463,
+          "label": "rozsah overenia"
+        },
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4501,
+          "end_line": 4502,
+          "label": "dodatky"
+        },
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4409,
+          "end_line": 4415,
+          "label": "kontrola ŽoP"
+        }
+      ]
+    },
+    {
+      "id": "v_zavazne",
+      "lane": "vyk",
+      "col": 3,
+      "type": "security",
+      "icon": "decision",
+      "label": "Závažná nezrovnalosť?",
+      "sublabel": "podvod, konflikt, dvojité financ.",
+      "sources": [
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4464,
+          "end_line": 4466,
+          "label": "ARACHNE"
+        },
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4773,
+          "end_line": 4776,
+          "label": "nástroje overenia"
+        },
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4848,
+          "end_line": 4856,
+          "label": "dvojité financovanie"
+        }
+      ]
+    },
+    {
+      "id": "v_podnet",
+      "lane": "vyk",
+      "col": 4,
+      "yOffset": 42,
+      "type": "backend",
+      "label": "Podnet a oznámenie",
+      "sublabel": "odôvodnený, po skončení FK",
+      "sources": [
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4473,
+          "end_line": 4478,
+          "label": "oznámenie ÚVO a orgánom"
+        },
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4480,
+          "end_line": 4484,
+          "label": "podnet ÚVO"
+        }
+      ]
+    },
+    {
+      "id": "u_riesi",
+      "lane": "uvo",
+      "col": 4,
+      "type": "external",
+      "label": "Preverí podnet",
+      "sublabel": "ÚVO môže uložiť sankciu",
+      "sources": [
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4486,
+          "end_line": 4489,
+          "label": "riešenie podnetu"
+        }
+      ]
+    },
+    {
+      "id": "v_uzna",
+      "lane": "vyk",
+      "col": 5,
+      "yOffset": -42,
+      "type": "backend",
+      "icon": "success",
+      "label": "Výdavky VO uzná",
+      "sublabel": "v kontrole žiadosti o platbu",
+      "sources": [
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4413,
+          "end_line": 4415,
+          "label": "nárok na vyplatenie"
+        }
+      ]
+    },
+    {
+      "id": "v_vrati",
+      "lane": "vyk",
+      "col": 5,
+      "yOffset": 42,
+      "type": "database",
+      "label": "Nezrovnalosť a vrátenie",
+      "sublabel": "§ 21 zákona o mechanizme",
+      "sources": [
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4862,
+          "end_line": 4863,
+          "label": "dvojité financovanie"
+        },
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4926,
+          "end_line": 4928,
+          "label": "podvod, korupcia, konflikt"
+        }
+      ]
+    },
+    {
+      "id": "s_vo",
+      "lane": "sw",
+      "col": 2,
+      "type": "frontend",
+      "label": "V01 až V07, P06 až P08",
+      "sublabel": "hotové nad ITMS21+, nie nad ISPO",
+      "sources": [
+        {
+          "path": "packs/PSK-SIEA-002-2023-DV-EFRR/vo.json",
+          "line": 38,
+          "end_line": 125,
+          "label": "pravidlá VO"
+        },
+        {
+          "path": "packs/PSK-SIEA-002-2023-DV-EFRR/zop.json",
+          "line": 100,
+          "end_line": 137,
+          "label": "väzba ŽoP na VO"
+        }
+      ]
+    },
+    {
+      "id": "s_riziko",
+      "lane": "sw",
+      "col": 3,
+      "type": "frontend",
+      "label": "Konflikt a dvojité financ.",
+      "sublabel": "čiastočne: V06; návrh: ISPO",
+      "sources": [
+        {
+          "path": "src/moduly/vo/modul.ts",
+          "line": 142,
+          "end_line": 176,
+          "label": "RPO, štatutári"
+        },
+        {
+          "path": "VYUZITIA-VO.md",
+          "line": 97,
+          "end_line": 97,
+          "label": "U22"
+        },
+        {
+          "path": "data/zdroje/NIKA-SIPOO/txt/sipoo-_verzia_1_3.txt",
+          "line": 4848,
+          "end_line": 4856,
+          "label": "porovnanie programov"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "r01",
+      "from": "p_zmluva",
+      "to": "p_predlozi",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "r02",
+      "from": "p_predlozi",
+      "to": "v_overi",
+      "label": "so ŽoP alebo skôr",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "r03",
+      "from": "u_kontrola",
+      "to": "v_overi",
+      "label": "závery ÚVO",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "id": "r04",
+      "from": "v_overi",
+      "to": "v_zavazne",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "r05",
+      "from": "v_zavazne",
+      "to": "v_uzna",
+      "label": "nie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "r06",
+      "from": "v_zavazne",
+      "to": "v_podnet",
+      "label": "áno alebo porušenie ZVO",
+      "role": "branch"
+    },
+    {
+      "id": "r07",
+      "from": "v_podnet",
+      "to": "u_riesi",
+      "label": "podnet",
+      "role": "branch"
+    },
+    {
+      "id": "r08",
+      "from": "u_riesi",
+      "to": "v_vrati",
+      "label": "potvrdené",
+      "role": "error"
+    },
+    {
+      "id": "r09",
+      "from": "s_vo",
+      "to": "v_overi",
+      "label": "návrh výrokov",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "r10",
+      "from": "s_riziko",
+      "to": "v_zavazne",
+      "label": "signály",
+      "role": "async",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Ako čítať",
+      "items": [
+        "Plán obnovy má vlastný systém: vykonávateľ (ministerstvo) kontroluje prijímateľa, NIKA koordinuje. Údaje sú v ISPO, nie v ITMS21+ (SIPOO r. 104, 477).",
+        "VO overuje vykonávateľ až po účinnosti zmluvy s dodávateľom, spravidla vo finančnej kontrole ŽoP (r. 4436 až 4443).",
+        "Ak kontroloval ÚVO, vykonávateľ prevezme jeho závery a overí len to, čo ÚVO neoveril (r. 4468 až 4471)."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Termíny (SIPOO v1.3, účinný od 26. 2. 2026)",
+      "items": [
+        "posledné míľniky a ciele najneskôr do 31. 8. 2026 (r. 785 až 786)",
+        "podnet ÚVO spravidla po skončení finančnej kontroly; pri podozrení z trestného činu sa oznamuje bezodkladne (r. 4480 až 4484, 4504)",
+        "kontrola môže pokračovať aj v období udržateľnosti (r. 4538 až 4543)"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Softvér dnes a návrhy",
+      "items": [
+        "Hotové: pravidlá VO a väzba ŽoP na VO, ale len nad dátami z ITMS21+. ISPO softvér nenačíta.",
+        "Návrh: porovnať prijímateľov a výdavky v ITMS21+ a ISPO kvôli dvojitému financovaniu (r. 4848 až 4856).",
+        "Čiastočne: konflikt záujmov cez RPO (V06). ARACHNE je neverejný systém a softvér k nemu prístup nemá."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,673 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "ÚVO: kontrola verejného obstarávania v Programe Slovensko",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-28-organizacie-a-vo/o1-uvo-kontrola-vo.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "74176cea9e3151a623ed690a13dcb5dd60523ba2"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: hotové aj návrhy"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "prij",
+      "label": "Prijímateľ ako obstarávateľ"
+    },
+    {
+      "id": "uvo",
+      "label": "ÚVO ako SO"
+    },
+    {
+      "id": "posk",
+      "label": "Poskytovateľ (RO alebo SO)"
+    },
+    {
+      "id": "sw",
+      "label": "eurofondy-kontrola"
+    }
+  ],
+  "phases": [
+    {
+      "id": "q_ponuky",
+      "label": "Vyhodnotené ponuky",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "q_predb",
+      "label": "Predbežná kontrola",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "q_zmluva",
+      "label": "Zmluva a riziká",
+      "fromCol": 2,
+      "toCol": 2
+    },
+    {
+      "id": "q_kontrola",
+      "label": "Kontrola po zmluve",
+      "fromCol": 3,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "q_protokol",
+      "label": "Protokol a záver",
+      "fromCol": 4,
+      "toCol": 4
+    },
+    {
+      "id": "q_vysledok",
+      "label": "Výsledok",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "p_start",
+    "p_chce",
+    "p_zmluva",
+    "k_riziko",
+    "u_zacne",
+    "p_vyjadri",
+    "u_protokol",
+    "k_premietne",
+    "k_ok"
+  ],
+  "nodes": [
+    {
+      "id": "p_start",
+      "lane": "prij",
+      "col": 0,
+      "type": "messagebus",
+      "icon": "start",
+      "label": "Ponuky vyhodnotené",
+      "sublabel": "zmluva ešte nepodpísaná",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 404,
+          "end_line": 404,
+          "label": "po vyhodnotení ponúk"
+        }
+      ]
+    },
+    {
+      "id": "p_chce",
+      "lane": "prij",
+      "col": 1,
+      "type": "security",
+      "icon": "decision",
+      "label": "Požiadať o predbežnú?",
+      "sublabel": "fakultatívne podľa ZVO",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 404,
+          "end_line": 404,
+          "label": "na žiadosť prijímateľa"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 405,
+          "end_line": 414,
+          "label": "čo sa posudzuje"
+        }
+      ]
+    },
+    {
+      "id": "u_predb",
+      "lane": "uvo",
+      "col": 1,
+      "type": "backend",
+      "label": "Predbežná kontrola",
+      "sublabel": "oznámenie do 40 dní",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 416,
+          "end_line": 416,
+          "label": "oznámenie do 40 dní"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 417,
+          "end_line": 463,
+          "label": "predkladané dokumenty"
+        }
+      ]
+    },
+    {
+      "id": "p_zmluva",
+      "lane": "prij",
+      "col": 2,
+      "type": "database",
+      "label": "Zmluva s dodávateľom",
+      "sublabel": "aj s odkladacou podmienkou",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 193,
+          "end_line": 193,
+          "label": "odkladacia podmienka"
+        }
+      ]
+    },
+    {
+      "id": "k_riziko",
+      "lane": "posk",
+      "col": 2,
+      "type": "security",
+      "icon": "decision",
+      "label": "Riziková zákazka?",
+      "sublabel": "analýza rizík, pochybnosť",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 466,
+          "end_line": 467,
+          "label": "kedy ÚVO kontroluje"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 346,
+          "end_line": 389,
+          "label": "tabuľka kontrol"
+        }
+      ]
+    },
+    {
+      "id": "u_zacne",
+      "lane": "uvo",
+      "col": 3,
+      "type": "backend",
+      "label": "Kontrola po zmluve",
+      "sublabel": "začne do 7 pd od podnetu",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 473,
+          "end_line": 473,
+          "label": "začatie, dokumentácia"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 475,
+          "end_line": 476,
+          "label": "prerušenie"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 477,
+          "end_line": 477,
+          "label": "aj na mieste"
+        }
+      ]
+    },
+    {
+      "id": "p_vyjadri",
+      "lane": "prij",
+      "col": 3,
+      "type": "backend",
+      "label": "Vyjadrí sa k zisteniam",
+      "sublabel": "aspoň 7 pd, lehota stojí",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 479,
+          "end_line": 479,
+          "label": "vyjadrenie aspoň 7 pd"
+        }
+      ]
+    },
+    {
+      "id": "u_protokol",
+      "lane": "uvo",
+      "col": 4,
+      "type": "database",
+      "label": "Protokol alebo záznam",
+      "sublabel": "45 dní, po predbežnej 20",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 480,
+          "end_line": 480,
+          "label": "protokol alebo záznam"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 481,
+          "end_line": 481,
+          "label": "lehoty 45 a 20 dní"
+        }
+      ]
+    },
+    {
+      "id": "k_vecna",
+      "lane": "posk",
+      "col": 3,
+      "type": "backend",
+      "label": "Vecná kontrola",
+      "sublabel": "súlad so schválenou ŽoNFP",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 401,
+          "end_line": 402,
+          "label": "vecná kontrola poskytovateľa"
+        }
+      ]
+    },
+    {
+      "id": "k_premietne",
+      "lane": "posk",
+      "col": 4,
+      "type": "security",
+      "icon": "decision",
+      "label": "Premietne výsledok",
+      "sublabel": "do 5 pd do vlastnej správy",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 493,
+          "end_line": 493,
+          "label": "premietne do 5 pd"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 494,
+          "end_line": 498,
+          "label": "nepripustenie alebo oprava"
+        }
+      ]
+    },
+    {
+      "id": "k_ok",
+      "lane": "posk",
+      "col": 5,
+      "yOffset": -42,
+      "type": "backend",
+      "icon": "success",
+      "label": "Výdavky VO pokračujú",
+      "sublabel": "záznam: bez porušenia",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 480,
+          "end_line": 480,
+          "label": "záznam pri nezistení porušenia"
+        }
+      ]
+    },
+    {
+      "id": "k_oprava",
+      "lane": "posk",
+      "col": 5,
+      "yOffset": 42,
+      "type": "database",
+      "label": "Finančná oprava",
+      "sublabel": "alebo nepripustenie",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 494,
+          "end_line": 495,
+          "label": "dva závery"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 592,
+          "end_line": 592,
+          "label": "ex ante"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 596,
+          "end_line": 596,
+          "label": "voľba poskytovateľa"
+        }
+      ]
+    },
+    {
+      "id": "s_uplnost",
+      "lane": "sw",
+      "col": 1,
+      "type": "frontend",
+      "label": "Úplnosť dokumentácie",
+      "sublabel": "návrh U46: zoznam MD 26",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 417,
+          "end_line": 463,
+          "label": "zoznam dokumentov"
+        },
+        {
+          "path": "VYUZITIA-VO.md",
+          "line": 141,
+          "end_line": 141,
+          "label": "U46"
+        }
+      ]
+    },
+    {
+      "id": "s_signaly",
+      "lane": "sw",
+      "col": 2,
+      "type": "frontend",
+      "label": "Signály V01 až V07",
+      "sublabel": "hotové: podklad k rizikám",
+      "sources": [
+        {
+          "path": "packs/PSK-SIEA-002-2023-DV-EFRR/vo.json",
+          "line": 38,
+          "end_line": 125,
+          "label": "pravidlá V01 až V07"
+        },
+        {
+          "path": "src/moduly/vo/modul.ts",
+          "line": 221,
+          "end_line": 259,
+          "label": "modul VO"
+        },
+        {
+          "path": "VYUZITIA-VO.md",
+          "line": 145,
+          "end_line": 145,
+          "label": "U50"
+        }
+      ]
+    },
+    {
+      "id": "s_lehoty",
+      "lane": "sw",
+      "col": 4,
+      "type": "frontend",
+      "label": "Kalendár lehôt kontroly",
+      "sublabel": "návrh U51: lehoty ÚVO",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 473,
+          "end_line": 481,
+          "label": "lehoty kontroly"
+        },
+        {
+          "path": "src/podatelna/lehoty.ts",
+          "line": 73,
+          "end_line": 88,
+          "label": "pracovné dni"
+        },
+        {
+          "path": "VYUZITIA-VO.md",
+          "line": 146,
+          "end_line": 146,
+          "label": "U51"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "o01",
+      "from": "p_start",
+      "to": "p_chce",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "o02",
+      "from": "p_chce",
+      "to": "u_predb",
+      "label": "áno",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "id": "o03",
+      "from": "u_predb",
+      "to": "p_zmluva",
+      "label": "súlad alebo nesúlad",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "id": "o04",
+      "from": "p_chce",
+      "to": "p_zmluva",
+      "label": "nie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "o05",
+      "from": "p_zmluva",
+      "to": "k_riziko",
+      "label": "dokumentácia VO",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "o06",
+      "from": "k_riziko",
+      "to": "u_zacne",
+      "label": "áno: podnet",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "o07",
+      "from": "k_riziko",
+      "to": "k_vecna",
+      "label": "vždy",
+      "role": "branch"
+    },
+    {
+      "id": "o08",
+      "from": "u_zacne",
+      "to": "p_vyjadri",
+      "label": "výzva v ITMS",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "o09",
+      "from": "p_vyjadri",
+      "to": "u_protokol",
+      "label": "vyjadrenie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "o10",
+      "from": "u_protokol",
+      "to": "k_premietne",
+      "label": "cez ITMS",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "o11",
+      "from": "k_vecna",
+      "to": "k_premietne",
+      "label": "vlastné zistenia",
+      "role": "branch"
+    },
+    {
+      "id": "o12",
+      "from": "k_premietne",
+      "to": "k_ok",
+      "label": "záznam",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "o13",
+      "from": "k_premietne",
+      "to": "k_oprava",
+      "label": "protokol",
+      "role": "error"
+    },
+    {
+      "id": "o14",
+      "from": "s_uplnost",
+      "to": "u_predb",
+      "label": "pred podaním",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "o15",
+      "from": "s_signaly",
+      "to": "k_riziko",
+      "label": "signály",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "o16",
+      "from": "s_lehoty",
+      "to": "k_premietne",
+      "label": "stráži lehoty",
+      "role": "async",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Ako čítať",
+      "items": [
+        "Ikona rozhodnutia je ľudský úsudok; softvér dáva len podklady v dolnej dráhe.",
+        "Vecnú kontrolu súladu so ŽoNFP robí poskytovateľ vždy (MD č. 26 r. 402); ÚVO kontroluje po zmluve rizikové zákazky alebo pri pochybnosti (r. 466 a 467).",
+        "Záznam znamená, že ÚVO nezistil porušenie s vplyvom; protokol, že zistil (r. 480)."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Lehoty (MD č. 26 v1.0, zákon č. 100/2026 Z. z.)",
+      "items": [
+        "predbežná kontrola: oznámenie do 40 dní od začatia (r. 416)",
+        "po zmluve: začatie do 7 pd od podnetu, dokumentácia do 4 pd, prerušenie aspoň na 5 pd (r. 473 až 476)",
+        "vyjadrenie aspoň 7 pd; kým beží, lehota kontroly neplynie (r. 479)",
+        "protokol alebo záznam do 45 dní, po predbežnej kontrole do 20 dní (r. 481); poskytovateľ ho premietne do 5 pd (r. 493)"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Softvér dnes a návrhy",
+      "items": [
+        "Hotové: V01 až V07 nad dátami VO z ITMS21+ (limit, ponuky, cena, plnenie, delenie, konflikt záujmov, záznam).",
+        "Návrh U46: kontrolný zoznam dokumentácie pred predbežnou kontrolou (MD č. 26 r. 417 až 463).",
+        "Návrh U50 a U51: podklad k analýze rizík a kalendár lehôt kontroly vrátane času, keď lehota neplynie.",
+        "V01 ešte používa limit 143 000 EUR, MD č. 26 uvádza 140 000 EUR (TODO T4)."
+      ]
+    }
+  ]
+}

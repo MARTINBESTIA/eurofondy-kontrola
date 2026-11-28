@@ -1,0 +1,577 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "PPA: konanie o žiadosti o príspevok v Strategickom pláne SPP",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-28-organizacie-a-vo/o3-ppa-ziadosti.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "74176cea9e3151a623ed690a13dcb5dd60523ba2"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: hotové aj návrhy"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "ziad",
+      "label": "Žiadateľ (pri LEADER: MAS)"
+    },
+    {
+      "id": "ppa",
+      "label": "PPA: Pôdohospodárska platobná agentúra"
+    },
+    {
+      "id": "sw",
+      "label": "eurofondy-kontrola"
+    }
+  ],
+  "phases": [
+    {
+      "id": "q_reg",
+      "label": "Registrácia",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "q_pod",
+      "label": "Podanie",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "q_adm",
+      "label": "Administratívne overenie",
+      "fromCol": 2,
+      "toCol": 2,
+      "variant": "emphasis"
+    },
+    {
+      "id": "q_odb",
+      "label": "Odborné overenie",
+      "fromCol": 3,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "q_vyb",
+      "label": "Výber",
+      "fromCol": 4,
+      "toCol": 4
+    },
+    {
+      "id": "q_rozh",
+      "label": "Rozhodnutie",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "z_reg",
+    "z_podanie",
+    "p_adm",
+    "p_odb",
+    "p_vyber",
+    "p_rozhodnutie",
+    "z_odvolanie"
+  ],
+  "nodes": [
+    {
+      "id": "z_reg",
+      "lane": "ziad",
+      "col": 0,
+      "type": "cloud",
+      "icon": "start",
+      "label": "Registrácia v IMS",
+      "sublabel": "v predstihu pred podaním",
+      "sources": [
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 531,
+          "end_line": 533,
+          "label": "registrácia ŽoPP"
+        },
+        {
+          "path": "data/zdroje/PPA-vyzva-77-1-LEADER/txt/Vyzva-77.1-LEADER-akt2.txt",
+          "line": 124,
+          "end_line": 124,
+          "label": "registrácia v IMS"
+        }
+      ]
+    },
+    {
+      "id": "z_podanie",
+      "lane": "ziad",
+      "col": 1,
+      "type": "backend",
+      "label": "Podá ŽoPP v IMS",
+      "sublabel": "73.12: 12. 10. až 15. 12. 2026",
+      "sources": [
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 529,
+          "end_line": 530,
+          "label": "lehota podania"
+        },
+        {
+          "path": "data/zdroje/PPA-vyzva-77-1-LEADER/txt/Vyzva-77.1-LEADER-akt2.txt",
+          "line": 121,
+          "end_line": 132,
+          "label": "podanie a podpis v IMS"
+        }
+      ]
+    },
+    {
+      "id": "p_adm",
+      "lane": "ppa",
+      "col": 2,
+      "type": "backend",
+      "label": "Administratívne overenie",
+      "sublabel": "20 pd, najneskôr 30 pd",
+      "sources": [
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 534,
+          "end_line": 540,
+          "label": "lehota a spočívanie"
+        },
+        {
+          "path": "data/zdroje/PPA-vyzva-77-1-LEADER/txt/Vyzva-77.1-LEADER-akt2.txt",
+          "line": 88,
+          "end_line": 92,
+          "label": "od registrácie"
+        }
+      ]
+    },
+    {
+      "id": "z_klarif",
+      "lane": "ziad",
+      "col": 2,
+      "type": "backend",
+      "label": "Odstráni pochybnosti",
+      "sublabel": "predĺženie raz, najviac o 10 pd",
+      "sources": [
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 297,
+          "end_line": 306,
+          "label": "klarifikácia"
+        }
+      ]
+    },
+    {
+      "id": "p_odb",
+      "lane": "ppa",
+      "col": 3,
+      "type": "backend",
+      "label": "Odborné overenie",
+      "sublabel": "30 pd, najneskôr 50 pd",
+      "sources": [
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 541,
+          "end_line": 545,
+          "label": "lehota a spočívanie"
+        },
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 416,
+          "end_line": 433,
+          "label": "odborné overovanie"
+        },
+        {
+          "path": "data/zdroje/PPA-vyzva-77-1-LEADER/txt/Vyzva-77.1-LEADER-akt2.txt",
+          "line": 96,
+          "end_line": 99,
+          "label": "odborné overovanie"
+        }
+      ]
+    },
+    {
+      "id": "p_zastavi",
+      "lane": "ppa",
+      "col": 4,
+      "yOffset": -42,
+      "type": "backend",
+      "icon": "failure",
+      "label": "Zastaví konanie",
+      "sublabel": "pochybnosti neodstránené",
+      "sources": [
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 443,
+          "end_line": 450,
+          "label": "dôvody zastavenia"
+        }
+      ]
+    },
+    {
+      "id": "p_vyber",
+      "lane": "ppa",
+      "col": 4,
+      "yOffset": 42,
+      "type": "security",
+      "icon": "decision",
+      "label": "Výber ŽoPP",
+      "sublabel": "73.12: poradie doručenia",
+      "sources": [
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 143,
+          "end_line": 144,
+          "label": "bez bodovania"
+        },
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 320,
+          "end_line": 321,
+          "label": "poradie doručenia"
+        },
+        {
+          "path": "data/zdroje/PPA-vyzva-77-1-LEADER/txt/Vyzva-77.1-LEADER-akt2.txt",
+          "line": 105,
+          "end_line": 106,
+          "label": "výber 77.1"
+        }
+      ]
+    },
+    {
+      "id": "p_rozhodnutie",
+      "lane": "ppa",
+      "col": 5,
+      "type": "database",
+      "label": "Rozhodnutie o ŽoPP",
+      "sublabel": "bez zbytočného odkladu",
+      "sources": [
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 546,
+          "end_line": 549,
+          "label": "výber a rozhodnutie"
+        },
+        {
+          "path": "data/zdroje/PPA-vyzva-77-1-LEADER/txt/Vyzva-77.1-LEADER-akt2.txt",
+          "line": 109,
+          "end_line": 109,
+          "label": "rozhodnutie 77.1"
+        }
+      ]
+    },
+    {
+      "id": "z_odvolanie",
+      "lane": "ziad",
+      "col": 5,
+      "type": "backend",
+      "label": "Odvolanie",
+      "sublabel": "do 10 pd; preskúmanie do 2 rokov",
+      "sources": [
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 550,
+          "end_line": 556,
+          "label": "odvolanie a preskúmanie"
+        },
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 482,
+          "end_line": 490,
+          "label": "opravné prostriedky"
+        }
+      ]
+    },
+    {
+      "id": "s_podatelna",
+      "lane": "sw",
+      "col": 1,
+      "type": "frontend",
+      "label": "Podateľňa a spis",
+      "sublabel": "hotové jadro, bez napojenia na IMS",
+      "sources": [
+        {
+          "path": "src/podatelna/podatelna.ts",
+          "line": 200,
+          "end_line": 216,
+          "label": "prijatie podania zo súborov"
+        }
+      ]
+    },
+    {
+      "id": "s_lehoty",
+      "lane": "sw",
+      "col": 2,
+      "type": "frontend",
+      "label": "Lehoty overenia",
+      "sublabel": "čiastočne: spočívanie chýba",
+      "sources": [
+        {
+          "path": "src/podatelna/lehoty.ts",
+          "line": 72,
+          "end_line": 77,
+          "label": "koniec lehoty v pd"
+        },
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 537,
+          "end_line": 540,
+          "label": "poriadkové, spočívanie"
+        }
+      ]
+    },
+    {
+      "id": "s_pravidla",
+      "lane": "sw",
+      "col": 3,
+      "type": "frontend",
+      "label": "Balík pravidiel 73.12",
+      "sublabel": "návrh: podmienky z príručky",
+      "sources": [
+        {
+          "path": "src/core/posud.ts",
+          "line": 10,
+          "end_line": 12,
+          "label": "balík podľa výzvy"
+        },
+        {
+          "path": "data/zdroje/PPA-prirucka-vyzva-73/txt/Priloha-1-Vyzvy-Prirucka-pre-ziadatela-73_12.txt",
+          "line": 416,
+          "end_line": 433,
+          "label": "čo sa overuje"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "p01",
+      "from": "z_reg",
+      "to": "z_podanie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "p02",
+      "from": "z_podanie",
+      "to": "p_adm",
+      "label": "IMS",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "p03",
+      "from": "p_adm",
+      "to": "z_klarif",
+      "label": "pochybnosti",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "id": "p04",
+      "from": "z_klarif",
+      "to": "p_odb",
+      "label": "odstránené",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "id": "p05",
+      "from": "p_adm",
+      "to": "p_odb",
+      "label": "splnené",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "p06",
+      "from": "z_klarif",
+      "to": "p_zastavi",
+      "label": "neodstránené",
+      "role": "error"
+    },
+    {
+      "id": "p07",
+      "from": "p_odb",
+      "to": "p_vyber",
+      "label": "splnené",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "p08",
+      "from": "p_vyber",
+      "to": "p_rozhodnutie",
+      "label": "schváli alebo nie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "p09",
+      "from": "p_rozhodnutie",
+      "to": "z_odvolanie",
+      "label": "doručené",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "p10",
+      "from": "p_zastavi",
+      "to": "z_odvolanie",
+      "label": "preskúmanie",
+      "role": "branch"
+    },
+    {
+      "id": "p11",
+      "from": "s_podatelna",
+      "to": "z_podanie",
+      "label": "prijatie, spis",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "p12",
+      "from": "s_lehoty",
+      "to": "p_adm",
+      "label": "stráži lehoty",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "p13",
+      "from": "s_pravidla",
+      "to": "p_odb",
+      "label": "návrh výrokov",
+      "role": "async",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Ako čítať",
+      "items": [
+        "PPA vedie žiadosti o príspevok (ŽoPP) zo Strategického plánu SPP v IMS, nie v ITMS21+ (výzva 77.1 r. 85, 121 až 132).",
+        "Výzva 73.12 nemá bodovanie: ŽoPP, ktoré splnia podmienky, sa schvaľujú podľa poradia doručenia (r. 143 až 144).",
+        "Výzva 77.1 LEADER je pre MAS; stratégiu miestneho rozvoja PPA overuje najmä vlastnou zisťovacou činnosťou (r. 486 až 492)."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Lehoty (73.12 platná od 10. 9. 2026, 77.1 aktualizácia č. 2)",
+      "items": [
+        "podanie 73.12: 12. 10. až 15. 12. 2026 (r. 529 až 530); 77.1: 1. 1. až 16. 2. 2026 (r. 80)",
+        "administratívne overenie 20 pd, najneskôr 30 pd; 73.12 od uzavretia výzvy, 77.1 od registrácie (73.12 r. 534 až 536, 77.1 r. 89 až 92)",
+        "odborné overenie 30 pd, najneskôr 50 pd; počas klarifikácie lehota spočíva (73.12 r. 539 až 545)",
+        "odvolanie do 10 pd, preskúmanie neschválenia alebo zastavenia do 2 rokov (r. 550 až 556)"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Softvér dnes a návrhy",
+      "items": [
+        "Hotové jadro: Podateľňa, spis, návrh výzvy na doplnenie a počítanie pracovných dní.",
+        "Návrh: balík pravidiel z príručky 73.12. Jadro posudku nevie nič o výzve, balík je samostatný priečinok (posud.ts r. 1, 10 až 12).",
+        "Chýba napojenie na IMS (podanie sa dá len nahrať ako súbory) a spočívanie lehoty počas klarifikácie.",
+        "Lehoty PPA sú poriadkové a indikatívne (r. 537 až 538); softvér by ich mal hlásiť ako upozornenie, nie ako porušenie."
+      ]
+    }
+  ]
+}

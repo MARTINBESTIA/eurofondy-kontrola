@@ -1,0 +1,607 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "SAŽP: platba príspevku na obnovu rodinného domu (Modernizačný fond)",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-28-organizacie-a-vo/o4-sazp-obnov-dom.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "74176cea9e3151a623ed690a13dcb5dd60523ba2"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: hotové aj návrhy"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "prij",
+      "label": "Prijímateľ: domácnosť"
+    },
+    {
+      "id": "sazp",
+      "label": "SAŽP"
+    },
+    {
+      "id": "sw",
+      "label": "eurofondy-kontrola"
+    }
+  ],
+  "phases": [
+    {
+      "id": "q_zmluva",
+      "label": "Zmluva a záloha",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "q_real",
+      "label": "Realizácia",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "q_zop",
+      "label": "Žiadosť o platbu",
+      "fromCol": 2,
+      "toCol": 2
+    },
+    {
+      "id": "q_adm",
+      "label": "Administratívna kontrola",
+      "fromCol": 3,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "q_vyp",
+      "label": "Kontrolný výpočet",
+      "fromCol": 4,
+      "toCol": 4,
+      "variant": "emphasis"
+    },
+    {
+      "id": "q_vypl",
+      "label": "Správa a výplata",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "s_zaloha",
+    "p_realiz",
+    "p_zop",
+    "s_adm",
+    "s_vypocet",
+    "s_vyplata",
+    "p_udrz"
+  ],
+  "nodes": [
+    {
+      "id": "s_zaloha",
+      "lane": "sazp",
+      "col": 0,
+      "type": "backend",
+      "icon": "start",
+      "label": "Záloha 50 %",
+      "sublabel": "najviac 5 500 EUR, do 15 dní",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 769,
+          "end_line": 772,
+          "label": "zálohová platba"
+        },
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 198,
+          "end_line": 199,
+          "label": "záloha a zvyšok"
+        }
+      ]
+    },
+    {
+      "id": "p_realiz",
+      "lane": "prij",
+      "col": 1,
+      "type": "backend",
+      "label": "Obnoví rodinný dom",
+      "sublabel": "do 10 mesiacov, najneskôr 2027",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 374,
+          "end_line": 376,
+          "label": "lehota realizácie"
+        },
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 378,
+          "end_line": 383,
+          "label": "predĺženie"
+        }
+      ]
+    },
+    {
+      "id": "p_zop",
+      "lane": "prij",
+      "col": 2,
+      "type": "database",
+      "label": "ŽoP s prílohami",
+      "sublabel": "protokoly podľa záväzného vzoru",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 775,
+          "end_line": 776,
+          "label": "zvyšok na základe ŽoP"
+        },
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 1276,
+          "end_line": 1292,
+          "label": "prílohy ŽoP"
+        }
+      ]
+    },
+    {
+      "id": "s_adm",
+      "lane": "sazp",
+      "col": 3,
+      "yOffset": -42,
+      "type": "security",
+      "icon": "decision",
+      "label": "ŽoP úplná?",
+      "sublabel": "administratívna kontrola § 8",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 486,
+          "end_line": 492,
+          "label": "administratívna kontrola"
+        }
+      ]
+    },
+    {
+      "id": "s_miesto",
+      "lane": "sazp",
+      "col": 3,
+      "yOffset": 42,
+      "type": "backend",
+      "label": "Kontrola na mieste",
+      "sublabel": "z analýzy rizík, 10 dní vopred",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 503,
+          "end_line": 506,
+          "label": "kedy na mieste"
+        },
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 566,
+          "end_line": 566,
+          "label": "aspoň dve osoby"
+        },
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 577,
+          "end_line": 583,
+          "label": "oznámenie, neohlásená"
+        }
+      ]
+    },
+    {
+      "id": "p_dopln",
+      "lane": "prij",
+      "col": 3,
+      "type": "backend",
+      "label": "Doplní ŽoP",
+      "sublabel": "aspoň 10 kalendárnych dní",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 492,
+          "end_line": 501,
+          "label": "výzva na doplnenie"
+        }
+      ]
+    },
+    {
+      "id": "s_vypocet",
+      "lane": "sazp",
+      "col": 4,
+      "type": "database",
+      "label": "Kontrolný výpočet SOV",
+      "sublabel": "z maximálnych jednotkových cien",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 171,
+          "end_line": 174,
+          "label": "kontrolný výpočet"
+        },
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 1181,
+          "end_line": 1184,
+          "label": "maximálne jednotkové ceny"
+        }
+      ]
+    },
+    {
+      "id": "p_namietky",
+      "lane": "prij",
+      "col": 4,
+      "type": "backend",
+      "label": "Námietky k návrhu",
+      "sublabel": "aspoň 10 kalendárnych dní",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 448,
+          "end_line": 466,
+          "label": "návrh správy, námietky"
+        }
+      ]
+    },
+    {
+      "id": "s_vyplata",
+      "lane": "sazp",
+      "col": 5,
+      "type": "backend",
+      "icon": "success",
+      "label": "Správa a vyplatenie",
+      "sublabel": "výpočet je povinná príloha",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 533,
+          "end_line": 535,
+          "label": "správa a vyplatenie"
+        }
+      ]
+    },
+    {
+      "id": "p_udrz",
+      "lane": "prij",
+      "col": 5,
+      "type": "messagebus",
+      "label": "Udržateľnosť 3 roky",
+      "sublabel": "SAŽP môže kontrolovať znova",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 1519,
+          "end_line": 1523,
+          "label": "doba udržateľnosti"
+        },
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 480,
+          "end_line": 483,
+          "label": "opätovná kontrola"
+        }
+      ]
+    },
+    {
+      "id": "w_prilohy",
+      "lane": "sw",
+      "col": 2,
+      "type": "frontend",
+      "label": "Kontrola príloh ŽoP",
+      "sublabel": "návrh: vzory, čítanie modelom",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 1283,
+          "end_line": 1292,
+          "label": "záväzné vzory"
+        },
+        {
+          "path": "src/core/posud.ts",
+          "line": 4,
+          "end_line": 4,
+          "label": "čítanie textu modelom"
+        }
+      ]
+    },
+    {
+      "id": "w_lehoty",
+      "lane": "sw",
+      "col": 3,
+      "type": "frontend",
+      "label": "Lehoty v kalendárnych dňoch",
+      "sublabel": "návrh: dnes len pracovné dni",
+      "sources": [
+        {
+          "path": "src/podatelna/lehoty.ts",
+          "line": 72,
+          "end_line": 77,
+          "label": "koniec lehoty v pd"
+        },
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 499,
+          "end_line": 501,
+          "label": "10 kalendárnych dní"
+        },
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 577,
+          "end_line": 578,
+          "label": "oznámenie vopred"
+        }
+      ]
+    },
+    {
+      "id": "w_vypocet",
+      "lane": "sw",
+      "col": 4,
+      "type": "frontend",
+      "label": "Overenie výpočtu SOV",
+      "sublabel": "návrh: prepočet z príloh",
+      "sources": [
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 171,
+          "end_line": 174,
+          "label": "kontrolný výpočet"
+        },
+        {
+          "path": "data/zdroje/SAZP-ObnovDom-miniplus/txt/26-MFOD-V01_Prirucka_pre_prijimatela_V1.1.txt",
+          "line": 1181,
+          "end_line": 1184,
+          "label": "jednotkové ceny"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "a01",
+      "from": "s_zaloha",
+      "to": "p_realiz",
+      "label": "záloha",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "a02",
+      "from": "p_realiz",
+      "to": "p_zop",
+      "label": "po ukončení",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "a03",
+      "from": "p_zop",
+      "to": "s_adm",
+      "label": "on-line formulár",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "a04",
+      "from": "s_adm",
+      "to": "p_dopln",
+      "label": "neúplná: výzva",
+      "role": "branch"
+    },
+    {
+      "id": "a05",
+      "from": "p_dopln",
+      "to": "s_adm",
+      "label": "doplnená",
+      "role": "branch"
+    },
+    {
+      "id": "a06",
+      "from": "s_adm",
+      "to": "s_vypocet",
+      "label": "úplná",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "a07",
+      "from": "s_adm",
+      "to": "s_miesto",
+      "label": "treba overiť",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "id": "a08",
+      "from": "s_miesto",
+      "to": "s_vypocet",
+      "label": "zistenia",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "id": "a09",
+      "from": "s_vypocet",
+      "to": "p_namietky",
+      "label": "nedostatky",
+      "role": "branch"
+    },
+    {
+      "id": "a10",
+      "from": "p_namietky",
+      "to": "s_vyplata",
+      "label": "vyhodnotí",
+      "role": "branch"
+    },
+    {
+      "id": "a11",
+      "from": "s_vypocet",
+      "to": "s_vyplata",
+      "label": "bez nedostatkov",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "a12",
+      "from": "s_vyplata",
+      "to": "p_udrz",
+      "label": "finančné ukončenie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "a13",
+      "from": "w_prilohy",
+      "to": "p_zop",
+      "label": "prílohy",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "a14",
+      "from": "w_lehoty",
+      "to": "s_miesto",
+      "label": "lehoty v dňoch",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "a15",
+      "from": "w_vypocet",
+      "to": "s_vypocet",
+      "label": "prepočet",
+      "role": "async",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Ako čítať",
+      "items": [
+        "Prijímateľ je fyzická osoba, vlastník alebo spoluvlastník rodinného domu (príručka r. 194 až 199). Peniaze sú z Modernizačného fondu, nie z Plánu obnovy.",
+        "Výšku príspevku určí SAŽP kontrolným výpočtom SOV z maximálnych jednotkových cien (r. 171 až 174, 1181 až 1184).",
+        "Kontrolu na mieste robia aspoň dve osoby; môže byť aj neohlásená, ak by oznámenie kontrolu zmarilo (r. 566, 581 až 583)."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Lehoty (príručka v1.1 platná od 2. 11. 2026)",
+      "items": [
+        "záloha do 15 kalendárnych dní od účinnosti zmluvy o PP (r. 769 až 772)",
+        "realizácia do 10 mesiacov, najneskôr 31. 12. 2027; predĺženie je významná zmena zmluvy (r. 374 až 383)",
+        "doplnenie ŽoP aj námietky k návrhu správy: aspoň 10 kalendárnych dní (r. 499 až 501, 448 až 451)",
+        "kontrola na mieste ohlásená aspoň 10 kalendárnych dní vopred (r. 577 až 578); udržateľnosť 3 roky (r. 1519 až 1523)"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Softvér dnes a návrhy",
+      "items": [
+        "Dnes softvér túto výzvu nepozná. ŽoP prichádza cez on-line formulár SAŽP (r. 1281), nie cez ITMS21+, takže vstupom by bol nahratý súbor alebo export.",
+        "Návrh: lehoty v kalendárnych dňoch; lehoty.ts dnes počíta len pracovné dni.",
+        "Návrh: prepočet SOV a kontrola príloh podľa záväzných vzorov preberacích protokolov (r. 1283 až 1292)."
+      ]
+    }
+  ]
+}

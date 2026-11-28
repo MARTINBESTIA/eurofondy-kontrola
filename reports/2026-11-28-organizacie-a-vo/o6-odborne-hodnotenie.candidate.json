@@ -1,0 +1,619 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Odborné hodnotenie ŽoNFP: výber hodnotiteľov a hodnotiaci hárok",
+    "locale": "sk",
+    "translations": {
+      "page.title": "{title}: diagram",
+      "diagram.description.workflow": "Diagram procesu vytvorený nástrojom Archify.",
+      "node.focus": "Zamerať {label}",
+      "node.focus.detail": "Zamerať {label}, {detail}",
+      "node.context.workflow": "Krok procesu",
+      "legend.title": "Legenda",
+      "viewer.kind.frontend": "Softvér",
+      "viewer.kind.backend": "Činnosť",
+      "viewer.kind.database": "Dokument",
+      "viewer.kind.cloud": "Informačný systém",
+      "viewer.kind.security": "Rozhodnutie",
+      "viewer.kind.messagebus": "Lehota",
+      "viewer.kind.external": "Iný aktér",
+      "viewer.kind.node": "Uzol",
+      "viewer.kind.start": "Začiatok",
+      "viewer.kind.decision": "Rozhodnutie",
+      "viewer.kind.success": "Úspech",
+      "viewer.kind.failure": "Neúspech",
+      "viewer.kind.waiting": "Čakanie",
+      "viewer.toolbar.actions": "Akcie diagramu",
+      "viewer.theme.toggle.title": "Prepnúť tému (T)",
+      "viewer.theme.toggle": "Prepnúť farebnú tému",
+      "viewer.theme.dark": "Tmavá",
+      "viewer.theme.light": "Svetlá",
+      "viewer.preset.choose": "Vybrať vizuálny štýl",
+      "viewer.preset.style": "Štýl",
+      "viewer.preset.menu": "Vizuálny štýl",
+      "viewer.motion.live": "Pohyb",
+      "viewer.motion.still": "Stojí",
+      "viewer.motion.pause": "Zastaviť pohyb",
+      "viewer.motion.resume": "Obnoviť pohyb",
+      "viewer.export.button": "Export",
+      "viewer.export.button.title": "Exportovať diagram (E)",
+      "viewer.export.diagram": "Exportovať diagram",
+      "viewer.export.menu": "Export",
+      "viewer.export.copyDiagram": "Kopírovať diagram",
+      "viewer.export.clipboardPng": "PNG do schránky",
+      "viewer.export.image": "Obrázok",
+      "viewer.export.editable": "Upraviteľný vektor",
+      "viewer.guide.title": "Preskúmať diagram",
+      "viewer.guide.eyebrow": "Sprievodca diagramom",
+      "viewer.guide.close": "Zavrieť sprievodcu",
+      "viewer.guide.find": "Nájsť uzol",
+      "viewer.guide.map": "Zobraziť celý diagram",
+      "viewer.guide.lens": "Porovnať druhy uzlov",
+      "viewer.guide.open": "Otvoriť sprievodcu",
+      "viewer.guide.shortcut.export": "Export",
+      "viewer.guide.shortcut.theme": "Téma",
+      "viewer.guide.shortcut.style": "Štýl",
+      "viewer.guide.shortcut.reset": "Obnoviť",
+      "viewer.guide.shortcut.zoomIn": "Priblížiť",
+      "viewer.guide.shortcut.zoomOut": "Oddialiť",
+      "viewer.guide.shortcut.close": "Zavrieť",
+      "viewer.finder.title": "Nájsť uzol",
+      "viewer.finder.close": "Zavrieť hľadanie",
+      "viewer.finder.placeholder": "Hľadať v popisoch alebo ID",
+      "viewer.finder.empty": "Žiadny zhodný uzol",
+      "viewer.finder.status.empty": "Žiadny zhodný uzol",
+      "viewer.passport.eyebrow": "Detail uzla",
+      "viewer.passport.metadata": "Údaje uzla",
+      "viewer.passport.evidence": "Overené zdroje",
+      "viewer.passport.verified": "Overený zdroj",
+      "viewer.passport.upstream": "Predchádza",
+      "viewer.passport.downstream": "Nasleduje",
+      "viewer.passport.close": "Zavrieť detail",
+      "viewer.passport.relations": "Väzby",
+      "viewer.passport.relationship.none": "Bez väzieb",
+      "viewer.passport.relationship.group.out": "Odchádzajúce",
+      "viewer.passport.relationship.group.in": "Prichádzajúce",
+      "viewer.lens.eyebrow": "Šošovka",
+      "viewer.lens.title": "Porovnať úlohy",
+      "viewer.lens.close": "Zavrieť šošovku"
+    },
+    "output": "reports/2026-11-28-organizacie-a-vo/o6-odborne-hodnotenie.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "74176cea9e3151a623ed690a13dcb5dd60523ba2"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Činnosť"
+        },
+        "security": {
+          "label": "Ľudské rozhodnutie"
+        },
+        "database": {
+          "label": "Dokument, záznam"
+        },
+        "messagebus": {
+          "label": "Lehota, čakanie"
+        },
+        "cloud": {
+          "label": "Informačný systém"
+        },
+        "frontend": {
+          "label": "Softvér: hotové aj návrhy"
+        },
+        "external": {
+          "label": "Iný aktér, vstup"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "posk",
+      "label": "Poskytovateľ (RO alebo SO)"
+    },
+    {
+      "id": "ps",
+      "label": "Pracovná skupina PS OH"
+    },
+    {
+      "id": "oh",
+      "label": "Odborný hodnotiteľ (OH)"
+    },
+    {
+      "id": "sw",
+      "label": "eurofondy-kontrola"
+    }
+  ],
+  "phases": [
+    {
+      "id": "q_vyzva",
+      "label": "Výzva na OH",
+      "fromCol": 0,
+      "toCol": 0
+    },
+    {
+      "id": "q_evid",
+      "label": "Evidencia OH",
+      "fromCol": 1,
+      "toCol": 1
+    },
+    {
+      "id": "q_prid",
+      "label": "Pridelenie ŽoNFP",
+      "fromCol": 2,
+      "toCol": 2
+    },
+    {
+      "id": "q_kz",
+      "label": "Konflikt záujmov",
+      "fromCol": 3,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "q_hod",
+      "label": "Hodnotenie",
+      "fromCol": 4,
+      "toCol": 4,
+      "variant": "emphasis"
+    },
+    {
+      "id": "q_vys",
+      "label": "Výsledok",
+      "fromCol": 5,
+      "toCol": 5
+    }
+  ],
+  "mainPath": [
+    "k_vyzva",
+    "oh_ziada",
+    "ps_vyhodnoti",
+    "k_evidencia",
+    "k_prideli",
+    "oh_vyhlasenie",
+    "k_kz",
+    "oh_hodnoti",
+    "k_harok",
+    "k_vysledok"
+  ],
+  "nodes": [
+    {
+      "id": "k_vyzva",
+      "lane": "posk",
+      "col": 0,
+      "type": "backend",
+      "icon": "start",
+      "label": "Výzva na výber OH",
+      "sublabel": "kritériá; zverejní RO",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 448,
+          "end_line": 450,
+          "label": "odborné kritériá"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 502,
+          "end_line": 506,
+          "label": "návrh výzvy PS OH"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 404,
+          "end_line": 407,
+          "label": "zverejnenie"
+        }
+      ]
+    },
+    {
+      "id": "oh_ziada",
+      "lane": "oh",
+      "col": 0,
+      "type": "backend",
+      "label": "Žiada o zaradenie",
+      "sublabel": "e-mailom: životopis, doklady",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 508,
+          "end_line": 536,
+          "label": "povinná dokumentácia"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 567,
+          "end_line": 570,
+          "label": "sken e-mailom"
+        }
+      ]
+    },
+    {
+      "id": "ps_vyhodnoti",
+      "lane": "ps",
+      "col": 1,
+      "type": "security",
+      "icon": "decision",
+      "label": "Splní kritériá?",
+      "sublabel": "kontrolný zoznam, Príloha č. 5",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 461,
+          "end_line": 465,
+          "label": "vyhodnotenie, doplnenie"
+        }
+      ]
+    },
+    {
+      "id": "k_evidencia",
+      "lane": "posk",
+      "col": 1,
+      "type": "cloud",
+      "label": "Evidencia OH",
+      "sublabel": "v ITMS21+ podľa oblastí",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 445,
+          "end_line": 446,
+          "label": "vlastná evidencia"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 466,
+          "end_line": 466,
+          "label": "zaradenie"
+        }
+      ]
+    },
+    {
+      "id": "k_prideli",
+      "lane": "posk",
+      "col": 2,
+      "type": "cloud",
+      "label": "Pridelenie ŽoNFP",
+      "sublabel": "žrebom alebo automaticky v ITMS21+",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 379,
+          "end_line": 382,
+          "label": "žrebovanie, priraďovanie"
+        }
+      ]
+    },
+    {
+      "id": "oh_vyhlasenie",
+      "lane": "oh",
+      "col": 2,
+      "type": "database",
+      "label": "Čestné vyhlásenie",
+      "sublabel": "nestrannosť, Príloha č. 12",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 581,
+          "end_line": 582,
+          "label": "čestné vyhlásenie"
+        }
+      ]
+    },
+    {
+      "id": "k_kz",
+      "lane": "posk",
+      "col": 3,
+      "yOffset": 42,
+      "type": "security",
+      "icon": "decision",
+      "label": "Konflikt záujmov?",
+      "sublabel": "pred hodnotením, v registroch",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 583,
+          "end_line": 590,
+          "label": "preverenie a auditná stopa"
+        }
+      ]
+    },
+    {
+      "id": "k_odradi",
+      "lane": "posk",
+      "col": 3,
+      "yOffset": -42,
+      "type": "backend",
+      "icon": "failure",
+      "label": "Odradí OH",
+      "sublabel": "ŽoNFP dostane iný OH",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 591,
+          "end_line": 593,
+          "label": "odradenie"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 628,
+          "end_line": 634,
+          "label": "dôvody odradenia"
+        }
+      ]
+    },
+    {
+      "id": "oh_hodnoti",
+      "lane": "oh",
+      "col": 4,
+      "type": "backend",
+      "label": "Hodnotí ŽoNFP",
+      "sublabel": "hárok: body a komentár",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 753,
+          "end_line": 761,
+          "label": "hodnotiaci hárok"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/Príloha_1_Hodnotiaci_hárok.txt",
+          "line": 23,
+          "end_line": 59,
+          "label": "časti A a B"
+        }
+      ]
+    },
+    {
+      "id": "k_harok",
+      "lane": "posk",
+      "col": 4,
+      "type": "security",
+      "icon": "decision",
+      "label": "Hárok v poriadku?",
+      "sublabel": "úplný a zdôvodnený",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 745,
+          "end_line": 750,
+          "label": "kvalita práce OH"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 757,
+          "end_line": 761,
+          "label": "zdôvodnenie bodov"
+        }
+      ]
+    },
+    {
+      "id": "k_vysledok",
+      "lane": "posk",
+      "col": 5,
+      "type": "database",
+      "label": "Výsledok hodnotenia",
+      "sublabel": "vylučujúce nesplnené: neschváli",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 763,
+          "end_line": 767,
+          "label": "neschválenie"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 815,
+          "end_line": 835,
+          "label": "výberové kritériá, poradie"
+        }
+      ]
+    },
+    {
+      "id": "ps_vyradi",
+      "lane": "ps",
+      "col": 5,
+      "type": "backend",
+      "icon": "failure",
+      "label": "Vyradí OH",
+      "sublabel": "zablokovanie v ITMS21+",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 638,
+          "end_line": 655,
+          "label": "vyradenie z evidencie"
+        }
+      ]
+    },
+    {
+      "id": "s_kz",
+      "lane": "sw",
+      "col": 3,
+      "type": "frontend",
+      "label": "Prepojenia hodnotiteľa",
+      "sublabel": "návrh: RPO ako pri V06",
+      "sources": [
+        {
+          "path": "src/moduly/vo/modul.ts",
+          "line": 142,
+          "end_line": 176,
+          "label": "RPO, štatutári"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD3-odborni-hodnotitelia/txt/MD_c_3_MU_k_vyberu_odbornych_hodnotitelov_v_3_0.txt",
+          "line": 585,
+          "end_line": 590,
+          "label": "verejné registre"
+        }
+      ]
+    },
+    {
+      "id": "s_harok",
+      "lane": "sw",
+      "col": 4,
+      "type": "frontend",
+      "label": "Kontrola hárku",
+      "sublabel": "návrh: každé kritérium, súčet",
+      "sources": [
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/Príloha_1_Hodnotiaci_hárok.txt",
+          "line": 23,
+          "end_line": 59,
+          "label": "štruktúra hárku"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MU-konanie-ZoNFP/txt/MD_c_21_Konanie_o_ŽoNFP_v_1_0.txt",
+          "line": 753,
+          "end_line": 761,
+          "label": "náležitosti"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "h01",
+      "from": "k_vyzva",
+      "to": "oh_ziada",
+      "label": "výzva",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "h02",
+      "from": "oh_ziada",
+      "to": "ps_vyhodnoti",
+      "label": "dokumentácia",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "h03",
+      "from": "ps_vyhodnoti",
+      "to": "k_evidencia",
+      "label": "splní: zaradí",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "h04",
+      "from": "k_evidencia",
+      "to": "k_prideli",
+      "label": "ŽoNFP na hodnotenie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "h05",
+      "from": "k_prideli",
+      "to": "oh_vyhlasenie",
+      "label": "pridelená",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "h06",
+      "from": "oh_vyhlasenie",
+      "to": "k_kz",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "h07",
+      "from": "k_kz",
+      "to": "k_odradi",
+      "label": "áno",
+      "role": "error"
+    },
+    {
+      "id": "h08",
+      "from": "k_odradi",
+      "to": "k_prideli",
+      "label": "iný OH",
+      "role": "error"
+    },
+    {
+      "id": "h09",
+      "from": "k_kz",
+      "to": "oh_hodnoti",
+      "label": "nie",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "h10",
+      "from": "oh_hodnoti",
+      "to": "k_harok",
+      "label": "hodnotiaci hárok",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "h11",
+      "from": "k_harok",
+      "to": "k_vysledok",
+      "label": "áno",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "h12",
+      "from": "k_harok",
+      "to": "ps_vyradi",
+      "label": "opakovane nie",
+      "role": "error"
+    },
+    {
+      "id": "h13",
+      "from": "s_kz",
+      "to": "k_kz",
+      "label": "registre",
+      "role": "async",
+      "variant": "dashed"
+    },
+    {
+      "id": "h14",
+      "from": "s_harok",
+      "to": "oh_hodnoti",
+      "label": "úplnosť hárku",
+      "role": "async",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Ako čítať",
+      "items": [
+        "MD č. 3 upravuje výber odborných hodnotiteľov (OH) pre všetkých poskytovateľov Programu Slovensko; MD č. 21 výstup ich práce, hodnotiaci hárok.",
+        "Konflikt záujmov sa preveruje po pridelení ŽoNFP, najneskôr pred začatím hodnotenia, vo verejných registroch a v ARACHNE, s auditnou stopou (MD č. 3 r. 583 až 590).",
+        "Pri bodovaných kritériách musí komentár zdôvodniť počet bodov; jedno nesplnené vylučujúce kritérium znamená neschválenie (MD č. 21 r. 757 až 767)."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Čísla (MD č. 3 v3.0 od 9. 9. 2026, MD č. 21 v1.0 od 8. 5. 2026)",
+      "items": [
+        "odmena OH 100 až 600 EUR brutto za jednu ŽoNFP (MD č. 3 r. 615 až 617)",
+        "výzva na doplnenie v odbornom hodnotení len pri zmätočnosti, lehota aspoň 5 pd (MD č. 21 r. 768 až 797)",
+        "výberové kritériá sa použijú, len keď alokácia nestačí na všetky ŽoNFP (MD č. 21 r. 815 až 820)"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Softvér dnes a návrhy",
+      "items": [
+        "Dnes softvér navrhuje výroky k podmienkam ŽoNFP; výber OH ani hodnotiaci hárok nepodporuje.",
+        "Návrh: prepojenia hodnotiteľa a žiadateľa z RPO, rovnako ako V06 pri VO, so zdrojom a časom dopytu ako auditnou stopou.",
+        "Návrh: kontrola úplnosti hárku: každé kritérium má hodnotenie a komentár, body sú v rozsahu a súčet sedí (Príloha č. 1).",
+        "Osobné údaje OH (životopis, register trestov) softvér neukladá; chráni ich poskytovateľ (MD č. 3 r. 538 až 542)."
+      ]
+    }
+  ]
+}
