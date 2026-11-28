@@ -4,6 +4,9 @@ Evidencia otvorených úloh projektu. Vedie ju Claude, dopisovať môže aj astr
 má dátum zápisu, kto ju zadal, čo presne treba urobiť a kedy je hotová. Stav: `[ ]` otvorené,
 `[~]` rozpracované, `[x]` hotové (hotové položky zostávajú dole s dátumom a commitom).
 
+Prehľad všetkých využití softvéru v procese verejného obstarávania (hotové aj návrhy, so stavom a zdrojmi)
+je v `VYUZITIA-VO.md`.
+
 ## Otvorené
 
 ### [ ] T1. Dohľadať a overiť čo najviac údajov z verejných zdrojov (web search, API, scrapery)
@@ -80,6 +83,26 @@ má dátum zápisu, kto ju zadal, čo presne treba urobiť a kedy je hotová. St
   - Zoznam uchádzačov nech dostane vlastný vzor.
 - **Hotovo, keď:** nové poistky sú overené bez modelu na presných úryvkoch a test 09 aj
   `npm run test:demo-vo -- --model` nemajú falošné OK.
+
+### [ ] T4. Aktualizovať balík pravidiel VO na príručku MD č. 26
+
+- **Zistil:** Claude, 28. 11. 2026, pri zostavovaní `VYUZITIA-VO.md` (riadky U02, U58, U67).
+- **Limit V01:** pre podlimitnú zákazku s oslovením na tovary a služby používa V01 limit 143 000 EUR z CKO VO v2
+  (`src/moduly/vo/modul.ts:38`). MD 26 r. 246 uvádza 140 000 EUR. Pri stavebných prácach zostáva 360 000 EUR.
+  - Nové VO s PHZ od 140 000 do 142 999 EUR by dnes mohlo dostať „splnené“ neprávom.
+  - V dátach sú dnes 4 VO v tomto pásme, všetky vytvorené v rokoch 2024 a 2025, keď platil limit 143 000 EUR.
+  - Rozhodný deň zmeny treba overiť: 1. 1. 2026 (nové prahy EÚ) alebo účinnosť MD 26.
+- **Citácie:** VK1 až VK10 (`packs/PSK-SIEA-002-2023-DV-EFRR/vo.json:179-340`) a P07 (`zop.json:112-123`) citujú
+  CKO VO v2. P07 píše, že kontrola po uzavretí zmluvy „môže byť povinná“. Podľa MD 26 r. 346–389 ju pri zákazkách
+  od 50 000 EUR vykoná ÚVO, ak ju poskytovateľ vo svojej rizikovej analýze vyhodnotí ako rizikovú. Výnimkou je
+  riadok pre nadlimitné stavebné práce, kde tabuľka uvádza „Povinná“ (r. 381) [čítanie tabuľky overiť v PDF].
+- **Účinnosť MD 26:** text r. 101 uvádza 1. 7. 2026, eurofondy.gov.sk ju zverejnil 30. 7. 2026 s účinnosťou
+  31. 7. 2026. Treba overiť aj to, podľa ktorej príručky sa posudzuje VO začaté skôr.
+- **Hotovo, keď:**
+  - limit je verzovaný podľa dňa VO,
+  - citácie odkazujú na MD 26,
+  - test so zasadenou chybou (PHZ 141 000 EUR, VO z roku 2026) dá vo V01 „nesplnené“,
+  - `npm run test:moduly` prechádza.
 
 ## Hotové
 
