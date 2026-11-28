@@ -84,7 +84,7 @@
       "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
       "provider": "github",
       "link_mode": "local-only",
-      "revision": "74176cea9e3151a623ed690a13dcb5dd60523ba2"
+      "revision": "1058d4c12c8e38ede78fd48bb2edbbd33fa4c8d4"
     },
     "legend": {
       "entries": {
@@ -466,14 +466,14 @@
       "sources": [
         {
           "path": "packs/PSK-SIEA-002-2023-DV-EFRR/vo.json",
-          "line": 38,
-          "end_line": 125,
+          "line": 53,
+          "end_line": 191,
           "label": "pravidlá V01 až V07"
         },
         {
           "path": "src/moduly/vo/modul.ts",
-          "line": 221,
-          "end_line": 259,
+          "line": 284,
+          "end_line": 325,
           "label": "modul VO"
         },
         {
@@ -666,7 +666,7 @@
         "Hotové: V01 až V07 nad dátami VO z ITMS21+ (limit, ponuky, cena, plnenie, delenie, konflikt záujmov, záznam).",
         "Návrh U46: kontrolný zoznam dokumentácie pred predbežnou kontrolou (MD č. 26 r. 417 až 463).",
         "Návrh U50 a U51: podklad k analýze rizík a kalendár lehôt kontroly vrátane času, keď lehota neplynie.",
-        "V01 ešte používa limit 143 000 EUR, MD č. 26 uvádza 140 000 EUR (TODO T4)."
+        "V01 určuje limit podľa dňa začatia VO: od 31. 7. 2026 140 000 EUR (MD č. 26 r. 246); deň zadá kontrolór."
       ]
     }
   ]

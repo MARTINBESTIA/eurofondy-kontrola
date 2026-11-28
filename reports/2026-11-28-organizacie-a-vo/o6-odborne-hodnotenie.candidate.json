@@ -84,7 +84,7 @@
       "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
       "provider": "github",
       "link_mode": "local-only",
-      "revision": "74176cea9e3151a623ed690a13dcb5dd60523ba2"
+      "revision": "1058d4c12c8e38ede78fd48bb2edbbd33fa4c8d4"
     },
     "legend": {
       "entries": {
@@ -441,8 +441,8 @@
       "sources": [
         {
           "path": "src/moduly/vo/modul.ts",
-          "line": 142,
-          "end_line": 176,
+          "line": 204,
+          "end_line": 238,
           "label": "RPO, štatutári"
         },
         {
