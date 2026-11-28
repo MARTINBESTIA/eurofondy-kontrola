@@ -34,17 +34,21 @@ Všetky využitia vo verejnom obstarávaní (VO), hotové aj návrhy, sú v [`VY
     žiadateľom a konzultantom, nie úradom (`README.md`, tabuľka modulov). Používa balík `PSK` pre celý program
     (`src/moduly/vyzvy/modul.ts:151`).
 - **Demo bez nového kódu, s novým balíkom pravidiel a stiahnutými dátami výzvy (úroveň B).**
-  - Kontrola VO, ŽoP a zmien projektu u ostatných vyhlasovateľov Programu Slovensko. Sú to MIRRI, Úrad vlády SR,
-    MŽP, MPSVR, MŠVVaM, ministerstvo dopravy, MH, MZ a MV. Ich projekty sú vo verejnom API ITMS21+.
+  - Kontrola VO, ŽoP, zmien projektu a žiadostí o NFP v podateľni u ostatných vyhlasovateľov Programu Slovensko.
+    Sú to MIRRI, Úrad vlády SR, MŽP, MPSVR, MŠVVaM, ministerstvo dopravy, MH, MZ a MV. Ich projekty sú vo verejnom
+    API ITMS21+.
   - ÚVO ako kontrolór VO v Programe Slovensko, nad VO z ľubovoľných výziev programu.
     - Predtým treba opraviť limit V01 podľa MD 26 (`TODO.md`, T4). Bez opravy by ÚVO videl limit podľa
       príručky, ktorú MD 26 nahradila.
     - Oprava je malá zmena kódu (`src/moduly/vo/modul.ts:33-41`) a citácií v balíku.
-  - MV SR (fondy AMIF, BMVI, ISF) a slovenskí partneri v Interreg SK-AT a SK-CZ, ak sú ich VO v ITMS21+ [overiť].
+  - MV SR (fondy AMIF, BMVI, ISF), MPRV (Program Rybné hospodárstvo) a slovenskí partneri v Interreg SK-AT
+    a SK-CZ, ak sú ich projekty a VO v ITMS21+ [overiť].
 - **Demo s novým kódom (úroveň C).**
   - Lehoty ÚVO podľa MD 26: kalendárne dni a prerušenie lehoty.
   - Projektové zámery integrovaných územných investícií (MIRRI, VÚC, mestá).
   - Odborné hodnotenie a hodnotiaci hárok, potrebné pri každom SO.
+  - Doménové pravidlá žiadosti o NFP v novej výzve (pilot ich má 5, všetky pre energetickú efektívnosť)
+    a merateľné ukazovatele u iných vyhlasovateľov (sankcie dnes počíta kalkulačka SIEA).
   - Modernizačný fond (Environmentálny fond): kontroly emisií a technickej prílohy.
   - Pravidlo 80 dní pri platbe.
   - Odpovede z textu výzvy s citáciou, napríklad pre národné kontaktné body.
@@ -191,7 +195,7 @@ Demo má preto stavať na tom, čo softvér preukázateľne robí:
   s rovnakým druhom podmienky mení len parametre.
 - AI vrstva je jedna pre všetky výzvy:
   - Model dostane jednu podmienku a text. Vráti stav a doslovný úryvok.
-  - Úryvok, ktorý v texte nie je, sa zahodí a bod ide človeku (`README.md`, Architektúra, bod 3).
+  - Ak úryvok v texte nie je, verdikt sa zahodí a bod ide človeku (`README.md`, Architektúra, bod 3).
   - Otázky pre model a vzory náležitostí sú v balíku, nie v kóde.
 
 ### Čo treba pre každú novú organizáciu
@@ -232,8 +236,10 @@ dá preniesť do ďalšej organizácie výmenou balíka. Čísla procesov odkazu
   (`src/podatelna/podatelna.ts:506`).
 - **Neverejné prílohy.** Reálne prílohy nie sú verejné u žiadnej z týchto organizácií. Kvalitu čítania dokumentov
   treba merať na vymyslených alebo poskytnutých spisoch.
-- **Model overený len na vymyslených textoch.** Platí to pre lokálny model qwen3.5:9b (`README.md`, testy 2,
-  4 a 7).
+- **Model zmeraný len na pilote.** Lokálny model qwen3.5:9b čítal reálne popisy žiadostí z formulára ITMS21+
+  (test 2, pravidlo L07) a vymyslené dokumenty: faktúry, výpisy z účtu, záznamy zo zadania zákazky a odôvodnenia
+  zmien (test 4). Oba testy sú v `README.md`. Reálne prílohy nečítal, lebo nie sú verejné. Pri inej organizácii
+  a iných druhoch dokumentov treba presnosť zmerať znova.
 - **Predpisy každej organizácie.** Pravidlá treba čítať z jej aktuálnych predpisov. Pri organizáciách
   z diagramov sú aktuálne verzie už stiahnuté (časť Zdroje).
 
@@ -446,7 +452,7 @@ Webové stránky ÚVO:
 | RPO | register právnických osôb Štatistického úradu SR |
 | EFRR, ESF+ | Európsky fond regionálneho rozvoja, Európsky sociálny fond plus |
 | PSK | Program Slovensko; predpona kódu výzvy, napríklad `PSK-SIEA-002-2023-DV-EFRR` |
-| V01, G10, P03 | identifikátory pravidiel v balíkoch: V = VO, G = registre pri žiadosti o NFP, P = prílohy žiadosti o NFP alebo pravidlá ŽoP; to isté číslo môže byť v dvoch balíkoch |
+| V01, G10, P03 | identifikátory pravidiel; platia len v rámci jedného balíka. V01 je v balíku VO limit postupu, v balíku žiadosti o NFP kontrola, či je formulár predložený do tejto výzvy. P03 je v balíku žiadosti o NFP uznesenie obce, v balíku ŽoP dvojité nárokovanie. G označuje overenia v registroch pri žiadosti o NFP |
 | U46 | riadok tabuľky vo `VYUZITIA-VO.md` (U01 až U68), nie pravidlo U01 až U03 modulu ukazovateľov |
 | T1 až T4 | otvorené úlohy v `TODO.md` |
 | S, M, L | hrubý odhad rozsahu návrhu vo `VYUZITIA-VO.md` |
