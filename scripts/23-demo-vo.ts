@@ -109,8 +109,8 @@ fs.writeFileSync(path.join(CIEL, 'riesenie', 'ocakavane.json'), JSON.stringify({
 const riesenie = `# Riešenie: záznamy VO Obce Dolné Posudzovce
 
 Otvor až po vlastnom posúdení. Pravidlo V07 žiada v zázname zo zadania zákazky ${NALEZITOSTI.length} náležitostí
-(Príručka k procesu a kontrole VO/O v2); podpis je formálna náležitosť a kontroluje sa len pri zapnutom prepínači
-„Kontrolovať aj podpisy“.
+(zdroj: MD č. 26, Príručka k procesu a kontrole VO/O verzia 1.0; ostatné náležitosti záznamu V07 neoveruje);
+podpis je formálna náležitosť a kontroluje sa len pri zapnutom prepínači „Kontrolovať aj podpisy“.
 
 | Súbor | Čo v ňom chýba | Čo má softvér urobiť (model zapnutý) |
 |---|---|---|

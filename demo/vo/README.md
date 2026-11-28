@@ -22,7 +22,9 @@ Príbeh nadväzuje na cvičnú žiadosť `demo/nova-ziadost`: obec po schválen�
 v priečinku `zaznamy`. Niektoré sú úplné, v niektorých niečo chýba. Najprv každý posúď sám podľa zoznamu
 náležitostí nižšie, potom ho daj softvéru a až nakoniec otvor `riesenie/RIESENIE.md`.
 
-Náležitosti záznamu podľa Príručky k procesu a kontrole VO/O v2:
+Náležitosti záznamu, ktoré overuje V07. MD č. 26 (Príručka k procesu a kontrole VO/O verzia 1.0) uvádza
+15 minimálnych náležitostí. Body 9 a 10 sú v MD č. 26 jedna náležitosť, pri bode 5 MD č. 26 žiada aj dátum
+a čas predloženia ponuky a zvyšných šesť náležitostí V07 neoveruje:
 1. predmet zákazky;
 2. predpokladaná hodnota zákazky v eurách;
 3. kritérium na vyhodnotenie ponúk;
