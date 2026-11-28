@@ -8,6 +8,12 @@ Stav k 28. 11. 2026. Podklady:
 - primárne dokumenty v `data/zdroje/`;
 - kód tohto repozitára (commit `9588175` a novší).
 
+**Aktualizácia 28. 11. 2026.** Kontrolu VO v diagramoch D2 a A2 som prepísal podľa novej príručky
+MD č. 26 a novely zákona o VO č. 100/2026 (predbežná kontrola po vyhodnotení ponúk, nové lehoty ÚVO).
+Verdikt „Mimo“ som zrušil, lebo softvér má pokryť čo najviac funkcií; každá medzera je teraz návrh.
+Všetky využitia softvéru vo VO aj so stavom sú v `VYUZITIA-VO.md`. Procesy ďalších organizácií a
+možnosti dema sú v `reports/2026-11-28-organizacie-a-vo/README.md`.
+
 Dokument odpovedá na tri otázky:
 
 1. Ako vyzerá proces eurofondov pred zmluvou aj po nej, vrátane toho, kde rozhoduje človek a podľa čoho?
@@ -16,8 +22,8 @@ Dokument odpovedá na tri otázky:
 
 Skrátená odpoveď: diagramy sú hotové. D1 až D3 sú mapy procesu s rozhodovacími bodmi, A1 až A3 diagramy
 aktivít UML. Každý uzol, ktorý tvrdí fakt, má zdroj; dve výnimky opisuje časť 2. Z 24 procesov od podania
-po ukončenie projektu (astra č. 9 až 32) softvér 12 pokrýva čiastočne, 11 nepokrýva a jeden do produktu
-nepatrí. Žiadny proces nepokrýva celý. Najväčšie medzery sú mimo posudzovania dokumentov: lehota na
+po ukončenie projektu (astra č. 9 až 32) softvér 12 pokrýva čiastočne a 12 zatiaľ nepokrýva. Žiadny
+proces nepokrýva celý. Najväčšie medzery sú mimo posudzovania dokumentov: lehota na
 rozhodnutie, zmluva, zúčtovanie záloh, udržateľnosť a nezrovnalosti. Časť 6 ponúka desať rozšírení,
 časť 9 vysvetľuje skratky.
 
@@ -60,7 +66,8 @@ toho, čo nesmie chýbať. Skratky zdrojov v diagramoch a v tomto texte:
 | výzva | výzva PSK-SIEA-002-2023 v znení Zmeny č. 3 | `data/zdroje/PSK-SIEA-002-2023/txt/Vyzva_PSK_2P1_SIEA_zmena_3.txt` |
 | vzor zmluvy, VZP | vzor zmluvy o NFP 2.2 a jej príloha č. 1, všeobecné zmluvné podmienky | `data/zdroje/PSK-SIEA-002-2023/txt/Vzor_Zmluva_o_poskytnutí_NFP_*` |
 | DOP 3.2 | Príručka SIEA pre prijímateľa k implementácii dopytovo orientovaných projektov, verzia 3.2 | `data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt` |
-| CKO | Príručka Centrálneho koordinačného orgánu k procesu a kontrole VO, verzia 2 z 1. 8. 2024 | `data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt` |
+| CKO | Príručka Centrálneho koordinačného orgánu k procesu a kontrole VO, verzia 2 z 1. 8. 2024; pre Program Slovensko ju nahradila MD č. 26 | `data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt` |
+| MD č. 26 | Príručka k procesu a kontrole VO, metodický dokument riadiaceho orgánu pre Program Slovensko č. 26, v1.0, účinná od 31. 7. 2026 | `data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt` |
 | Príloha č. 4 | finančné opravy za porušenie pravidiel VO (podklad výzvy) | `data/zdroje/PSK-SIEA-002-2023/txt/Financne_opravy_VO.txt` |
 
 **Citácie.** Zápis `súbor:riadok` je cesta od koreňa repozitára a číslo riadka, napríklad
@@ -84,9 +91,11 @@ je dôkaz `súbor:riadok`. Stupnica:
 
 - **Áno**: robí to, čo astra navrhuje.
 - **Čiastočne**: robí časť; čo chýba, je vypísané.
-- **Nie**: to, čo astra navrhuje, nerobí. Ak má aspoň súvisiaci údaj alebo kontrolu, uvádza ich posledný
-  stĺpec (č. 13, 23, 28 a 32).
-- **Mimo**: do produktu nepatrí.
+- **Nie**: to, čo astra navrhuje, zatiaľ nerobí. Ak má aspoň súvisiaci údaj alebo kontrolu, uvádza ich
+  posledný stĺpec (č. 13, 23, 28 a 32).
+
+Kategóriu „do produktu nepatrí“ nepoužívam. Používateľ chce softvér s čo najväčším pokrytím, preto aj
+vzdialenejšia agenda je návrh.
 
 ## 3. Diagramy
 
@@ -116,7 +125,7 @@ Referenčná trasa je dopytová výzva PSK-SIEA-002-2023 so SIEA ako SO. Iné ty
   finančnú opravu, zmeny projektu, tri systémy platby, FK vrátane kontroly na mieste, zúčtovanie, MS,
   udržateľnosť, nezrovnalosť a vrátenie, kontrolné a auditné orgány.
 - **Lehoty pri kroku, kde plynú**, každá zo zdroja. Príklady: doplnenie ŽoNFP aspoň 5 pd (MD č. 21
-  r. 596 až 599), vyjadrenie k zisteniam ÚVO aspoň 7 pd (CKO r. 544), námietky k návrhu správy aspoň
+  r. 596 až 599), vyjadrenie k zisteniam ÚVO aspoň 7 pd (MD č. 26 r. 479), námietky k návrhu správy aspoň
   5 dní, pričom presnú lehotu určí návrh správy (DOP 3.2 r. 3991 až 3996), zúčtovanie predfinancovania
   do 10 dní (DOP 3.2 r. 1513 až 1514), vrátenie NFP do 90 pd od doručenia žiadosti o vrátenie (VZP
   r. 579 a 35).
@@ -159,9 +168,9 @@ Každý rozhodovací uzol v A1 až A3 je úsudok človeka. Kritérium a zdroj s�
 | A1 | kontrolór | Treba doplniť? | výzva na doplnenie pomenuje doklad a PPP; nenapraviteľný nedostatok do nej nejde | MD č. 21 r. 596 až 599; `src/podatelna/vyzva.ts:107` |
 | A1 | kontrolór | Ktorý návrh rozhodnutia? | len pre formálny nedostatok nemožno neschváliť ani zastaviť, ak výzva na doplnenie na zastavenie výslovne neupozornila; zastavenie, keď ani po doplnení nemožno PPP overiť | MD č. 21 r. 850 až 855, 693 až 697 |
 | A1 | SO, ktorý vydáva rozhodnutie | Výstup úplný? | výstup, ktorý bráni zákonnému rozhodnutiu, vráti na dopracovanie | MD č. 21 r. 335 až 342 |
-| A2 | SO | Riziková zákazka? | vlastná riziková analýza; ÚVO kontroluje rizikové podlimitné zákazky | DOP 3.2 r. 4031 až 4036; CKO r. 288 |
-| A2 | SO | Malo či mohlo mať vplyv? | vplyv porušenia na výsledok VO; protokol ÚVO premietne do 5 pd | Príloha č. 4 r. 2; CKO r. 562 |
-| A2 | SO | Aká náprava? | ex ante (len pred pripustením výdavkov), ex post, alebo výdavky nepripustiť | CKO r. 721, 725 až 727; VZP r. 162 až 167 |
+| A2 | SO | Riziková zákazka? | vlastná riziková analýza; zákazky od 50 000 EUR, ktoré vyhodnotí ako rizikové, kontroluje po uzavretí zmluvy aj ÚVO | DOP 3.2 r. 4031 až 4036; MD č. 26 r. 346 až 389, 464 až 467 |
+| A2 | SO | Malo či mohlo mať vplyv? | vplyv porušenia na výsledok VO; protokol ÚVO premietne do 5 pd | Príloha č. 4 r. 2; MD č. 26 r. 493 |
+| A2 | SO | Aká náprava? | ex ante (len pred pripustením výdavkov), ex post, alebo výdavky nepripustiť | MD č. 26 r. 592, 596; VZP r. 162 až 167 |
 | A3 | SO | Formálna či úplná FK? | písomná analýza rizík určí rozsah, prípadne aj FK na mieste | DOP 3.2 r. 4119 až 4123, 4141 až 4145 |
 | A3 | SO | Podklady úplné? | inak FK ŽoP pozastaví alebo dotknuté výdavky vyčlení | DOP 3.2 r. 4136 až 4138, 4146 až 4148; VZP r. 296 |
 | A3 | prijímateľ | Podá námietky? | aspoň 5 dní od doručenia návrhu správy; bez námietok platí návrh za akceptovaný | DOP 3.2 r. 3991 až 3996, 4004 až 4008 |
@@ -190,8 +199,8 @@ zlepšiť / zmerať“), a v odpovedi vybrala šesť inštitúcií s návrhom, �
 | 16 | Podpisy, prílohy, účinnosť | porovnať rozhodnutie, návrh zmluvy a prílohy | Nie | |
 | 17 | Zmena projektu a dodatok | porovnať pôvodný a nový rozpočet s odôvodnením | Čiastočne | Pravidlá Z01 až Z08: druh zmeny, formulár, vplyv na NFP, lehoty (`packs/PSK-SIEA-002-2023-DV-EFRR/zmeny.json:37-161`, `src/moduly/zmeny/modul.ts:51-75`). Rozpočet po položkách neporovná. |
 | 18 | Súťažné podklady | rozpory v opise predmetu, výkaze výmer, kritériách a zmluve | Nie | |
-| 19 | Kontrola VO | pripraviť spis u prijímateľa pred odoslaním | Čiastočne | Pravidlá V01 až V07 nad hotovým VO: limit postupu, počet ponúk, cena voči predpokladanej hodnote, faktúry nad zmluvu, delenie zákazky, štatutári, záznam zo zadania (`packs/PSK-SIEA-002-2023-DV-EFRR/vo.json:38-125`). Úplnosť spisu pred odoslaním na ÚVO nekontroluje. |
-| 20 | Námietky pri obstarávaní | zoradiť dôkazy pred podaním | Mimo | Ide o opravné prostriedky podľa zákona o VO, nie o kontrolu dokumentov k eurofondom. |
+| 19 | Kontrola VO | pripraviť spis u prijímateľa pred odoslaním | Čiastočne | Pravidlá V01 až V07 nad hotovým VO: limit postupu, počet ponúk, cena voči predpokladanej hodnote, faktúry nad zmluvu, delenie zákazky, štatutári, záznam zo zadania (`packs/PSK-SIEA-002-2023-DV-EFRR/vo.json:38-125`). Úplnosť spisu pred odoslaním na ÚVO nekontroluje (návrh U46 vo `VYUZITIA-VO.md`). |
+| 20 | Námietky pri obstarávaní | zoradiť dôkazy pred podaním | Nie | Dnes nič. Návrh: zoradiť dokumenty VO a revíznych postupov chronologicky s citáciami (rovnaký základ ako pri č. 14) a kým v spise nie je rozhodnutie, držať VO „na preverenie“ (U36 vo `VYUZITIA-VO.md`). Pôvodne „Mimo“; zmenené 28. 11. 2026. |
 | 21 | Míľniky stavby | porovnať hlásenie s harmonogramom | Nie | |
 | 22 | Akceptácia MS a ukazovateľov | spojiť tvrdenie o výstupe s protokolom, obdobím a definíciou | Čiastočne | Pravidlá U01 až U03: plnenie MU, krátenie NFP, včasnosť MS (`packs/PSK-SIEA-002-2023-DV-EFRR/ukazovatele.json:21-37`, `src/moduly/ukazovatele/modul.ts:60-141`). Text správy nečíta. |
 | 23 | Overenie na mieste, dôkaz o dodaní | väzby faktúra, položka, odovzdávací protokol | Nie | Výnimka: pri záverečnej ŽoP so stavbou vyžaduje preberací protokol a kolaudačné rozhodnutie (`src/moduly/zop/modul.ts:278-280`). |
@@ -205,11 +214,12 @@ zlepšiť / zmerať“), a v odpovedi vybrala šesť inštitúcií s návrhom, �
 | 31 | Audit a uzavretie zistenia | export rozhodnutí a dôkazov s verziami | Čiastočne | Posudok si pamätá znenie výzvy a verziu balíka pravidiel (`src/core/typy.ts:154-158`). Ak sa pravidlo odvtedy zmenilo, staré doklady nevydá za platné (`src/podatelna/doklady.ts:55-58`, `:72`). Export pre audítora nemá. |
 | 32 | Nezrovnalosť a vymáhanie | doložená chronológia a sumy | Nie | Signál dáva len pravidlo P03 (ten istý doklad nárokovaný viackrát). |
 
-Spolu: 12 Čiastočne, 11 Nie, 1 Mimo, 0 Áno.
+Spolu: 12 Čiastočne, 12 Nie, 0 Áno.
 
-Body 1 až 8 (príprava výzvy a zámeru) a 33 až 54 (iné programy a osobitné režimy) nehodnotím: repozitár
-pre ne nemá balík pravidiel. Čiastočne sa ich dotýka modul Plánovanie výziev: otvorenosť výzvy,
-najbližšia uzávierka, posledná verzia výzvy (`README.md:17`).
+Body 1 až 8 (príprava výzvy a zámeru) a 33 až 54 (iné programy a osobitné režimy) tu nehodnotím:
+repozitár pre ne nemá balík pravidiel. Čiastočne sa ich dotýka modul Plánovanie výziev: otvorenosť výzvy,
+najbližšia uzávierka, posledná verzia výzvy (`README.md:17`). Všetkých 54 procesov z pohľadu dema a
+prenosu na iné organizácie rozoberá `reports/2026-11-28-organizacie-a-vo/README.md`.
 
 ### Šesť inštitúcií z odpovede astry
 
@@ -217,8 +227,8 @@ najbližšia uzávierka, posledná verzia výzvy (`README.md:17`).
 |---|---|---|---|
 | MH SR, hodnotenie priemyselného výskumu | dátumy pridelenia hodnotiteľa a doplnení; kontrola rozpočtu, partnerstiev a podmienok účasti | Nie | Iné PPP a prílohy ako pilotná výzva. Treba nový balík pravidiel z textu výzvy MH; jadro softvéru (citácie, poistky, Podateľňa) sa dá použiť. |
 | Ministerstvo školstva, rozhodnutia a monitoring výskumu | či má každý záver hodnotiteľa doklad, odôvodnenie a verziu kritéria; NKÚ našiel rozhodnutia po lehote | Nie | Dá sa postaviť: párovanie výroku s citáciou a verziou výzvy softvér robí pri PPP. Chýba záznam hodnotiteľa a sledovanie lehoty na rozhodnutie (ponuky č. 2 a 8 v časti 6). |
-| SIEA, opravy žiadostí domácností | spisy pod novými pravidlami; koľko doplnení sa dá odvrátiť pred odoslaním | Nie | Iná agenda (domácnosti, zhotovitelia), samostatný balík. Astra ju sama oddeľuje od dema pre verejné budovy. |
-| ŽSR a ministerstvo dopravy, pripravenosť stavieb | tvrdenie „projekt je pripravený“ voči povoleniam, pozemkom a harmonogramu | Nie | Iný produktový smer, ako uvádza aj astra. |
+| SIEA, opravy žiadostí domácností | spisy pod novými pravidlami; koľko doplnení sa dá odvrátiť pred odoslaním | Nie | Návrh: samostatný balík pravidiel pre žiadosti domácností a zhotoviteľov nad tým istým jadrom (Podateľňa, výzva na doplnenie, citácie). Astra ho oddeľuje od dema pre verejné budovy, preto je to ďalšia etapa. |
+| ŽSR a ministerstvo dopravy, pripravenosť stavieb | tvrdenie „projekt je pripravený“ voči povoleniam, pozemkom a harmonogramu | Nie | Návrh: kontrolný zoznam pripravenosti (povolenia, pozemky, harmonogram) s citáciou dokladu pri každej položke. Projekty Plánu obnovy nie sú v ITMS21+, treba nový zdroj dát (`reports/2026-11-28-organizacie-a-vo/README.md`). |
 | MAS a PPA, LEADER | ktoré doklady sa dnes preverujú opakovane | Nie | Pre PPA nie je balík. Najprv treba prípady zo súčasnej intervencie. |
 | ÚVO, kontrola VO | kontrola spisu obce pred odoslaním na ÚVO | Čiastočne | V01 až V07 overia obsah VO, úplnosť spisu pred odoslaním chýba (ponuka č. 1 v časti 6). |
 
@@ -262,17 +272,21 @@ diagrame. Rozsah:
 - **veľký**: treba vstupy, ktoré repozitár nemá, alebo čítanie voľného textu jazykovým modelom.
 
 1. **Spis VO pred odoslaním.** Kontrola úplnosti dokumentácie, ktorú prijímateľ predkladá SO a ÚVO
-   (DOP 3.2 r. 4041 až 4043). Patrí sem napríklad čestné prehlásenie ku konfliktu záujmov pri
-   predbežnej kontrole, ak ju prijímateľ žiada (je fakultatívna, CKO r. 497 a 505), a spresnené poistky
-   pravidla V07 (`TODO.md`, T3).
+   (DOP 3.2 r. 4041 až 4043; zoznam dokumentov v MD č. 26 r. 417 až 463). Patrí sem napríklad čestné
+   vyhlásenie ku konfliktu záujmov pri predbežnej kontrole, ak ju prijímateľ žiada. Predbežná kontrola je
+   dobrovoľná a od 21. 5. 2026 prebieha po vyhodnotení ponúk, pred uzavretím zmluvy (MD č. 26 r. 403
+   až 404). Patria sem aj spresnené poistky pravidla V07 (`TODO.md`, T3). V `VYUZITIA-VO.md` je to U46.
    *Väzba:* astra č. 19 a riadok ÚVO; D2, A2.
    *Prínos:* obec opraví spis skôr, než ho ÚVO vráti; astra navrhuje merať počet vratiek a najpomalšiu
    desatinu kontrol.
-   *Rozsah:* stredný; povinný obsah je v DOP 3.2 a CKO, cvičné spisy v `demo/vo/`.
+   *Rozsah:* stredný; povinný obsah je v DOP 3.2 a MD č. 26, cvičné spisy v `demo/vo/`.
    *Riziko:* zoznam povinných dokumentov sa líši podľa postupu VO; ak by to softvér nerozlíšil, mohol
-   by úplný spis vyhlásiť za neúplný alebo naopak. Podľa astry ÚVO už používa vlastný nástroj (SOLA) a
-   vyčíslil pokles priemerného času kontroly; ponuka preto mieri na prijímateľa pred odoslaním, nie na
-   prácu ÚVO.
+   by úplný spis vyhlásiť za neúplný alebo naopak. ÚVO od mája 2026 testuje „nový AI server“ (aktualita
+   ÚVO zo 6. 5. 2026, https://www.uvo.gov.sk/aktualne-temy/aktualita/umela-inteligencia-pri-kontrole-verejneho-obstaravania-na-uvo-uz-realitou).
+   Názov SOLA, ktorý uvádza astra, som v zdrojoch ÚVO nenašiel. Podľa aktuality z 11. 8. 2026 trvala
+   kontrola ÚVO v roku 2026 (do júla) priemerne 43,6 dňa pri zákonnej lehote 45 dní
+   (https://www.uvo.gov.sk/aktualne-temy/aktualita/kontroly-uvo-v-programe-slovensko-naberaju-tempo).
+   Ponuka preto mieri na prijímateľa pred odoslaním, nie na prácu ÚVO.
 2. **Lehota na rozhodnutie o ŽoNFP.** Sledovať 70 pd od uzavretia kola (výzva r. 593 až 595), jej
    prerušenie výzvou na doplnenie a opätovné plynutie (MD č. 21 r. 381 až 384). Text návrhu výzvy
    prerušenie už uvádza (`src/podatelna/vyzva.ts:179`).
@@ -327,11 +341,13 @@ diagrame. Rozsah:
 
 - **Pravidlo 80 dní** (astra č. 28) lokálne podklady nedokladajú.
 - **Vstup národného projektu a územnej investície** v D1 je prevzatý z mapy astry, lokálne neoverený.
-- **Dobrovoľná predbežná kontrola ÚVO po vyhodnotení ponúk od 21. 5. 2026** je tvrdenie astry.
-  Lokálna príručka CKO uvádza predbežnú kontrolu ako fakultatívnu (r. 497); dátum a rozsah zmeny som
-  neoveril.
-- **Ďalšie tvrdenia astry** (nástroj SOLA v ÚVO, nálezy NKÚ, časy z ITMS21+) preberám ako jej tvrdenia;
-  lokálne som ich neoveroval.
+- **Dobrovoľná predbežná kontrola ÚVO po vyhodnotení ponúk od 21. 5. 2026** (tvrdenie astry) je
+  overená 28. 11. 2026. Zaviedol ju § 184r ZVO zo zákona č. 100/2026 Z. z. s účinnosťou od 21. 5. 2026
+  (https://static.slov-lex.sk/static/SK/ZZ/2026/100/20260521.html). Potvrdzuje ju stránka ÚVO
+  (https://www.uvo.gov.sk/dohlad/sprostredkovatelsky-organ-pre-program-slovensko/kontrola/predbezna-kontrola)
+  aj MD č. 26 r. 403 až 404.
+- **Ďalšie tvrdenia astry** preberám ako jej tvrdenia: nástroj SOLA (ÚVO v aktualite zo 6. 5. 2026 píše
+  len o „novom AI serveri“ bez názvu), nálezy NKÚ a časy z ITMS21+.
 - **Druh dní** pri lehotách napísaných „dní“ malým písmenom (zúčtovanie predfinancovania, námietky)
   zdroje na citovaných miestach nespresňujú.
 - **Nedokončené overenia verdiktov.** Pri č. 9 som kontrolu nesúladu identifikátora medzi prílohami

@@ -84,7 +84,7 @@
       "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
       "provider": "github",
       "link_mode": "local-only",
-      "revision": "c0e7a16db98c8efde6b991a18ef50c931a35cc89"
+      "revision": "2ebbb1121ca421f766770056b9901767e9b33f23"
     },
     "legend": {
       "entries": {
@@ -235,10 +235,10 @@
           "label": "vecná kontrola rizikových"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 288,
-          "end_line": 288,
-          "label": "ÚVO pri rizikových podlimitných"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 464,
+          "end_line": 467,
+          "label": "ÚVO pri rizikových"
         }
       ]
     },
@@ -270,13 +270,19 @@
       "col": 2,
       "type": "backend",
       "label": "Kontrola po zmluve",
-      "sublabel": "neúplná: preruší, vyzve doplniť",
+      "sublabel": "začne do 7 pd; neúplná: preruší",
       "sources": [
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 540,
-          "end_line": 540,
-          "label": "prerušenie, kompletná dokumentácia"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 473,
+          "end_line": 473,
+          "label": "začatie 7 pd, dokumenty 4 pd"
+        },
+        {
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 476,
+          "end_line": 476,
+          "label": "prerušenie aspoň 5 pd"
         },
         {
           "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
@@ -293,12 +299,12 @@
       "type": "messagebus",
       "icon": "clock",
       "label": "Vyjadrí sa k zisteniam",
-      "sublabel": "aspoň 7 pd, potom sa neprihliada",
+      "sublabel": "aspoň 7 pd; neskôr nemusí prihliadať",
       "sources": [
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 544,
-          "end_line": 544,
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 479,
+          "end_line": 479,
           "label": "vyjadrenie aspoň 7 pd"
         }
       ]
@@ -309,19 +315,19 @@
       "col": 3,
       "type": "database",
       "label": "Protokol alebo záznam",
-      "sublabel": "návrh sadzby finančnej opravy",
+      "sublabel": "do 45 dní, po predbežnej do 20",
       "sources": [
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 555,
-          "end_line": 555,
-          "label": "koniec kontroly"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 480,
+          "end_line": 480,
+          "label": "protokol pri porušení s vplyvom"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 719,
-          "end_line": 719,
-          "label": "návrh percentuálnej sadzby"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 481,
+          "end_line": 481,
+          "label": "lehota 45 alebo 20 dní"
         }
       ]
     },
@@ -363,9 +369,9 @@
           "label": "malo alebo mohlo mať vplyv"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 562,
-          "end_line": 562,
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 493,
+          "end_line": 493,
           "label": "premietne protokol do 5 pd"
         }
       ]
@@ -381,15 +387,15 @@
       "sublabel": "ex ante, ex post, či nepripustiť",
       "sources": [
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 721,
-          "end_line": 721,
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 592,
+          "end_line": 592,
           "label": "ex ante len pred pripustením"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 725,
-          "end_line": 727,
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 596,
+          "end_line": 596,
           "label": "voľba poskytovateľa"
         },
         {
@@ -434,10 +440,10 @@
           "label": "námietky"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 732,
-          "end_line": 732,
-          "label": "súhlas so sadzbou"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 603,
+          "end_line": 603,
+          "label": "súhlas so sadzbou do 5 pd"
         }
       ]
     },
@@ -587,7 +593,7 @@
       "items": [
         "SO: je zákazka riziková? Neriziková dostane oznámenie o nevykonaní FK (DOP 3.2 r. 4102 až 4104).",
         "SO: malo alebo mohlo mať porušenie vplyv na výsledok VO? Len vtedy platí sadzba (Príloha č. 4, r. 2).",
-        "SO: ex ante len kým výdavky nie sú pripustené; v určených prípadoch volí medzi opravou a nepripustením (CKO r. 721 až 727).",
+        "SO: ex ante len kým výdavky nie sú pripustené; v určených prípadoch volí medzi opravou a nepripustením (MD 26 r. 592 a 596).",
         "Prijímateľ: k zisteniam ÚVO sa vyjadrí aspoň v 7 pd, k návrhu správy podá námietky v lehote aspoň 5 dní."
       ]
     },
@@ -597,8 +603,8 @@
       "items": [
         "V01 až V07 sú signály rizika; rizikovú analýzu SO nerobia ani nenahrádzajú.",
         "P06 až P08 v ŽoP overia priradenie VO, kontrolu VO pred zahrnutím do ŽoP a limit zmluvy.",
-        "Vplyv na výsledok VO, sadzbu opravy ani lehoty kontroly softvér neposudzuje.",
-        "Kontrolu spisu VO pred odoslaním (ako predbežnú kontrolu ÚVO) softvér zatiaľ nemá."
+        "Vplyv na výsledok VO, sadzbu opravy ani lehoty kontroly softvér zatiaľ neposudzuje (návrhy U51 a U54 vo VYUZITIA-VO.md).",
+        "Úplnosť dokumentácie VO (U46) a rozhodnutie o predbežnej kontrole (U49) sú zatiaľ návrhy."
       ]
     }
   ]

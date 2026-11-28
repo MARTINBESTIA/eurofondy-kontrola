@@ -84,7 +84,7 @@
       "url": "https://github.com/MARTINBESTIA/eurofondy-kontrola.git",
       "provider": "github",
       "link_mode": "local-only",
-      "revision": "c0e7a16db98c8efde6b991a18ef50c931a35cc89"
+      "revision": "2ebbb1121ca421f766770056b9901767e9b33f23"
     },
     "legend": {
       "entries": {
@@ -206,9 +206,9 @@
       "sublabel": "podľa predpokladanej hodnoty",
       "sources": [
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 240,
-          "end_line": 258,
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 203,
+          "end_line": 279,
           "label": "postupy podľa limitov"
         },
         {
@@ -240,9 +240,9 @@
           "label": "nezverejnená = neuzavretá"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 225,
-          "end_line": 225,
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 193,
+          "end_line": 193,
           "label": "odkladacia podmienka"
         }
       ]
@@ -314,9 +314,9 @@
           "label": "oznámenie o nevykonaní FK"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 288,
-          "end_line": 288,
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 464,
+          "end_line": 467,
           "label": "ÚVO pri rizikových"
         }
       ]
@@ -337,10 +337,10 @@
           "label": "malo alebo mohlo mať vplyv"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 562,
-          "end_line": 562,
-          "label": "premietne protokol"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 493,
+          "end_line": 493,
+          "label": "premietne protokol do 5 pd"
         },
         {
           "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
@@ -372,10 +372,10 @@
           "label": "Príloha č. 4"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 717,
-          "end_line": 718,
-          "label": "ex ante oprava"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 592,
+          "end_line": 592,
+          "label": "ex ante pred pripustením"
         }
       ]
     },
@@ -403,19 +403,19 @@
       "col": 1,
       "type": "backend",
       "label": "Predbežná kontrola",
-      "sublabel": "dobrovoľná; doplnenie ≥ 5 pd",
+      "sublabel": "po vyhodnotení ponúk; do 40 dní",
       "sources": [
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 497,
-          "end_line": 497,
-          "label": "fakultatívna"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 403,
+          "end_line": 404,
+          "label": "dobrovoľná, po vyhodnotení"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 505,
-          "end_line": 507,
-          "label": "začatie, prerušenie"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 416,
+          "end_line": 416,
+          "label": "oznámenie do 40 dní"
         },
         {
           "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
@@ -431,25 +431,25 @@
       "col": 4,
       "type": "backend",
       "label": "Kontrola po zmluve",
-      "sublabel": "originály 4 pd, vyjadrenie 7 pd",
+      "sublabel": "dokumenty 4 pd, protokol 45 dní",
       "sources": [
         {
-          "path": "data/zdroje/SIEA-prirucka-DOP-3.2/txt/prirucka-DOP-3.2.txt",
-          "line": 4053,
-          "end_line": 4056,
-          "label": "originály do 4 pd"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 473,
+          "end_line": 473,
+          "label": "začatie 7 pd, dokumenty 4 pd"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 544,
-          "end_line": 544,
-          "label": "vyjadrenie 7 pd"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 479,
+          "end_line": 479,
+          "label": "vyjadrenie aspoň 7 pd"
         },
         {
-          "path": "data/zdroje/CKO-prirucka-VO/txt/prirucka_vo.txt",
-          "line": 555,
-          "end_line": 555,
-          "label": "koniec: protokol"
+          "path": "data/zdroje/MIRRI-MD26-prirucka-VO/txt/MU_RO_PSK_26_Prirucka_k_procesu_a_kontrole_VO_v_1_0.txt",
+          "line": 481,
+          "end_line": 481,
+          "label": "protokol 45 alebo 20 dní"
         }
       ]
     },
@@ -524,7 +524,7 @@
       "id": "v03",
       "from": "prij_postup",
       "to": "uvo_predbezna",
-      "label": "ak chce predbežnú",
+      "label": "po vyhodnotení, ak chce",
       "role": "branch",
       "variant": "dashed"
     },
@@ -629,8 +629,9 @@
       "items": [
         "VO začať do 3 mesiacov od účinnosti zmluvy o NFP",
         "zmluvu s dodávateľom zverejniť do 3 mesiacov, inak sa považuje za neuzavretú",
-        "originály ÚVO do 4 pd; vyjadrenie k zisteniam aspoň 7 pd; SO prevezme protokol do 5 pd",
-        "opakovanie VO najviac 2-krát, nové VO do 45 dní od správy"
+        "predbežná kontrola: oznámenie ÚVO do 40 dní (MD 26 r. 416)",
+        "kontrola po zmluve: začatie do 7 pd od podnetu, dokumentácia do 4 pd, vyjadrenie aspoň 7 pd, protokol do 45 dní, po predbežnej do 20 (MD 26 r. 473 až 481)",
+        "SO premietne protokol do 5 pd; opakovanie VO najviac 2-krát, nové VO do 45 dní od správy"
       ]
     },
     {
@@ -640,7 +641,7 @@
         "Ex ante oprava sa premietne dodatkom k zmluve o NFP (VZP čl. 3); zmeny zmluvy sú v D3.",
         "Ex post oprava znamená vrátenie NFP podľa čl. 18 VZP; pozri D3, nezrovnalosť a vrátenie.",
         "Dodatky k zmluve s dodávateľom podliehajú kontrole tiež (DOP 3.2 r. 4066 až 4067).",
-        "Softvér rizikovú analýzu SO nerobí; jeho zistenia V01 až V05 sú signály, ktoré ju môžu podložiť."
+        "Softvér rizikovú analýzu SO nerobí; jeho zistenia V01 až V05 sú signály, ktoré ju môžu podložiť (návrh U50 vo VYUZITIA-VO.md)."
       ]
     }
   ]
